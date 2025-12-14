@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>语习集 - 复习提醒</title>
+    <script src="https://unpkg.byted-static.com/coze/space_ppt_lib/1.0.3-alpha.12/lib/tailwindcss.js"></script>
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.byted-static.com/fortawesome/fontawesome-free/6.7.2/js/all.min.js" data-auto-replace-svg="nest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#7c3aed',
+                        tertiary: '#059669',
+                        success: '#10b981',
+                        danger: '#ef4444',
+                        info: '#3b82f6',
+                        'text-primary': '#1f2937',
+                        'text-secondary': '#6b7280',
+                        'bg-card': '#ffffff',
+                        'bg-secondary': '#f8fafc',
+                        'border-light': '#e5e7eb'
+                    },
+                    fontFamily: {
+                        'sans': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'card': '0 2px 8px rgba(0, 0, 0, 0.06)',
+                        'card-hover': '0 4px 16px rgba(0, 0, 0, 0.1)'
+                    },
+                    borderRadius: {
+                        'card': '16px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .safe-top {
+            padding-top: env(safe-area-inset-top);
+        }
+        .safe-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 28px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #cbd5e1;
+            transition: .4s;
+            border-radius: 28px;
+        }
+        
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .toggle-slider {
+            background-color: #2563eb;
+        }
+        
+        input:checked + .toggle-slider:before {
+            transform: translateX(22px);
+        }
+        
+        .mastery-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .mastery-poor {
+            background-color: #fef2f2;
+            color: #dc2626;
+        }
+        
+        .mastery-good {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+        
+        .mastery-excellent {
+            background-color: #dcfce7;
+            color: #16a34a;
+        }
+    </style>
+</head>
+<body class="bg-bg-secondary font-sans">
+    <!-- 状态栏 -->
+    <div id="status-bar" class="bg-white safe-top">
+        <div class="flex justify-between items-center px-6 py-2 text-sm font-medium text-gray-900">
+            <span>9:41</span>
+            <div class="flex items-center space-x-1">
+                <i class="fas fa-signal text-xs"></i>
+                <i class="fas fa-wifi text-xs"></i>
+                <i class="fas fa-battery-three-quarters text-xs"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div id="main-content" class="min-h-screen">
+        <!-- 顶部导航栏 -->
+        <header id="top-header" class="bg-white px-6 py-4 shadow-sm">
+            <div id="header-content" class="flex items-center">
+                <!-- 返回按钮 -->
+                <button id="back-btn" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center mr-4">
+                    <i class="fas fa-arrow-left text-gray-600 text-sm"></i>
+                </button>
+                
+                <!-- 页面标题 -->
+                <h1 id="page-title" class="text-lg font-semibold text-text-primary">复习提醒</h1>
+            </div>
+        </header>
+
+        <!-- 复习统计概览 -->
+        <section id="review-overview" class="mx-6 mt-6">
+            <div id="overview-card" class="bg-white rounded-card shadow-card p-6">
+                <div id="overview-header" class="flex items-center justify-between mb-4">
+                    <h2 id="overview-title" class="text-lg font-semibold text-text-primary">今日复习</h2>
+                    <div id="reminder-toggle-container" class="flex items-center space-x-3">
+                        <span class="text-sm text-text-secondary">提醒</span>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="reminder-toggle" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div id="overview-stats" class="grid grid-cols-3 gap-4">
+                    <div id="stat-total" class="text-center">
+                        <div class="text-2xl font-bold text-text-primary">8</div>
+                        <div class="text-xs text-text-secondary mt-1">待复习</div>
+                    </div>
+                    <div id="stat-completed" class="text-center">
+                        <div class="text-2xl font-bold text-success">3</div>
+                        <div class="text-xs text-text-secondary mt-1">已完成</div>
+                    </div>
+                    <div id="stat-mastered" class="text-center">
+                        <div class="text-2xl font-bold text-tertiary">156</div>
+                        <div class="text-xs text-text-secondary mt-1">已掌握</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 待复习短语列表 -->
+        <section id="review-list-section" class="mx-6 mt-6">
+            <div id="list-header" class="flex items-center justify-between mb-4">
+                <h2 id="list-title" class="text-lg font-semibold text-text-primary">待复习短语</h2>
+                <button id="review-all-btn" class="text-primary text-sm font-medium">全部复习</button>
+            </div>
+            
+            <div id="review-phrases-list" class="space-y-3">
+                <!-- 短语卡片1 -->
+                <div id="phrase-card-1" class="bg-white rounded-card shadow-card p-4 card-hover" data-phrase-id="phrase_001">
+                    <div id="phrase-content-1" class="flex items-center justify-between">
+                        <div id="phrase-info-1" class="flex-1">
+                            <h3 id="phrase-text-1" class="text-base font-semibold text-text-primary mb-1">Could you please help me?</h3>
+                            <p id="phrase-meaning-1" class="text-sm text-text-secondary mb-2">请问你能帮我吗？</p>
+                            <div id="phrase-meta-1" class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <span class="mastery-badge mastery-poor">
+                                        <i class="fas fa-exclamation-circle text-xs mr-1"></i>
+                                        需要加强
+                                    </span>
+                                    <span class="text-xs text-text-secondary">•</span>
+                                    <span class="text-xs text-text-secondary">3天前学习</span>
+                                </div>
+                                <button id="review-btn-1" class="px-3 py-1 bg-primary text-white text-xs rounded-full font-medium">
+                                    复习
+                                </button>
+                            </div>
+                        </div>
+                        <button id="phrase-audio-1" class="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center ml-4">
+                            <i class="fas fa-play text-gray-600 text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 短语卡片2 -->
+                <div id="phrase-card-2" class="bg-white rounded-card shadow-card p-4 card-hover" data-phrase-id="phrase_002">
+                    <div id="phrase-content-2" class="flex items-center justify-between">
+                        <div id="phrase-info-2" class="flex-1">
+                            <h3 id="phrase-text-2" class="text-base font-semibold text-text-primary mb-1">I'm looking for a restroom</h3>
+                            <p id="phrase-meaning-2" class="text-sm text-text-secondary mb-2">我在找洗手间</p>
+                            <div id="phrase-meta-2" class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <span class="mastery-badge mastery-good">
+                                        <i class="fas fa-clock text-xs mr-1"></i>
+                                        及时复习
+                                    </span>
+                                    <span class="text-xs text-text-secondary">•</span>
+                                    <span class="text-xs text-text-secondary">1天前学习</span>
+                                </div>
+                                <button id="review-btn-2" class="px-3 py-1 bg-primary text-white text-xs rounded-full font-medium">
+                                    复习
+                                </button>
+                            </div>
+                        </div>
+                        <button id="phrase-audio-2" class="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center ml-4">
+                            <i class="fas fa-play text-gray-600 text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 短语卡片3 -->
+                <div id="phrase-card-3" class="bg-white rounded-card shadow-card p-4 card-hover" data-phrase-id="phrase_003">
+                    <div id="phrase-content-3" class="flex items-center justify-between">
+                        <div id="phrase-info-3" class="flex-1">
+                            <h3 id="phrase-text-3" class="text-base font-semibold text-text-primary mb-1">Could I have the bill, please?</h3>
+                            <p id="phrase-meaning-3" class="text-sm text-text-secondary mb-2">请给我账单好吗？</p>
+                            <div id="phrase-meta-3" class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <span class="mastery-badge mastery-poor">
+                                        <i class="fas fa-exclamation-circle text-xs mr-1"></i>
+                                        需要加强
+                                    </span>
+                                    <span class="text-xs text-text-secondary">•</span>
+                                    <span class="text-xs text-text-secondary">5天前学习</span>
+                                </div>
+                                <button id="review-btn-3" class="px-3 py-1 bg-primary text-white text-xs rounded-full font-medium">
+                                    复习
+                                </button>
+                            </div>
+                        </div>
+                        <button id="phrase-audio-3" class="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center ml-4">
+                            <i class="fas fa-play text-gray-600 text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 短语卡片4 -->
+                <div id="phrase-card-4" class="bg-white rounded-card shadow-card p-4 card-hover" data-phrase-id="phrase_004">
+                    <div id="phrase-content-4" class="flex items-center justify-between">
+                        <div id="phrase-info-4" class="flex-1">
+                            <h3 id="phrase-text-4" class="text-base font-semibold text-text-primary mb-1">What time does the store open?</h3>
+                            <p id="phrase-meaning-4" class="text-sm text-text-secondary mb-2">商店几点开门？</p>
+                            <div id="phrase-meta-4" class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <span class="mastery-badge mastery-good">
+                                        <i class="fas fa-clock text-xs mr-1"></i>
+                                        及时复习
+                                    </span>
+                                    <span class="text-xs text-text-secondary">•</span>
+                                    <span class="text-xs text-text-secondary">2天前学习</span>
+                                </div>
+                                <button id="review-btn-4" class="px-3 py-1 bg-primary text-white text-xs rounded-full font-medium">
+                                    复习
+                                </button>
+                            </div>
+                        </div>
+                        <button id="phrase-audio-4" class="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center ml-4">
+                            <i class="fas fa-play text-gray-600 text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 短语卡片5 -->
+                <div id="phrase-card-5" class="bg-white rounded-card shadow-card p-4 card-hover" data-phrase-id="phrase_005">
+                    <div id="phrase-content-5" class="flex items-center justify-between">
+                        <div id="phrase-info-5" class="flex-1">
+                            <h3 id="phrase-text-5" class="text-base font-semibold text-text-primary mb-1">I'd like to make a reservation</h3>
+                            <p id="phrase-meaning-5" class="text-sm text-text-secondary mb-2">我想预订</p>
+                            <div id="phrase-meta-5" class="flex items-center justify-between">
+                                <div class="flex items-center space-x-2">
+                                    <span class="mastery-badge mastery-excellent">
+                                        <i class="fas fa-check-circle text-xs mr-1"></i>
+                                        掌握良好
+                                    </span>
+                                    <span class="text-xs text-text-secondary">•</span>
+                                    <span class="text-xs text-text-secondary">1天前学习</span>
+                                </div>
+                                <button id="review-btn-5" class="px-3 py-1 bg-primary text-white text-xs rounded-full font-medium">
+                                    复习
+                                </button>
+                            </div>
+                        </div>
+                        <button id="phrase-audio-5" class="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center ml-4">
+                            <i class="fas fa-play text-gray-600 text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 空状态提示（当没有待复习短语时显示） -->
+        <div id="empty-state" class="hidden mx-6 mt-12 text-center">
+            <div class="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-check-circle text-3xl text-success"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-text-primary mb-2">今日复习完成！</h3>
+            <p class="text-sm text-text-secondary">继续学习新的短语吧</p>
+        </div>
+
+        <!-- 底部间距 -->
+        <div class="h-8"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 返回按钮点击事件
+            document.querySelector('#back-btn').addEventListener('click', function() {
+                window.location.href = 'P-USER_PROFILE.html';
+            });
+
+            // 复习提醒开关事件
+            document.querySelector('#reminder-toggle').addEventListener('change', function() {
+                const isEnabled = this.checked;
+                console.log('复习提醒已' + (isEnabled ? '开启' : '关闭'));
+                // 在实际应用中，这里会调用API保存设置
+            });
+
+            // 全部复习按钮点击事件
+            document.querySelector('#review-all-btn').addEventListener('click', function() {
+                console.log('开始全部复习');
+                // 在实际应用中，这里会跳转到批量复习页面或开始连续测试
+            });
+
+            // 短语卡片点击事件
+            const phraseCards = document.querySelectorAll('[id^="phrase-card-"]');
+            phraseCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // 如果点击的是按钮或音频播放器，不触发卡片点击
+                    if (e.target.closest('button')) {
+                        return;
+                    }
+                    
+                    const phraseId = this.dataset.phraseId;
+                    window.location.href = `P-PHRASE_DETAIL.html?phraseId=${phraseId}`;
+                });
+            });
+
+            // 复习按钮点击事件
+            const reviewButtons = document.querySelectorAll('[id^="review-btn-"]');
+            reviewButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const card = this.closest('[data-phrase-id]');
+                    const phraseId = card.dataset.phraseId;
+                    window.location.href = `P-TEST.html?phraseId=${phraseId}&type=review`;
+                });
+            });
+
+            // 音频播放按钮事件
+            const audioButtons = document.querySelectorAll('[id^="phrase-audio-"]');
+            audioButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const icon = this.querySelector('i');
+                    if (icon.classList.contains('fa-play')) {
+                        icon.classList.remove('fa-play');
+                        icon.classList.add('fa-pause');
+                        setTimeout(() => {
+                            icon.classList.remove('fa-pause');
+                            icon.classList.add('fa-play');
+                        }, 2000);
+                    }
+                });
+            });
+
+            // 卡片悬停效果
+            const cards = document.querySelectorAll('.card-hover');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // 模拟检查是否有待复习短语
+            function checkReviewStatus() {
+                const reviewList = document.querySelector('#review-phrases-list');
+                const emptyState = document.querySelector('#empty-state');
+                
+                if (reviewList.children.length === 0) {
+                    reviewList.style.display = 'none';
+                    emptyState.classList.remove('hidden');
+                } else {
+                    reviewList.style.display = 'block';
+                    emptyState.classList.add('hidden');
+                }
+            }
+
+            // 初始化检查
+            checkReviewStatus();
+        });
+    </script>
+</body>
+</html>
