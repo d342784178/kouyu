@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 
 // 定义短语类型
@@ -11,6 +11,7 @@ interface PhraseExample {
   english: string
   chinese: string
   usage: string
+  audioUrl: string | null
   createdAt: string
   updatedAt: string
 }
@@ -23,6 +24,7 @@ interface Phrase {
   scene: string
   difficulty: string
   pronunciationTips: string
+  audioUrl: string | null
   createdAt: string
   updatedAt: string
   phraseExamples: PhraseExample[]
@@ -44,6 +46,9 @@ export default function PhraseDetailClient() {
   const [showAIFeedback, setShowAIFeedback] = useState(false)
   const [isFavorite, setIsFavorite] = useState(false)
   const [masteryStatus, setMasteryStatus] = useState(false)
+  
+  // 音频元素引用
+  const audioRef = useRef<HTMLAudioElement>(null)
   
   // 从 API 获取短语详情
   useEffect(() => {
@@ -200,12 +205,42 @@ export default function PhraseDetailClient() {
               </button>
             </div>
             
+            {/* 隐藏的音频元素 */}
+            <audio 
+              ref={audioRef} 
+              onPlay={() => setIsPlaying(true)}
+              onPause={() => setIsPlaying(false)}
+              onEnded={() => setIsPlaying(false)}
+            />
+            
             {/* 发音播放器 */}
             <div id="audio-player" className="flex items-center space-x-3">
               <button 
                 id="play-btn" 
                 className="w-12 h-12 bg-primary rounded-full flex items-center justify-center"
-                onClick={() => setIsPlaying(!isPlaying)}
+                onClick={() => {
+                  if (!audioRef.current) return;
+                  
+                  // 根据发音类型选择音频链接
+                  let audioUrl = phrase?.audioUrl || '';
+                  
+                  // 如果是美式发音，使用美式发音链接
+                  // 这里可以根据实际情况替换为美式发音的URL逻辑
+                  if (pronunciationType === 'american') {
+                    // 示例：将原来的URL替换为美式发音URL
+                    // 实际项目中，可能需要从数据库获取不同发音的URL
+                    audioUrl = audioUrl ? audioUrl.replace(/british|uk/i, 'american') : '';
+                  }
+                  
+                  if (audioUrl) {
+                    audioRef.current.src = audioUrl;
+                    if (isPlaying) {
+                      audioRef.current.pause();
+                    } else {
+                      audioRef.current.play();
+                    }
+                  }
+                }}
               >
                 <i className={`fa-solid text-white text-lg ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
               </button>

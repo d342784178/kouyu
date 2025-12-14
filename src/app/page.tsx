@@ -1,6 +1,48 @@
 import Link from 'next/link'
 
-export default function Home() {
+// 定义短语类型
+interface Phrase {
+  id: string
+  english: string
+  chinese: string
+  partOfSpeech: string
+  scene: string
+  difficulty: string
+  pronunciationTips: string
+  audioUrl: string | null
+  createdAt: string
+  updatedAt: string
+}
+
+// 获取随机短语的辅助函数
+async function getRandomPhrases(count: number = 2): Promise<Phrase[]> {
+  try {
+    // 在服务器组件中，使用当前URL或环境变量构建绝对URL
+    const baseUrl = process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}` 
+      : 'http://localhost:3001' // 开发环境默认URL
+    
+    // 调用API获取所有短语
+    const response = await fetch(`${baseUrl}/api/phrases`)
+    if (!response.ok) {
+      throw new Error('Failed to fetch phrases')
+    }
+    
+    const allPhrases: Phrase[] = await response.json()
+    
+    // 随机打乱数组并返回指定数量的短语
+    const shuffled = [...allPhrases].sort(() => 0.5 - Math.random())
+    return shuffled.slice(0, count)
+  } catch (error) {
+    console.error('Error fetching random phrases:', error)
+    return []
+  }
+}
+
+export default async function Home() {
+  // 获取2个随机短语
+  const randomPhrases = await getRandomPhrases(2)
+  
   return (
     <div id="main-content" className="pb-20">
       {/* 顶部导航栏 */}
@@ -112,39 +154,49 @@ export default function Home() {
         </div>
         
         <div id="phrases-list" className="space-y-3">
-          {/* 推荐短语卡片1 */}
-          <Link href="/phrase-detail?phraseId=phrase1" id="phrase-card-1" className="bg-white rounded-card shadow-card p-4 card-hover block">
-            <div id="phrase-content-1" className="flex items-center justify-between">
-              <div id="phrase-info-1" className="flex-1">
-                <h3 id="phrase-text-1" className="text-base font-semibold text-text-primary mb-1">Could you please...</h3>
-                <p id="phrase-meaning-1" className="text-sm text-text-secondary mb-2">请问你可以...吗？</p>
-                <div id="phrase-tags-1" className="flex items-center space-x-2">
-                  <span className="px-2 py-1 bg-blue-50 text-blue-600 text-xs rounded-full">日常用语</span>
-                  <span className="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">入门</span>
+          {randomPhrases.length > 0 ? (
+            randomPhrases.map((phrase, index) => (
+              <Link 
+                key={phrase.id} 
+                href={`/phrase-detail?phraseId=${phrase.id}`} 
+                id={`phrase-card-${index + 1}`} 
+                className="bg-white rounded-card shadow-card p-4 card-hover block"
+              >
+                <div id={`phrase-content-${index + 1}`} className="flex items-center justify-between">
+                  <div id={`phrase-info-${index + 1}`} className="flex-1">
+                    <h3 id={`phrase-text-${index + 1}`} className="text-base font-semibold text-text-primary mb-1">
+                      {phrase.english}
+                    </h3>
+                    <p id={`phrase-meaning-${index + 1}`} className="text-sm text-text-secondary mb-2">
+                      {phrase.chinese}
+                    </p>
+                    <div id={`phrase-tags-${index + 1}`} className="flex items-center space-x-2">
+                      <span className="px-2 py-1 bg-blue-50 text-blue-600 text-xs rounded-full">
+                        {phrase.scene === 'daily' ? '日常用语' : 
+                         phrase.scene === 'business' ? '商务' : 
+                         phrase.scene === 'travel' ? '旅行' : 
+                         phrase.scene === 'shopping' ? '购物' : 
+                         phrase.scene === 'social' ? '社交' : 
+                         phrase.scene === 'restaurant' ? '餐饮' : phrase.scene}
+                      </span>
+                      <span className="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">
+                        {phrase.difficulty === 'beginner' ? '入门' : 
+                         phrase.difficulty === 'intermediate' ? '中级' : 
+                         phrase.difficulty === 'advanced' ? '高级' : phrase.difficulty}
+                      </span>
+                    </div>
+                  </div>
+                  <button id={`phrase-audio-${index + 1}`} className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center ml-4">
+                    <i className="fas fa-play text-gray-600 text-sm"></i>
+                  </button>
                 </div>
-              </div>
-              <button id="phrase-audio-1" className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center ml-4">
-                <i className="fas fa-play text-gray-600 text-sm"></i>
-              </button>
+              </Link>
+            ))
+          ) : (
+            <div id="no-phrases" className="text-center py-6">
+              <p className="text-text-secondary">暂无推荐短语</p>
             </div>
-          </Link>
-
-          {/* 推荐短语卡片2 */}
-          <Link href="/phrase-detail?phraseId=phrase2" id="phrase-card-2" className="bg-white rounded-card shadow-card p-4 card-hover block">
-            <div id="phrase-content-2" className="flex items-center justify-between">
-              <div id="phrase-info-2" className="flex-1">
-                <h3 id="phrase-text-2" className="text-base font-semibold text-text-primary mb-1">I'm looking for...</h3>
-                <p id="phrase-meaning-2" className="text-sm text-text-secondary mb-2">我在找...</p>
-                <div id="phrase-tags-2" className="flex items-center space-x-2">
-                  <span className="px-2 py-1 bg-purple-50 text-purple-600 text-xs rounded-full">购物</span>
-                  <span className="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">入门</span>
-                </div>
-              </div>
-              <button id="phrase-audio-2" className="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center ml-4">
-                <i className="fas fa-play text-gray-600 text-sm"></i>
-              </button>
-            </div>
-          </Link>
+          )}
         </div>
       </section>
 

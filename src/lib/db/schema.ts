@@ -10,9 +10,11 @@ export const phrases = pgTable('phrases', {
   scene: text('scene').notNull(),
   difficulty: text('difficulty').notNull(),
   pronunciationTips: text('pronunciation_tips').notNull(),
+  audioUrl: text('audio_url'), // 语音链接字段
   createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
   updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`)
 })
+
 
 // 短语示例表
 export const phraseExamples = pgTable('phrase_examples', {
@@ -23,6 +25,7 @@ export const phraseExamples = pgTable('phrase_examples', {
   english: text('english').notNull(),
   chinese: text('chinese').notNull(),
   usage: text('usage').notNull(),
+  audioUrl: text('audio_url'), // 语音链接字段
   createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
   updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`)
 })
