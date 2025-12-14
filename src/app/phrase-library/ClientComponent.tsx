@@ -13,9 +13,11 @@ interface Phrase {
   scene: string
   difficulty: string
   pronunciationTips: string
+  audioUrl: string
   createdAt: string
   updatedAt: string
-  phraseExamples: Array<{
+  // phraseExamples 只在详情接口中返回，所以设为可选
+  phraseExamples?: Array<{
     id: number
     phraseId: string
     title: string
@@ -23,6 +25,7 @@ interface Phrase {
     english: string
     chinese: string
     usage: string
+    audioUrl: string
     createdAt: string
     updatedAt: string
   }>
@@ -37,7 +40,7 @@ export default function PhraseLibraryClient() {
   const [search, setSearch] = useState('')
   const [scene, setScene] = useState(initialScene)
   const [difficulty, setDifficulty] = useState('all')
-  const [selectedScenes, setSelectedScenes] = useState(['daily', 'shopping', 'restaurant', 'travel'])
+  const [selectedScenes, setSelectedScenes] = useState(['daily', 'shopping', 'restaurant', 'travel', 'business', 'social'])
   const [phrases, setPhrases] = useState<Phrase[]>([])
   const [filteredPhrases, setFilteredPhrases] = useState<Phrase[]>([])
   const [showFilterModal, setShowFilterModal] = useState(false)
@@ -128,6 +131,8 @@ export default function PhraseLibraryClient() {
       case 'shopping': return '购物消费'
       case 'restaurant': return '餐饮服务'
       case 'travel': return '旅行出行'
+      case 'business': return '商务交流'
+      case 'social': return '社交场合'
       default: return '其他'
     }
   }
@@ -138,6 +143,8 @@ export default function PhraseLibraryClient() {
       case 'shopping': return 'bg-purple-50 text-purple-600'
       case 'restaurant': return 'bg-orange-50 text-orange-600'
       case 'travel': return 'bg-green-50 text-green-600'
+      case 'business': return 'bg-indigo-50 text-indigo-600'
+      case 'social': return 'bg-pink-50 text-pink-600'
       default: return 'bg-gray-50 text-gray-600'
     }
   }
@@ -217,6 +224,20 @@ export default function PhraseLibraryClient() {
             onClick={() => setScene('travel')}
           >
             旅行出行
+          </button>
+          <button 
+            id="tab-business" 
+            className={`px-4 py-2 rounded-full whitespace-nowrap ${scene === 'business' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'} text-sm`}
+            onClick={() => setScene('business')}
+          >
+            商务交流
+          </button>
+          <button 
+            id="tab-social" 
+            className={`px-4 py-2 rounded-full whitespace-nowrap ${scene === 'social' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'} text-sm`}
+            onClick={() => setScene('social')}
+          >
+            社交场合
           </button>
         </div>
       </section>
@@ -385,6 +406,38 @@ export default function PhraseLibraryClient() {
                     }}
                   />
                   <span className="ml-3 text-sm text-text-primary">旅行出行</span>
+                </label>
+                <label className="flex items-center">
+                  <input 
+                    type="checkbox" 
+                    id="scene-business-check" 
+                    className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+                    checked={selectedScenes.includes('business')}
+                    onChange={(e) => {
+                      if (e.target.checked) {
+                        setSelectedScenes([...selectedScenes, 'business'])
+                      } else {
+                        setSelectedScenes(selectedScenes.filter(s => s !== 'business'))
+                      }
+                    }}
+                  />
+                  <span className="ml-3 text-sm text-text-primary">商务交流</span>
+                </label>
+                <label className="flex items-center">
+                  <input 
+                    type="checkbox" 
+                    id="scene-social-check" 
+                    className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+                    checked={selectedScenes.includes('social')}
+                    onChange={(e) => {
+                      if (e.target.checked) {
+                        setSelectedScenes([...selectedScenes, 'social'])
+                      } else {
+                        setSelectedScenes(selectedScenes.filter(s => s !== 'social'))
+                      }
+                    }}
+                  />
+                  <span className="ml-3 text-sm text-text-primary">社交场合</span>
                 </label>
               </div>
             </div>

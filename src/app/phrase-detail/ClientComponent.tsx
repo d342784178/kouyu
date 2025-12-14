@@ -550,7 +550,11 @@ export default function PhraseDetailClient() {
 
       {/* 开始测试 */}
       <section id="start-test" className="mx-6 mt-6">
-        <button id="test-btn" className="w-full bg-gradient-to-r from-primary to-secondary text-white font-semibold py-4 rounded-lg shadow-md">
+        <button 
+          id="test-btn" 
+          className="w-full bg-gradient-to-r from-primary to-secondary text-white font-semibold py-4 rounded-lg shadow-md"
+          onClick={() => router.push(`/test?phraseId=${phraseId}`)}
+        >
           <i className="fas fa-graduation-cap mr-2"></i>
           开始测试
         </button>
