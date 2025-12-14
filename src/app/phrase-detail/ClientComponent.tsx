@@ -11,7 +11,7 @@ interface PhraseExample {
   english: string
   chinese: string
   usage: string
-  audioUrl: string | null
+  audioUrl: string 
   createdAt: string
   updatedAt: string
 }
@@ -24,7 +24,7 @@ interface Phrase {
   scene: string
   difficulty: string
   pronunciationTips: string
-  audioUrl: string | null
+  audioUrl: string 
   createdAt: string
   updatedAt: string
   phraseExamples: PhraseExample[]
@@ -46,6 +46,9 @@ export default function PhraseDetailClient() {
   const [showAIFeedback, setShowAIFeedback] = useState(false)
   const [isFavorite, setIsFavorite] = useState(false)
   const [masteryStatus, setMasteryStatus] = useState(false)
+  
+  // 示例播放状态 - 使用对象存储每个示例的播放状态
+  const [examplePlayStates, setExamplePlayStates] = useState<Record<number, boolean>>({})
   
   // 录音相关状态
   const [recordedBlob, setRecordedBlob] = useState<Blob | null>(null)
@@ -321,20 +324,26 @@ export default function PhraseDetailClient() {
                   let audioUrl = phrase?.audioUrl || '';
                   
                   // 如果是美式发音，使用美式发音链接
-                  // 这里可以根据实际情况替换为美式发音的URL逻辑
                   if (pronunciationType === 'american') {
                     // 示例：将原来的URL替换为美式发音URL
-                    // 实际项目中，可能需要从数据库获取不同发音的URL
                     audioUrl = audioUrl ? audioUrl.replace(/british|uk/i, 'american') : '';
                   }
                   
-                  if (audioUrl) {
+                  if (!audioUrl) {
+                    alert('当前短语暂无音频');
+                    return;
+                  }
+                  
+                  try {
                     audioRef.current.src = audioUrl;
                     if (isPlaying) {
                       audioRef.current.pause();
                     } else {
                       audioRef.current.play();
                     }
+                  } catch (error) {
+                    console.error('Error playing phrase audio:', error);
+                    alert('音频播放失败，请稍后重试');
                   }
                 }}
               >
@@ -490,8 +499,44 @@ export default function PhraseDetailClient() {
                 <div id={`example-${index + 1}-dialogue`} className="mb-4">
                   <p id={`example-${index + 1}-english`} className="text-sm font-medium text-text-primary mb-2">{example.english}</p>
                   <p id={`example-${index + 1}-chinese`} className="text-sm text-text-secondary mb-3">{example.chinese}</p>
-                  <button id={`example-${index + 1}-audio`} className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">
-                    <i className="fas fa-play text-gray-600 text-sm"></i>
+                  
+                  {/* 示例音频元素 - 隐藏 */}
+                  <audio 
+                    id={`example-${index + 1}-audio-element`} 
+                    src={example.audioUrl || ''}
+                    onPlay={() => setExamplePlayStates(prev => ({ ...prev, [example.id]: true }))}
+                    onPause={() => setExamplePlayStates(prev => ({ ...prev, [example.id]: false }))}
+                    onEnded={() => setExamplePlayStates(prev => ({ ...prev, [example.id]: false }))}
+                  />
+                  
+                  {/* 音频播放按钮 */}
+                  <button 
+                    id={`example-${index + 1}-audio`} 
+                    onClick={() => {
+                      if (!example.audioUrl) {
+                        // 没有音频URL时的处理
+                        console.log('No audio URL available for this example');
+                        alert('当前示例暂无音频');
+                        return;
+                      }
+                      
+                      const audioElement = document.getElementById(`example-${index + 1}-audio-element`) as HTMLAudioElement;
+                      if (audioElement) {
+                        try {
+                          if (audioElement.paused) {
+                            audioElement.play();
+                          } else {
+                            audioElement.pause();
+                          }
+                        } catch (error) {
+                          console.error('Error playing example audio:', error);
+                          alert('音频播放失败，请稍后重试');
+                        }
+                      }
+                    }}
+                    className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 hover:bg-gray-200 cursor-pointer"
+                  >
+                    <i className={`fas ${examplePlayStates[example.id] ? 'fa-pause' : 'fa-play'} text-gray-600 text-sm`}></i>
                   </button>
                 </div>
                 <div id={`example-${index + 1}-usage`} className="bg-gray-50 rounded-lg p-3">
