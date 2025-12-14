@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { db } from '@/lib/db'
-import { phrases } from '@/lib/db/schema'
+import { phrases, phraseExamples } from '@/lib/db/schema'
 import { eq } from 'drizzle-orm'
 
 // 模拟数据，当数据库连接失败时使用
@@ -107,7 +107,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
   try {
     const { id } = params
     
-    // 尝试从数据库获取数据
+    // 尝试从数据库获取短语基本信息
     const phrase = await db.query.phrases.findFirst({
       where: eq(phrases.id, id)
     })
@@ -121,7 +121,18 @@ export async function GET(request: Request, { params }: { params: { id: string }
       return NextResponse.json({ error: 'Phrase not found' }, { status: 404 })
     }
     
-    return NextResponse.json(phrase, { status: 200 })
+    // 从数据库获取该短语的所有示例
+    const examples = await db.query.phraseExamples.findMany({
+      where: eq(phraseExamples.phraseId, id)
+    })
+    
+    // 合并短语和示例数据
+    const responseData = {
+      ...phrase,
+      phraseExamples: examples // 使用实际查询到的示例数据
+    }
+    
+    return NextResponse.json(responseData, { status: 200 })
   } catch (error) {
     console.error('Error fetching phrase from database, using mock data:', error)
     

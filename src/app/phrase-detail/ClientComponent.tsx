@@ -55,6 +55,7 @@ export default function PhraseDetailClient() {
           throw new Error('Failed to fetch phrase details')
         }
         const data = await response.json()
+        console.log('Fetched phrase:', data)
         setPhrase(data)
         setError(null)
       } catch (err) {
