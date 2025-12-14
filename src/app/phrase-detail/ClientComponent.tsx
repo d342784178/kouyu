@@ -47,8 +47,17 @@ export default function PhraseDetailClient() {
   const [isFavorite, setIsFavorite] = useState(false)
   const [masteryStatus, setMasteryStatus] = useState(false)
   
+  // 录音相关状态
+  const [recordedBlob, setRecordedBlob] = useState<Blob | null>(null)
+  const [isPlayingRecording, setIsPlayingRecording] = useState(false)
+  
   // 音频元素引用
   const audioRef = useRef<HTMLAudioElement>(null)
+  const recordingAudioRef = useRef<HTMLAudioElement>(null)
+  
+  // 媒体记录器引用
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null)
+  const audioChunksRef = useRef<Blob[]>([])
   
   // 从 API 获取短语详情
   useEffect(() => {
@@ -95,6 +104,85 @@ export default function PhraseDetailClient() {
       if (interval) clearInterval(interval)
     }
   }, [isRecording])
+  
+  // 开始录音
+  const startRecording = async () => {
+    try {
+      // 获取用户媒体设备
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+      
+      // 创建媒体记录器
+      const mediaRecorder = new MediaRecorder(stream)
+      mediaRecorderRef.current = mediaRecorder
+      audioChunksRef.current = []
+      
+      // 处理录音数据
+      mediaRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+          audioChunksRef.current.push(event.data)
+        }
+      }
+      
+      // 录音结束处理
+      mediaRecorder.onstop = () => {
+        // 创建录音 blob
+        const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' })
+        setRecordedBlob(audioBlob)
+        
+        // 停止所有音频轨道
+        stream.getTracks().forEach(track => track.stop())
+        
+        // 显示AI反馈
+        setShowAIFeedback(true)
+      }
+      
+      // 开始录音
+      mediaRecorder.start()
+      setIsRecording(true)
+    } catch (error) {
+      console.error('Error starting recording:', error)
+      setError('无法访问麦克风，请检查浏览器权限设置')
+    }
+  }
+  
+  // 停止录音
+  const stopRecording = () => {
+    if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
+      mediaRecorderRef.current.stop()
+      setIsRecording(false)
+    }
+  }
+  
+  // 播放录音
+  const playRecording = () => {
+    if (!recordedBlob || !recordingAudioRef.current) return
+    
+    const audioUrl = URL.createObjectURL(recordedBlob)
+    recordingAudioRef.current.src = audioUrl
+    
+    if (isPlayingRecording) {
+      recordingAudioRef.current.pause()
+      setIsPlayingRecording(false)
+    } else {
+      recordingAudioRef.current.play()
+      setIsPlayingRecording(true)
+    }
+  }
+  
+  // 监听录音播放结束
+  useEffect(() => {
+    const audioElement = recordingAudioRef.current
+    if (!audioElement) return
+    
+    const handleEnded = () => {
+      setIsPlayingRecording(false)
+    }
+    
+    audioElement.addEventListener('ended', handleEnded)
+    return () => {
+      audioElement.removeEventListener('ended', handleEnded)
+    }
+  }, [])
   
   // 格式化录音时间
   const formatTime = (seconds: number) => {
@@ -213,6 +301,14 @@ export default function PhraseDetailClient() {
               onEnded={() => setIsPlaying(false)}
             />
             
+            {/* 录音播放音频元素 */}
+            <audio 
+              ref={recordingAudioRef}
+              onPlay={() => setIsPlayingRecording(true)}
+              onPause={() => setIsPlayingRecording(false)}
+              onEnded={() => setIsPlayingRecording(false)}
+            />
+            
             {/* 发音播放器 */}
             <div id="audio-player" className="flex items-center space-x-3">
               <button 
@@ -289,46 +385,88 @@ export default function PhraseDetailClient() {
         <div id="practice-content">
           <h3 id="practice-title" className="text-lg font-semibold text-text-primary mb-4">发音练习</h3>
           
-          {/* 录音按钮 */}
+          {/* 录音区域 */}
           <div id="recording-section" className="text-center mb-6">
-            <button 
-              id="record-btn" 
-              className={`w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3 ${isRecording ? 'bg-red-500 recording-animation' : 'bg-red-500'}`}
-              onClick={() => {
-                setIsRecording(!isRecording)
-                if (isRecording) {
-                  setTimeout(() => setShowAIFeedback(true), 500)
-                }
-              }}
-            >
-              <i id="record-icon" className={`fas text-white text-xl ${isRecording ? 'fa-stop' : 'fa-microphone'}`}></i>
-            </button>
-            <p id="record-status" className="text-sm text-text-secondary">
-              {isRecording ? '点击停止录音' : '点击开始录音'}
-            </p>
+            {/* 录音计时 */}
             <div 
               id="recording-timer" 
-              className="text-xl font-bold text-red-500 mt-2"
+              className="text-xl font-bold text-red-500 mb-4"
               style={{ display: isRecording ? 'block' : 'none' }}
             >
               {formatTime(recordingTimer)}
             </div>
-          </div>
-          
-          {/* AI反馈区域 */}
-          <div id="ai-feedback" className={`${showAIFeedback ? 'block' : 'hidden'}`}>
-            <h4 id="feedback-title" className="text-sm font-semibold text-text-primary mb-3">AI发音反馈</h4>
-            <div id="feedback-content" className="bg-green-50 border border-green-200 rounded-lg p-4">
-              <div id="feedback-score" className="flex items-center justify-between mb-3">
-                <span className="text-sm text-green-800">发音评分：</span>
-                <span id="score-value" className="text-lg font-bold text-green-600">85分</span>
+            
+            {/* 录音按钮或播放控制按钮 */}
+            {isRecording ? (
+              // 录音中状态
+              <div id="recording-in-progress" className="flex flex-col items-center">
+                <button 
+                  id="stop-record-btn" 
+                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 bg-red-500 recording-animation"
+                  onClick={stopRecording}
+                >
+                  <i id="stop-record-icon" className="fas fa-stop text-white text-2xl"></i>
+                </button>
+                <p id="recording-status" className="text-sm text-text-secondary">
+                  点击停止录音
+                </p>
               </div>
-              <div id="feedback-suggestions">
-                <p id="feedback-text" className="text-sm text-green-800 mb-2">发音清晰，语调自然！建议：</p>
-                <ul id="feedback-list" className="text-sm text-green-700 space-y-1">
-                  <li>• "could"的发音可以更轻柔一些</li>
-                  <li>• "please"的重音位置很标准</li>
-                </ul>
+            ) : recordedBlob ? (
+              // 录音完成状态 - 显示播放和重新录制按钮
+              <div id="recording-controls" className="flex items-center justify-center space-x-4 mb-4">
+                {/* 播放按钮 */}
+                <button 
+                  id="play-recording-btn" 
+                  className="w-14 h-14 rounded-full flex items-center justify-center bg-primary"
+                  onClick={playRecording}
+                >
+                  <i className={`fa-solid text-white text-xl ${isPlayingRecording ? 'fa-pause' : 'fa-play'}`}></i>
+                </button>
+                
+                {/* 重新录制按钮 */}
+                <button 
+                  id="re-record-btn" 
+                  className="w-14 h-14 rounded-full flex items-center justify-center bg-gray-200"
+                  onClick={() => {
+                    setRecordedBlob(null)
+                    setShowAIFeedback(false)
+                    startRecording()
+                  }}
+                >
+                  <i className="fas fa-redo text-gray-700 text-xl"></i>
+                </button>
+              </div>
+            ) : (
+              // 初始状态 - 显示开始录音按钮
+              <div id="start-recording" className="flex flex-col items-center">
+                <button 
+                  id="start-record-btn" 
+                  className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3 bg-red-500"
+                  onClick={startRecording}
+                >
+                  <i id="start-record-icon" className="fas fa-microphone text-white text-2xl"></i>
+                </button>
+                <p id="record-status" className="text-sm text-text-secondary">
+                  点击开始录音
+                </p>
+              </div>
+            )}
+            
+            {/* AI反馈区域 - 始终显示当showAIFeedback为true */}
+            <div id="ai-feedback" className={`${showAIFeedback ? 'block' : 'hidden'} mt-6`}>
+              <h4 id="feedback-title" className="text-sm font-semibold text-text-primary mb-3">AI发音反馈</h4>
+              <div id="feedback-content" className="bg-green-50 border border-green-200 rounded-lg p-4">
+                <div id="feedback-score" className="flex items-center justify-between mb-3">
+                  <span className="text-sm text-green-800">发音评分：</span>
+                  <span id="score-value" className="text-lg font-bold text-green-600">85分</span>
+                </div>
+                <div id="feedback-suggestions">
+                  <p id="feedback-text" className="text-sm text-green-800 mb-2">发音清晰，语调自然！建议：</p>
+                  <ul id="feedback-list" className="text-sm text-green-700 space-y-1">
+                    <li>• "could"的发音可以更轻柔一些</li>
+                    <li>• "please"的重音位置很标准</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
