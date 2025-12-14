@@ -4,89 +4,31 @@ import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 
-// 模拟短语数据
-const mockPhrases = [
-  {
-    id: 'phrase1',
-    english: 'Could you please...',
-    chinese: '请问你可以...吗？',
-    difficulty: 'beginner',
-    scenes: ['daily'],
-    mastered: false
-  },
-  {
-    id: 'phrase2',
-    english: "I'm looking for...",
-    chinese: '我在找...',
-    difficulty: 'beginner',
-    scenes: ['shopping'],
-    mastered: true
-  },
-  {
-    id: 'phrase3',
-    english: 'Can I get a table for two?',
-    chinese: '我可以要一张两人桌吗？',
-    difficulty: 'intermediate',
-    scenes: ['restaurant'],
-    mastered: false
-  },
-  {
-    id: 'phrase4',
-    english: 'How much does this cost?',
-    chinese: '这个多少钱？',
-    difficulty: 'beginner',
-    scenes: ['shopping'],
-    mastered: true
-  },
-  {
-    id: 'phrase5',
-    english: 'Where is the nearest restroom?',
-    chinese: '最近的洗手间在哪里？',
-    difficulty: 'intermediate',
-    scenes: ['travel'],
-    mastered: false
-  },
-  {
-    id: 'phrase6',
-    english: "I'd like to order...",
-    chinese: '我想要点...',
-    difficulty: 'intermediate',
-    scenes: ['restaurant'],
-    mastered: true
-  },
-  {
-    id: 'phrase7',
-    english: 'Could you repeat that?',
-    chinese: '你能再说一遍吗？',
-    difficulty: 'beginner',
-    scenes: ['daily'],
-    mastered: false
-  },
-  {
-    id: 'phrase8',
-    english: 'What time does the store open?',
-    chinese: '商店几点开门？',
-    difficulty: 'intermediate',
-    scenes: ['shopping'],
-    mastered: true
-  },
-  {
-    id: 'phrase9',
-    english: 'I need to book a flight.',
-    chinese: '我需要订一张机票。',
-    difficulty: 'advanced',
-    scenes: ['travel'],
-    mastered: false
-  },
-  {
-    id: 'phrase10',
-    english: 'Thank you for your help.',
-    chinese: '谢谢你的帮助。',
-    difficulty: 'beginner',
-    scenes: ['daily'],
-    mastered: true
-  }
-]
+// 定义短语类型
+interface Phrase {
+  id: string
+  english: string
+  chinese: string
+  partOfSpeech: string
+  scene: string
+  difficulty: string
+  pronunciationTips: string
+  createdAt: string
+  updatedAt: string
+  phraseExamples: Array<{
+    id: number
+    phraseId: string
+    title: string
+    desc: string
+    english: string
+    chinese: string
+    usage: string
+    createdAt: string
+    updatedAt: string
+  }>
+  // 添加 mastered 字段，默认为 false
+  mastered?: boolean
+}
 
 export default function PhraseLibraryClient() {
   const searchParams = useSearchParams()
@@ -96,12 +38,44 @@ export default function PhraseLibraryClient() {
   const [scene, setScene] = useState(initialScene)
   const [difficulty, setDifficulty] = useState('all')
   const [selectedScenes, setSelectedScenes] = useState(['daily', 'shopping', 'restaurant', 'travel'])
-  const [filteredPhrases, setFilteredPhrases] = useState(mockPhrases)
+  const [phrases, setPhrases] = useState<Phrase[]>([])
+  const [filteredPhrases, setFilteredPhrases] = useState<Phrase[]>([])
   const [showFilterModal, setShowFilterModal] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  
+  // 从 API 获取短语数据
+  useEffect(() => {
+    async function fetchPhrases() {
+      try {
+        setIsLoading(true)
+        const response = await fetch('/api/phrases')
+        if (!response.ok) {
+          throw new Error('Failed to fetch phrases')
+        }
+        const data = await response.json()
+        // 添加默认的 mastered 字段
+        const phrasesWithMastered = data.map((phrase: any) => ({
+          ...phrase,
+          mastered: Math.random() > 0.7 // 模拟 70% 的概率已掌握
+        }))
+        setPhrases(phrasesWithMastered)
+        setFilteredPhrases(phrasesWithMastered)
+        setError(null)
+      } catch (err) {
+        setError('获取短语数据失败，请稍后重试')
+        console.error('Error fetching phrases:', err)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    
+    fetchPhrases()
+  }, [])
   
   // 筛选短语
   useEffect(() => {
-    const result = mockPhrases.filter(phrase => {
+    const result = phrases.filter(phrase => {
       // 搜索筛选
       if (search && 
           !phrase.english.toLowerCase().includes(search.toLowerCase()) && 
@@ -110,7 +84,7 @@ export default function PhraseLibraryClient() {
       }
       
       // 场景筛选（顶部标签）
-      if (scene !== 'all' && !phrase.scenes.includes(scene)) {
+      if (scene !== 'all' && phrase.scene !== scene) {
         return false
       }
       
@@ -120,14 +94,14 @@ export default function PhraseLibraryClient() {
       }
       
       // 筛选弹窗场景筛选
-      if (!selectedScenes.some(s => phrase.scenes.includes(s))) {
+      if (!selectedScenes.includes(phrase.scene)) {
         return false
       }
       
       return true
     })
     setFilteredPhrases(result)
-  }, [search, scene, difficulty, selectedScenes])
+  }, [search, scene, difficulty, selectedScenes, phrases])
   
   // 辅助函数
   const getDifficultyClass = (difficulty: string) => {
@@ -258,8 +232,8 @@ export default function PhraseLibraryClient() {
           {filteredPhrases.map(phrase => {
             const difficultyClass = getDifficultyClass(phrase.difficulty)
             const difficultyText = getDifficultyText(phrase.difficulty)
-            const sceneText = getSceneText(phrase.scenes[0])
-            const sceneClass = getSceneClass(phrase.scenes[0])
+            const sceneText = getSceneText(phrase.scene)
+            const sceneClass = getSceneClass(phrase.scene)
             const masteredIcon = phrase.mastered ? 
                 '<i class="fas fa-check-circle text-success text-sm ml-2"></i>' : 
                 '<i class="fas fa-circle text-gray-300 text-sm ml-2"></i>'

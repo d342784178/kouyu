@@ -3,77 +3,39 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 
-// 模拟短语数据
-const phraseData = {
-  "phrase1": {
-    english: "Could you please...",
-    chinese: "请问你可以...吗？",
-    partOfSpeech: "动词短语",
-    scene: "日常用语",
-    difficulty: "入门",
-    pronunciationTips: "注意\"could\"的弱读发音，重音应落在\"please\"的第一个音节上，结尾的\"...\"表示语气的委婉。",
-    examples: [
-      {
-        title: "请求帮助",
-        desc: "在需要他人帮助时使用",
-        english: "Could you please help me carry this bag?",
-        chinese: "请问你可以帮我拿一下这个包吗？",
-        usage: "使用场景：当你需要他人帮助时，这是一个非常礼貌的表达方式。"
-      },
-      {
-        title: "询问信息",
-        desc: "向他人询问信息时使用",
-        english: "Could you please tell me the way to the station?",
-        chinese: "请问你可以告诉我去车站的路吗？",
-        usage: "使用场景：在陌生的地方向当地人询问路线或其他信息时使用。"
-      },
-      {
-        title: "请求许可",
-        desc: "请求他人允许时使用",
-        english: "Could you please open the window?",
-        chinese: "请问你可以打开窗户吗？",
-        usage: "使用场景：在需要改变环境或使用他人物品时，礼貌地请求许可。"
-      }
-    ]
-  },
-  "phrase2": {
-    english: "I'm looking for...",
-    chinese: "我在找...",
-    partOfSpeech: "动词短语",
-    scene: "购物",
-    difficulty: "入门",
-    pronunciationTips: "注意\"looking\"的发音，重音在第一个音节，结尾的\"for\"要轻读。",
-    examples: [
-      {
-        title: "商店购物",
-        desc: "在商店寻找商品时使用",
-        english: "I'm looking for a red shirt.",
-        chinese: "我在找一件红色的衬衫。",
-        usage: "使用场景：在商店里告诉店员你想要找的商品。"
-      },
-      {
-        title: "寻找地点",
-        desc: "在某个地方寻找特定地点时使用",
-        english: "I'm looking for the restroom.",
-        chinese: "我在找洗手间。",
-        usage: "使用场景：在商场、机场等公共场所寻找特定设施时使用。"
-      },
-      {
-        title: "寻找人",
-        desc: "在人群中寻找特定的人时使用",
-        english: "I'm looking for my friend.",
-        chinese: "我在找我的朋友。",
-        usage: "使用场景：在聚会、活动中寻找特定的人时使用。"
-      }
-    ]
-  }
-};
+// 定义短语类型
+interface PhraseExample {
+  id: number
+  title: string
+  desc: string
+  english: string
+  chinese: string
+  usage: string
+  createdAt: string
+  updatedAt: string
+}
+
+interface Phrase {
+  id: string
+  english: string
+  chinese: string
+  partOfSpeech: string
+  scene: string
+  difficulty: string
+  pronunciationTips: string
+  createdAt: string
+  updatedAt: string
+  phraseExamples: PhraseExample[]
+}
 
 export default function PhraseDetailClient() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const phraseId = searchParams.get('phraseId') || 'phrase1'
-  const data = phraseData[phraseId as keyof typeof phraseData] || phraseData.phrase1
+  
+  const [phrase, setPhrase] = useState<Phrase | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
   
   const [pronunciationType, setPronunciationType] = useState('british')
   const [isPlaying, setIsPlaying] = useState(false)
@@ -82,6 +44,29 @@ export default function PhraseDetailClient() {
   const [showAIFeedback, setShowAIFeedback] = useState(false)
   const [isFavorite, setIsFavorite] = useState(false)
   const [masteryStatus, setMasteryStatus] = useState(false)
+  
+  // 从 API 获取短语详情
+  useEffect(() => {
+    async function fetchPhrase() {
+      try {
+        setIsLoading(true)
+        const response = await fetch(`/api/phrases/${phraseId}`)
+        if (!response.ok) {
+          throw new Error('Failed to fetch phrase details')
+        }
+        const data = await response.json()
+        setPhrase(data)
+        setError(null)
+      } catch (err) {
+        setError('获取短语详情失败，请稍后重试')
+        console.error('Error fetching phrase:', err)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    
+    fetchPhrase()
+  }, [phraseId])
   
   // 检查掌握状态
   useEffect(() => {
@@ -110,6 +95,48 @@ export default function PhraseDetailClient() {
     const mins = Math.floor(seconds / 60).toString().padStart(2, '0')
     const secs = (seconds % 60).toString().padStart(2, '0')
     return `${mins}:${secs}`
+  }
+  
+  // 如果加载中，显示加载状态
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="text-center">
+          <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 animate-spin">
+            <i className="fas fa-spinner text-gray-400 text-2xl"></i>
+          </div>
+          <h3 className="text-lg font-medium text-text-primary mb-2">加载中...</h3>
+          <p className="text-sm text-text-secondary">正在获取短语详情，请稍候</p>
+        </div>
+      </div>
+    )
+  }
+  
+  // 如果出错，显示错误状态
+  if (error || !phrase) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="text-center">
+          <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i className="fas fa-exclamation-circle text-red-500 text-2xl"></i>
+          </div>
+          <h3 className="text-lg font-medium text-text-primary mb-2">加载失败</h3>
+          <p className="text-sm text-text-secondary mb-4">{error || '未找到短语信息'}</p>
+          <button 
+            className="px-4 py-2 bg-primary text-white rounded-lg text-sm mr-2"
+            onClick={() => window.location.reload()}
+          >
+            重试
+          </button>
+          <button 
+            className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm"
+            onClick={() => router.back()}
+          >
+            返回短语库
+          </button>
+        </div>
+      </div>
+    )
   }
   
   return (
@@ -146,8 +173,8 @@ export default function PhraseDetailClient() {
         <div id="phrase-content">
           {/* 短语文本 */}
           <div id="phrase-text-section" className="mb-6">
-            <h2 id="phrase-text" className="text-2xl font-bold text-text-primary mb-2">{data.english}</h2>
-            <p id="phrase-meaning" className="text-lg text-text-secondary">{data.chinese}</p>
+            <h2 id="phrase-text" className="text-2xl font-bold text-text-primary mb-2">{phrase.english}</h2>
+            <p id="phrase-meaning" className="text-lg text-text-secondary">{phrase.chinese}</p>
           </div>
           
           {/* 发音区域 */}
@@ -201,7 +228,7 @@ export default function PhraseDetailClient() {
           <div id="pronunciation-tips" className="mb-6">
             <h3 id="tips-title" className="text-sm font-semibold text-text-primary mb-3">发音要点</h3>
             <div id="tips-content" className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <p id="tips-text" className="text-sm text-blue-800">{data.pronunciationTips}</p>
+              <p id="tips-text" className="text-sm text-blue-800">{phrase.pronunciationTips}</p>
             </div>
           </div>
           
@@ -210,11 +237,11 @@ export default function PhraseDetailClient() {
             <div id="tags-container" className="flex items-center justify-between">
               <div id="part-of-speech" className="flex items-center space-x-2">
                 <span className="text-sm text-text-secondary">词性：</span>
-                <span id="pos-tag" className="px-3 py-1 bg-purple-50 text-purple-600 text-sm rounded-full">{data.partOfSpeech}</span>
+                <span id="pos-tag" className="px-3 py-1 bg-purple-50 text-purple-600 text-sm rounded-full">{phrase.partOfSpeech}</span>
               </div>
               <div id="scene-tags" className="flex items-center space-x-2">
                 <span className="text-sm text-text-secondary">场景：</span>
-                <span id="scene-tag" className="px-3 py-1 bg-blue-50 text-blue-600 text-sm rounded-full">{data.scene}</span>
+                <span id="scene-tag" className="px-3 py-1 bg-blue-50 text-blue-600 text-sm rounded-full">{phrase.scene}</span>
               </div>
             </div>
           </div>
@@ -277,8 +304,8 @@ export default function PhraseDetailClient() {
         <div id="examples-content">
           <h3 id="examples-title" className="text-lg font-semibold text-text-primary mb-4">场景示例</h3>
           
-          {data.examples.map((example, index) => (
-            <div key={index} id={`example-${index + 1}`} className="border border-gray-200 rounded-lg mb-4">
+          {phrase.phraseExamples.map((example, index) => (
+            <div key={example.id} id={`example-${index + 1}`} className="border border-gray-200 rounded-lg mb-4">
               <div id={`example-${index + 1}-header`} className="p-4 flex items-center justify-between bg-gray-50">
                 <div id={`example-${index + 1}-info`}>
                   <h4 id={`example-${index + 1}-title`} className="text-sm font-semibold text-text-primary">{example.title}</h4>
