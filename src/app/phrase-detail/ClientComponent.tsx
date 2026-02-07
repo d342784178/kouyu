@@ -56,7 +56,20 @@ export default function PhraseDetailClient() {
   const [isPlayingRecording, setIsPlayingRecording] = useState(false)
   
   // 使用自定义 Hook 管理音频播放
-  const { isPlaying, isLoading: isAudioLoading, play, pause, audioRef } = useAudio()
+  const { 
+    isPlaying, 
+    isLoading: isAudioLoading, 
+    play, 
+    pause, 
+    audioRef,
+    progress,
+    currentTime,
+    duration,
+    playCount
+  } = useAudio()
+  
+  // 循环播放状态
+  const [isLooping, setIsLooping] = useState(false)
   
   // 示例音频引用
   const exampleAudioRefs = useRef<Record<number, HTMLAudioElement>>({})
@@ -314,51 +327,169 @@ export default function PhraseDetailClient() {
             />
             
             {/* 发音播放器 */}
-            <div id="audio-player" className="flex items-center space-x-3">
-              <button 
-                id="play-btn" 
-                className={`w-12 h-12 rounded-full flex items-center justify-center ${isAudioLoading ? 'bg-gray-400' : 'bg-primary'}`}
-                onClick={async () => {
-                  // 根据发音类型选择音频路径
-                  let audioPath = phrase?.audioUrl || '';
+            <div id="audio-player" className="bg-gray-50 rounded-xl p-4">
+              {/* 短音频播放器（时长 < 3秒）- 简化交互 */}
+              {duration > 0 && duration < 3 ? (
+                <div className="flex items-center justify-between">
+                  {/* 左侧：大播放按钮 + 循环开关 */}
+                  <div className="flex items-center space-x-3">
+                    {/* 大播放按钮 */}
+                    <button 
+                      id="play-btn" 
+                      className={`w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-all ${
+                        isAudioLoading ? 'bg-gray-400' : 'bg-primary hover:bg-primary/90'
+                      } ${isPlaying ? 'scale-105' : 'scale-100'}`}
+                      onClick={async () => {
+                        let audioPath = phrase?.audioUrl || '';
+                        if (pronunciationType === 'american') {
+                          audioPath = audioPath ? audioPath.replace(/british|uk/i, 'american') : '';
+                        }
+                        if (!audioPath) {
+                          alert('当前短语暂无音频');
+                          return;
+                        }
+                        if (isPlaying) {
+                          pause()
+                        } else {
+                          await play(audioPath, isLooping)
+                        }
+                      }}
+                      disabled={isAudioLoading}
+                    >
+                      {isAudioLoading ? (
+                        <i className="fas fa-spinner fa-spin text-white text-2xl"></i>
+                      ) : (
+                        <i className={`fa-solid text-white text-2xl ${isPlaying ? 'fa-pause' : 'fa-play'} ml-1`}></i>
+                      )}
+                    </button>
+                    
+                    {/* 循环开关 */}
+                    <button
+                      id="loop-btn"
+                      className={`w-12 h-12 rounded-full flex items-center justify-center transition-all border-2 ${
+                        isLooping 
+                          ? 'bg-primary border-primary text-white' 
+                          : 'bg-white border-gray-200 text-gray-400 hover:border-gray-300'
+                      }`}
+                      onClick={() => {
+                        setIsLooping(!isLooping)
+                        if (audioRef.current) {
+                          audioRef.current.loop = !isLooping
+                        }
+                      }}
+                      title={isLooping ? '关闭循环' : '循环播放'}
+                    >
+                      <i className={`fas fa-repeat ${isLooping ? 'animate-spin' : ''}`} style={{ animationDuration: '3s' }}></i>
+                    </button>
+                  </div>
                   
-                  // 如果是美式发音，使用美式发音路径
-                  if (pronunciationType === 'american') {
-                    audioPath = audioPath ? audioPath.replace(/british|uk/i, 'american') : '';
-                  }
-                  
-                  if (!audioPath) {
-                    alert('当前短语暂无音频');
-                    return;
-                  }
-                  
-                  if (isPlaying) {
-                    pause()
-                  } else {
-                    await play(audioPath)
-                  }
-                }}
-                disabled={isAudioLoading}
-              >
-                {isAudioLoading ? (
-                  <i className="fas fa-spinner fa-spin text-white text-lg"></i>
-                ) : (
-                  <i className={`fa-solid text-white text-lg ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
-                )}
-              </button>
-              <div id="audio-info" className="flex-1">
-                <div id="audio-progress" className="w-full bg-gray-200 rounded-full h-2 mb-2">
-                  <div 
-                    id="audio-progress-bar" 
-                    className="bg-primary h-2 rounded-full transition-all duration-300"
-                    style={{ width: isPlaying ? '50%' : '0%' }}
-                  ></div>
+                  {/* 右侧：播放状态 + 次数 */}
+                  <div className="text-right">
+                    {/* 播放中动画指示器 */}
+                    {isPlaying && (
+                      <div className="flex items-center justify-end space-x-1 mb-2">
+                        <span className="text-xs text-primary font-medium">播放中</span>
+                        <div className="flex space-x-0.5">
+                          <div className="w-1 h-4 bg-primary rounded-full animate-pulse" style={{ animationDelay: '0ms' }}></div>
+                          <div className="w-1 h-4 bg-primary rounded-full animate-pulse" style={{ animationDelay: '150ms' }}></div>
+                          <div className="w-1 h-4 bg-primary rounded-full animate-pulse" style={{ animationDelay: '300ms' }}></div>
+                        </div>
+                      </div>
+                    )}
+                    {/* 播放次数 */}
+                    <div className="text-sm text-text-secondary">
+                      {playCount > 0 ? (
+                        <span className="text-primary font-semibold">已听 {playCount} 次</span>
+                      ) : (
+                        <span>点击播放</span>
+                      )}
+                    </div>
+                    {/* 循环状态 */}
+                    {isLooping && (
+                      <div className="text-xs text-primary mt-1">
+                        <i className="fas fa-infinity mr-1"></i>循环开启
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <div id="audio-time" className="flex justify-between text-xs text-text-secondary">
-                  <span id="current-time">0:00</span>
-                  <span id="total-time">0:03</span>
-                </div>
-              </div>
+              ) : (
+                /* 长音频播放器（时长 >= 3秒）- 带进度条 */
+                <>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center space-x-3">
+                      <button 
+                        id="play-btn" 
+                        className={`w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition-all ${
+                          isAudioLoading ? 'bg-gray-400' : 'bg-primary hover:bg-primary/90'
+                        } ${isPlaying ? 'scale-110' : 'scale-100'}`}
+                        onClick={async () => {
+                          let audioPath = phrase?.audioUrl || '';
+                          if (pronunciationType === 'american') {
+                            audioPath = audioPath ? audioPath.replace(/british|uk/i, 'american') : '';
+                          }
+                          if (!audioPath) {
+                            alert('当前短语暂无音频');
+                            return;
+                          }
+                          if (isPlaying) {
+                            pause()
+                          } else {
+                            await play(audioPath, isLooping)
+                          }
+                        }}
+                        disabled={isAudioLoading}
+                      >
+                        {isAudioLoading ? (
+                          <i className="fas fa-spinner fa-spin text-white text-xl"></i>
+                        ) : (
+                          <i className={`fa-solid text-white text-xl ${isPlaying ? 'fa-pause' : 'fa-play'} ml-0.5`}></i>
+                        )}
+                      </button>
+                      
+                      <button
+                        id="loop-btn"
+                        className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
+                          isLooping ? 'bg-primary text-white' : 'bg-white text-gray-500 hover:bg-gray-100'
+                        }`}
+                        onClick={() => {
+                          setIsLooping(!isLooping)
+                          if (audioRef.current) {
+                            audioRef.current.loop = !isLooping
+                          }
+                        }}
+                        title={isLooping ? '关闭循环' : '循环播放'}
+                      >
+                        <i className={`fas fa-repeat text-sm ${isLooping ? 'animate-pulse' : ''}`}></i>
+                      </button>
+                    </div>
+                    
+                    <div className="text-right">
+                      <div className="text-xs text-text-secondary">
+                        {playCount > 0 && <span className="text-primary font-medium">已播放 {playCount} 次</span>}
+                      </div>
+                      {isLooping && (
+                        <div className="text-xs text-primary mt-1">
+                          <i className="fas fa-infinity mr-1"></i>循环中
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  
+                  <div id="audio-info">
+                    <div id="audio-progress" className="w-full bg-gray-200 rounded-full h-2 mb-2 overflow-hidden">
+                      <div 
+                        id="audio-progress-bar" 
+                        className="bg-primary h-full rounded-full transition-all duration-100 ease-linear"
+                        style={{ width: `${progress}%` }}
+                      ></div>
+                    </div>
+                    <div id="audio-time" className="flex justify-between text-xs text-text-secondary">
+                      <span id="current-time">{formatTime(Math.floor(currentTime))}</span>
+                      <span id="total-time">{formatTime(Math.floor(duration))}</span>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           </div>
           
