@@ -23,8 +23,8 @@ async function getRandomPhrases(count: number = 2): Promise<Phrase[]> {
       ? `https://${process.env.VERCEL_URL}` 
       : 'http://localhost:3000' // 开发环境默认URL
     
-    // 调用API获取所有短语
-    const response = await fetch(`${baseUrl}/api/phrases`)
+    // 调用API获取所有短语（禁用缓存以确保获取最新数据）
+    const response = await fetch(`${baseUrl}/api/phrases`, { cache: 'no-store' })
     if (!response.ok) {
       throw new Error('Failed to fetch phrases')
     }
