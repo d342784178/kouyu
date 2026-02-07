@@ -40,7 +40,7 @@ export default function PhraseLibraryClient() {
   const [search, setSearch] = useState('')
   const [scene, setScene] = useState(initialScene)
   const [difficulty, setDifficulty] = useState('all')
-  const [selectedScenes, setSelectedScenes] = useState(['daily', 'shopping', 'restaurant', 'travel', 'business', 'social'])
+  const [selectedScenes, setSelectedScenes] = useState(['daily_life', 'conversation', 'work', 'social'])
   const [phrases, setPhrases] = useState<Phrase[]>([])
   const [filteredPhrases, setFilteredPhrases] = useState<Phrase[]>([])
   const [showFilterModal, setShowFilterModal] = useState(false)
@@ -135,23 +135,19 @@ export default function PhraseLibraryClient() {
   
   const getSceneText = (scene: string) => {
     switch(scene) {
-      case 'daily': return '日常问候'
-      case 'shopping': return '购物消费'
-      case 'restaurant': return '餐饮服务'
-      case 'travel': return '旅行出行'
-      case 'business': return '商务交流'
+      case 'conversation': return '对话交流'
+      case 'daily_life': return '日常生活'
+      case 'work': return '工作职场'
       case 'social': return '社交场合'
       default: return '其他'
     }
   }
-  
+
   const getSceneClass = (scene: string) => {
     switch(scene) {
-      case 'daily': return 'bg-blue-50 text-blue-600'
-      case 'shopping': return 'bg-purple-50 text-purple-600'
-      case 'restaurant': return 'bg-orange-50 text-orange-600'
-      case 'travel': return 'bg-green-50 text-green-600'
-      case 'business': return 'bg-indigo-50 text-indigo-600'
+      case 'conversation': return 'bg-blue-50 text-blue-600'
+      case 'daily_life': return 'bg-green-50 text-green-600'
+      case 'work': return 'bg-indigo-50 text-indigo-600'
       case 'social': return 'bg-pink-50 text-pink-600'
       default: return 'bg-gray-50 text-gray-600'
     }
@@ -165,7 +161,7 @@ export default function PhraseLibraryClient() {
   // 重置筛选
   const resetFilters = () => {
     setDifficulty('all')
-    setSelectedScenes(['daily', 'shopping', 'restaurant', 'travel'])
+    setSelectedScenes(['daily_life', 'conversation', 'work', 'social'])
   }
   
   return (
@@ -206,39 +202,25 @@ export default function PhraseLibraryClient() {
             全部
           </button>
           <button 
+            id="tab-conversation" 
+            className={`px-4 py-2 rounded-full whitespace-nowrap ${scene === 'conversation' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'} text-sm`}
+            onClick={() => setScene('conversation')}
+          >
+            对话交流
+          </button>
+          <button 
             id="tab-daily" 
-            className={`px-4 py-2 rounded-full whitespace-nowrap ${scene === 'daily' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'} text-sm`}
-            onClick={() => setScene('daily')}
+            className={`px-4 py-2 rounded-full whitespace-nowrap ${scene === 'daily_life' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'} text-sm`}
+            onClick={() => setScene('daily_life')}
           >
-            日常问候
+            日常生活
           </button>
           <button 
-            id="tab-shopping" 
-            className={`px-4 py-2 rounded-full whitespace-nowrap ${scene === 'shopping' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'} text-sm`}
-            onClick={() => setScene('shopping')}
+            id="tab-work" 
+            className={`px-4 py-2 rounded-full whitespace-nowrap ${scene === 'work' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'} text-sm`}
+            onClick={() => setScene('work')}
           >
-            购物消费
-          </button>
-          <button 
-            id="tab-restaurant" 
-            className={`px-4 py-2 rounded-full whitespace-nowrap ${scene === 'restaurant' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'} text-sm`}
-            onClick={() => setScene('restaurant')}
-          >
-            餐饮服务
-          </button>
-          <button 
-            id="tab-travel" 
-            className={`px-4 py-2 rounded-full whitespace-nowrap ${scene === 'travel' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'} text-sm`}
-            onClick={() => setScene('travel')}
-          >
-            旅行出行
-          </button>
-          <button 
-            id="tab-business" 
-            className={`px-4 py-2 rounded-full whitespace-nowrap ${scene === 'business' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'} text-sm`}
-            onClick={() => setScene('business')}
-          >
-            商务交流
+            工作职场
           </button>
           <button 
             id="tab-social" 
@@ -419,82 +401,50 @@ export default function PhraseLibraryClient() {
                 <label className="flex items-center">
                   <input 
                     type="checkbox" 
+                    id="scene-conversation-check" 
+                    className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
+                    checked={selectedScenes.includes('conversation')}
+                    onChange={(e) => {
+                      if (e.target.checked) {
+                        setSelectedScenes([...selectedScenes, 'conversation'])
+                      } else {
+                        setSelectedScenes(selectedScenes.filter(s => s !== 'conversation'))
+                      }
+                    }}
+                  />
+                  <span className="ml-3 text-sm text-text-primary">对话交流</span>
+                </label>
+                <label className="flex items-center">
+                  <input 
+                    type="checkbox" 
                     id="scene-daily-check" 
                     className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
-                    checked={selectedScenes.includes('daily')}
+                    checked={selectedScenes.includes('daily_life')}
                     onChange={(e) => {
                       if (e.target.checked) {
-                        setSelectedScenes([...selectedScenes, 'daily'])
+                        setSelectedScenes([...selectedScenes, 'daily_life'])
                       } else {
-                        setSelectedScenes(selectedScenes.filter(s => s !== 'daily'))
+                        setSelectedScenes(selectedScenes.filter(s => s !== 'daily_life'))
                       }
                     }}
                   />
-                  <span className="ml-3 text-sm text-text-primary">日常问候</span>
+                  <span className="ml-3 text-sm text-text-primary">日常生活</span>
                 </label>
                 <label className="flex items-center">
                   <input 
                     type="checkbox" 
-                    id="scene-shopping-check" 
+                    id="scene-work-check" 
                     className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
-                    checked={selectedScenes.includes('shopping')}
+                    checked={selectedScenes.includes('work')}
                     onChange={(e) => {
                       if (e.target.checked) {
-                        setSelectedScenes([...selectedScenes, 'shopping'])
+                        setSelectedScenes([...selectedScenes, 'work'])
                       } else {
-                        setSelectedScenes(selectedScenes.filter(s => s !== 'shopping'))
+                        setSelectedScenes(selectedScenes.filter(s => s !== 'work'))
                       }
                     }}
                   />
-                  <span className="ml-3 text-sm text-text-primary">购物消费</span>
-                </label>
-                <label className="flex items-center">
-                  <input 
-                    type="checkbox" 
-                    id="scene-restaurant-check" 
-                    className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
-                    checked={selectedScenes.includes('restaurant')}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setSelectedScenes([...selectedScenes, 'restaurant'])
-                      } else {
-                        setSelectedScenes(selectedScenes.filter(s => s !== 'restaurant'))
-                      }
-                    }}
-                  />
-                  <span className="ml-3 text-sm text-text-primary">餐饮服务</span>
-                </label>
-                <label className="flex items-center">
-                  <input 
-                    type="checkbox" 
-                    id="scene-travel-check" 
-                    className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
-                    checked={selectedScenes.includes('travel')}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setSelectedScenes([...selectedScenes, 'travel'])
-                      } else {
-                        setSelectedScenes(selectedScenes.filter(s => s !== 'travel'))
-                      }
-                    }}
-                  />
-                  <span className="ml-3 text-sm text-text-primary">旅行出行</span>
-                </label>
-                <label className="flex items-center">
-                  <input 
-                    type="checkbox" 
-                    id="scene-business-check" 
-                    className="w-4 h-4 text-primary border-gray-300 rounded focus:ring-primary"
-                    checked={selectedScenes.includes('business')}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setSelectedScenes([...selectedScenes, 'business'])
-                      } else {
-                        setSelectedScenes(selectedScenes.filter(s => s !== 'business'))
-                      }
-                    }}
-                  />
-                  <span className="ml-3 text-sm text-text-primary">商务交流</span>
+                  <span className="ml-3 text-sm text-text-primary">工作职场</span>
                 </label>
                 <label className="flex items-center">
                   <input 
