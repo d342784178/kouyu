@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 
@@ -44,8 +44,15 @@ export default function PhraseLibraryClient() {
   const [phrases, setPhrases] = useState<Phrase[]>([])
   const [filteredPhrases, setFilteredPhrases] = useState<Phrase[]>([])
   const [showFilterModal, setShowFilterModal] = useState(false)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [fetchError, setFetchError] = useState<string | null>(null)
+  
+  // 音频播放状态
+  const [playingPhraseId, setPlayingPhraseId] = useState<string | null>(null)
+  const [loadingPhraseId, setLoadingPhraseId] = useState<string | null>(null)
+  const audioRef = useRef<HTMLAudioElement | null>(null)
   
   // 从 API 获取短语数据
   useEffect(() => {
@@ -58,15 +65,16 @@ export default function PhraseLibraryClient() {
         }
         const data = await response.json()
         // 添加默认的 mastered 字段
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const phrasesWithMastered = data.map((phrase: any) => ({
           ...phrase,
           mastered: Math.random() > 0.7 // 模拟 70% 的概率已掌握
         }))
         setPhrases(phrasesWithMastered)
         setFilteredPhrases(phrasesWithMastered)
-        setError(null)
+        setFetchError(null)
       } catch (err) {
-        setError('获取短语数据失败，请稍后重试')
+        setFetchError('获取短语数据失败，请稍后重试')
         console.error('Error fetching phrases:', err)
       } finally {
         setIsLoading(false)
@@ -249,41 +257,106 @@ export default function PhraseLibraryClient() {
           <span id="phrases-count" className="text-sm text-text-secondary">共 {filteredPhrases.length} 个短语</span>
         </div>
         
+        {/* 隐藏的音频元素 */}
+        <audio ref={audioRef} />
+        
         <div id="phrases-list" className="space-y-3">
           {filteredPhrases.map(phrase => {
             const difficultyClass = getDifficultyClass(phrase.difficulty)
             const difficultyText = getDifficultyText(phrase.difficulty)
             const sceneText = getSceneText(phrase.scene)
             const sceneClass = getSceneClass(phrase.scene)
-            const masteredIcon = phrase.mastered ? 
-                '<i class="fas fa-check-circle text-success text-sm ml-2"></i>' : 
-                '<i class="fas fa-circle text-gray-300 text-sm ml-2"></i>'
+            const isPlaying = playingPhraseId === phrase.id
+            const isLoading = loadingPhraseId === phrase.id
             
             return (
-              <Link 
+              <div
                 key={phrase.id}
-                href={`/phrase-detail?phraseId=${phrase.id}`}
-                id={`phrase-card-${phrase.id}`} 
-                className="bg-white rounded-card shadow-card p-4 card-hover cursor-pointer block"
+                id={`phrase-card-${phrase.id}`}
+                className="bg-white rounded-card shadow-card p-4 card-hover cursor-pointer"
                 data-phrase-id={phrase.id}
               >
                 <div className="flex items-center justify-between">
-                  <div className="flex-1">
+                  <Link 
+                    href={`/phrase-detail?phraseId=${phrase.id}`}
+                    className="flex-1"
+                  >
                     <div className="flex items-center mb-1">
                       <h3 className="text-base font-semibold text-text-primary">{phrase.english}</h3>
-                      <span dangerouslySetInnerHTML={{ __html: masteredIcon }}></span>
+                      {phrase.mastered ? (
+                        <i className="fas fa-check-circle text-success text-sm ml-2"></i>
+                      ) : (
+                        <i className="fas fa-circle text-gray-300 text-sm ml-2"></i>
+                      )}
                     </div>
                     <p className="text-sm text-text-secondary mb-2">{phrase.chinese}</p>
                     <div className="flex items-center space-x-2">
                       <span className={`px-2 py-1 ${sceneClass} text-xs rounded-full`}>{sceneText}</span>
                       <span className={`px-2 py-1 ${difficultyClass} text-xs rounded-full`}>{difficultyText}</span>
                     </div>
-                  </div>
-                  <button className="phrase-audio-btn w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center ml-4" data-phrase-id={phrase.id}>
-                    <i className="fas fa-play text-gray-600 text-sm"></i>
+                  </Link>
+                  <button 
+                    className={`phrase-audio-btn w-10 h-10 rounded-full flex items-center justify-center ml-4 ${
+                      isLoading ? 'bg-gray-200' : 'bg-gray-50 hover:bg-gray-100'
+                    }`}
+                    data-phrase-id={phrase.id}
+                    onClick={async (e) => {
+                      e.preventDefault()
+                      e.stopPropagation()
+                      
+                      if (!phrase.audioUrl) {
+                        alert('当前短语暂无音频')
+                        return
+                      }
+                      
+                      // 如果正在加载，不执行操作
+                      if (isLoading) return
+                      
+                      // 如果正在播放当前短语，暂停
+                      if (isPlaying && audioRef.current) {
+                        audioRef.current.pause()
+                        setPlayingPhraseId(null)
+                        return
+                      }
+                      
+                      try {
+                        setLoadingPhraseId(phrase.id)
+                        
+                        // 获取音频 URL
+                        const response = await fetch(`/api/audio?path=${encodeURIComponent(phrase.audioUrl)}`)
+                        if (!response.ok) {
+                          throw new Error('Failed to fetch audio URL')
+                        }
+                        const data = await response.json()
+                        
+                        // 设置音频源并播放
+                        if (audioRef.current) {
+                          audioRef.current.src = data.url
+                          audioRef.current.onended = () => setPlayingPhraseId(null)
+                          audioRef.current.onerror = () => {
+                            setPlayingPhraseId(null)
+                            alert('音频播放失败')
+                          }
+                          await audioRef.current.play()
+                          setPlayingPhraseId(phrase.id)
+                        }
+                      } catch (error) {
+                        console.error('Error playing audio:', error)
+                        alert('音频播放失败，请稍后重试')
+                      } finally {
+                        setLoadingPhraseId(null)
+                      }
+                    }}
+                    disabled={isLoading}
+                  >
+                    {isLoading ? (
+                      <i className="fas fa-spinner fa-spin text-gray-600 text-sm"></i>
+                    ) : (
+                      <i className={`fas ${isPlaying ? 'fa-pause' : 'fa-play'} text-gray-600 text-sm`}></i>
+                    )}
                   </button>
                 </div>
-              </Link>
+              </div>
             )
           })}
         </div>

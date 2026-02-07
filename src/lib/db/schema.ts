@@ -1,5 +1,5 @@
-import { sql, relations } from 'drizzle-orm'
-import { integer, text, pgTable, serial, primaryKey } from 'drizzle-orm/pg-core'
+import { sql } from 'drizzle-orm'
+import { text, pgTable } from 'drizzle-orm/pg-core'
 
 // 短语表
 export const phrases = pgTable('phrases', {

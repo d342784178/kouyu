@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
+import { useAudio } from '@/hooks/useAudio'
 
 // 定义短语类型
 interface Phrase {
@@ -47,7 +48,6 @@ export default function TestClientComponent() {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [totalQuestions] = useState(3)
   const [testCompleted, setTestCompleted] = useState(false)
-  const [answers, setAnswers] = useState<string[]>([])
   const [scores, setScores] = useState<TestScores>({
     listening: 0,
     pronunciation: 0,
@@ -81,6 +81,9 @@ export default function TestClientComponent() {
   
   // 选项选中状态
   const [selectedOption, setSelectedOption] = useState<string | null>(null)
+  
+  // 使用自定义 Hook 管理音频播放
+  const { isPlaying, isLoading: isAudioLoading, play, pause, audioRef } = useAudio()
   
   // 获取短语数据
   useEffect(() => {
@@ -387,12 +390,37 @@ export default function TestClientComponent() {
                 <div id="question-content">
                   <p id="question-text" className="text-base text-text-primary mb-6">请听下面的短语发音，选择正确的英文短语：</p>
                   
+                  {/* 隐藏的音频元素 */}
+                  <audio ref={audioRef} />
+                  
                   {/* 音频播放器 */}
                   <div id="audio-player" className="bg-gray-50 rounded-xl p-4 mb-6">
-                    <button id="audio-play-btn" className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto">
-                      <i id="audio-play-icon" className="fas fa-play text-white text-xl"></i>
+                    <button 
+                      id="audio-play-btn" 
+                      className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto ${isAudioLoading ? 'bg-gray-400' : 'bg-primary'}`}
+                      onClick={async () => {
+                        if (!phrase?.audioUrl) {
+                          alert('当前短语暂无音频');
+                          return;
+                        }
+                        
+                        if (isPlaying) {
+                          pause()
+                        } else {
+                          await play(phrase.audioUrl)
+                        }
+                      }}
+                      disabled={isAudioLoading}
+                    >
+                      {isAudioLoading ? (
+                        <i className="fas fa-spinner fa-spin text-white text-xl"></i>
+                      ) : (
+                        <i id="audio-play-icon" className={`fas ${isPlaying ? 'fa-pause' : 'fa-play'} text-white text-xl`}></i>
+                      )}
                     </button>
-                    <p id="audio-text" className="text-center text-sm text-text-secondary mt-3">点击播放音频</p>
+                    <p id="audio-text" className="text-center text-sm text-text-secondary mt-3">
+                      {isAudioLoading ? '加载中...' : (isPlaying ? '播放中...' : '点击播放音频')}
+                    </p>
                   </div>
                   
                   {/* 选项列表 */}

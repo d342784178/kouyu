@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
+import { useAudio } from '@/hooks/useAudio'
 
 // 定义短语类型
 interface PhraseExample {
@@ -40,7 +41,6 @@ export default function PhraseDetailClient() {
   const [error, setError] = useState<string | null>(null)
   
   const [pronunciationType, setPronunciationType] = useState('british')
-  const [isPlaying, setIsPlaying] = useState(false)
   const [isRecording, setIsRecording] = useState(false)
   const [recordingTimer, setRecordingTimer] = useState(0)
   const [showAIFeedback, setShowAIFeedback] = useState(false)
@@ -49,13 +49,19 @@ export default function PhraseDetailClient() {
   
   // 示例播放状态 - 使用对象存储每个示例的播放状态
   const [examplePlayStates, setExamplePlayStates] = useState<Record<number, boolean>>({})
+  const [exampleLoadingStates, setExampleLoadingStates] = useState<Record<number, boolean>>({})
   
   // 录音相关状态
   const [recordedBlob, setRecordedBlob] = useState<Blob | null>(null)
   const [isPlayingRecording, setIsPlayingRecording] = useState(false)
   
-  // 音频元素引用
-  const audioRef = useRef<HTMLAudioElement>(null)
+  // 使用自定义 Hook 管理音频播放
+  const { isPlaying, isLoading: isAudioLoading, play, pause, audioRef } = useAudio()
+  
+  // 示例音频引用
+  const exampleAudioRefs = useRef<Record<number, HTMLAudioElement>>({})
+  
+  // 录音音频引用
   const recordingAudioRef = useRef<HTMLAudioElement>(null)
   
   // 媒体记录器引用
@@ -297,12 +303,7 @@ export default function PhraseDetailClient() {
             </div>
             
             {/* 隐藏的音频元素 */}
-            <audio 
-              ref={audioRef} 
-              onPlay={() => setIsPlaying(true)}
-              onPause={() => setIsPlaying(false)}
-              onEnded={() => setIsPlaying(false)}
-            />
+            <audio ref={audioRef} />
             
             {/* 录音播放音频元素 */}
             <audio 
@@ -316,38 +317,34 @@ export default function PhraseDetailClient() {
             <div id="audio-player" className="flex items-center space-x-3">
               <button 
                 id="play-btn" 
-                className="w-12 h-12 bg-primary rounded-full flex items-center justify-center"
-                onClick={() => {
-                  if (!audioRef.current) return;
+                className={`w-12 h-12 rounded-full flex items-center justify-center ${isAudioLoading ? 'bg-gray-400' : 'bg-primary'}`}
+                onClick={async () => {
+                  // 根据发音类型选择音频路径
+                  let audioPath = phrase?.audioUrl || '';
                   
-                  // 根据发音类型选择音频链接
-                  let audioUrl = phrase?.audioUrl || '';
-                  
-                  // 如果是美式发音，使用美式发音链接
+                  // 如果是美式发音，使用美式发音路径
                   if (pronunciationType === 'american') {
-                    // 示例：将原来的URL替换为美式发音URL
-                    audioUrl = audioUrl ? audioUrl.replace(/british|uk/i, 'american') : '';
+                    audioPath = audioPath ? audioPath.replace(/british|uk/i, 'american') : '';
                   }
                   
-                  if (!audioUrl) {
+                  if (!audioPath) {
                     alert('当前短语暂无音频');
                     return;
                   }
                   
-                  try {
-                    audioRef.current.src = audioUrl;
-                    if (isPlaying) {
-                      audioRef.current.pause();
-                    } else {
-                      audioRef.current.play();
-                    }
-                  } catch (error) {
-                    console.error('Error playing phrase audio:', error);
-                    alert('音频播放失败，请稍后重试');
+                  if (isPlaying) {
+                    pause()
+                  } else {
+                    await play(audioPath)
                   }
                 }}
+                disabled={isAudioLoading}
               >
-                <i className={`fa-solid text-white text-lg ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
+                {isAudioLoading ? (
+                  <i className="fas fa-spinner fa-spin text-white text-lg"></i>
+                ) : (
+                  <i className={`fa-solid text-white text-lg ${isPlaying ? 'fa-pause' : 'fa-play'}`}></i>
+                )}
               </button>
               <div id="audio-info" className="flex-1">
                 <div id="audio-progress" className="w-full bg-gray-200 rounded-full h-2 mb-2">
@@ -472,8 +469,8 @@ export default function PhraseDetailClient() {
                 <div id="feedback-suggestions">
                   <p id="feedback-text" className="text-sm text-green-800 mb-2">发音清晰，语调自然！建议：</p>
                   <ul id="feedback-list" className="text-sm text-green-700 space-y-1">
-                    <li>• "could"的发音可以更轻柔一些</li>
-                    <li>• "please"的重音位置很标准</li>
+                    <li>• &quot;could&quot;的发音可以更轻柔一些</li>
+                    <li>• &quot;please&quot;的重音位置很标准</li>
                   </ul>
                 </div>
               </div>
@@ -502,8 +499,9 @@ export default function PhraseDetailClient() {
                   
                   {/* 示例音频元素 - 隐藏 */}
                   <audio 
-                    id={`example-${index + 1}-audio-element`} 
-                    src={example.audioUrl || ''}
+                    ref={el => {
+                      if (el) exampleAudioRefs.current[example.id] = el
+                    }}
                     onPlay={() => setExamplePlayStates(prev => ({ ...prev, [example.id]: true }))}
                     onPause={() => setExamplePlayStates(prev => ({ ...prev, [example.id]: false }))}
                     onEnded={() => setExamplePlayStates(prev => ({ ...prev, [example.id]: false }))}
@@ -512,31 +510,54 @@ export default function PhraseDetailClient() {
                   {/* 音频播放按钮 */}
                   <button 
                     id={`example-${index + 1}-audio`} 
-                    onClick={() => {
+                    onClick={async () => {
                       if (!example.audioUrl) {
-                        // 没有音频URL时的处理
                         console.log('No audio URL available for this example');
                         alert('当前示例暂无音频');
                         return;
                       }
                       
-                      const audioElement = document.getElementById(`example-${index + 1}-audio-element`) as HTMLAudioElement;
-                      if (audioElement) {
-                        try {
-                          if (audioElement.paused) {
-                            audioElement.play();
-                          } else {
-                            audioElement.pause();
+                      const audioElement = exampleAudioRefs.current[example.id];
+                      if (!audioElement) return;
+                      
+                      try {
+                        // 如果正在加载，不执行操作
+                        if (exampleLoadingStates[example.id]) return;
+                        
+                        if (audioElement.paused) {
+                          // 如果音频没有 src 或者 src 不是 blob URL，需要先获取
+                          if (!audioElement.src || !audioElement.src.startsWith('blob:')) {
+                            setExampleLoadingStates(prev => ({ ...prev, [example.id]: true }));
+                            
+                            const response = await fetch(`/api/audio?path=${encodeURIComponent(example.audioUrl)}`);
+                            if (!response.ok) {
+                              throw new Error('Failed to fetch audio URL');
+                            }
+                            const data = await response.json();
+                            audioElement.src = data.url;
                           }
-                        } catch (error) {
-                          console.error('Error playing example audio:', error);
-                          alert('音频播放失败，请稍后重试');
+                          
+                          await audioElement.play();
+                        } else {
+                          audioElement.pause();
                         }
+                      } catch (error) {
+                        console.error('Error playing example audio:', error);
+                        alert('音频播放失败，请稍后重试');
+                      } finally {
+                        setExampleLoadingStates(prev => ({ ...prev, [example.id]: false }));
                       }
                     }}
-                    className="w-10 h-10 rounded-full flex items-center justify-center bg-gray-100 hover:bg-gray-200 cursor-pointer"
+                    disabled={exampleLoadingStates[example.id]}
+                    className={`w-10 h-10 rounded-full flex items-center justify-center cursor-pointer ${
+                      exampleLoadingStates[example.id] ? 'bg-gray-200' : 'bg-gray-100 hover:bg-gray-200'
+                    }`}
                   >
-                    <i className={`fas ${examplePlayStates[example.id] ? 'fa-pause' : 'fa-play'} text-gray-600 text-sm`}></i>
+                    {exampleLoadingStates[example.id] ? (
+                      <i className="fas fa-spinner fa-spin text-gray-600 text-sm"></i>
+                    ) : (
+                      <i className={`fas ${examplePlayStates[example.id] ? 'fa-pause' : 'fa-play'} text-gray-600 text-sm`}></i>
+                    )}
                   </button>
                 </div>
                 <div id={`example-${index + 1}-usage`} className="bg-gray-50 rounded-lg p-3">

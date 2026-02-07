@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server'
-import { db } from '@/lib/db'
 import { neon } from '@neondatabase/serverless'
 
 export async function GET() {
