@@ -76,12 +76,13 @@ prepare/
 │
 ├── scripts/                               # 脚本
 │   ├── README.md                          # 脚本使用说明
+│   ├── init_database_and_audio.ts         # 🚀 完整初始化（音频+数据库）
+│   ├── init_examples_only.ts              # 仅插入示例数据
+│   ├── update_phrase_audio_urls.ts        # 更新短语音频URL
+│   ├── verify_data.ts                     # 验证数据完整性
 │   ├── upload_data.ts                     # 完整上传（音频+数据）
 │   ├── upload_audio_only.ts               # 仅上传音频
-│   ├── upload_database_only.ts            # 仅上传数据
-│   ├── generate_audio_quality.py          # 生成音频（PowerShell TTS）
-│   ├── generate_audio_simple.py           # 简化版音频生成
-│   └── check_and_generate_audio.py        # 检查并生成缺失音频
+│   └── upload_database_only.ts            # 仅上传数据
 │
 ├── docs/                                  # 文档
 │   └── 交付文档_100个高质量短语.md         # 完整交付文档
@@ -94,22 +95,37 @@ prepare/
 
 ## 🚀 快速开始
 
-### 1. 上传数据到数据库和Vercel Blob
+### 首次初始化（推荐）
+
+一键完成音频上传和数据库初始化：
 
 ```bash
-npx ts-node prepare/scripts/upload_data.ts
+npx ts-node prepare/scripts/init_database_and_audio.ts
 ```
 
-### 2. 仅上传音频文件
+这个脚本会：
+1. 上传所有音频文件到 Vercel Blob
+2. 将短语数据插入 PostgreSQL 数据库
+3. 自动更新音频 URL 为 Blob 地址
+
+### 分步操作
+
+#### 1. 仅上传音频文件
 
 ```bash
 npx ts-node prepare/scripts/upload_audio_only.ts
 ```
 
-### 3. 仅上传数据库数据
+#### 2. 仅上传数据库数据
 
 ```bash
 npx ts-node prepare/scripts/upload_database_only.ts
+```
+
+#### 3. 验证数据完整性
+
+```bash
+npx ts-node prepare/scripts/verify_data.ts
 ```
 
 详细说明请查看 [scripts/README.md](./scripts/README.md)
