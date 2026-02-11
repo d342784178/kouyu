@@ -1,11 +1,13 @@
-# 100个高质量英语连读短语完整数据包
+# 100个高质量英语连读短语数据包
 
 ## 📦 项目概述
 
 这是一个专为英语口语练习APP设计的完整数据包，包含**100个高质量连读短语**、**200个真实场景示例句**以及**300个高质量音频文件**。
 
-**版本**: 2.0  
-**更新日期**: 2026-02-07  
+**版本**: 3.0  
+**更新日期**: 2026-02-11  
+**音频生成**: edge-tts (Microsoft Azure TTS)  
+**音频存储**: Vercel Blob  
 **质量**: ⭐⭐⭐⭐⭐ 100%高质量
 
 ---
@@ -17,6 +19,7 @@
 - **0%模板句**: 200个真实场景例句，无模板化内容
 - **详细连读说明**: 每个短语都有完整的音变过程说明
 - **口语实际读音**: 包含wanna, gonna, gotcha等口语缩读
+- **AI语音合成**: 使用 Microsoft Azure TTS (edge-tts) 生成高质量音频
 
 ### ✅ 符合需求
 - **日常使用频率高**: 100%日常高频短语
@@ -39,10 +42,11 @@
 - **质量**: 100%真实对话，0%模板句
 
 ### 音频文件
-- **总数**: 300个WAV文件
+- **总数**: 300个MP3文件
 - **短语音频**: 100个
 - **示例音频**: 200个
-- **格式**: WAV, 16位, 22kHz采样率
+- **格式**: MP3 (edge-tts生成)
+- **语音**: en-US-AriaNeural (美式英语女声)
 
 ### 难度分布
 | 难度 | 数量 | 百分比 |
@@ -68,21 +72,19 @@ prepare/
 ├── data/                                    # 数据文件
 │   ├── phrases_100_quality.json           # 100个高质量短语JSON数据
 │   ├── phrases_100_quality.sql            # PostgreSQL插入脚本
-│   └── audio/                             # 音频文件（300个）
+│   └── audio/                             # 音频文件（300个MP3）
 │       ├── phrases/                       # 100个短语音频
-│       │   └── phrase_001.wav ~ phrase_100.wav
+│       │   └── phrase_001.mp3 ~ phrase_100.mp3
 │       └── examples/                      # 200个示例音频
-│           └── phrase_001_ex1.wav ~ phrase_100_ex2.wav
+│           └── phrase_001_ex1.mp3 ~ phrase_100_ex2.mp3
 │
 ├── scripts/                               # 脚本
 │   ├── README.md                          # 脚本使用说明
-│   ├── init_database_and_audio.ts         # 🚀 完整初始化（音频+数据库）
-│   ├── init_examples_only.ts              # 仅插入示例数据
-│   ├── update_phrase_audio_urls.ts        # 更新短语音频URL
-│   ├── verify_data.ts                     # 验证数据完整性
-│   ├── upload_data.ts                     # 完整上传（音频+数据）
-│   ├── upload_audio_only.ts               # 仅上传音频
-│   └── upload_database_only.ts            # 仅上传数据
+│   ├── generate_audio_edge_tts.py         # 🎵 生成音频 (edge-tts)
+│   ├── upload_audio_and_update_json.ts    # ☁️ 上传音频到Vercel Blob
+│   ├── generate_and_upload_all.py         # 🚀 一键生成并上传
+│   ├── reinit_database.ts                 # 🗄️ 重新初始化数据库
+│   └── verify_database.ts                 # ✅ 验证数据库数据
 │
 ├── docs/                                  # 文档
 │   └── 交付文档_100个高质量短语.md         # 完整交付文档
@@ -95,40 +97,116 @@ prepare/
 
 ## 🚀 快速开始
 
-### 首次初始化（推荐）
+### 环境准备
 
-一键完成音频上传和数据库初始化：
-
+1. **安装 Python 依赖**
 ```bash
-npx ts-node prepare/scripts/init_database_and_audio.ts
+pip install edge-tts
 ```
 
-这个脚本会：
-1. 上传所有音频文件到 Vercel Blob
-2. 将短语数据插入 PostgreSQL 数据库
-3. 自动更新音频 URL 为 Blob 地址
+2. **确保环境变量已配置** (`.env.local`)
+```
+BLOB_READ_WRITE_TOKEN=your_vercel_blob_token
+DATABASE_URL=your_postgresql_url
+```
+
+---
+
+## 📖 使用流程
+
+### 完整流程（首次使用）
+
+一键完成音频生成、上传和数据库初始化：
+
+```bash
+# 1. 生成音频 + 上传到 Vercel Blob + 更新 JSON
+python prepare/scripts/generate_and_upload_all.py
+
+# 2. 重新初始化数据库（使用新的 Blob URL）
+npx ts-node prepare/scripts/reinit_database.ts
+
+# 3. 验证数据
+npx ts-node prepare/scripts/verify_database.ts
+```
+
+---
 
 ### 分步操作
 
-#### 1. 仅上传音频文件
+#### 1. 仅生成音频文件
+
+使用 edge-tts 生成所有音频：
 
 ```bash
-npx ts-node prepare/scripts/upload_audio_only.ts
+python prepare/scripts/generate_audio_edge_tts.py
 ```
 
-#### 2. 仅上传数据库数据
+- 生成 100 个短语音频
+- 生成 200 个示例音频
+- 保存到 `prepare/data/audio/`
+
+#### 2. 上传音频并更新 JSON
+
+上传音频到 Vercel Blob，并更新 JSON 文件中的 URL：
 
 ```bash
-npx ts-node prepare/scripts/upload_database_only.ts
+npx ts-node prepare/scripts/upload_audio_and_update_json.ts
 ```
 
-#### 3. 验证数据完整性
+- 上传所有 MP3 文件到 Vercel Blob
+- 自动更新 `phrases_100_quality.json` 中的 `audioUrl`
+- 自动备份原 JSON 文件
+
+#### 3. 重新初始化数据库
+
+使用更新后的 JSON 数据重新初始化数据库：
 
 ```bash
-npx ts-node prepare/scripts/verify_data.ts
+npx ts-node prepare/scripts/reinit_database.ts
 ```
 
-详细说明请查看 [scripts/README.md](./scripts/README.md)
+- 清空现有数据
+- 插入所有短语和示例（使用 Vercel Blob URL）
+
+#### 4. 验证数据库
+
+检查数据库数据是否正确：
+
+```bash
+npx ts-node prepare/scripts/verify_database.ts
+```
+
+---
+
+## 📝 数据格式
+
+### JSON结构
+```json
+{
+  "phrases": [
+    {
+      "id": "phrase_001",
+      "english": "not at all",
+      "chinese": "一点也不；不客气",
+      "partOfSpeech": "phrase",
+      "scene": "daily_life",
+      "difficulty": "beginner",
+      "pronunciationTips": "连读为 /ˌnɑːt ət ˈɔːl/...",
+      "audioUrl": "https://xxx.public.blob.vercel-storage.com/audio/phrases/phrase_001.mp3",
+      "examples": [
+        {
+          "title": "回应感谢",
+          "desc": "别人道谢时的礼貌回应",
+          "english": "Thank you so much! - Not at all.",
+          "chinese": "非常感谢！- 不客气。",
+          "usage": "相当于 'You're welcome'",
+          "audioUrl": "https://xxx.public.blob.vercel-storage.com/audio/examples/phrase_001_ex1.mp3"
+        }
+      ]
+    }
+  ]
+}
+```
 
 ---
 
@@ -149,58 +227,27 @@ npx ts-node prepare/scripts/verify_data.ts
 
 ---
 
-## 📝 数据格式
-
-### JSON结构
-```json
-{
-  "phrases": [
-    {
-      "id": "phrase_001",
-      "english": "not at all",
-      "chinese": "一点也不；不客气",
-      "partOfSpeech": "phrase",
-      "scene": "daily_life",
-      "difficulty": "beginner",
-      "pronunciationTips": "连读为 /ˌnɑːt ət ˈɔːl/...",
-      "audioUrl": "/data/audio/phrases/phrase_001.mp3",
-      "examples": [
-        {
-          "title": "回应感谢",
-          "desc": "别人道谢时的礼貌回应",
-          "english": "Thank you so much! - Not at all.",
-          "chinese": "非常感谢！- 不客气。",
-          "usage": "相当于 'You're welcome'",
-          "audioUrl": "/data/audio/examples/phrase_001_ex1.mp3"
-        }
-      ]
-    }
-  ]
-}
-```
-
----
-
 ## 🔧 技术说明
 
-### 音频格式
-- **格式**: WAV
-- **采样率**: 22kHz
-- **位深度**: 16位
-- **声道**: 单声道
+### 音频生成
+- **工具**: edge-tts (Microsoft Azure TTS)
+- **语音**: en-US-AriaNeural (美式英语女声)
+- **格式**: MP3
+- **特点**: 发音清晰，适合学习
 
-### 数据库表结构
-- **phrases**: 短语主表
-- **phrase_examples**: 示例句表
+### 音频存储
+- **平台**: Vercel Blob
+- **访问**: 公开访问 (public)
+- **CDN**: 全球分发，访问速度快
+
+### 数据库
+- **类型**: PostgreSQL
+- **表结构**:
+  - `phrases`: 短语主表
+  - `phrase_examples`: 示例句表
 
 ---
 
 ## 📄 许可证
 
 本项目数据仅供学习和研究使用。
-
----
-
-## 🤝 贡献
-
-如有建议或发现问题，欢迎提交Issue。
