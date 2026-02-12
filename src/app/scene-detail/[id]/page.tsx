@@ -7,43 +7,71 @@ interface Scene {
   category: string
   description: string
   difficulty: string
-  coverImage: string | null
+  duration: number
+  tags: string[]
+  dialogue: Dialogue
+  vocabulary: Vocabulary[]
   createdAt: string
   updatedAt: string
 }
 
 // 定义对话类型
 interface Dialogue {
-  id: string
-  sceneId: string
+  dialogue_id: string
+  scene_id: string
+  full_audio_url: string
+  duration: number
+  rounds: DialogueRound[]
+}
+
+// 定义对话回合类型
+interface DialogueRound {
+  round_number: number
+  content: DialogueContent[]
+  analysis: QAAnalysis
+}
+
+// 定义对话内容类型
+interface DialogueContent {
+  index: number
   speaker: string
-  content: string
+  speaker_name: string
+  text: string
   translation: string
-  audioUrl: string | null
-  order: number
-  createdAt: string
-  updatedAt: string
+  audio_url: string
+  is_key_qa: boolean
 }
 
-// 定义对话解析类型
-interface DialogueAnalysis {
-  id: string
-  phrase: string
-  explanation: string
-  answers: {
-    text: string
-    translation: string
-    scenario: string
-  }[]
+// 定义问答解析类型
+interface QAAnalysis {
+  analysis_detail: string
+  standard_answer: Answer
+  alternative_answers: Answer[]
+  usage_notes: string
 }
 
-// 定义高频单词类型
-interface HighFrequencyWord {
-  id: string
-  word: string
-  pronunciation: string
-  meaning: string
-  originalSentence: string
+// 定义回答类型
+interface Answer {
+  answer_id: string
+  text: string
+  translation: string
+  audio_url: string
+  scenario: string
+  formality: string
+}
+
+// 定义词汇类型
+interface Vocabulary {
+  vocab_id: string
+  scene_id: string
+  type: string
+  content: string
+  phonetic: string
+  translation: string
+  example_sentence: string
+  example_translation: string
+  audio_url: string
+  round_number: number
 }
 
 // 获取场景详情的辅助函数
@@ -66,10 +94,98 @@ async function getSceneById(id: string): Promise<Scene> {
       scene = {
         id: id,
         name: '日常问候',
-        category: '日常场景',
+        category: 'daily',
         description: '学习日常问候的高频对话，掌握不同场景下的问候方式。',
-        difficulty: '入门',
-        coverImage: 'https://via.placeholder.com/400x200',
+        difficulty: 'beginner',
+        duration: 10,
+        tags: ['问候', '日常', '基础'],
+        dialogue: {
+          dialogue_id: `dlg_${id}`,
+          scene_id: id,
+          full_audio_url: `https://cdn.example.com/audio/${id}_full.mp3`,
+          duration: 30,
+          rounds: [
+            {
+              round_number: 1,
+              content: [
+                {
+                  index: 1,
+                  speaker: 'A',
+                  speaker_name: 'A',
+                  text: 'Hello! How are you today?',
+                  translation: '你好！你今天怎么样？',
+                  audio_url: `https://cdn.example.com/audio/${id}_r1_1.mp3`,
+                  is_key_qa: true
+                },
+                {
+                  index: 2,
+                  speaker: 'B',
+                  speaker_name: 'B',
+                  text: "I'm doing great, thanks! How about you?",
+                  translation: '我很好，谢谢！你呢？',
+                  audio_url: `https://cdn.example.com/audio/${id}_r1_2.mp3`,
+                  is_key_qa: false
+                }
+              ],
+              analysis: {
+                analysis_detail: '这是最基础的日常问候对话。用于熟人之间的问候。',
+                standard_answer: {
+                  answer_id: `ans_${id}_01_std`,
+                  text: "I'm doing great, thanks! How about you?",
+                  translation: '我很好，谢谢！你呢？',
+                  audio_url: `https://cdn.example.com/audio/ans_${id}_01_std.mp3`,
+                  scenario: '标准问候回答',
+                  formality: 'neutral'
+                },
+                alternative_answers: [
+                  {
+                    answer_id: `ans_${id}_01_alt1`,
+                    text: "I'm good, thanks. And you?",
+                    translation: '我很好，谢谢。你呢？',
+                    audio_url: `https://cdn.example.com/audio/ans_${id}_01_alt1.mp3`,
+                    scenario: '简洁回答',
+                    formality: 'casual'
+                  },
+                  {
+                    answer_id: `ans_${id}_01_alt2`,
+                    text: "I'm doing well, thank you for asking. How are you?",
+                    translation: '我很好，谢谢你的关心。你怎么样？',
+                    audio_url: `https://cdn.example.com/audio/ans_${id}_01_alt2.mp3`,
+                    scenario: '正式回答',
+                    formality: 'formal'
+                  }
+                ],
+                usage_notes: '"How are you today?"是询问对方当天状态的常用表达。回答时，通常会先说明自己的状态，然后反问对方。'
+              }
+            }
+          ]
+        },
+        vocabulary: [
+          {
+            vocab_id: `vocab_${id}_01`,
+            scene_id: id,
+            type: 'word',
+            content: 'hello',
+            phonetic: '/həˈloʊ/',
+            translation: '你好',
+            example_sentence: 'Hello! How are you today?',
+            example_translation: '你好！你今天怎么样？',
+            audio_url: `https://cdn.example.com/audio/vocab_hello.mp3`,
+            round_number: 1
+          },
+          {
+            vocab_id: `vocab_${id}_02`,
+            scene_id: id,
+            type: 'word',
+            content: 'thanks',
+            phonetic: '/θæŋks/',
+            translation: '谢谢',
+            example_sentence: "I'm doing great, thanks!",
+            example_translation: '我很好，谢谢！',
+            audio_url: `https://cdn.example.com/audio/vocab_thanks.mp3`,
+            round_number: 1
+          }
+        ],
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
       }
@@ -82,202 +198,114 @@ async function getSceneById(id: string): Promise<Scene> {
     return {
       id: id,
       name: '日常问候',
-      category: '日常场景',
+      category: 'daily',
       description: '学习日常问候的高频对话，掌握不同场景下的问候方式。',
-      difficulty: '入门',
-      coverImage: 'https://via.placeholder.com/400x200',
+      difficulty: 'beginner',
+      duration: 10,
+      tags: ['问候', '日常', '基础'],
+      dialogue: {
+        dialogue_id: `dlg_${id}`,
+        scene_id: id,
+        full_audio_url: `https://cdn.example.com/audio/${id}_full.mp3`,
+        duration: 30,
+        rounds: [
+          {
+            round_number: 1,
+            content: [
+              {
+                index: 1,
+                speaker: 'A',
+                speaker_name: 'A',
+                text: 'Hello! How are you today?',
+                translation: '你好！你今天怎么样？',
+                audio_url: `https://cdn.example.com/audio/${id}_r1_1.mp3`,
+                is_key_qa: true
+              },
+              {
+                index: 2,
+                speaker: 'B',
+                speaker_name: 'B',
+                text: "I'm doing great, thanks! How about you?",
+                translation: '我很好，谢谢！你呢？',
+                audio_url: `https://cdn.example.com/audio/${id}_r1_2.mp3`,
+                is_key_qa: false
+              }
+            ],
+            analysis: {
+              analysis_detail: '这是最基础的日常问候对话。用于熟人之间的问候。',
+              standard_answer: {
+                answer_id: `ans_${id}_01_std`,
+                text: "I'm doing great, thanks! How about you?",
+                translation: '我很好，谢谢！你呢？',
+                audio_url: `https://cdn.example.com/audio/ans_${id}_01_std.mp3`,
+                scenario: '标准问候回答',
+                formality: 'neutral'
+              },
+              alternative_answers: [
+                {
+                  answer_id: `ans_${id}_01_alt1`,
+                  text: "I'm good, thanks. And you?",
+                  translation: '我很好，谢谢。你呢？',
+                  audio_url: `https://cdn.example.com/audio/ans_${id}_01_alt1.mp3`,
+                  scenario: '简洁回答',
+                  formality: 'casual'
+                },
+                {
+                  answer_id: `ans_${id}_01_alt2`,
+                  text: "I'm doing well, thank you for asking. How are you?",
+                  translation: '我很好，谢谢你的关心。你怎么样？',
+                  audio_url: `https://cdn.example.com/audio/ans_${id}_01_alt2.mp3`,
+                  scenario: '正式回答',
+                  formality: 'formal'
+                }
+              ],
+              usage_notes: '"How are you today?"是询问对方当天状态的常用表达。回答时，通常会先说明自己的状态，然后反问对方。'
+            }
+          }
+        ]
+      },
+      vocabulary: [
+        {
+          vocab_id: `vocab_${id}_01`,
+          scene_id: id,
+          type: 'word',
+          content: 'hello',
+          phonetic: '/həˈloʊ/',
+          translation: '你好',
+          example_sentence: 'Hello! How are you today?',
+          example_translation: '你好！你今天怎么样？',
+          audio_url: `https://cdn.example.com/audio/vocab_hello.mp3`,
+          round_number: 1
+        },
+        {
+          vocab_id: `vocab_${id}_02`,
+          scene_id: id,
+          type: 'word',
+          content: 'thanks',
+          phonetic: '/θæŋks/',
+          translation: '谢谢',
+          example_sentence: "I'm doing great, thanks!",
+          example_translation: '我很好，谢谢！',
+          audio_url: `https://cdn.example.com/audio/vocab_thanks.mp3`,
+          round_number: 1
+        }
+      ],
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     }
   }
 }
 
-// 获取场景对话的辅助函数
-async function getSceneDialogues(sceneId: string): Promise<Dialogue[]> {
-  try {
-    // 在服务器组件中，使用当前URL或环境变量构建绝对URL
-    const baseUrl = process.env.VERCEL_URL 
-      ? `https://${process.env.VERCEL_URL}` 
-      : 'http://localhost:3000' // 开发环境默认URL
-    
-    // 调用API获取场景对话（禁用缓存以确保获取最新数据）
-    const response = await fetch(`${baseUrl}/api/scenes/${sceneId}/dialogues`, { cache: 'no-store' })
-    
-    let dialogues: Dialogue[] = []
-    
-    if (response.ok) {
-      dialogues = await response.json()
-    } else {
-      // 如果API调用失败，返回模拟数据
-      dialogues = [
-        {
-          id: 'dialogue_1',
-          sceneId: sceneId,
-          speaker: 'A',
-          content: 'Hello! How are you today?',
-          translation: '你好！你今天怎么样？',
-          audioUrl: null,
-          order: 1,
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString()
-        },
-        {
-          id: 'dialogue_2',
-          sceneId: sceneId,
-          speaker: 'B',
-          content: 'I\'m doing great, thanks! How about you?',
-          translation: '我很好，谢谢！你呢？',
-          audioUrl: null,
-          order: 2,
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString()
-        },
-        {
-          id: 'dialogue_3',
-          sceneId: sceneId,
-          speaker: 'A',
-          content: 'I\'m good too. It\'s nice to see you!',
-          translation: '我也很好。很高兴见到你！',
-          audioUrl: null,
-          order: 3,
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString()
-        },
-        {
-          id: 'dialogue_4',
-          sceneId: sceneId,
-          speaker: 'B',
-          content: 'Nice to see you too! How have you been?',
-          translation: '我也很高兴见到你！你最近怎么样？',
-          audioUrl: null,
-          order: 4,
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString()
-        }
-      ]
-    }
-    
-    // 按顺序排序对话
-    return dialogues.sort((a, b) => a.order - b.order)
-  } catch (error) {
-    console.error(`Error fetching dialogues for scene ${sceneId}:`, error)
-    // 返回模拟数据
-    return [
-      {
-        id: 'dialogue_1',
-        sceneId: sceneId,
-        speaker: 'A',
-        content: 'Hello! How are you today?',
-        translation: '你好！你今天怎么样？',
-        audioUrl: null,
-        order: 1,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-      },
-      {
-        id: 'dialogue_2',
-        sceneId: sceneId,
-        speaker: 'B',
-        content: 'I\'m doing great, thanks! How about you?',
-        translation: '我很好，谢谢！你呢？',
-        audioUrl: null,
-        order: 2,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-      },
-      {
-        id: 'dialogue_3',
-        sceneId: sceneId,
-        speaker: 'A',
-        content: 'I\'m good too. It\'s nice to see you!',
-        translation: '我也很好。很高兴见到你！',
-        audioUrl: null,
-        order: 3,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-      },
-      {
-        id: 'dialogue_4',
-        sceneId: sceneId,
-        speaker: 'B',
-        content: 'Nice to see you too! How have you been?',
-        translation: '我也很高兴见到你！你最近怎么样？',
-        audioUrl: null,
-        order: 4,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-      }
-    ]
-  }
-}
-
-// 获取对话解析的辅助函数
-async function getDialogueAnalysis(): Promise<DialogueAnalysis[]> {
-  // 返回模拟数据
-  return [
-    {
-      id: 'analysis_1',
-      phrase: 'How are you today?',
-      explanation: '这是一个常见的问候语，用于询问对方当天的状态。',
-      answers: [
-        {
-          text: 'I\'m doing great, thanks!',
-          translation: '我很好，谢谢！',
-          scenario: '当你状态非常好时使用。'
-        },
-        {
-          text: 'I\'m okay, thanks for asking.',
-          translation: '我还可以，谢谢你的关心。',
-          scenario: '当你状态一般时使用。'
-        },
-        {
-          text: 'Not bad, how about you?',
-          translation: '还不错，你呢？',
-          scenario: '当你状态还可以，同时反问对方时使用。'
-        }
-      ]
-    }
-  ]
-}
-
-// 获取高频单词的辅助函数
-async function getHighFrequencyWords(): Promise<HighFrequencyWord[]> {
-  // 返回模拟数据
-  return [
-    {
-      id: 'word_1',
-      word: 'hello',
-      pronunciation: '[həˈləʊ]',
-      meaning: '你好',
-      originalSentence: 'Hello! How are you today?'
-    },
-    {
-      id: 'word_2',
-      word: 'thanks',
-      pronunciation: '[θæŋks]',
-      meaning: '谢谢',
-      originalSentence: 'I\'m doing great, thanks!'
-    },
-    {
-      id: 'word_3',
-      word: 'nice',
-      pronunciation: '[naɪs]',
-      meaning: '高兴的，愉快的',
-      originalSentence: 'It\'s nice to see you!'
-    }
-  ]
-}
-
 export default async function SceneDetail({ params }: { params: { id: string } }) {
   const { id } = params
   // 获取场景详情
   const scene = await getSceneById(id)
-  // 获取场景对话
-  const dialogues = await getSceneDialogues(id)
-  // 获取对话解析
-  const dialogueAnalysis = await getDialogueAnalysis()
-  // 获取高频单词
-  const highFrequencyWords = await getHighFrequencyWords()
+  // 从场景数据中提取对话回合
+  const dialogueRounds = scene.dialogue.rounds
+  // 从场景数据中提取词汇
+  const vocabulary = scene.vocabulary
+  // 从场景数据中提取解析（从对话回合中）
+  const dialogueAnalysis = dialogueRounds.map(round => round.analysis)
   
   // 计算学习时间（模拟）
   const learningTime = '10分钟'
@@ -331,38 +359,36 @@ export default async function SceneDetail({ params }: { params: { id: string } }
         <div className="bg-white rounded-card shadow-card p-6">
           <div className="space-y-6">
             {/* 对话回合 */}
-            {Array.from({ length: Math.ceil(dialogues.length / 2) }).map((_, turnIndex) => {
-              const turnDialogues = dialogues.slice(turnIndex * 2, turnIndex * 2 + 2);
-              return (
-                <div key={turnIndex} id={`dialogue-turn-${turnIndex + 1}`} className="space-y-3">
-                  {turnDialogues.map((dialogue, index) => (
-                    <div key={dialogue.id} className={`flex flex-col ${dialogue.speaker === 'A' ? 'space-y-2' : 'items-end space-y-2'}`}>
-                      <div 
-                        className={`p-4 max-w-[80%] ${dialogue.speaker === 'A' ? 'align-self-start' : 'align-self-end'}`}
-                        style={{
-                          backgroundColor: dialogue.speaker === 'A' ? '#f3f4f6' : '#2563eb',
-                          borderRadius: dialogue.speaker === 'A' ? '18px 18px 18px 4px' : '18px 18px 4px 18px',
-                          color: dialogue.speaker === 'A' ? '#1f2937' : 'white'
-                        }}
-                      >
-                        <p className="text-sm">{dialogue.content}</p>
-                      </div>
-                      <div className={`flex items-center ${dialogue.speaker === 'A' ? 'space-x-2' : 'flex-row-reverse space-x-2'}`}>
-                        {dialogue.speaker === 'A' && (
-                          <span className="text-xs text-text-secondary">{dialogue.speaker}: {dialogue.translation}</span>
-                        )}
-                        <button id={`play-turn-${turnIndex + 1}${dialogue.speaker === 'B' ? '-response' : ''}`} className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
-                          <i className="fas fa-play text-gray-600 text-xs"></i>
-                        </button>
-                        {dialogue.speaker === 'B' && (
-                          <span className="text-xs text-text-secondary">{dialogue.speaker}: {dialogue.translation}</span>
-                        )}
-                      </div>
+            {dialogueRounds.map((round, turnIndex) => (
+              <div key={round.round_number} id={`dialogue-turn-${round.round_number}`} className="space-y-3">
+                <h3 className="text-sm font-medium text-text-secondary mb-2">回合 {round.round_number}</h3>
+                {round.content.map((dialogue, index) => (
+                  <div key={dialogue.index} className={`flex flex-col ${dialogue.speaker === 'waiter' || dialogue.speaker === 'A' || dialogue.speaker === 'agent' ? 'space-y-2' : 'items-end space-y-2'}`}>
+                    <div 
+                      className={`p-4 max-w-[80%] ${dialogue.speaker === 'waiter' || dialogue.speaker === 'A' || dialogue.speaker === 'agent' ? 'align-self-start' : 'align-self-end'}`}
+                      style={{
+                        backgroundColor: dialogue.speaker === 'waiter' || dialogue.speaker === 'A' || dialogue.speaker === 'agent' ? '#f3f4f6' : '#2563eb',
+                        borderRadius: dialogue.speaker === 'waiter' || dialogue.speaker === 'A' || dialogue.speaker === 'agent' ? '18px 18px 18px 4px' : '18px 18px 4px 18px',
+                        color: dialogue.speaker === 'waiter' || dialogue.speaker === 'A' || dialogue.speaker === 'agent' ? '#1f2937' : 'white'
+                      }}
+                    >
+                      <p className="text-sm">{dialogue.text}</p>
                     </div>
-                  ))}
-                </div>
-              );
-            })}
+                    <div className={`flex items-center ${dialogue.speaker === 'waiter' || dialogue.speaker === 'A' || dialogue.speaker === 'agent' ? 'space-x-2' : 'flex-row-reverse space-x-2'}`}>
+                      {dialogue.speaker === 'waiter' || dialogue.speaker === 'A' || dialogue.speaker === 'agent' && (
+                        <span className="text-xs text-text-secondary">{dialogue.speaker_name}: {dialogue.translation}</span>
+                      )}
+                      <button id={`play-turn-${round.round_number}-${index + 1}`} className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                        <i className="fas fa-play text-gray-600 text-xs"></i>
+                      </button>
+                      {dialogue.speaker === 'customer' || dialogue.speaker === 'B' || dialogue.speaker === 'passenger' && (
+                        <span className="text-xs text-text-secondary">{dialogue.speaker_name}: {dialogue.translation}</span>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -374,18 +400,30 @@ export default async function SceneDetail({ params }: { params: { id: string } }
         <div className="bg-white rounded-card shadow-card p-4">
           <div className="space-y-4">
             {dialogueAnalysis.map((analysis, index) => (
-              <div key={analysis.id} id={`analysis-${index + 1}`}>
-                <h3 className="text-base font-semibold text-text-primary mb-2">{analysis.phrase}</h3>
-                <p className="text-sm text-text-secondary mb-3">{analysis.explanation}</p>
+              <div key={index} id={`analysis-${index + 1}`}>
+                <p className="text-sm text-text-secondary mb-3">{analysis.analysis_detail}</p>
                 
                 <div className="space-y-3">
-                  {analysis.answers.map((answer, answerIndex) => (
-                    <div key={answerIndex} className="p-3 bg-gray-50 rounded-lg">
-                      <p className="text-sm font-medium text-text-primary mb-1">回答{answerIndex + 1}: {answer.text}</p>
+                  <div className="p-3 bg-blue-50 rounded-lg">
+                    <p className="text-sm font-medium text-text-primary mb-1">标准回答: {analysis.standard_answer.text}</p>
+                    <p className="text-xs text-text-secondary">{analysis.standard_answer.translation}</p>
+                    <p className="text-xs text-text-secondary mt-1">适用场景：{analysis.standard_answer.scenario}</p>
+                    <p className="text-xs text-text-secondary mt-1">正式程度：{analysis.standard_answer.formality}</p>
+                  </div>
+                  
+                  {analysis.alternative_answers.map((answer, answerIndex) => (
+                    <div key={answer.answer_id} className="p-3 bg-gray-50 rounded-lg">
+                      <p className="text-sm font-medium text-text-primary mb-1">备选回答{answerIndex + 1}: {answer.text}</p>
                       <p className="text-xs text-text-secondary">{answer.translation}</p>
                       <p className="text-xs text-text-secondary mt-1">适用场景：{answer.scenario}</p>
+                      <p className="text-xs text-text-secondary mt-1">正式程度：{answer.formality}</p>
                     </div>
                   ))}
+                  
+                  <div className="p-3 bg-green-50 rounded-lg">
+                    <p className="text-sm font-medium text-text-primary mb-1">使用说明</p>
+                    <p className="text-xs text-text-secondary">{analysis.usage_notes}</p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -393,18 +431,19 @@ export default async function SceneDetail({ params }: { params: { id: string } }
         </div>
       </div>
 
-      {/* 高频单词 */}
+      {/* 高频单词/短语 */}
       <div id="high-frequency-words" className="mx-6 mt-6">
-        <h2 className="text-lg font-semibold text-text-primary mb-4">高频单词</h2>
+        <h2 className="text-lg font-semibold text-text-primary mb-4">高频词汇</h2>
         
         <div className="bg-white rounded-card shadow-card p-4">
           <div className="space-y-4">
-            {highFrequencyWords.map((word, index) => (
-              <div key={word.id} id={`word-${index + 1}`} className="flex items-center justify-between">
+            {vocabulary.map((vocab, index) => (
+              <div key={vocab.vocab_id} id={`word-${index + 1}`} className="flex items-center justify-between">
                 <div className="flex-1">
-                  <h3 className="text-base font-semibold text-text-primary mb-1">{word.word}</h3>
-                  <p className="text-sm text-text-secondary mb-1">{word.pronunciation} {word.meaning}</p>
-                  <p className="text-xs text-text-secondary">原句: {word.originalSentence}</p>
+                  <h3 className="text-base font-semibold text-text-primary mb-1">{vocab.content} <span className="text-xs text-text-secondary">({vocab.type === 'word' ? '单词' : '短语'})</span></h3>
+                  <p className="text-sm text-text-secondary mb-1">{vocab.phonetic} {vocab.translation}</p>
+                  <p className="text-xs text-text-secondary">原句: {vocab.example_sentence}</p>
+                  <p className="text-xs text-text-secondary">翻译: {vocab.example_translation}</p>
                 </div>
                 <button id={`play-word-${index + 1}`} className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
                   <i className="fas fa-play text-gray-600 text-xs"></i>

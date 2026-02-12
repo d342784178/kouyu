@@ -31,43 +31,29 @@ export const phraseExamples = pgTable('phrase_examples', {
 })
 
 
-// 场景表
+// 场景表（包含解析/对话/高频词汇）
 export const scenes = pgTable('scenes', {
   id: text('id').primaryKey(),
   name: text('name').notNull(),
   category: text('category').notNull(),
   description: text('description').notNull(),
   difficulty: text('difficulty').notNull(),
-  coverImage: text('cover_image'), // 封面图片 URL
+  duration: integer('duration').default(10), // 学习时长（分钟）
+  tags: jsonb('tags'), // 关键词标签
+  dialogue: jsonb('dialogue'), // 对话内容
+  vocabulary: jsonb('vocabulary'), // 高频单词/短语
   createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
   updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`)
 })
 
 
-// 场景对话表
-export const sceneDialogues = pgTable('scene_dialogues', {
-  id: text('id').primaryKey(),
-  sceneId: text('scene_id').notNull().references(() => scenes.id),
-  speaker: text('speaker').notNull(),
-  content: text('content').notNull(),
-  translation: text('translation').notNull(),
-  audioUrl: text('audio_url'), // 音频 URL
-  order: integer('order').notNull(), // 对话顺序
-  createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
-  updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`)
-})
-
-
-// 场景测试表
+// 场景测试表（通过场景详情id关联到场景详情表）
 export const sceneTests = pgTable('scene_tests', {
   id: text('id').primaryKey(),
   sceneId: text('scene_id').notNull().references(() => scenes.id),
-  type: text('type').notNull(), // 测试类型（选择题/填空题/开放题）
-  question: text('question').notNull(),
-  options: jsonb('options'), // 选项（选择题）
-  answer: text('answer').notNull(),
-  analysis: text('analysis').notNull(),
+  type: text('type').notNull(), // 测试类型（choice/qa/open_dialogue）
   order: integer('order').notNull(), // 题目顺序
+  content: jsonb('content').notNull(), // 题目内容
   createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
   updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`)
 })
@@ -80,7 +66,5 @@ export type PhraseExample = typeof phraseExamples.$inferSelect
 export type NewPhraseExample = typeof phraseExamples.$inferInsert
 export type Scene = typeof scenes.$inferSelect
 export type NewScene = typeof scenes.$inferInsert
-export type SceneDialogue = typeof sceneDialogues.$inferSelect
-export type NewSceneDialogue = typeof sceneDialogues.$inferInsert
 export type SceneTest = typeof sceneTests.$inferSelect
 export type NewSceneTest = typeof sceneTests.$inferInsert
