@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>语习集 - 场景测试</title>
+    <script src="https://unpkg.byted-static.com/coze/space_ppt_lib/1.0.3-alpha.12/lib/tailwindcss.js"></script>
+    <script src="https://unpkg.byted-static.com/fortawesome/fontawesome-free/6.7.2/js/all.min.js" data-auto-replace-svg="nest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#7c3aed',
+                        tertiary: '#059669',
+                        success: '#10b981',
+                        danger: '#ef4444',
+                        info: '#3b82f6',
+                        'text-primary': '#1f2937',
+                        'text-secondary': '#6b7280',
+                        'bg-card': '#ffffff',
+                        'bg-secondary': '#f8fafc',
+                        'border-light': '#e5e7eb'
+                    },
+                    fontFamily: {
+                        'sans': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'card': '0 2px 8px rgba(0, 0, 0, 0.06)',
+                        'card-hover': '0 4px 16px rgba(0, 0, 0, 0.1)'
+                    },
+                    borderRadius: {
+                        'card': '16px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .safe-top {
+            padding-top: env(safe-area-inset-top);
+        }
+        .safe-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+        
+        .dialogue-bubble-left {
+            background-color: #f3f4f6;
+            border-radius: 18px 18px 18px 4px;
+            align-self: flex-start;
+        }
+        
+        .dialogue-bubble-right {
+            background-color: #2563eb;
+            color: white;
+            border-radius: 18px 18px 4px 18px;
+            align-self: flex-end;
+        }
+        
+        .option-card {
+            transition: all 0.2s ease;
+        }
+        
+        .option-card:hover {
+            background-color: #f3f4f6;
+        }
+        
+        .option-card.selected {
+            background-color: #dbeafe;
+            border-color: #2563eb;
+        }
+    </style>
+</head>
+<body class="bg-bg-secondary font-sans">
+    <!-- 状态栏 -->
+    <div id="status-bar" class="bg-white safe-top">
+        <div class="flex justify-between items-center px-6 py-2 text-sm font-medium text-gray-900">
+            <span>9:41</span>
+            <div class="flex items-center space-x-1">
+                <i class="fas fa-signal text-xs"></i>
+                <i class="fas fa-wifi text-xs"></i>
+                <i class="fas fa-battery-three-quarters text-xs"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 顶部导航栏 -->
+    <header id="top-header" class="bg-white px-6 py-4 shadow-sm">
+        <div id="header-content" class="flex items-center justify-between">
+            <!-- 返回按钮 -->
+            <button id="back-btn" class="w-10 h-10 flex items-center justify-center">
+                <i class="fas fa-arrow-left text-text-primary text-lg"></i>
+            </button>
+            
+            <!-- 页面标题 -->
+            <h1 id="page-title" class="text-lg font-semibold text-text-primary">场景测试</h1>
+            
+            <!-- 测试进度 -->
+            <div id="test-progress" class="text-sm font-medium text-text-primary">
+                1/5
+            </div>
+        </div>
+    </header>
+
+    <!-- 测试进度条 -->
+    <div id="test-progress" class="mx-6 mt-4">
+        <div class="flex items-center justify-between mb-2">
+            <span class="text-sm text-text-secondary">测试进度</span>
+            <span id="progress-text" class="text-sm font-medium text-text-primary">1/3</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2">
+            <div id="progress-bar" class="bg-primary h-2 rounded-full" style="width: 33%"></div>
+        </div>
+    </div>
+
+    <!-- 测试内容 -->
+    <div id="test-content" class="mx-6 mt-6">
+        <!-- 选择题 -->
+        <div id="question-1" class="bg-white rounded-card shadow-card p-6">
+            <div class="flex items-center mb-4">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-question-circle text-blue-600 text-sm"></i>
+                </div>
+                <h2 class="text-lg font-semibold text-text-primary">选择题</h2>
+            </div>
+            
+            <p class="text-base text-text-primary mb-6">当别人问你 "How are you today?" 时，以下哪个回答是最合适的？</p>
+            
+            <div class="space-y-4">
+                <div id="option-1-1" class="option-card p-4 border border-border-light rounded-lg flex items-center justify-between cursor-pointer">
+                    <span class="text-sm text-text-primary">I'm doing great, thanks!</span>
+                    <div class="w-5 h-5 border border-border-light rounded-full flex items-center justify-center">
+                        <div class="w-3 h-3 bg-white rounded-full"></div>
+                    </div>
+                </div>
+                
+                <div id="option-1-2" class="option-card p-4 border border-border-light rounded-lg flex items-center justify-between cursor-pointer">
+                    <span class="text-sm text-text-primary">I'm a student.</span>
+                    <div class="w-5 h-5 border border-border-light rounded-full flex items-center justify-center">
+                        <div class="w-3 h-3 bg-white rounded-full"></div>
+                    </div>
+                </div>
+                
+                <div id="option-1-3" class="option-card p-4 border border-border-light rounded-lg flex items-center justify-between cursor-pointer">
+                    <span class="text-sm text-text-primary">I like pizza.</span>
+                    <div class="w-5 h-5 border border-border-light rounded-full flex items-center justify-center">
+                        <div class="w-3 h-3 bg-white rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 问答题 -->
+        <div id="question-2" class="bg-white rounded-card shadow-card p-6 hidden">
+            <div class="flex items-center mb-4">
+                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-microphone text-green-600 text-sm"></i>
+                </div>
+                <h2 class="text-lg font-semibold text-text-primary">问答题</h2>
+            </div>
+            
+            <div class="space-y-6">
+                <div>
+                    <p class="text-base text-text-primary mb-4">问题：请用英语回答：How are you today?</p>
+                    <div class="bg-blue-50 rounded-lg p-4">
+                        <h3 class="text-sm font-semibold text-blue-800 mb-2">回答要求：</h3>
+                        <p class="text-xs text-blue-700">- 回答应包含你的当前状态</p>
+                        <p class="text-xs text-blue-700">- 可以提及你最近在做的事情</p>
+                        <p class="text-xs text-blue-700">- 语言应自然流畅</p>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col items-center space-y-6">
+                    <div id="record-button" class="w-20 h-20 bg-primary rounded-full flex items-center justify-center cursor-pointer">
+                        <i class="fas fa-microphone text-white text-2xl"></i>
+                    </div>
+                    <p class="text-sm text-text-secondary">点击按钮开始录音</p>
+                    <div id="recording-indicator" class="hidden">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                            <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse" style="animation-delay: 0.2s"></div>
+                            <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse" style="animation-delay: 0.4s"></div>
+                        </div>
+                        <p class="text-sm text-text-secondary mt-2">正在录音...</p>
+                    </div>
+                    <div id="recording-result" class="w-full bg-gray-50 rounded-lg p-4 hidden">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fas fa-check text-green-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-sm font-semibold text-text-primary mb-1">录音完成</h3>
+                                <p class="text-xs text-text-secondary mb-2">录音时长：3秒</p>
+                                <button id="replay-btn" class="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded-full flex items-center mb-3">
+                                    <i class="fas fa-play mr-1"></i> 回放
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ai-evaluation" class="w-full bg-blue-50 rounded-lg p-4 hidden">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fas fa-robot text-blue-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-sm font-semibold text-blue-800 mb-2">AI 评价</h3>
+                                <div class="flex items-center mb-3">
+                                    <div class="text-lg font-bold text-blue-600 mr-2">85分</div>
+                                    <div class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">符合要求</div>
+                                </div>
+                                <p class="text-xs text-blue-700 mb-3">你的回答自然流畅，包含了当前状态和最近活动，词汇使用恰当。</p>
+                                <div class="space-y-2">
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-green-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
+                                            <i class="fas fa-check text-green-600 text-xs"></i>
+                                        </div>
+                                        <p class="text-xs text-blue-700">语言组织：良好</p>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-green-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
+                                            <i class="fas fa-check text-green-600 text-xs"></i>
+                                        </div>
+                                        <p class="text-xs text-blue-700">词汇水平：恰当</p>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-green-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
+                                            <i class="fas fa-check text-green-600 text-xs"></i>
+                                        </div>
+                                        <p class="text-xs text-blue-700">发音清晰度：良好</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 开放式对话 -->
+        <div id="question-3" class="bg-white rounded-card shadow-card p-6 hidden">
+            <div class="flex items-center mb-4">
+                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                    <i class="fas fa-comments text-purple-600 text-sm"></i>
+                </div>
+                <h2 class="text-lg font-semibold text-text-primary">开放式对话</h2>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- 对话场景 -->
+                <div id="dialogue-scene">
+                    <p class="text-sm text-text-secondary mb-4">场景：你在咖啡店遇到了一个朋友</p>
+                    
+                    <div class="bg-purple-50 rounded-lg p-4 mb-6">
+                        <h3 class="text-sm font-semibold text-purple-800 mb-2">对话要求：</h3>
+                        <p class="text-xs text-purple-700">- 对话将持续3-5个回合</p>
+                        <p class="text-xs text-purple-700">- 由AI引导对话进程</p>
+                        <p class="text-xs text-purple-700">- 请使用语音输入回答</p>
+                        <p class="text-xs text-purple-700">- 对话结束后AI将给出整体评价</p>
+                    </div>
+                    
+                    <div id="dialogue-content" class="space-y-4 mb-6">
+                        <div class="flex flex-col space-y-2">
+                            <div class="dialogue-bubble-left p-4 max-w-[80%]">
+                                <p class="text-sm text-text-primary">Hey! Long time no see. How have you been?</p>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-text-secondary">朋友：嘿！好久不见。你最近怎么样？</span>
+                                <button class="ai-play-btn w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-play text-gray-600 text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="user-input-area" class="space-y-4">
+                        <div class="flex items-center justify-between mb-3">
+                            <p class="text-sm text-text-primary">请回答：</p>
+                            <div class="flex items-center space-x-2">
+                                <button id="text-input-toggle" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-keyboard text-gray-600 text-xs"></i>
+                                </button>
+                                <button id="voice-input-btn" class="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
+                                    <i class="fas fa-microphone text-white text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <input 
+                                type="text" 
+                                id="dialogue-input"
+                                placeholder="Type your response..." 
+                                class="w-full pl-4 pr-10 py-3 bg-gray-50 border border-border-light rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                            >
+                            <button id="send-btn" class="absolute right-3 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-primary rounded-full flex items-center justify-center">
+                                <i class="fas fa-paper-plane text-white text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div id="recording-indicator" class="flex flex-col items-center space-y-2 hidden">
+                        <div class="w-16 h-16 bg-danger rounded-full flex items-center justify-center">
+                            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                                <div class="w-4 h-4 bg-danger rounded-full animate-pulse"></div>
+                            </div>
+                        </div>
+                        <p class="text-sm text-danger">正在录音...</p>
+                    </div>
+                    
+                    <div id="dialogue-evaluation" class="mt-6 bg-gray-50 rounded-lg p-4 hidden">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fas fa-robot text-blue-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-sm font-semibold text-text-primary mb-2">AI 对话评价</h3>
+                                <div class="flex items-center mb-3">
+                                    <div class="text-lg font-bold text-primary mr-2">80分</div>
+                                    <div class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">良好</div>
+                                </div>
+                                <div class="space-y-3">
+                                    <div>
+                                        <h4 class="text-xs font-medium text-text-primary mb-1">整体评价</h4>
+                                        <p class="text-xs text-text-secondary">对话自然流畅，符合场景设定，能够有效回应对方问题并保持对话进行。</p>
+                                    </div>
+                                    <div class="space-y-2">
+                                        <h4 class="text-xs font-medium text-text-primary mb-1">详细分析</h4>
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
+                                                <i class="fas fa-check text-blue-600 text-xs"></i>
+                                            </div>
+                                            <p class="text-xs text-text-secondary">语法：基本正确，偶尔有小错误</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
+                                                <i class="fas fa-check text-blue-600 text-xs"></i>
+                                            </div>
+                                            <p class="text-xs text-text-secondary">词汇：使用恰当，有一定多样性</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-blue-100 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
+                                                <i class="fas fa-check text-blue-600 text-xs"></i>
+                                            </div>
+                                            <p class="text-xs text-text-secondary">回答内容：贴合主题，能够提供相关信息</p>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xs font-medium text-text-primary mb-1">改进建议</h4>
+                                        <p class="text-xs text-text-secondary">可以尝试使用更多连接词使对话更连贯，同时注意时态的一致性。</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 测试结果 -->
+    <div id="test-result" class="mx-6 mt-6 hidden">
+        <div class="bg-white rounded-card shadow-card p-6">
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-success rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-white text-2xl"></i>
+                </div>
+                <h2 class="text-xl font-bold text-text-primary mb-2">测试完成！</h2>
+                <p class="text-sm text-text-secondary">恭喜你完成了场景学习测试</p>
+            </div>
+            
+            <div class="bg-gray-50 rounded-lg p-4 mb-6">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-sm font-medium text-text-primary">测试得分</span>
+                    <span class="text-lg font-bold text-primary">85分</span>
+                </div>
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-sm text-text-secondary">选择题</span>
+                    <span class="text-sm font-medium text-text-primary">100%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-1.5 mb-3">
+                    <div class="bg-primary h-1.5 rounded-full" style="width: 100%"></div>
+                </div>
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-sm text-text-secondary">问答题</span>
+                    <span class="text-sm font-medium text-text-primary">80%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-1.5 mb-3">
+                    <div class="bg-primary h-1.5 rounded-full" style="width: 80%"></div>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-sm text-text-secondary">开放式对话</span>
+                    <span class="text-sm font-medium text-text-primary">75%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-1.5">
+                    <div class="bg-primary h-1.5 rounded-full" style="width: 75%"></div>
+                </div>
+            </div>
+            
+            <div class="space-y-3">
+                <h3 class="text-sm font-semibold text-text-primary mb-2">学习建议</h3>
+                <div class="flex items-start space-x-3">
+                    <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mt-0.5 mr-2 flex-shrink-0">
+                        <i class="fas fa-lightbulb text-blue-600 text-xs"></i>
+                    </div>
+                    <p class="text-xs text-text-secondary">继续练习开放式对话，尝试添加更多具体信息让对话更丰富。</p>
+                </div>
+                <div class="flex items-start space-x-3">
+                    <div class="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mt-0.5 mr-2 flex-shrink-0">
+                        <i class="fas fa-lightbulb text-blue-600 text-xs"></i>
+                    </div>
+                    <p class="text-xs text-text-secondary">可以多听原生英语对话，模仿语调和表达方式。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 底部操作按钮 -->
+    <div id="bottom-actions" class="fixed bottom-0 left-0 right-0 bg-white border-t border-border-light p-6 safe-bottom z-30">
+        <div class="flex space-x-4">
+            <button id="prev-btn" class="flex-1 py-4 bg-gray-100 text-text-primary rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                上一题
+            </button>
+            <button id="next-btn" class="flex-1 py-4 bg-primary text-white rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed">
+                下一题
+            </button>
+        </div>
+        <button id="submit-btn" class="w-full py-4 bg-success text-white rounded-xl font-semibold mt-4 hidden">
+            提交测试
+        </button>
+        <button id="finish-btn" class="w-full py-4 bg-primary text-white rounded-xl font-semibold mt-4 hidden">
+            完成测试
+        </button>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <nav id="bottom-nav" class="fixed bottom-0 left-0 right-0 bg-white border-t border-border-light flex justify-around items-center h-16 px-2 safe-bottom z-40">
+        <a id="nav-home" href="#" class="flex flex-col items-center p-2 text-text-secondary">
+            <i class="fas fa-home text-xl"></i>
+            <span class="text-xs mt-0.5">首页</span>
+        </a>
+        <a id="nav-library" href="#" class="flex flex-col items-center p-2 text-text-secondary">
+            <i class="fas fa-book text-xl"></i>
+            <span class="text-xs mt-0.5">短语库</span>
+        </a>
+        <a id="nav-scene" href="#" class="flex flex-col items-center p-2 text-text-secondary">
+            <i class="fas fa-map-marker-alt text-xl"></i>
+            <span class="text-xs mt-0.5">场景学习</span>
+        </a>
+        <a id="nav-profile" href="#" class="flex flex-col items-center p-2 text-text-secondary">
+            <i class="fas fa-user text-xl"></i>
+            <span class="text-xs mt-0.5">我的</span>
+        </a>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 测试数据
+            const testData = {
+                currentQuestion: 0,
+                totalQuestions: 3,
+                answers: {},
+                completed: {
+                    1: false,
+                    2: false,
+                    3: false
+                }
+            };
+
+            // 页面元素
+            const backBtn = document.querySelector('#back-btn');
+            const progressText = document.querySelector('#progress-text');
+            const progressBar = document.querySelector('#progress-bar');
+            const prevBtn = document.querySelector('#prev-btn');
+            const nextBtn = document.querySelector('#next-btn');
+            const submitBtn = document.querySelector('#submit-btn');
+            const finishBtn = document.querySelector('#finish-btn');
+            const testResult = document.querySelector('#test-result');
+
+            // 返回按钮点击事件
+            backBtn.addEventListener('click', function() {
+                window.location.href = 'P-SCENE_DETAIL.html';
+            });
+
+            // 更新进度条
+            function updateProgress() {
+                const progress = ((testData.currentQuestion + 1) / testData.totalQuestions) * 100;
+                progressBar.style.width = progress + '%';
+                progressText.textContent = `${testData.currentQuestion + 1}/${testData.totalQuestions}`;
+            }
+
+            // 更新按钮状态
+            function updateButtons() {
+                prevBtn.disabled = testData.currentQuestion === 0;
+                nextBtn.disabled = !testData.completed[testData.currentQuestion + 1];
+                
+                if (testData.currentQuestion === testData.totalQuestions - 1) {
+                    nextBtn.classList.add('hidden');
+                    submitBtn.classList.remove('hidden');
+                } else {
+                    nextBtn.classList.remove('hidden');
+                    submitBtn.classList.add('hidden');
+                }
+            }
+
+            // 显示指定问题
+            function showQuestion(index) {
+                // 隐藏所有问题
+                document.querySelectorAll('[id^="question-"]').forEach(question => {
+                    question.classList.add('hidden');
+                });
+                
+                // 显示当前问题
+                const currentQuestion = document.querySelector(`#question-${index + 1}`);
+                currentQuestion.classList.remove('hidden');
+                
+                updateProgress();
+                updateButtons();
+            }
+
+            // 选择题选项点击事件
+            const optionCards = document.querySelectorAll('.option-card');
+            optionCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // 移除同题其他选项的选中状态
+                    const questionId = this.id.split('-')[1];
+                    const options = document.querySelectorAll(`[id^="option-${questionId}-"]`);
+                    options.forEach(option => {
+                        option.classList.remove('selected');
+                        option.querySelector('div > div').classList.remove('bg-primary');
+                    });
+                    
+                    // 添加当前选项的选中状态
+                    this.classList.add('selected');
+                    this.querySelector('div > div').classList.add('bg-primary');
+                    
+                    // 标记问题为已完成
+                    testData.completed[parseInt(questionId)] = true;
+                    testData.answers[questionId] = this.id;
+                    updateButtons();
+                });
+            });
+
+            // 录音按钮点击事件
+            const recordButton = document.querySelector('#record-button');
+            const recordingIndicator = document.querySelector('#recording-indicator');
+            const recordingResult = document.querySelector('#recording-result');
+            const aiEvaluation = document.querySelector('#ai-evaluation');
+            
+            recordButton.addEventListener('click', function() {
+                recordingIndicator.classList.remove('hidden');
+                recordingResult.classList.add('hidden');
+                aiEvaluation.classList.add('hidden');
+                
+                // 模拟录音过程
+                setTimeout(() => {
+                    recordingIndicator.classList.add('hidden');
+                    recordingResult.classList.remove('hidden');
+                    
+                    // 模拟AI评价过程
+                    setTimeout(() => {
+                        aiEvaluation.classList.remove('hidden');
+                        
+                        // 标记问题为已完成
+                        testData.completed[2] = true;
+                        testData.answers['2'] = 'recorded';
+                        updateButtons();
+                    }, 1000);
+                }, 3000);
+            });
+
+            // 回放按钮点击事件
+            const replayBtn = document.querySelector('#replay-btn');
+            replayBtn.addEventListener('click', function() {
+                console.log('回放录音');
+                // 这里可以添加录音回放逻辑
+                alert('回放录音功能暂未实现');
+            });
+
+            // 开放式对话相关元素
+            const dialogueSceneVoiceInputBtn = document.querySelector('#voice-input-btn');
+            const textInputToggle = document.querySelector('#text-input-toggle');
+            const dialogueInput = document.querySelector('#dialogue-input');
+            const sendBtn = document.querySelector('#send-btn');
+            const dialogueContent = document.querySelector('#dialogue-content');
+            const userInputArea = document.querySelector('#user-input-area');
+            const dialogueRecordingIndicator = document.querySelector('#recording-indicator');
+            const dialogueEvaluation = document.querySelector('#dialogue-evaluation');
+
+            // 对话回合数据
+            let dialogueTurns = 0;
+            const maxDialogueTurns = 3;
+
+            // 文本输入/语音输入切换
+            textInputToggle.addEventListener('click', function() {
+                console.log('切换输入方式');
+                // 这里可以添加输入方式切换逻辑
+                alert('输入方式切换功能暂未实现');
+            });
+
+            // 开放式对话语音输入按钮点击事件
+            dialogueSceneVoiceInputBtn.addEventListener('click', function() {
+                const response = dialogueInput.value;
+                if (response.trim() === '') {
+                    alert('请先输入回答内容');
+                    return;
+                }
+                
+                // 显示录音指示器
+                dialogueRecordingIndicator.classList.remove('hidden');
+                userInputArea.classList.add('hidden');
+                
+                // 模拟录音过程
+                setTimeout(() => {
+                    dialogueRecordingIndicator.classList.add('hidden');
+                    
+                    // 添加用户回答到对话内容
+                    addUserResponseToDialogue(response);
+                    
+                    // 检查对话是否结束
+                    dialogueTurns++;
+                    if (dialogueTurns < maxDialogueTurns) {
+                        // 模拟AI回复
+                        setTimeout(() => {
+                            addAIResponseToDialogue(dialogueTurns);
+                            userInputArea.classList.remove('hidden');
+                            dialogueInput.value = '';
+                        }, 1000);
+                    } else {
+                        // 对话结束，显示AI评价
+                        setTimeout(() => {
+                            addAIResponseToDialogue(dialogueTurns);
+                            dialogueEvaluation.classList.remove('hidden');
+                            
+                            // 标记问题为已完成
+                            testData.completed[3] = true;
+                            testData.answers['3'] = 'dialogue_completed';
+                            updateButtons();
+                        }, 1000);
+                    }
+                }, 2000);
+            });
+
+            // 发送按钮点击事件
+            sendBtn.addEventListener('click', function() {
+                const response = dialogueInput.value;
+                if (response.trim() === '') {
+                    alert('请输入你的回答');
+                    return;
+                }
+                
+                // 添加用户回答到对话内容
+                addUserResponseToDialogue(response);
+                
+                // 检查对话是否结束
+                dialogueTurns++;
+                if (dialogueTurns < maxDialogueTurns) {
+                    // 模拟AI回复
+                    setTimeout(() => {
+                        addAIResponseToDialogue(dialogueTurns);
+                        dialogueInput.value = '';
+                    }, 1000);
+                } else {
+                    // 对话结束，显示AI评价
+                    setTimeout(() => {
+                        addAIResponseToDialogue(dialogueTurns);
+                        dialogueEvaluation.classList.remove('hidden');
+                        
+                        // 标记问题为已完成
+                        testData.completed[3] = true;
+                        testData.answers['3'] = 'dialogue_completed';
+                        updateButtons();
+                    }, 1000);
+                }
+            });
+
+            // 添加用户回答到对话内容
+            function addUserResponseToDialogue(response) {
+                const userResponseHTML = `
+                    <div class="flex flex-col space-y-2">
+                        <div class="dialogue-bubble-right p-4 max-w-[80%] align-self-end">
+                            <p class="text-sm">${response}</p>
+                        </div>
+                        <span class="text-xs text-text-secondary self-end">你：${response}</span>
+                    </div>
+                `;
+                dialogueContent.insertAdjacentHTML('beforeend', userResponseHTML);
+                
+                // 滚动到对话底部
+                dialogueContent.scrollTop = dialogueContent.scrollHeight;
+            }
+
+            // 添加AI回复到对话内容
+            function addAIResponseToDialogue(turn) {
+                let aiResponse = '';
+                let aiResponseChinese = '';
+                
+                switch(turn) {
+                    case 1:
+                        aiResponse = "I'm doing well too. What have you been up to lately?";
+                        aiResponseChinese = "我也很好。你最近在忙什么？";
+                        break;
+                    case 2:
+                        aiResponse = "That sounds interesting! I've been working on a new project at work. Have you been doing anything fun?";
+                        aiResponseChinese = "听起来很有趣！我最近在工作上做一个新项目。你最近有什么好玩的事吗？";
+                        break;
+                    case 3:
+                        aiResponse = "That's great! It was really nice catching up with you. We should do this again soon.";
+                        aiResponseChinese = "太棒了！很高兴能和你叙旧。我们应该很快再聚一次。";
+                        break;
+                    default:
+                        aiResponse = "It was nice talking to you!";
+                        aiResponseChinese = "很高兴和你聊天！";
+                }
+                
+                const aiResponseHTML = `
+                    <div class="flex flex-col space-y-2">
+                            <div class="dialogue-bubble-left p-4 max-w-[80%]">
+                                <p class="text-sm text-text-primary">${aiResponse}</p>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-text-secondary">朋友：${aiResponseChinese}</span>
+                                <button class="ai-play-btn w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-play text-gray-600 text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                `;
+                dialogueContent.insertAdjacentHTML('beforeend', aiResponseHTML);
+                
+                // 为新添加的AI播放按钮添加事件监听器
+                const aiPlayButtons = dialogueContent.querySelectorAll('.ai-play-btn');
+                const lastAiPlayButton = aiPlayButtons[aiPlayButtons.length - 1];
+                if (lastAiPlayButton) {
+                    lastAiPlayButton.addEventListener('click', function() {
+                        const icon = this.querySelector('i');
+                        if (icon.classList.contains('fa-play')) {
+                            icon.classList.remove('fa-play');
+                            icon.classList.add('fa-pause');
+                            
+                            // 模拟语音播放
+                            setTimeout(() => {
+                                icon.classList.remove('fa-pause');
+                                icon.classList.add('fa-play');
+                            }, 2000);
+                        }
+                    });
+                }
+                
+                // 滚动到对话底部
+                dialogueContent.scrollTop = dialogueContent.scrollHeight;
+            }
+
+            // 上一题按钮点击事件
+            prevBtn.addEventListener('click', function() {
+                if (testData.currentQuestion > 0) {
+                    testData.currentQuestion--;
+                    showQuestion(testData.currentQuestion);
+                }
+            });
+
+            // 下一题按钮点击事件
+            nextBtn.addEventListener('click', function() {
+                if (testData.currentQuestion < testData.totalQuestions - 1) {
+                    testData.currentQuestion++;
+                    showQuestion(testData.currentQuestion);
+                }
+            });
+
+            // 提交测试按钮点击事件
+            submitBtn.addEventListener('click', function() {
+                // 隐藏测试内容，显示测试结果
+                document.querySelector('#test-content').classList.add('hidden');
+                document.querySelector('#test-progress').classList.add('hidden');
+                testResult.classList.remove('hidden');
+                
+                // 更新按钮
+                submitBtn.classList.add('hidden');
+                finishBtn.classList.remove('hidden');
+            });
+
+            // 完成测试按钮点击事件
+            finishBtn.addEventListener('click', function() {
+                console.log('测试完成，保存结果');
+                window.location.href = 'P-SCENE_DETAIL.html';
+            });
+
+            // 底部导航栏点击事件
+            document.querySelector('#nav-home').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'P-HOME.html';
+            });
+
+            document.querySelector('#nav-library').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'P-PHRASE_LIBRARY.html';
+            });
+
+            document.querySelector('#nav-scene').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'P-SCENE_LIST.html';
+            });
+
+            document.querySelector('#nav-profile').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'P-USER_PROFILE.html';
+            });
+
+            // 初始化
+            showQuestion(testData.currentQuestion);
+
+            // 为初始的AI播放按钮添加事件监听器
+            function setupAiPlayButtons() {
+                const aiPlayButtons = document.querySelectorAll('.ai-play-btn');
+                aiPlayButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const icon = this.querySelector('i');
+                        if (icon.classList.contains('fa-play')) {
+                            icon.classList.remove('fa-play');
+                            icon.classList.add('fa-pause');
+                            
+                            // 模拟语音播放
+                            setTimeout(() => {
+                                icon.classList.remove('fa-pause');
+                                icon.classList.add('fa-play');
+                            }, 2000);
+                        }
+                    });
+                });
+            }
+
+            // 页面加载时设置AI播放按钮
+            setupAiPlayButtons();
+
+            // 当切换到开放式对话问题时，重新设置AI播放按钮
+            showQuestion = (function(originalShowQuestion) {
+                return function(index) {
+                    originalShowQuestion(index);
+                    if (index === 2) { // 开放式对话是第3个问题（索引为2）
+                        setTimeout(setupAiPlayButtons, 100);
+                    }
+                };
+            })(showQuestion);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>语习集 - 首页</title>
+    <script src="https://unpkg.byted-static.com/coze/space_ppt_lib/1.0.3-alpha.12/lib/tailwindcss.js"></script>
+    <script src="https://unpkg.byted-static.com/fortawesome/fontawesome-free/6.7.2/js/all.min.js" data-auto-replace-svg="nest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#7c3aed',
+                        tertiary: '#059669',
+                        success: '#10b981',
+                        danger: '#ef4444',
+                        info: '#3b82f6',
+                        'text-primary': '#1f2937',
+                        'text-secondary': '#6b7280',
+                        'bg-card': '#ffffff',
+                        'bg-secondary': '#f8fafc',
+                        'border-light': '#e5e7eb'
+                    },
+                    fontFamily: {
+                        'sans': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'card': '0 2px 8px rgba(0, 0, 0, 0.06)',
+                        'card-hover': '0 4px 16px rgba(0, 0, 0, 0.1)'
+                    },
+                    borderRadius: {
+                        'card': '16px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .safe-top {
+            padding-top: env(safe-area-inset-top);
+        }
+        .safe-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-2px);
+            transition: all 0.3s ease;
+        }
+        
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+        
+        .progress-ring-circle {
+            stroke-dasharray: 251.2;
+            stroke-dashoffset: 125.6;
+            transition: stroke-dashoffset 0.5s ease-in-out;
+        }
+        
+        .scene-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+    </style>
+</head>
+<body class="bg-bg-secondary font-sans">
+    <!-- 状态栏 -->
+    <div id="status-bar" class="bg-white safe-top">
+        <div class="flex justify-between items-center px-6 py-2 text-sm font-medium text-gray-900">
+            <span>9:41</span>
+            <div class="flex items-center space-x-1">
+                <i class="fas fa-signal text-xs"></i>
+                <i class="fas fa-wifi text-xs"></i>
+                <i class="fas fa-battery-three-quarters text-xs"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div id="main-content" class="pb-20">
+        <!-- 顶部导航栏 -->
+        <header id="top-header" class="bg-white px-6 py-4 shadow-sm">
+            <div id="header-content" class="flex items-center justify-between">
+                <!-- 搜索框 -->
+                <div id="search-container" class="flex-1 mr-4">
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            id="search-input"
+                            placeholder="搜索短语..." 
+                            class="w-full pl-10 pr-4 py-3 bg-gray-50 border-0 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all"
+                        >
+                        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
+                    </div>
+                </div>
+                
+                <!-- 个人中心入口 -->
+                <button id="profile-btn" class="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
+                    <img 
+                        src="https://s.coze.cn/image/7mUzSxkYdY0/" 
+                        alt="用户头像" 
+                        data-category="人物"
+                        class="w-full h-full rounded-full object-cover"
+                    >
+                </button>
+            </div>
+        </header>
+
+        <!-- 学习进度概览 -->
+        <section id="learning-overview" class="mx-6 mt-6">
+            <div id="progress-card" class="bg-white rounded-card shadow-card p-6">
+                <div id="progress-header" class="flex items-center justify-between mb-6">
+                    <h2 id="progress-title" class="text-lg font-semibold text-text-primary">今日学习</h2>
+                    <button id="view-all-btn" class="text-primary text-sm font-medium">查看全部</button>
+                </div>
+                
+                <div id="progress-content" class="flex items-center justify-between">
+                    <!-- 进度环 -->
+                    <div id="progress-ring-container" class="relative">
+                        <svg class="w-20 h-20 progress-ring" viewBox="0 0 84 84">
+                            <circle
+                                cx="42"
+                                cy="42"
+                                r="40"
+                                stroke="#e5e7eb"
+                                stroke-width="4"
+                                fill="transparent"
+                            />
+                            <circle
+                                cx="42"
+                                cy="42"
+                                r="40"
+                                stroke="#2563eb"
+                                stroke-width="4"
+                                fill="transparent"
+                                class="progress-ring-circle"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+                        <div id="progress-text" class="absolute inset-0 flex flex-col items-center justify-center">
+                            <span class="text-lg font-bold text-text-primary">60%</span>
+                            <span class="text-xs text-text-secondary">完成度</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 学习数据 -->
+                    <div id="learning-stats" class="flex-1 ml-6 space-y-3">
+                        <div id="stat-learned" class="flex justify-between items-center">
+                            <span class="text-sm text-text-secondary">已学短语</span>
+                            <span class="text-sm font-semibold text-text-primary">12/20</span>
+                        </div>
+                        <div id="stat-time" class="flex justify-between items-center">
+                            <span class="text-sm text-text-secondary">学习时长</span>
+                            <span class="text-sm font-semibold text-text-primary">25分钟</span>
+                        </div>
+                        <div id="stat-streak" class="flex justify-between items-center">
+                            <span class="text-sm text-text-secondary">连续天数</span>
+                            <span class="text-sm font-semibold text-tertiary">7天</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 复习提醒 -->
+        <section id="review-reminder" class="mx-6 mt-4">
+            <div id="reminder-card" class="bg-gradient-to-r from-orange-50 to-pink-50 border border-orange-100 rounded-card p-5">
+                <div id="reminder-content" class="flex items-center justify-between">
+                    <div id="reminder-info" class="flex items-center">
+                        <div id="reminder-icon" class="w-10 h-10 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full flex items-center justify-center mr-3">
+                            <i class="fas fa-clock text-white text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 id="reminder-title" class="text-sm font-semibold text-text-primary">复习提醒</h3>
+                            <p id="reminder-text" class="text-xs text-text-secondary">有5个短语需要复习</p>
+                        </div>
+                    </div>
+                    <button id="review-btn" class="text-orange-500 text-sm font-medium">去复习</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 场景学习 -->
+        <section id="scene-learning" class="mx-6 mt-6">
+            <div id="scene-header" class="flex items-center justify-between mb-4">
+                <h2 id="scene-title" class="text-lg font-semibold text-text-primary">场景学习</h2>
+                <button id="more-scenes-btn" class="text-primary text-sm font-medium">更多</button>
+            </div>
+            
+            <div id="scenes-list" class="space-y-3">
+                <!-- 推荐场景卡片1 -->
+                <div id="scene-card-1" class="bg-white rounded-card shadow-card p-4 card-hover" data-scene-id="scene_001">
+                    <div id="scene-content-1" class="flex items-center justify-between">
+                        <div id="scene-info-1" class="flex-1">
+                            <h3 id="scene-name-1" class="text-base font-semibold text-text-primary mb-1">日常问候</h3>
+                            <p id="scene-desc-1" class="text-sm text-text-secondary mb-2">学习日常问候的高频对话</p>
+                            <div id="scene-tags-1" class="flex items-center space-x-2">
+                                <span class="px-2 py-1 bg-blue-50 text-blue-600 text-xs rounded-full">日常场景</span>
+                                <span class="px-2 py-1 bg-green-50 text-green-600 text-xs rounded-full">入门</span>
+                                <span class="px-2 py-1 bg-gray-50 text-gray-600 text-xs rounded-full">10分钟</span>
+                            </div>
+                        </div>
+                        <div id="scene-icon-1" class="w-10 h-10 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center ml-4">
+                            <i class="fas fa-hand-paper text-white text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 推荐场景卡片2 -->
+                <div id="scene-card-2" class="bg-white rounded-card shadow-card p-4 card-hover" data-scene-id="scene_002">
+                    <div id="scene-content-2" class="flex items-center justify-between">
+                        <div id="scene-info-2" class="flex-1">
+                            <h3 id="scene-name-2" class="text-base font-semibold text-text-primary mb-1">面试问答</h3>
+                            <p id="scene-desc-2" class="text-sm text-text-secondary mb-2">掌握面试中的高频问题与回答</p>
+                            <div id="scene-tags-2" class="flex items-center space-x-2">
+                                <span class="px-2 py-1 bg-purple-50 text-purple-600 text-xs rounded-full">职场场景</span>
+                                <span class="px-2 py-1 bg-yellow-50 text-yellow-600 text-xs rounded-full">进阶</span>
+                                <span class="px-2 py-1 bg-gray-50 text-gray-600 text-xs rounded-full">10分钟</span>
+                            </div>
+                        </div>
+                        <div id="scene-icon-2" class="w-10 h-10 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full flex items-center justify-center ml-4">
+                            <i class="fas fa-briefcase text-white text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 场景分类 -->
+        <section id="scene-categories" class="mx-6 mt-6 mb-6">
+            <h2 id="categories-title" class="text-lg font-semibold text-text-primary mb-4">场景分类</h2>
+            
+            <div id="categories-grid" class="grid grid-cols-3 gap-4">
+                <!-- 日常场景 -->
+                <div id="scene-daily" class="scene-card rounded-card p-4 card-hover" data-category-id="category_daily">
+                    <div id="scene-daily-content" class="text-center">
+                        <div id="scene-daily-icon" class="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-home text-white"></i>
+                        </div>
+                        <h3 id="scene-daily-title" class="text-sm font-semibold text-text-primary mb-1">日常场景</h3>
+                        <p id="scene-daily-count" class="text-xs text-text-secondary">包含问候、点餐等</p>
+                    </div>
+                </div>
+
+                <!-- 职场场景 -->
+                <div id="scene-work" class="scene-card rounded-card p-4 card-hover" data-category-id="category_work">
+                    <div id="scene-work-content" class="text-center">
+                        <div id="scene-work-icon" class="w-12 h-12 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-briefcase text-white"></i>
+                        </div>
+                        <h3 id="scene-work-title" class="text-sm font-semibold text-text-primary mb-1">职场场景</h3>
+                        <p id="scene-work-count" class="text-xs text-text-secondary">包含面试、自我介绍等</p>
+                    </div>
+                </div>
+
+                <!-- 留学/考试场景 -->
+                <div id="scene-exam" class="scene-card rounded-card p-4 card-hover" data-category-id="category_exam">
+                    <div id="scene-exam-content" class="text-center">
+                        <div id="scene-exam-icon" class="w-12 h-12 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                            <i class="fas fa-graduation-cap text-white"></i>
+                        </div>
+                        <h3 id="scene-exam-title" class="text-sm font-semibold text-text-primary mb-1">留学/考试</h3>
+                        <p id="scene-exam-count" class="text-xs text-text-secondary">包含雅思口语、面签等</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 底部导航栏 -->
+    <nav id="bottom-nav" class="fixed bottom-0 left-0 right-0 bg-white border-t border-border-light flex justify-around items-center h-16 px-2 safe-bottom z-40">
+        <a id="nav-home" href="#" class="flex flex-col items-center p-2 text-primary">
+            <i class="fas fa-home text-xl"></i>
+            <span class="text-xs mt-0.5 font-medium">首页</span>
+        </a>
+        <a id="nav-library" href="#" class="flex flex-col items-center p-2 text-text-secondary">
+            <i class="fas fa-book text-xl"></i>
+            <span class="text-xs mt-0.5">短语库</span>
+        </a>
+        <a id="nav-scene" href="#" class="flex flex-col items-center p-2 text-text-secondary">
+            <i class="fas fa-map-marker-alt text-xl"></i>
+            <span class="text-xs mt-0.5">场景学习</span>
+        </a>
+        <a id="nav-profile" href="#" class="flex flex-col items-center p-2 text-text-secondary">
+            <i class="fas fa-user text-xl"></i>
+            <span class="text-xs mt-0.5">我的</span>
+        </a>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 搜索框点击事件
+            document.querySelector('#search-input').addEventListener('click', function() {
+                console.log('搜索功能暂未实现');
+                // 注释：搜索功能需要实现搜索结果页面
+            });
+
+            // 个人中心入口点击事件
+            document.querySelector('#profile-btn').addEventListener('click', function() {
+                window.location.href = 'P-USER_PROFILE.html';
+            });
+
+            // 学习进度卡片查看全部按钮
+            document.querySelector('#view-all-btn').addEventListener('click', function() {
+                window.location.href = 'P-LEARNING_RECORD.html';
+            });
+
+            // 复习提醒卡片点击事件
+            document.querySelector('#reminder-card').addEventListener('click', function() {
+                window.location.href = 'P-REVIEW_REMINDER.html';
+            });
+
+            // 推荐场景卡片点击事件
+            document.querySelector('#scene-card-1').addEventListener('click', function() {
+                const sceneId = this.dataset.sceneId;
+                window.location.href = `P-SCENE_DETAIL.html?sceneId=${sceneId}`;
+            });
+
+            document.querySelector('#scene-card-2').addEventListener('click', function() {
+                const sceneId = this.dataset.sceneId;
+                window.location.href = `P-SCENE_DETAIL.html?sceneId=${sceneId}`;
+            });
+
+            // 更多场景按钮
+            document.querySelector('#more-scenes-btn').addEventListener('click', function() {
+                window.location.href = 'P-SCENE_LIST.html';
+            });
+
+            // 场景分类点击事件
+            document.querySelector('#scene-daily').addEventListener('click', function() {
+                const categoryId = this.dataset.categoryId;
+                window.location.href = `P-SCENE_LIST.html?categoryId=${categoryId}`;
+            });
+
+            document.querySelector('#scene-work').addEventListener('click', function() {
+                const categoryId = this.dataset.categoryId;
+                window.location.href = `P-SCENE_LIST.html?categoryId=${categoryId}`;
+            });
+
+            document.querySelector('#scene-exam').addEventListener('click', function() {
+                const categoryId = this.dataset.categoryId;
+                window.location.href = `P-SCENE_LIST.html?categoryId=${categoryId}`;
+            });
+
+            // 底部导航栏点击事件
+            document.querySelector('#nav-home').addEventListener('click', function(e) {
+                e.preventDefault();
+                // 已在首页，无需操作
+            });
+
+            document.querySelector('#nav-library').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'P-PHRASE_LIBRARY.html';
+            });
+
+            document.querySelector('#nav-scene').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'P-SCENE_LIST.html';
+            });
+
+            document.querySelector('#nav-profile').addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'P-USER_PROFILE.html';
+            });
+
+            // 搜索框焦点效果
+            const searchInput = document.querySelector('#search-input');
+            searchInput.addEventListener('focus', function() {
+                this.parentElement.classList.add('ring-2', 'ring-primary');
+            });
+            searchInput.addEventListener('blur', function() {
+                this.parentElement.classList.remove('ring-2', 'ring-primary');
+            });
+
+            // 卡片点击效果
+            const cards = document.querySelectorAll('.card-hover');
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'translateY(-2px)';
+                    }, 100);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

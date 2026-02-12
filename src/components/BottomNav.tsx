@@ -25,12 +25,12 @@ export default function BottomNav() {
         <span className="text-xs mt-0.5">短语库</span>
       </Link>
       <Link 
-        id="nav-dialogue" 
-        href="#" 
-        className="flex flex-col items-center p-2 text-text-secondary"
+        id="nav-scene" 
+        href="/scene-list" 
+        className={`flex flex-col items-center p-2 ${pathname === '/scene-list' ? 'text-primary' : 'text-text-secondary'}`}
       >
-        <i className="fas fa-comments text-xl"></i>
-        <span className="text-xs mt-0.5">对话</span>
+        <i className="fas fa-map text-xl"></i>
+        <span className="text-xs mt-0.5">场景学习</span>
       </Link>
       <Link 
         id="nav-profile" 

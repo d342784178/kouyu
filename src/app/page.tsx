@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import PhraseCard from './PhraseCard'
+import SceneCard from './SceneCard'
 
 // 定义短语类型
 interface Phrase {
@@ -11,6 +12,19 @@ interface Phrase {
   difficulty: string
   pronunciationTips: string
   audioUrl: string | null
+  createdAt: string
+  updatedAt: string
+}
+
+// 定义场景类型
+interface Scene {
+  id: string
+  name: string
+  category: string
+  description: string
+  difficulty: string
+  coverImage: string | null
+  dialogueCount?: number
   createdAt: string
   updatedAt: string
 }
@@ -40,9 +54,87 @@ async function getRandomPhrases(count: number = 2): Promise<Phrase[]> {
   }
 }
 
+// 获取推荐场景的辅助函数
+async function getRecommendedScenes(count: number = 2): Promise<Scene[]> {
+  try {
+    // 在服务器组件中，使用当前URL或环境变量构建绝对URL
+    const baseUrl = process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}` 
+      : 'http://localhost:3000' // 开发环境默认URL
+    
+    // 调用API获取所有场景（禁用缓存以确保获取最新数据）
+    const response = await fetch(`${baseUrl}/api/scenes`, { cache: 'no-store' })
+    
+    let scenes: Scene[] = []
+    
+    if (response.ok) {
+      scenes = await response.json()
+    } else {
+      // 如果API调用失败，返回模拟数据
+      scenes = [
+        {
+          id: 'scene_1',
+          name: '机场值机',
+          category: '旅行出行',
+          description: '学习在机场办理值机手续的常用对话',
+          difficulty: '中级',
+          coverImage: 'https://via.placeholder.com/200',
+          dialogueCount: 8,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
+        },
+        {
+          id: 'scene_2',
+          name: '餐厅点餐',
+          category: '餐饮服务',
+          description: '掌握在餐厅点餐的实用英语表达',
+          difficulty: '初级',
+          coverImage: 'https://via.placeholder.com/200',
+          dialogueCount: 6,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
+        }
+      ]
+    }
+    
+    // 随机打乱数组并返回指定数量的场景
+    const shuffled = [...scenes].sort(() => 0.5 - Math.random())
+    return shuffled.slice(0, count)
+  } catch (error) {
+    console.error('Error fetching recommended scenes:', error)
+    // 返回模拟数据
+    return [
+      {
+        id: 'scene_1',
+        name: '机场值机',
+        category: '旅行出行',
+        description: '学习在机场办理值机手续的常用对话',
+        difficulty: '中级',
+        coverImage: 'https://via.placeholder.com/200',
+        dialogueCount: 8,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      },
+      {
+        id: 'scene_2',
+        name: '餐厅点餐',
+        category: '餐饮服务',
+        description: '掌握在餐厅点餐的实用英语表达',
+        difficulty: '初级',
+        coverImage: 'https://via.placeholder.com/200',
+        dialogueCount: 6,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      }
+    ]
+  }
+}
+
 export default async function Home() {
   // 获取2个随机短语
   const randomPhrases = await getRandomPhrases(2)
+  // 获取2个推荐场景
+  const recommendedScenes = await getRecommendedScenes(2)
   
   return (
     <div id="main-content" className="pb-20">
@@ -147,21 +239,21 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* 推荐短语 */}
-      <section id="recommended-phrases" className="mx-6 mt-6">
+      {/* 推荐场景 */}
+      <section id="recommended-scenes" className="mx-6 mt-6">
         <div id="recommended-header" className="flex items-center justify-between mb-4">
-          <h2 id="recommended-title" className="text-lg font-semibold text-text-primary">推荐学习</h2>
-          <Link href="/phrase-library" id="more-phrases-btn" className="text-primary text-sm font-medium">更多</Link>
+          <h2 id="recommended-title" className="text-lg font-semibold text-text-primary">推荐场景</h2>
+          <Link href="/scene-list" id="more-scenes-btn" className="text-primary text-sm font-medium">更多</Link>
         </div>
         
-        <div id="phrases-list" className="space-y-3">
-          {randomPhrases.length > 0 ? (
-            randomPhrases.map((phrase, index) => (
-              <PhraseCard key={phrase.id} phrase={phrase} index={index} />
+        <div id="scenes-list" className="space-y-3">
+          {recommendedScenes.length > 0 ? (
+            recommendedScenes.map((scene, index) => (
+              <SceneCard key={scene.id} scene={scene} index={index} />
             ))
           ) : (
-            <div id="no-phrases" className="text-center py-6">
-              <p className="text-text-secondary">暂无推荐短语</p>
+            <div id="no-scenes" className="text-center py-6">
+              <p className="text-text-secondary">暂无推荐场景</p>
             </div>
           )}
         </div>

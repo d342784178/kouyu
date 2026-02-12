@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>语习集 - 设置</title>
+    <script src="https://unpkg.byted-static.com/coze/space_ppt_lib/1.0.3-alpha.12/lib/tailwindcss.js"></script>
+    <script src="https://unpkg.byted-static.com/fortawesome/fontawesome-free/6.7.2/js/all.min.js" data-auto-replace-svg="nest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        secondary: '#7c3aed',
+                        tertiary: '#059669',
+                        success: '#10b981',
+                        danger: '#ef4444',
+                        info: '#3b82f6',
+                        'text-primary': '#1f2937',
+                        'text-secondary': '#6b7280',
+                        'bg-card': '#ffffff',
+                        'bg-secondary': '#f8fafc',
+                        'border-light': '#e5e7eb'
+                    },
+                    fontFamily: {
+                        'sans': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'card': '0 2px 8px rgba(0, 0, 0, 0.06)',
+                        'card-hover': '0 4px 16px rgba(0, 0, 0, 0.1)'
+                    },
+                    borderRadius: {
+                        'card': '16px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .safe-top {
+            padding-top: env(safe-area-inset-top);
+        }
+        .safe-bottom {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-1px);
+            transition: all 0.3s ease;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #e5e7eb;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .toggle-slider {
+            background-color: #2563eb;
+        }
+        
+        input:checked + .toggle-slider:before {
+            transform: translateX(20px);
+        }
+        
+        .setting-item {
+            transition: background-color 0.2s ease;
+        }
+        
+        .setting-item:hover {
+            background-color: #f9fafb;
+        }
+    </style>
+</head>
+<body class="bg-bg-secondary font-sans">
+    <!-- 状态栏 -->
+    <div id="status-bar" class="bg-white safe-top">
+        <div class="flex justify-between items-center px-6 py-2 text-sm font-medium text-gray-900">
+            <span>9:41</span>
+            <div class="flex items-center space-x-1">
+                <i class="fas fa-signal text-xs"></i>
+                <i class="fas fa-wifi text-xs"></i>
+                <i class="fas fa-battery-three-quarters text-xs"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <div id="main-content" class="min-h-screen">
+        <!-- 顶部导航栏 -->
+        <header id="top-header" class="bg-white px-6 py-4 shadow-sm">
+            <div id="header-content" class="flex items-center">
+                <!-- 返回按钮 -->
+                <button id="back-btn" class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center mr-4">
+                    <i class="fas fa-arrow-left text-gray-600 text-sm"></i>
+                </button>
+                
+                <!-- 页面标题 -->
+                <h1 id="page-title" class="text-lg font-semibold text-text-primary">设置</h1>
+            </div>
+        </header>
+
+        <!-- 设置内容 -->
+        <div id="settings-content" class="px-6 py-6 space-y-6">
+            <!-- 通知设置 -->
+            <section id="notification-section">
+                <div id="notification-card" class="bg-white rounded-card shadow-card overflow-hidden">
+                    <div id="notification-header" class="px-6 py-4 border-b border-border-light">
+                        <h2 id="notification-title" class="text-base font-semibold text-text-primary">通知设置</h2>
+                    </div>
+                    
+                    <div id="notification-items" class="divide-y divide-border-light">
+                        <!-- 学习提醒 -->
+                        <div id="study-reminder-item" class="setting-item px-6 py-4 flex items-center justify-between">
+                            <div id="study-reminder-info" class="flex items-center">
+                                <div id="study-reminder-icon" class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-bell text-blue-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h3 id="study-reminder-title" class="text-sm font-medium text-text-primary">学习提醒</h3>
+                                    <p id="study-reminder-desc" class="text-xs text-text-secondary">每日学习时间提醒</p>
+                                </div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="study-reminder-toggle" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        
+                        <!-- 复习提醒 -->
+                        <div id="review-reminder-item" class="setting-item px-6 py-4 flex items-center justify-between">
+                            <div id="review-reminder-info" class="flex items-center">
+                                <div id="review-reminder-icon" class="w-10 h-10 bg-orange-50 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-clock text-orange-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h3 id="review-reminder-title" class="text-sm font-medium text-text-primary">复习提醒</h3>
+                                    <p id="review-reminder-desc" class="text-xs text-text-secondary">根据遗忘曲线推送复习</p>
+                                </div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="review-reminder-toggle" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        
+                        <!-- 消息通知 -->
+                        <div id="message-notification-item" class="setting-item px-6 py-4 flex items-center justify-between">
+                            <div id="message-notification-info" class="flex items-center">
+                                <div id="message-notification-icon" class="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-comment text-green-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h3 id="message-notification-title" class="text-sm font-medium text-text-primary">消息通知</h3>
+                                    <p id="message-notification-desc" class="text-xs text-text-secondary">系统消息和学习报告</p>
+                                </div>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="message-notification-toggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 隐私与安全 -->
+            <section id="privacy-section">
+                <div id="privacy-card" class="bg-white rounded-card shadow-card overflow-hidden">
+                    <div id="privacy-header" class="px-6 py-4 border-b border-border-light">
+                        <h2 id="privacy-title" class="text-base font-semibold text-text-primary">隐私与安全</h2>
+                    </div>
+                    
+                    <div id="privacy-items" class="divide-y divide-border-light">
+                        <!-- 隐私政策 -->
+                        <button id="privacy-policy-btn" class="setting-item w-full px-6 py-4 flex items-center justify-between text-left">
+                            <div id="privacy-policy-info" class="flex items-center">
+                                <div id="privacy-policy-icon" class="w-10 h-10 bg-purple-50 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-shield-alt text-purple-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h3 id="privacy-policy-title" class="text-sm font-medium text-text-primary">隐私政策</h3>
+                                    <p id="privacy-policy-desc" class="text-xs text-text-secondary">了解我们如何保护您的隐私</p>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                        </button>
+                        
+                        <!-- 用户协议 -->
+                        <button id="user-agreement-btn" class="setting-item w-full px-6 py-4 flex items-center justify-between text-left">
+                            <div id="user-agreement-info" class="flex items-center">
+                                <div id="user-agreement-icon" class="w-10 h-10 bg-indigo-50 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-file-contract text-indigo-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h3 id="user-agreement-title" class="text-sm font-medium text-text-primary">用户协议</h3>
+                                    <p id="user-agreement-desc" class="text-xs text-text-secondary">查看服务条款和使用规则</p>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                        </button>
+                        
+                        <!-- 账户安全 -->
+                        <button id="account-security-btn" class="setting-item w-full px-6 py-4 flex items-center justify-between text-left">
+                            <div id="account-security-info" class="flex items-center">
+                                <div id="account-security-icon" class="w-10 h-10 bg-red-50 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-lock text-red-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h3 id="account-security-title" class="text-sm font-medium text-text-primary">账户安全</h3>
+                                    <p id="account-security-desc" class="text-xs text-text-secondary">密码修改和安全设置</p>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 关于应用 -->
+            <section id="about-section">
+                <div id="about-card" class="bg-white rounded-card shadow-card overflow-hidden">
+                    <div id="about-header" class="px-6 py-4 border-b border-border-light">
+                        <h2 id="about-title" class="text-base font-semibold text-text-primary">关于应用</h2>
+                    </div>
+                    
+                    <div id="about-items" class="divide-y divide-border-light">
+                        <!-- 关于我们 -->
+                        <button id="about-us-btn" class="setting-item w-full px-6 py-4 flex items-center justify-between text-left">
+                            <div id="about-us-info" class="flex items-center">
+                                <div id="about-us-icon" class="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-info-circle text-teal-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h3 id="about-us-title" class="text-sm font-medium text-text-primary">关于我们</h3>
+                                    <p id="about-us-desc" class="text-xs text-text-secondary">了解语习集团队和愿景</p>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                        </button>
+                        
+                        <!-- 版本信息 -->
+                        <div id="version-info-item" class="setting-item px-6 py-4 flex items-center justify-between">
+                            <div id="version-info-info" class="flex items-center">
+                                <div id="version-info-icon" class="w-10 h-10 bg-gray-50 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-mobile-alt text-gray-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h3 id="version-info-title" class="text-sm font-medium text-text-primary">版本信息</h3>
+                                    <p id="version-info-desc" class="text-xs text-text-secondary">当前版本和更新信息</p>
+                                </div>
+                            </div>
+                            <span id="version-number" class="text-sm text-text-secondary">v1.0.0</span>
+                        </div>
+                        
+                        <!-- 意见反馈 -->
+                        <button id="feedback-btn" class="setting-item w-full px-6 py-4 flex items-center justify-between text-left">
+                            <div id="feedback-info" class="flex items-center">
+                                <div id="feedback-icon" class="w-10 h-10 bg-yellow-50 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-comment-dots text-yellow-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h3 id="feedback-title" class="text-sm font-medium text-text-primary">意见反馈</h3>
+                                    <p id="feedback-desc" class="text-xs text-text-secondary">帮助我们改进产品</p>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                        </button>
+                        
+                        <!-- 检查更新 -->
+                        <button id="check-update-btn" class="setting-item w-full px-6 py-4 flex items-center justify-between text-left">
+                            <div id="check-update-info" class="flex items-center">
+                                <div id="check-update-icon" class="w-10 h-10 bg-cyan-50 rounded-full flex items-center justify-center mr-3">
+                                    <i class="fas fa-download text-cyan-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h3 id="check-update-title" class="text-sm font-medium text-text-primary">检查更新</h3>
+                                    <p id="check-update-desc" class="text-xs text-text-secondary">获取最新版本</p>
+                                </div>
+                            </div>
+                            <i class="fas fa-chevron-right text-gray-400 text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 退出登录 -->
+            <section id="logout-section" class="pb-8">
+                <button id="logout-btn" class="w-full bg-white rounded-card shadow-card py-4 px-6 flex items-center justify-center space-x-3 card-hover">
+                    <i class="fas fa-sign-out-alt text-danger text-sm"></i>
+                    <span class="text-base font-medium text-danger">退出登录</span>
+                </button>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 返回按钮点击事件
+            document.querySelector('#back-btn').addEventListener('click', function() {
+                window.location.href = 'P-USER_PROFILE.html';
+            });
+
+            // 通知设置开关事件
+            const studyReminderToggle = document.querySelector('#study-reminder-toggle');
+            const reviewReminderToggle = document.querySelector('#review-reminder-toggle');
+            const messageNotificationToggle = document.querySelector('#message-notification-toggle');
+
+            studyReminderToggle.addEventListener('change', function() {
+                console.log('学习提醒设置:', this.checked ? '开启' : '关闭');
+                // 这里可以发送请求保存设置
+            });
+
+            reviewReminderToggle.addEventListener('change', function() {
+                console.log('复习提醒设置:', this.checked ? '开启' : '关闭');
+                // 这里可以发送请求保存设置
+            });
+
+            messageNotificationToggle.addEventListener('change', function() {
+                console.log('消息通知设置:', this.checked ? '开启' : '关闭');
+                // 这里可以发送请求保存设置
+            });
+
+            // 隐私政策点击事件
+            document.querySelector('#privacy-policy-btn').addEventListener('click', function() {
+                console.log('打开隐私政策页面');
+                // 在实际应用中，这里会打开隐私政策页面或弹窗
+                alert('隐私政策页面功能待开发');
+            });
+
+            // 用户协议点击事件
+            document.querySelector('#user-agreement-btn').addEventListener('click', function() {
+                console.log('打开用户协议页面');
+                // 在实际应用中，这里会打开用户协议页面或弹窗
+                alert('用户协议页面功能待开发');
+            });
+
+            // 账户安全点击事件
+            document.querySelector('#account-security-btn').addEventListener('click', function() {
+                console.log('打开账户安全页面');
+                // 在实际应用中，这里会跳转到账户安全设置页面
+                alert('账户安全页面功能待开发');
+            });
+
+            // 关于我们点击事件
+            document.querySelector('#about-us-btn').addEventListener('click', function() {
+                console.log('打开关于我们页面');
+                // 在实际应用中，这里会打开关于我们页面
+                alert('关于我们页面功能待开发');
+            });
+
+            // 版本信息点击事件（可以添加版本详情显示）
+            document.querySelector('#version-info-item').addEventListener('click', function() {
+                console.log('显示版本详情');
+                alert('当前版本：v1.0.0\n构建时间：2024-01-15\n最新版本：v1.0.0');
+            });
+
+            // 意见反馈点击事件
+            document.querySelector('#feedback-btn').addEventListener('click', function() {
+                console.log('打开意见反馈页面');
+                // 在实际应用中，这里会打开反馈表单或跳转到反馈页面
+                alert('意见反馈功能待开发');
+            });
+
+            // 检查更新点击事件
+            document.querySelector('#check-update-btn').addEventListener('click', function() {
+                console.log('检查应用更新');
+                // 模拟检查更新过程
+                const button = this;
+                const originalText = button.querySelector('#check-update-title').textContent;
+                
+                button.querySelector('#check-update-title').textContent = '检查中...';
+                button.disabled = true;
+                
+                setTimeout(() => {
+                    button.querySelector('#check-update-title').textContent = originalText;
+                    button.disabled = false;
+                    alert('当前已是最新版本');
+                }, 2000);
+            });
+
+            // 退出登录点击事件
+            document.querySelector('#logout-btn').addEventListener('click', function() {
+                console.log('用户确认退出登录');
+                if (confirm('确定要退出登录吗？')) {
+                    console.log('用户退出登录');
+                    // 清除本地存储的用户信息
+                    localStorage.removeItem('userToken');
+                    localStorage.removeItem('userInfo');
+                    // 跳转到登录页
+                    window.location.href = 'P-LOGIN.html';
+                }
+            });
+
+            // 设置项悬停效果
+            const settingItems = document.querySelectorAll('.setting-item');
+            settingItems.forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = '#f9fafb';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.backgroundColor = 'transparent';
+                });
+            });
+
+            // 按钮点击效果
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 100);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
