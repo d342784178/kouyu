@@ -1,3 +1,7 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import DialogueContent from './components/DialogueContent'
 import VocabularyContent from './components/VocabularyContent'
@@ -77,24 +81,133 @@ interface Vocabulary {
   round_number: number
 }
 
-// 获取场景详情的辅助函数
-async function getSceneById(id: string): Promise<Scene> {
-  try {
-    // 在服务器组件中，使用当前URL或环境变量构建绝对URL
-    const baseUrl = process.env.VERCEL_URL 
-      ? `https://${process.env.VERCEL_URL}` 
-      : process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3002' // 开发环境默认URL
-    
-    // 调用API获取场景详情（禁用缓存以确保获取最新数据）
-    const response = await fetch(`${baseUrl}/api/scenes/${id}`, { cache: 'no-store' })
-    
-    let scene: Scene
-    
-    if (response.ok) {
-      scene = await response.json()
-    } else {
-      // 如果API调用失败，返回模拟数据
-      scene = {
+export default function SceneDetail() {
+  const params = useParams<{ id: string }>()
+  const id = params.id || ''
+  
+  const [scene, setScene] = useState<Scene | null>(null)
+  const [dialogueRounds, setDialogueRounds] = useState<DialogueRound[]>([])
+  const [vocabulary, setVocabulary] = useState<Vocabulary[]>([])
+  const [dialogueAnalysis, setDialogueAnalysis] = useState<QAAnalysis[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  // 获取场景详情的函数
+  const getSceneById = async (id: string): Promise<Scene> => {
+    try {
+      // 在客户端组件中，直接使用相对路径
+      const response = await fetch(`/api/scenes/${id}`)
+      
+      let scene: Scene
+      
+      if (response.ok) {
+        scene = await response.json()
+      } else {
+        // 如果API调用失败，返回模拟数据
+        scene = {
+          id: id,
+          name: '日常问候',
+          category: 'daily',
+          description: '学习日常问候的高频对话，掌握不同场景下的问候方式。',
+          difficulty: 'beginner',
+          duration: 10,
+          tags: ['问候', '日常', '基础'],
+          dialogue: {
+            dialogue_id: `dlg_${id}`,
+            scene_id: id,
+            full_audio_url: `https://cdn.example.com/audio/${id}_full.mp3`,
+            duration: 30,
+            rounds: [
+              {
+                round_number: 1,
+                content: [
+                  {
+                    index: 1,
+                    speaker: 'A',
+                    speaker_name: 'A',
+                    text: 'Hello! How are you today?',
+                    translation: '你好！你今天怎么样？',
+                    audio_url: `https://cdn.example.com/audio/${id}_r1_1.mp3`,
+                    is_key_qa: true
+                  },
+                  {
+                    index: 2,
+                    speaker: 'B',
+                    speaker_name: 'B',
+                    text: "I'm doing great, thanks! How about you?",
+                    translation: '我很好，谢谢！你呢？',
+                    audio_url: `https://cdn.example.com/audio/${id}_r1_2.mp3`,
+                    is_key_qa: false
+                  }
+                ],
+                analysis: {
+                  analysis_detail: '这是最基础的日常问候对话。用于熟人之间的问候。',
+                  standard_answer: {
+                    answer_id: `ans_${id}_01_std`,
+                    text: "I'm doing great, thanks! How about you?",
+                    translation: '我很好，谢谢！你呢？',
+                    audio_url: `https://cdn.example.com/audio/ans_${id}_01_std.mp3`,
+                    scenario: '标准问候回答',
+                    formality: 'neutral'
+                  },
+                  alternative_answers: [
+                    {
+                      answer_id: `ans_${id}_01_alt1`,
+                      text: "I'm good, thanks. And you?",
+                      translation: '我很好，谢谢。你呢？',
+                      audio_url: `https://cdn.example.com/audio/ans_${id}_01_alt1.mp3`,
+                      scenario: '简洁回答',
+                      formality: 'casual'
+                    },
+                    {
+                      answer_id: `ans_${id}_01_alt2`,
+                      text: "I'm doing well, thank you for asking. How are you?",
+                      translation: '我很好，谢谢你的关心。你怎么样？',
+                      audio_url: `https://cdn.example.com/audio/ans_${id}_01_alt2.mp3`,
+                      scenario: '正式回答',
+                      formality: 'formal'
+                    }
+                  ],
+                  usage_notes: '"How are you today?"是询问对方当天状态的常用表达。回答时，通常会先说明自己的状态，然后反问对方。'
+                }
+              }
+            ]
+          },
+          vocabulary: [
+            {
+              vocab_id: `vocab_${id}_01`,
+              scene_id: id,
+              type: 'word',
+              content: 'hello',
+              phonetic: '/həˈloʊ/',
+              translation: '你好',
+              example_sentence: 'Hello! How are you today?',
+              example_translation: '你好！你今天怎么样？',
+              audio_url: `https://cdn.example.com/audio/vocab_hello.mp3`,
+              round_number: 1
+            },
+            {
+              vocab_id: `vocab_${id}_02`,
+              scene_id: id,
+              type: 'word',
+              content: 'thanks',
+              phonetic: '/θæŋks/',
+              translation: '谢谢',
+              example_sentence: "I'm doing great, thanks!",
+              example_translation: '我很好，谢谢！',
+              audio_url: `https://cdn.example.com/audio/vocab_thanks.mp3`,
+              round_number: 1
+            }
+          ],
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
+        }
+      }
+      
+      return scene
+    } catch (error) {
+      console.error(`Error fetching scene ${id}:`, error)
+      // 返回模拟数据
+      return {
         id: id,
         name: '日常问候',
         category: 'daily',
@@ -193,136 +306,61 @@ async function getSceneById(id: string): Promise<Scene> {
         updatedAt: new Date().toISOString()
       }
     }
-    
-    return scene
-  } catch (error) {
-    console.error(`Error fetching scene ${id}:`, error)
-    // 返回模拟数据
-    return {
-      id: id,
-      name: '日常问候',
-      category: 'daily',
-      description: '学习日常问候的高频对话，掌握不同场景下的问候方式。',
-      difficulty: 'beginner',
-      duration: 10,
-      tags: ['问候', '日常', '基础'],
-      dialogue: {
-        dialogue_id: `dlg_${id}`,
-        scene_id: id,
-        full_audio_url: `https://cdn.example.com/audio/${id}_full.mp3`,
-        duration: 30,
-        rounds: [
-          {
-            round_number: 1,
-            content: [
-              {
-                index: 1,
-                speaker: 'A',
-                speaker_name: 'A',
-                text: 'Hello! How are you today?',
-                translation: '你好！你今天怎么样？',
-                audio_url: `https://cdn.example.com/audio/${id}_r1_1.mp3`,
-                is_key_qa: true
-              },
-              {
-                index: 2,
-                speaker: 'B',
-                speaker_name: 'B',
-                text: "I'm doing great, thanks! How about you?",
-                translation: '我很好，谢谢！你呢？',
-                audio_url: `https://cdn.example.com/audio/${id}_r1_2.mp3`,
-                is_key_qa: false
-              }
-            ],
-            analysis: {
-              analysis_detail: '这是最基础的日常问候对话。用于熟人之间的问候。',
-              standard_answer: {
-                answer_id: `ans_${id}_01_std`,
-                text: "I'm doing great, thanks! How about you?",
-                translation: '我很好，谢谢！你呢？',
-                audio_url: `https://cdn.example.com/audio/ans_${id}_01_std.mp3`,
-                scenario: '标准问候回答',
-                formality: 'neutral'
-              },
-              alternative_answers: [
-                {
-                  answer_id: `ans_${id}_01_alt1`,
-                  text: "I'm good, thanks. And you?",
-                  translation: '我很好，谢谢。你呢？',
-                  audio_url: `https://cdn.example.com/audio/ans_${id}_01_alt1.mp3`,
-                  scenario: '简洁回答',
-                  formality: 'casual'
-                },
-                {
-                  answer_id: `ans_${id}_01_alt2`,
-                  text: "I'm doing well, thank you for asking. How are you?",
-                  translation: '我很好，谢谢你的关心。你怎么样？',
-                  audio_url: `https://cdn.example.com/audio/ans_${id}_01_alt2.mp3`,
-                  scenario: '正式回答',
-                  formality: 'formal'
-                }
-              ],
-              usage_notes: '"How are you today?"是询问对方当天状态的常用表达。回答时，通常会先说明自己的状态，然后反问对方。'
-            }
-          }
-        ]
-      },
-      vocabulary: [
-        {
-          vocab_id: `vocab_${id}_01`,
-          scene_id: id,
-          type: 'word',
-          content: 'hello',
-          phonetic: '/həˈloʊ/',
-          translation: '你好',
-          example_sentence: 'Hello! How are you today?',
-          example_translation: '你好！你今天怎么样？',
-          audio_url: `https://cdn.example.com/audio/vocab_hello.mp3`,
-          round_number: 1
-        },
-        {
-          vocab_id: `vocab_${id}_02`,
-          scene_id: id,
-          type: 'word',
-          content: 'thanks',
-          phonetic: '/θæŋks/',
-          translation: '谢谢',
-          example_sentence: "I'm doing great, thanks!",
-          example_translation: '我很好，谢谢！',
-          audio_url: `https://cdn.example.com/audio/vocab_thanks.mp3`,
-          round_number: 1
-        }
-      ],
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
-    }
   }
-}
 
-export default async function SceneDetail({ params }: { params: { id: string } }) {
-  const { id } = params
-  // 获取场景详情
-  const scene = await getSceneById(id)
-  // 从场景数据中提取对话回合
-  // 注意：audio_url 应该是相对路径格式如 "COS:/scene/dialogues/xxx.mp3"
-  // 如果 audio_url 不存在或为空字符串，保留空值（前端会显示"暂不支持音频播放"）
-  const dialogueRounds = scene.dialogue.rounds.map(round => ({
-    ...round,
-    content: round.content.map(dialogue => ({
-      ...dialogue,
-      audio_url: dialogue.audio_url && dialogue.audio_url.trim() !== '' ? dialogue.audio_url : ''
-    }))
-  }))
-  // 从场景数据中提取词汇
-  const vocabulary = scene.vocabulary.map(vocab => ({
-    ...vocab,
-    audio_url: vocab.audio_url && vocab.audio_url.trim() !== '' ? vocab.audio_url : ''
-  }))
-  // 从场景数据中提取解析（从对话回合中）
-  const dialogueAnalysis = dialogueRounds.map(round => round.analysis)
+  // 在组件挂载时获取数据
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true)
+        const sceneData = await getSceneById(id)
+        setScene(sceneData)
+        
+        // 从场景数据中提取对话回合
+        // 注意：audio_url 应该是相对路径格式如 "COS:/scene/dialogues/xxx.mp3"
+        // 如果 audio_url 不存在或为空字符串，保留空值（前端会显示"暂不支持音频播放"）
+        const rounds = sceneData.dialogue.rounds.map(round => ({
+          ...round,
+          content: round.content.map(dialogue => ({
+            ...dialogue,
+            audio_url: dialogue.audio_url && dialogue.audio_url.trim() !== '' ? dialogue.audio_url : ''
+          }))
+        }))
+        setDialogueRounds(rounds)
+        
+        // 从场景数据中提取词汇
+        const vocab = sceneData.vocabulary.map(vocab => ({
+          ...vocab,
+          audio_url: vocab.audio_url && vocab.audio_url.trim() !== '' ? vocab.audio_url : ''
+        }))
+        setVocabulary(vocab)
+        
+        // 从场景数据中提取解析（从对话回合中）
+        const analysis = rounds.map(round => round.analysis)
+        setDialogueAnalysis(analysis)
+      } catch (error) {
+        console.error('Error fetching scene data:', error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    if (id) {
+      fetchData()
+    }
+  }, [id])
   
   // 计算学习时间（模拟）
   const learningTime = '10分钟'
+  
+  // 如果场景数据未加载，显示加载状态
+  if (!scene) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="text-text-primary">加载中...</div>
+      </div>
+    )
+  }
   
   return (
     <div id="scene-detail-content" className="pb-20">

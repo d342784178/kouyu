@@ -1,4 +1,7 @@
+'use client'
+
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 // 定义场景类型
@@ -14,35 +17,6 @@ interface Scene {
   updatedAt: string
 }
 
-// 获取场景列表的辅助函数
-async function getScenes(): Promise<Scene[]> {
-  try {
-    // 在服务器组件中，使用当前URL或环境变量构建绝对URL
-    const baseUrl = process.env.VERCEL_URL 
-      ? `https://${process.env.VERCEL_URL}` 
-      : 'http://localhost:3000' // 开发环境默认URL
-    
-    // 调用API获取所有场景（禁用缓存以确保获取最新数据）
-    const response = await fetch(`${baseUrl}/api/scenes`, { cache: 'no-store' })
-    
-    let scenes: Scene[] = []
-    
-    if (response.ok) {
-      scenes = await response.json()
-    } else {
-      // 如果API调用失败，返回空数组
-      console.error('API call failed:', response.status)
-      scenes = []
-    }
-    
-    return scenes
-  } catch (error) {
-    console.error('Error fetching scenes:', error)
-    // 网络错误或其他异常，返回空数组
-    return []
-  }
-}
-
 // 按分类分组场景的辅助函数
 function groupScenesByCategory(scenes: Scene[]): Record<string, Scene[]> {
   return scenes.reduce((groups, scene) => {
@@ -55,9 +29,50 @@ function groupScenesByCategory(scenes: Scene[]): Record<string, Scene[]> {
   }, {} as Record<string, Scene[]>)
 }
 
-export default async function SceneList() {
-  // 获取场景列表
-  const scenes = await getScenes()
+export default function SceneList() {
+  const [scenes, setScenes] = useState<Scene[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  // 获取场景列表的函数
+  const getScenes = async (): Promise<Scene[]> => {
+    try {
+      // 在客户端组件中，直接使用相对路径
+      const response = await fetch('/api/scenes')
+      
+      let scenes: Scene[] = []
+      
+      if (response.ok) {
+        scenes = await response.json()
+      } else {
+        // 如果API调用失败，返回空数组
+        console.error('API call failed:', response.status)
+        scenes = []
+      }
+      
+      return scenes
+    } catch (error) {
+      console.error('Error fetching scenes:', error)
+      // 网络错误或其他异常，返回空数组
+      return []
+    }
+  }
+
+  // 在组件挂载时获取数据
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true)
+        const scenesData = await getScenes()
+        setScenes(scenesData)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchData()
+  }, [])
   
   // 按分类分组场景
   const scenesByCategory = groupScenesByCategory(scenes)

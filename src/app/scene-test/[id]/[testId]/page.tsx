@@ -1,4 +1,8 @@
+'use client'
+
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { useState, useEffect } from 'react'
+import { useParams } from 'next/navigation'
 import Link from 'next/link'
 
 // 定义场景类型
@@ -27,25 +31,50 @@ interface Test {
   updatedAt: string
 }
 
-// 获取场景详情的辅助函数
-async function getSceneById(id: string): Promise<Scene> {
-  try {
-    // 在服务器组件中，使用当前URL或环境变量构建绝对URL
-    const baseUrl = process.env.VERCEL_URL 
-      ? `https://${process.env.VERCEL_URL}` 
-      : 'http://localhost:3000' // 开发环境默认URL
-    
-    // 调用API获取场景详情（禁用缓存以确保获取最新数据）
-    const response = await fetch(`${baseUrl}/api/scenes/${id}`, { cache: 'no-store' })
-    
-    let scene: Scene
-    
-    if (response.ok) {
-      scene = await response.json()
-    } else {
-      // 如果API调用失败，返回模拟数据
-      scene = {
-        id: id,
+export default function SceneTest() {
+  const params = useParams<{ id: string; testId: string }>()
+  const id = params.id || ''
+  const testId = params.testId || ''
+  
+  const [scene, setScene] = useState<Scene | null>(null)
+  const [tests, setTests] = useState<Test[]>([])
+  const [currentTest, setCurrentTest] = useState<Test | null>(null)
+  const [currentIndex, setCurrentIndex] = useState(-1)
+  const [prevTest, setPrevTest] = useState<Test | null>(null)
+  const [nextTest, setNextTest] = useState<Test | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const [notFound, setNotFound] = useState(false)
+
+  // 获取场景详情的函数
+  const getSceneById = async (sceneId: string): Promise<Scene> => {
+    try {
+      // 在客户端组件中，直接使用相对路径
+      const response = await fetch(`/api/scenes/${sceneId}`)
+      
+      let scene: Scene
+      
+      if (response.ok) {
+        scene = await response.json()
+      } else {
+        // 如果API调用失败，返回模拟数据
+        scene = {
+          id: sceneId,
+          name: '机场值机',
+          category: '旅行出行',
+          description: '学习在机场办理值机手续的常用对话',
+          difficulty: '中级',
+          coverImage: 'https://via.placeholder.com/400x200',
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
+        }
+      }
+      
+      return scene
+    } catch (error) {
+      console.error(`Error fetching scene ${sceneId}:`, error)
+      // 返回模拟数据
+      return {
+        id: sceneId,
         name: '机场值机',
         category: '旅行出行',
         description: '学习在机场办理值机手续的常用对话',
@@ -55,42 +84,69 @@ async function getSceneById(id: string): Promise<Scene> {
         updatedAt: new Date().toISOString()
       }
     }
-    
-    return scene
-  } catch (error) {
-    console.error(`Error fetching scene ${id}:`, error)
-    // 返回模拟数据
-    return {
-      id: id,
-      name: '机场值机',
-      category: '旅行出行',
-      description: '学习在机场办理值机手续的常用对话',
-      difficulty: '中级',
-      coverImage: 'https://via.placeholder.com/400x200',
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
-    }
   }
-}
 
-// 获取场景测试题目的辅助函数
-async function getSceneTests(sceneId: string): Promise<Test[]> {
-  try {
-    // 在服务器组件中，使用当前URL或环境变量构建绝对URL
-    const baseUrl = process.env.VERCEL_URL 
-      ? `https://${process.env.VERCEL_URL}` 
-      : 'http://localhost:3000' // 开发环境默认URL
-    
-    // 调用API获取场景测试题目（禁用缓存以确保获取最新数据）
-    const response = await fetch(`${baseUrl}/api/scenes/${sceneId}/tests`, { cache: 'no-store' })
-    
-    let tests: Test[] = []
-    
-    if (response.ok) {
-      tests = await response.json()
-    } else {
-      // 如果API调用失败，返回模拟数据
-      tests = [
+  // 获取场景测试题目的函数
+  const getSceneTests = async (sceneId: string): Promise<Test[]> => {
+    try {
+      // 在客户端组件中，直接使用相对路径
+      const response = await fetch(`/api/scenes/${sceneId}/tests`)
+      
+      let tests: Test[] = []
+      
+      if (response.ok) {
+        tests = await response.json()
+      } else {
+        // 如果API调用失败，返回模拟数据
+        tests = [
+          {
+            id: 'test_1',
+            sceneId: sceneId,
+            type: 'multiple-choice',
+            question: 'What would you say to check in for a flight?',
+            options: [
+              'Hello, I would like to check in for my flight.',
+              'Hello, I want to buy a ticket.',
+              'Hello, I need to cancel my flight.',
+              'Hello, I lost my luggage.'
+            ],
+            answer: 'Hello, I would like to check in for my flight.',
+            analysis: 'This is the correct phrase to use when you want to check in for your flight at the airport.',
+            order: 1,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+          },
+          {
+            id: 'test_2',
+            sceneId: sceneId,
+            type: 'fill-blank',
+            question: 'If you prefer a window seat, you can say: "I would prefer a ______ seat if possible."',
+            answer: 'window',
+            analysis: 'The correct word is "window" to indicate you want a seat next to the window on the plane.',
+            order: 2,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+          },
+          {
+            id: 'test_3',
+            sceneId: sceneId,
+            type: 'open',
+            question: 'What information might the check-in agent ask for?',
+            answer: 'The check-in agent might ask for your passport, ticket, and how many bags you are checking in.',
+            analysis: 'These are common questions asked during the check-in process at the airport.',
+            order: 3,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+          }
+        ]
+      }
+      
+      // 按顺序排序测试题目
+      return tests.sort((a, b) => a.order - b.order)
+    } catch (error) {
+      console.error(`Error fetching tests for scene ${sceneId}:`, error)
+      // 返回模拟数据
+      return [
         {
           id: 'test_1',
           sceneId: sceneId,
@@ -132,71 +188,65 @@ async function getSceneTests(sceneId: string): Promise<Test[]> {
         }
       ]
     }
-    
-    // 按顺序排序测试题目
-    return tests.sort((a, b) => a.order - b.order)
-  } catch (error) {
-    console.error(`Error fetching tests for scene ${sceneId}:`, error)
-    // 返回模拟数据
-    return [
-      {
-        id: 'test_1',
-        sceneId: sceneId,
-        type: 'multiple-choice',
-        question: 'What would you say to check in for a flight?',
-        options: [
-          'Hello, I would like to check in for my flight.',
-          'Hello, I want to buy a ticket.',
-          'Hello, I need to cancel my flight.',
-          'Hello, I lost my luggage.'
-        ],
-        answer: 'Hello, I would like to check in for my flight.',
-        analysis: 'This is the correct phrase to use when you want to check in for your flight at the airport.',
-        order: 1,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-      },
-      {
-        id: 'test_2',
-        sceneId: sceneId,
-        type: 'fill-blank',
-        question: 'If you prefer a window seat, you can say: "I would prefer a ______ seat if possible."',
-        answer: 'window',
-        analysis: 'The correct word is "window" to indicate you want a seat next to the window on the plane.',
-        order: 2,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-      },
-      {
-        id: 'test_3',
-        sceneId: sceneId,
-        type: 'open',
-        question: 'What information might the check-in agent ask for?',
-        answer: 'The check-in agent might ask for your passport, ticket, and how many bags you are checking in.',
-        analysis: 'These are common questions asked during the check-in process at the airport.',
-        order: 3,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-      }
-    ]
   }
-}
 
-export default async function SceneTest({ params }: { params: { id: string; testId: string } }) {
-  const { id, testId } = params
-  // 获取场景信息
-  const scene = await getSceneById(id)
-  // 获取测试题目
-  const tests = await getSceneTests(id)
-  // 获取当前题目
-  const currentTest = tests.find(test => test.id === testId)
-  // 获取当前题目索引
-  const currentIndex = tests.findIndex(test => test.id === testId)
-  // 获取上一题和下一题
-  const prevTest = currentIndex > 0 ? tests[currentIndex - 1] : null
-  const nextTest = currentIndex < tests.length - 1 ? tests[currentIndex + 1] : null
+  // 在组件挂载时获取数据
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true)
+        setNotFound(false)
+        
+        if (id && testId) {
+          // 获取场景信息
+          const sceneData = await getSceneById(id)
+          setScene(sceneData)
+          
+          // 获取测试题目
+          const testsData = await getSceneTests(id)
+          setTests(testsData)
+          
+          // 获取当前题目
+          const currentTestData = testsData.find(test => test.id === testId)
+          
+          if (currentTestData) {
+            setCurrentTest(currentTestData)
+            
+            // 获取当前题目索引
+            const index = testsData.findIndex(test => test.id === testId)
+            setCurrentIndex(index)
+            
+            // 获取上一题和下一题
+            const prev = index > 0 ? testsData[index - 1] : null
+            const next = index < testsData.length - 1 ? testsData[index + 1] : null
+            setPrevTest(prev)
+            setNextTest(next)
+          } else {
+            setNotFound(true)
+          }
+        } else {
+          setNotFound(true)
+        }
+      } catch (error) {
+        console.error('Error fetching test data:', error)
+        setNotFound(true)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchData()
+  }, [id, testId])
   
-  if (!currentTest) {
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="text-text-primary">加载中...</div>
+      </div>
+    )
+  }
+  
+  if (notFound || !currentTest) {
     return (
       <div id="test-not-found" className="flex items-center justify-center h-screen">
         <p className="text-text-secondary">测试题目未找到</p>

@@ -1,4 +1,7 @@
+'use client'
+
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import SceneCard from './SceneCard'
 
@@ -29,49 +32,76 @@ interface Scene {
   updatedAt: string
 }
 
-// 获取随机短语的辅助函数
-async function getRandomPhrases(count: number = 2): Promise<Phrase[]> {
-  try {
-    // 在服务器组件中，使用当前URL或环境变量构建绝对URL
-    const baseUrl = process.env.VERCEL_URL 
-      ? `https://${process.env.VERCEL_URL}` 
-      : 'http://localhost:3000' // 开发环境默认URL
-    
-    // 调用API获取所有短语（禁用缓存以确保获取最新数据）
-    const response = await fetch(`${baseUrl}/api/phrases`, { cache: 'no-store' })
-    if (!response.ok) {
-      throw new Error('Failed to fetch phrases')
-    }
-    
-    const allPhrases: Phrase[] = await response.json()
-    
-    // 随机打乱数组并返回指定数量的短语
-    const shuffled = [...allPhrases].sort(() => 0.5 - Math.random())
-    return shuffled.slice(0, count)
-  } catch (error) {
-    console.error('Error fetching random phrases:', error)
-    return []
-  }
-}
+export default function Home() {
+  const [randomPhrases, setRandomPhrases] = useState<Phrase[]>([])
+  const [recommendedScenes, setRecommendedScenes] = useState<Scene[]>([])
+  const [isLoading, setIsLoading] = useState(true)
 
-// 获取推荐场景的辅助函数
-async function getRecommendedScenes(count: number = 2): Promise<Scene[]> {
-  try {
-    // 在服务器组件中，使用当前URL或环境变量构建绝对URL
-    const baseUrl = process.env.VERCEL_URL 
-      ? `https://${process.env.VERCEL_URL}` 
-      : 'http://localhost:3000' // 开发环境默认URL
-    
-    // 调用API获取所有场景（禁用缓存以确保获取最新数据）
-    const response = await fetch(`${baseUrl}/api/scenes`, { cache: 'no-store' })
-    
-    let scenes: Scene[] = []
-    
-    if (response.ok) {
-      scenes = await response.json()
-    } else {
-      // 如果API调用失败，返回模拟数据
-      scenes = [
+  // 获取随机短语的函数
+  const getRandomPhrases = async (count: number = 2): Promise<Phrase[]> => {
+    try {
+      // 在客户端组件中，直接使用相对路径
+      const response = await fetch('/api/phrases')
+      if (!response.ok) {
+        throw new Error('Failed to fetch phrases')
+      }
+      
+      const allPhrases: Phrase[] = await response.json()
+      
+      // 随机打乱数组并返回指定数量的短语
+      const shuffled = [...allPhrases].sort(() => 0.5 - Math.random())
+      return shuffled.slice(0, count)
+    } catch (error) {
+      console.error('Error fetching random phrases:', error)
+      return []
+    }
+  }
+
+  // 获取推荐场景的函数
+  const getRecommendedScenes = async (count: number = 2): Promise<Scene[]> => {
+    try {
+      // 在客户端组件中，直接使用相对路径
+      const response = await fetch('/api/scenes')
+      
+      let scenes: Scene[] = []
+      
+      if (response.ok) {
+        scenes = await response.json()
+      } else {
+        // 如果API调用失败，返回模拟数据
+        scenes = [
+          {
+            id: 'scene_1',
+            name: '机场值机',
+            category: '旅行出行',
+            description: '学习在机场办理值机手续的常用对话',
+            difficulty: '中级',
+            coverImage: 'https://via.placeholder.com/200',
+            dialogueCount: 8,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+          },
+          {
+            id: 'scene_2',
+            name: '餐厅点餐',
+            category: '餐饮服务',
+            description: '掌握在餐厅点餐的实用英语表达',
+            difficulty: '初级',
+            coverImage: 'https://via.placeholder.com/200',
+            dialogueCount: 6,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+          }
+        ]
+      }
+      
+      // 随机打乱数组并返回指定数量的场景
+      const shuffled = [...scenes].sort(() => 0.5 - Math.random())
+      return shuffled.slice(0, count)
+    } catch (error) {
+      console.error('Error fetching recommended scenes:', error)
+      // 返回模拟数据
+      return [
         {
           id: 'scene_1',
           name: '机场值机',
@@ -96,45 +126,26 @@ async function getRecommendedScenes(count: number = 2): Promise<Scene[]> {
         }
       ]
     }
-    
-    // 随机打乱数组并返回指定数量的场景
-    const shuffled = [...scenes].sort(() => 0.5 - Math.random())
-    return shuffled.slice(0, count)
-  } catch (error) {
-    console.error('Error fetching recommended scenes:', error)
-    // 返回模拟数据
-    return [
-      {
-        id: 'scene_1',
-        name: '机场值机',
-        category: '旅行出行',
-        description: '学习在机场办理值机手续的常用对话',
-        difficulty: '中级',
-        coverImage: 'https://via.placeholder.com/200',
-        dialogueCount: 8,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-      },
-      {
-        id: 'scene_2',
-        name: '餐厅点餐',
-        category: '餐饮服务',
-        description: '掌握在餐厅点餐的实用英语表达',
-        difficulty: '初级',
-        coverImage: 'https://via.placeholder.com/200',
-        dialogueCount: 6,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString()
-      }
-    ]
   }
-}
 
-export default async function Home() {
-  // 获取2个随机短语
-  const randomPhrases = await getRandomPhrases(2)
-  // 获取2个推荐场景
-  const recommendedScenes = await getRecommendedScenes(2)
+  // 在组件挂载时获取数据
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true)
+        const phrases = await getRandomPhrases(2)
+        const scenes = await getRecommendedScenes(2)
+        setRandomPhrases(phrases)
+        setRecommendedScenes(scenes)
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchData()
+  }, [])
   
   return (
     <div id="main-content" className="pb-20">
