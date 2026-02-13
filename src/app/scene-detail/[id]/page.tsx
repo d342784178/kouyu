@@ -1,4 +1,7 @@
 import Link from 'next/link'
+import DialogueContent from './components/DialogueContent'
+import VocabularyContent from './components/VocabularyContent'
+import PlayAllButton from './components/PlayAllButton'
 
 // 定义场景类型
 interface Scene {
@@ -80,7 +83,7 @@ async function getSceneById(id: string): Promise<Scene> {
     // 在服务器组件中，使用当前URL或环境变量构建绝对URL
     const baseUrl = process.env.VERCEL_URL 
       ? `https://${process.env.VERCEL_URL}` 
-      : 'http://localhost:3000' // 开发环境默认URL
+      : process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3002' // 开发环境默认URL
     
     // 调用API获取场景详情（禁用缓存以确保获取最新数据）
     const response = await fetch(`${baseUrl}/api/scenes/${id}`, { cache: 'no-store' })
@@ -301,9 +304,20 @@ export default async function SceneDetail({ params }: { params: { id: string } }
   // 获取场景详情
   const scene = await getSceneById(id)
   // 从场景数据中提取对话回合
-  const dialogueRounds = scene.dialogue.rounds
+  // 注意：audio_url 应该是相对路径格式如 "COS:/scene/dialogues/xxx.mp3"
+  // 如果 audio_url 不存在或为空字符串，保留空值（前端会显示"暂不支持音频播放"）
+  const dialogueRounds = scene.dialogue.rounds.map(round => ({
+    ...round,
+    content: round.content.map(dialogue => ({
+      ...dialogue,
+      audio_url: dialogue.audio_url && dialogue.audio_url.trim() !== '' ? dialogue.audio_url : ''
+    }))
+  }))
   // 从场景数据中提取词汇
-  const vocabulary = scene.vocabulary
+  const vocabulary = scene.vocabulary.map(vocab => ({
+    ...vocab,
+    audio_url: vocab.audio_url && vocab.audio_url.trim() !== '' ? vocab.audio_url : ''
+  }))
   // 从场景数据中提取解析（从对话回合中）
   const dialogueAnalysis = dialogueRounds.map(round => round.analysis)
   
@@ -337,16 +351,15 @@ export default async function SceneDetail({ params }: { params: { id: string } }
       {/* 场景信息 */}
       <div id="scene-info" className="mx-6 mt-4">
         <div className="bg-white rounded-card shadow-card p-4">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center space-x-3">
-              <span className="px-3 py-1 bg-blue-50 text-blue-600 text-sm rounded-full">{scene.category}</span>
-              <span className="px-3 py-1 bg-green-50 text-green-600 text-sm rounded-full">{scene.difficulty}</span>
-              <span className="px-3 py-1 bg-gray-50 text-gray-600 text-sm rounded-full">{learningTime}</span>
+          <div className="flex items-center justify-between mb-4 gap-4">
+            <div className="flex items-center space-x-3 flex-wrap gap-y-2">
+              <span className="px-3 py-1 bg-blue-50 text-blue-600 text-sm rounded-full whitespace-nowrap">{scene.category}</span>
+              <span className="px-3 py-1 bg-green-50 text-green-600 text-sm rounded-full whitespace-nowrap">{scene.difficulty}</span>
+              <span className="px-3 py-1 bg-gray-50 text-gray-600 text-sm rounded-full whitespace-nowrap">{learningTime}</span>
             </div>
-            <button id="play-all-btn" className="flex items-center space-x-2 px-4 py-2 bg-primary text-white rounded-full text-sm font-medium">
-              <i className="fas fa-play"></i>
-              <span>播放全部</span>
-            </button>
+            <div className="flex-shrink-0">
+              <PlayAllButton rounds={dialogueRounds} />
+            </div>
           </div>
           <p className="text-sm text-text-secondary">{scene.description}</p>
         </div>
@@ -357,39 +370,7 @@ export default async function SceneDetail({ params }: { params: { id: string } }
         <h2 className="text-lg font-semibold text-text-primary mb-4">对话学习</h2>
         
         <div className="bg-white rounded-card shadow-card p-6">
-          <div className="space-y-6">
-            {/* 对话回合 */}
-            {dialogueRounds.map((round, turnIndex) => (
-              <div key={round.round_number} id={`dialogue-turn-${round.round_number}`} className="space-y-3">
-                <h3 className="text-sm font-medium text-text-secondary mb-2">回合 {round.round_number}</h3>
-                {round.content.map((dialogue, index) => (
-                  <div key={dialogue.index} className={`flex flex-col ${dialogue.speaker === 'waiter' || dialogue.speaker === 'A' || dialogue.speaker === 'agent' ? 'space-y-2' : 'items-end space-y-2'}`}>
-                    <div 
-                      className={`p-4 max-w-[80%] ${dialogue.speaker === 'waiter' || dialogue.speaker === 'A' || dialogue.speaker === 'agent' ? 'align-self-start' : 'align-self-end'}`}
-                      style={{
-                        backgroundColor: dialogue.speaker === 'waiter' || dialogue.speaker === 'A' || dialogue.speaker === 'agent' ? '#f3f4f6' : '#2563eb',
-                        borderRadius: dialogue.speaker === 'waiter' || dialogue.speaker === 'A' || dialogue.speaker === 'agent' ? '18px 18px 18px 4px' : '18px 18px 4px 18px',
-                        color: dialogue.speaker === 'waiter' || dialogue.speaker === 'A' || dialogue.speaker === 'agent' ? '#1f2937' : 'white'
-                      }}
-                    >
-                      <p className="text-sm">{dialogue.text}</p>
-                    </div>
-                    <div className={`flex items-center ${dialogue.speaker === 'waiter' || dialogue.speaker === 'A' || dialogue.speaker === 'agent' ? 'space-x-2' : 'flex-row-reverse space-x-2'}`}>
-                      {dialogue.speaker === 'waiter' || dialogue.speaker === 'A' || dialogue.speaker === 'agent' && (
-                        <span className="text-xs text-text-secondary">{dialogue.speaker_name}: {dialogue.translation}</span>
-                      )}
-                      <button id={`play-turn-${round.round_number}-${index + 1}`} className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
-                        <i className="fas fa-play text-gray-600 text-xs"></i>
-                      </button>
-                      {dialogue.speaker === 'customer' || dialogue.speaker === 'B' || dialogue.speaker === 'passenger' && (
-                        <span className="text-xs text-text-secondary">{dialogue.speaker_name}: {dialogue.translation}</span>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ))}
-          </div>
+          <DialogueContent rounds={dialogueRounds} />
         </div>
       </div>
 
@@ -436,21 +417,7 @@ export default async function SceneDetail({ params }: { params: { id: string } }
         <h2 className="text-lg font-semibold text-text-primary mb-4">高频词汇</h2>
         
         <div className="bg-white rounded-card shadow-card p-4">
-          <div className="space-y-4">
-            {vocabulary.map((vocab, index) => (
-              <div key={vocab.vocab_id} id={`word-${index + 1}`} className="flex items-center justify-between">
-                <div className="flex-1">
-                  <h3 className="text-base font-semibold text-text-primary mb-1">{vocab.content} <span className="text-xs text-text-secondary">({vocab.type === 'word' ? '单词' : '短语'})</span></h3>
-                  <p className="text-sm text-text-secondary mb-1">{vocab.phonetic} {vocab.translation}</p>
-                  <p className="text-xs text-text-secondary">原句: {vocab.example_sentence}</p>
-                  <p className="text-xs text-text-secondary">翻译: {vocab.example_translation}</p>
-                </div>
-                <button id={`play-word-${index + 1}`} className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center">
-                  <i className="fas fa-play text-gray-600 text-xs"></i>
-                </button>
-              </div>
-            ))}
-          </div>
+          <VocabularyContent vocabulary={vocabulary} />
         </div>
       </div>
 
