@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Link from 'next/link'
-import PhraseCard from './PhraseCard'
 import SceneCard from './SceneCard'
 
 // 定义短语类型
