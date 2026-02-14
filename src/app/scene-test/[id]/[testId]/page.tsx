@@ -4,6 +4,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
+import OpenTestDialog from './OpenTestDialog'
 
 // 定义场景类型
 interface Scene {
@@ -270,130 +271,142 @@ export default function SceneTest() {
     )
   }
   
+  // 处理开放题测试完成
+  const handleOpenTestComplete = () => {
+    // 跳转到下一题或完成测试
+    if (nextTest) {
+      window.location.href = `/scene-test/${id}/${nextTest.id}`
+    } else {
+      window.location.href = `/scene-detail/${id}`
+    }
+  }
+
   return (
     <div id="scene-test-content" className="pb-20">
-      <header id="scene-test-header" className="bg-white px-6 py-4 shadow-sm sticky top-0 z-30">
-        <div id="scene-test-header-content" className="flex items-center justify-between">
-          <Link 
-            href={`/scene-detail/${id}`} 
-            id="back-btn" 
-            className="w-8 h-8 flex items-center justify-center"
-          >
-            <i className="fas fa-arrow-left text-text-primary text-lg"></i>
-          </Link>
-          <h1 id="scene-test-title" className="text-xl font-bold text-text-primary">场景测试</h1>
-          <div className="w-8"></div> {/* 占位，保持标题居中 */}
-        </div>
-      </header>
-      
-      <main id="scene-test-main" className="mx-6 mt-6">
-        <section id="test-progress" className="mb-6">
-          <div id="progress-bar-container" className="w-full h-2 bg-gray-100 rounded-full mb-2">
-            <div 
-              id="progress-bar" 
-              className="h-full bg-primary rounded-full" 
-              style={{ width: `${((currentIndex + 1) / tests.length) * 100}%` }}
-            ></div>
-          </div>
-          <div id="progress-text" className="flex justify-between text-xs text-text-secondary">
-            <span>第 {currentIndex + 1} 题</span>
-            <span>共 {tests.length} 题</span>
-          </div>
-        </section>
-        
-        <section id="test-question" className="mb-8">
-          <h2 id="question-text" className="text-lg font-semibold text-text-primary mb-6">
-            {currentTest.question}
-          </h2>
-          
-          {currentTest.type === 'multiple-choice' && (
-            <div id="multiple-choice-options" className="space-y-3">
-              {currentTest.options?.map((option, index) => {
-                const isSelected = selectedOption === option;
-                const isCorrect = isAnswered && option === currentTest.answer;
-                const isIncorrect = isAnswered && isSelected && option !== currentTest.answer;
-                
-                return (
-                  <button 
-                    key={index} 
-                    id={`option-${index}`} 
-                    className={`w-full py-3 px-4 rounded-card shadow-sm border text-left transition-all ${isSelected 
-                      ? 'border-primary bg-blue-50' 
-                      : isCorrect 
-                      ? 'border-green-500 bg-green-50' 
-                      : isIncorrect 
-                      ? 'border-red-500 bg-red-50' 
-                      : 'border-border-light bg-white'}`}
-                    onClick={() => handleOptionClick(option)}
-                    disabled={isAnswered}
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className={`text-base ${isSelected 
-                        ? 'text-primary font-medium' 
-                        : isCorrect 
-                        ? 'text-green-600 font-medium' 
-                        : isIncorrect 
-                        ? 'text-red-600 font-medium' 
-                        : 'text-text-primary'}`}>
-                        {option}
-                      </span>
-                      {isSelected && (
-                        <i className="fas fa-check-circle text-primary"></i>
-                      )}
-                      {isCorrect && !isSelected && (
-                        <i className="fas fa-check-circle text-green-500"></i>
-                      )}
-                      {isIncorrect && (
-                        <i className="fas fa-times-circle text-red-500"></i>
-                      )}
-                    </div>
-                  </button>
-                );
-              })}
+      {/* 开放题测试使用对话框组件 */}
+      {currentTest.type === 'open' ? (
+        <OpenTestDialog 
+          sceneId={id}
+          testId={testId}
+          testQuestion={currentTest.question}
+          onComplete={handleOpenTestComplete}
+        />
+      ) : (
+        // 其他类型题目使用原有界面
+        <>
+          <header id="scene-test-header" className="bg-white px-6 py-4 shadow-sm sticky top-0 z-30">
+            <div id="scene-test-header-content" className="flex items-center justify-between">
+              <Link 
+                href={`/scene-detail/${id}`} 
+                id="back-btn" 
+                className="w-8 h-8 flex items-center justify-center"
+              >
+                <i className="fas fa-arrow-left text-text-primary text-lg"></i>
+              </Link>
+              <h1 id="scene-test-title" className="text-xl font-bold text-text-primary">场景测试</h1>
+              <div className="w-8"></div> {/* 占位，保持标题居中 */}
             </div>
-          )}
+          </header>
           
-          {currentTest.type === 'fill-blank' && (
-            <div id="fill-blank-input">
-              <input 
-                type="text" 
-                id="answer-input" 
-                placeholder="请输入答案..." 
-                className="w-full py-3 px-4 bg-white rounded-card shadow-sm border border-border-light"
-              />
-            </div>
-          )}
-          
-          {currentTest.type === 'open' && (
-            <div id="open-answer-input">
-              <textarea 
-                id="answer-textarea" 
-                placeholder="请输入答案..." 
-                rows={4} 
-                className="w-full py-3 px-4 bg-white rounded-card shadow-sm border border-border-light"
-              ></textarea>
-            </div>
-          )}
-        </section>
-        
-        <section id="test-navigation" className="flex justify-between">
-          <Link 
-            href={prevTest ? `/scene-test/${id}/${prevTest.id}` : '#'} 
-            id="prev-btn" 
-            className={`py-3 px-6 rounded-card font-medium ${prevTest ? 'bg-white shadow-sm text-text-primary' : 'opacity-50 cursor-not-allowed'}`}
-            aria-disabled={!prevTest}
-          >
-            上一题
-          </Link>
-          <Link 
-            href={nextTest ? `/scene-test/${id}/${nextTest.id}` : `/scene-detail/${id}`} 
-            id="next-btn" 
-            className={`py-3 px-6 rounded-card font-medium ${nextTest ? 'bg-white shadow-sm text-text-primary' : 'bg-gradient-to-r from-primary to-secondary text-white'}`}
-          >
-            {nextTest ? '下一题' : '提交'}
-          </Link>
-        </section>
-      </main>
+          <main id="scene-test-main" className="mx-6 mt-6">
+            <section id="test-progress" className="mb-6">
+              <div id="progress-bar-container" className="w-full h-2 bg-gray-100 rounded-full mb-2">
+                <div 
+                  id="progress-bar" 
+                  className="h-full bg-primary rounded-full" 
+                  style={{ width: `${((currentIndex + 1) / tests.length) * 100}%` }}
+                ></div>
+              </div>
+              <div id="progress-text" className="flex justify-between text-xs text-text-secondary">
+                <span>第 {currentIndex + 1} 题</span>
+                <span>共 {tests.length} 题</span>
+              </div>
+            </section>
+            
+            <section id="test-question" className="mb-8">
+              <h2 id="question-text" className="text-lg font-semibold text-text-primary mb-6">
+                {currentTest.question}
+              </h2>
+              
+              {currentTest.type === 'multiple-choice' && (
+                <div id="multiple-choice-options" className="space-y-3">
+                  {currentTest.options?.map((option, index) => {
+                    const isSelected = selectedOption === option;
+                    const isCorrect = isAnswered && option === currentTest.answer;
+                    const isIncorrect = isAnswered && isSelected && option !== currentTest.answer;
+                    
+                    return (
+                      <button 
+                        key={index} 
+                        id={`option-${index}`} 
+                        className={`w-full py-3 px-4 rounded-card shadow-sm border text-left transition-all ${isSelected 
+                          ? 'border-primary bg-blue-50' 
+                          : isCorrect 
+                          ? 'border-green-500 bg-green-50' 
+                          : isIncorrect 
+                          ? 'border-red-500 bg-red-50' 
+                          : 'border-border-light bg-white'}`}
+                        onClick={() => handleOptionClick(option)}
+                        disabled={isAnswered}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className={`text-base ${isSelected 
+                            ? 'text-primary font-medium' 
+                            : isCorrect 
+                            ? 'text-green-600 font-medium' 
+                            : isIncorrect 
+                            ? 'text-red-600 font-medium' 
+                            : 'text-text-primary'}`}>
+                            {option}
+                          </span>
+                          {isSelected && (
+                            <i className="fas fa-check-circle text-primary"></i>
+                          )}
+                          {isCorrect && !isSelected && (
+                            <i className="fas fa-check-circle text-green-500"></i>
+                          )}
+                          {isIncorrect && (
+                            <i className="fas fa-times-circle text-red-500"></i>
+                          )}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+              
+              {currentTest.type === 'fill-blank' && (
+                <div id="fill-blank-input">
+                  <input 
+                    type="text" 
+                    id="answer-input" 
+                    placeholder="请输入答案..." 
+                    className="w-full py-3 px-4 bg-white rounded-card shadow-sm border border-border-light"
+                  />
+                </div>
+              )}
+            </section>
+            
+            <section id="test-navigation" className="flex justify-between">
+              <Link 
+                href={prevTest ? `/scene-test/${id}/${prevTest.id}` : '#'} 
+                id="prev-btn" 
+                className={`py-3 px-6 rounded-card font-medium ${prevTest ? 'bg-white shadow-sm text-text-primary' : 'opacity-50 cursor-not-allowed'}`}
+                aria-disabled={!prevTest}
+              >
+                上一题
+              </Link>
+              <Link 
+                href={nextTest ? `/scene-test/${id}/${nextTest.id}` : `/scene-detail/${id}`} 
+                id="next-btn" 
+                className={`py-3 px-6 rounded-card font-medium ${nextTest ? 'bg-white shadow-sm text-text-primary' : 'bg-gradient-to-r from-primary to-secondary text-white'}`}
+              >
+                {nextTest ? '下一题' : '提交'}
+              </Link>
+            </section>
+          </main>
+        </>
+      )}
     </div>
   )
 }
