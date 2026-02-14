@@ -44,6 +44,8 @@ export default function SceneTest() {
   const [nextTest, setNextTest] = useState<Test | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [notFound, setNotFound] = useState(false)
+  const [selectedOption, setSelectedOption] = useState<string>('')
+  const [isAnswered, setIsAnswered] = useState(false)
 
   // 获取场景详情的函数
   const getSceneById = async (sceneId: string): Promise<Scene> => {
@@ -190,12 +192,26 @@ export default function SceneTest() {
     }
   }
 
+  // 处理选择题选项点击
+  const handleOptionClick = (option: string) => {
+    setSelectedOption(option)
+    setIsAnswered(true)
+  }
+
+  // 重置答题状态
+  const resetAnswerState = () => {
+    setSelectedOption('')
+    setIsAnswered(false)
+  }
+
   // 在组件挂载时获取数据
   useEffect(() => {
     const fetchData = async () => {
       try {
         setIsLoading(true)
         setNotFound(false)
+        // 重置答题状态
+        resetAnswerState()
         
         if (id && testId) {
           // 获取场景信息
@@ -292,15 +308,48 @@ export default function SceneTest() {
           
           {currentTest.type === 'multiple-choice' && (
             <div id="multiple-choice-options" className="space-y-3">
-              {currentTest.options?.map((option, index) => (
-                <button 
-                  key={index} 
-                  id={`option-${index}`} 
-                  className="w-full py-3 px-4 bg-white rounded-card shadow-sm border border-border-light text-left"
-                >
-                  <span className="text-base text-text-primary">{option}</span>
-                </button>
-              ))}
+              {currentTest.options?.map((option, index) => {
+                const isSelected = selectedOption === option;
+                const isCorrect = isAnswered && option === currentTest.answer;
+                const isIncorrect = isAnswered && isSelected && option !== currentTest.answer;
+                
+                return (
+                  <button 
+                    key={index} 
+                    id={`option-${index}`} 
+                    className={`w-full py-3 px-4 rounded-card shadow-sm border text-left transition-all ${isSelected 
+                      ? 'border-primary bg-blue-50' 
+                      : isCorrect 
+                      ? 'border-green-500 bg-green-50' 
+                      : isIncorrect 
+                      ? 'border-red-500 bg-red-50' 
+                      : 'border-border-light bg-white'}`}
+                    onClick={() => handleOptionClick(option)}
+                    disabled={isAnswered}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className={`text-base ${isSelected 
+                        ? 'text-primary font-medium' 
+                        : isCorrect 
+                        ? 'text-green-600 font-medium' 
+                        : isIncorrect 
+                        ? 'text-red-600 font-medium' 
+                        : 'text-text-primary'}`}>
+                        {option}
+                      </span>
+                      {isSelected && (
+                        <i className="fas fa-check-circle text-primary"></i>
+                      )}
+                      {isCorrect && !isSelected && (
+                        <i className="fas fa-check-circle text-green-500"></i>
+                      )}
+                      {isIncorrect && (
+                        <i className="fas fa-times-circle text-red-500"></i>
+                      )}
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           )}
           

@@ -90,6 +90,7 @@ export default function SceneDetail() {
   const [vocabulary, setVocabulary] = useState<Vocabulary[]>([])
   const [dialogueAnalysis, setDialogueAnalysis] = useState<QAAnalysis[]>([])
   const [isLoading, setIsLoading] = useState(true)
+  const [expandedAnalysis, setExpandedAnalysis] = useState<number[]>([])
 
   // 获取场景详情的函数
   const getSceneById = async (id: string): Promise<Scene> => {
@@ -308,6 +309,17 @@ export default function SceneDetail() {
     }
   }
 
+  // 切换解析卡片的展开/折叠状态
+  const toggleAnalysis = (index: number) => {
+    setExpandedAnalysis(prev => {
+      if (prev.includes(index)) {
+        return prev.filter(i => i !== index)
+      } else {
+        return [...prev, index]
+      }
+    })
+  }
+
   // 在组件挂载时获取数据
   useEffect(() => {
     const fetchData = async () => {
@@ -338,6 +350,11 @@ export default function SceneDetail() {
         // 从场景数据中提取解析（从对话回合中）
         const analysis = rounds.map(round => round.analysis)
         setDialogueAnalysis(analysis)
+        
+        // 默认展开第一个解析
+        if (analysis.length > 0) {
+          setExpandedAnalysis([0])
+        }
       } catch (error) {
         console.error('Error fetching scene data:', error)
       } finally {
@@ -416,37 +433,132 @@ export default function SceneDetail() {
       <div id="dialogue-analysis" className="mx-6 mt-6">
         <h2 className="text-lg font-semibold text-text-primary mb-4">对话解析</h2>
         
-        <div className="bg-white rounded-card shadow-card p-4">
-          <div className="space-y-4">
-            {dialogueAnalysis.map((analysis, index) => (
-              <div key={index} id={`analysis-${index + 1}`}>
-                <p className="text-sm text-text-secondary mb-3">{analysis.analysis_detail}</p>
-                
-                <div className="space-y-3">
-                  <div className="p-3 bg-blue-50 rounded-lg">
-                    <p className="text-sm font-medium text-text-primary mb-1">标准回答: {analysis.standard_answer.text}</p>
-                    <p className="text-xs text-text-secondary">{analysis.standard_answer.translation}</p>
-                    <p className="text-xs text-text-secondary mt-1">适用场景：{analysis.standard_answer.scenario}</p>
-                    <p className="text-xs text-text-secondary mt-1">正式程度：{analysis.standard_answer.formality}</p>
-                  </div>
-                  
-                  {analysis.alternative_answers.map((answer, answerIndex) => (
-                    <div key={answer.answer_id} className="p-3 bg-gray-50 rounded-lg">
-                      <p className="text-sm font-medium text-text-primary mb-1">备选回答{answerIndex + 1}: {answer.text}</p>
-                      <p className="text-xs text-text-secondary">{answer.translation}</p>
-                      <p className="text-xs text-text-secondary mt-1">适用场景：{answer.scenario}</p>
-                      <p className="text-xs text-text-secondary mt-1">正式程度：{answer.formality}</p>
+        <div className="space-y-6">
+          {dialogueAnalysis.map((analysis, index) => {
+            const isExpanded = expandedAnalysis.includes(index)
+            return (
+              <div key={index} id={`analysis-${index + 1}`} className="bg-white rounded-card shadow-card overflow-hidden">
+                {/* 解析头部 - 可点击展开/折叠 */}
+                <div 
+                  className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 cursor-pointer transition-colors hover:from-blue-100 hover:to-indigo-100"
+                  onClick={() => toggleAnalysis(index)}
+                >
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-base font-semibold text-text-primary">解析 #{index + 1}</h3>
+                      <button className="text-primary transition-transform">
+                        <i className={`fas ${isExpanded ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
+                      </button>
                     </div>
-                  ))}
-                  
-                  <div className="p-3 bg-green-50 rounded-lg">
-                    <p className="text-sm font-medium text-text-primary mb-1">使用说明</p>
-                    <p className="text-xs text-text-secondary">{analysis.usage_notes}</p>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">
+                        标准回答: {analysis.standard_answer.text.substring(0, 20)}{analysis.standard_answer.text.length > 20 ? '...' : ''}
+                      </span>
+                      {analysis.alternative_answers.length > 0 && (
+                        <span className="px-2 py-1 bg-purple-100 text-purple-700 text-xs rounded-full">
+                          备选回答: {analysis.alternative_answers.length}个
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-xs text-text-secondary line-clamp-2">
+                      {analysis.analysis_detail.substring(0, 80)}{analysis.analysis_detail.length > 80 ? '...' : ''}
+                    </p>
                   </div>
                 </div>
+                
+                {/* 解析内容 */}
+                {isExpanded && (
+                  <div className="p-4 space-y-4 animate-fadeIn">
+                    {/* 分析详情 */}
+                    <div className="analysis-detail">
+                      <h4 className="text-sm font-medium text-text-primary mb-2 flex items-center">
+                        <i className="fas fa-info-circle text-blue-500 mr-2"></i>
+                        分析详情
+                      </h4>
+                      <p className="text-sm text-text-secondary ml-6">{analysis.analysis_detail}</p>
+                    </div>
+                    
+                    {/* 标准回答 */}
+                    <div className="standard-answer">
+                      <h4 className="text-sm font-medium text-text-primary mb-2 flex items-center">
+                        <i className="fas fa-check-circle text-green-500 mr-2"></i>
+                        标准回答
+                      </h4>
+                      <div className="ml-6 p-3 bg-blue-50 rounded-lg border border-blue-100">
+                        <div className="flex items-start">
+                          <div className="flex-1">
+                            <p className="text-sm font-medium text-text-primary mb-1">{analysis.standard_answer.text}</p>
+                            <p className="text-xs text-text-secondary mb-2">{analysis.standard_answer.translation}</p>
+                            <div className="flex flex-wrap gap-2">
+                              <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">
+                                场景: {analysis.standard_answer.scenario}
+                              </span>
+                              <span className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">
+                                正式度: {analysis.standard_answer.formality}
+                              </span>
+                            </div>
+                          </div>
+                          {analysis.standard_answer.audio_url && (
+                            <button className="ml-3 text-primary flex-shrink-0">
+                              <i className="fas fa-play-circle text-xl"></i>
+                            </button>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* 备选回答 */}
+                    {analysis.alternative_answers.length > 0 && (
+                      <div className="alternative-answers">
+                        <h4 className="text-sm font-medium text-text-primary mb-2 flex items-center">
+                          <i className="fas fa-list-alt text-purple-500 mr-2"></i>
+                          备选回答
+                        </h4>
+                        <div className="ml-6 space-y-3">
+                          {analysis.alternative_answers.map((answer, answerIndex) => (
+                            <div key={answer.answer_id} className="p-3 bg-gray-50 rounded-lg border border-gray-100">
+                              <div className="flex items-start">
+                                <div className="flex-1">
+                                  <p className="text-sm font-medium text-text-primary mb-1">
+                                    回答 {answerIndex + 1}: {answer.text}
+                                  </p>
+                                  <p className="text-xs text-text-secondary mb-2">{answer.translation}</p>
+                                  <div className="flex flex-wrap gap-2">
+                                    <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
+                                      场景: {answer.scenario}
+                                    </span>
+                                    <span className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full">
+                                      正式度: {answer.formality}
+                                    </span>
+                                  </div>
+                                </div>
+                                {answer.audio_url && (
+                                  <button className="ml-3 text-primary flex-shrink-0">
+                                    <i className="fas fa-play-circle text-xl"></i>
+                                  </button>
+                                )}
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    
+                    {/* 使用说明 */}
+                    <div className="usage-notes">
+                      <h4 className="text-sm font-medium text-text-primary mb-2 flex items-center">
+                        <i className="fas fa-lightbulb text-yellow-500 mr-2"></i>
+                        使用说明
+                      </h4>
+                      <div className="ml-6 p-3 bg-yellow-50 rounded-lg border border-yellow-100">
+                        <p className="text-sm text-text-secondary">{analysis.usage_notes}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
-            ))}
-          </div>
+            )
+          })}
         </div>
       </div>
 

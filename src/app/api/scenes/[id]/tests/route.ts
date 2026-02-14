@@ -33,15 +33,60 @@ export async function GET(
     }
     
     // 转换数据库格式为API响应格式
-    const tests = testData.map((test: any) => ({
-      id: test.id,
-      sceneId: test.scene_id,
-      type: test.type,
-      order: test.order,
-      content: test.content,
-      createdAt: test.created_at,
-      updatedAt: test.updated_at
-    }))
+    const tests = testData.map((test: any) => {
+      const content = test.content || {};
+      
+      // 根据不同类型的题目映射字段
+      let question = '';
+      let options: string[] = [];
+      let answer = '';
+      let analysis = '';
+      
+      // 映射类型
+      let mappedType: 'multiple-choice' | 'fill-blank' | 'open' = 'open';
+      switch (test.type) {
+        case 'choice':
+          mappedType = 'multiple-choice';
+          question = content.question || '';
+          options = content.options || [];
+          // 从correct_answer获取正确选项文本
+          if (content.correct_answer !== undefined && options[content.correct_answer]) {
+            answer = options[content.correct_answer];
+          }
+          analysis = '请选择正确的答案';
+          break;
+        case 'qa':
+          mappedType = 'fill-blank';
+          question = content.question || '';
+          answer = content.answer || '';
+          analysis = '请填写正确的答案';
+          break;
+        case 'open_dialogue':
+          mappedType = 'open';
+          question = content.prompt || content.question || '';
+          answer = content.scenario || '';
+          analysis = '请根据场景自由回答';
+          break;
+        default:
+          mappedType = 'open';
+          question = content.question || content.prompt || '';
+          answer = content.answer || '';
+          analysis = '请回答问题';
+      }
+      
+      return {
+        id: test.id,
+        sceneId: test.scene_id,
+        type: mappedType,
+        question: question,
+        options: mappedType === 'multiple-choice' ? options : undefined,
+        answer: answer,
+        analysis: analysis,
+        order: test.order,
+        createdAt: test.created_at,
+        updatedAt: test.updated_at
+      };
+    })
     
     return NextResponse.json(tests, { status: 200 })
   } catch (error) {
