@@ -1,12 +1,8 @@
 import { NextResponse } from 'next/server'
-
-// OpenRouter API配置
-const OPENROUTER_API_KEY = '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'
-const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions'
-const MODEL = 'nvidia/nemotron-3-nano-30b-a3b:free'
+import { callLLM, Message } from '@/lib/llm'
 
 // 定义消息类型
-interface Message {
+interface ConversationMessage {
   role: 'user' | 'assistant'
   content: string
   audioUrl?: string
@@ -90,99 +86,69 @@ At the hotel reception
   `.trim()
 
   // 构建消息历史
-  const messages = [
+  const messages: Message[] = [
     { role: 'system', content: systemPrompt },
     { role: 'user', content: topic }
   ]
 
-  console.log('[题目分析] 调用OpenRouter API...')
-  console.log('[题目分析] 请求内容:', JSON.stringify(messages, null, 2))
-
-  // 调用OpenRouter API
-  const response = await fetch(OPENROUTER_API_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
-      'HTTP-Referer': 'https://your-application.com',
-      'X-Title': 'English Learning Scene Test',
-    },
-    body: JSON.stringify({
-      model: MODEL,
-      messages: messages,
-      temperature: 0.7,
-      max_tokens: 500,
-      top_p: 0.95,
-      frequency_penalty: 0,
-      presence_penalty: 0,
-    }),
-  })
-
-  const endTime = Date.now()
-  const apiCallTime = endTime - startTime
-
-  if (!response.ok) {
-    const errorData = await response.json().catch(() => ({}))
-    console.error('[题目分析] API错误:', response.status, errorData)
-    console.error('[题目分析] 调用时间:', apiCallTime, 'ms')
-    return NextResponse.json(
-      {
-        error: '大模型API调用失败',
-        details: errorData,
-        status: response.status
-      },
-      {
-        status: response.status
-      }
-    )
-  }
-
-  const data = await response.json()
-  const message = data.choices[0]?.message
-
-  console.log('[题目分析] 处理API响应...')
-
-  // 处理题目分析请求的响应
-  let analysisResult = {
-    scene: '餐厅',
-    roles: ['顾客', '服务员'],
-    dialogueGoal: '顾客与服务员开始对话'
-  }
+  console.log('[题目分析] 调用GLM API...')
 
   try {
-    // 尝试解析JSON格式的分析结果
-    if (message?.content) {
-      const content = message.content.trim()
-      console.log('[题目分析] 原始分析结果:', content)
+    // 调用GLM API
+    const response = await callLLM(messages, 0.7, 500)
+    const content = response.content
+    
+    console.log('[题目分析] 原始分析结果:', content)
 
-      // 提取JSON部分
-      const jsonMatch = content.match(/\{[\s\S]*\}/)
-      if (jsonMatch) {
-        const parsedResult = JSON.parse(jsonMatch[0])
-        // 验证解析结果是否包含必要字段
-        if (parsedResult.scene && parsedResult.roles && parsedResult.dialogueGoal) {
-          analysisResult = parsedResult
-          console.log('[题目分析] 解析的题目分析结果:', analysisResult)
-        } else {
-          console.log('[题目分析] 解析结果缺少必要字段，使用默认分析结果')
-        }
-      } else {
-        // 如果不是JSON格式，使用默认分析结果
-        console.log('[题目分析] 使用默认题目分析结果:', analysisResult)
-      }
+    // 处理题目分析请求的响应
+    let analysisResult = {
+      scene: '餐厅',
+      roles: ['顾客', '服务员'],
+      dialogueGoal: '顾客与服务员开始对话'
     }
+    
+    try {
+      // 尝试解析JSON格式的分析结果
+      if (content) {
+        const trimmedContent = content.trim()
+        
+        // 提取JSON部分
+        const jsonMatch = trimmedContent.match(/\{[\s\S]*\}/)
+        if (jsonMatch) {
+          const parsedResult = JSON.parse(jsonMatch[0])
+          // 验证解析结果是否包含必要字段
+          if (parsedResult.scene && parsedResult.roles && parsedResult.dialogueGoal) {
+            analysisResult = parsedResult
+            console.log('[题目分析] 解析的题目分析结果:', analysisResult)
+          } else {
+            console.log('[题目分析] 解析结果缺少必要字段，使用默认分析结果')
+          }
+        } else {
+          // 如果不是JSON格式，使用默认分析结果
+          console.log('[题目分析] 使用默认题目分析结果:', analysisResult)
+        }
+      }
+    } catch (error) {
+      console.error('[题目分析] 解析分析结果失败:', error)
+    }
+    
+    console.log('[题目分析] 分析完成:', analysisResult)
+    console.log('[题目分析] 处理时间:', Date.now() - startTime, 'ms')
+    
+    return NextResponse.json(analysisResult)
   } catch (error) {
-    console.error('[题目分析] 解析分析结果失败:', error)
+    console.error('[题目分析] GLM API调用失败:', error)
+    // 返回默认结果
+    return NextResponse.json({
+      scene: '餐厅',
+      roles: ['顾客', '服务员'],
+      dialogueGoal: '顾客与服务员开始对话'
+    })
   }
-
-  console.log('[题目分析] 分析完成:', analysisResult)
-  console.log('[题目分析] 处理时间:', Date.now() - startTime, 'ms')
-
-  return NextResponse.json(analysisResult)
 }
 
 // 对话分析
-async function analyzeConversation(conversation: Message[], rounds: number, startTime: number) {
+async function analyzeConversation(conversation: ConversationMessage[], rounds: number, startTime: number) {
   console.log('[对话分析] 开始处理:', new Date().toISOString())
   console.log('[对话分析] 对话轮数:', rounds)
   console.log('[对话分析] 对话历史:', JSON.stringify(conversation, null, 2))
@@ -229,90 +195,64 @@ async function analyzeConversation(conversation: Message[], rounds: number, star
   }).join('\n')
 
   // 构建消息历史
-  const messages = [
+  const messages: Message[] = [
     { role: 'system', content: systemPrompt },
     { role: 'user', content: `请分析以下对话（共${rounds}轮）：\n\n${conversationText}` }
   ]
 
-  console.log('[对话分析] 调用OpenRouter API...')
-  console.log('[对话分析] 请求内容:', JSON.stringify(messages, null, 2))
+  console.log('[对话分析] 调用GLM API...')
 
-  // 调用OpenRouter API
-  const response = await fetch(OPENROUTER_API_URL, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
-      'HTTP-Referer': 'https://your-application.com',
-      'X-Title': 'English Learning Scene Test',
-    },
-    body: JSON.stringify({
-      model: MODEL,
-      messages: messages,
-      temperature: 0.7,
-      max_tokens: 1000,
-      top_p: 0.95,
-      frequency_penalty: 0,
-      presence_penalty: 0,
-    }),
-  })
+  try {
+    // 调用GLM API
+    const response = await callLLM(messages, 0.7, 1000)
+    const content = response.content
+    
+    console.log('[对话分析] 原始分析结果:', content)
 
-  const endTime = Date.now()
-  const apiCallTime = endTime - startTime
+    // 处理对话分析响应
+    let analysisResult = generateMockAnalysis(conversation)
 
-  if (!response.ok) {
-    const errorData = await response.json().catch(() => ({}))
-    console.error('[对话分析] API错误:', response.status, errorData)
-    console.error('[对话分析] 调用时间:', apiCallTime, 'ms')
+    try {
+      // 尝试解析JSON格式的分析结果
+      if (content) {
+        const trimmedContent = content.trim()
+        
+        // 提取JSON部分
+        const jsonMatch = trimmedContent.match(/\{[\s\S]*\}/)
+        if (jsonMatch) {
+          const parsedResult = JSON.parse(jsonMatch[0])
+          // 验证解析结果是否包含必要字段
+          if (parsedResult.overallScore && parsedResult.dimensions && parsedResult.suggestions) {
+            analysisResult = {
+              ...parsedResult,
+              transcript: conversation,
+              audioUrl: undefined
+            }
+            console.log('[对话分析] 解析的对话分析结果:', analysisResult)
+          } else {
+            console.log('[对话分析] 解析结果缺少必要字段，使用默认分析结果')
+          }
+        } else {
+          console.log('[对话分析] 使用默认对话分析结果')
+        }
+      }
+    } catch (error) {
+      console.error('[对话分析] 解析分析结果失败:', error)
+    }
+
+    console.log('[对话分析] 分析完成')
+    console.log('[对话分析] 处理时间:', Date.now() - startTime, 'ms')
+
+    return NextResponse.json(analysisResult)
+  } catch (error) {
+    console.error('[对话分析] GLM API调用失败:', error)
     // 返回模拟数据
     return NextResponse.json(generateMockAnalysis(conversation))
   }
-
-  const data = await response.json()
-  const message = data.choices[0]?.message
-
-  console.log('[对话分析] 处理API响应...')
-
-  // 处理对话分析响应
-  let analysisResult = generateMockAnalysis(conversation)
-
-  try {
-    // 尝试解析JSON格式的分析结果
-    if (message?.content) {
-      const content = message.content.trim()
-      console.log('[对话分析] 原始分析结果:', content)
-
-      // 提取JSON部分
-      const jsonMatch = content.match(/\{[\s\S]*\}/)
-      if (jsonMatch) {
-        const parsedResult = JSON.parse(jsonMatch[0])
-        // 验证解析结果是否包含必要字段
-        if (parsedResult.overallScore && parsedResult.dimensions && parsedResult.suggestions) {
-          analysisResult = {
-            ...parsedResult,
-            transcript: conversation,
-            audioUrl: undefined
-          }
-          console.log('[对话分析] 解析的对话分析结果:', analysisResult)
-        } else {
-          console.log('[对话分析] 解析结果缺少必要字段，使用默认分析结果')
-        }
-      } else {
-        console.log('[对话分析] 使用默认对话分析结果')
-      }
-    }
-  } catch (error) {
-    console.error('[对话分析] 解析分析结果失败:', error)
-  }
-
-  console.log('[对话分析] 分析完成')
-  console.log('[对话分析] 处理时间:', Date.now() - startTime, 'ms')
-
-  return NextResponse.json(analysisResult)
 }
 
 // 生成模拟分析数据
-function generateMockAnalysis(conversation: Message[]) {
+function generateMockAnalysis(conversation: ConversationMessage[]) {
   return {
     overallScore: 78,
     dimensions: {
