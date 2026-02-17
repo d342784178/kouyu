@@ -117,7 +117,7 @@ Good afternoon! Welcome to our hotel. May I help you with your check-in?
 
 分析以下完整对话历史，并以${aiRole}的身份自然用英语回应：
 
-${conversation.map(msg => `${msg.role === 'user' ? userRole : aiRole}: ${msg.content}`).join('\n')}
+${conversation.map((msg: Message) => `${msg.role === 'user' ? userRole : aiRole}: ${msg.content}`).join('\n')}
 
 保持回应简短（1-2句话）。
 

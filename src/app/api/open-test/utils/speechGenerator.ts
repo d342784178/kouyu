@@ -41,16 +41,29 @@ export async function generateSpeech({ text, voice = 'en-US-AriaNeural' }: Speec
     speechConfig.speechSynthesisVoiceName = voice
     speechConfig.speechSynthesisOutputFormat = sdk.SpeechSynthesisOutputFormat.Audio16Khz32KBitRateMonoMp3
     
+    // 设置语速（使用SSML prosody rate属性，1.2表示加快20%）
+    // 通过SSML来控制语速更可靠
+    
     // 创建AudioConfig实例
     const audioConfig = sdk.AudioConfig.fromAudioFileOutput(outputPath)
     
     // 创建SpeechSynthesizer实例
     const synthesizer = new sdk.SpeechSynthesizer(speechConfig, audioConfig)
     
+    // 构建SSML，设置语速为1.2倍（加快20%）
+    const ssml = `
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice name="${voice}">
+        <prosody rate="1.2">
+            ${text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}
+        </prosody>
+    </voice>
+</speak>`
+    
     // 生成音频文件
     const result = await new Promise((resolve, reject) => {
-      synthesizer.speakTextAsync(
-        text,
+      synthesizer.speakSsmlAsync(
+        ssml,
         (result) => {
           if (result.reason === sdk.ResultReason.SynthesizingAudioCompleted) {
             console.log('语音生成成功')

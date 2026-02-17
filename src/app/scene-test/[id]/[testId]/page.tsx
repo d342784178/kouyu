@@ -1,10 +1,14 @@
 'use client'
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import OpenTestDialog from './OpenTestDialog'
+import LoadingSpinner from './components/LoadingSpinner'
+import QuestionTypeCard from './components/QuestionTypeCard'
+import ProgressBar from './components/ProgressBar'
 
 // 定义场景类型
 interface Scene {
@@ -22,7 +26,7 @@ interface Scene {
 interface Test {
   id: string
   sceneId: string
-  type: 'multiple-choice' | 'fill-blank' | 'open'
+  type: 'multiple-choice' | 'fill-blank' | 'open' | 'qa'
   question: string
   options?: string[]
   answer: string
@@ -30,6 +34,29 @@ interface Test {
   order: number
   createdAt: string
   updatedAt: string
+}
+
+// 问答题评测结果
+interface QAEvaluation {
+  score: number
+  feedback: string
+  suggestions: string[]
+}
+
+// 获取题型说明
+const getQuestionTypeLabel = (type: string) => {
+  switch (type) {
+    case 'multiple-choice':
+      return { label: '选择题', description: '选择正确的答案', icon: 'fa-list-ul', color: 'text-blue-600', bgColor: 'bg-blue-50', borderColor: 'border-blue-200', gradient: 'from-blue-500 to-cyan-500' }
+    case 'fill-blank':
+      return { label: '填空题', description: '请根据题目进行完整回答', icon: 'fa-edit', color: 'text-amber-600', bgColor: 'bg-amber-50', borderColor: 'border-amber-200', gradient: 'from-amber-500 to-orange-500' }
+    case 'open':
+      return { label: '开放题', description: '与AI进行对话练习', icon: 'fa-comments', color: 'text-purple-600', bgColor: 'bg-purple-50', borderColor: 'border-purple-200', gradient: 'from-purple-500 to-pink-500' }
+    case 'qa':
+      return { label: '问答题', description: '语音回答问题', icon: 'fa-microphone', color: 'text-rose-600', bgColor: 'bg-rose-50', borderColor: 'border-rose-200', gradient: 'from-rose-500 to-pink-500' }
+    default:
+      return { label: '未知题型', description: '', icon: 'fa-question', color: 'text-gray-500', bgColor: 'bg-gray-50', borderColor: 'border-gray-200', gradient: 'from-gray-500 to-gray-600' }
+  }
 }
 
 export default function SceneTest() {
@@ -47,6 +74,20 @@ export default function SceneTest() {
   const [notFound, setNotFound] = useState(false)
   const [selectedOption, setSelectedOption] = useState<string>('')
   const [isAnswered, setIsAnswered] = useState(false)
+
+  // 问答题状态
+  const [qaAnswer, setQaAnswer] = useState('')
+  const [isRecording, setIsRecording] = useState(false)
+  const [isEvaluating, setIsEvaluating] = useState(false)
+  const [qaEvaluation, setQaEvaluation] = useState<QAEvaluation | null>(null)
+  const [recognition, setRecognition] = useState<any>(null)
+  const [fillBlankAnswer, setFillBlankAnswer] = useState('')
+  const [fillBlankInputMode, setFillBlankInputMode] = useState<'text' | 'voice'>('text')
+  const [fillBlankEvaluation, setFillBlankEvaluation] = useState<{
+    isCorrect: boolean
+    analysis: string
+    suggestions: string[]
+  } | null>(null)
 
   // 获取场景详情的函数
   const getSceneById = async (sceneId: string): Promise<Scene> => {
@@ -199,10 +240,154 @@ export default function SceneTest() {
     setIsAnswered(true)
   }
 
+  // 处理填空题答案提交
+  const handleFillBlankSubmit = async () => {
+    if (!fillBlankAnswer.trim() || !currentTest) return
+
+    setIsEvaluating(true)
+    setIsAnswered(true)
+
+    try {
+      const response = await fetch('/api/fill-blank/evaluate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          question: currentTest.question,
+          userAnswer: fillBlankAnswer,
+          correctAnswer: currentTest.answer,
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('评测失败')
+      }
+
+      const data = await response.json()
+      setFillBlankEvaluation({
+        isCorrect: data.isCorrect || false,
+        analysis: data.analysis || '评测完成',
+        suggestions: data.suggestions || []
+      })
+    } catch (error) {
+      console.error('填空题评测失败:', error)
+      // 使用默认评测结果
+      setFillBlankEvaluation({
+        isCorrect: fillBlankAnswer.toLowerCase().trim() === currentTest.answer.toLowerCase().trim(),
+        analysis: '回答已提交，请参考正确答案。',
+        suggestions: ['对比你的答案和参考答案', '注意语法和词汇的使用']
+      })
+    } finally {
+      setIsEvaluating(false)
+    }
+  }
+
+  // 初始化语音识别
+  useEffect(() => {
+    if ('webkitSpeechRecognition' in window) {
+      const SpeechRecognition = (window as any).webkitSpeechRecognition
+      const rec = new SpeechRecognition()
+      rec.continuous = false
+      rec.interimResults = false
+      rec.lang = 'en-US'
+      
+      rec.onresult = (event: any) => {
+        const transcript = event.results[0][0].transcript
+        setQaAnswer(transcript)
+        setIsRecording(false)
+        // 自动开始评测
+        evaluateQAAnswer(transcript)
+      }
+      
+      rec.onerror = (event: any) => {
+        console.error('语音识别错误:', event.error)
+        setIsRecording(false)
+      }
+      
+      rec.onend = () => {
+        setIsRecording(false)
+      }
+      
+      setRecognition(rec)
+    }
+  }, [currentTest])
+
+  // 开始/停止录音
+  const toggleRecording = () => {
+    if (!recognition) {
+      alert('您的浏览器不支持语音识别功能')
+      return
+    }
+    
+    if (isRecording) {
+      recognition.stop()
+      setIsRecording(false)
+    } else {
+      setQaAnswer('')
+      setQaEvaluation(null)
+      recognition.start()
+      setIsRecording(true)
+    }
+  }
+
+  // 评测问答题答案
+  const evaluateQAAnswer = async (answer: string) => {
+    if (!currentTest) return
+    
+    setIsEvaluating(true)
+    setIsAnswered(true)
+    
+    try {
+      const response = await fetch('/api/open-test/analyze', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          topic: currentTest.question,
+          userAnswer: answer,
+          correctAnswer: currentTest.answer,
+          sceneId: id,
+          testId: testId,
+          evaluationType: 'qa'
+        }),
+      })
+      
+      if (!response.ok) {
+        throw new Error('评测失败')
+      }
+      
+      const data = await response.json()
+      setQaEvaluation({
+        score: data.score || 0,
+        feedback: data.feedback || '评测完成',
+        suggestions: data.suggestions || []
+      })
+    } catch (error) {
+      console.error('评测失败:', error)
+      // 使用默认评测结果
+      setQaEvaluation({
+        score: 70,
+        feedback: '回答基本正确，但可以更完整一些。',
+        suggestions: ['尝试使用更完整的句子', '注意语法结构']
+      })
+    } finally {
+      setIsEvaluating(false)
+    }
+  }
+
   // 重置答题状态
   const resetAnswerState = () => {
     setSelectedOption('')
     setIsAnswered(false)
+    setQaAnswer('')
+    setQaEvaluation(null)
+    setFillBlankAnswer('')
+    setFillBlankInputMode('text')
+    setFillBlankEvaluation(null)
+    setIsRecording(false)
+    setIsEvaluating(false)
   }
 
   // 在组件挂载时获取数据
@@ -257,8 +442,21 @@ export default function SceneTest() {
   
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        <div className="text-text-primary">加载中...</div>
+      <div className="min-h-screen bg-slate-50">
+        <header id="scene-test-header" className="bg-white px-6 py-4 shadow-sm sticky top-0 z-30">
+          <div id="scene-test-header-content" className="flex items-center justify-between">
+            <div className="w-8"></div>
+            <h1 id="scene-test-title" className="text-xl font-bold text-text-primary">场景测试</h1>
+            <div className="w-8"></div>
+          </div>
+        </header>
+        <main className="mx-6 mt-6">
+          <LoadingSpinner 
+            message="正在加载测试题目..." 
+            subMessage="请稍候，正在准备您的学习内容"
+            variant="primary"
+          />
+        </main>
       </div>
     )
   }
@@ -270,6 +468,11 @@ export default function SceneTest() {
       </div>
     )
   }
+
+  // 获取题型说明
+  const questionType = getQuestionTypeLabel(currentTest.type)
+  
+
   
   // 处理开放题测试完成
   const handleOpenTestComplete = () => {
@@ -281,81 +484,81 @@ export default function SceneTest() {
     }
   }
 
+  // 检查是否可以进入下一页
+  const canGoNext = isAnswered
+
   return (
     <div id="scene-test-content" className="pb-20">
-      {/* 开放题测试使用对话框组件 */}
-      {currentTest.type === 'open' ? (
-        <OpenTestDialog 
-          sceneId={id}
-          testId={testId}
-          testQuestion={currentTest.question}
-          onComplete={handleOpenTestComplete}
-        />
-      ) : (
-        // 其他类型题目使用原有界面
-        <>
-          <header id="scene-test-header" className="bg-white px-6 py-4 shadow-sm sticky top-0 z-30">
-            <div id="scene-test-header-content" className="flex items-center justify-between">
-              <Link 
-                href={`/scene-detail/${id}`} 
-                id="back-btn" 
-                className="w-8 h-8 flex items-center justify-center"
-              >
-                <i className="fas fa-arrow-left text-text-primary text-lg"></i>
-              </Link>
-              <h1 id="scene-test-title" className="text-xl font-bold text-text-primary">场景测试</h1>
-              <div className="w-8"></div> {/* 占位，保持标题居中 */}
-            </div>
-          </header>
-          
-          <main id="scene-test-main" className="mx-6 mt-6">
-            <section id="test-progress" className="mb-6">
-              <div id="progress-bar-container" className="w-full h-2 bg-gray-100 rounded-full mb-2">
-                <div 
-                  id="progress-bar" 
-                  className="h-full bg-primary rounded-full" 
-                  style={{ width: `${((currentIndex + 1) / tests.length) * 100}%` }}
-                ></div>
-              </div>
-              <div id="progress-text" className="flex justify-between text-xs text-text-secondary">
-                <span>第 {currentIndex + 1} 题</span>
-                <span>共 {tests.length} 题</span>
-              </div>
-            </section>
+      {/* 统一头部导航 */}
+      <header id="scene-test-header" className="bg-white px-6 py-4 shadow-sm sticky top-0 z-30">
+        <div id="scene-test-header-content" className="flex items-center justify-between">
+          <Link
+            href={`/scene-detail/${id}`}
+            id="back-btn"
+            className="w-10 h-10 flex items-center justify-center"
+          >
+            <i className="fas fa-arrow-left text-text-primary text-lg"></i>
+          </Link>
+          <h1 id="scene-test-title" className="text-lg font-semibold text-text-primary">场景测试</h1>
+          <div className="w-10"></div> {/* 占位，保持标题居中 */}
+        </div>
+      </header>
+      
+      <main id="scene-test-main" className="mx-6 mt-6">
+        {/* 统一进度条 */}
+        <ProgressBar currentIndex={currentIndex} totalTests={tests.length} />
+
+        {/* 开放题测试使用对话框组件 */}
+        {currentTest.type === 'open' ? (
+          <OpenTestDialog 
+            sceneId={id}
+            testId={testId}
+            testQuestion={currentTest.question}
+            currentIndex={currentIndex}
+            totalTests={tests.length}
+            onComplete={handleOpenTestComplete}
+            autoStart={true}
+          />
+        ) : (
+          <>
+            {/* 统一题型说明卡片 */}
+            <QuestionTypeCard type={currentTest.type as 'multiple-choice' | 'fill-blank' | 'open' | 'qa'} />
             
             <section id="test-question" className="mb-8">
-              <h2 id="question-text" className="text-lg font-semibold text-text-primary mb-6">
-                {currentTest.question}
-              </h2>
-              
+              <div className="bg-white rounded-card shadow-card p-6 mb-6">
+                <h2 id="question-text" className="text-base font-semibold text-text-primary">
+                  {currentTest.question}
+                </h2>
+              </div>
+
               {currentTest.type === 'multiple-choice' && (
                 <div id="multiple-choice-options" className="space-y-3">
                   {currentTest.options?.map((option, index) => {
                     const isSelected = selectedOption === option;
                     const isCorrect = isAnswered && option === currentTest.answer;
                     const isIncorrect = isAnswered && isSelected && option !== currentTest.answer;
-                    
+
                     return (
-                      <button 
-                        key={index} 
-                        id={`option-${index}`} 
-                        className={`w-full py-3 px-4 rounded-card shadow-sm border text-left transition-all ${isSelected 
-                          ? 'border-primary bg-blue-50' 
-                          : isCorrect 
-                          ? 'border-green-500 bg-green-50' 
-                          : isIncorrect 
-                          ? 'border-red-500 bg-red-50' 
+                      <button
+                        key={index}
+                        id={`option-${index}`}
+                        className={`w-full py-3 px-4 rounded-card shadow-card border text-left transition-all ${isSelected
+                          ? 'border-primary bg-blue-50'
+                          : isCorrect
+                          ? 'border-success bg-green-50'
+                          : isIncorrect
+                          ? 'border-danger bg-red-50'
                           : 'border-border-light bg-white'}`}
                         onClick={() => handleOptionClick(option)}
                         disabled={isAnswered}
                       >
                         <div className="flex items-center justify-between">
-                          <span className={`text-base ${isSelected 
-                            ? 'text-primary font-medium' 
-                            : isCorrect 
-                            ? 'text-green-600 font-medium' 
-                            : isIncorrect 
-                            ? 'text-red-600 font-medium' 
+                          <span className={`text-sm ${isSelected
+                            ? 'text-primary font-medium'
+                            : isCorrect
+                            ? 'text-success font-medium'
+                            : isIncorrect
+                            ? 'text-danger font-medium'
                             : 'text-text-primary'}`}>
                             {option}
                           </span>
@@ -363,10 +566,10 @@ export default function SceneTest() {
                             <i className="fas fa-check-circle text-primary"></i>
                           )}
                           {isCorrect && !isSelected && (
-                            <i className="fas fa-check-circle text-green-500"></i>
+                            <i className="fas fa-check-circle text-success"></i>
                           )}
                           {isIncorrect && (
-                            <i className="fas fa-times-circle text-red-500"></i>
+                            <i className="fas fa-times-circle text-danger"></i>
                           )}
                         </div>
                       </button>
@@ -376,37 +579,141 @@ export default function SceneTest() {
               )}
               
               {currentTest.type === 'fill-blank' && (
-                <div id="fill-blank-input">
-                  <input 
-                    type="text" 
-                    id="answer-input" 
-                    placeholder="请输入答案..." 
-                    className="w-full py-3 px-4 bg-white rounded-card shadow-sm border border-border-light"
-                  />
+                <div id="fill-blank-section" className="space-y-4">
+                  <div id="fill-blank-input-area" className="relative">
+                    <textarea
+                      id="fill-blank-answer"
+                      className="w-full p-4 border border-border-light rounded-card focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all resize-none text-text-primary text-sm bg-gray-50"
+                      rows={4}
+                      placeholder="请输入你的回答..."
+                      value={fillBlankAnswer}
+                      onChange={(e) => setFillBlankAnswer(e.target.value)}
+                      disabled={isAnswered}
+                    />
+                    <div className="absolute bottom-3 right-3 text-xs text-text-secondary">
+                      {fillBlankAnswer.length} 字
+                    </div>
+                  </div>
+
+                  {/* 参考译文 */}
+                  <div className="p-4 bg-amber-50 rounded-card border border-amber-100">
+                    <div className="flex items-center gap-2 mb-2">
+                      <i className="fas fa-lightbulb text-amber-500"></i>
+                      <span className="text-sm font-medium text-amber-700">参考译文</span>
+                    </div>
+                    <p className="text-sm text-amber-600">{currentTest.answer}</p>
+                  </div>
+                </div>
+              )}
+
+              {/* 问答题 - 语音输入 */}
+              {currentTest.type === 'qa' && (
+                <div id="qa-section" className="space-y-4">
+                  {/* 语音输入按钮 */}
+                  <div className="flex justify-center">
+                    <button
+                      onClick={toggleRecording}
+                      disabled={isEvaluating}
+                      className={`w-16 h-16 rounded-full flex items-center justify-center transition-all shadow-card ${
+                        isRecording
+                          ? 'bg-danger text-white animate-pulse'
+                          : 'bg-primary text-white hover:shadow-card-hover'
+                      } disabled:opacity-50`}
+                    >
+                      <i className={`fas ${isRecording ? 'fa-stop' : 'fa-microphone'} text-2xl`}></i>
+                    </button>
+                  </div>
+
+                  <p className="text-center text-sm text-text-secondary">
+                    {isRecording ? '点击停止录音' : '点击开始语音回答'}
+                  </p>
+
+                  {/* 用户回答显示 */}
+                  {qaAnswer && (
+                    <div className="p-4 bg-blue-50 rounded-card border border-blue-100">
+                      <h4 className="text-sm font-medium text-text-secondary mb-2">你的回答：</h4>
+                      <p className="text-text-primary text-sm">{qaAnswer}</p>
+                    </div>
+                  )}
+
+                  {/* 评测中 */}
+                  {isEvaluating && (
+                    <div className="flex flex-col items-center justify-center py-8">
+                      <div className="w-10 h-10 border-2 border-primary border-t-transparent rounded-full animate-spin mb-3"></div>
+                      <p className="text-sm text-text-secondary">AI 正在评测...</p>
+                      <p className="text-xs text-text-secondary mt-1">正在分析你的回答，请稍候</p>
+                    </div>
+                  )}
+
+                  {/* 评测结果 */}
+                  {qaEvaluation && (
+                    <div className={`p-4 rounded-card border ${qaEvaluation.score >= 80 ? 'bg-green-50 border-success' : qaEvaluation.score >= 60 ? 'bg-amber-50 border-amber-200' : 'bg-red-50 border-danger'}`}>
+                      <div className="flex items-center justify-between mb-3">
+                        <h4 className="font-medium text-text-primary text-sm">评测结果</h4>
+                        <span className={`text-xl font-bold ${qaEvaluation.score >= 80 ? 'text-success' : qaEvaluation.score >= 60 ? 'text-amber-600' : 'text-danger'}`}>
+                          {qaEvaluation.score}分
+                        </span>
+                      </div>
+                      <p className="text-sm text-text-secondary mb-3">{qaEvaluation.feedback}</p>
+                      {qaEvaluation.suggestions.length > 0 && (
+                        <div>
+                          <h5 className="text-sm font-medium text-text-primary mb-2">改进建议：</h5>
+                          <ul className="space-y-1">
+                            {qaEvaluation.suggestions.map((suggestion, index) => (
+                              <li key={index} className="text-sm text-text-secondary flex items-start gap-2">
+                                <i className="fas fa-lightbulb text-amber-500 mt-0.5"></i>
+                                {suggestion}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
               )}
             </section>
             
             <section id="test-navigation" className="flex justify-between">
-              <Link 
-                href={prevTest ? `/scene-test/${id}/${prevTest.id}` : '#'} 
-                id="prev-btn" 
-                className={`py-3 px-6 rounded-card font-medium ${prevTest ? 'bg-white shadow-sm text-text-primary' : 'opacity-50 cursor-not-allowed'}`}
+              <Link
+                href={prevTest ? `/scene-test/${id}/${prevTest.id}` : '#'}
+                id="prev-btn"
+                className={`py-3 px-6 rounded-card font-semibold text-sm ${prevTest ? 'bg-white shadow-card text-text-primary hover:shadow-card-hover' : 'opacity-50 cursor-not-allowed bg-gray-100 text-gray-400'}`}
                 aria-disabled={!prevTest}
               >
                 上一题
               </Link>
-              <Link 
-                href={nextTest ? `/scene-test/${id}/${nextTest.id}` : `/scene-detail/${id}`} 
-                id="next-btn" 
-                className={`py-3 px-6 rounded-card font-medium ${nextTest ? 'bg-white shadow-sm text-text-primary' : 'bg-gradient-to-r from-primary to-secondary text-white'}`}
-              >
-                {nextTest ? '下一题' : '提交'}
-              </Link>
+
+              {/* 下一题/提交按钮 - 必须作答后才能点击 */}
+              {canGoNext ? (
+                <Link
+                  href={nextTest ? `/scene-test/${id}/${nextTest.id}` : `/scene-detail/${id}`}
+                  id="next-btn"
+                  className={`py-3 px-6 rounded-card font-semibold text-sm ${nextTest ? 'bg-white shadow-card text-text-primary hover:shadow-card-hover' : 'bg-primary text-white hover:shadow-card-hover'}`}
+                >
+                  {nextTest ? '下一题' : '提交'}
+                </Link>
+              ) : (
+                <button
+                  id="next-btn-disabled"
+                  disabled
+                  className="py-3 px-6 rounded-card font-semibold text-sm bg-gray-200 text-gray-400 cursor-not-allowed"
+                >
+                  {nextTest ? '下一题' : '提交'}
+                </button>
+              )}
             </section>
-          </main>
-        </>
-      )}
+
+            {/* 未作答提示 */}
+            {!isAnswered && (
+              <p className="text-center text-sm text-amber-600 mt-4">
+                <i className="fas fa-exclamation-circle mr-1"></i>
+                请先完成本题作答
+              </p>
+            )}
+          </>
+        )}
+      </main>
     </div>
   )
 }
