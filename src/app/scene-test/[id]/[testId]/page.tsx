@@ -580,29 +580,260 @@ export default function SceneTest() {
               
               {currentTest.type === 'fill-blank' && (
                 <div id="fill-blank-section" className="space-y-4">
-                  <div id="fill-blank-input-area" className="relative">
-                    <textarea
-                      id="fill-blank-answer"
-                      className="w-full p-4 border border-border-light rounded-card focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all resize-none text-text-primary text-sm bg-gray-50"
-                      rows={4}
-                      placeholder="请输入你的回答..."
-                      value={fillBlankAnswer}
-                      onChange={(e) => setFillBlankAnswer(e.target.value)}
-                      disabled={isAnswered}
-                    />
-                    <div className="absolute bottom-3 right-3 text-xs text-text-secondary">
-                      {fillBlankAnswer.length} 字
+                  {/* 输入方式切换 */}
+                  {!isAnswered && (
+                    <div className="flex justify-center">
+                      <div className="inline-flex bg-gray-100 p-1 rounded-full">
+                        <button
+                          onClick={() => setFillBlankInputMode('text')}
+                          className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
+                            fillBlankInputMode === 'text'
+                              ? 'bg-white text-amber-600 shadow-sm'
+                              : 'text-text-secondary hover:text-text-primary'
+                          }`}
+                        >
+                          <i className="fas fa-keyboard"></i>
+                          文本
+                        </button>
+                        <button
+                          onClick={() => setFillBlankInputMode('voice')}
+                          className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
+                            fillBlankInputMode === 'voice'
+                              ? 'bg-white text-amber-600 shadow-sm'
+                              : 'text-text-secondary hover:text-text-primary'
+                          }`}
+                        >
+                          <i className="fas fa-microphone"></i>
+                          语音
+                        </button>
+                      </div>
                     </div>
-                  </div>
+                  )}
 
-                  {/* 参考译文 */}
-                  <div className="p-4 bg-amber-50 rounded-card border border-amber-100">
-                    <div className="flex items-center gap-2 mb-2">
-                      <i className="fas fa-lightbulb text-amber-500"></i>
-                      <span className="text-sm font-medium text-amber-700">参考译文</span>
+                  {/* 文本输入 */}
+                  {fillBlankInputMode === 'text' && !isAnswered && (
+                    <div className="relative">
+                      <textarea
+                        id="fill-blank-answer"
+                        className="w-full p-4 border border-border-light rounded-card focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all resize-none text-text-primary text-sm bg-gray-50"
+                        rows={4}
+                        placeholder="请输入你的回答..."
+                        value={fillBlankAnswer}
+                        onChange={(e) => setFillBlankAnswer(e.target.value)}
+                        disabled={isAnswered}
+                      />
+                      <div className="absolute bottom-3 right-3 text-xs text-text-secondary">
+                        {fillBlankAnswer.length} 字
+                      </div>
                     </div>
-                    <p className="text-sm text-amber-600">{currentTest.answer}</p>
-                  </div>
+                  )}
+
+                  {/* 语音输入 */}
+                  {fillBlankInputMode === 'voice' && !isAnswered && (
+                    <div className="flex flex-col items-center py-8">
+                      {/* 录音按钮 */}
+                      <div className="relative">
+                        {isRecording && (
+                          <>
+                            <div className="absolute inset-0 rounded-full bg-amber-400 animate-ping opacity-20"></div>
+                            <div className="absolute -inset-4 rounded-full bg-amber-300 animate-pulse opacity-10"></div>
+                          </>
+                        )}
+                        <button
+                          onClick={toggleRecording}
+                          disabled={isEvaluating}
+                          className={`relative w-20 h-20 rounded-full flex items-center justify-center transition-all shadow-card ${
+                            isRecording
+                              ? 'bg-danger text-white'
+                              : 'bg-gradient-to-r from-amber-400 to-orange-500 text-white hover:shadow-card-hover'
+                          } disabled:opacity-50`}
+                        >
+                          <i className={`fas ${isRecording ? 'fa-stop' : 'fa-microphone'} text-2xl`}></i>
+                        </button>
+                      </div>
+
+                      {/* 状态文字 */}
+                      <div className="mt-6 text-center">
+                        <p className={`text-sm font-medium transition-colors ${
+                          isRecording ? 'text-danger' : 'text-text-secondary'
+                        }`}>
+                          {isRecording ? (
+                            <span className="flex items-center gap-2">
+                              <span className="w-2 h-2 bg-danger rounded-full animate-pulse"></span>
+                              正在录音，点击停止
+                            </span>
+                          ) : (
+                            '点击按钮开始语音回答'
+                          )}
+                        </p>
+                      </div>
+
+                      {/* 录音提示 */}
+                      {!isRecording && !fillBlankAnswer && (
+                        <div className="mt-4 flex items-center gap-2 text-xs text-text-secondary bg-gray-50 px-4 py-2 rounded-full">
+                          <i className="fas fa-info-circle"></i>
+                          <span>请用英语回答，系统会自动识别</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* 用户回答预览 */}
+                  {fillBlankAnswer && !isAnswered && (
+                    <div className="bg-amber-50 rounded-card p-5 border border-amber-100">
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center">
+                          <i className="fas fa-user text-amber-600 text-sm"></i>
+                        </div>
+                        <span className="text-sm font-medium text-amber-800">你的回答</span>
+                      </div>
+                      <p className="text-text-primary leading-relaxed pl-10">{fillBlankAnswer}</p>
+                    </div>
+                  )}
+
+                  {/* 提交按钮 */}
+                  {!isAnswered && fillBlankAnswer.trim() && (
+                    <motion.button
+                      onClick={handleFillBlankSubmit}
+                      disabled={isEvaluating}
+                      className="w-full py-4 bg-primary text-white rounded-card font-semibold text-sm shadow-card hover:shadow-card-hover transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                      whileHover={{ scale: isEvaluating ? 1 : 1.02 }}
+                      whileTap={{ scale: isEvaluating ? 1 : 0.98 }}
+                    >
+                      {isEvaluating ? (
+                        <>
+                          <motion.div
+                            className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"
+                          />
+                          <span>AI 正在评测...</span>
+                        </>
+                      ) : (
+                        <>
+                          <i className="fas fa-paper-plane"></i>
+                          <span>提交答案</span>
+                        </>
+                      )}
+                    </motion.button>
+                  )}
+
+                  {/* 提交过渡动画 - 评测中遮罩 */}
+                  {isEvaluating && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 flex items-center justify-center"
+                    >
+                      <motion.div
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        className="bg-white rounded-card shadow-card p-8 mx-6 max-w-sm w-full text-center"
+                      >
+                        <div className="relative w-16 h-16 mx-auto mb-4">
+                          <motion.div
+                            className="absolute inset-0 rounded-full border-4 border-primary/20"
+                          />
+                          <motion.div
+                            className="absolute inset-0 rounded-full border-4 border-primary border-t-transparent"
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <i className="fas fa-robot text-primary text-xl"></i>
+                          </div>
+                        </div>
+                        <h3 className="text-lg font-semibold text-text-primary mb-2">AI 正在评测</h3>
+                        <p className="text-sm text-text-secondary">正在分析你的回答，请稍候...</p>
+                        <div className="flex justify-center gap-1 mt-4">
+                          <motion.div
+                            className="w-2 h-2 bg-primary rounded-full"
+                            animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+                            transition={{ duration: 1, repeat: Infinity, delay: 0 }}
+                          />
+                          <motion.div
+                            className="w-2 h-2 bg-primary rounded-full"
+                            animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+                            transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
+                          />
+                          <motion.div
+                            className="w-2 h-2 bg-primary rounded-full"
+                            animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+                            transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
+                          />
+                        </div>
+                      </motion.div>
+                    </motion.div>
+                  )}
+
+                  {/* AI评测结果 */}
+                  {isAnswered && fillBlankEvaluation && (
+                    <div className={`rounded-card overflow-hidden shadow-card ${
+                      fillBlankEvaluation.isCorrect
+                        ? 'bg-green-50 border border-success'
+                        : 'bg-amber-50 border border-amber-200'
+                    }`}>
+                      {/* 结果头部 */}
+                      <div className={`px-6 py-4 ${
+                        fillBlankEvaluation.isCorrect
+                          ? 'bg-success'
+                          : 'bg-amber-500'
+                      }`}>
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                            <i className={`fas ${fillBlankEvaluation.isCorrect ? 'fa-check' : 'fa-lightbulb'} text-white text-lg`}></i>
+                          </div>
+                          <div>
+                            <h4 className="text-white font-bold text-lg">
+                              {fillBlankEvaluation.isCorrect ? '回答正确！' : '还可以更好'}
+                            </h4>
+                            <p className="text-white/80 text-sm">
+                              {fillBlankEvaluation.isCorrect ? '继续保持！' : '看看AI的建议'}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* 结果内容 */}
+                      <div className="p-6 space-y-5">
+                        {/* AI分析 */}
+                        <div className="bg-white/60 rounded-card p-4">
+                          <div className="flex items-center gap-2 mb-2">
+                            <i className="fas fa-robot text-amber-500"></i>
+                            <h5 className="text-sm font-semibold text-text-primary">AI 分析</h5>
+                          </div>
+                          <p className="text-text-secondary text-sm leading-relaxed">{fillBlankEvaluation.analysis}</p>
+                        </div>
+
+                        {/* 参考答案 */}
+                        <div className="bg-white/60 rounded-card p-4">
+                          <div className="flex items-center gap-2 mb-2">
+                            <i className="fas fa-book-open text-primary"></i>
+                            <h5 className="text-sm font-semibold text-text-primary">参考答案</h5>
+                          </div>
+                          <p className="text-text-primary font-medium">{currentTest.answer}</p>
+                        </div>
+
+                        {/* 改进建议 */}
+                        {fillBlankEvaluation.suggestions.length > 0 && (
+                          <div className="bg-white/60 rounded-card p-4">
+                            <div className="flex items-center gap-2 mb-3">
+                              <i className="fas fa-magic text-purple-500"></i>
+                              <h5 className="text-sm font-semibold text-text-primary">改进建议</h5>
+                            </div>
+                            <ul className="space-y-2">
+                              {fillBlankEvaluation.suggestions.map((suggestion: string, index: number) => (
+                                <li key={index} className="flex items-start gap-3 text-sm text-text-secondary">
+                                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xs font-bold">
+                                    {index + 1}
+                                  </span>
+                                  <span className="leading-relaxed">{suggestion}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -684,8 +915,8 @@ export default function SceneTest() {
                 上一题
               </Link>
 
-              {/* 下一题/提交按钮 - 必须作答后才能点击 */}
-              {canGoNext ? (
+              {/* 下一题/提交按钮 - 必须作答后才能点击，评测期间禁用 */}
+              {canGoNext && !isEvaluating ? (
                 <Link
                   href={nextTest ? `/scene-test/${id}/${nextTest.id}` : `/scene-detail/${id}`}
                   id="next-btn"
@@ -699,13 +930,13 @@ export default function SceneTest() {
                   disabled
                   className="py-3 px-6 rounded-card font-semibold text-sm bg-gray-200 text-gray-400 cursor-not-allowed"
                 >
-                  {nextTest ? '下一题' : '提交'}
+                  {isEvaluating ? '评测中...' : nextTest ? '下一题' : '提交'}
                 </button>
               )}
             </section>
 
-            {/* 未作答提示 */}
-            {!isAnswered && (
+            {/* 未作答提示 - 仅在未作答且非评测状态时显示 */}
+            {!isAnswered && !isEvaluating && (
               <p className="text-center text-sm text-amber-600 mt-4">
                 <i className="fas fa-exclamation-circle mr-1"></i>
                 请先完成本题作答
