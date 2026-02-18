@@ -692,76 +692,25 @@ export default function SceneTest() {
                   )}
 
                   {/* 提交按钮 */}
-                  {!isAnswered && fillBlankAnswer.trim() && (
+                  {!isAnswered && fillBlankAnswer.trim() && !isEvaluating && (
                     <motion.button
                       onClick={handleFillBlankSubmit}
-                      disabled={isEvaluating}
-                      className="w-full py-4 bg-primary text-white rounded-card font-semibold text-sm shadow-card hover:shadow-card-hover transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
-                      whileHover={{ scale: isEvaluating ? 1 : 1.02 }}
-                      whileTap={{ scale: isEvaluating ? 1 : 0.98 }}
+                      className="w-full py-4 bg-primary text-white rounded-card font-semibold text-sm shadow-card hover:shadow-card-hover transition-all flex items-center justify-center gap-3"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      {isEvaluating ? (
-                        <>
-                          <motion.div
-                            className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"
-                          />
-                          <span>AI 正在评测...</span>
-                        </>
-                      ) : (
-                        <>
-                          <i className="fas fa-paper-plane"></i>
-                          <span>提交答案</span>
-                        </>
-                      )}
+                      <i className="fas fa-paper-plane"></i>
+                      <span>提交答案</span>
                     </motion.button>
                   )}
 
-                  {/* 提交过渡动画 - 评测中遮罩 */}
+                  {/* 评测中加载动画 - 与其他页面保持一致 */}
                   {isEvaluating && (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 flex items-center justify-center"
-                    >
-                      <motion.div
-                        initial={{ scale: 0.9, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        className="bg-white rounded-card shadow-card p-8 mx-6 max-w-sm w-full text-center"
-                      >
-                        <div className="relative w-16 h-16 mx-auto mb-4">
-                          <motion.div
-                            className="absolute inset-0 rounded-full border-4 border-primary/20"
-                          />
-                          <motion.div
-                            className="absolute inset-0 rounded-full border-4 border-primary border-t-transparent"
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                          />
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <i className="fas fa-robot text-primary text-xl"></i>
-                          </div>
-                        </div>
-                        <h3 className="text-lg font-semibold text-text-primary mb-2">AI 正在评测</h3>
-                        <p className="text-sm text-text-secondary">正在分析你的回答，请稍候...</p>
-                        <div className="flex justify-center gap-1 mt-4">
-                          <motion.div
-                            className="w-2 h-2 bg-primary rounded-full"
-                            animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-                            transition={{ duration: 1, repeat: Infinity, delay: 0 }}
-                          />
-                          <motion.div
-                            className="w-2 h-2 bg-primary rounded-full"
-                            animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-                            transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
-                          />
-                          <motion.div
-                            className="w-2 h-2 bg-primary rounded-full"
-                            animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-                            transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
-                          />
-                        </div>
-                      </motion.div>
-                    </motion.div>
+                    <div className="flex flex-col items-center justify-center py-8">
+                      <div className="w-10 h-10 border-2 border-amber-400 border-t-transparent rounded-full animate-spin mb-4"></div>
+                      <p className="text-sm text-text-secondary font-medium">AI 正在评测...</p>
+                      <p className="text-xs text-text-secondary mt-1">正在分析你的回答，请稍候</p>
+                    </div>
                   )}
 
                   {/* AI评测结果 */}
