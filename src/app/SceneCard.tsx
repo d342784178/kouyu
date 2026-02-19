@@ -1,5 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
+'use client'
+
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 // 定义场景类型
 interface Scene {
@@ -19,67 +21,85 @@ interface SceneCardProps {
   index: number
 }
 
-export default function SceneCard({ scene, index }: SceneCardProps) {
-  // 计算学习时间（模拟）
-  const learningTime = '10分钟'
-  
-  // 根据场景分类获取图标
-  const getCategoryIcon = (category: string) => {
-    switch(category) {
-      case '日常场景':
-      case '日常问候':
-        return '👋'
-      case '职场场景':
-        return '💼'
-      case '留学/考试':
-        return '📚'
-      case '购物消费':
-      case '超市购物':
-        return '🛒'
-      case '餐饮服务':
-      case '餐厅点餐':
-        return '🍽️'
-      case '旅行出行':
-        return '✈️'
-      default:
-        return '🌍'
-    }
-  }
-  
+// 分类渐变映射
+const categoryGradients: Record<string, string> = {
+  '日常问候': 'from-[#4F7CF0] to-[#7B5FE8]',
+  '购物消费': 'from-[#FF7043] to-[#FF9A76]',
+  '超市购物': 'from-[#FF7043] to-[#FF9A76]',
+  '餐饮服务': 'from-[#F59E0B] to-[#FBBF24]',
+  '餐厅点餐': 'from-[#F59E0B] to-[#FBBF24]',
+  '旅行出行': 'from-[#34D399] to-[#6EE7B7]',
+  '机场值机': 'from-[#34D399] to-[#6EE7B7]',
+}
+
+// 分类表情映射
+const categoryEmojis: Record<string, string> = {
+  '日常问候': '👋',
+  '购物消费': '🛒',
+  '超市购物': '🛒',
+  '餐饮服务': '🍽️',
+  '餐厅点餐': '🍽️',
+  '旅行出行': '✈️',
+  '机场值机': '✈️',
+}
+
+// 难度标签映射
+const difficultyConfig: Record<string, { label: string; color: string }> = {
+  '入门': { label: '入门', color: 'bg-green-100 text-green-700' },
+  '初级': { label: '初级', color: 'bg-green-100 text-green-700' },
+  '中级': { label: '中级', color: 'bg-blue-100 text-blue-700' },
+  '进阶': { label: '进阶', color: 'bg-purple-100 text-purple-700' },
+  '高级': { label: '高级', color: 'bg-red-100 text-red-700' },
+}
+
+// 右箭头图标
+function ChevronRightIcon() {
   return (
-    <Link 
-      href={`/scene-detail/${scene.id}`} 
-      id={`scene-card-${scene.id}`} 
-      className="block"
-    >
-      <div className="scene-card bg-white rounded-card shadow-card p-4 card-hover">
-        <div className="scene-card-content flex items-start">
-          <div className="flex-1">
-            <h3 className="scene-card-title text-base font-semibold text-text-primary mb-1">
-              {scene.name}
-            </h3>
-            <p className="scene-card-description text-xs text-text-secondary mb-3">
-              {scene.description}
-            </p>
-            <div className="scene-card-tags flex items-center space-x-2">
-              <span className="scene-card-category text-xs px-2 py-1 rounded-full bg-blue-50 text-blue-600">
-                {scene.category}
-              </span>
-              <span className={`scene-card-difficulty text-xs px-2 py-1 rounded-full ${scene.difficulty === '入门' ? 'bg-green-50 text-green-600' : scene.difficulty === '初级' ? 'bg-green-50 text-green-600' : scene.difficulty === '中级' ? 'bg-yellow-50 text-yellow-600' : scene.difficulty === '进阶' ? 'bg-purple-50 text-purple-600' : scene.difficulty === '高级' ? 'bg-red-50 text-red-600' : 'bg-gray-50 text-gray-600'}`}>
-                {scene.difficulty}
-              </span>
-              <span className="scene-card-time text-xs px-2 py-1 rounded-full bg-gray-50 text-gray-600">
-                {learningTime}
-              </span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="m9 18 6-6-6-6" />
+    </svg>
+  )
+}
+
+export default function SceneCard({ scene, index }: SceneCardProps) {
+  const gradient = categoryGradients[scene.category] || 'from-[#4F7CF0] to-[#7B5FE8]'
+  const emoji = categoryEmojis[scene.category] || '📚'
+  const difficulty = difficultyConfig[scene.difficulty] || { label: scene.difficulty, color: 'bg-gray-100 text-gray-600' }
+  
+  // 计算学习时间
+  const learningTime = scene.dialogueCount ? `${scene.dialogueCount * 2}分钟` : '10分钟'
+
+  return (
+    <Link href={`/scene-detail/${scene.id}`} className="block">
+      <motion.div
+        whileTap={{ scale: 0.99 }}
+        className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+      >
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex items-center gap-3 flex-1 min-w-0">
+            <div className={`h-10 w-10 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center shrink-0`}>
+              <span className="text-lg">{emoji}</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="font-semibold text-gray-800 text-base truncate">{scene.name}</div>
+              <p className="text-xs text-gray-400 mt-0.5 line-clamp-2">{scene.description}</p>
             </div>
           </div>
-          <div className="scene-card-icon ml-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center">
-              <span className="text-lg">{getCategoryIcon(scene.category)}</span>
-            </div>
-          </div>
+          <ChevronRightIcon />
         </div>
-      </div>
+
+        <div className="flex items-center gap-2 mt-3">
+          <span className="text-xs bg-[#EEF2FF] text-[#4F7CF0] px-2.5 py-1 rounded-full">
+            {scene.category}
+          </span>
+          <span className={`text-xs px-2.5 py-1 rounded-full ${difficulty.color}`}>
+            {difficulty.label}
+          </span>
+          <span className="text-xs bg-gray-100 text-gray-500 px-2.5 py-1 rounded-full">
+            {learningTime}
+          </span>
+        </div>
+      </motion.div>
     </Link>
   )
 }

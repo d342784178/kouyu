@@ -1,9 +1,10 @@
 'use client'
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import SceneCard from './SceneCard'
+import CircularProgress from '@/components/CircularProgress'
 
 // 定义短语类型
 interface Phrase {
@@ -32,23 +33,71 @@ interface Scene {
   updatedAt: string
 }
 
+// 用户进度数据
+const mockUserProgress = {
+  todayLearned: 12,
+  todayMinutes: 25,
+  consecutiveDays: 7,
+  reviewCount: 8,
+  totalLearned: 156,
+}
+
+// 搜索图标
+function SearchIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="11" cy="11" r="8" />
+      <path d="m21 21-4.35-4.35" />
+    </svg>
+  )
+}
+
+// 右箭头图标
+function ChevronRightIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="m9 18 6-6-6-6" />
+    </svg>
+  )
+}
+
+// 时钟图标
+function ClockIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
+    </svg>
+  )
+}
+
+// 闪电图标
+function ZapIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-300">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+    </svg>
+  )
+}
+
 export default function Home() {
+  const [searchQuery, setSearchQuery] = useState('')
   const [randomPhrases, setRandomPhrases] = useState<Phrase[]>([])
   const [recommendedScenes, setRecommendedScenes] = useState<Scene[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
+  const progress = mockUserProgress
+  const progressPercentage = Math.round((progress.todayLearned / 20) * 100)
+
   // 获取随机短语的函数
   const getRandomPhrases = async (count: number = 2): Promise<Phrase[]> => {
     try {
-      // 在客户端组件中，直接使用相对路径
       const response = await fetch('/api/phrases')
       if (!response.ok) {
         throw new Error('Failed to fetch phrases')
       }
       
       const allPhrases: Phrase[] = await response.json()
-      
-      // 随机打乱数组并返回指定数量的短语
       const shuffled = [...allPhrases].sort(() => 0.5 - Math.random())
       return shuffled.slice(0, count)
     } catch (error) {
@@ -58,9 +107,8 @@ export default function Home() {
   }
 
   // 获取推荐场景的函数
-  const getRecommendedScenes = async (count: number = 2): Promise<Scene[]> => {
+  const getRecommendedScenes = async (count: number = 3): Promise<Scene[]> => {
     try {
-      // 在客户端组件中，直接使用相对路径
       const response = await fetch('/api/scenes')
       
       let scenes: Scene[] = []
@@ -76,7 +124,7 @@ export default function Home() {
             category: '旅行出行',
             description: '学习在机场办理值机手续的常用对话',
             difficulty: '中级',
-            coverImage: 'https://via.placeholder.com/200',
+            coverImage: null,
             dialogueCount: 8,
             createdAt: new Date().toISOString(),
             updatedAt: new Date().toISOString()
@@ -87,44 +135,30 @@ export default function Home() {
             category: '餐饮服务',
             description: '掌握在餐厅点餐的实用英语表达',
             difficulty: '初级',
-            coverImage: 'https://via.placeholder.com/200',
+            coverImage: null,
             dialogueCount: 6,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+          },
+          {
+            id: 'scene_3',
+            name: '超市购物',
+            category: '购物消费',
+            description: '学习在超市购物时的常用英语表达',
+            difficulty: '初级',
+            coverImage: null,
+            dialogueCount: 5,
             createdAt: new Date().toISOString(),
             updatedAt: new Date().toISOString()
           }
         ]
       }
       
-      // 随机打乱数组并返回指定数量的场景
       const shuffled = [...scenes].sort(() => 0.5 - Math.random())
       return shuffled.slice(0, count)
     } catch (error) {
       console.error('Error fetching recommended scenes:', error)
-      // 返回模拟数据
-      return [
-        {
-          id: 'scene_1',
-          name: '机场值机',
-          category: '旅行出行',
-          description: '学习在机场办理值机手续的常用对话',
-          difficulty: '中级',
-          coverImage: 'https://via.placeholder.com/200',
-          dialogueCount: 8,
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString()
-        },
-        {
-          id: 'scene_2',
-          name: '餐厅点餐',
-          category: '餐饮服务',
-          description: '掌握在餐厅点餐的实用英语表达',
-          difficulty: '初级',
-          coverImage: 'https://via.placeholder.com/200',
-          dialogueCount: 6,
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString()
-        }
-      ]
+      return []
     }
   }
 
@@ -134,7 +168,7 @@ export default function Home() {
       try {
         setIsLoading(true)
         const phrases = await getRandomPhrases(2)
-        const scenes = await getRecommendedScenes(2)
+        const scenes = await getRecommendedScenes(3)
         setRandomPhrases(phrases)
         setRecommendedScenes(scenes)
       } catch (error) {
@@ -146,163 +180,190 @@ export default function Home() {
 
     fetchData()
   }, [])
-  
+
+  // 快速操作按钮数据
+  const quickActions = [
+    { icon: '🎯', label: '每日任务', color: 'bg-[#EEF2FF]', textColor: 'text-[#4F7CF0]' },
+    { icon: '🔥', label: '热门场景', color: 'bg-[#FFF4F0]', textColor: 'text-[#FF7043]' },
+    { icon: '📊', label: '学习报告', color: 'bg-[#F0FFF4]', textColor: 'text-[#34D399]' },
+  ]
+
   return (
-    <div id="main-content" className="pb-20">
-      {/* 顶部导航栏 */}
-      <header id="top-header" className="bg-white px-6 py-4 shadow-sm">
-        <div id="header-content" className="flex items-center justify-between">
-          {/* 搜索框 */}
-          <div id="search-container" className="flex-1 mr-4">
-            <div className="relative">
-              <input 
-                type="text" 
-                id="search-input"
-                placeholder="搜索短语..." 
-                className="w-full pl-10 pr-4 py-3 bg-gray-50 border-0 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all"
-              />
-              <i className="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
-            </div>
-          </div>
-          
-          {/* 个人中心入口 */}
-          <button id="profile-btn" className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
-            <img 
-              src="https://s.coze.cn/image/7mUzSxkYdY0/" 
-              alt="用户头像" 
-              className="w-full h-full rounded-full object-cover"
-            />
-          </button>
-        </div>
-      </header>
-
-      {/* 学习进度概览 */}
-      <section id="learning-overview" className="mx-6 mt-6">
-        <div id="progress-card" className="bg-white rounded-card shadow-card p-6">
-          <div id="progress-header" className="flex items-center justify-between mb-6">
-            <h2 id="progress-title" className="text-lg font-semibold text-text-primary">今日学习</h2>
-            <button id="view-all-btn" className="text-primary text-sm font-medium">查看全部</button>
-          </div>
-          
-          <div id="progress-content" className="flex items-center justify-between">
-            {/* 进度环 */}
-            <div id="progress-ring-container" className="relative">
-              <svg className="w-20 h-20 progress-ring" viewBox="0 0 84 84">
-                <circle
-                  cx="42"
-                  cy="42"
-                  r="40"
-                  stroke="#e5e7eb"
-                  strokeWidth="4"
-                  fill="transparent"
-                />
-                <circle
-                  cx="42"
-                  cy="42"
-                  r="40"
-                  stroke="#2563eb"
-                  strokeWidth="4"
-                  fill="transparent"
-                  className="progress-ring-circle"
-                  strokeLinecap="round"
-                />
-              </svg>
-              <div id="progress-text" className="absolute inset-0 flex flex-col items-center justify-center">
-                <span className="text-lg font-bold text-text-primary">60%</span>
-                <span className="text-xs text-text-secondary">完成度</span>
-              </div>
-            </div>
-            
-            {/* 学习数据 */}
-            <div id="learning-stats" className="flex-1 ml-6 space-y-3">
-              <div id="stat-learned" className="flex justify-between items-center">
-                <span className="text-sm text-text-secondary">已学短语</span>
-                <span className="text-sm font-semibold text-text-primary">12/20</span>
-              </div>
-              <div id="stat-time" className="flex justify-between items-center">
-                <span className="text-sm text-text-secondary">学习时长</span>
-                <span className="text-sm font-semibold text-text-primary">25分钟</span>
-              </div>
-              <div id="stat-streak" className="flex justify-between items-center">
-                <span className="text-sm text-text-secondary">连续天数</span>
-                <span className="text-sm font-semibold text-tertiary">7天</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 复习提醒 */}
-      <section id="review-reminder" className="mx-6 mt-4">
-        <div id="reminder-card" className="bg-gradient-to-r from-orange-50 to-pink-50 border border-orange-100 rounded-card p-5">
-          <div id="reminder-content" className="flex items-center justify-between">
-            <div id="reminder-info" className="flex items-center">
-              <div id="reminder-icon" className="w-10 h-10 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full flex items-center justify-center mr-3">
-                <i className="fas fa-clock text-white text-sm"></i>
-              </div>
-              <div>
-                <h3 id="reminder-title" className="text-sm font-semibold text-text-primary">复习提醒</h3>
-                <p id="reminder-text" className="text-xs text-text-secondary">有8个短语需要复习</p>
-              </div>
-            </div>
-            <button id="review-btn" className="text-orange-500 text-sm font-medium">去复习</button>
-          </div>
-        </div>
-      </section>
-
-      {/* 功能按钮区 */}
-      <section id="feature-buttons" className="mx-6 mt-6">
-        <div id="buttons-container" className="grid grid-cols-3 gap-3">
-          <button id="daily-task-btn" className="bg-white rounded-card shadow-sm p-4 flex flex-col items-center justify-center">
-            <span className="text-xl mb-1">🎯</span>
-            <span className="text-sm font-medium text-text-primary">每日任务</span>
-          </button>
-          <button id="hot-scenes-btn" className="bg-white rounded-card shadow-sm p-4 flex flex-col items-center justify-center">
-            <span className="text-xl mb-1">🔥</span>
-            <span className="text-sm font-medium text-text-primary">热门场景</span>
-          </button>
-          <button id="learning-report-btn" className="bg-white rounded-card shadow-sm p-4 flex flex-col items-center justify-center">
-            <span className="text-xl mb-1">📊</span>
-            <span className="text-sm font-medium text-text-primary">学习报告</span>
-          </button>
-        </div>
-      </section>
-
-      {/* 推荐场景 */}
-      <section id="recommended-scenes" className="mx-6 mt-6">
-        <div id="recommended-header" className="flex items-center justify-between mb-4">
-          <h2 id="recommended-title" className="text-lg font-semibold text-text-primary">推荐场景</h2>
-          <Link href="/scene-list" id="more-scenes-btn" className="text-primary text-sm font-medium">更多</Link>
-        </div>
+    <div className="min-h-screen bg-[#F5F6FA] pb-20">
+      <div className="max-w-[430px] mx-auto px-4 pt-6">
         
-        <div id="scenes-list" className="space-y-3">
-          {recommendedScenes.length > 0 ? (
-            recommendedScenes.map((scene, index) => (
-              <SceneCard key={scene.id} scene={scene} index={index} />
-            ))
-          ) : (
-            <div id="no-scenes" className="text-center py-6">
-              <p className="text-text-secondary">暂无推荐场景</p>
-            </div>
-          )}
+        {/* Search Bar + Avatar */}
+        <div className="flex items-center gap-3 mb-5">
+          <div className="flex-1 flex items-center bg-white rounded-2xl px-4 py-3 shadow-sm border border-gray-100">
+            <SearchIcon />
+            <input
+              placeholder="搜索短语..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="flex-1 bg-transparent outline-none text-sm text-gray-600 placeholder:text-gray-400 ml-2"
+            />
+          </div>
+          <Link href="/profile">
+            <motion.div 
+              whileTap={{ scale: 0.95 }}
+              className="h-10 w-10 rounded-full bg-gradient-to-br from-[#4F7CF0] to-[#7B5FE8] flex items-center justify-center shadow-sm shrink-0 cursor-pointer"
+            >
+              <span className="text-white text-sm font-semibold">我</span>
+            </motion.div>
+          </Link>
         </div>
-      </section>
 
-      {/* 每日一句 */}
-      <section id="daily-phrase" className="mx-6 mt-6 mb-6">
-        <div id="daily-phrase-card" className="bg-white rounded-card shadow-card p-5">
-          <div id="daily-phrase-content" className="flex items-start">
-            <div id="daily-phrase-icon" className="w-10 h-10 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-              <i className="fas fa-lightbulb text-white text-sm"></i>
-            </div>
-            <div className="flex-1">
-              <h3 id="daily-phrase-title" className="text-sm font-semibold text-text-primary mb-2">每日一句</h3>
-              <p id="daily-phrase-english" className="text-sm text-text-primary mb-2 italic">"The best time to plant a tree was 20 years ago. The second best time is now."</p>
-              <p id="daily-phrase-chinese" className="text-xs text-text-secondary">种树最好的时机是20年前，其次是现在。</p>
+        {/* Today's Learning Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="bg-white rounded-2xl p-5 mb-4 shadow-sm border border-gray-100"
+        >
+          <div className="flex items-center justify-between mb-4">
+            <span className="font-semibold text-gray-800">今日学习</span>
+            <Link href="/profile" className="text-sm text-[#4F7CF0] flex items-center gap-0.5 hover:opacity-80 transition-opacity">
+              查看全部
+              <ChevronRightIcon />
+            </Link>
+          </div>
+          <div className="flex items-center gap-5">
+            <CircularProgress
+              value={progressPercentage}
+              size={88}
+              strokeWidth={9}
+              label={`${progressPercentage}%`}
+              sublabel="完成度"
+            />
+            <div className="flex-1 space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-gray-500">已学短语</span>
+                <span className="text-sm font-medium text-gray-800">
+                  {progress.todayLearned}/20
+                </span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-gray-500">学习时长</span>
+                <span className="text-sm font-medium text-gray-800">
+                  {progress.todayMinutes}分钟
+                </span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-gray-500">连续天数</span>
+                <span className="text-sm font-semibold text-[#FF7043]">
+                  {progress.consecutiveDays}天
+                </span>
+              </div>
             </div>
           </div>
+        </motion.div>
+
+        {/* Review Reminder */}
+        {progress.reviewCount > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+            className="bg-[#FFF4F0] rounded-2xl p-4 mb-5 border border-[#FFE4D9]"
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="h-10 w-10 rounded-full bg-[#FF7043] flex items-center justify-center shadow-sm shrink-0">
+                  <ClockIcon />
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-gray-800">复习提醒</div>
+                  <div className="text-xs text-gray-500 mt-0.5">
+                    有{progress.reviewCount}个短语需要复习
+                  </div>
+                </div>
+              </div>
+              <Link href="/phrase-library">
+                <motion.button 
+                  whileTap={{ scale: 0.95 }}
+                  className="text-sm font-medium text-[#FF7043] bg-white rounded-xl px-3 py-1.5 shadow-sm border border-[#FFE4D9] hover:bg-gray-50 transition-colors"
+                >
+                  去复习
+                </motion.button>
+              </Link>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Quick Actions */}
+        <div className="grid grid-cols-3 gap-3 mb-6">
+          {quickActions.map((item, index) => (
+            <motion.button
+              key={item.label}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1 + index * 0.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={`${item.color} rounded-2xl p-3 flex flex-col items-center gap-1.5 hover:opacity-90 transition-opacity`}
+            >
+              <span className="text-xl">{item.icon}</span>
+              <span className={`text-xs font-medium ${item.textColor}`}>{item.label}</span>
+            </motion.button>
+          ))}
         </div>
-      </section>
+
+        {/* Recommended Scenes */}
+        <div className="mb-6">
+          <div className="flex items-center justify-between mb-3">
+            <span className="font-semibold text-gray-800">推荐场景</span>
+            <Link href="/scene-list" className="text-sm text-[#4F7CF0] flex items-center gap-0.5 hover:opacity-80 transition-opacity">
+              更多
+              <ChevronRightIcon />
+            </Link>
+          </div>
+          <div className="space-y-3">
+            {isLoading ? (
+              // 加载骨架屏
+              [1, 2, 3].map((i) => (
+                <div key={i} className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 animate-pulse">
+                  <div className="h-4 bg-gray-200 rounded w-1/3 mb-2"></div>
+                  <div className="h-3 bg-gray-200 rounded w-2/3 mb-3"></div>
+                  <div className="flex gap-2">
+                    <div className="h-5 bg-gray-200 rounded w-16"></div>
+                    <div className="h-5 bg-gray-200 rounded w-16"></div>
+                  </div>
+                </div>
+              ))
+            ) : (
+              recommendedScenes.map((scene, i) => (
+                <motion.div
+                  key={scene.id}
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.1 * i }}
+                >
+                  <SceneCard scene={scene} index={i} />
+                </motion.div>
+              ))
+            )}
+          </div>
+        </div>
+
+        {/* Daily Tip */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          className="bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] rounded-2xl p-4 mb-4 text-white"
+        >
+          <div className="flex items-start gap-3">
+            <ZapIcon />
+            <div>
+              <div className="text-sm font-semibold mb-1">每日一句</div>
+              <div className="text-sm opacity-90 italic">
+                &ldquo;The best time to plant a tree was 20 years ago. The second best time is now.&rdquo;
+              </div>
+              <div className="text-xs opacity-70 mt-1">种树最好的时机是20年前，其次是现在。</div>
+            </div>
+          </div>
+        </motion.div>
+
+      </div>
     </div>
   )
 }

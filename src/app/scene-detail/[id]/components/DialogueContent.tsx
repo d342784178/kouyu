@@ -2,6 +2,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { buildAudioUrl } from '@/lib/audioUrl';
 
 interface DialogueContentProps {
@@ -17,6 +18,26 @@ interface DialogueContentProps {
       is_key_qa: boolean;
     }>;
   }>;
+}
+
+// 音量图标
+function VolumeIcon({ className }: { className?: string }) {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+    </svg>
+  );
+}
+
+// 停止图标
+function StopIcon({ className }: { className?: string }) {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none" className={className}>
+      <rect x="6" y="6" width="12" height="12" rx="2" />
+    </svg>
+  );
 }
 
 const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
@@ -109,19 +130,29 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
     return name.charAt(0).toUpperCase();
   };
 
+  // 检查是否正在播放当前音频
+  const isPlayingCurrent = (audioUrl: string) => {
+    return playingAudio && playingAudio.includes(audioUrl);
+  };
+
   return (
     <div className="space-y-6">
       {/* 音频错误提示 */}
       {audioError && (
-        <div className="fixed top-20 left-1/2 transform -translate-x-1/2 bg-yellow-100 text-yellow-800 px-4 py-2 rounded-lg shadow-lg z-50">
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          className="fixed top-20 left-1/2 transform -translate-x-1/2 bg-yellow-100 text-yellow-800 px-4 py-2 rounded-lg shadow-lg z-50"
+        >
           {audioError}
-        </div>
+        </motion.div>
       )}
 
       {/* 对话回合 */}
       {rounds.map((round) => (
         <div key={round.round_number} id={`dialogue-turn-${round.round_number}`} className="space-y-4">
-          <h3 className="text-sm font-medium text-text-secondary mb-2">回合 {round.round_number}</h3>
+          <h3 className="text-sm font-medium text-gray-400 mb-2">回合 {round.round_number}</h3>
           {round.content.map((dialogue) => {
             // 确定角色类型：true 为系统角色（如服务员、值机员等），false 为用户角色（如顾客、乘客等）
             const isSystemRole = ['waiter', 'A', 'agent', 'clerk', 'barman', 'salesperson', 'doctor', 'pharmacist', 'cashier', 'staff', 'receptionist', 'speaker2'].includes(dialogue.speaker);
@@ -137,7 +168,7 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
                       isSystemRole 
                         ? 'bg-gray-200 text-gray-600' 
                         : isUserRole 
-                          ? 'bg-blue-500 text-white' 
+                          ? 'bg-gradient-to-br from-[#4F7CF0] to-[#7B5FE8] text-white' 
                           : 'bg-gray-200 text-gray-600'
                     }`}
                   >
@@ -152,20 +183,25 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
                   {/* 左侧对话（系统角色）：播放按钮放在右侧（外侧） */}
                   {/* 右侧对话（用户角色）：播放按钮放在左侧（外侧） */}
                   {isUserRole && (
-                    <button
+                    <motion.button
                       id={`play-turn-${round.round_number}-${dialogue.index}`}
+                      whileTap={{ scale: 0.9 }}
                       className="w-8 h-8 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors flex-shrink-0 shadow-sm"
                       onClick={() => playAudio(dialogue.audio_url)}
                       title={dialogue.audio_url || '暂无音频'}
                     >
-                      <i className={`fas ${playingAudio && playingAudio.includes(dialogue.audio_url) ? 'fa-stop' : 'fa-volume-up'} text-blue-500 text-xs`}></i>
-                    </button>
+                      {isPlayingCurrent(dialogue.audio_url) ? (
+                        <StopIcon className="text-[#4F7CF0]" />
+                      ) : (
+                        <VolumeIcon className="text-[#4F7CF0]" />
+                      )}
+                    </motion.button>
                   )}
 
                   <div
                     className="px-4 py-3 max-w-[280px]"
                     style={{
-                      backgroundColor: isSystemRole ? '#f3f4f6' : isUserRole ? '#3b82f6' : '#f3f4f6',
+                      backgroundColor: isSystemRole ? '#f3f4f6' : isUserRole ? '#4F7CF0' : '#f3f4f6',
                       borderRadius: isSystemRole ? '4px 18px 18px 18px' : isUserRole ? '18px 4px 18px 18px' : '4px 18px 18px 18px',
                       color: isSystemRole ? '#1f2937' : isUserRole ? 'white' : '#1f2937'
                     }}
@@ -178,14 +214,19 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
 
                   {/* 系统角色的播放按钮在右侧（外侧） */}
                   {(isSystemRole || !isUserRole) && (
-                    <button
+                    <motion.button
                       id={`play-turn-${round.round_number}-${dialogue.index}`}
+                      whileTap={{ scale: 0.9 }}
                       className="w-8 h-8 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors flex-shrink-0 shadow-sm"
                       onClick={() => playAudio(dialogue.audio_url)}
                       title={dialogue.audio_url || '暂无音频'}
                     >
-                      <i className={`fas ${playingAudio && playingAudio.includes(dialogue.audio_url) ? 'fa-stop' : 'fa-volume-up'} text-gray-500 text-xs`}></i>
-                    </button>
+                      {isPlayingCurrent(dialogue.audio_url) ? (
+                        <StopIcon className="text-gray-500" />
+                      ) : (
+                        <VolumeIcon className="text-gray-500" />
+                      )}
+                    </motion.button>
                   )}
                 </div>
               </div>

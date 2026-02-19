@@ -17,19 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="zh-CN">
-      <body className="bg-bg-secondary">
-        {/* 状态栏 */}
-        <div id="status-bar" className="bg-white safe-top">
-          <div className="flex justify-between items-center px-6 py-2 text-sm font-medium text-gray-900">
-            <span>9:41</span>
-            <div className="flex items-center space-x-1">
-              <i className="fas fa-signal text-xs"></i>
-              <i className="fas fa-wifi text-xs"></i>
-              <i className="fas fa-battery-three-quarters text-xs"></i>
-            </div>
-          </div>
-        </div>
-        
+      <body className="bg-[#F5F6FA]">
         {/* 主要内容 */}
         <main className="pb-20">
           {children}

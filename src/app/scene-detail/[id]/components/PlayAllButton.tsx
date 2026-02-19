@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { buildAudioUrl } from '@/lib/audioUrl';
 
 interface PlayAllButtonProps {
@@ -16,6 +17,24 @@ interface PlayAllButtonProps {
       is_key_qa: boolean;
     }>;
   }>;
+}
+
+// 播放图标
+function PlayIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+      <polygon points="5 3 19 12 5 21 5 3" />
+    </svg>
+  );
+}
+
+// 停止图标
+function StopIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+      <rect x="6" y="6" width="12" height="12" rx="2" />
+    </svg>
+  );
 }
 
 const PlayAllButton: React.FC<PlayAllButtonProps> = ({ rounds }) => {
@@ -106,19 +125,20 @@ const PlayAllButton: React.FC<PlayAllButtonProps> = ({ rounds }) => {
   };
 
   return (
-    <button
+    <motion.button
       id="play-all-btn"
       onClick={isPlaying ? stopPlaying : playAll}
-      className="flex items-center justify-center gap-2 px-4 py-2 bg-primary text-white rounded-full text-sm font-medium hover:bg-primary-dark transition-colors whitespace-nowrap flex-shrink-0 min-w-[100px]"
+      whileTap={{ scale: 0.95 }}
+      className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white rounded-full text-sm font-medium hover:opacity-90 transition-opacity whitespace-nowrap flex-shrink-0 min-w-[100px] shadow-sm"
     >
-      <i className={`fas ${isPlaying ? 'fa-stop' : 'fa-play'} flex-shrink-0`}></i>
+      {isPlaying ? <StopIcon /> : <PlayIcon />}
       <span className="flex-shrink-0">
         {isPlaying 
           ? `${currentIndex + 1}/${getAllAudioUrls().length}` 
           : '播放全部'
         }
       </span>
-    </button>
+    </motion.button>
   );
 };
 
