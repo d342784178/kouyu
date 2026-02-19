@@ -489,18 +489,23 @@ export default function SceneTest() {
 
   return (
     <div id="scene-test-content" className="pb-20">
-      {/* 统一头部导航 */}
-      <header id="scene-test-header" className="bg-white px-6 py-4 shadow-sm sticky top-0 z-30">
-        <div id="scene-test-header-content" className="flex items-center justify-between">
+      {/* 顶部导航栏 */}
+      <header id="top-header" className="bg-white px-6 py-4 shadow-sm sticky top-0 z-30">
+        <div id="header-content" className="flex items-center justify-between">
+          {/* 返回按钮 */}
           <Link
             href={`/scene-detail/${id}`}
             id="back-btn"
-            className="w-10 h-10 flex items-center justify-center"
+            className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center"
           >
-            <i className="fas fa-arrow-left text-text-primary text-lg"></i>
+            <i className="fas fa-arrow-left text-gray-600 text-sm"></i>
           </Link>
-          <h1 id="scene-test-title" className="text-lg font-semibold text-text-primary">场景测试</h1>
-          <div className="w-10"></div> {/* 占位，保持标题居中 */}
+          
+          {/* 页面标题 */}
+          <h1 id="page-title" className="text-lg font-semibold text-text-primary">场景测试</h1>
+          
+          {/* 占位元素保持居中 */}
+          <div className="w-10 h-10"></div>
         </div>
       </header>
       
@@ -526,7 +531,7 @@ export default function SceneTest() {
             
             <section id="test-question" className="mb-8">
               <div className="bg-white rounded-card shadow-card p-6 mb-6">
-                <h2 id="question-text" className="text-base font-semibold text-text-primary">
+                <h2 id="question-text" className="text-base font-semibold text-text-primary leading-relaxed">
                   {currentTest.question}
                 </h2>
               </div>
@@ -542,7 +547,7 @@ export default function SceneTest() {
                       <button
                         key={index}
                         id={`option-${index}`}
-                        className={`w-full py-3 px-4 rounded-card shadow-card border text-left transition-all ${isSelected
+                        className={`w-full py-4 px-5 rounded-card shadow-card border text-left transition-all hover:shadow-card-hover ${isSelected
                           ? 'border-primary bg-blue-50'
                           : isCorrect
                           ? 'border-success bg-green-50'
@@ -553,7 +558,7 @@ export default function SceneTest() {
                         disabled={isAnswered}
                       >
                         <div className="flex items-center justify-between">
-                          <span className={`text-sm ${isSelected
+                          <span className={`text-sm leading-relaxed ${isSelected
                             ? 'text-primary font-medium'
                             : isCorrect
                             ? 'text-success font-medium'
@@ -615,14 +620,14 @@ export default function SceneTest() {
                     <div className="relative">
                       <textarea
                         id="fill-blank-answer"
-                        className="w-full p-4 border border-border-light rounded-card focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all resize-none text-text-primary text-sm bg-gray-50"
+                        className="w-full p-5 border border-border-light rounded-card focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all resize-none text-text-primary text-sm bg-gray-50 shadow-sm"
                         rows={4}
                         placeholder="请输入你的回答..."
                         value={fillBlankAnswer}
                         onChange={(e) => setFillBlankAnswer(e.target.value)}
                         disabled={isAnswered}
                       />
-                      <div className="absolute bottom-3 right-3 text-xs text-text-secondary">
+                      <div className="absolute bottom-4 right-4 text-xs text-text-secondary">
                         {fillBlankAnswer.length} 字
                       </div>
                     </div>
@@ -788,13 +793,13 @@ export default function SceneTest() {
 
               {/* 问答题 - 语音输入 */}
               {currentTest.type === 'qa' && (
-                <div id="qa-section" className="space-y-4">
+                <div id="qa-section" className="space-y-6">
                   {/* 语音输入按钮 */}
                   <div className="flex justify-center">
                     <button
                       onClick={toggleRecording}
                       disabled={isEvaluating}
-                      className={`w-16 h-16 rounded-full flex items-center justify-center transition-all shadow-card ${
+                      className={`w-20 h-20 rounded-full flex items-center justify-center transition-all shadow-card ${
                         isRecording
                           ? 'bg-danger text-white animate-pulse'
                           : 'bg-primary text-white hover:shadow-card-hover'
@@ -810,9 +815,9 @@ export default function SceneTest() {
 
                   {/* 用户回答显示 */}
                   {qaAnswer && (
-                    <div className="p-4 bg-blue-50 rounded-card border border-blue-100">
-                      <h4 className="text-sm font-medium text-text-secondary mb-2">你的回答：</h4>
-                      <p className="text-text-primary text-sm">{qaAnswer}</p>
+                    <div className="p-5 bg-blue-50 rounded-card border border-blue-100">
+                      <h4 className="text-sm font-medium text-blue-800 mb-3">你的回答：</h4>
+                      <p className="text-text-primary text-sm leading-relaxed">{qaAnswer}</p>
                     </div>
                   )}
 
@@ -827,22 +832,22 @@ export default function SceneTest() {
 
                   {/* 评测结果 */}
                   {qaEvaluation && (
-                    <div className={`p-4 rounded-card border ${qaEvaluation.score >= 80 ? 'bg-green-50 border-success' : qaEvaluation.score >= 60 ? 'bg-amber-50 border-amber-200' : 'bg-red-50 border-danger'}`}>
-                      <div className="flex items-center justify-between mb-3">
+                    <div className={`p-5 rounded-card border shadow-card ${qaEvaluation.score >= 80 ? 'bg-green-50 border-success' : qaEvaluation.score >= 60 ? 'bg-amber-50 border-amber-200' : 'bg-red-50 border-danger'}`}>
+                      <div className="flex items-center justify-between mb-4">
                         <h4 className="font-medium text-text-primary text-sm">评测结果</h4>
                         <span className={`text-xl font-bold ${qaEvaluation.score >= 80 ? 'text-success' : qaEvaluation.score >= 60 ? 'text-amber-600' : 'text-danger'}`}>
                           {qaEvaluation.score}分
                         </span>
                       </div>
-                      <p className="text-sm text-text-secondary mb-3">{qaEvaluation.feedback}</p>
+                      <p className="text-sm text-text-secondary mb-4 leading-relaxed">{qaEvaluation.feedback}</p>
                       {qaEvaluation.suggestions.length > 0 && (
                         <div>
-                          <h5 className="text-sm font-medium text-text-primary mb-2">改进建议：</h5>
-                          <ul className="space-y-1">
+                          <h5 className="text-sm font-medium text-text-primary mb-3">改进建议：</h5>
+                          <ul className="space-y-2">
                             {qaEvaluation.suggestions.map((suggestion, index) => (
-                              <li key={index} className="text-sm text-text-secondary flex items-start gap-2">
+                              <li key={index} className="text-sm text-text-secondary flex items-start gap-3">
                                 <i className="fas fa-lightbulb text-amber-500 mt-0.5"></i>
-                                {suggestion}
+                                <span className="leading-relaxed">{suggestion}</span>
                               </li>
                             ))}
                           </ul>
@@ -854,11 +859,11 @@ export default function SceneTest() {
               )}
             </section>
             
-            <section id="test-navigation" className="flex justify-between">
+            <section id="test-navigation" className="flex justify-between mt-8 gap-4">
               <Link
                 href={prevTest ? `/scene-test/${id}/${prevTest.id}` : '#'}
                 id="prev-btn"
-                className={`py-3 px-6 rounded-card font-semibold text-sm ${prevTest ? 'bg-white shadow-card text-text-primary hover:shadow-card-hover' : 'opacity-50 cursor-not-allowed bg-gray-100 text-gray-400'}`}
+                className={`py-3 px-6 sm:px-8 rounded-card font-semibold text-sm flex-1 text-center ${prevTest ? 'bg-white shadow-card text-text-primary hover:shadow-card-hover' : 'opacity-50 cursor-not-allowed bg-gray-100 text-gray-400'}`}
                 aria-disabled={!prevTest}
               >
                 上一题
@@ -869,7 +874,7 @@ export default function SceneTest() {
                 <Link
                   href={nextTest ? `/scene-test/${id}/${nextTest.id}` : `/scene-detail/${id}`}
                   id="next-btn"
-                  className={`py-3 px-6 rounded-card font-semibold text-sm ${nextTest ? 'bg-white shadow-card text-text-primary hover:shadow-card-hover' : 'bg-primary text-white hover:shadow-card-hover'}`}
+                  className={`py-3 px-6 sm:px-8 rounded-card font-semibold text-sm flex-1 text-center ${nextTest ? 'bg-white shadow-card text-text-primary hover:shadow-card-hover' : 'bg-primary text-white hover:shadow-card-hover'}`}
                 >
                   {nextTest ? '下一题' : '提交'}
                 </Link>
@@ -877,12 +882,14 @@ export default function SceneTest() {
                 <button
                   id="next-btn-disabled"
                   disabled
-                  className="py-3 px-6 rounded-card font-semibold text-sm bg-gray-200 text-gray-400 cursor-not-allowed"
+                  className="py-3 px-6 sm:px-8 rounded-card font-semibold text-sm flex-1 text-center bg-gray-200 text-gray-400 cursor-not-allowed"
                 >
                   {isEvaluating ? '评测中...' : nextTest ? '下一题' : '提交'}
                 </button>
               )}
             </section>
+            
+
 
             {/* 未作答提示 - 仅在未作答且非评测状态时显示 */}
             {!isAnswered && !isEvaluating && (

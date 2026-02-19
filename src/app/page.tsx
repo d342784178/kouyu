@@ -242,11 +242,29 @@ export default function Home() {
               </div>
               <div>
                 <h3 id="reminder-title" className="text-sm font-semibold text-text-primary">复习提醒</h3>
-                <p id="reminder-text" className="text-xs text-text-secondary">有5个短语需要复习</p>
+                <p id="reminder-text" className="text-xs text-text-secondary">有8个短语需要复习</p>
               </div>
             </div>
             <button id="review-btn" className="text-orange-500 text-sm font-medium">去复习</button>
           </div>
+        </div>
+      </section>
+
+      {/* 功能按钮区 */}
+      <section id="feature-buttons" className="mx-6 mt-6">
+        <div id="buttons-container" className="grid grid-cols-3 gap-3">
+          <button id="daily-task-btn" className="bg-white rounded-card shadow-sm p-4 flex flex-col items-center justify-center">
+            <span className="text-xl mb-1">🎯</span>
+            <span className="text-sm font-medium text-text-primary">每日任务</span>
+          </button>
+          <button id="hot-scenes-btn" className="bg-white rounded-card shadow-sm p-4 flex flex-col items-center justify-center">
+            <span className="text-xl mb-1">🔥</span>
+            <span className="text-sm font-medium text-text-primary">热门场景</span>
+          </button>
+          <button id="learning-report-btn" className="bg-white rounded-card shadow-sm p-4 flex flex-col items-center justify-center">
+            <span className="text-xl mb-1">📊</span>
+            <span className="text-sm font-medium text-text-primary">学习报告</span>
+          </button>
         </div>
       </section>
 
@@ -270,54 +288,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 场景分类 */}
-      <section id="scene-categories" className="mx-6 mt-6 mb-6">
-        <h2 id="categories-title" className="text-lg font-semibold text-text-primary mb-4">学习场景</h2>
-        
-        <div id="categories-grid" className="grid grid-cols-2 gap-4">
-          {/* 日常问候 */}
-          <Link href="/phrase-library?sceneId=scene_daily" id="scene-daily" className="scene-card rounded-card p-4 card-hover block">
-            <div id="scene-daily-content" className="text-center">
-              <div id="scene-daily-icon" className="w-12 h-12 bg-gradient-to-r from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                <i className="fas fa-hand-paper text-white"></i>
-              </div>
-              <h3 id="scene-daily-title" className="text-sm font-semibold text-text-primary mb-1">日常问候</h3>
-              <p id="scene-daily-count" className="text-xs text-text-secondary">156个短语</p>
+      {/* 每日一句 */}
+      <section id="daily-phrase" className="mx-6 mt-6 mb-6">
+        <div id="daily-phrase-card" className="bg-white rounded-card shadow-card p-5">
+          <div id="daily-phrase-content" className="flex items-start">
+            <div id="daily-phrase-icon" className="w-10 h-10 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
+              <i className="fas fa-lightbulb text-white text-sm"></i>
             </div>
-          </Link>
-
-          {/* 购物消费 */}
-          <Link href="/phrase-library?sceneId=scene_shopping" id="scene-shopping" className="scene-card rounded-card p-4 card-hover block">
-            <div id="scene-shopping-content" className="text-center">
-              <div id="scene-shopping-icon" className="w-12 h-12 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                <i className="fas fa-shopping-bag text-white"></i>
-              </div>
-              <h3 id="scene-shopping-title" className="text-sm font-semibold text-text-primary mb-1">购物消费</h3>
-              <p id="scene-shopping-count" className="text-xs text-text-secondary">98个短语</p>
+            <div className="flex-1">
+              <h3 id="daily-phrase-title" className="text-sm font-semibold text-text-primary mb-2">每日一句</h3>
+              <p id="daily-phrase-english" className="text-sm text-text-primary mb-2 italic">"The best time to plant a tree was 20 years ago. The second best time is now."</p>
+              <p id="daily-phrase-chinese" className="text-xs text-text-secondary">种树最好的时机是20年前，其次是现在。</p>
             </div>
-          </Link>
-
-          {/* 餐饮服务 */}
-          <Link href="/phrase-library?sceneId=scene_restaurant" id="scene-restaurant" className="scene-card rounded-card p-4 card-hover block">
-            <div id="scene-restaurant-content" className="text-center">
-              <div id="scene-restaurant-icon" className="w-12 h-12 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                <i className="fas fa-utensils text-white"></i>
-              </div>
-              <h3 id="scene-restaurant-title" className="text-sm font-semibold text-text-primary mb-1">餐饮服务</h3>
-              <p id="scene-restaurant-count" className="text-xs text-text-secondary">74个短语</p>
-            </div>
-          </Link>
-
-          {/* 旅行出行 */}
-          <Link href="/phrase-library?sceneId=scene_travel" id="scene-travel" className="scene-card rounded-card p-4 card-hover block">
-            <div id="scene-travel-content" className="text-center">
-              <div id="scene-travel-icon" className="w-12 h-12 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                <i className="fas fa-plane text-white"></i>
-              </div>
-              <h3 id="scene-travel-title" className="text-sm font-semibold text-text-primary mb-1">旅行出行</h3>
-              <p id="scene-travel-count" className="text-xs text-text-secondary">122个短语</p>
-            </div>
-          </Link>
+          </div>
         </div>
       </section>
     </div>

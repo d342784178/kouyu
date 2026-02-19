@@ -35,7 +35,7 @@ export default function BottomNav() {
       <Link 
         id="nav-profile" 
         href="#" 
-        className="flex flex-col items-center p-2 text-text-secondary"
+        className={`flex flex-col items-center p-2 ${pathname === '/profile' ? 'text-primary' : 'text-text-secondary'}`}
       >
         <i className="fas fa-user text-xl"></i>
         <span className="text-xs mt-0.5">我的</span>

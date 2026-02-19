@@ -151,10 +151,42 @@ export default function SceneList() {
   // 检查是否有场景数据
   const hasScenes = displayScenes.length > 0
 
+  // 根据场景分类获取图标
+  const getCategoryIcon = (category: string) => {
+    switch(category) {
+      case '日常场景':
+      case '日常问候':
+        return '👋'
+      case '职场场景':
+        return '💼'
+      case '留学/考试':
+        return '📚'
+      case '购物消费':
+      case '超市购物':
+        return '🛒'
+      case '餐饮服务':
+      case '餐厅点餐':
+        return '🍽️'
+      case '旅行出行':
+        return '✈️'
+      default:
+        return '🌍'
+    }
+  }
+
   return (
     <div id="scene-list-content" className="pb-20">
-      <header id="scene-list-header" className="bg-white px-6 py-4 shadow-sm">
-        <h1 id="scene-list-title" className="text-xl font-bold text-text-primary">场景学习</h1>
+      {/* 顶部导航栏 */}
+      <header id="top-header" className="bg-white px-6 py-4 shadow-sm">
+        <div id="header-content" className="flex items-center justify-between">
+          {/* 页面标题 */}
+          <h1 id="scene-list-title" className="text-lg font-semibold text-text-primary">场景学习</h1>
+          
+          {/* 筛选按钮 */}
+          <button id="filter-btn" className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center">
+            <i className="fas fa-filter text-gray-600 text-sm"></i>
+          </button>
+        </div>
       </header>
       
       {/* 分类筛选标签栏 */}
@@ -163,13 +195,8 @@ export default function SceneList() {
           {/* 全部选项 */}
           <button
             onClick={() => setSelectedCategory('all')}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
-              selectedCategory === 'all'
-                ? 'bg-primary text-white shadow-md'
-                : 'bg-gray-100 text-text-secondary hover:bg-gray-200'
-            }`}
+            className={`px-4 py-2 rounded-full whitespace-nowrap ${selectedCategory === 'all' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'} text-sm`}
           >
-            <i className="fas fa-th-large"></i>
             全部
           </button>
           {/* 动态生成的分类选项 */}
@@ -177,13 +204,8 @@ export default function SceneList() {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
-                selectedCategory === category
-                  ? 'bg-primary text-white shadow-md'
-                  : 'bg-gray-100 text-text-secondary hover:bg-gray-200'
-              }`}
+              className={`px-4 py-2 rounded-full whitespace-nowrap ${selectedCategory === category ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'} text-sm`}
             >
-              <i className={`fas ${CATEGORY_ICONS[category] || 'fa-tag'}`}></i>
               {category}
             </button>
           ))}
@@ -191,6 +213,11 @@ export default function SceneList() {
       </div>
       
       <main id="scene-list-main" className="mx-6 mt-6">
+        <div id="scenes-header" className="flex items-center justify-between mb-4">
+          <h2 id="scenes-title" className="text-lg font-semibold text-text-primary">场景列表</h2>
+          <span id="scenes-count" className="text-sm text-text-secondary">共 {displayScenes.length} 个场景</span>
+        </div>
+        
         {isLoading ? (
           // 加载中状态
           <div className="flex flex-col items-center justify-center py-16">
@@ -199,7 +226,7 @@ export default function SceneList() {
           </div>
         ) : hasScenes ? (
           <>
-            <div id="scenes-list" className="space-y-4">
+            <div id="scenes-list" className="space-y-3">
               {displayScenes.map((scene, index) => (
                 <Link 
                   key={scene.id} 
@@ -208,23 +235,30 @@ export default function SceneList() {
                   className="block"
                 >
                   <div className="scene-card bg-white rounded-card shadow-card p-4 card-hover">
-                    <div className="scene-card-content">
-                      <h3 className="scene-card-title text-base font-semibold text-text-primary mb-1">
-                        {scene.name}
-                      </h3>
-                      <p className="scene-card-description text-xs text-text-secondary mb-3">
-                        {scene.description}
-                      </p>
-                      <div className="scene-card-tags flex items-center space-x-2">
-                        <span className="scene-card-category text-xs px-2 py-1 rounded-full bg-blue-50 text-blue-600">
-                          {scene.category}
-                        </span>
-                        <span className={`scene-card-difficulty text-xs px-2 py-1 rounded-full ${scene.difficulty === '入门' ? 'bg-green-50 text-green-600' : scene.difficulty === '初级' ? 'bg-green-50 text-green-600' : scene.difficulty === '中级' ? 'bg-yellow-50 text-yellow-600' : scene.difficulty === '进阶' ? 'bg-purple-50 text-purple-600' : scene.difficulty === '高级' ? 'bg-red-50 text-red-600' : 'bg-gray-50 text-gray-600'}`}>
-                          {scene.difficulty}
-                        </span>
-                        <span className="scene-card-time text-xs px-2 py-1 rounded-full bg-gray-50 text-gray-600">
-                          10分钟
-                        </span>
+                    <div className="scene-card-content flex items-start">
+                      <div className="flex-1">
+                        <h3 className="scene-card-title text-base font-semibold text-text-primary mb-1">
+                          {scene.name}
+                        </h3>
+                        <p className="scene-card-description text-xs text-text-secondary mb-3">
+                          {scene.description}
+                        </p>
+                        <div className="scene-card-tags flex items-center space-x-2">
+                          <span className="scene-card-category text-xs px-2 py-1 rounded-full bg-blue-50 text-blue-600">
+                            {scene.category}
+                          </span>
+                          <span className={`scene-card-difficulty text-xs px-2 py-1 rounded-full ${scene.difficulty === '入门' ? 'bg-green-50 text-green-600' : scene.difficulty === '初级' ? 'bg-green-50 text-green-600' : scene.difficulty === '中级' ? 'bg-yellow-50 text-yellow-600' : scene.difficulty === '进阶' ? 'bg-purple-50 text-purple-600' : scene.difficulty === '高级' ? 'bg-red-50 text-red-600' : 'bg-gray-50 text-gray-600'}`}>
+                            {scene.difficulty}
+                          </span>
+                          <span className="scene-card-time text-xs px-2 py-1 rounded-full bg-gray-50 text-gray-600">
+                            10分钟
+                          </span>
+                        </div>
+                      </div>
+                      <div className="scene-card-icon ml-3">
+                        <div className="w-10 h-10 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center">
+                          <span className="text-lg">{getCategoryIcon(scene.category)}</span>
+                        </div>
                       </div>
                     </div>
                   </div>

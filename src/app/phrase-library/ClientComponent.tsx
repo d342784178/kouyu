@@ -169,27 +169,48 @@ export default function PhraseLibraryClient() {
       {/* 顶部导航栏 */}
       <header id="top-header" className="bg-white px-6 py-4 shadow-sm">
         <div id="header-content" className="flex items-center justify-between">
-          {/* 搜索框 */}
-          <div id="search-container" className="flex-1 mr-4">
-            <div className="relative">
-              <input 
-                type="text" 
-                id="search-input"
-                placeholder="搜索短语..." 
-                className="w-full pl-10 pr-4 py-3 bg-gray-50 border-0 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-              <i className="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
-            </div>
-          </div>
+          {/* 页面标题 */}
+          <h1 id="page-title" className="text-lg font-semibold text-text-primary">短语库</h1>
           
-          {/* 筛选按钮 */}
-          <button id="filter-btn" className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center" onClick={() => setShowFilterModal(true)}>
-            <i className="fas fa-filter text-gray-600 text-sm"></i>
-          </button>
+          {/* 右侧操作按钮 */}
+          <div id="header-actions" className="flex items-center space-x-3">
+            {/* 搜索框 */}
+            <div id="search-container" className="hidden md:flex flex-1 max-w-xs mr-3">
+              <div className="relative">
+                <input 
+                  type="text" 
+                  id="search-input"
+                  placeholder="搜索短语..." 
+                  className="w-full pl-10 pr-4 py-2 bg-gray-50 border-0 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+                <i className="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
+              </div>
+            </div>
+            
+            {/* 筛选按钮 */}
+            <button id="filter-btn" className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center" onClick={() => setShowFilterModal(true)}>
+              <i className="fas fa-filter text-gray-600 text-sm"></i>
+            </button>
+          </div>
         </div>
       </header>
+      
+      {/* 移动端搜索框 */}
+      <div id="mobile-search" className="bg-white px-6 py-3 border-b border-gray-100 md:hidden">
+        <div className="relative">
+          <input 
+            type="text" 
+            id="mobile-search-input"
+            placeholder="搜索短语..." 
+            className="w-full pl-10 pr-4 py-3 bg-gray-50 border-0 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <i className="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
+        </div>
+      </div>
 
       {/* 筛选标签栏 */}
       <section id="filter-tabs" className="px-6 py-4">

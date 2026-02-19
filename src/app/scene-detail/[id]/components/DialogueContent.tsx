@@ -104,6 +104,11 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
     }
   };
 
+  // 获取头像字母
+  const getAvatarLetter = (name: string) => {
+    return name.charAt(0).toUpperCase();
+  };
+
   return (
     <div className="space-y-6">
       {/* 音频错误提示 */}
@@ -115,7 +120,7 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
 
       {/* 对话回合 */}
       {rounds.map((round) => (
-        <div key={round.round_number} id={`dialogue-turn-${round.round_number}`} className="space-y-3">
+        <div key={round.round_number} id={`dialogue-turn-${round.round_number}`} className="space-y-4">
           <h3 className="text-sm font-medium text-text-secondary mb-2">回合 {round.round_number}</h3>
           {round.content.map((dialogue) => {
             // 确定角色类型：true 为系统角色（如服务员、值机员等），false 为用户角色（如顾客、乘客等）
@@ -123,31 +128,64 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
             const isUserRole = ['customer', 'B', 'passenger', 'patient', 'guest', 'visitor', 'buyer', 'speaker1'].includes(dialogue.speaker);
 
             return (
-              <div key={dialogue.index} className={`flex flex-col ${isSystemRole ? 'space-y-2' : isUserRole ? 'items-end space-y-2' : 'space-y-2'}`}>
-                <div
-                  className={`p-4 max-w-[80%] ${isSystemRole ? 'align-self-start' : isUserRole ? 'align-self-end' : 'align-self-start'}`}
-                  style={{
-                    backgroundColor: isSystemRole ? '#f3f4f6' : isUserRole ? '#2563eb' : '#f3f4f6',
-                    borderRadius: isSystemRole ? '18px 18px 18px 4px' : isUserRole ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
-                    color: isSystemRole ? '#1f2937' : isUserRole ? 'white' : '#1f2937'
-                  }}
-                >
-                  <p className="text-sm">{dialogue.text}</p>
-                </div>
-                <div className={`flex items-center ${isSystemRole ? 'space-x-2' : isUserRole ? 'flex-row-reverse space-x-2' : 'space-x-2'}`}>
-                  {(isSystemRole || !isUserRole) && (
-                    <span className="text-xs text-text-secondary">{dialogue.speaker_name}: {dialogue.translation}</span>
-                  )}
-                  <button
-                    id={`play-turn-${round.round_number}-${dialogue.index}`}
-                    className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
-                    onClick={() => playAudio(dialogue.audio_url)}
-                    title={dialogue.audio_url || '暂无音频'}
+              <div key={dialogue.index} className={`flex flex-col ${isSystemRole ? 'items-start' : isUserRole ? 'items-end' : 'items-start'}`}>
+                {/* 第一行：头像和名字 */}
+                <div className={`flex items-center gap-2 mb-2 ${isSystemRole ? 'flex-row' : isUserRole ? 'flex-row-reverse' : 'flex-row'}`}>
+                  {/* 头像 */}
+                  <div 
+                    className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium flex-shrink-0 ${
+                      isSystemRole 
+                        ? 'bg-gray-200 text-gray-600' 
+                        : isUserRole 
+                          ? 'bg-blue-500 text-white' 
+                          : 'bg-gray-200 text-gray-600'
+                    }`}
                   >
-                    <i className={`fas ${playingAudio && playingAudio.includes(dialogue.audio_url) ? 'fa-stop' : 'fa-play'} text-gray-600 text-xs`}></i>
-                  </button>
+                    {getAvatarLetter(dialogue.speaker_name)}
+                  </div>
+                  {/* 名字 */}
+                  <span className="text-sm text-gray-500">{dialogue.speaker_name}</span>
+                </div>
+
+                {/* 第二行：消息气泡和播放按钮 */}
+                <div className="flex items-end gap-2">
+                  {/* 左侧对话（系统角色）：播放按钮放在右侧（外侧） */}
+                  {/* 右侧对话（用户角色）：播放按钮放在左侧（外侧） */}
                   {isUserRole && (
-                    <span className="text-xs text-text-secondary">{dialogue.speaker_name}: {dialogue.translation}</span>
+                    <button
+                      id={`play-turn-${round.round_number}-${dialogue.index}`}
+                      className="w-8 h-8 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors flex-shrink-0 shadow-sm"
+                      onClick={() => playAudio(dialogue.audio_url)}
+                      title={dialogue.audio_url || '暂无音频'}
+                    >
+                      <i className={`fas ${playingAudio && playingAudio.includes(dialogue.audio_url) ? 'fa-stop' : 'fa-volume-up'} text-blue-500 text-xs`}></i>
+                    </button>
+                  )}
+
+                  <div
+                    className="px-4 py-3 max-w-[280px]"
+                    style={{
+                      backgroundColor: isSystemRole ? '#f3f4f6' : isUserRole ? '#3b82f6' : '#f3f4f6',
+                      borderRadius: isSystemRole ? '4px 18px 18px 18px' : isUserRole ? '18px 4px 18px 18px' : '4px 18px 18px 18px',
+                      color: isSystemRole ? '#1f2937' : isUserRole ? 'white' : '#1f2937'
+                    }}
+                  >
+                    <p className="text-base leading-relaxed">{dialogue.text}</p>
+                    <p className={`text-sm mt-1 ${isSystemRole ? 'text-gray-500' : isUserRole ? 'text-blue-100' : 'text-gray-500'}`}>
+                      {dialogue.translation}
+                    </p>
+                  </div>
+
+                  {/* 系统角色的播放按钮在右侧（外侧） */}
+                  {(isSystemRole || !isUserRole) && (
+                    <button
+                      id={`play-turn-${round.round_number}-${dialogue.index}`}
+                      className="w-8 h-8 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors flex-shrink-0 shadow-sm"
+                      onClick={() => playAudio(dialogue.audio_url)}
+                      title={dialogue.audio_url || '暂无音频'}
+                    >
+                      <i className={`fas ${playingAudio && playingAudio.includes(dialogue.audio_url) ? 'fa-stop' : 'fa-volume-up'} text-gray-500 text-xs`}></i>
+                    </button>
                   )}
                 </div>
               </div>
