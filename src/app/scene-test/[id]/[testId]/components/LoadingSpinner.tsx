@@ -16,14 +16,14 @@ const sizeMap = {
 }
 
 const colorMap = {
-  primary: { outer: 'border-primary/20 border-t-primary', inner: 'border-primary/10 border-b-primary', center: 'text-primary' },
-  purple: { outer: 'border-purple-100 border-t-purple-500', inner: 'border-purple-100 border-b-purple-500', center: 'text-purple-600' },
-  amber: { outer: 'border-amber-100 border-t-amber-500', inner: 'border-amber-100 border-b-amber-500', center: 'text-amber-600' },
-  blue: { outer: 'border-blue-100 border-t-blue-500', inner: 'border-blue-100 border-b-blue-500', center: 'text-blue-600' }
+  primary: { outer: 'border-[#4F7CF0]/20 border-t-[#4F7CF0]', inner: 'border-[#4F7CF0]/10 border-b-[#4F7CF0]', center: 'text-[#4F7CF0]' },
+  purple: { outer: 'border-[#7B5FE8]/20 border-t-[#7B5FE8]', inner: 'border-[#7B5FE8]/10 border-b-[#7B5FE8]', center: 'text-[#7B5FE8]' },
+  amber: { outer: 'border-[#F59E0B]/20 border-t-[#F59E0B]', inner: 'border-[#F59E0B]/10 border-b-[#F59E0B]', center: 'text-[#F59E0B]' },
+  blue: { outer: 'border-[#3B82F6]/20 border-t-[#3B82F6]', inner: 'border-[#3B82F6]/10 border-b-[#3B82F6]', center: 'text-[#3B82F6]' }
 }
 
-export default function LoadingSpinner({ 
-  message = '加载中...', 
+export default function LoadingSpinner({
+  message = '加载中...',
   subMessage,
   size = 'md',
   variant = 'primary'
@@ -32,7 +32,7 @@ export default function LoadingSpinner({
   const colors = colorMap[variant]
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       className="flex flex-col items-center justify-center min-h-[40vh] px-4"
@@ -57,10 +57,10 @@ export default function LoadingSpinner({
           </svg>
         </div>
       </div>
-      
+
       {message && (
-        <motion.h3 
-          className="mt-6 text-lg font-semibold text-slate-800"
+        <motion.h3
+          className="mt-6 text-lg font-semibold text-[#1F2937]"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
@@ -68,10 +68,10 @@ export default function LoadingSpinner({
           {message}
         </motion.h3>
       )}
-      
+
       {subMessage && (
-        <motion.p 
-          className="mt-2 text-sm text-slate-500 text-center max-w-xs"
+        <motion.p
+          className="mt-2 text-sm text-[#6B7280] text-center max-w-xs"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
@@ -79,9 +79,9 @@ export default function LoadingSpinner({
           {subMessage}
         </motion.p>
       )}
-      
+
       {/* 进度点动画 */}
-      <motion.div 
+      <motion.div
         className="flex gap-2 mt-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

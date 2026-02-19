@@ -1,16 +1,12 @@
 'use client'
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import OpenTestDialog from './OpenTestDialog'
 import LoadingSpinner from './components/LoadingSpinner'
-import QuestionTypeCard from './components/QuestionTypeCard'
-import ProgressBar from './components/ProgressBar'
 
-// 定义场景类型
 interface Scene {
   id: string
   name: string
@@ -22,7 +18,6 @@ interface Scene {
   updatedAt: string
 }
 
-// 定义测试题目类型
 interface Test {
   id: string
   sceneId: string
@@ -36,26 +31,24 @@ interface Test {
   updatedAt: string
 }
 
-// 问答题评测结果
 interface QAEvaluation {
   score: number
   feedback: string
   suggestions: string[]
 }
 
-// 获取题型说明
 const getQuestionTypeLabel = (type: string) => {
   switch (type) {
     case 'multiple-choice':
-      return { label: '选择题', description: '选择正确的答案', icon: 'fa-list-ul', color: 'text-blue-600', bgColor: 'bg-blue-50', borderColor: 'border-blue-200', gradient: 'from-blue-500 to-cyan-500' }
+      return { label: '选择题', color: 'text-[#4F7CF0]', bgColor: 'bg-[#EEF2FF]' }
     case 'fill-blank':
-      return { label: '填空题', description: '请根据题目进行完整回答', icon: 'fa-edit', color: 'text-amber-600', bgColor: 'bg-amber-50', borderColor: 'border-amber-200', gradient: 'from-amber-500 to-orange-500' }
+      return { label: '填空题', color: 'text-[#F59E0B]', bgColor: 'bg-[#FFF8EE]' }
     case 'open':
-      return { label: '开放题', description: '与AI进行对话练习', icon: 'fa-comments', color: 'text-purple-600', bgColor: 'bg-purple-50', borderColor: 'border-purple-200', gradient: 'from-purple-500 to-pink-500' }
+      return { label: '开放题', color: 'text-[#EC4899]', bgColor: 'bg-[#FFF0F5]' }
     case 'qa':
-      return { label: '问答题', description: '语音回答问题', icon: 'fa-microphone', color: 'text-rose-600', bgColor: 'bg-rose-50', borderColor: 'border-rose-200', gradient: 'from-rose-500 to-pink-500' }
+      return { label: '问答题', color: 'text-[#34D399]', bgColor: 'bg-[#F0FFF4]' }
     default:
-      return { label: '未知题型', description: '', icon: 'fa-question', color: 'text-gray-500', bgColor: 'bg-gray-50', borderColor: 'border-gray-200', gradient: 'from-gray-500 to-gray-600' }
+      return { label: '未知题型', color: 'text-gray-500', bgColor: 'bg-gray-50' }
   }
 }
 
@@ -63,7 +56,7 @@ export default function SceneTest() {
   const params = useParams<{ id: string; testId: string }>()
   const id = params.id || ''
   const testId = params.testId || ''
-  
+
   const [scene, setScene] = useState<Scene | null>(null)
   const [tests, setTests] = useState<Test[]>([])
   const [currentTest, setCurrentTest] = useState<Test | null>(null)
@@ -75,7 +68,6 @@ export default function SceneTest() {
   const [selectedOption, setSelectedOption] = useState<string>('')
   const [isAnswered, setIsAnswered] = useState(false)
 
-  // 问答题状态
   const [qaAnswer, setQaAnswer] = useState('')
   const [isRecording, setIsRecording] = useState(false)
   const [isEvaluating, setIsEvaluating] = useState(false)
@@ -89,144 +81,83 @@ export default function SceneTest() {
     suggestions: string[]
   } | null>(null)
 
-  // 获取场景详情的函数
   const getSceneById = async (sceneId: string): Promise<Scene> => {
     try {
-      // 在客户端组件中，直接使用相对路径
       const response = await fetch(`/api/scenes/${sceneId}`)
-      
       let scene: Scene
-      
       if (response.ok) {
         scene = await response.json()
       } else {
-        // 如果API调用失败，返回模拟数据
         scene = {
           id: sceneId,
-          name: '机场值机',
-          category: '旅行出行',
-          description: '学习在机场办理值机手续的常用对话',
-          difficulty: '中级',
-          coverImage: 'https://via.placeholder.com/400x200',
+          name: '初次见面',
+          category: '日常交流',
+          description: '学习日常问候语',
+          difficulty: '初级',
+          coverImage: null,
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString()
         }
       }
-      
       return scene
     } catch (error) {
-      console.error(`Error fetching scene ${sceneId}:`, error)
-      // 返回模拟数据
       return {
         id: sceneId,
-        name: '机场值机',
-        category: '旅行出行',
-        description: '学习在机场办理值机手续的常用对话',
-        difficulty: '中级',
-        coverImage: 'https://via.placeholder.com/400x200',
+        name: '初次见面',
+        category: '日常交流',
+        description: '学习日常问候语',
+        difficulty: '初级',
+        coverImage: null,
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
       }
     }
   }
 
-  // 获取场景测试题目的函数
   const getSceneTests = async (sceneId: string): Promise<Test[]> => {
     try {
-      // 在客户端组件中，直接使用相对路径
       const response = await fetch(`/api/scenes/${sceneId}/tests`)
-      
       let tests: Test[] = []
-      
       if (response.ok) {
         tests = await response.json()
       } else {
-        // 如果API调用失败，返回模拟数据
         tests = [
           {
             id: 'test_1',
             sceneId: sceneId,
             type: 'multiple-choice',
-            question: 'What would you say to check in for a flight?',
+            question: '当别人问你 "How are you doing?" 时，下面哪个回答最自然？',
             options: [
-              'Hello, I would like to check in for my flight.',
-              'Hello, I want to buy a ticket.',
-              'Hello, I need to cancel my flight.',
-              'Hello, I lost my luggage.'
+              "I'm doing great, thanks!",
+              "I am fine thank you.",
+              "Yes, I am.",
+              "How about you?"
             ],
-            answer: 'Hello, I would like to check in for my flight.',
-            analysis: 'This is the correct phrase to use when you want to check in for your flight at the airport.',
+            answer: "I'm doing great, thanks!",
+            analysis: '这是回答"How are you doing?"最自然的方式。',
             order: 1,
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString()
-          },
-          {
-            id: 'test_2',
-            sceneId: sceneId,
-            type: 'fill-blank',
-            question: 'If you prefer a window seat, you can say: "I would prefer a ______ seat if possible."',
-            answer: 'window',
-            analysis: 'The correct word is "window" to indicate you want a seat next to the window on the plane.',
-            order: 2,
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString()
-          },
-          {
-            id: 'test_3',
-            sceneId: sceneId,
-            type: 'open',
-            question: 'What information might the check-in agent ask for?',
-            answer: 'The check-in agent might ask for your passport, ticket, and how many bags you are checking in.',
-            analysis: 'These are common questions asked during the check-in process at the airport.',
-            order: 3,
             createdAt: new Date().toISOString(),
             updatedAt: new Date().toISOString()
           }
         ]
       }
-      
-      // 按顺序排序测试题目
       return tests.sort((a, b) => a.order - b.order)
     } catch (error) {
-      console.error(`Error fetching tests for scene ${sceneId}:`, error)
-      // 返回模拟数据
       return [
         {
           id: 'test_1',
           sceneId: sceneId,
           type: 'multiple-choice',
-          question: 'What would you say to check in for a flight?',
+          question: '当别人问你 "How are you doing?" 时，下面哪个回答最自然？',
           options: [
-            'Hello, I would like to check in for my flight.',
-            'Hello, I want to buy a ticket.',
-            'Hello, I need to cancel my flight.',
-            'Hello, I lost my luggage.'
+            "I'm doing great, thanks!",
+            "I am fine thank you.",
+            "Yes, I am.",
+            "How about you?"
           ],
-          answer: 'Hello, I would like to check in for my flight.',
-          analysis: 'This is the correct phrase to use when you want to check in for your flight at the airport.',
+          answer: "I'm doing great, thanks!",
+          analysis: '这是回答"How are you doing?"最自然的方式。',
           order: 1,
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString()
-        },
-        {
-          id: 'test_2',
-          sceneId: sceneId,
-          type: 'fill-blank',
-          question: 'If you prefer a window seat, you can say: "I would prefer a ______ seat if possible."',
-          answer: 'window',
-          analysis: 'The correct word is "window" to indicate you want a seat next to the window on the plane.',
-          order: 2,
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString()
-        },
-        {
-          id: 'test_3',
-          sceneId: sceneId,
-          type: 'open',
-          question: 'What information might the check-in agent ask for?',
-          answer: 'The check-in agent might ask for your passport, ticket, and how many bags you are checking in.',
-          analysis: 'These are common questions asked during the check-in process at the airport.',
-          order: 3,
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString()
         }
@@ -234,36 +165,26 @@ export default function SceneTest() {
     }
   }
 
-  // 处理选择题选项点击
   const handleOptionClick = (option: string) => {
     setSelectedOption(option)
     setIsAnswered(true)
   }
 
-  // 处理填空题答案提交
   const handleFillBlankSubmit = async () => {
     if (!fillBlankAnswer.trim() || !currentTest) return
-
     setIsEvaluating(true)
     setIsAnswered(true)
-
     try {
       const response = await fetch('/api/fill-blank/evaluate', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           question: currentTest.question,
           userAnswer: fillBlankAnswer,
           correctAnswer: currentTest.answer,
         }),
       })
-
-      if (!response.ok) {
-        throw new Error('评测失败')
-      }
-
+      if (!response.ok) throw new Error('评测失败')
       const data = await response.json()
       setFillBlankEvaluation({
         isCorrect: data.isCorrect || false,
@@ -271,8 +192,6 @@ export default function SceneTest() {
         suggestions: data.suggestions || []
       })
     } catch (error) {
-      console.error('填空题评测失败:', error)
-      // 使用默认评测结果
       setFillBlankEvaluation({
         isCorrect: fillBlankAnswer.toLowerCase().trim() === currentTest.answer.toLowerCase().trim(),
         analysis: '回答已提交，请参考正确答案。',
@@ -283,7 +202,6 @@ export default function SceneTest() {
     }
   }
 
-  // 初始化语音识别
   useEffect(() => {
     if ('webkitSpeechRecognition' in window) {
       const SpeechRecognition = (window as any).webkitSpeechRecognition
@@ -291,35 +209,23 @@ export default function SceneTest() {
       rec.continuous = false
       rec.interimResults = false
       rec.lang = 'en-US'
-      
       rec.onresult = (event: any) => {
         const transcript = event.results[0][0].transcript
         setQaAnswer(transcript)
         setIsRecording(false)
-        // 自动开始评测
         evaluateQAAnswer(transcript)
       }
-      
-      rec.onerror = (event: any) => {
-        console.error('语音识别错误:', event.error)
-        setIsRecording(false)
-      }
-      
-      rec.onend = () => {
-        setIsRecording(false)
-      }
-      
+      rec.onerror = () => setIsRecording(false)
+      rec.onend = () => setIsRecording(false)
       setRecognition(rec)
     }
   }, [currentTest])
 
-  // 开始/停止录音
   const toggleRecording = () => {
     if (!recognition) {
       alert('您的浏览器不支持语音识别功能')
       return
     }
-    
     if (isRecording) {
       recognition.stop()
       setIsRecording(false)
@@ -331,19 +237,14 @@ export default function SceneTest() {
     }
   }
 
-  // 评测问答题答案
   const evaluateQAAnswer = async (answer: string) => {
     if (!currentTest) return
-    
     setIsEvaluating(true)
     setIsAnswered(true)
-    
     try {
       const response = await fetch('/api/open-test/analyze', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           topic: currentTest.question,
           userAnswer: answer,
@@ -353,11 +254,7 @@ export default function SceneTest() {
           evaluationType: 'qa'
         }),
       })
-      
-      if (!response.ok) {
-        throw new Error('评测失败')
-      }
-      
+      if (!response.ok) throw new Error('评测失败')
       const data = await response.json()
       setQaEvaluation({
         score: data.score || 0,
@@ -365,8 +262,6 @@ export default function SceneTest() {
         suggestions: data.suggestions || []
       })
     } catch (error) {
-      console.error('评测失败:', error)
-      // 使用默认评测结果
       setQaEvaluation({
         score: 70,
         feedback: '回答基本正确，但可以更完整一些。',
@@ -377,7 +272,6 @@ export default function SceneTest() {
     }
   }
 
-  // 重置答题状态
   const resetAnswerState = () => {
     setSelectedOption('')
     setIsAnswered(false)
@@ -390,35 +284,22 @@ export default function SceneTest() {
     setIsEvaluating(false)
   }
 
-  // 在组件挂载时获取数据
   useEffect(() => {
     const fetchData = async () => {
       try {
         setIsLoading(true)
         setNotFound(false)
-        // 重置答题状态
         resetAnswerState()
-        
         if (id && testId) {
-          // 获取场景信息
           const sceneData = await getSceneById(id)
           setScene(sceneData)
-          
-          // 获取测试题目
           const testsData = await getSceneTests(id)
           setTests(testsData)
-          
-          // 获取当前题目
           const currentTestData = testsData.find(test => test.id === testId)
-          
           if (currentTestData) {
             setCurrentTest(currentTestData)
-            
-            // 获取当前题目索引
             const index = testsData.findIndex(test => test.id === testId)
             setCurrentIndex(index)
-            
-            // 获取上一题和下一题
             const prev = index > 0 ? testsData[index - 1] : null
             const next = index < testsData.length - 1 ? testsData[index + 1] : null
             setPrevTest(prev)
@@ -430,53 +311,44 @@ export default function SceneTest() {
           setNotFound(true)
         }
       } catch (error) {
-        console.error('Error fetching test data:', error)
         setNotFound(true)
       } finally {
         setIsLoading(false)
       }
     }
-
     fetchData()
   }, [id, testId])
-  
+
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-slate-50">
-        <header id="scene-test-header" className="bg-white px-6 py-4 shadow-sm sticky top-0 z-30">
-          <div id="scene-test-header-content" className="flex items-center justify-between">
-            <div className="w-8"></div>
-            <h1 id="scene-test-title" className="text-xl font-bold text-text-primary">场景测试</h1>
-            <div className="w-8"></div>
-          </div>
-        </header>
-        <main className="mx-6 mt-6">
-          <LoadingSpinner 
-            message="正在加载测试题目..." 
-            subMessage="请稍候，正在准备您的学习内容"
-            variant="primary"
-          />
+      <div className="min-h-screen bg-[#F5F6FA]">
+        <main className="max-w-[430px] mx-auto px-4 pt-6 pb-10">
+          <LoadingSpinner message="正在加载测试题目..." subMessage="请稍候，正在准备您的学习内容" variant="primary" />
         </main>
       </div>
     )
   }
-  
+
   if (notFound || !currentTest) {
     return (
-      <div id="test-not-found" className="flex items-center justify-center h-screen">
-        <p className="text-text-secondary">测试题目未找到</p>
+      <div className="min-h-screen bg-[#F5F6FA] flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-4xl mb-4">📝</div>
+          <p className="text-[#6B7280] mb-4 text-sm">暂无测试题</p>
+          <Link href="/scenes">
+            <button className="bg-[#4F7CF0] text-white rounded-full px-6 py-2.5 text-sm font-medium">
+              返回场景列表
+            </button>
+          </Link>
+        </div>
       </div>
     )
   }
 
-  // 获取题型说明
   const questionType = getQuestionTypeLabel(currentTest.type)
-  
+  const progress = ((currentIndex + 1) / tests.length) * 100
 
-  
-  // 处理开放题测试完成
   const handleOpenTestComplete = () => {
-    // 跳转到下一题或完成测试
     if (nextTest) {
       window.location.href = `/scene-test/${id}/${nextTest.id}`
     } else {
@@ -484,423 +356,424 @@ export default function SceneTest() {
     }
   }
 
-  // 检查是否可以进入下一页
   const canGoNext = isAnswered
 
   return (
-    <div id="scene-test-content" className="pb-20">
-      {/* 顶部导航栏 */}
-      <header id="top-header" className="bg-white px-6 py-4 shadow-sm sticky top-0 z-30">
-        <div id="header-content" className="flex items-center justify-between">
-          {/* 返回按钮 */}
-          <Link
-            href={`/scene-detail/${id}`}
-            id="back-btn"
-            className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center"
-          >
-            <i className="fas fa-arrow-left text-gray-600 text-sm"></i>
-          </Link>
-          
-          {/* 页面标题 */}
-          <h1 id="page-title" className="text-lg font-semibold text-text-primary">场景测试</h1>
-          
-          {/* 占位元素保持居中 */}
-          <div className="w-10 h-10"></div>
-        </div>
-      </header>
-      
-      <main id="scene-test-main" className="mx-6 mt-6">
-        {/* 统一进度条 */}
-        <ProgressBar currentIndex={currentIndex} totalTests={tests.length} />
-
-        {/* 开放题测试使用对话框组件 */}
-        {currentTest.type === 'open' ? (
-          <OpenTestDialog 
-            sceneId={id}
-            testId={testId}
-            testQuestion={currentTest.question}
-            currentIndex={currentIndex}
-            totalTests={tests.length}
-            onComplete={handleOpenTestComplete}
-            autoStart={true}
-          />
-        ) : (
-          <>
-            {/* 统一题型说明卡片 */}
-            <QuestionTypeCard type={currentTest.type as 'multiple-choice' | 'fill-blank' | 'open' | 'qa'} />
-            
-            <section id="test-question" className="mb-8">
-              <div className="bg-white rounded-card shadow-card p-6 mb-6">
-                <h2 id="question-text" className="text-base font-semibold text-text-primary leading-relaxed">
-                  {currentTest.question}
-                </h2>
+    <div className="min-h-screen bg-[#F5F6FA]">
+      <div className="max-w-[430px] mx-auto">
+        <main className="px-4 pt-6 pb-10">
+          {/* 开放题测试使用对话框组件 */}
+          {currentTest.type === 'open' ? (
+            <OpenTestDialog
+              sceneId={id}
+              testId={testId}
+              testQuestion={currentTest.question}
+              currentIndex={currentIndex}
+              totalTests={tests.length}
+              onComplete={handleOpenTestComplete}
+              autoStart={true}
+            />
+          ) : (
+            <>
+              {/* 顶部返回按钮和进度 - 匹配原型图 */}
+              <div className="flex items-center gap-3 mb-6">
+                {/* 返回按钮 */}
+                <Link href={`/scene-detail/${id}`} className="h-9 w-9 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 shrink-0">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6B7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M15 18l-6-6 6-6" />
+                  </svg>
+                </Link>
+                {/* 场景名称和进度 */}
+                <div className="flex-1">
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-sm font-medium text-[#1F2937]">{scene?.name || '场景测试'}</span>
+                    <span className="text-sm text-[#9CA3AF]">{currentIndex + 1} / {tests.length}</span>
+                  </div>
+                  <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] rounded-full"
+                      style={{ width: `${progress}%` }}
+                    />
+                  </div>
+                </div>
               </div>
 
-              {currentTest.type === 'multiple-choice' && (
-                <div id="multiple-choice-options" className="space-y-3">
-                  {currentTest.options?.map((option, index) => {
-                    const isSelected = selectedOption === option;
-                    const isCorrect = isAnswered && option === currentTest.answer;
-                    const isIncorrect = isAnswered && isSelected && option !== currentTest.answer;
+              {/* 题型标签和问题卡片 - 匹配原型图 */}
+              <section className="mb-5">
+                <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
+                  {/* 题型标签和音量图标 */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className={`text-xs font-semibold px-3 py-1.5 rounded-full ${questionType.bgColor} ${questionType.color}`}>
+                      {questionType.label}
+                    </span>
+                    <button className="h-8 w-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:text-[#4F7CF0] transition-colors">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
+                      </svg>
+                    </button>
+                  </div>
+                  {/* 问题文字 */}
+                  <h2 className="text-[#1F2937] text-base leading-relaxed mb-5">
+                    {currentTest.question}
+                  </h2>
+                </div>
+              </section>
 
+              {/* 选择题选项 - 匹配原型图样式 */}
+              {currentTest.type === 'multiple-choice' && (
+                <div className="space-y-3">
+                  {currentTest.options?.map((option, index) => {
+                    const isSelected = selectedOption === option
+                    const isCorrect = isAnswered && option === currentTest.answer
+                    const isIncorrect = isAnswered && isSelected && option !== currentTest.answer
                     return (
-                      <button
+                      <motion.button
                         key={index}
-                        id={`option-${index}`}
-                        className={`w-full py-4 px-5 rounded-card shadow-card border text-left transition-all hover:shadow-card-hover ${isSelected
-                          ? 'border-primary bg-blue-50'
-                          : isCorrect
-                          ? 'border-success bg-green-50'
-                          : isIncorrect
-                          ? 'border-danger bg-red-50'
-                          : 'border-border-light bg-white'}`}
-                        onClick={() => handleOptionClick(option)}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.2, delay: index * 0.05 }}
+                        className={`w-full text-left px-4 py-4 rounded-2xl text-sm border-2 transition-all flex items-center gap-3 ${
+                          isSelected
+                            ? isCorrect
+                              ? 'bg-green-50 border-[#34D399]'
+                              : isIncorrect
+                                ? 'bg-red-50 border-red-400'
+                                : 'bg-[#EEF2FF] border-[#4F7CF0]'
+                            : isCorrect
+                              ? 'bg-green-50 border-[#34D399]'
+                              : 'border-gray-200 bg-white text-gray-700 hover:border-[#4F7CF0]/50'
+                        }`}
+                        onClick={() => !isAnswered && handleOptionClick(option)}
                         disabled={isAnswered}
                       >
-                        <div className="flex items-center justify-between">
-                          <span className={`text-sm leading-relaxed ${isSelected
-                            ? 'text-primary font-medium'
-                            : isCorrect
-                            ? 'text-success font-medium'
-                            : isIncorrect
-                            ? 'text-danger font-medium'
-                            : 'text-text-primary'}`}>
-                            {option}
+                        {/* 字母圆圈 */}
+                        <span className={`h-8 w-8 rounded-full flex items-center justify-center text-sm font-semibold shrink-0 ${
+                          isSelected || isCorrect
+                            ? 'bg-[#4F7CF0] text-white'
+                            : 'bg-gray-100 text-gray-500'
+                        }`}>
+                          {String.fromCharCode(65 + index)}
+                        </span>
+                        {/* 选项文字 */}
+                        <span className={`flex-1 ${isSelected ? 'font-medium' : ''}`}>
+                          {option}
+                        </span>
+                        {/* 对勾或叉号图标 */}
+                        {isAnswered && (
+                          <span className="shrink-0">
+                            {option === currentTest.answer ? (
+                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34D399" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M20 6 9 17l-5-5" />
+                              </svg>
+                            ) : isSelected ? (
+                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18" />
+                                <line x1="6" y1="6" x2="18" y2="18" />
+                              </svg>
+                            ) : null}
                           </span>
-                          {isSelected && (
-                            <i className="fas fa-check-circle text-primary"></i>
-                          )}
-                          {isCorrect && !isSelected && (
-                            <i className="fas fa-check-circle text-success"></i>
-                          )}
-                          {isIncorrect && (
-                            <i className="fas fa-times-circle text-danger"></i>
-                          )}
-                        </div>
-                      </button>
-                    );
+                        )}
+                      </motion.button>
+                    )
                   })}
                 </div>
               )}
-              
+
+              {/* 填空题 */}
               {currentTest.type === 'fill-blank' && (
-                <div id="fill-blank-section" className="space-y-4">
-                  {/* 输入方式切换 */}
+                <div className="space-y-5">
                   {!isAnswered && (
-                    <div className="flex justify-center">
-                      <div className="inline-flex bg-gray-100 p-1 rounded-full">
+                    <div className="flex justify-center mb-4">
+                      <div className="inline-flex bg-gray-100 p-1 rounded-full w-full max-w-xs">
                         <button
                           onClick={() => setFillBlankInputMode('text')}
-                          className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
+                          className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
                             fillBlankInputMode === 'text'
-                              ? 'bg-white text-amber-600 shadow-sm'
-                              : 'text-text-secondary hover:text-text-primary'
+                              ? 'bg-white text-[#F59E0B] shadow-sm'
+                              : 'text-[#6B7280]'
                           }`}
                         >
-                          <i className="fas fa-keyboard"></i>
-                          文本
+                          <i className="fas fa-pencil"></i>
+                          文字输入
                         </button>
                         <button
                           onClick={() => setFillBlankInputMode('voice')}
-                          className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
+                          className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
                             fillBlankInputMode === 'voice'
-                              ? 'bg-white text-amber-600 shadow-sm'
-                              : 'text-text-secondary hover:text-text-primary'
+                              ? 'bg-white text-[#F59E0B] shadow-sm'
+                              : 'text-[#6B7280]'
                           }`}
                         >
                           <i className="fas fa-microphone"></i>
-                          语音
+                          语音输入
                         </button>
                       </div>
                     </div>
                   )}
 
-                  {/* 文本输入 */}
                   {fillBlankInputMode === 'text' && !isAnswered && (
                     <div className="relative">
                       <textarea
-                        id="fill-blank-answer"
-                        className="w-full p-5 border border-border-light rounded-card focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all resize-none text-text-primary text-sm bg-gray-50 shadow-sm"
-                        rows={4}
-                        placeholder="请输入你的回答..."
+                        className="w-full p-4 border-2 border-[#4F7CF0] rounded-2xl focus:border-[#4F7CF0] focus:outline-none transition-all resize-none text-[#1F2937] text-sm bg-white min-h-[100px]"
+                        rows={3}
+                        placeholder="请填入正确答案..."
                         value={fillBlankAnswer}
                         onChange={(e) => setFillBlankAnswer(e.target.value)}
                         disabled={isAnswered}
                       />
-                      <div className="absolute bottom-4 right-4 text-xs text-text-secondary">
-                        {fillBlankAnswer.length} 字
-                      </div>
                     </div>
                   )}
 
-                  {/* 语音输入 */}
                   {fillBlankInputMode === 'voice' && !isAnswered && (
-                    <div className="flex flex-col items-center py-8">
-                      {/* 录音按钮 */}
+                    <div className="flex flex-col items-center py-6">
                       <div className="relative">
                         {isRecording && (
                           <>
-                            <div className="absolute inset-0 rounded-full bg-amber-400 animate-ping opacity-20"></div>
-                            <div className="absolute -inset-4 rounded-full bg-amber-300 animate-pulse opacity-10"></div>
+                            <div className="absolute inset-0 rounded-full bg-[#F59E0B] animate-ping opacity-20"></div>
+                            <div className="absolute -inset-4 rounded-full bg-[#F59E0B] animate-pulse opacity-10"></div>
                           </>
                         )}
                         <button
                           onClick={toggleRecording}
                           disabled={isEvaluating}
-                          className={`relative w-20 h-20 rounded-full flex items-center justify-center transition-all shadow-card ${
+                          className={`relative w-20 h-20 rounded-full flex items-center justify-center transition-all shadow-lg ${
                             isRecording
-                              ? 'bg-danger text-white'
-                              : 'bg-gradient-to-r from-amber-400 to-orange-500 text-white hover:shadow-card-hover'
+                              ? 'bg-[#EF4444] text-white'
+                              : 'bg-gradient-to-r from-[#F59E0B] to-[#F97316] text-white'
                           } disabled:opacity-50`}
                         >
                           <i className={`fas ${isRecording ? 'fa-stop' : 'fa-microphone'} text-2xl`}></i>
                         </button>
                       </div>
+                      <p className={`text-sm mt-4 ${
+                        isRecording ? 'text-[#EF4444]' : 'text-[#6B7280]'
+                      }`}>
+                        {isRecording ? '正在录音，点击停止' : '点击按钮开始语音回答'}
+                      </p>
+                    </div>
+                  )}
 
-                      {/* 状态文字 */}
-                      <div className="mt-6 text-center">
-                        <p className={`text-sm font-medium transition-colors ${
-                          isRecording ? 'text-danger' : 'text-text-secondary'
-                        }`}>
-                          {isRecording ? (
-                            <span className="flex items-center gap-2">
-                              <span className="w-2 h-2 bg-danger rounded-full animate-pulse"></span>
-                              正在录音，点击停止
-                            </span>
-                          ) : (
-                            '点击按钮开始语音回答'
-                          )}
+                  {fillBlankAnswer && !isAnswered && (
+                    <div className="bg-[#FFF8EE] rounded-2xl p-4 border border-[#F59E0B]/20">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-sm font-medium text-[#92400E]">你的回答</span>
+                      </div>
+                      <p className="text-[#1F2937] text-sm">{fillBlankAnswer}</p>
+                    </div>
+                  )}
+
+                  {/* 提示信息 */}
+                  {!isAnswered && (
+                    <div className="bg-[#FFF8EE] rounded-2xl p-4 border border-[#F59E0B]/20 mb-4">
+                      <div className="flex items-start gap-2">
+                        <i className="fas fa-lightbulb text-[#F59E0B] mt-0.5 shrink-0"></i>
+                        <p className="text-sm text-[#92400E]">
+                          初次见面时说 "Nice to meet you!" 表示很高兴认识对方。
                         </p>
                       </div>
-
-                      {/* 录音提示 */}
-                      {!isRecording && !fillBlankAnswer && (
-                        <div className="mt-4 flex items-center gap-2 text-xs text-text-secondary bg-gray-50 px-4 py-2 rounded-full">
-                          <i className="fas fa-info-circle"></i>
-                          <span>请用英语回答，系统会自动识别</span>
-                        </div>
-                      )}
                     </div>
                   )}
 
-                  {/* 用户回答预览 */}
-                  {fillBlankAnswer && !isAnswered && (
-                    <div className="bg-amber-50 rounded-card p-5 border border-amber-100">
-                      <div className="flex items-center gap-2 mb-3">
-                        <div className="w-8 h-8 rounded-full bg-amber-100 flex items-center justify-center">
-                          <i className="fas fa-user text-amber-600 text-sm"></i>
-                        </div>
-                        <span className="text-sm font-medium text-amber-800">你的回答</span>
-                      </div>
-                      <p className="text-text-primary leading-relaxed pl-10">{fillBlankAnswer}</p>
-                    </div>
-                  )}
-
-                  {/* 提交按钮 */}
                   {!isAnswered && fillBlankAnswer.trim() && !isEvaluating && (
                     <motion.button
                       onClick={handleFillBlankSubmit}
-                      className="w-full py-4 bg-primary text-white rounded-card font-semibold text-sm shadow-card hover:shadow-card-hover transition-all flex items-center justify-center gap-3"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                      className="w-full py-3.5 bg-[#4F7CF0] text-white rounded-2xl font-medium text-sm transition-all"
+                      whileHover={{ scale: 1.01 }}
+                      whileTap={{ scale: 0.99 }}
                     >
-                      <i className="fas fa-paper-plane"></i>
-                      <span>提交答案</span>
+                      提交答案
                     </motion.button>
                   )}
 
-                  {/* 评测中加载动画 - 与其他页面保持一致 */}
                   {isEvaluating && (
-                    <div className="flex flex-col items-center justify-center py-8">
-                      <div className="w-10 h-10 border-2 border-amber-400 border-t-transparent rounded-full animate-spin mb-4"></div>
-                      <p className="text-sm text-text-secondary font-medium">AI 正在评测...</p>
-                      <p className="text-xs text-text-secondary mt-1">正在分析你的回答，请稍候</p>
+                    <div className="flex flex-col items-center justify-center py-6">
+                      <div className="w-8 h-8 border-2 border-[#F59E0B] border-t-transparent rounded-full animate-spin mb-3"></div>
+                      <p className="text-sm text-[#6B7280]">AI 正在评测...</p>
                     </div>
                   )}
 
-                  {/* AI评测结果 */}
                   {isAnswered && fillBlankEvaluation && (
-                    <div className={`rounded-card overflow-hidden shadow-card ${
-                      fillBlankEvaluation.isCorrect
-                        ? 'bg-green-50 border border-success'
-                        : 'bg-amber-50 border border-amber-200'
-                    }`}>
-                      {/* 结果头部 */}
-                      <div className={`px-6 py-4 ${
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className={`rounded-2xl overflow-hidden ${
                         fillBlankEvaluation.isCorrect
-                          ? 'bg-success'
-                          : 'bg-amber-500'
+                          ? 'bg-[#F0FFF4] border border-[#34D399]'
+                          : 'bg-[#FFF8EE] border border-[#F59E0B]/30'
+                      }`}
+                    >
+                      <div className={`px-4 py-3 ${
+                        fillBlankEvaluation.isCorrect ? 'bg-[#34D399]' : 'bg-[#F59E0B]'
                       }`}>
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                            <i className={`fas ${fillBlankEvaluation.isCorrect ? 'fa-check' : 'fa-lightbulb'} text-white text-lg`}></i>
-                          </div>
-                          <div>
-                            <h4 className="text-white font-bold text-lg">
-                              {fillBlankEvaluation.isCorrect ? '回答正确！' : '还可以更好'}
-                            </h4>
-                            <p className="text-white/80 text-sm">
-                              {fillBlankEvaluation.isCorrect ? '继续保持！' : '看看AI的建议'}
-                            </p>
-                          </div>
+                        <div className="flex items-center gap-2">
+                          <i className={`fas ${fillBlankEvaluation.isCorrect ? 'fa-check' : 'fa-lightbulb'} text-white`}></i>
+                          <span className="text-white font-medium text-sm">
+                            {fillBlankEvaluation.isCorrect ? '回答正确！' : '还可以更好'}
+                          </span>
                         </div>
                       </div>
-
-                      {/* 结果内容 */}
-                      <div className="p-6 space-y-5">
-                        {/* AI分析 */}
-                        <div className="bg-white/60 rounded-card p-4">
-                          <div className="flex items-center gap-2 mb-2">
-                            <i className="fas fa-robot text-amber-500"></i>
-                            <h5 className="text-sm font-semibold text-text-primary">AI 分析</h5>
-                          </div>
-                          <p className="text-text-secondary text-sm leading-relaxed">{fillBlankEvaluation.analysis}</p>
+                      <div className="p-4 space-y-3">
+                        <div className="bg-white/60 rounded-lg p-3">
+                          <h5 className="text-xs font-medium text-[#6B7280] mb-1">AI 分析</h5>
+                          <p className="text-[#1F2937] text-sm">{fillBlankEvaluation.analysis}</p>
                         </div>
-
-                        {/* 参考答案 */}
-                        <div className="bg-white/60 rounded-card p-4">
-                          <div className="flex items-center gap-2 mb-2">
-                            <i className="fas fa-book-open text-primary"></i>
-                            <h5 className="text-sm font-semibold text-text-primary">参考答案</h5>
-                          </div>
-                          <p className="text-text-primary font-medium">{currentTest.answer}</p>
+                        <div className="bg-white/60 rounded-lg p-3">
+                          <h5 className="text-xs font-medium text-[#6B7280] mb-1">参考答案</h5>
+                          <p className="text-[#1F2937] text-sm font-medium">{currentTest.answer}</p>
                         </div>
-
-                        {/* 改进建议 */}
-                        {fillBlankEvaluation.suggestions.length > 0 && (
-                          <div className="bg-white/60 rounded-card p-4">
-                            <div className="flex items-center gap-2 mb-3">
-                              <i className="fas fa-magic text-purple-500"></i>
-                              <h5 className="text-sm font-semibold text-text-primary">改进建议</h5>
-                            </div>
-                            <ul className="space-y-2">
-                              {fillBlankEvaluation.suggestions.map((suggestion: string, index: number) => (
-                                <li key={index} className="flex items-start gap-3 text-sm text-text-secondary">
-                                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xs font-bold">
-                                    {index + 1}
-                                  </span>
-                                  <span className="leading-relaxed">{suggestion}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        )}
                       </div>
-                    </div>
+                    </motion.div>
                   )}
                 </div>
               )}
 
-              {/* 问答题 - 语音输入 */}
+              {/* 问答题 */}
               {currentTest.type === 'qa' && (
-                <div id="qa-section" className="space-y-6">
-                  {/* 语音输入按钮 */}
-                  <div className="flex justify-center">
-                    <button
-                      onClick={toggleRecording}
-                      disabled={isEvaluating}
-                      className={`w-20 h-20 rounded-full flex items-center justify-center transition-all shadow-card ${
-                        isRecording
-                          ? 'bg-danger text-white animate-pulse'
-                          : 'bg-primary text-white hover:shadow-card-hover'
-                      } disabled:opacity-50`}
-                    >
-                      <i className={`fas ${isRecording ? 'fa-stop' : 'fa-microphone'} text-2xl`}></i>
-                    </button>
+                <div className="space-y-4">
+                  <div className="flex justify-center py-6">
+                    <div className="relative">
+                      {isRecording && (
+                        <>
+                          <div className="absolute inset-0 rounded-full bg-[#34D399] animate-ping opacity-20"></div>
+                          <div className="absolute -inset-4 rounded-full bg-[#34D399] animate-pulse opacity-10"></div>
+                        </>
+                      )}
+                      <button
+                        onClick={toggleRecording}
+                        disabled={isEvaluating}
+                        className={`relative w-20 h-20 rounded-full flex items-center justify-center transition-all shadow-lg ${
+                          isRecording
+                            ? 'bg-[#EF4444] text-white'
+                            : 'bg-gradient-to-r from-[#34D399] to-[#10B981] text-white'
+                        } disabled:opacity-50`}
+                      >
+                        <i className={`fas ${isRecording ? 'fa-stop' : 'fa-microphone'} text-2xl`}></i>
+                      </button>
+                    </div>
                   </div>
 
-                  <p className="text-center text-sm text-text-secondary">
+                  <p className="text-center text-sm text-[#6B7280]">
                     {isRecording ? '点击停止录音' : '点击开始语音回答'}
                   </p>
 
-                  {/* 用户回答显示 */}
                   {qaAnswer && (
-                    <div className="p-5 bg-blue-50 rounded-card border border-blue-100">
-                      <h4 className="text-sm font-medium text-blue-800 mb-3">你的回答：</h4>
-                      <p className="text-text-primary text-sm leading-relaxed">{qaAnswer}</p>
+                    <div className="p-4 bg-[#F0FFF4] rounded-2xl border border-[#34D399]/20">
+                      <h4 className="text-xs font-medium text-[#065F46] mb-2">你的回答</h4>
+                      <p className="text-[#1F2937] text-sm">{qaAnswer}</p>
                     </div>
                   )}
 
-                  {/* 评测中 */}
                   {isEvaluating && (
-                    <div className="flex flex-col items-center justify-center py-8">
-                      <div className="w-10 h-10 border-2 border-primary border-t-transparent rounded-full animate-spin mb-3"></div>
-                      <p className="text-sm text-text-secondary">AI 正在评测...</p>
-                      <p className="text-xs text-text-secondary mt-1">正在分析你的回答，请稍候</p>
+                    <div className="flex flex-col items-center justify-center py-6">
+                      <div className="w-8 h-8 border-2 border-[#4F7CF0] border-t-transparent rounded-full animate-spin mb-3"></div>
+                      <p className="text-sm text-[#6B7280]">AI 正在评测...</p>
                     </div>
                   )}
 
-                  {/* 评测结果 */}
                   {qaEvaluation && (
-                    <div className={`p-5 rounded-card border shadow-card ${qaEvaluation.score >= 80 ? 'bg-green-50 border-success' : qaEvaluation.score >= 60 ? 'bg-amber-50 border-amber-200' : 'bg-red-50 border-danger'}`}>
-                      <div className="flex items-center justify-between mb-4">
-                        <h4 className="font-medium text-text-primary text-sm">评测结果</h4>
-                        <span className={`text-xl font-bold ${qaEvaluation.score >= 80 ? 'text-success' : qaEvaluation.score >= 60 ? 'text-amber-600' : 'text-danger'}`}>
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className={`p-4 rounded-2xl border ${
+                        qaEvaluation.score >= 80
+                          ? 'bg-[#F0FFF4] border-[#34D399]'
+                          : qaEvaluation.score >= 60
+                            ? 'bg-[#FFF8EE] border-[#F59E0B]/30'
+                            : 'bg-red-50 border-red-200'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="text-sm font-medium text-[#1F2937]">评测结果</span>
+                        <span className={`text-lg font-bold ${
+                          qaEvaluation.score >= 80 ? 'text-[#34D399]' : qaEvaluation.score >= 60 ? 'text-[#F59E0B]' : 'text-[#EF4444]'
+                        }`}>
                           {qaEvaluation.score}分
                         </span>
                       </div>
-                      <p className="text-sm text-text-secondary mb-4 leading-relaxed">{qaEvaluation.feedback}</p>
+                      <p className="text-sm text-[#6B7280] mb-3">{qaEvaluation.feedback}</p>
                       {qaEvaluation.suggestions.length > 0 && (
                         <div>
-                          <h5 className="text-sm font-medium text-text-primary mb-3">改进建议：</h5>
-                          <ul className="space-y-2">
+                          <h5 className="text-xs font-medium text-[#6B7280] mb-2">改进建议：</h5>
+                          <ul className="space-y-1">
                             {qaEvaluation.suggestions.map((suggestion, index) => (
-                              <li key={index} className="text-sm text-text-secondary flex items-start gap-3">
-                                <i className="fas fa-lightbulb text-amber-500 mt-0.5"></i>
-                                <span className="leading-relaxed">{suggestion}</span>
+                              <li key={index} className="text-sm text-[#6B7280] flex items-start gap-2">
+                                <span className="text-[#F59E0B]">•</span>
+                                <span>{suggestion}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
                       )}
-                    </div>
+                    </motion.div>
                   )}
                 </div>
               )}
-            </section>
-            
-            <section id="test-navigation" className="flex justify-between mt-8 gap-4">
-              <Link
-                href={prevTest ? `/scene-test/${id}/${prevTest.id}` : '#'}
-                id="prev-btn"
-                className={`py-3 px-6 sm:px-8 rounded-card font-semibold text-sm flex-1 text-center ${prevTest ? 'bg-white shadow-card text-text-primary hover:shadow-card-hover' : 'opacity-50 cursor-not-allowed bg-gray-100 text-gray-400'}`}
-                aria-disabled={!prevTest}
-              >
-                上一题
-              </Link>
 
-              {/* 下一题/提交按钮 - 必须作答后才能点击，评测期间禁用 */}
-              {canGoNext && !isEvaluating ? (
-                <Link
-                  href={nextTest ? `/scene-test/${id}/${nextTest.id}` : `/scene-detail/${id}`}
-                  id="next-btn"
-                  className={`py-3 px-6 sm:px-8 rounded-card font-semibold text-sm flex-1 text-center ${nextTest ? 'bg-white shadow-card text-text-primary hover:shadow-card-hover' : 'bg-primary text-white hover:shadow-card-hover'}`}
+              {/* 错误反馈卡片 - 仅在选择题答错时显示 */}
+              {currentTest.type === 'multiple-choice' && isAnswered && selectedOption !== currentTest.answer && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-6 p-4 bg-red-50 border border-red-200 rounded-2xl"
                 >
-                  {nextTest ? '下一题' : '提交'}
-                </Link>
-              ) : (
-                <button
-                  id="next-btn-disabled"
-                  disabled
-                  className="py-3 px-6 sm:px-8 rounded-card font-semibold text-sm flex-1 text-center bg-gray-200 text-gray-400 cursor-not-allowed"
-                >
-                  {isEvaluating ? '评测中...' : nextTest ? '下一题' : '提交'}
-                </button>
+                  <div className="flex items-start gap-3">
+                    <div className="h-8 w-8 rounded-full bg-red-100 flex items-center justify-center shrink-0">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-medium text-red-700 mb-1">回答错误</h4>
+                      <p className="text-xs text-red-600">{currentTest.analysis}</p>
+                    </div>
+                  </div>
+                </motion.div>
               )}
-            </section>
-            
 
+              {/* 导航按钮 */}
+              <section className="flex justify-between mt-7 gap-3">
+                <Link
+                  href={prevTest ? `/scene-test/${id}/${prevTest.id}` : '#'}
+                  className={`py-3.5 px-5 rounded-2xl font-medium text-sm flex-1 text-center transition-all ${
+                    prevTest
+                      ? 'bg-white text-[#1F2937] border border-gray-200'
+                      : 'opacity-50 cursor-not-allowed bg-gray-100 text-gray-400'
+                  }`}
+                >
+                  上一题
+                </Link>
+                {canGoNext && !isEvaluating ? (
+                  <Link
+                    href={nextTest ? `/scene-test/${id}/${nextTest.id}` : `/scene-detail/${id}`}
+                    className={`py-3.5 px-5 rounded-2xl font-medium text-sm flex-1 text-center transition-all ${
+                      nextTest
+                        ? 'bg-white text-[#1F2937] border border-gray-200'
+                        : 'bg-[#4F7CF0] text-white'
+                    }`}
+                  >
+                    {nextTest ? '下一题' : '提交'}
+                  </Link>
+                ) : (
+                  <button
+                    disabled
+                    className="py-3.5 px-5 rounded-2xl font-medium text-sm flex-1 text-center bg-gray-200 text-gray-400 cursor-not-allowed"
+                  >
+                    {isEvaluating ? '评测中...' : nextTest ? '下一题' : '提交'}
+                  </button>
+                )}
+              </section>
 
-            {/* 未作答提示 - 仅在未作答且非评测状态时显示 */}
-            {!isAnswered && !isEvaluating && (
-              <p className="text-center text-sm text-amber-600 mt-4">
-                <i className="fas fa-exclamation-circle mr-1"></i>
-                请先完成本题作答
-              </p>
-            )}
-          </>
-        )}
-      </main>
+              {!isAnswered && !isEvaluating && (
+                <p className="text-center text-xs text-[#9CA3AF] mt-4">
+                  请先完成本题作答
+                </p>
+              )}
+            </>
+          )}
+        </main>
+      </div>
     </div>
   )
 }

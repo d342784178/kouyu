@@ -9,7 +9,7 @@
   --secondary: #7B5FE8;
   --tertiary: #FF7043;
   --tertiary-light: #FFF4F0;
-  
+
   /* 功能色 */
   --success: #34D399;
   --success-light: #F0FFF4;
@@ -18,17 +18,17 @@
   --warning: #F59E0B;
   --warning-light: #FFF8EE;
   --info: #3B82F6;
-  
+
   /* 文字颜色 */
   --text-primary: #1F2937;
   --text-secondary: #6B7280;
   --text-tertiary: #9CA3AF;
-  
+
   /* 背景颜色 */
   --bg-primary: #FFFFFF;
   --bg-secondary: #F5F6FA;
   --bg-card: #FFFFFF;
-  
+
   /* 边框颜色 */
   --border-light: #E5E7EB;
   --border-card: #F3F4F6;
@@ -51,13 +51,21 @@ body {
   padding-bottom: env(safe-area-inset-bottom);
 }
 
-/* 卡片样式 */
+/* 卡片样式 - 匹配原型图 */
 .rounded-card {
+  border-radius: 1rem;
+}
+
+.rounded-2xl {
   border-radius: 1rem;
 }
 
 .shadow-card {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.shadow-sm {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 /* 卡片悬停效果 */
@@ -91,7 +99,7 @@ body {
   transition: stroke-dashoffset 0.5s ease-in-out;
 }
 
-/* 渐变背景 */
+/* 渐变背景 - 匹配原型图 */
 .gradient-primary {
   background: linear-gradient(135deg, #4F7CF0 0%, #7B5FE8 100%);
 }
@@ -110,13 +118,13 @@ body {
 }
 
 @keyframes pulse-ring {
-  0%, 100% { 
-    transform: scale(1); 
-    opacity: 1; 
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
   }
-  50% { 
-    transform: scale(1.1); 
-    opacity: 0.7; 
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
   }
 }
 
@@ -240,4 +248,57 @@ body {
 
 .btn-gradient:active {
   transform: scale(0.98);
+}
+
+/* 题型标签样式 - 匹配原型图 */
+.type-choice {
+  background-color: #EEF2FF;
+  color: #4F7CF0;
+}
+
+.type-fill-blank {
+  background-color: #FFF8EE;
+  color: #F59E0B;
+}
+
+.type-qa {
+  background-color: #F0FFF4;
+  color: #34D399;
+}
+
+.type-open {
+  background-color: #FFF0F5;
+  color: #EC4899;
+}
+
+/* 选项样式 - 匹配原型图 */
+.option-default {
+  border: 2px solid #F3F4F6;
+  background-color: #F9FAFB;
+}
+
+.option-selected {
+  border-color: #4F7CF0;
+  background-color: #EEF2FF;
+}
+
+.option-correct {
+  border-color: #34D399;
+  background-color: #F0FFF4;
+}
+
+.option-incorrect {
+  border-color: #FCA5A5;
+  background-color: #FFF5F5;
+}
+
+/* 结果卡片样式 */
+.result-correct {
+  background-color: #F0FFF4;
+  border-color: #A7F3D0;
+}
+
+.result-incorrect {
+  background-color: #FFF5F5;
+  border-color: #FCA5A5;
 }
