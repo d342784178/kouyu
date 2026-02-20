@@ -243,12 +243,16 @@ At the hotel reception
     return NextResponse.json(analysisResult)
   } catch (error) {
     console.error('[题目分析] GLM API调用失败:', error)
-    // 返回默认结果
-    return NextResponse.json({
-      scene: '餐厅',
-      roles: ['顾客', '服务员'],
-      dialogueGoal: '顾客与服务员开始对话'
-    })
+    // 返回错误信息
+    return NextResponse.json(
+      {
+        error: 'GLM API调用失败',
+        message: error instanceof Error ? error.message : '未知错误'
+      },
+      {
+        status: 500
+      }
+    )
   }
 }
 
@@ -353,12 +357,16 @@ async function evaluateQAAnswer(
     return NextResponse.json(evaluationResult)
   } catch (error) {
     console.error('[问答题评测] GLM API调用失败:', error)
-    // 返回默认结果
-    return NextResponse.json({
-      score: 70,
-      feedback: '回答基本正确，但可以更完整一些。',
-      suggestions: ['尝试使用更完整的句子', '注意语法结构']
-    })
+    // 返回错误信息
+    return NextResponse.json(
+      {
+        error: 'GLM API调用失败',
+        message: error instanceof Error ? error.message : '未知错误'
+      },
+      {
+        status: 500
+      }
+    )
   }
 }
 
@@ -463,12 +471,16 @@ async function evaluateFillBlankAnswer(
     return NextResponse.json(evaluationResult)
   } catch (error) {
     console.error('[填空题评测] GLM API调用失败:', error)
-    // 返回默认结果
-    return NextResponse.json({
-      isCorrect: userAnswer.toLowerCase().trim() === correctAnswer.toLowerCase().trim(),
-      analysis: '回答已提交，请参考参考答案。',
-      suggestions: ['对比你的答案和参考答案', '注意语法和词汇的使用']
-    })
+    // 返回错误信息
+    return NextResponse.json(
+      {
+        error: 'GLM API调用失败',
+        message: error instanceof Error ? error.message : '未知错误'
+      },
+      {
+        status: 500
+      }
+    )
   }
 }
 
@@ -672,8 +684,16 @@ async function analyzeConversation(
     return NextResponse.json(analysisResult)
   } catch (error) {
     console.error('[对话分析] GLM API调用失败:', error)
-    // 返回模拟数据
-    return NextResponse.json(generateMockAnalysis(conversation))
+    // 返回错误信息
+    return NextResponse.json(
+      {
+        error: 'GLM API调用失败',
+        message: error instanceof Error ? error.message : '未知错误'
+      },
+      {
+        status: 500
+      }
+    )
   }
 }
 

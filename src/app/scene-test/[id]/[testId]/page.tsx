@@ -1,11 +1,18 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import OpenTestDialog from './OpenTestDialog'
 import LoadingSpinner from './components/LoadingSpinner'
+import {
+  ArrowLeft,
+  Mic,
+  Check,
+  X,
+  Loader2,
+} from 'lucide-react'
 
 interface Scene {
   id: string
@@ -37,18 +44,27 @@ interface QAEvaluation {
   suggestions: string[]
 }
 
+interface TestResult {
+  isCorrect: boolean
+  score: number
+  analysis: string
+  suggestion: string
+  userAnswer: string
+  correctAnswer: string
+}
+
 const getQuestionTypeLabel = (type: string) => {
   switch (type) {
     case 'multiple-choice':
-      return { label: '选择题', color: 'text-[#4F7CF0]', bgColor: 'bg-[#EEF2FF]' }
+      return { label: '选择题', color: 'bg-[#EEF2FF] text-[#4F7CF0]' }
     case 'fill-blank':
-      return { label: '填空题', color: 'text-[#F59E0B]', bgColor: 'bg-[#FFF8EE]' }
+      return { label: '填空题', color: 'bg-[#FFF8EE] text-[#F59E0B]' }
     case 'open':
-      return { label: '开放题', color: 'text-[#EC4899]', bgColor: 'bg-[#FFF0F5]' }
+      return { label: '开放题', color: 'bg-[#FFF0F5] text-[#EC4899]' }
     case 'qa':
-      return { label: '问答题', color: 'text-[#34D399]', bgColor: 'bg-[#F0FFF4]' }
+      return { label: '问答题', color: 'bg-[#F0FFF4] text-[#34D399]' }
     default:
-      return { label: '未知题型', color: 'text-gray-500', bgColor: 'bg-gray-50' }
+      return { label: '未知题型', color: 'bg-gray-50 text-gray-500' }
   }
 }
 
@@ -75,11 +91,10 @@ export default function SceneTest() {
   const [recognition, setRecognition] = useState<any>(null)
   const [fillBlankAnswer, setFillBlankAnswer] = useState('')
   const [fillBlankInputMode, setFillBlankInputMode] = useState<'text' | 'voice'>('text')
-  const [fillBlankEvaluation, setFillBlankEvaluation] = useState<{
-    isCorrect: boolean
-    analysis: string
-    suggestions: string[]
-  } | null>(null)
+  const [fillBlankEvaluation, setFillBlankEvaluation] = useState<TestResult | null>(null)
+  const [answers, setAnswers] = useState<Record<string, string>>({})
+  const [testResults, setTestResults] = useState<Record<string, TestResult>>({})
+  const inputRef = useRef<HTMLTextAreaElement>(null)
 
   const getSceneById = async (sceneId: string): Promise<Scene> => {
     try {
@@ -138,6 +153,17 @@ export default function SceneTest() {
             order: 1,
             createdAt: new Date().toISOString(),
             updatedAt: new Date().toISOString()
+          },
+          {
+            id: 'test_2',
+            sceneId: sceneId,
+            type: 'fill-blank',
+            question: '请完成这句打招呼的话："Nice to ____ you! I\'m Tom."',
+            answer: 'meet',
+            analysis: '"Nice to meet you!" 是初次见面时的常用问候语。',
+            order: 2,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
           }
         ]
       }
@@ -167,6 +193,7 @@ export default function SceneTest() {
 
   const handleOptionClick = (option: string) => {
     setSelectedOption(option)
+    setAnswers({ ...answers, [currentTest?.id || '']: option })
     setIsAnswered(true)
   }
 
@@ -184,19 +211,24 @@ export default function SceneTest() {
           correctAnswer: currentTest.answer,
         }),
       })
-      if (!response.ok) throw new Error('评测失败')
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(errorData.error?.message || '评测失败')
+      }
       const data = await response.json()
-      setFillBlankEvaluation({
+      const result: TestResult = {
         isCorrect: data.isCorrect || false,
+        score: data.score || 0,
         analysis: data.analysis || '评测完成',
-        suggestions: data.suggestions || []
-      })
+        suggestion: data.suggestions?.[0] || '继续努力！',
+        userAnswer: fillBlankAnswer,
+        correctAnswer: currentTest.answer
+      }
+      setFillBlankEvaluation(result)
+      setTestResults({ ...testResults, [currentTest.id]: result })
     } catch (error) {
-      setFillBlankEvaluation({
-        isCorrect: fillBlankAnswer.toLowerCase().trim() === currentTest.answer.toLowerCase().trim(),
-        analysis: '回答已提交，请参考正确答案。',
-        suggestions: ['对比你的答案和参考答案', '注意语法和词汇的使用']
-      })
+      alert(`GLM API调用失败: ${error instanceof Error ? error.message : '未知错误'}`)
+      setIsAnswered(false)
     } finally {
       setIsEvaluating(false)
     }
@@ -212,8 +244,18 @@ export default function SceneTest() {
       rec.onresult = (event: any) => {
         const transcript = event.results[0][0].transcript
         setQaAnswer(transcript)
+        setFillBlankAnswer(transcript)
+        if (currentTest?.type === 'qa') {
+          setAnswers({ ...answers, [currentTest.id]: transcript })
+        } else if (currentTest?.type === 'fill-blank') {
+          setAnswers({ ...answers, [currentTest.id]: transcript })
+        }
         setIsRecording(false)
-        evaluateQAAnswer(transcript)
+        if (currentTest?.type === 'qa') {
+          evaluateQAAnswer(transcript)
+        } else if (currentTest?.type === 'fill-blank') {
+          handleFillBlankSubmit()
+        }
       }
       rec.onerror = () => setIsRecording(false)
       rec.onend = () => setIsRecording(false)
@@ -231,7 +273,9 @@ export default function SceneTest() {
       setIsRecording(false)
     } else {
       setQaAnswer('')
+      setFillBlankAnswer('')
       setQaEvaluation(null)
+      setFillBlankEvaluation(null)
       recognition.start()
       setIsRecording(true)
     }
@@ -254,7 +298,10 @@ export default function SceneTest() {
           evaluationType: 'qa'
         }),
       })
-      if (!response.ok) throw new Error('评测失败')
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(errorData.error?.message || '评测失败')
+      }
       const data = await response.json()
       setQaEvaluation({
         score: data.score || 0,
@@ -262,11 +309,8 @@ export default function SceneTest() {
         suggestions: data.suggestions || []
       })
     } catch (error) {
-      setQaEvaluation({
-        score: 70,
-        feedback: '回答基本正确，但可以更完整一些。',
-        suggestions: ['尝试使用更完整的句子', '注意语法结构']
-      })
+      alert(`GLM API调用失败: ${error instanceof Error ? error.message : '未知错误'}`)
+      setIsAnswered(false)
     } finally {
       setIsEvaluating(false)
     }
@@ -282,6 +326,8 @@ export default function SceneTest() {
     setFillBlankEvaluation(null)
     setIsRecording(false)
     setIsEvaluating(false)
+    setAnswers({})
+    setTestResults({})
   }
 
   useEffect(() => {
@@ -347,6 +393,8 @@ export default function SceneTest() {
 
   const questionType = getQuestionTypeLabel(currentTest.type)
   const progress = ((currentIndex + 1) / tests.length) * 100
+  const hasResult = testResults[currentTest.id] !== undefined
+  const hasAnswered = answers[currentTest.id] !== undefined && answers[currentTest.id] !== ''
 
   const handleOpenTestComplete = () => {
     if (nextTest) {
@@ -356,424 +404,345 @@ export default function SceneTest() {
     }
   }
 
-  const canGoNext = isAnswered
+  const handleNext = () => {
+    if (nextTest) {
+      window.location.href = `/scene-test/${id}/${nextTest.id}`
+    } else {
+      window.location.href = `/scene-detail/${id}`
+    }
+  }
 
   return (
-    <div className="min-h-screen bg-[#F5F6FA]">
-      <div className="max-w-[430px] mx-auto">
-        <main className="px-4 pt-6 pb-10">
-          {/* 开放题测试使用对话框组件 */}
-          {currentTest.type === 'open' ? (
-            <OpenTestDialog
-              sceneId={id}
-              testId={testId}
-              testQuestion={currentTest.question}
-              currentIndex={currentIndex}
-              totalTests={tests.length}
-              onComplete={handleOpenTestComplete}
-              autoStart={true}
-            />
-          ) : (
-            <>
-              {/* 顶部返回按钮和进度 - 匹配原型图 */}
-              <div className="flex items-center gap-3 mb-6">
-                {/* 返回按钮 */}
-                <Link href={`/scene-detail/${id}`} className="h-9 w-9 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100 shrink-0">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6B7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M15 18l-6-6 6-6" />
-                  </svg>
-                </Link>
-                {/* 场景名称和进度 */}
-                <div className="flex-1">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-sm font-medium text-[#1F2937]">{scene?.name || '场景测试'}</span>
-                    <span className="text-sm text-[#9CA3AF]">{currentIndex + 1} / {tests.length}</span>
-                  </div>
-                  <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
-                    <div 
-                      className="h-full bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] rounded-full"
-                      style={{ width: `${progress}%` }}
-                    />
-                  </div>
-                </div>
-              </div>
+    <div className="min-h-screen bg-[#F5F6FA] pb-6">
+      <div className="max-w-[430px] mx-auto px-4 pt-6">
+        {/* Back + Progress */}
+        <div className="flex items-center gap-3 mb-5">
+          <Link href={`/scene-detail/${id}`}>
+            <div className="h-8 w-8 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100">
+              <ArrowLeft className="h-4 w-4 text-gray-500" />
+            </div>
+          </Link>
+          <div className="flex-1">
+            <div className="flex items-center justify-between mb-1">
+              <span className="text-sm font-medium text-gray-700">
+                题目 {currentIndex + 1} / {tests.length}
+              </span>
+              <span className="text-sm text-gray-400">{Math.round(progress)}%</span>
+            </div>
+            <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <motion.div
+                className="h-full bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] rounded-full"
+                initial={{ width: 0 }}
+                animate={{ width: `${progress}%` }}
+                transition={{ duration: 0.5 }}
+              />
+            </div>
+          </div>
+        </div>
 
-              {/* 题型标签和问题卡片 - 匹配原型图 */}
-              <section className="mb-5">
-                <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5">
-                  {/* 题型标签和音量图标 */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className={`text-xs font-semibold px-3 py-1.5 rounded-full ${questionType.bgColor} ${questionType.color}`}>
-                      {questionType.label}
-                    </span>
-                    <button className="h-8 w-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 hover:text-[#4F7CF0] transition-colors">
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
-                      </svg>
-                    </button>
-                  </div>
-                  {/* 问题文字 */}
-                  <h2 className="text-[#1F2937] text-base leading-relaxed mb-5">
-                    {currentTest.question}
-                  </h2>
-                </div>
-              </section>
+        {/* Question Card */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentTest.id}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -30 }}
+            transition={{ duration: 0.3 }}
+            className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 mb-4"
+          >
+            <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${questionType.color}`}>
+              {questionType.label}
+            </span>
 
-              {/* 选择题选项 - 匹配原型图样式 */}
-              {currentTest.type === 'multiple-choice' && (
-                <div className="space-y-3">
-                  {currentTest.options?.map((option, index) => {
-                    const isSelected = selectedOption === option
-                    const isCorrect = isAnswered && option === currentTest.answer
-                    const isIncorrect = isAnswered && isSelected && option !== currentTest.answer
-                    return (
-                      <motion.button
-                        key={index}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.2, delay: index * 0.05 }}
-                        className={`w-full text-left px-4 py-4 rounded-2xl text-sm border-2 transition-all flex items-center gap-3 ${
-                          isSelected
-                            ? isCorrect
-                              ? 'bg-green-50 border-[#34D399]'
-                              : isIncorrect
-                                ? 'bg-red-50 border-red-400'
-                                : 'bg-[#EEF2FF] border-[#4F7CF0]'
-                            : isCorrect
-                              ? 'bg-green-50 border-[#34D399]'
-                              : 'border-gray-200 bg-white text-gray-700 hover:border-[#4F7CF0]/50'
-                        }`}
-                        onClick={() => !isAnswered && handleOptionClick(option)}
-                        disabled={isAnswered}
-                      >
-                        {/* 字母圆圈 */}
-                        <span className={`h-8 w-8 rounded-full flex items-center justify-center text-sm font-semibold shrink-0 ${
-                          isSelected || isCorrect
-                            ? 'bg-[#4F7CF0] text-white'
-                            : 'bg-gray-100 text-gray-500'
-                        }`}>
-                          {String.fromCharCode(65 + index)}
-                        </span>
-                        {/* 选项文字 */}
-                        <span className={`flex-1 ${isSelected ? 'font-medium' : ''}`}>
-                          {option}
-                        </span>
-                        {/* 对勾或叉号图标 */}
-                        {isAnswered && (
-                          <span className="shrink-0">
-                            {option === currentTest.answer ? (
-                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34D399" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M20 6 9 17l-5-5" />
-                              </svg>
-                            ) : isSelected ? (
-                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <line x1="18" y1="6" x2="6" y2="18" />
-                                <line x1="6" y1="6" x2="18" y2="18" />
-                              </svg>
-                            ) : null}
-                          </span>
-                        )}
-                      </motion.button>
-                    )
-                  })}
-                </div>
-              )}
+            <h3 className="text-gray-800 mt-4 mb-5 leading-relaxed">
+              {currentTest.question}
+            </h3>
 
-              {/* 填空题 */}
-              {currentTest.type === 'fill-blank' && (
-                <div className="space-y-5">
-                  {!isAnswered && (
-                    <div className="flex justify-center mb-4">
-                      <div className="inline-flex bg-gray-100 p-1 rounded-full w-full max-w-xs">
-                        <button
-                          onClick={() => setFillBlankInputMode('text')}
-                          className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                            fillBlankInputMode === 'text'
-                              ? 'bg-white text-[#F59E0B] shadow-sm'
-                              : 'text-[#6B7280]'
-                          }`}
-                        >
-                          <i className="fas fa-pencil"></i>
-                          文字输入
-                        </button>
-                        <button
-                          onClick={() => setFillBlankInputMode('voice')}
-                          className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                            fillBlankInputMode === 'voice'
-                              ? 'bg-white text-[#F59E0B] shadow-sm'
-                              : 'text-[#6B7280]'
-                          }`}
-                        >
-                          <i className="fas fa-microphone"></i>
-                          语音输入
-                        </button>
-                      </div>
-                    </div>
-                  )}
-
-                  {fillBlankInputMode === 'text' && !isAnswered && (
-                    <div className="relative">
-                      <textarea
-                        className="w-full p-4 border-2 border-[#4F7CF0] rounded-2xl focus:border-[#4F7CF0] focus:outline-none transition-all resize-none text-[#1F2937] text-sm bg-white min-h-[100px]"
-                        rows={3}
-                        placeholder="请填入正确答案..."
-                        value={fillBlankAnswer}
-                        onChange={(e) => setFillBlankAnswer(e.target.value)}
-                        disabled={isAnswered}
-                      />
-                    </div>
-                  )}
-
-                  {fillBlankInputMode === 'voice' && !isAnswered && (
-                    <div className="flex flex-col items-center py-6">
-                      <div className="relative">
-                        {isRecording && (
-                          <>
-                            <div className="absolute inset-0 rounded-full bg-[#F59E0B] animate-ping opacity-20"></div>
-                            <div className="absolute -inset-4 rounded-full bg-[#F59E0B] animate-pulse opacity-10"></div>
-                          </>
-                        )}
-                        <button
-                          onClick={toggleRecording}
-                          disabled={isEvaluating}
-                          className={`relative w-20 h-20 rounded-full flex items-center justify-center transition-all shadow-lg ${
-                            isRecording
-                              ? 'bg-[#EF4444] text-white'
-                              : 'bg-gradient-to-r from-[#F59E0B] to-[#F97316] text-white'
-                          } disabled:opacity-50`}
-                        >
-                          <i className={`fas ${isRecording ? 'fa-stop' : 'fa-microphone'} text-2xl`}></i>
-                        </button>
-                      </div>
-                      <p className={`text-sm mt-4 ${
-                        isRecording ? 'text-[#EF4444]' : 'text-[#6B7280]'
-                      }`}>
-                        {isRecording ? '正在录音，点击停止' : '点击按钮开始语音回答'}
-                      </p>
-                    </div>
-                  )}
-
-                  {fillBlankAnswer && !isAnswered && (
-                    <div className="bg-[#FFF8EE] rounded-2xl p-4 border border-[#F59E0B]/20">
-                      <div className="flex items-center gap-2 mb-2">
-                        <span className="text-sm font-medium text-[#92400E]">你的回答</span>
-                      </div>
-                      <p className="text-[#1F2937] text-sm">{fillBlankAnswer}</p>
-                    </div>
-                  )}
-
-                  {/* 提示信息 */}
-                  {!isAnswered && (
-                    <div className="bg-[#FFF8EE] rounded-2xl p-4 border border-[#F59E0B]/20 mb-4">
-                      <div className="flex items-start gap-2">
-                        <i className="fas fa-lightbulb text-[#F59E0B] mt-0.5 shrink-0"></i>
-                        <p className="text-sm text-[#92400E]">
-                          初次见面时说 "Nice to meet you!" 表示很高兴认识对方。
-                        </p>
-                      </div>
-                    </div>
-                  )}
-
-                  {!isAnswered && fillBlankAnswer.trim() && !isEvaluating && (
-                    <motion.button
-                      onClick={handleFillBlankSubmit}
-                      className="w-full py-3.5 bg-[#4F7CF0] text-white rounded-2xl font-medium text-sm transition-all"
-                      whileHover={{ scale: 1.01 }}
-                      whileTap={{ scale: 0.99 }}
-                    >
-                      提交答案
-                    </motion.button>
-                  )}
-
-                  {isEvaluating && (
-                    <div className="flex flex-col items-center justify-center py-6">
-                      <div className="w-8 h-8 border-2 border-[#F59E0B] border-t-transparent rounded-full animate-spin mb-3"></div>
-                      <p className="text-sm text-[#6B7280]">AI 正在评测...</p>
-                    </div>
-                  )}
-
-                  {isAnswered && fillBlankEvaluation && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className={`rounded-2xl overflow-hidden ${
-                        fillBlankEvaluation.isCorrect
-                          ? 'bg-[#F0FFF4] border border-[#34D399]'
-                          : 'bg-[#FFF8EE] border border-[#F59E0B]/30'
+            {/* Choice */}
+            {currentTest.type === 'multiple-choice' && (
+              <div className="space-y-2.5">
+                {currentTest.options?.map((option, idx) => {
+                  const isSelected = answers[currentTest.id] === option
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => !hasResult && handleOptionClick(option)}
+                      disabled={hasResult}
+                      className={`w-full text-left px-4 py-3.5 rounded-2xl text-sm border-2 transition-all flex items-center gap-3 ${
+                        isSelected && hasResult
+                          ? testResults[currentTest.id]?.isCorrect
+                            ? 'border-[#34D399] bg-[#F0FFF4] text-gray-700'
+                            : 'border-red-400 bg-red-50 text-gray-700'
+                          : isSelected
+                          ? 'border-[#4F7CF0] bg-[#EEF2FF] text-gray-700'
+                          : 'border-gray-100 bg-gray-50 text-gray-700 hover:border-[#4F7CF0]'
                       }`}
                     >
-                      <div className={`px-4 py-3 ${
-                        fillBlankEvaluation.isCorrect ? 'bg-[#34D399]' : 'bg-[#F59E0B]'
+                      <span className={`h-6 w-6 rounded-full flex items-center justify-center text-xs font-semibold shrink-0 ${
+                        isSelected ? 'bg-[#4F7CF0] text-white' : 'bg-gray-200 text-gray-500'
                       }`}>
-                        <div className="flex items-center gap-2">
-                          <i className={`fas ${fillBlankEvaluation.isCorrect ? 'fa-check' : 'fa-lightbulb'} text-white`}></i>
-                          <span className="text-white font-medium text-sm">
-                            {fillBlankEvaluation.isCorrect ? '回答正确！' : '还可以更好'}
-                          </span>
-                        </div>
-                      </div>
-                      <div className="p-4 space-y-3">
-                        <div className="bg-white/60 rounded-lg p-3">
-                          <h5 className="text-xs font-medium text-[#6B7280] mb-1">AI 分析</h5>
-                          <p className="text-[#1F2937] text-sm">{fillBlankEvaluation.analysis}</p>
-                        </div>
-                        <div className="bg-white/60 rounded-lg p-3">
-                          <h5 className="text-xs font-medium text-[#6B7280] mb-1">参考答案</h5>
-                          <p className="text-[#1F2937] text-sm font-medium">{currentTest.answer}</p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </div>
-              )}
+                        {String.fromCharCode(65 + idx)}
+                      </span>
+                      {option}
+                    </button>
+                  )
+                })}
+              </div>
+            )}
 
-              {/* 问答题 */}
-              {currentTest.type === 'qa' && (
-                <div className="space-y-4">
-                  <div className="flex justify-center py-6">
-                    <div className="relative">
-                      {isRecording && (
-                        <>
-                          <div className="absolute inset-0 rounded-full bg-[#34D399] animate-ping opacity-20"></div>
-                          <div className="absolute -inset-4 rounded-full bg-[#34D399] animate-pulse opacity-10"></div>
-                        </>
-                      )}
+            {/* Fill Blank */}
+            {currentTest.type === 'fill-blank' && (
+              <div className="space-y-4">
+                {!hasResult && (
+                  <div className="flex justify-center mb-4">
+                    <div className="inline-flex bg-gray-100 p-1 rounded-full w-full max-w-xs">
                       <button
-                        onClick={toggleRecording}
-                        disabled={isEvaluating}
-                        className={`relative w-20 h-20 rounded-full flex items-center justify-center transition-all shadow-lg ${
-                          isRecording
-                            ? 'bg-[#EF4444] text-white'
-                            : 'bg-gradient-to-r from-[#34D399] to-[#10B981] text-white'
-                        } disabled:opacity-50`}
+                        onClick={() => setFillBlankInputMode('text')}
+                        className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                          fillBlankInputMode === 'text'
+                            ? 'bg-white text-[#F59E0B] shadow-sm'
+                            : 'text-[#6B7280]'
+                        }`}
                       >
-                        <i className={`fas ${isRecording ? 'fa-stop' : 'fa-microphone'} text-2xl`}></i>
+                        <i className="fas fa-pencil"></i>
+                        文字输入
+                      </button>
+                      <button
+                        onClick={() => setFillBlankInputMode('voice')}
+                        className={`flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                          fillBlankInputMode === 'voice'
+                            ? 'bg-white text-[#F59E0B] shadow-sm'
+                            : 'text-[#6B7280]'
+                        }`}
+                      >
+                        <i className="fas fa-microphone"></i>
+                        语音输入
                       </button>
                     </div>
                   </div>
+                )}
 
-                  <p className="text-center text-sm text-[#6B7280]">
-                    {isRecording ? '点击停止录音' : '点击开始语音回答'}
-                  </p>
+                {fillBlankInputMode === 'text' && !hasResult && (
+                  <div className="relative">
+                    <textarea
+                      placeholder="请填入正确答案..."
+                      value={fillBlankAnswer}
+                      onChange={(e) => {
+                        setFillBlankAnswer(e.target.value)
+                        if (e.target.value.trim()) {
+                          setAnswers({ ...answers, [currentTest.id]: e.target.value })
+                        } else {
+                          const newAnswers = { ...answers }
+                          delete newAnswers[currentTest.id]
+                          setAnswers(newAnswers)
+                        }
+                      }}
+                      disabled={hasResult}
+                      className="w-full p-4 border-2 border-[#4F7CF0] rounded-2xl px-4 py-3 text-sm text-gray-700 outline-none focus:border-[#4F7CF0] transition-colors resize-none min-h-[100px] placeholder:text-gray-400"
+                    />
+                  </div>
+                )}
 
-                  {qaAnswer && (
-                    <div className="p-4 bg-[#F0FFF4] rounded-2xl border border-[#34D399]/20">
-                      <h4 className="text-xs font-medium text-[#065F46] mb-2">你的回答</h4>
-                      <p className="text-[#1F2937] text-sm">{qaAnswer}</p>
-                    </div>
-                  )}
-
-                  {isEvaluating && (
-                    <div className="flex flex-col items-center justify-center py-6">
-                      <div className="w-8 h-8 border-2 border-[#4F7CF0] border-t-transparent rounded-full animate-spin mb-3"></div>
-                      <p className="text-sm text-[#6B7280]">AI 正在评测...</p>
-                    </div>
-                  )}
-
-                  {qaEvaluation && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className={`p-4 rounded-2xl border ${
-                        qaEvaluation.score >= 80
-                          ? 'bg-[#F0FFF4] border-[#34D399]'
-                          : qaEvaluation.score >= 60
-                            ? 'bg-[#FFF8EE] border-[#F59E0B]/30'
-                            : 'bg-red-50 border-red-200'
+                {fillBlankInputMode === 'voice' && !hasResult && (
+                  <div className="flex flex-col items-center py-6">
+                    <button
+                      onClick={toggleRecording}
+                      disabled={hasResult || isRecording}
+                      className={`flex items-center gap-2 text-sm px-4 py-2.5 rounded-2xl border transition-all ${
+                        isRecording
+                          ? 'bg-red-50 border-red-200 text-red-500'
+                          : 'bg-gray-50 border-gray-100 text-gray-500 hover:border-[#4F7CF0] hover:text-[#4F7CF0]'
                       }`}
                     >
-                      <div className="flex items-center justify-between mb-3">
-                        <span className="text-sm font-medium text-[#1F2937]">评测结果</span>
-                        <span className={`text-lg font-bold ${
-                          qaEvaluation.score >= 80 ? 'text-[#34D399]' : qaEvaluation.score >= 60 ? 'text-[#F59E0B]' : 'text-[#EF4444]'
-                        }`}>
-                          {qaEvaluation.score}分
-                        </span>
-                      </div>
-                      <p className="text-sm text-[#6B7280] mb-3">{qaEvaluation.feedback}</p>
-                      {qaEvaluation.suggestions.length > 0 && (
-                        <div>
-                          <h5 className="text-xs font-medium text-[#6B7280] mb-2">改进建议：</h5>
-                          <ul className="space-y-1">
-                            {qaEvaluation.suggestions.map((suggestion, index) => (
-                              <li key={index} className="text-sm text-[#6B7280] flex items-start gap-2">
-                                <span className="text-[#F59E0B]">•</span>
-                                <span>{suggestion}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
-                    </motion.div>
-                  )}
-                </div>
-              )}
+                      <Mic className={`h-4 w-4 ${isRecording ? 'animate-pulse' : ''}`} />
+                      {isRecording ? '正在录音...' : '语音输入'}
+                    </button>
+                  </div>
+                )}
 
-              {/* 错误反馈卡片 - 仅在选择题答错时显示 */}
-              {currentTest.type === 'multiple-choice' && isAnswered && selectedOption !== currentTest.answer && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="mb-6 p-4 bg-red-50 border border-red-200 rounded-2xl"
-                >
-                  <div className="flex items-start gap-3">
-                    <div className="h-8 w-8 rounded-full bg-red-100 flex items-center justify-center shrink-0">
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EF4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <line x1="18" y1="6" x2="6" y2="18" />
-                        <line x1="6" y1="6" x2="18" y2="18" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-medium text-red-700 mb-1">回答错误</h4>
-                      <p className="text-xs text-red-600">{currentTest.analysis}</p>
+                {/* 提示信息 */}
+                {!hasResult && (
+                  <div className="bg-[#FFF8EE] rounded-2xl p-4 border border-[#F59E0B]/20 mb-4">
+                    <div className="flex items-start gap-2">
+                      <i className="fas fa-lightbulb text-[#F59E0B] mt-0.5 shrink-0"></i>
+                      <p className="text-sm text-[#92400E]">
+                        初次见面时说 "Nice to meet you!" 表示很高兴认识对方。
+                      </p>
                     </div>
                   </div>
-                </motion.div>
-              )}
+                )}
+              </div>
+            )}
 
-              {/* 导航按钮 */}
-              <section className="flex justify-between mt-7 gap-3">
-                <Link
-                  href={prevTest ? `/scene-test/${id}/${prevTest.id}` : '#'}
-                  className={`py-3.5 px-5 rounded-2xl font-medium text-sm flex-1 text-center transition-all ${
-                    prevTest
-                      ? 'bg-white text-[#1F2937] border border-gray-200'
-                      : 'opacity-50 cursor-not-allowed bg-gray-100 text-gray-400'
+            {/* QA */}
+            {currentTest.type === 'qa' && (
+              <div className="space-y-4">
+                <textarea
+                  placeholder="请输入你的答案..."
+                  value={qaAnswer}
+                  onChange={(e) => {
+                    setQaAnswer(e.target.value)
+                    if (e.target.value.trim()) {
+                      setAnswers({ ...answers, [currentTest.id]: e.target.value })
+                    } else {
+                      const newAnswers = { ...answers }
+                      delete newAnswers[currentTest.id]
+                      setAnswers(newAnswers)
+                    }
+                  }}
+                  disabled={hasResult}
+                  className="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl px-4 py-3 text-sm text-gray-700 outline-none focus:border-[#4F7CF0] transition-colors resize-none min-h-[100px] placeholder:text-gray-400"
+                />
+                <button
+                  onClick={toggleRecording}
+                  disabled={hasResult || isRecording}
+                  className={`flex items-center gap-2 text-sm px-4 py-2.5 rounded-2xl border transition-all ${
+                    isRecording
+                      ? 'bg-red-50 border-red-200 text-red-500'
+                      : 'bg-gray-50 border-gray-100 text-gray-500 hover:border-[#4F7CF0] hover:text-[#4F7CF0]'
                   }`}
                 >
-                  上一题
-                </Link>
-                {canGoNext && !isEvaluating ? (
-                  <Link
-                    href={nextTest ? `/scene-test/${id}/${nextTest.id}` : `/scene-detail/${id}`}
-                    className={`py-3.5 px-5 rounded-2xl font-medium text-sm flex-1 text-center transition-all ${
-                      nextTest
-                        ? 'bg-white text-[#1F2937] border border-gray-200'
-                        : 'bg-[#4F7CF0] text-white'
-                    }`}
-                  >
-                    {nextTest ? '下一题' : '提交'}
-                  </Link>
-                ) : (
-                  <button
-                    disabled
-                    className="py-3.5 px-5 rounded-2xl font-medium text-sm flex-1 text-center bg-gray-200 text-gray-400 cursor-not-allowed"
-                  >
-                    {isEvaluating ? '评测中...' : nextTest ? '下一题' : '提交'}
-                  </button>
-                )}
-              </section>
+                  <Mic className={`h-4 w-4 ${isRecording ? 'animate-pulse' : ''}`} />
+                  {isRecording ? '正在录音...' : '语音输入'}
+                </button>
+              </div>
+            )}
 
-              {!isAnswered && !isEvaluating && (
-                <p className="text-center text-xs text-[#9CA3AF] mt-4">
-                  请先完成本题作答
-                </p>
-              )}
-            </>
+            {/* Open Conversation */}
+            {currentTest.type === 'open' && (
+              <OpenTestDialog
+                sceneId={id}
+                testId={testId}
+                testQuestion={currentTest.question}
+                currentIndex={currentIndex}
+                totalTests={tests.length}
+                onComplete={handleOpenTestComplete}
+                autoStart={true}
+              />
+            )}
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Result Card */}
+        <AnimatePresence>
+          {hasResult && (
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -16 }}
+              className={`rounded-2xl p-4 mb-4 border ${
+                testResults[currentTest.id]?.isCorrect
+                  ? 'bg-[#F0FFF4] border-[#A7F3D0]'
+                  : 'bg-[#FFF5F5] border-[#FCA5A5]'
+              }`}
+            >
+              <div className="flex items-start gap-3">
+                <div
+                  className={`h-9 w-9 rounded-full flex items-center justify-center shrink-0 ${
+                    testResults[currentTest.id]?.isCorrect ? 'bg-[#34D399]' : 'bg-red-400'
+                  }`}
+                >
+                  {testResults[currentTest.id]?.isCorrect ? (
+                    <Check className="h-5 w-5 text-white" />
+                  ) : (
+                    <X className="h-5 w-5 text-white" />
+                  )}
+                </div>
+                <div className="flex-1">
+                  <div className="font-semibold text-gray-800 mb-1">
+                    {testResults[currentTest.id]?.isCorrect ? '回答正确！' : '回答错误'} {
+                      testResults[currentTest.id]?.score !== undefined && (
+                        <span className="text-sm font-normal text-gray-500">
+                          得分：{testResults[currentTest.id].score}
+                        </span>
+                      )
+                    }
+                  </div>
+                  <p className="text-sm text-gray-600 mb-2">{testResults[currentTest.id]?.analysis}</p>
+                  {!testResults[currentTest.id]?.isCorrect && (
+                    <div className="text-sm">
+                      <span className="text-gray-500">参考答案：</span>
+                      <span className="font-medium text-gray-700">{testResults[currentTest.id]?.correctAnswer}</span>
+                    </div>
+                  )}
+                  <div className="mt-2 bg-white/70 rounded-xl px-3 py-2 text-xs text-gray-500">
+                    💡 {testResults[currentTest.id]?.suggestion}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           )}
-        </main>
+        </AnimatePresence>
+
+        {/* Action Buttons */}
+        <div className="flex gap-3">
+          {!hasResult && hasAnswered && currentTest.type !== 'open' && (
+            <button
+              className="flex-1 h-12 bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white rounded-2xl font-medium disabled:opacity-50"
+              onClick={() => {
+                if (currentTest.type === 'fill-blank') {
+                  handleFillBlankSubmit()
+                } else if (currentTest.type === 'multiple-choice') {
+                  const selectedAnswer = answers[currentTest.id]
+                  const isCorrect = selectedAnswer === currentTest.answer
+                  const result: TestResult = {
+                    isCorrect,
+                    score: isCorrect ? 100 : 0,
+                    analysis: currentTest.analysis,
+                    suggestion: isCorrect ? '继续努力！' : '请再仔细思考一下。',
+                    userAnswer: selectedAnswer,
+                    correctAnswer: currentTest.answer
+                  }
+                  setTestResults({ ...testResults, [currentTest.id]: result })
+                } else if (currentTest.type === 'qa') {
+                  evaluateQAAnswer(qaAnswer)
+                }
+              }}
+              disabled={isEvaluating}
+            >
+              提交答案
+            </button>
+          )}
+          {hasResult && (
+            <button
+              className="flex-1 h-12 bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white rounded-2xl font-medium"
+              onClick={handleNext}
+            >
+              {nextTest ? '下一题 →' : '返回场景'}
+            </button>
+          )}
+        </div>
+
+        {/* Explanation hint */}
+        {currentTest.type === 'fill-blank' && !hasResult && (
+          <div className="mt-4 bg-[#FFF8EE] rounded-2xl p-3 text-xs text-[#92400E]">
+            <span className="font-medium">提示：</span> 尝试填入正确的单词。
+          </div>
+        )}
       </div>
+
+      {/* AI Evaluating Overlay */}
+      <AnimatePresence>
+        {isEvaluating && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/40 flex items-center justify-center z-50"
+          >
+            <motion.div
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.85, opacity: 0 }}
+              className="bg-white rounded-2xl p-8 text-center mx-6 shadow-xl"
+            >
+              <Loader2 className="h-12 w-12 animate-spin text-[#4F7CF0] mx-auto mb-4" />
+              <h3 className="font-semibold text-gray-800 mb-1">AI 正在评测...</h3>
+              <p className="text-sm text-gray-400">请稍候片刻</p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

@@ -131,14 +131,16 @@ ${correctAnswer ? `参考答案：${correctAnswer}` : ''}
       return NextResponse.json(evaluationResult)
     } catch (error) {
       console.error('[填空题评测] GLM API调用失败:', error)
-      // 返回默认结果
-      return NextResponse.json({
-        isCorrect: correctAnswer 
-          ? userAnswer.toLowerCase().trim() === correctAnswer.toLowerCase().trim()
-          : true,
-        analysis: '回答已提交，请参考参考答案。',
-        suggestions: ['对比你的答案和参考答案', '注意语法和词汇的使用']
-      })
+      // 返回错误信息
+      return NextResponse.json(
+        {
+          error: 'GLM API调用失败',
+          message: error instanceof Error ? error.message : '未知错误'
+        },
+        {
+          status: 500
+        }
+      )
     }
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : '填空题评测API错误'
