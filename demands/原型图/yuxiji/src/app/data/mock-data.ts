@@ -18,7 +18,7 @@ export const mockPhrases: Phrase[] = [
     partOfSpeech: '问候语',
     scene: 'daily_greeting',
     difficulty: 'beginner',
-    pronunciationTips: '注意 doing 的发音，/ˈduːɪŋ/',
+    pronunciationTips: '注意 doing 的发音，/ˈduːɪŋ/，连读自然流畅',
     audioUrl: null,
     phonetic: '/haʊ ɑːr juː ˈduːɪŋ/',
   },
@@ -29,7 +29,7 @@ export const mockPhrases: Phrase[] = [
     partOfSpeech: '回答语',
     scene: 'daily_greeting',
     difficulty: 'beginner',
-    pronunciationTips: "注意 I'm 的连读",
+    pronunciationTips: "注意 I'm 的缩写发音，doing 轻读",
     audioUrl: null,
     phonetic: '/aɪm ˈduːɪŋ ɡreɪt θæŋks/',
   },
@@ -40,7 +40,7 @@ export const mockPhrases: Phrase[] = [
     partOfSpeech: '疑问句',
     scene: 'shopping',
     difficulty: 'beginner',
-    pronunciationTips: '注意 does 的弱读',
+    pronunciationTips: '注意 does 的弱读 /dəz/，this 结尾 s 清晰发出',
     audioUrl: null,
     phonetic: '/haʊ mʌtʃ dʌz ðɪs kɒst/',
   },
@@ -51,7 +51,7 @@ export const mockPhrases: Phrase[] = [
     partOfSpeech: '疑问句',
     scene: 'shopping',
     difficulty: 'intermediate',
-    pronunciationTips: '注意 discount 重音在第一音节',
+    pronunciationTips: '注意 discount 重音在第一音节 /ˈdɪs-/',
     audioUrl: null,
     phonetic: '/kæn aɪ ɡet ə ˈdɪskaʊnt/',
   },
@@ -62,7 +62,7 @@ export const mockPhrases: Phrase[] = [
     partOfSpeech: '陈述句',
     scene: 'dining',
     difficulty: 'beginner',
-    pronunciationTips: "I'd like 连读要流畅",
+    pronunciationTips: "I'd like 连读要流畅，like to 中的 t 可轻化",
     audioUrl: null,
     phonetic: '/aɪd laɪk tuː ˈɔːrdər pliːz/',
   },
@@ -73,7 +73,7 @@ export const mockPhrases: Phrase[] = [
     partOfSpeech: '疑问句',
     scene: 'dining',
     difficulty: 'beginner',
-    pronunciationTips: '注意 Could I 的连读',
+    pronunciationTips: '注意 Could I 的连读，menu 的重音在第一音节',
     audioUrl: null,
     phonetic: '/kʊd aɪ hæv ðə ˈmenjuː/',
   },
@@ -84,7 +84,7 @@ export const mockPhrases: Phrase[] = [
     partOfSpeech: '疑问句',
     scene: 'travel',
     difficulty: 'intermediate',
-    pronunciationTips: '注意 nearest 的发音',
+    pronunciationTips: '注意 nearest /ˈnɪrɪst/ 的发音，station 重音在前',
     audioUrl: null,
     phonetic: '/weər ɪz ðə ˈnɪrɪst ˈsʌbweɪ ˈsteɪʃən/',
   },
@@ -95,9 +95,31 @@ export const mockPhrases: Phrase[] = [
     partOfSpeech: '疑问句',
     scene: 'travel',
     difficulty: 'beginner',
-    pronunciationTips: '注意 do I 的连读',
+    pronunciationTips: '注意 do I 的连读，airport 重音在 air',
     audioUrl: null,
     phonetic: '/haʊ duː aɪ ɡet tuː ðə ˈeərpɔːrt/',
+  },
+  {
+    id: 'p9',
+    english: 'Could you speak more slowly, please?',
+    chinese: '你能说慢一点吗？',
+    partOfSpeech: '请求语',
+    scene: 'daily_greeting',
+    difficulty: 'beginner',
+    pronunciationTips: 'slowly 重音在 slow，尾音轻柔',
+    audioUrl: null,
+    phonetic: '/kʊd juː spiːk mɔːr ˈsloʊli pliːz/',
+  },
+  {
+    id: 'p10',
+    english: "I'll take this one.",
+    chinese: '我要这个。',
+    partOfSpeech: '陈述句',
+    scene: 'shopping',
+    difficulty: 'beginner',
+    pronunciationTips: "I'll 缩写要自然，take this 中 k 和 th 注意衔接",
+    audioUrl: null,
+    phonetic: '/aɪl teɪk ðɪs wʌn/',
   },
 ];
 
@@ -258,6 +280,30 @@ export const mockScenes: Scene[] = [
             explanation: '询问价格时，回答可以用 "It\'s + 价格" 或 "It costs + 价格"',
           },
         },
+        {
+          round_number: 3,
+          content: [
+            {
+              speaker: 'Customer',
+              text: 'Can I pay by credit card?',
+              translation: '我可以刷信用卡吗？',
+            },
+            {
+              speaker: 'Staff',
+              text: 'Of course! We accept all major cards.',
+              translation: '当然！我们接受所有主要信用卡。',
+            },
+          ],
+          analysis: {
+            question: 'Can I pay by credit card?',
+            answer: 'Of course! We accept all major cards.',
+            alternatives: [
+              "Yes, we take cards.",
+              "Sure, card payment is fine.",
+            ],
+            explanation: '询问支付方式用 "Can I pay by...?" 或 "Do you accept...?"',
+          },
+        },
       ],
     },
     vocabulary: [
@@ -278,6 +324,12 @@ export const mockScenes: Scene[] = [
         phonetic: '/kɒst/',
         meaning: 'v. 花费，价值',
         example: 'How much does it cost?',
+      },
+      {
+        word: 'credit card',
+        phonetic: '/ˈkredɪt kɑːrd/',
+        meaning: 'n. 信用卡',
+        example: 'Can I pay by credit card?',
       },
     ],
   },
@@ -332,6 +384,31 @@ export const mockScenes: Scene[] = [
             explanation: '点餐时最礼貌的说法是 "I\'d like..."，也可以用 "I\'ll have..." 或 "Can I get..."',
           },
         },
+        {
+          round_number: 3,
+          content: [
+            {
+              speaker: 'Waiter',
+              text: 'Anything to drink?',
+              translation: '需要喝什么吗？',
+            },
+            {
+              speaker: 'Customer',
+              text: 'Just water, please. And could we have the check when you get a chance?',
+              translation: '只要水就好。还有，方便的话能给我们账单吗？',
+            },
+          ],
+          analysis: {
+            question: 'How do you ask for the check?',
+            answer: 'Could we have the check, please?',
+            alternatives: [
+              "Can I get the bill?",
+              "Check, please!",
+              "We're ready to pay.",
+            ],
+            explanation: '要账单时，"check" 是美式英语，"bill" 是英式英语。最礼貌的说法加上 "please"。',
+          },
+        },
       ],
     },
     vocabulary: [
@@ -351,7 +428,13 @@ export const mockScenes: Scene[] = [
         word: 'pasta',
         phonetic: '/ˈpæstə/',
         meaning: 'n. 意大利面',
-        example: 'I\'d like the pasta.',
+        example: "I'd like the pasta.",
+      },
+      {
+        word: 'check',
+        phonetic: '/tʃek/',
+        meaning: 'n. 账单（美式）',
+        example: 'Could we have the check?',
       },
     ],
   },
@@ -380,6 +463,15 @@ export const mockScenes: Scene[] = [
               translation: '直走，然后在第二个红绿灯左转。',
             },
           ],
+          analysis: {
+            question: 'How do I get to the train station?',
+            answer: 'Go straight and turn left at the second traffic light.',
+            alternatives: [
+              "Head straight, then take a left at the second light.",
+              "Walk straight ahead and make a left turn at the second signal.",
+            ],
+            explanation: '指路时常用 "go straight"（直走）、"turn left/right"（左/右转）、"at the traffic light"（在红绿灯处）',
+          },
         },
         {
           round_number: 2,
@@ -391,10 +483,19 @@ export const mockScenes: Scene[] = [
             },
             {
               speaker: 'Local',
-              text: 'About 10 minutes.',
-              translation: '大约10分钟。',
+              text: 'About 10 minutes on foot. You can also take bus number 5.',
+              translation: '步行大约10分钟。你也可以坐5路公交车。',
             },
           ],
+          analysis: {
+            question: 'How long will it take?',
+            answer: 'About 10 minutes on foot.',
+            alternatives: [
+              "It's about a 10-minute walk.",
+              "Around 10 minutes walking.",
+            ],
+            explanation: '表达时间距离用 "about + 时间 + on foot" 或 "a + 时间 + walk"',
+          },
         },
       ],
     },
@@ -417,28 +518,107 @@ export const mockScenes: Scene[] = [
         meaning: 'n. 红绿灯',
         example: 'Turn at the traffic light.',
       },
+      {
+        word: 'on foot',
+        phonetic: '/ɒn fʊt/',
+        meaning: 'adv. 步行',
+        example: 'It takes 10 minutes on foot.',
+      },
+    ],
+  },
+  {
+    id: 's5',
+    name: '酒店入住',
+    category: 'travel',
+    description: '学习酒店办理入住手续的英语表达',
+    difficulty: 'intermediate',
+    duration: 15,
+    dialogue: {
+      full_audio_url: '',
+      duration: 80,
+      rounds: [
+        {
+          round_number: 1,
+          content: [
+            {
+              speaker: 'Guest',
+              text: "Hi, I have a reservation under the name Zhang Wei.",
+              translation: '你好，我有预订，名字是张威。',
+            },
+            {
+              speaker: 'Receptionist',
+              text: 'Welcome! Let me pull up your reservation. Can I see your ID?',
+              translation: '欢迎！让我查一下您的预订。能看一下您的证件吗？',
+            },
+          ],
+        },
+        {
+          round_number: 2,
+          content: [
+            {
+              speaker: 'Guest',
+              text: 'Sure, here you go. Is breakfast included?',
+              translation: '当然，给您。早餐包含在内吗？',
+            },
+            {
+              speaker: 'Receptionist',
+              text: "Yes, breakfast is served from 7 to 10 AM in the dining room. Here's your key card — room 302.",
+              translation: '是的，早餐在餐厅供应，时间是上午7点到10点。这是您的房卡，302房间。',
+            },
+          ],
+          analysis: {
+            question: 'Is breakfast included?',
+            answer: "Yes, breakfast is served from 7 to 10 AM.",
+            alternatives: [
+              "Does the room rate include breakfast?",
+              "Is breakfast part of the package?",
+            ],
+            explanation: '询问是否含早餐用 "Is breakfast included?" 是最常用的表达方式。',
+          },
+        },
+      ],
+    },
+    vocabulary: [
+      {
+        word: 'reservation',
+        phonetic: '/ˌrezərˈveɪʃən/',
+        meaning: 'n. 预订',
+        example: 'I have a reservation.',
+      },
+      {
+        word: 'included',
+        phonetic: '/ɪnˈkluːdɪd/',
+        meaning: 'adj. 包含在内的',
+        example: 'Is breakfast included?',
+      },
+      {
+        word: 'key card',
+        phonetic: '/kiː kɑːrd/',
+        meaning: 'n. 房卡',
+        example: "Here's your key card.",
+      },
     ],
   },
 ];
 
 // 测试题数据
 export const mockTests: SceneTest[] = [
-  // 初次见面的测试题
+  // 初次见面 s1
   {
     id: 't1',
     sceneId: 's1',
     type: 'choice',
     order: 1,
     content: {
-      question: '当别人问你 "How are you doing?" 时，你应该如何回答？',
+      question: '当别人问你 "How are you doing?" 时，下面哪个回答最自然？',
       options: [
         "I'm doing great, thanks!",
-        "I'm fine, thank you!",
-        "Pretty good!",
-        "All of the above",
+        "I am fine thank you.",
+        "Yes, I am.",
+        "How about you?",
       ],
-      answer: "All of the above",
-      explanation: '所有这些回答都是正确的。在英语中，回答 "How are you doing?" 有多种方式，都表示"我很好"。',
+      answer: "I'm doing great, thanks!",
+      explanation: '"I\'m doing great, thanks!" 是最自然流畅的回答，包含了状态描述和礼貌的感谢。',
     },
   },
   {
@@ -447,9 +627,9 @@ export const mockTests: SceneTest[] = [
     type: 'fill_blank',
     order: 2,
     content: {
-      question: '请填空：Nice to ____ you!',
+      question: '请完成这句打招呼的话：\n"Nice to ____ you! I\'m Tom."',
       answer: 'meet',
-      context: 'Nice to meet you! 是初次见面时的标准问候语。',
+      context: '初次见面时说 "Nice to meet you!" 表示很高兴认识对方。',
       explanation: '"meet" 表示见面、遇见。"Nice to meet you" 是初次见面时最常用的问候语。',
     },
   },
@@ -459,7 +639,7 @@ export const mockTests: SceneTest[] = [
     type: 'qa',
     order: 3,
     content: {
-      question: '如果有人问你 "Where are you from?"，你会怎么回答？（假设你来自上海）',
+      question: '如果有人问你 "Where are you from?"，你会怎么回答？\n（请用英语完整回答，假设你来自上海）',
       answer: "I'm from Shanghai.",
       explanation: '回答来自哪里，最常用的句型是 "I\'m from + 地点"。',
     },
@@ -470,27 +650,28 @@ export const mockTests: SceneTest[] = [
     type: 'open',
     order: 4,
     content: {
-      question: '场景：你在咖啡厅遇到一个外国朋友，请用英语和TA进行一段自我介绍的对话。',
+      question: '开放式对话练习',
       answer: '',
-      context: '这是一个开放式对话练习，AI 将扮演外国朋友，与你进行真实对话。',
+      context: '场景：你在咖啡厅遇到一个外国朋友，请用英语和 AI 进行一段完整的自我介绍对话。AI 将扮演外国朋友 Alex，主动与你搭话。目标：介绍你的名字、来自哪里、职业或爱好。',
     },
   },
-  // 超市购物的测试题
+
+  // 超市购物 s2
   {
     id: 't5',
     sceneId: 's2',
     type: 'choice',
     order: 1,
     content: {
-      question: '在超市购物时，如果想问某个商品的价格，应该怎么说？',
+      question: '在超市找不到商品，如何礼貌地向工作人员询问？',
       options: [
-        'How much does this cost?',
-        'What is the price?',
-        'How much is it?',
-        'All of the above',
+        'Excuse me, where can I find the milk?',
+        'Where is milk?',
+        'I want milk!',
+        'Give me milk please.',
       ],
-      answer: 'All of the above',
-      explanation: '这些表达都可以用来询问价格，都是正确的。',
+      answer: 'Excuse me, where can I find the milk?',
+      explanation: '使用 "Excuse me" 开头表示礼貌，"where can I find...?" 是询问商品位置的标准表达。',
     },
   },
   {
@@ -499,9 +680,127 @@ export const mockTests: SceneTest[] = [
     type: 'fill_blank',
     order: 2,
     content: {
-      question: '请填空：Excuse me, where can I ____ the milk?',
-      answer: 'find',
-      explanation: '"find" 表示找到、发现。询问某物在哪里时，常用 "Where can I find...?"',
+      question: '询问商品价格：\n"How much ____ this bread cost?"',
+      answer: 'does',
+      context: '"How much does + 物品 + cost?" 是询问价格的标准句型。',
+      explanation: '"does" 是第三人称单数助动词，用于询问价格的句型 "How much does...cost?"',
+    },
+  },
+  {
+    id: 't7',
+    sceneId: 's2',
+    type: 'qa',
+    order: 3,
+    content: {
+      question: '收银台结账时，你想问是否可以用信用卡付款，怎么说？',
+      answer: 'Can I pay by credit card?',
+      explanation: '询问支付方式用 "Can I pay by credit card?" 或 "Do you accept credit cards?"',
+    },
+  },
+  {
+    id: 't8',
+    sceneId: 's2',
+    type: 'open',
+    order: 4,
+    content: {
+      question: '开放式对话练习',
+      answer: '',
+      context: '场景：你在超市购物，AI 扮演超市工作人员。你需要询问：1）某商品的位置 2）价格 3）是否可以打折。完成一段完整的购物对话。',
+    },
+  },
+
+  // 餐厅点餐 s3
+  {
+    id: 't9',
+    sceneId: 's3',
+    type: 'choice',
+    order: 1,
+    content: {
+      question: '在餐厅点餐，哪种表达最礼貌？',
+      options: [
+        "I'd like the chicken pasta, please.",
+        "Give me chicken pasta.",
+        "I want pasta.",
+        "Chicken pasta!",
+      ],
+      answer: "I'd like the chicken pasta, please.",
+      explanation: '"I\'d like..." 是最礼貌的点餐方式，结尾加 "please" 更显礼貌。',
+    },
+  },
+  {
+    id: 't10',
+    sceneId: 's3',
+    type: 'fill_blank',
+    order: 2,
+    content: {
+      question: '请完成点餐对话：\n"Could I have the ____, please?"',
+      answer: 'menu',
+      context: '进餐厅坐下后，先索取菜单 "Could I have the menu?" 是常见的开场白。',
+      explanation: '"menu" 是菜单。"Could I have the menu?" 是向服务员要菜单的礼貌表达。',
+    },
+  },
+  {
+    id: 't11',
+    sceneId: 's3',
+    type: 'qa',
+    order: 3,
+    content: {
+      question: '用餐结束后，你想结账，如何向服务员表达？',
+      answer: 'Could we have the check, please?',
+      explanation: '"Check" 是美式英语的账单，"bill" 是英式。结账时说 "Could we have the check?" 最礼貌。',
+    },
+  },
+  {
+    id: 't12',
+    sceneId: 's3',
+    type: 'open',
+    order: 4,
+    content: {
+      question: '开放式对话练习',
+      answer: '',
+      context: '场景：你在一家西餐厅用餐，AI 扮演服务员。完成完整的用餐流程：询问菜单、点餐、询问特色菜、最后结账。尝试使用地道的餐厅英语表达。',
+    },
+  },
+
+  // 问路指路 s4
+  {
+    id: 't13',
+    sceneId: 's4',
+    type: 'choice',
+    order: 1,
+    content: {
+      question: '向陌生人问路时，哪句话最合适？',
+      options: [
+        'Excuse me, how do I get to the train station?',
+        'Where train station?',
+        'Train station, go!',
+        'Can you tell me where is train station?',
+      ],
+      answer: 'Excuse me, how do I get to the train station?',
+      explanation: '"Excuse me" 礼貌打招呼，"how do I get to...?" 是问路的标准句型。',
+    },
+  },
+  {
+    id: 't14',
+    sceneId: 's4',
+    type: 'fill_blank',
+    order: 2,
+    content: {
+      question: '指路时描述方向：\n"Go ____ ahead and turn left at the traffic light."',
+      answer: 'straight',
+      context: '"Go straight ahead" 表示直走，是最常用的指路方向词。',
+      explanation: '"straight" 表示笔直地。"Go straight ahead" 是"直走"的标准表达。',
+    },
+  },
+  {
+    id: 't15',
+    sceneId: 's4',
+    type: 'qa',
+    order: 3,
+    content: {
+      question: '你想知道步行到火车站需要多久，怎么问？',
+      answer: 'How long will it take to walk there?',
+      explanation: '"How long will it take...?" 用来询问所需时间，"to walk" 表明步行方式。',
     },
   },
 ];

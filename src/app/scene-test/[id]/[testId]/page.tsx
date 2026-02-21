@@ -414,9 +414,9 @@ export default function SceneTest() {
 
   return (
     <div className="min-h-screen bg-[#F5F6FA] pb-6">
-      <div className="max-w-[430px] mx-auto px-4 pt-6">
+      <div className="max-w-[430px] mx-auto pt-6">
         {/* Back + Progress */}
-        <div className="flex items-center gap-3 mb-5">
+        <div className={`flex items-center gap-3 mb-5 ${currentTest?.type === 'open' ? 'px-4' : ''}`}>
           <Link href={`/scene-detail/${id}`}>
             <div className="h-8 w-8 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100">
               <ArrowLeft className="h-4 w-4 text-gray-500" />
@@ -448,15 +448,21 @@ export default function SceneTest() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -30 }}
             transition={{ duration: 0.3 }}
-            className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 mb-4"
+            className={`bg-white rounded-2xl shadow-sm border border-gray-100 mb-4 overflow-hidden ${
+              currentTest.type === 'open' ? 'p-0' : 'p-5'
+            }`}
           >
-            <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${questionType.color}`}>
-              {questionType.label}
-            </span>
+            {currentTest.type !== 'open' && (
+              <>
+                <span className={`text-xs font-medium px-2.5 py-1 rounded-full ${questionType.color}`}>
+                  {questionType.label}
+                </span>
 
-            <h3 className="text-gray-800 mt-4 mb-5 leading-relaxed">
-              {currentTest.question}
-            </h3>
+                <h3 className="text-gray-800 mt-4 mb-5 leading-relaxed">
+                  {currentTest.question}
+                </h3>
+              </>
+            )}
 
             {/* Choice */}
             {currentTest.type === 'multiple-choice' && (

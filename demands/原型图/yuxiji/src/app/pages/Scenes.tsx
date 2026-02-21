@@ -6,10 +6,10 @@ import { BottomNav } from '../components/BottomNav';
 import { motion } from 'motion/react';
 
 const categoryLabels: Record<string, string> = {
-  daily_greeting: 'daily',
-  shopping: 'shopping',
-  dining: 'dining',
-  travel: 'travel',
+  daily_greeting: '日常问候',
+  shopping: '购物消费',
+  dining: '餐饮服务',
+  travel: '旅行出行',
 };
 
 const categoryGradients: Record<string, string> = {
