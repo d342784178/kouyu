@@ -86,6 +86,13 @@ kouyu/
 │   │   └── llm.ts                # AI服务封装
 │   └── styles/                   # 样式文件
 │       └── globals.css           # 全局样式
+├── tests/                        # 测试脚本
+│   └── llm/                      # LLM测试
+│       ├── README.md             # 测试说明
+│       ├── test-llm-prompts.mjs  # 主测试脚本
+│       ├── test-llm-prompts.ts   # TypeScript版本
+│       ├── test-models.mjs       # 模型可用性测试
+│       └── test-glm-4-5.mjs      # glm-4.5测试
 ├── design/                       # 设计文档
 │   └── 交互风格说明文档.md        # 交互设计规范
 ├── demands/                      # 需求文档
@@ -213,6 +220,28 @@ pnpm dev
 vercel --prod
 ```
 
+## 🧪 测试
+
+### LLM 测试脚本
+
+项目包含 LLM（大语言模型）测试脚本，用于验证所有 AI 调用是否正常工作：
+
+```bash
+# 运行所有 LLM 测试
+node tests/llm/test-llm-prompts.mjs
+
+# 测试模型可用性
+node tests/llm/test-models.mjs
+```
+
+测试内容包括：
+- 对话初始化（initiate）
+- 对话继续（continue）- 包含完成判断
+- 题目分析（analyze）
+- 填空题评测（fill-blank/evaluate）
+
+更多详情查看 [tests/llm/README.md](/tests/llm/README.md)
+
 ## 📄 相关文档
 
 - [交互风格说明文档](/design/交互风格说明文档.md) - 设计规范
@@ -220,6 +249,7 @@ vercel --prod
 - [v2增量需求文档](/demands/v2/需求文档/需求文档_增量.md) - 本次迭代需求
 - [技术设计文档](/demands/v2/设计文档/技术设计文档.md) - 技术方案
 - [数据模型设计](/demands/v2/设计文档/英语口语场景数据模型设计.md) - 数据库设计
+- [LLM 测试文档](/tests/llm/README.md) - 测试脚本说明
 
 ## 🤝 贡献
 

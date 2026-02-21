@@ -14,6 +14,7 @@ interface ContinueResponse {
   audioUrl?: string
   isEnd: boolean
   round: number
+  isComplete?: boolean // 对话是否已完成标志
 }
 
 export async function POST(request: Request) {
@@ -62,26 +63,41 @@ export async function POST(request: Request) {
     console.log('[对话生成] 完整对话历史:', JSON.stringify(conversation, null, 2))
 
     // 构建系统提示词
-    const systemPrompt = `
-你是${defaultAiRole}，在${defaultScene}场景中。用户是${defaultUserRole}。
-你的目标是继续关于${defaultDialogueGoal}的对话。
+    const systemPrompt = `You are ${defaultAiRole} in a ${defaultScene} scenario. The user is ${defaultUserRole}.
+Your dialogue goal is: ${defaultDialogueGoal}.
 
-难度等级：${difficultyLevel}
-- Beginner：使用简单句子，基础词汇，避免俚语
-- Intermediate：使用复合句，自然表达，适量习语
-- Advanced：使用复杂句式，地道俚语，隐含意图/幽默
+Difficulty Level: ${difficultyLevel}
+- Beginner: Use simple sentences, basic vocabulary, avoid idioms
+- Intermediate: Use compound sentences, natural expressions, moderate idioms
+- Advanced: Use complex sentence structures, authentic idioms, implied intentions/humor
 
-重要要求：
-1. 只返回英文回复，不要包含任何中文或其他语言
-2. 不要包含任何思考过程、解释或其他内容
-3. 直接返回最终的英文回复文本
-4. 确保回复是完整的句子，符合英文语法
-5. 请根据对话历史上下文进行回应
+## Your Task
+First, analyze if the dialogue goal has been achieved based on the conversation history.
+Then respond in this exact JSON format:
+{"isComplete":true/false,"message":"Your English response here"}
 
-示例：
-顾客：I would like to order a hamburger and fries, please.
-服务员：Sure! How would you like your hamburger cooked, and would you like a drink with that?
-    `.trim()
+## When is Dialogue Complete?
+Set isComplete to TRUE when:
+- The dialogue goal has been achieved (e.g., order completed, directions given)
+- User clearly indicates ending (says goodbye, thanks and ends)
+- Dialogue naturally concludes with no need to continue
+
+Set isComplete to FALSE when:
+- The goal is not yet achieved
+- More information or action is needed
+- Natural dialogue should continue
+
+## Important Rules
+1. Output ONLY the JSON object, no other text
+2. isComplete must be a boolean (true or false)
+3. message must be in English, matching the difficulty level
+4. If isComplete is true, message should be a polite closing
+5. If isComplete is false, message should continue the conversation naturally
+6. No Chinese, no explanations, no markdown code blocks
+
+## Examples
+Complete dialogue: {"isComplete":true,"message":"Thank you for dining with us! Have a wonderful day!"}
+Incomplete dialogue: {"isComplete":false,"message":"Would you like anything else to drink?"}`
 
     // 构建消息历史 - 包含系统提示和所有对话历史
     const messages: Message[] = [
@@ -90,9 +106,7 @@ export async function POST(request: Request) {
       ...conversation.map((msg: ConversationMessage) => ({
         role: msg.role,
         content: msg.content
-      })),
-      // 添加最后一条消息，提示AI继续对话
-      { role: 'user', content: '请根据以上对话历史，继续对话。' }
+      }))
     ]
 
     console.log('[对话生成] 调用GLM API...')
@@ -100,12 +114,12 @@ export async function POST(request: Request) {
 
     // 调用GLM API
     const response = await callLLM(messages, 0.7, 500)
-    const assistantMessage = response.content.trim()
+    const content = response.content.trim()
     
-    console.log('[对话生成] 大模型回复:', assistantMessage)
+    console.log('[对话生成] 大模型回复:', content)
 
     // 检查是否成功提取到回复
-    if (!assistantMessage) {
+    if (!content) {
       console.error('[对话生成] 未成功提取到回复')
       return NextResponse.json(
         {
@@ -118,12 +132,47 @@ export async function POST(request: Request) {
       )
     }
     
+    // 解析大模型返回的JSON
+    let isComplete = false
+    let assistantMessage = ''
+    
+    try {
+      // 提取JSON部分
+      const jsonMatch = content.match(/\{[\s\S]*\}/)
+      if (jsonMatch) {
+        const parsedResult = JSON.parse(jsonMatch[0])
+        
+        // 验证必要字段
+        if (typeof parsedResult.isComplete === 'boolean' && parsedResult.message) {
+          isComplete = parsedResult.isComplete
+          assistantMessage = parsedResult.message
+          console.log('[对话生成] 解析结果:', { isComplete, message: assistantMessage })
+        } else {
+          console.log('[对话生成] 解析结果缺少必要字段，使用原始内容')
+          assistantMessage = content
+        }
+      } else {
+        console.log('[对话生成] 未找到JSON格式，使用原始内容')
+        assistantMessage = content
+      }
+    } catch (error) {
+      console.error('[对话生成] 解析JSON失败:', error)
+      // 如果解析失败，使用原始内容
+      assistantMessage = content
+    }
+    
     console.log('[对话生成] 提取回复:', assistantMessage)
+    console.log('[对话生成] 对话完成状态:', isComplete ? '已完成' : '未完成')
     console.log('[对话生成] 消耗tokens:', response.usage?.total_tokens || '未知')
 
-    // 检查是否达到最大轮数
-    const isEnd = round >= maxRounds
-    console.log('[对话生成] 对话状态:', isEnd ? '结束' : '继续')
+    // 检查是否达到最大轮数（作为后备条件）
+    const isMaxRoundsReached = round >= maxRounds
+    const finalIsEnd = isComplete || isMaxRoundsReached
+    
+    console.log('[对话生成] 最终对话状态:', finalIsEnd ? '结束' : '继续')
+    if (isMaxRoundsReached && !isComplete) {
+      console.log('[对话生成] 达到最大轮数，强制结束对话')
+    }
 
     // 生成语音
     let audioUrl: string | undefined
@@ -146,7 +195,8 @@ export async function POST(request: Request) {
     const continueResponse: ContinueResponse = {
       message: assistantMessage,
       audioUrl: audioUrl,
-      isEnd: isEnd,
+      isEnd: finalIsEnd,
+      isComplete: isComplete,
       round: round + 1,
     }
 

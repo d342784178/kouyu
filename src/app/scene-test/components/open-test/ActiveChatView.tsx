@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { Send, Mic, Keyboard, Play, Pause } from 'lucide-react'
 import { ActiveChatViewProps } from './types'
 
 export default function ActiveChatView({
@@ -21,6 +22,14 @@ export default function ActiveChatView({
   const [showTextInput, setShowTextInput] = useState(false)
   const [textInput, setTextInput] = useState('')
   const inputRef = useRef<HTMLInputElement>(null)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+
+  // 自动滚动到底部
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight
+    }
+  }, [messages, isGeneratingResponse])
 
   const handleSendText = () => {
     if (textInput.trim()) {
@@ -31,9 +40,12 @@ export default function ActiveChatView({
   }
 
   return (
-    <div className="space-y-3 flex flex-col" style={{ height: 'calc(100vh - 200px)' }}>
-      {/* 对话区域 */}
-      <div className="flex-1 overflow-y-auto px-2 py-2 bg-[#F5F6FA] rounded-2xl min-h-0">
+    <div className="flex flex-col h-full bg-white">
+      {/* 对话区域 - 可滚动 */}
+      <div 
+        ref={scrollContainerRef}
+        className="flex-1 overflow-y-auto px-4 py-4 space-y-4"
+      >
         {messages.length === 0 ? (
           <div className="flex items-center justify-center h-full text-[#6B7280] text-sm">
             等待对话开始...
@@ -41,23 +53,34 @@ export default function ActiveChatView({
         ) : (
           <>
             {messages.map((message, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={`flex ${message.role === 'assistant' ? 'justify-start' : 'justify-end'} mb-3`}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3 }}
+                className={`flex ${message.role === 'assistant' ? 'justify-start' : 'justify-end'}`}
               >
-                <div className={`max-w-[85%] px-4 py-3 rounded-2xl text-sm ${message.role === 'assistant' ? 'bg-[#EEF2FF] text-[#1F2937]' : 'bg-[#F0FFF4] text-[#1F2937]'}`}>
+                <div className={`max-w-[80%] px-4 py-3 rounded-2xl text-sm ${
+                  message.role === 'assistant' 
+                    ? 'bg-[#EEF2FF] text-[#1F2937] rounded-bl-md' 
+                    : 'bg-[#4F7CF0] text-white rounded-br-md'
+                }`}>
                   <p className="leading-relaxed">{message.content}</p>
-                  {message.audioUrl && (
+                  {message.audioUrl && message.role === 'assistant' && (
                     <button
-                      className="mt-1.5 text-xs flex items-center text-[#4F7CF0] hover:text-[#7B5FE8] transition-colors"
+                      className="mt-2 text-xs flex items-center text-[#4F7CF0] hover:text-[#7B5FE8] transition-colors bg-white/50 px-2 py-1 rounded-full"
                       onClick={() => onPlayAudio(message.audioUrl!, index)}
                     >
-                      <i className={`fas ${playingMessageIndex === index ? 'fa-pause' : 'fa-play'} mr-1.5 text-xs`}></i>
+                      {playingMessageIndex === index ? (
+                        <Pause className="h-3 w-3 mr-1" />
+                      ) : (
+                        <Play className="h-3 w-3 mr-1" />
+                      )}
                       {playingMessageIndex === index ? '暂停' : '播放'}
                     </button>
                   )}
                 </div>
-              </div>
+              </motion.div>
             ))}
             <div ref={messagesEndRef} />
           </>
@@ -65,8 +88,12 @@ export default function ActiveChatView({
 
         {/* AI 正在输入的加载动画 */}
         {isGeneratingResponse && (
-          <div className="flex justify-start mb-3">
-            <div className="max-w-[85%] px-4 py-3 rounded-2xl bg-[#EEF2FF] text-[#1F2937]">
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex justify-start"
+          >
+            <div className="max-w-[80%] px-4 py-3 rounded-2xl bg-[#EEF2FF] text-[#1F2937] rounded-bl-md">
               <div className="flex items-center space-x-1.5">
                 <div className="animate-bounce">
                   <div className="w-1.5 h-1.5 bg-[#4F7CF0] rounded-full"></div>
@@ -80,81 +107,101 @@ export default function ActiveChatView({
                 <span className="text-xs text-[#4F7CF0] ml-1">AI 正在输入...</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
       </div>
 
-      {/* 状态信息 */}
-      <div className="text-center text-sm text-[#6B7280]">
-        第 {currentRound} / {maxRounds} 轮
+      {/* 底部固定区域 */}
+      <div className="border-t border-gray-100 bg-white px-4 py-3 pb-safe">
+        {/* 轮次信息 */}
+        <div className="text-center text-xs text-[#6B7280] mb-3">
+          第 {currentRound} / {maxRounds} 轮
+        </div>
+
+        {/* 输入区域 */}
+        {showTextInput ? (
+          <div className="flex items-center gap-2">
+            <input
+              ref={inputRef}
+              type="text"
+              value={textInput}
+              onChange={(e) => setTextInput(e.target.value)}
+              placeholder="请输入英文回复..."
+              className="flex-1 h-11 px-4 rounded-full border border-gray-200 focus:outline-none focus:border-[#4F7CF0] focus:ring-2 focus:ring-[#4F7CF0]/20 bg-gray-50 text-sm"
+              disabled={isGeneratingResponse}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && textInput.trim()) {
+                  handleSendText()
+                }
+              }}
+            />
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              className="h-11 w-11 bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white rounded-full flex items-center justify-center disabled:bg-gray-300"
+              onClick={handleSendText}
+              disabled={isGeneratingResponse || !textInput.trim()}
+            >
+              <Send className="h-4 w-4" />
+            </motion.button>
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              className="h-11 w-11 bg-gray-100 text-[#1F2937] rounded-full flex items-center justify-center disabled:bg-gray-100"
+              onClick={() => setShowTextInput(false)}
+              disabled={isGeneratingResponse}
+            >
+              <Mic className="h-4 w-4" />
+            </motion.button>
+          </div>
+        ) : (
+          <div className="flex items-center gap-2">
+            <motion.button
+              whileTap={{ scale: 0.98 }}
+              className={`flex-1 h-11 rounded-full font-semibold text-sm transition-all shadow-md flex items-center justify-center gap-2 ${
+                isRecording
+                  ? 'bg-[#EF4444] text-white animate-pulse'
+                  : isGeneratingResponse
+                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed shadow-none'
+                  : 'bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white hover:shadow-lg'
+              }`}
+              onClick={isRecording ? onStopRecording : onStartRecording}
+              disabled={isGeneratingResponse}
+            >
+              {isRecording ? (
+                <>
+                  <div className="w-3 h-3 bg-white rounded-sm" />
+                  停止录音
+                </>
+              ) : isGeneratingResponse ? (
+                <>
+                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  AI 思考中...
+                </>
+              ) : (
+                <>
+                  <Mic className="h-4 w-4" />
+                  开始录音
+                </>
+              )}
+            </motion.button>
+
+            {/* 文本输入备用 */}
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              className="h-11 w-11 bg-gray-100 text-[#1F2937] rounded-full flex items-center justify-center disabled:bg-gray-100"
+              onClick={() => setShowTextInput(true)}
+              disabled={isGeneratingResponse}
+            >
+              <Keyboard className="h-4 w-4" />
+            </motion.button>
+          </div>
+        )}
+
+        {error && (
+          <div className="text-center text-[#EF4444] text-xs mt-2">
+            {error}
+          </div>
+        )}
       </div>
-
-      {/* 输入区域 */}
-      {showTextInput ? (
-        <div className="flex items-center space-x-2">
-          <input
-            ref={inputRef}
-            type="text"
-            value={textInput}
-            onChange={(e) => setTextInput(e.target.value)}
-            placeholder="请输入英文回复..."
-            className="flex-1 py-3 px-4 rounded-2xl border border-gray-200 focus:outline-none focus:border-[#4F7CF0] focus:ring-2 focus:ring-[#4F7CF0]/20 bg-gray-50 text-sm"
-            disabled={isGeneratingResponse}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' && textInput.trim()) {
-                handleSendText()
-              }
-            }}
-          />
-          <button
-            className="px-4 py-3 bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white rounded-2xl hover:shadow-lg transition-all disabled:bg-gray-300 disabled:shadow-none text-sm"
-            onClick={handleSendText}
-            disabled={isGeneratingResponse || !textInput.trim()}
-          >
-            <i className="fas fa-paper-plane"></i>
-          </button>
-          <button
-            className="px-4 py-3 bg-gray-100 text-[#1F2937] rounded-2xl hover:bg-gray-200 transition-all disabled:bg-gray-100 text-sm"
-            onClick={() => setShowTextInput(false)}
-            disabled={isGeneratingResponse}
-          >
-            <i className="fas fa-microphone"></i>
-          </button>
-        </div>
-      ) : (
-        <div className="flex items-center space-x-2">
-          <button
-            className={`flex-1 py-3 rounded-2xl font-semibold text-sm transition-all shadow-md ${isRecording
-              ? 'bg-[#EF4444] text-white animate-pulse'
-              : isGeneratingResponse
-              ? 'bg-gray-300 text-gray-500 cursor-not-allowed shadow-none'
-              : 'bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white hover:shadow-lg'
-            }`}
-            onClick={isRecording ? onStopRecording : onStartRecording}
-            disabled={isGeneratingResponse}
-          >
-            <div className="flex items-center justify-center">
-              <i className={`fas ${isRecording ? 'fa-stop' : isGeneratingResponse ? 'fa-spinner fa-spin' : 'fa-microphone'} mr-2`}></i>
-              {isRecording ? '停止录音' : isGeneratingResponse ? 'AI 思考中...' : '开始录音'}
-            </div>
-          </button>
-
-          {/* 文本输入备用 */}
-          <button
-            className="px-4 py-3 bg-gray-100 text-[#1F2937] rounded-2xl hover:bg-gray-200 transition-all disabled:bg-gray-100 text-sm"
-            onClick={() => setShowTextInput(true)}
-            disabled={isGeneratingResponse}
-          >
-            <i className="fas fa-keyboard"></i>
-          </button>
-        </div>
-      )}
-
-      {error && (
-        <div className="text-center text-[#EF4444] text-sm">
-          {error}
-        </div>
-      )}
     </div>
   )
 }
