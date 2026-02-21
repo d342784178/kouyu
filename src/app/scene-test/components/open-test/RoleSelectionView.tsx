@@ -42,7 +42,7 @@ export default function RoleSelectionView({
   const { sceneType, sceneDescription, userRoles, dialogueGoal, suggestedTopics } = questionAnalysis
 
   return (
-    <div className="flex-1 overflow-y-auto">
+    <div className="flex-1 overflow-y-auto h-full">
       {/* Scene Banner - 渐变头部 */}
       <div className="bg-gradient-to-br from-[#4F7CF0] to-[#7B5FE8] px-5 pt-5 pb-6 rounded-t-2xl">
         <div className="flex items-center gap-2 mb-3">

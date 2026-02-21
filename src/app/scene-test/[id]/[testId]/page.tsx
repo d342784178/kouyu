@@ -412,11 +412,14 @@ export default function SceneTest() {
     }
   }
 
+  // 判断是否为开放题类型
+  const isOpenTest = currentTest?.type === 'open'
+  
   return (
-    <div className="min-h-screen bg-[#F5F6FA] pb-6">
-      <div className="max-w-[430px] mx-auto pt-6">
+    <div className={`min-h-screen bg-[#F5F6FA] ${isOpenTest ? 'pb-0' : 'pb-6'}`}>
+      <div className={`max-w-[430px] mx-auto ${isOpenTest ? 'h-screen flex flex-col' : 'pt-6'}`}>
         {/* Back + Progress */}
-        <div className={`flex items-center gap-3 mb-5 ${currentTest?.type === 'open' ? 'px-4' : ''}`}>
+        <div className={`flex items-center gap-3 mb-5 ${isOpenTest ? 'px-4 pt-6 shrink-0' : ''}`}>
           <Link href={`/scene-detail/${id}`}>
             <div className="h-8 w-8 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100">
               <ArrowLeft className="h-4 w-4 text-gray-500" />
@@ -449,7 +452,7 @@ export default function SceneTest() {
             exit={{ opacity: 0, x: -30 }}
             transition={{ duration: 0.3 }}
             className={`bg-white rounded-2xl shadow-sm border border-gray-100 mb-4 overflow-hidden ${
-              currentTest.type === 'open' ? 'p-0' : 'p-5'
+              isOpenTest ? 'p-0 flex-1 flex flex-col min-h-0 mx-4' : 'p-5'
             }`}
           >
             {currentTest.type !== 'open' && (
