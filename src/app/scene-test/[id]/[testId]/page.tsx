@@ -192,9 +192,23 @@ export default function SceneTest() {
   }
 
   const handleOptionClick = (option: string) => {
+    if (!currentTest || hasResult) return
+    
     setSelectedOption(option)
-    setAnswers({ ...answers, [currentTest?.id || '']: option })
+    setAnswers({ ...answers, [currentTest.id]: option })
     setIsAnswered(true)
+    
+    // 选择题直接提交答案
+    const isCorrect = option === currentTest.answer
+    const result: TestResult = {
+      isCorrect,
+      score: isCorrect ? 100 : 0,
+      analysis: currentTest.analysis,
+      suggestion: isCorrect ? '继续努力！' : '请再仔细思考一下。',
+      userAnswer: option,
+      correctAnswer: currentTest.answer
+    }
+    setTestResults({ ...testResults, [currentTest.id]: result })
   }
 
   const handleFillBlankSubmit = async () => {
@@ -685,24 +699,13 @@ export default function SceneTest() {
 
         {/* Action Buttons */}
         <div className="flex gap-3">
-          {!hasResult && hasAnswered && currentTest.type !== 'open' && (
+          {/* 填空题和问答题显示提交按钮 */}
+          {!hasResult && hasAnswered && (currentTest.type === 'fill-blank' || currentTest.type === 'qa') && (
             <button
               className="flex-1 h-12 bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white rounded-2xl font-medium disabled:opacity-50"
               onClick={() => {
                 if (currentTest.type === 'fill-blank') {
                   handleFillBlankSubmit()
-                } else if (currentTest.type === 'multiple-choice') {
-                  const selectedAnswer = answers[currentTest.id]
-                  const isCorrect = selectedAnswer === currentTest.answer
-                  const result: TestResult = {
-                    isCorrect,
-                    score: isCorrect ? 100 : 0,
-                    analysis: currentTest.analysis,
-                    suggestion: isCorrect ? '继续努力！' : '请再仔细思考一下。',
-                    userAnswer: selectedAnswer,
-                    correctAnswer: currentTest.answer
-                  }
-                  setTestResults({ ...testResults, [currentTest.id]: result })
                 } else if (currentTest.type === 'qa') {
                   evaluateQAAnswer(qaAnswer)
                 }
@@ -712,6 +715,7 @@ export default function SceneTest() {
               提交答案
             </button>
           )}
+          {/* 已答题显示下一题按钮 */}
           {hasResult && (
             <button
               className="flex-1 h-12 bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white rounded-2xl font-medium"

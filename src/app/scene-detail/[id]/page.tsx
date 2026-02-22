@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import DialogueContent from './components/DialogueContent'
 import VocabularyContent from './components/VocabularyContent'
 import PlayAllButton from './components/PlayAllButton'
@@ -81,6 +82,61 @@ interface Vocabulary {
   round_number: number
 }
 
+// 返回箭头图标
+function ArrowLeftIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="m15 18-6-6 6-6" />
+    </svg>
+  )
+}
+
+// 分享图标
+function ShareIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+      <polyline points="16 6 12 2 8 6" />
+      <line x1="12" y1="2" x2="12" y2="15" />
+    </svg>
+  )
+}
+
+// 时钟图标
+function ClockIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
+    </svg>
+  )
+}
+
+// 对话图标
+function DialogueIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+    </svg>
+  )
+}
+
+// 难度配置
+const difficultyConfig: Record<string, { label: string; color: string; bgColor: string }> = {
+  'beginner': { label: '入门', color: '#10B981', bgColor: '#D1FAE5' },
+  'elementary': { label: '初级', color: '#10B981', bgColor: '#D1FAE5' },
+  'intermediate': { label: '中级', color: '#3B82F6', bgColor: '#DBEAFE' },
+  'advanced': { label: '进阶', color: '#8B5CF6', bgColor: '#EDE9FE' },
+  'expert': { label: '高级', color: '#F59E0B', bgColor: '#FEF3C7' },
+  'challenge': { label: '挑战', color: '#EF4444', bgColor: '#FEE2E2' },
+  '入门': { label: '入门', color: '#10B981', bgColor: '#D1FAE5' },
+  '初级': { label: '初级', color: '#10B981', bgColor: '#D1FAE5' },
+  '中级': { label: '中级', color: '#3B82F6', bgColor: '#DBEAFE' },
+  '进阶': { label: '进阶', color: '#8B5CF6', bgColor: '#EDE9FE' },
+  '高级': { label: '高级', color: '#F59E0B', bgColor: '#FEF3C7' },
+  '挑战': { label: '挑战', color: '#EF4444', bgColor: '#FEE2E2' },
+}
+
 export default function SceneDetail() {
   const params = useParams<{ id: string }>()
   const id = params.id || ''
@@ -93,7 +149,6 @@ export default function SceneDetail() {
   // 获取场景详情的函数
   const getSceneById = async (id: string): Promise<Scene> => {
     try {
-      // 在客户端组件中，直接使用相对路径
       const response = await fetch(`/api/scenes/${id}`)
       
       let scene: Scene
@@ -101,7 +156,6 @@ export default function SceneDetail() {
       if (response.ok) {
         scene = await response.json()
       } else {
-        // 如果API调用失败，返回模拟数据
         scene = {
           id: id,
           name: '日常问候',
@@ -205,7 +259,6 @@ export default function SceneDetail() {
       return scene
     } catch (error) {
       console.error(`Error fetching scene ${id}:`, error)
-      // 返回模拟数据
       return {
         id: id,
         name: '日常问候',
@@ -219,88 +272,9 @@ export default function SceneDetail() {
           scene_id: id,
           full_audio_url: `https://cdn.example.com/audio/${id}_full.mp3`,
           duration: 30,
-          rounds: [
-            {
-              round_number: 1,
-              content: [
-                {
-                  index: 1,
-                  speaker: 'A',
-                  speaker_name: 'A',
-                  text: 'Hello! How are you today?',
-                  translation: '你好！你今天怎么样？',
-                  audio_url: `https://cdn.example.com/audio/${id}_r1_1.mp3`,
-                  is_key_qa: true
-                },
-                {
-                  index: 2,
-                  speaker: 'B',
-                  speaker_name: 'B',
-                  text: "I'm doing great, thanks! How about you?",
-                  translation: '我很好，谢谢！你呢？',
-                  audio_url: `https://cdn.example.com/audio/${id}_r1_2.mp3`,
-                  is_key_qa: false
-                }
-              ],
-              analysis: {
-                analysis_detail: '这是最基础的日常问候对话。用于熟人之间的问候。',
-                standard_answer: {
-                  answer_id: `ans_${id}_01_std`,
-                  text: "I'm doing great, thanks! How about you?",
-                  translation: '我很好，谢谢！你呢？',
-                  audio_url: `https://cdn.example.com/audio/ans_${id}_01_std.mp3`,
-                  scenario: '标准问候回答',
-                  formality: 'neutral'
-                },
-                alternative_answers: [
-                  {
-                    answer_id: `ans_${id}_01_alt1`,
-                    text: "I'm good, thanks. And you?",
-                    translation: '我很好，谢谢。你呢？',
-                    audio_url: `https://cdn.example.com/audio/ans_${id}_01_alt1.mp3`,
-                    scenario: '简洁回答',
-                    formality: 'casual'
-                  },
-                  {
-                    answer_id: `ans_${id}_01_alt2`,
-                    text: "I'm doing well, thank you for asking. How are you?",
-                    translation: '我很好，谢谢你的关心。你怎么样？',
-                    audio_url: `https://cdn.example.com/audio/ans_${id}_01_alt2.mp3`,
-                    scenario: '正式回答',
-                    formality: 'formal'
-                  }
-                ],
-                usage_notes: '"How are you today?"是询问对方当天状态的常用表达。回答时，通常会先说明自己的状态，然后反问对方。'
-              }
-            }
-          ]
+          rounds: []
         },
-        vocabulary: [
-          {
-            vocab_id: `vocab_${id}_01`,
-            scene_id: id,
-            type: 'word',
-            content: 'hello',
-            phonetic: '/həˈloʊ/',
-            translation: '你好',
-            example_sentence: 'Hello! How are you today?',
-            example_translation: '你好！你今天怎么样？',
-            audio_url: `https://cdn.example.com/audio/vocab_hello.mp3`,
-            round_number: 1
-          },
-          {
-            vocab_id: `vocab_${id}_02`,
-            scene_id: id,
-            type: 'word',
-            content: 'thanks',
-            phonetic: '/θæŋks/',
-            translation: '谢谢',
-            example_sentence: "I'm doing great, thanks!",
-            example_translation: '我很好，谢谢！',
-            audio_url: `https://cdn.example.com/audio/vocab_thanks.mp3`,
-            round_number: 1
-          }
-        ],
+        vocabulary: [],
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
       }
@@ -315,9 +289,6 @@ export default function SceneDetail() {
         const sceneData = await getSceneById(id)
         setScene(sceneData)
         
-        // 从场景数据中提取对话回合
-        // 注意：audio_url 应该是相对路径格式如 "COS:/scene/dialogues/xxx.mp3"
-        // 如果 audio_url 不存在或为空字符串，保留空值（前端会显示"暂不支持音频播放"）
         const rounds = sceneData.dialogue.rounds.map(round => ({
           ...round,
           content: round.content.map(dialogue => ({
@@ -327,7 +298,6 @@ export default function SceneDetail() {
         }))
         setDialogueRounds(rounds)
         
-        // 从场景数据中提取词汇
         const vocab = sceneData.vocabulary.map(vocab => ({
           ...vocab,
           audio_url: vocab.audio_url && vocab.audio_url.trim() !== '' ? vocab.audio_url : ''
@@ -346,81 +316,151 @@ export default function SceneDetail() {
   }, [id])
   
   // 如果场景数据未加载，显示加载状态
-  if (!scene) {
+  if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        <div className="text-text-primary">加载中...</div>
+      <div className="min-h-screen bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8] flex items-center justify-center">
+        <div className="flex flex-col items-center">
+          <div className="w-10 h-10 border-3 border-[#4F7CF0]/20 border-t-[#4F7CF0] rounded-full animate-spin mb-4"></div>
+          <p className="text-gray-500 text-sm">加载中...</p>
+        </div>
       </div>
     )
   }
   
+  if (!scene) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8] flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-5xl mb-4">😕</div>
+          <p className="text-gray-600 font-medium">场景不存在</p>
+        </div>
+      </div>
+    )
+  }
+
+  const difficulty = difficultyConfig[scene.difficulty] || { label: scene.difficulty, color: '#6B7280', bgColor: '#F3F4F6' }
+  
   return (
-    <div id="scene-detail-content" className="pb-20">
+    <div className="min-h-screen bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8] pb-24">
       {/* 顶部导航栏 */}
-      <header id="top-header" className="bg-white px-6 py-4 shadow-sm sticky top-0 z-30">
-        <div id="header-content" className="flex items-center justify-between">
-          {/* 返回按钮 */}
-          <Link 
-            href="/scene-list" 
-            id="back-btn" 
-            className="w-10 h-10 flex items-center justify-center"
-          >
-            <i className="fas fa-arrow-left text-text-primary text-lg"></i>
-          </Link>
-          
-          {/* 页面标题 */}
-          <h1 id="page-title" className="text-lg font-semibold text-text-primary">{scene.name}</h1>
-          
-          {/* 分享按钮 */}
-          <button id="share-btn" className="w-10 h-10 flex items-center justify-center">
-            <i className="fas fa-share-alt text-text-primary text-lg"></i>
-          </button>
+      <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div className="max-w-[430px] mx-auto px-4 py-3">
+          <div className="flex items-center justify-between">
+            <Link 
+              href="/scene-list" 
+              className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+            >
+              <ArrowLeftIcon />
+            </Link>
+            
+            <h1 className="text-lg font-bold text-gray-900">{scene.name}</h1>
+            
+            <button className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors">
+              <ShareIcon />
+            </button>
+          </div>
         </div>
       </header>
 
-      {/* 场景信息 */}
-      <div id="scene-info" className="mx-6 mt-4">
-        <div className="bg-white rounded-card shadow-card p-4">
-          <div className="flex items-center justify-between mb-4 gap-4">
-            <div className="flex items-center space-x-3 flex-wrap gap-y-2">
-              <span className="px-3 py-1 bg-blue-50 text-blue-600 text-sm rounded-full whitespace-nowrap">{scene.category}</span>
-              <span className="px-3 py-1 bg-green-50 text-green-600 text-sm rounded-full whitespace-nowrap">{scene.difficulty}</span>
-            </div>
-            <div className="flex-shrink-0">
-              <PlayAllButton rounds={dialogueRounds} />
-            </div>
-          </div>
-          <p className="text-sm text-text-secondary">{scene.description}</p>
-        </div>
-      </div>
-
-      {/* 对话内容 */}
-      <div id="dialogue-content" className="mx-6 mt-6">
-        <h2 className="text-lg font-semibold text-text-primary mb-4">对话学习</h2>
-        
-        <div className="bg-white rounded-card shadow-card p-6">
-          <DialogueContent rounds={dialogueRounds} />
-        </div>
-      </div>
-
-      {/* 高频单词/短语 */}
-      <div id="high-frequency-words" className="mx-6 mt-6">
-        <h2 className="text-lg font-semibold text-text-primary mb-4">高频词汇</h2>
-        
-        <div className="bg-white rounded-card shadow-card p-4">
-          <VocabularyContent vocabulary={vocabulary} />
-        </div>
-      </div>
-
-      {/* 开始测试按钮 */}
-      <div id="test-button" className="mx-6 mt-8 mb-20">
-        <Link 
-          href={`/scene-test/${scene.id}`} 
-          id="start-test-btn" 
-          className="block w-full py-4 bg-primary text-white rounded-card text-lg font-semibold shadow-card text-center"
+      <div className="max-w-[430px] mx-auto px-4 pt-4">
+        {/* 场景信息卡片 */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 mb-6"
         >
-          开始测试
-        </Link>
+          {/* 标签和操作 */}
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <span 
+                className="px-3 py-1.5 rounded-full text-xs font-semibold"
+                style={{ color: difficulty.color, backgroundColor: difficulty.bgColor }}
+              >
+                {difficulty.label}
+              </span>
+              <span className="flex items-center gap-1 text-xs text-gray-500">
+                <ClockIcon />
+                {scene.duration}分钟
+              </span>
+            </div>
+            <PlayAllButton rounds={dialogueRounds} />
+          </div>
+          
+          {/* 描述 */}
+          <p className="text-sm text-gray-600 leading-relaxed">{scene.description}</p>
+          
+          {/* 标签 */}
+          {scene.tags && scene.tags.length > 0 && (
+            <div className="flex flex-wrap gap-2 mt-4">
+              {scene.tags.map((tag, index) => (
+                <span key={index} className="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs rounded-lg">
+                  #{tag}
+                </span>
+              ))}
+            </div>
+          )}
+        </motion.div>
+
+        {/* 对话内容 */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="mb-6"
+        >
+          <div className="flex items-center gap-2 mb-4">
+            <div className="w-8 h-8 rounded-xl bg-[#4F7CF0]/10 flex items-center justify-center">
+              <DialogueIcon />
+            </div>
+            <h2 className="text-lg font-bold text-gray-900">对话学习</h2>
+            <span className="text-xs text-gray-400 ml-auto">{dialogueRounds.length} 轮对话</span>
+          </div>
+          
+          <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+            <DialogueContent rounds={dialogueRounds} />
+          </div>
+        </motion.div>
+
+        {/* 高频词汇 */}
+        {vocabulary.length > 0 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="mb-6"
+          >
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 rounded-xl bg-green-100 flex items-center justify-center">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 7V4h16v3" />
+                  <path d="M9 20h6" />
+                  <path d="M12 4v16" />
+                </svg>
+              </div>
+              <h2 className="text-lg font-bold text-gray-900">高频词汇</h2>
+              <span className="text-xs text-gray-400 ml-auto">{vocabulary.length} 个词汇</span>
+            </div>
+            
+            <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+              <VocabularyContent vocabulary={vocabulary} />
+            </div>
+          </motion.div>
+        )}
+
+        {/* 开始测试按钮 */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="mt-8 mb-24"
+        >
+          <Link 
+            href={`/scene-test/${scene.id}`}
+            className="block w-full py-4 bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white rounded-2xl text-base font-bold text-center shadow-lg shadow-[#4F7CF0]/25 hover:shadow-xl hover:shadow-[#4F7CF0]/30 transition-all active:scale-[0.98]"
+          >
+            开始测试
+          </Link>
+        </motion.div>
       </div>
     </div>
   )

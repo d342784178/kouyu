@@ -17,29 +17,29 @@ interface Scene {
   updatedAt: string
 }
 
-// 分类配置
-const categoryConfig: Record<string, { icon: string; gradient: string }> = {
-  '全部': { icon: '🌟', gradient: 'from-[#4F7CF0] to-[#7B5FE8]' },
-  '日常问候': { icon: '👋', gradient: 'from-[#4F7CF0] to-[#7B5FE8]' },
-  '购物消费': { icon: '🛒', gradient: 'from-[#FF7043] to-[#FF9A76]' },
-  '餐饮服务': { icon: '🍽️', gradient: 'from-[#F59E0B] to-[#FBBF24]' },
-  '旅行出行': { icon: '✈️', gradient: 'from-[#34D399] to-[#6EE7B7]' },
+// 分类配置 - 优化配色
+const categoryConfig: Record<string, { icon: string; color: string; bgColor: string }> = {
+  '全部': { icon: '✨', color: '#4F7CF0', bgColor: '#EEF2FF' },
+  '日常问候': { icon: '👋', color: '#4F7CF0', bgColor: '#EEF2FF' },
+  '购物消费': { icon: '🛍️', color: '#FF7043', bgColor: '#FFF4F0' },
+  '餐饮服务': { icon: '🍽️', color: '#F59E0B', bgColor: '#FFF8EE' },
+  '旅行出行': { icon: '✈️', color: '#34D399', bgColor: '#F0FFF4' },
 }
 
-// 难度配置
-const difficultyConfig: Record<string, { label: string; color: string }> = {
-  '入门': { label: '入门', color: 'bg-green-100 text-green-700' },
-  '初级': { label: '初级', color: 'bg-green-100 text-green-700' },
-  '中级': { label: '中级', color: 'bg-blue-100 text-blue-700' },
-  '进阶': { label: '进阶', color: 'bg-purple-100 text-purple-700' },
-  '高级': { label: '高级', color: 'bg-orange-100 text-orange-700' },
-  '挑战': { label: '挑战', color: 'bg-yellow-100 text-yellow-700' },
+// 难度配置 - 优化标签样式
+const difficultyConfig: Record<string, { label: string; color: string; bgColor: string }> = {
+  '入门': { label: '入门', color: '#10B981', bgColor: '#D1FAE5' },
+  '初级': { label: '初级', color: '#10B981', bgColor: '#D1FAE5' },
+  '中级': { label: '中级', color: '#3B82F6', bgColor: '#DBEAFE' },
+  '进阶': { label: '进阶', color: '#8B5CF6', bgColor: '#EDE9FE' },
+  '高级': { label: '高级', color: '#F59E0B', bgColor: '#FEF3C7' },
+  '挑战': { label: '挑战', color: '#EF4444', bgColor: '#FEE2E2' },
 }
 
 // 搜索图标
 function SearchIcon() {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
       <circle cx="11" cy="11" r="8" />
       <path d="m21 21-4.35-4.35" />
     </svg>
@@ -47,11 +47,24 @@ function SearchIcon() {
 }
 
 // 右箭头图标
-function ChevronRightIcon() {
+function ChevronRightIcon({ className }: { className?: string }) {
   return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
       <path d="m9 18 6-6-6-6" />
     </svg>
+  )
+}
+
+// 场景图标
+function SceneIcon({ category }: { category: string }) {
+  const config = categoryConfig[category] || categoryConfig['全部']
+  return (
+    <div 
+      className="w-12 h-12 rounded-2xl flex items-center justify-center text-2xl"
+      style={{ backgroundColor: config.bgColor }}
+    >
+      {config.icon}
+    </div>
   )
 }
 
@@ -193,56 +206,61 @@ export default function SceneList() {
   const hasScenes = displayScenes.length > 0
 
   return (
-    <div className="min-h-screen bg-[#F5F6FA] pb-20">
-      <div className="max-w-[430px] mx-auto px-4 pt-6">
+    <div className="min-h-screen bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8] pb-20">
+      <div className="max-w-[430px] mx-auto px-4 pt-8">
         
-        {/* Header */}
+        {/* Header - 优化标题样式 */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-5"
+          className="mb-6"
         >
-          <h1 className="text-xl font-bold text-gray-800 mb-1">场景学习</h1>
-          <p className="text-sm text-gray-400">在真实场景中练习英语口语</p>
+          <h1 className="text-2xl font-bold text-gray-900 mb-2">场景学习</h1>
+          <p className="text-sm text-gray-500">在真实场景中练习英语口语</p>
         </motion.div>
 
-        {/* Search */}
+        {/* Search - 优化搜索框样式 */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="flex items-center bg-white rounded-2xl px-4 py-3 shadow-sm border border-gray-100 mb-4"
+          className="relative mb-5"
         >
-          <SearchIcon />
+          <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
+            <SearchIcon />
+          </div>
           <input
             placeholder="搜索场景..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="flex-1 bg-transparent outline-none text-sm text-gray-600 placeholder:text-gray-400 ml-2"
+            className="w-full bg-white rounded-2xl pl-12 pr-4 py-3.5 text-sm text-gray-700 placeholder:text-gray-400 outline-none shadow-sm border border-gray-100 focus:border-[#4F7CF0] focus:ring-2 focus:ring-[#4F7CF0]/10 transition-all"
           />
         </motion.div>
 
-        {/* Category Filter */}
+        {/* Category Filter - 优化分类标签 */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="flex gap-2 overflow-x-auto pb-1 mb-5 scrollbar-hide"
+          className="flex gap-2 overflow-x-auto pb-2 mb-5 scrollbar-hide"
         >
           {categories.map((category) => {
             const isActive = selectedCategory === category
-            const config = categoryConfig[category] || { icon: '📚', gradient: 'from-[#4F7CF0] to-[#7B5FE8]' }
+            const config = categoryConfig[category] || categoryConfig['全部']
             
             return (
               <motion.button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
                 whileTap={{ scale: 0.95 }}
-                className={`shrink-0 flex items-center gap-1.5 px-3.5 py-2 rounded-2xl text-sm transition-all ${
+                className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
                   isActive
-                    ? 'bg-[#4F7CF0] text-white shadow-sm'
-                    : 'bg-white text-gray-500 border border-gray-100'
+                    ? 'text-white shadow-md'
+                    : 'bg-white text-gray-600 border border-gray-100 hover:border-gray-200'
                 }`}
+                style={{
+                  backgroundColor: isActive ? config.color : undefined,
+                }}
               >
                 <span>{config.icon}</span>
                 <span>{category}</span>
@@ -251,25 +269,27 @@ export default function SceneList() {
           })}
         </motion.div>
 
-        {/* Scene Count */}
-        <div className="mb-3">
-          <span className="text-sm text-gray-400">{filteredScenes.length} 个场景</span>
+        {/* Scene Count - 优化计数显示 */}
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-sm font-medium text-gray-600">
+            共 <span className="text-[#4F7CF0] font-bold">{filteredScenes.length}</span> 个场景
+          </span>
         </div>
 
-        {/* Scene List */}
+        {/* Scene List - 优化卡片设计 */}
         {isLoading ? (
-          // 加载骨架屏
-          <div className="space-y-3">
+          // 加载骨架屏 - 优化样式
+          <div className="space-y-4">
             {[1, 2, 3].map((i) => (
               <div key={i} className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 animate-pulse">
-                <div className="flex items-start gap-3">
-                  <div className="h-10 w-10 rounded-xl bg-gray-200 shrink-0"></div>
+                <div className="flex items-start gap-4">
+                  <div className="h-12 w-12 rounded-2xl bg-gray-200 shrink-0"></div>
                   <div className="flex-1">
-                    <div className="h-4 bg-gray-200 rounded w-1/3 mb-2"></div>
-                    <div className="h-3 bg-gray-200 rounded w-2/3 mb-3"></div>
+                    <div className="h-5 bg-gray-200 rounded w-1/3 mb-2"></div>
+                    <div className="h-3 bg-gray-200 rounded w-3/4 mb-3"></div>
                     <div className="flex gap-2">
-                      <div className="h-5 bg-gray-200 rounded w-16"></div>
-                      <div className="h-5 bg-gray-200 rounded w-16"></div>
+                      <div className="h-6 bg-gray-200 rounded-full w-16"></div>
+                      <div className="h-6 bg-gray-200 rounded-full w-16"></div>
                     </div>
                   </div>
                 </div>
@@ -280,56 +300,71 @@ export default function SceneList() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-white rounded-2xl p-10 text-center shadow-sm border border-gray-100"
+            className="bg-white rounded-2xl p-12 text-center shadow-sm border border-gray-100"
           >
-            <div className="text-3xl mb-3">🎭</div>
-            <p className="text-gray-400 text-sm">暂无相关场景</p>
+            <div className="text-5xl mb-4">🔍</div>
+            <p className="text-gray-500 font-medium">暂无相关场景</p>
+            <p className="text-xs text-gray-400 mt-1">试试其他关键词</p>
           </motion.div>
         ) : (
-          <div className="space-y-3">
+          <div className="space-y-4">
             {displayScenes.map((scene, i) => {
-              const config = categoryConfig[scene.category] || { icon: '📚', gradient: 'from-[#4F7CF0] to-[#7B5FE8]' }
-              const difficulty = difficultyConfig[scene.difficulty] || { label: scene.difficulty, color: 'bg-gray-100 text-gray-600' }
+              const config = categoryConfig[scene.category] || categoryConfig['全部']
+              const difficulty = difficultyConfig[scene.difficulty] || { label: scene.difficulty, color: '#6B7280', bgColor: '#F3F4F6' }
               
               return (
                 <motion.div
                   key={scene.id}
-                  initial={{ opacity: 0, y: 12 }}
+                  initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.35, delay: i * 0.06 }}
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
                 >
                   <Link href={`/scene-detail/${scene.id}`}>
                     <motion.div
-                      whileTap={{ scale: 0.99 }}
-                      className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow"
+                      whileTap={{ scale: 0.98 }}
+                      className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300"
                     >
-                      {/* Gradient header strip */}
-                      <div className={`bg-gradient-to-r ${config.gradient} h-1.5`} />
                       <div className="p-4">
-                        <div className="flex items-start justify-between gap-3">
-                          <div className="flex items-center gap-3">
-                            <div className={`h-10 w-10 rounded-xl bg-gradient-to-br ${config.gradient} flex items-center justify-center shrink-0`}>
-                              <span className="text-lg">{config.icon}</span>
+                        <div className="flex items-start gap-4">
+                          {/* 场景图标 */}
+                          <SceneIcon category={scene.category} />
+                          
+                          {/* 内容区域 */}
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-start justify-between gap-2">
+                              <h3 className="font-semibold text-gray-900 text-base truncate">
+                                {scene.name}
+                              </h3>
+                              <ChevronRightIcon className="text-gray-300 group-hover:text-[#4F7CF0] transition-colors shrink-0 mt-0.5" />
                             </div>
-                            <div>
-                              <div className="font-semibold text-gray-800">{scene.name}</div>
-                              <p className="text-xs text-gray-400 mt-0.5 line-clamp-2 max-w-[200px]">
-                                {scene.description}
-                              </p>
+                            <p className="text-xs text-gray-500 mt-1 line-clamp-2 leading-relaxed">
+                              {scene.description}
+                            </p>
+                            
+                            {/* 标签区域 - 优化样式 */}
+                            <div className="flex items-center gap-2 mt-3">
+                              <span 
+                                className="text-xs font-medium px-3 py-1 rounded-full"
+                                style={{ color: config.color, backgroundColor: config.bgColor }}
+                              >
+                                {scene.category}
+                              </span>
+                              <span 
+                                className="text-xs font-medium px-3 py-1 rounded-full"
+                                style={{ color: difficulty.color, backgroundColor: difficulty.bgColor }}
+                              >
+                                {difficulty.label}
+                              </span>
                             </div>
                           </div>
-                          <ChevronRightIcon />
-                        </div>
-
-                        <div className="flex items-center gap-2 mt-3">
-                          <span className="text-xs bg-[#EEF2FF] text-[#4F7CF0] px-2.5 py-1 rounded-full">
-                            {scene.category}
-                          </span>
-                          <span className={`text-xs px-2.5 py-1 rounded-full ${difficulty.color}`}>
-                            {difficulty.label}
-                          </span>
                         </div>
                       </div>
+                      
+                      {/* 底部装饰条 */}
+                      <div 
+                        className="h-1 w-full opacity-0 group-hover:opacity-100 transition-opacity"
+                        style={{ backgroundColor: config.color }}
+                      />
                     </motion.div>
                   </Link>
                 </motion.div>
@@ -337,56 +372,21 @@ export default function SceneList() {
             })}
             
             {/* 加载更多触发器 */}
-            <div ref={loadMoreRef} className="py-6">
+            <div ref={loadMoreRef} className="py-8">
               {isLoadingMore && (
                 <div className="flex flex-col items-center justify-center">
-                  <div className="w-8 h-8 border-2 border-[#4F7CF0] border-t-transparent rounded-full animate-spin mb-2"></div>
+                  <div className="w-10 h-10 border-3 border-[#4F7CF0]/20 border-t-[#4F7CF0] rounded-full animate-spin mb-3"></div>
                   <p className="text-xs text-gray-400">加载更多...</p>
                 </div>
               )}
               {!hasMore && displayScenes.length > 0 && (
-                <p className="text-center text-xs text-gray-400 py-2">
-                  已经到底了
-                </p>
+                <div className="text-center py-4">
+                  <div className="w-12 h-px bg-gray-200 mx-auto mb-3"></div>
+                  <p className="text-xs text-gray-400">已经到底了</p>
+                </div>
               )}
             </div>
           </div>
-        )}
-
-        {/* Categories Overview */}
-        {selectedCategory === '全部' && !searchQuery && !isLoading && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="mt-6 mb-2"
-          >
-            <div className="font-semibold text-gray-800 mb-3">场景分类</div>
-            <div className="grid grid-cols-2 gap-3">
-              {categories.filter(c => c !== '全部').map((category, index) => {
-                const config = categoryConfig[category] || { icon: '📚', gradient: 'from-[#4F7CF0] to-[#7B5FE8]' }
-                const count = scenes.filter(s => s.category === category).length
-                
-                return (
-                  <motion.button
-                    key={category}
-                    onClick={() => setSelectedCategory(category)}
-                    whileTap={{ scale: 0.98 }}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.1 * index }}
-                    className={`bg-gradient-to-br ${config.gradient} rounded-2xl p-4 text-white text-left shadow-sm hover:shadow-md transition-shadow`}
-                  >
-                    <div className="text-2xl mb-2">{config.icon}</div>
-                    <div className="text-sm font-semibold">{category}</div>
-                    <div className="text-xs opacity-80 mt-0.5">
-                      {count} 个场景
-                    </div>
-                  </motion.button>
-                )
-              })}
-            </div>
-          </motion.div>
         )}
 
       </div>
