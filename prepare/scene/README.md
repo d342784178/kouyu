@@ -13,13 +13,10 @@
 
 | 文件 | 说明 |
 |------|------|
-| `scenes_100.json` | **最终数据文件** - 93个高质量场景 |
-| `scenes_failed.json` | 生成失败的场景记录 |
+| `scenes_100.json` | **最终数据文件** - 100个高质量场景（完整版） |
 
 ### 旧数据备份
 - `final_100_scenes.json` - 原始88个场景数据（旧版）
-- `final_scenes.json` - 测试生成的3个场景
-- `scenes.json` - 早期数据
 
 ## 使用方法
 
@@ -87,23 +84,23 @@ node prepare/scene/scripts/test_generate.js
 }
 ```
 
-## 场景分类
+## 场景分类（100个）
 
-- **daily** (日常) - 31个场景
-- **workplace** (职场) - 23个场景
-- **study_abroad** (留学) - 17个场景
-- **travel** (旅行) - 13个场景
-- **social** (社交) - 9个场景
+- **daily** (日常) - 30个场景
+- **workplace** (职场) - 25个场景
+- **study_abroad** (留学) - 20个场景
+- **travel** (旅行) - 15个场景
+- **social** (社交) - 10个场景
 
 ## 难度分布
 
 - **beginner** - 30个场景（3轮对话）
-- **intermediate** - 34个场景（4轮对话）
-- **advanced** - 29个场景（5轮对话）
+- **intermediate** - 35个场景（4轮对话）
+- **advanced** - 35个场景（5轮对话）
 
 ## 数据质量
 
-- ✅ 93个成功生成的场景
+- ✅ 100个完整场景
 - ✅ 所有词汇都有 difficulty 字段
 - ✅ 所有词汇都有 vocab_id
 - ✅ 音标使用标准 IPA 格式
@@ -111,6 +108,7 @@ node prepare/scene/scripts/test_generate.js
 
 ## 注意事项
 
-1. 需要设置 `GLM_API_KEY` 环境变量
-2. 生成100个场景约需9-10分钟
+1. 需要设置 `GLM_API_KEY` 环境变量（在 `.env.local` 中）
+2. 生成100个场景约需10-12分钟
 3. 脚本支持断点续传，会从中断处继续生成
+4. 最终数据文件：`prepare/scene/data/scenes_100.json`
