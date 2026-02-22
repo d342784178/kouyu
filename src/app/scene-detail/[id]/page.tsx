@@ -367,9 +367,6 @@ export default function SceneDetail() {
     }
   }, [id])
   
-  // 计算学习时间（模拟）
-  const learningTime = '10分钟'
-  
   // 如果场景数据未加载，显示加载状态
   if (!scene) {
     return (
@@ -410,7 +407,6 @@ export default function SceneDetail() {
             <div className="flex items-center space-x-3 flex-wrap gap-y-2">
               <span className="px-3 py-1 bg-blue-50 text-blue-600 text-sm rounded-full whitespace-nowrap">{scene.category}</span>
               <span className="px-3 py-1 bg-green-50 text-green-600 text-sm rounded-full whitespace-nowrap">{scene.difficulty}</span>
-              <span className="px-3 py-1 bg-gray-50 text-gray-600 text-sm rounded-full whitespace-nowrap">{learningTime}</span>
             </div>
             <div className="flex-shrink-0">
               <PlayAllButton rounds={dialogueRounds} />

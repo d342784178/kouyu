@@ -32,7 +32,8 @@ const difficultyConfig: Record<string, { label: string; color: string }> = {
   '初级': { label: '初级', color: 'bg-green-100 text-green-700' },
   '中级': { label: '中级', color: 'bg-blue-100 text-blue-700' },
   '进阶': { label: '进阶', color: 'bg-purple-100 text-purple-700' },
-  '高级': { label: '高级', color: 'bg-red-100 text-red-700' },
+  '高级': { label: '高级', color: 'bg-orange-100 text-orange-700' },
+  '挑战': { label: '挑战', color: 'bg-yellow-100 text-yellow-700' },
 }
 
 // 搜索图标
@@ -41,26 +42,6 @@ function SearchIcon() {
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
       <circle cx="11" cy="11" r="8" />
       <path d="m21 21-4.35-4.35" />
-    </svg>
-  )
-}
-
-// 时钟图标
-function ClockIcon() {
-  return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10" />
-      <polyline points="12 6 12 12 16 14" />
-    </svg>
-  )
-}
-
-// 书本图标
-function BookOpenIcon() {
-  return (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
     </svg>
   )
 }
@@ -309,7 +290,6 @@ export default function SceneList() {
             {displayScenes.map((scene, i) => {
               const config = categoryConfig[scene.category] || { icon: '📚', gradient: 'from-[#4F7CF0] to-[#7B5FE8]' }
               const difficulty = difficultyConfig[scene.difficulty] || { label: scene.difficulty, color: 'bg-gray-100 text-gray-600' }
-              const learningTime = scene.dialogueCount ? `${scene.dialogueCount * 2}分钟` : '10分钟'
               
               return (
                 <motion.div
@@ -347,14 +327,6 @@ export default function SceneList() {
                           </span>
                           <span className={`text-xs px-2.5 py-1 rounded-full ${difficulty.color}`}>
                             {difficulty.label}
-                          </span>
-                          <span className="text-xs bg-gray-100 text-gray-500 px-2.5 py-1 rounded-full flex items-center gap-1">
-                            <ClockIcon />
-                            {learningTime}
-                          </span>
-                          <span className="text-xs bg-gray-100 text-gray-500 px-2.5 py-1 rounded-full flex items-center gap-1">
-                            <BookOpenIcon />
-                            {scene.dialogueCount || 5}轮对话
                           </span>
                         </div>
                       </div>

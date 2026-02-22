@@ -4,6 +4,10 @@ import { neon } from '@neondatabase/serverless'
 import fs from 'fs'
 import path from 'path'
 
+// 禁用 Next.js 数据缓存
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 // 从文件中读取场景数据
 function getSceneDataFromFile(id: string) {
   try {
@@ -116,7 +120,14 @@ export async function GET(
           updatedAt: sceneData.updated_at
         }
         
-        return NextResponse.json(scene, { status: 200 })
+        return NextResponse.json(scene, { 
+          status: 200,
+          headers: {
+            'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+            'Pragma': 'no-cache',
+            'Expires': '0',
+          }
+        })
       }
     } catch (error) {
       console.error('Error fetching scene from database:', error)
@@ -125,7 +136,14 @@ export async function GET(
     // 如果数据库中没有找到，尝试从文件中读取场景数据
     const sceneFromFile = getSceneDataFromFile(id)
     if (sceneFromFile) {
-      return NextResponse.json(sceneFromFile, { status: 200 })
+      return NextResponse.json(sceneFromFile, { 
+        status: 200,
+        headers: {
+          'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+          'Pragma': 'no-cache',
+          'Expires': '0',
+        }
+      })
     }
     
     // 如果都没有找到，返回 404

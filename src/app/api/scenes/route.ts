@@ -2,6 +2,10 @@
 import { NextResponse } from 'next/server'
 import { neon } from '@neondatabase/serverless'
 
+// 禁用 Next.js 数据缓存
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export async function GET() {
   try {
     // 使用 neon 客户端执行原始 SQL 查询
@@ -32,7 +36,15 @@ export async function GET() {
       updatedAt: scene.updated_at
     }))
     
-    return NextResponse.json(allScenes, { status: 200 })
+    // 返回数据，禁用缓存
+    return NextResponse.json(allScenes, { 
+      status: 200,
+      headers: {
+        'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0',
+      }
+    })
   } catch (error) {
     console.error('Error fetching scenes:', error)
     // 服务器错误，返回空数组
