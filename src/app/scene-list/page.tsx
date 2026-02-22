@@ -17,13 +17,20 @@ interface Scene {
   updatedAt: string
 }
 
-// 分类配置 - 优化配色
+// 分类配置 - 优化配色和图标
 const categoryConfig: Record<string, { icon: string; color: string; bgColor: string }> = {
-  '全部': { icon: '✨', color: '#4F7CF0', bgColor: '#EEF2FF' },
+  '全部': { icon: '📚', color: '#4F7CF0', bgColor: '#EEF2FF' },
+  '日常': { icon: '☀️', color: '#4F7CF0', bgColor: '#EEF2FF' },
   '日常问候': { icon: '👋', color: '#4F7CF0', bgColor: '#EEF2FF' },
+  '留学': { icon: '🎓', color: '#8B5CF6', bgColor: '#EDE9FE' },
+  '职场': { icon: '💼', color: '#F59E0B', bgColor: '#FEF3C7' },
   '购物消费': { icon: '🛍️', color: '#FF7043', bgColor: '#FFF4F0' },
   '餐饮服务': { icon: '🍽️', color: '#F59E0B', bgColor: '#FFF8EE' },
   '旅行出行': { icon: '✈️', color: '#34D399', bgColor: '#F0FFF4' },
+  '酒店住宿': { icon: '🏨', color: '#3B82F6', bgColor: '#DBEAFE' },
+  '医疗健康': { icon: '🏥', color: '#EF4444', bgColor: '#FEE2E2' },
+  '银行金融': { icon: '🏦', color: '#10B981', bgColor: '#D1FAE5' },
+  '商务会议': { icon: '📊', color: '#6366F1', bgColor: '#E0E7FF' },
 }
 
 // 难度配置 - 优化标签样式
