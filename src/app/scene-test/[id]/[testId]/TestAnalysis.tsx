@@ -82,14 +82,12 @@ export default function TestAnalysis({ sceneId, testId, conversation, rounds, on
     setError('')
 
     try {
-      const response = await fetch('/api/open-test/analyze', {
+      const response = await fetch('/api/open-test/conversation-analysis', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          sceneId,
-          testId,
           conversation,
           rounds,
         }),
