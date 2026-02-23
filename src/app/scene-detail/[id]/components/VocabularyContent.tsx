@@ -279,13 +279,13 @@ const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => 
                     
                     <motion.button
                       whileTap={{ scale: 0.9 }}
-                      className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-[#4F7CF0] hover:border-[#4F7CF0] hover:text-white transition-all shadow-sm group-hover:shadow-md shrink-0"
+                      className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-[#4F7CF0] hover:border-[#4F7CF0] transition-all shadow-sm hover:shadow-md shrink-0"
                       onClick={() => playAudio(getWordAudioUrl(vocab))}
                     >
                       {isPlaying(getWordAudioUrl(vocab)) ? (
-                        <StopIcon className="text-[#4F7CF0] group-hover:text-white" />
+                        <StopIcon className="text-[#4F7CF0] hover:text-white" />
                       ) : (
-                        <VolumeIcon className="text-[#4F7CF0] group-hover:text-white" />
+                        <VolumeIcon className="text-[#4F7CF0] hover:text-white" />
                       )}
                     </motion.button>
                   </div>
@@ -296,13 +296,13 @@ const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => 
                       {vocab.example_audio_url && (
                         <motion.button
                           whileTap={{ scale: 0.9 }}
-                          className="w-8 h-8 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-[#4F7CF0] hover:border-[#4F7CF0] hover:text-white transition-all shadow-sm shrink-0"
+                          className="w-8 h-8 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-[#4F7CF0] hover:border-[#4F7CF0] transition-all shadow-sm shrink-0"
                           onClick={() => playAudio(vocab.example_audio_url)}
                         >
                           {isPlaying(vocab.example_audio_url) ? (
-                            <StopIcon className="text-[#4F7CF0] group-hover:text-white w-3 h-3" />
+                            <StopIcon className="text-[#4F7CF0] hover:text-white w-3 h-3" />
                           ) : (
-                            <VolumeIcon className="text-[#4F7CF0] group-hover:text-white w-3 h-3" />
+                            <VolumeIcon className="text-[#4F7CF0] hover:text-white w-3 h-3" />
                           )}
                         </motion.button>
                       )}

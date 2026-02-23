@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { buildAudioUrl } from '@/lib/audioUrl';
 
@@ -123,6 +123,9 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
   // 展开的解析卡片状态
   const [expandedAnalysis, setExpandedAnalysis] = useState<number[]>([]);
 
+  // 当前音频元素引用
+  const currentAudioRef = useRef<HTMLAudioElement | null>(null);
+
   // 播放音频的函数
   const playAudio = async (audioUrl: string) => {
     if (!audioUrl) {
@@ -135,16 +138,28 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
     try {
       // 构建完整的音频URL
       const fullAudioUrl = buildAudioUrl(audioUrl);
+      
+      // 如果点击的是当前正在播放的音频，则停止播放
+      if (playingAudio === fullAudioUrl) {
+        console.log('[DialogueContent] 停止当前播放的音频:', fullAudioUrl);
+        if (currentAudioRef.current) {
+          currentAudioRef.current.pause();
+          currentAudioRef.current = null;
+        }
+        setPlayingAudio(null);
+        return;
+      }
+
       console.log('[DialogueContent] 尝试播放音频:', {
         originalUrl: audioUrl,
         fullUrl: fullAudioUrl
       });
 
       // 停止当前正在播放的音频
-      if (playingAudio) {
-        console.log('[DialogueContent] 停止当前播放的音频:', playingAudio);
-        const currentAudio = new Audio(playingAudio);
-        currentAudio.pause();
+      if (currentAudioRef.current) {
+        console.log('[DialogueContent] 停止之前播放的音频');
+        currentAudioRef.current.pause();
+        currentAudioRef.current = null;
       }
 
       // 设置当前播放的音频
@@ -154,6 +169,7 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
       try {
         // 尝试创建并播放新音频
         const audio = new Audio(fullAudioUrl);
+        currentAudioRef.current = audio;
 
         // 监听音频加载错误
         audio.onerror = (e) => {
@@ -165,6 +181,7 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
           });
           setAudioError('暂不支持音频播放');
           setPlayingAudio(null);
+          currentAudioRef.current = null;
           setTimeout(() => setAudioError(null), 3000);
         };
 
@@ -180,6 +197,7 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
         audio.onended = () => {
           console.log('[DialogueContent] 音频播放结束:', fullAudioUrl);
           setPlayingAudio(null);
+          currentAudioRef.current = null;
         };
       } catch (playError: any) {
         console.error('[DialogueContent] 音频播放失败:', {
@@ -189,6 +207,7 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
         });
         setAudioError('暂不支持音频播放');
         setPlayingAudio(null);
+        currentAudioRef.current = null;
         setTimeout(() => setAudioError(null), 3000);
       }
     } catch (error: any) {
@@ -198,6 +217,7 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
       });
       setAudioError('暂不支持音频播放');
       setPlayingAudio(null);
+      currentAudioRef.current = null;
       setTimeout(() => setAudioError(null), 3000);
     }
   };
