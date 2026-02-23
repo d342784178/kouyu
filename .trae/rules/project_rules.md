@@ -283,3 +283,9 @@ NEXT_PUBLIC_COS_BASE_URL=https://kouyu-scene-1300762139.cos.ap-guangzhou.myqclou
 - 根据对话轮数和词汇数量动态计算
 - 计算公式：`Math.max(5, Math.min(20, roundCount * 2 + Math.ceil(vocabCount / 2)))`
 - 范围：5-20 分钟
+
+
+
+## 注意事项
+
+1. 对于本地脚本调用nvidia大模型时, 可以配置10个并发, 当出现限速报错时, 可以等待10s后在重试

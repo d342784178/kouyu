@@ -63,9 +63,25 @@ export async function GET(
           break;
         case 'open_dialogue':
           mappedType = 'open';
-          question = content.prompt || content.question || '';
-          answer = content.scenario || '';
-          analysis = '请根据场景自由回答';
+          // 构建开放式对话题目描述
+          const topic = content.topic || '';
+          const scenarioContext = content.scenario_context || '';
+          const description = content.description || '';
+          const roles = content.roles || [];
+          
+          // 组合成完整的题目描述
+          let questionParts = [];
+          if (topic) questionParts.push(`主题：${topic}`);
+          if (scenarioContext) questionParts.push(`场景：${scenarioContext}`);
+          if (description) questionParts.push(`描述：${description}`);
+          if (roles.length > 0) {
+            const roleNames = roles.map((r: any) => r.name).join('、');
+            questionParts.push(`角色：${roleNames}`);
+          }
+          
+          question = questionParts.join('\n');
+          answer = content.suggested_opening || '';
+          analysis = content.analysis || '请根据场景自由回答';
           break;
         default:
           mappedType = 'open';

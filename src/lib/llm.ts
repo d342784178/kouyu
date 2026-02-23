@@ -3,7 +3,7 @@
  * 统一封装GLM-4.5 API调用
  */
 
-const GLM_API_KEY = '6b35d40fa78f134ba53d669abf0d26f5.udk8D9gGzss6l9o5'
+const GLM_API_KEY = '4731aefc2a564a798985b658a5f84d22.XnN63UR33hl2upJm'
 const GLM_API_URL = 'https://open.bigmodel.cn/api/paas/v4/chat/completions'
 const MODEL = 'glm-4-flash'
 

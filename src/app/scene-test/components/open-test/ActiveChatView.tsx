@@ -32,9 +32,14 @@ export default function ActiveChatView({
   }, [messages, isGeneratingResponse])
 
   const handleSendText = () => {
-    if (textInput.trim()) {
-      onSendText(textInput.trim())
+    // 优先使用输入框的当前值，确保能获取到最新输入
+    const currentValue = inputRef.current?.value || textInput
+    if (currentValue.trim()) {
+      onSendText(currentValue.trim())
       setTextInput('')
+      if (inputRef.current) {
+        inputRef.current.value = ''
+      }
       setShowTextInput(false)
     }
   }
@@ -139,7 +144,7 @@ export default function ActiveChatView({
               whileTap={{ scale: 0.95 }}
               className="h-11 w-11 bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white rounded-full flex items-center justify-center disabled:bg-gray-300"
               onClick={handleSendText}
-              disabled={isGeneratingResponse || !textInput.trim()}
+              disabled={isGeneratingResponse}
             >
               <Send className="h-4 w-4" />
             </motion.button>
