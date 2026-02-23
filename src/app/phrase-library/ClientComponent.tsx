@@ -324,17 +324,13 @@ export default function PhraseLibraryClient() {
                       
                       try {
                         setLoadingPhraseId(phrase.id)
-                        
-                        // 获取音频 URL
-                        const response = await fetch(`/api/audio?path=${encodeURIComponent(phrase.audioUrl)}`)
-                        if (!response.ok) {
-                          throw new Error('Failed to fetch audio URL')
-                        }
-                        const data = await response.json()
-                        
+
+                        // 使用代理接口获取音频
+                        const proxyUrl = `/api/audio/proxy?path=${encodeURIComponent(phrase.audioUrl)}`
+
                         // 设置音频源并播放
                         if (audioRef.current) {
-                          audioRef.current.src = data.url
+                          audioRef.current.src = proxyUrl
                           audioRef.current.onended = () => setPlayingPhraseId(null)
                           audioRef.current.onerror = () => {
                             setPlayingPhraseId(null)

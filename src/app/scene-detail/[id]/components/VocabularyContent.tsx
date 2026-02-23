@@ -3,7 +3,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { buildAudioUrl } from '@/lib/audioUrl';
+import { getAudioUrl } from '@/lib/audioUrl';
 
 interface VocabularyItem {
   vocab_id: string;
@@ -109,7 +109,7 @@ const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => 
     }
 
     try {
-      const fullAudioUrl = buildAudioUrl(audioUrl);
+      const fullAudioUrl = getAudioUrl(audioUrl);
 
       if (currentAudioElement) {
         currentAudioElement.pause();
@@ -151,7 +151,7 @@ const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => 
 
   const isPlaying = (audioUrl: string | undefined): boolean => {
     if (!audioUrl || !playingAudio) return false;
-    return playingAudio === buildAudioUrl(audioUrl);
+    return playingAudio === getAudioUrl(audioUrl);
   };
 
   return (

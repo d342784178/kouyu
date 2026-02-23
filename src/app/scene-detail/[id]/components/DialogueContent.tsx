@@ -3,7 +3,7 @@
 
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { buildAudioUrl } from '@/lib/audioUrl';
+import { getAudioUrl } from '@/lib/audioUrl';
 
 interface Answer {
   answer_id: string;
@@ -136,8 +136,8 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
     }
 
     try {
-      // 构建完整的音频URL
-      const fullAudioUrl = buildAudioUrl(audioUrl);
+      // 构建完整的音频URL（使用代理模式）
+      const fullAudioUrl = getAudioUrl(audioUrl);
       
       // 如果点击的是当前正在播放的音频，则停止播放
       if (playingAudio === fullAudioUrl) {

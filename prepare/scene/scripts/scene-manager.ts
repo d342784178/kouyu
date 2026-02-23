@@ -62,8 +62,10 @@ interface VocabularyItem {
 }
 
 interface SceneData {
-  id: string;
-  name: string;
+  scene_id?: string;
+  id?: string;
+  scene_name?: string;
+  name?: string;
   description: string;
   category: string;
   difficulty: string;
@@ -84,6 +86,11 @@ function buildVocabularyAudioUrl(sceneId: string, vocabIndex: number, type: 'wor
 
 function updateSceneAudioUrls(scene: SceneData): SceneData {
   const updatedScene = { ...scene };
+  const sceneId = scene.scene_id || scene.id;
+  
+  if (!sceneId) {
+    return updatedScene;
+  }
 
   // 更新对话音频URL
   if (updatedScene.dialogue?.rounds) {
@@ -91,7 +98,7 @@ function updateSceneAudioUrls(scene: SceneData): SceneData {
       const updatedRound = { ...round };
       updatedRound.content = round.content.map(item => ({
         ...item,
-        audio_url: buildDialogueAudioUrl(scene.id, round.round_number, item.speaker)
+        audio_url: buildDialogueAudioUrl(sceneId, round.round_number, item.speaker)
       }));
       return updatedRound;
     });
@@ -103,7 +110,7 @@ function updateSceneAudioUrls(scene: SceneData): SceneData {
     let currentVocabIndex = 1;
     
     updatedScene.vocabulary = updatedScene.vocabulary.map(vocab => {
-      const vocabId = vocab.vocab_id || `${scene.id}_vocab_${String(currentVocabIndex).padStart(2, '0')}`;
+      const vocabId = vocab.vocab_id || `${sceneId}_vocab_${String(currentVocabIndex).padStart(2, '0')}`;
       if (!vocabIndexMap.has(vocabId)) {
         vocabIndexMap.set(vocabId, currentVocabIndex);
         currentVocabIndex++;
@@ -114,8 +121,8 @@ function updateSceneAudioUrls(scene: SceneData): SceneData {
       return {
         ...vocab,
         vocab_id: vocabId,
-        audio_url: buildVocabularyAudioUrl(scene.id, vocabIndex, 'word'),
-        example_audio_url: buildVocabularyAudioUrl(scene.id, vocabIndex, 'example')
+        audio_url: buildVocabularyAudioUrl(sceneId, vocabIndex, 'word'),
+        example_audio_url: buildVocabularyAudioUrl(sceneId, vocabIndex, 'example')
       };
     });
   }
@@ -184,7 +191,10 @@ async function updateAudioUrls(): Promise<void> {
       vocabularyAudioCount += updatedScene.vocabulary.length * 2;
     }
 
-    console.log(`✅ [${index + 1}/${scenes.length}] ${scene.id} - ${scene.name}`);
+    // 兼容不同的字段名
+    const sceneId = scene.scene_id || scene.id;
+    const sceneName = scene.scene_name || scene.name;
+    console.log(`✅ [${index + 1}/${scenes.length}] ${sceneId} - ${sceneName}`);
     return updatedScene;
   });
 
@@ -228,6 +238,16 @@ async function resetDatabase(): Promise<void> {
   let errors = 0;
 
   for (const scene of scenes) {
+    // 兼容不同的字段名：scene_id / id, scene_name / name
+    const sceneId = scene.scene_id || scene.id;
+    const sceneName = scene.scene_name || scene.name;
+    
+    if (!sceneId || !sceneName) {
+      console.error(`  ❌ 跳过: 缺少 id 或 name 字段`);
+      errors++;
+      continue;
+    }
+    
     try {
       await sql`
         INSERT INTO scenes (
@@ -235,8 +255,8 @@ async function resetDatabase(): Promise<void> {
           tags, dialogue, vocabulary,
           created_at, updated_at
         ) VALUES (
-          ${scene.id},
-          ${scene.name},
+          ${sceneId},
+          ${sceneName},
           ${scene.category},
           ${scene.description},
           ${scene.difficulty},
@@ -248,9 +268,9 @@ async function resetDatabase(): Promise<void> {
         )
       `;
       inserted++;
-      console.log(`  ✅ 插入: ${scene.id} - ${scene.name}`);
+      console.log(`  ✅ 插入: ${sceneId} - ${sceneName}`);
     } catch (error) {
-      console.error(`  ❌ 插入失败: ${scene.id}`, error);
+      console.error(`  ❌ 插入失败: ${sceneId}`, error);
       errors++;
     }
   }
@@ -294,13 +314,23 @@ async function updateDatabaseAudioUrls(): Promise<void> {
   let errors = 0;
 
   for (const scene of scenes) {
+    // 兼容不同的字段名
+    const sceneId = scene.scene_id || scene.id;
+    const sceneName = scene.scene_name || scene.name;
+    
+    if (!sceneId || !sceneName) {
+      console.error(`  ❌ 跳过: 缺少 id 或 name 字段`);
+      errors++;
+      continue;
+    }
+    
     try {
       const existingScene = await sql`
-        SELECT id FROM scenes WHERE id = ${scene.id}
+        SELECT id FROM scenes WHERE id = ${sceneId}
       `;
 
       if (existingScene.length === 0) {
-        console.log(`  ⚠️ 未找到: ${scene.id} - ${scene.name}`);
+        console.log(`  ⚠️ 未找到: ${sceneId} - ${sceneName}`);
         notFound++;
         continue;
       }
@@ -311,13 +341,13 @@ async function updateDatabaseAudioUrls(): Promise<void> {
           dialogue = ${JSON.stringify(scene.dialogue)}::jsonb,
           vocabulary = ${JSON.stringify(scene.vocabulary || [])}::jsonb,
           updated_at = NOW()
-        WHERE id = ${scene.id}
+        WHERE id = ${sceneId}
       `;
 
       updated++;
-      console.log(`  ✅ 更新: ${scene.id} - ${scene.name}`);
+      console.log(`  ✅ 更新: ${sceneId} - ${sceneName}`);
     } catch (error) {
-      console.error(`  ❌ 更新失败: ${scene.id}`, error);
+      console.error(`  ❌ 更新失败: ${sceneId}`, error);
       errors++;
     }
   }

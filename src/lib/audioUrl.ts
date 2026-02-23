@@ -28,7 +28,14 @@ const STORAGE_CONFIG: Record<string, { baseUrl: string; bucket?: string }> = {
 };
 
 /**
- * 构建完整的音频URL
+ * 是否使用代理模式访问音频
+ * 设置为 true 时，前端通过后端接口代理访问音频文件
+ * 设置为 false 时，前端直接访问存储服务
+ */
+const USE_PROXY_MODE = true;
+
+/**
+ * 构建完整的音频URL（直接访问存储服务）
  * @param relativePath - 相对路径，格式: "PROTOCOL:/path/to/file.mp3"
  * @returns 完整的音频URL
  * 
@@ -65,6 +72,47 @@ export function buildAudioUrl(relativePath: string | null | undefined): string {
   }
 
   return `${config.baseUrl}/${path}`;
+}
+
+/**
+ * 构建音频代理URL（通过后端接口访问）
+ * @param relativePath - 相对路径，格式: "PROTOCOL:/path/to/file.mp3"
+ * @returns 音频代理URL
+ * 
+ * 示例:
+ * - buildAudioProxyUrl('COS:/scene/dialogues/daily_001_round1_speaker1.mp3')
+ *   -> '/api/audio/proxy?path=COS%3A%2Fscene%2Fdialogues%2Fdaily_001_round1_speaker1.mp3'
+ */
+export function buildAudioProxyUrl(relativePath: string | null | undefined): string {
+  if (!relativePath) {
+    return '';
+  }
+
+  // 如果已经是完整URL，转换为代理格式
+  if (relativePath.startsWith('http://') || relativePath.startsWith('https://')) {
+    return `/api/audio/proxy?path=${encodeURIComponent(relativePath)}`;
+  }
+
+  // 验证路径格式
+  const match = relativePath.match(/^([A-Z_]+):\/(.*)$/);
+  if (!match) {
+    console.warn('Invalid audio path format:', relativePath);
+    return relativePath;
+  }
+
+  return `/api/audio/proxy?path=${encodeURIComponent(relativePath)}`;
+}
+
+/**
+ * 获取音频URL（根据配置决定使用直接访问还是代理模式）
+ * @param relativePath - 相对路径，格式: "PROTOCOL:/path/to/file.mp3"
+ * @returns 音频URL
+ */
+export function getAudioUrl(relativePath: string | null | undefined): string {
+  if (USE_PROXY_MODE) {
+    return buildAudioProxyUrl(relativePath);
+  }
+  return buildAudioUrl(relativePath);
 }
 
 /**

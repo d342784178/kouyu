@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 // 定义测试题目类型
 interface Test {
@@ -17,11 +19,44 @@ interface Test {
   updatedAt: string
 }
 
+// 返回箭头图标
+function ArrowLeftIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="m15 18-6-6 6-6" />
+    </svg>
+  )
+}
+
+// 文件图标
+function FileIcon() {
+  return (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+      <path 
+        d="M12 8C12 6.89543 12.8954 6 14 6H28L38 16V38C38 39.1046 37.1046 40 36 40H14C12.8954 40 12 39.1046 12 38V8Z" 
+        fill="#4F7CF0"
+        fillOpacity="0.1"
+        stroke="#4F7CF0"
+        strokeWidth="2"
+      />
+      <path 
+        d="M28 6V14C28 15.1046 28.8954 16 30 16H38" 
+        stroke="#4F7CF0"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <line x1="18" y1="24" x2="32" y2="24" stroke="#4F7CF0" strokeWidth="2" strokeLinecap="round" opacity="0.4" />
+      <line x1="18" y1="30" x2="28" y2="30" stroke="#4F7CF0" strokeWidth="2" strokeLinecap="round" opacity="0.3" />
+    </svg>
+  )
+}
+
 export default function SceneTestEntry() {
   const params = useParams<{ id: string }>()
   const router = useRouter()
   const id = params.id || ''
   const [isLoading, setIsLoading] = useState(true)
+  const [hasNoData, setHasNoData] = useState(false)
 
   // 获取场景测试题目的函数
   const getSceneTests = async (sceneId: string): Promise<Test[]> => {
@@ -33,75 +68,13 @@ export default function SceneTestEntry() {
       
       if (response.ok) {
         tests = await response.json()
-      } else {
-        // 如果API调用失败，返回模拟数据
-        tests = [
-          {
-            id: 'test_1',
-            sceneId: sceneId,
-            type: 'multiple-choice',
-            question: 'What would you say to check in for a flight?',
-            options: [
-              'Hello, I would like to check in for my flight.',
-              'Hello, I want to buy a ticket.',
-              'Hello, I need to cancel my flight.',
-              'Hello, I lost my luggage.'
-            ],
-            answer: 'Hello, I would like to check in for my flight.',
-            analysis: 'This is the correct phrase to use when you want to check in for your flight at the airport.',
-            order: 1,
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString()
-          },
-          {
-            id: 'test_2',
-            sceneId: sceneId,
-            type: 'fill-blank',
-            question: 'If you prefer a window seat, you can say: "I would prefer a ______ seat if possible."',
-            answer: 'window',
-            analysis: 'The correct word is "window" to indicate you want a seat next to the window on the plane.',
-            order: 2,
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString()
-          },
-          {
-            id: 'test_3',
-            sceneId: sceneId,
-            type: 'open',
-            question: 'What information might the check-in agent ask for?',
-            answer: 'The check-in agent might ask for your passport, ticket, and how many bags you are checking in.',
-            analysis: 'These are common questions asked during the check-in process at the airport.',
-            order: 3,
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString()
-          }
-        ]
       }
       
       // 按顺序排序测试题目
       return tests.sort((a, b) => a.order - b.order)
     } catch (error) {
       console.error(`Error fetching tests for scene ${sceneId}:`, error)
-      // 返回模拟数据
-      return [
-        {
-          id: 'test_1',
-          sceneId: sceneId,
-          type: 'multiple-choice',
-          question: 'What would you say to check in for a flight?',
-          options: [
-            'Hello, I would like to check in for my flight.',
-            'Hello, I want to buy a ticket.',
-            'Hello, I need to cancel my flight.',
-            'Hello, I lost my luggage.'
-          ],
-          answer: 'Hello, I would like to check in for my flight.',
-          analysis: 'This is the correct phrase to use when you want to check in for your flight at the airport.',
-          order: 1,
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString()
-        }
-      ]
+      return []
     }
   }
 
@@ -121,17 +94,14 @@ export default function SceneTestEntry() {
             // 重定向到第一题
             router.push(`/scene-test/${id}/${firstTest.id}`)
           } else {
-            // 如果没有测试题目，重定向回场景详情页
-            router.push(`/scene-detail/${id}`)
+            // 如果没有测试题目，显示无数据状态
+            setHasNoData(true)
+            setIsLoading(false)
           }
         }
       } catch (error) {
         console.error('Error fetching tests:', error)
-        // 发生错误时，重定向回场景详情页
-        if (id) {
-          router.push(`/scene-detail/${id}`)
-        }
-      } finally {
+        setHasNoData(true)
         setIsLoading(false)
       }
     }
@@ -142,8 +112,93 @@ export default function SceneTestEntry() {
   // 加载状态
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        <div className="text-text-primary">加载中...</div>
+      <div className="min-h-screen bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8] flex items-center justify-center">
+        <div className="flex flex-col items-center">
+          <div className="w-10 h-10 border-3 border-[#4F7CF0]/20 border-t-[#4F7CF0] rounded-full animate-spin mb-4"></div>
+          <p className="text-gray-500 text-sm">加载中...</p>
+        </div>
+      </div>
+    )
+  }
+
+  // 无测试数据状态
+  if (hasNoData) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8]">
+        {/* 顶部导航栏 */}
+        <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-gray-100">
+          <div className="max-w-[430px] mx-auto px-4 py-3">
+            <div className="flex items-center justify-between">
+              <Link 
+                href={`/scene-detail/${id}`}
+                className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+              >
+                <ArrowLeftIcon />
+              </Link>
+              
+              <h1 className="text-lg font-bold text-gray-900">场景测试</h1>
+              
+              <div className="w-10 h-10" />
+            </div>
+          </div>
+        </header>
+
+        {/* 内容区域 */}
+        <div className="max-w-[430px] mx-auto px-4 pt-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 text-center"
+          >
+            {/* 图标 */}
+            <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-[#4F7CF0]/10 flex items-center justify-center">
+              <FileIcon />
+            </div>
+
+            {/* 标题 */}
+            <h2 className="text-xl font-bold text-gray-900 mb-3">
+              暂无测试数据
+            </h2>
+            
+            {/* 描述 */}
+            <p className="text-sm text-gray-500 leading-relaxed mb-8">
+              该场景暂时没有测试题目，<br />
+              请先学习其他场景
+            </p>
+
+            {/* 返回按钮 */}
+            <Link
+              href={`/scene-detail/${id}`}
+              className="block w-full py-4 bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white rounded-2xl text-base font-bold text-center shadow-lg shadow-[#4F7CF0]/25 hover:shadow-xl hover:shadow-[#4F7CF0]/30 transition-all active:scale-[0.98]"
+            >
+              返回场景详情
+            </Link>
+          </motion.div>
+
+          {/* 提示卡片 */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="mt-6 bg-white/60 rounded-2xl p-5 border border-gray-100"
+          >
+            <div className="flex items-start gap-3">
+              <div className="w-8 h-8 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="12" />
+                  <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900 mb-1">温馨提示</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  测试题目正在筹备中，您可以先学习场景对话和词汇，巩固知识后再来挑战测试。
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
     )
   }

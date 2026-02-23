@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { buildAudioUrl } from '@/lib/audioUrl';
+import { getAudioUrl } from '@/lib/audioUrl';
 
 interface PlayAllButtonProps {
   rounds: Array<{
@@ -41,13 +41,13 @@ const PlayAllButton: React.FC<PlayAllButtonProps> = ({ rounds }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // 收集所有音频URL
+  // 收集所有音频URL（使用代理模式）
   const getAllAudioUrls = () => {
     const urls: string[] = [];
     rounds.forEach(round => {
       round.content.forEach(dialogue => {
         if (dialogue.audio_url) {
-          urls.push(buildAudioUrl(dialogue.audio_url));
+          urls.push(getAudioUrl(dialogue.audio_url));
         }
       });
     });
