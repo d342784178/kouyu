@@ -8,81 +8,46 @@ import DialogueContent from './components/DialogueContent'
 import VocabularyContent from './components/VocabularyContent'
 import PlayAllButton from './components/PlayAllButton'
 
-// 定义场景类型
-interface Scene {
-  id: string
-  name: string
-  category: string
-  description: string
-  difficulty: string
-  duration: number
-  tags: string[]
-  dialogue: Dialogue
-  vocabulary: Vocabulary[]
-  createdAt: string
-  updatedAt: string
-}
-
-// 定义对话类型
-interface Dialogue {
-  dialogue_id: string
-  scene_id: string
-  full_audio_url: string
-  duration: number
-  rounds: DialogueRound[]
-}
-
-// 定义对话回合类型
-interface DialogueRound {
+// 定义对话项类型（新格式：扁平数组）
+interface DialogueItem {
   round_number: number
-  content: DialogueContent[]
-  analysis: QAAnalysis
-}
-
-// 定义对话内容类型
-interface DialogueContent {
-  index: number
   speaker: string
   speaker_name: string
   text: string
   translation: string
   audio_url: string
   is_key_qa: boolean
+  index: number
 }
 
-// 定义问答解析类型
-interface QAAnalysis {
-  analysis_detail: string
-  standard_answer: Answer
-  alternative_answers: Answer[]
-  usage_notes: string
-}
-
-// 定义回答类型
-interface Answer {
-  answer_id: string
-  text: string
-  translation: string
-  audio_url: string
-  scenario: string
-  formality: string
-}
-
-// 定义词汇类型
+// 定义词汇类型（新格式）
 interface Vocabulary {
   vocab_id: string
-  scene_id: string
   type: string
   content: string
   phonetic: string
   translation: string
-  example_sentence: string
+  example: string
   example_translation: string
-  audio_url?: string
-  word_audio_url?: string
-  example_audio_url?: string
+  audio_url: string
+  example_audio_url: string
   round_number: number
   difficulty?: 'easy' | 'medium' | 'hard'
+}
+
+// 定义场景类型
+interface Scene {
+  id: string
+  name: string
+  category: string  // 中文: 日常/职场/留学/旅行/社交
+  description: string
+  difficulty: string  // 中文: 初级/中级/高级
+  duration: number
+  tags: string[]
+  dialogue: DialogueItem[]  // 新格式：扁平数组
+  vocabulary: Vocabulary[]
+  createdAt: string
+  updatedAt: string
 }
 
 // 返回箭头图标
@@ -124,20 +89,15 @@ function DialogueIcon() {
   )
 }
 
-// 难度配置
+// 难度配置（支持中文）
 const difficultyConfig: Record<string, { label: string; color: string; bgColor: string }> = {
-  'beginner': { label: '入门', color: '#10B981', bgColor: '#D1FAE5' },
-  'elementary': { label: '初级', color: '#10B981', bgColor: '#D1FAE5' },
-  'intermediate': { label: '中级', color: '#3B82F6', bgColor: '#DBEAFE' },
-  'advanced': { label: '进阶', color: '#8B5CF6', bgColor: '#EDE9FE' },
-  'expert': { label: '高级', color: '#F59E0B', bgColor: '#FEF3C7' },
-  'challenge': { label: '挑战', color: '#EF4444', bgColor: '#FEE2E2' },
-  '入门': { label: '入门', color: '#10B981', bgColor: '#D1FAE5' },
   '初级': { label: '初级', color: '#10B981', bgColor: '#D1FAE5' },
   '中级': { label: '中级', color: '#3B82F6', bgColor: '#DBEAFE' },
-  '进阶': { label: '进阶', color: '#8B5CF6', bgColor: '#EDE9FE' },
   '高级': { label: '高级', color: '#F59E0B', bgColor: '#FEF3C7' },
-  '挑战': { label: '挑战', color: '#EF4444', bgColor: '#FEE2E2' },
+  // 保留英文映射以兼容旧数据
+  'beginner': { label: '初级', color: '#10B981', bgColor: '#D1FAE5' },
+  'intermediate': { label: '中级', color: '#3B82F6', bgColor: '#DBEAFE' },
+  'advanced': { label: '高级', color: '#F59E0B', bgColor: '#FEF3C7' },
 }
 
 export default function SceneDetail() {
@@ -145,7 +105,7 @@ export default function SceneDetail() {
   const id = params.id || ''
   
   const [scene, setScene] = useState<Scene | null>(null)
-  const [dialogueRounds, setDialogueRounds] = useState<DialogueRound[]>([])
+  const [dialogueItems, setDialogueItems] = useState<DialogueItem[]>([])
   const [vocabulary, setVocabulary] = useState<Vocabulary[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
@@ -154,133 +114,62 @@ export default function SceneDetail() {
     try {
       const response = await fetch(`/api/scenes/${id}`)
       
-      let scene: Scene
-      
       if (response.ok) {
-        scene = await response.json()
-      } else {
-        scene = {
-          id: id,
-          name: '日常问候',
-          category: 'daily',
-          description: '学习日常问候的高频对话，掌握不同场景下的问候方式。',
-          difficulty: 'beginner',
-          duration: 10,
-          tags: ['问候', '日常', '基础'],
-          dialogue: {
-            dialogue_id: `dlg_${id}`,
-            scene_id: id,
-            full_audio_url: `https://cdn.example.com/audio/${id}_full.mp3`,
-            duration: 30,
-            rounds: [
-              {
-                round_number: 1,
-                content: [
-                  {
-                    index: 1,
-                    speaker: 'A',
-                    speaker_name: 'A',
-                    text: 'Hello! How are you today?',
-                    translation: '你好！你今天怎么样？',
-                    audio_url: `https://cdn.example.com/audio/${id}_r1_1.mp3`,
-                    is_key_qa: true
-                  },
-                  {
-                    index: 2,
-                    speaker: 'B',
-                    speaker_name: 'B',
-                    text: "I'm doing great, thanks! How about you?",
-                    translation: '我很好，谢谢！你呢？',
-                    audio_url: `https://cdn.example.com/audio/${id}_r1_2.mp3`,
-                    is_key_qa: false
-                  }
-                ],
-                analysis: {
-                  analysis_detail: '这是最基础的日常问候对话。用于熟人之间的问候。',
-                  standard_answer: {
-                    answer_id: `ans_${id}_01_std`,
-                    text: "I'm doing great, thanks! How about you?",
-                    translation: '我很好，谢谢！你呢？',
-                    audio_url: `https://cdn.example.com/audio/ans_${id}_01_std.mp3`,
-                    scenario: '标准问候回答',
-                    formality: 'neutral'
-                  },
-                  alternative_answers: [
-                    {
-                      answer_id: `ans_${id}_01_alt1`,
-                      text: "I'm good, thanks. And you?",
-                      translation: '我很好，谢谢。你呢？',
-                      audio_url: `https://cdn.example.com/audio/ans_${id}_01_alt1.mp3`,
-                      scenario: '简洁回答',
-                      formality: 'casual'
-                    },
-                    {
-                      answer_id: `ans_${id}_01_alt2`,
-                      text: "I'm doing well, thank you for asking. How are you?",
-                      translation: '我很好，谢谢你的关心。你怎么样？',
-                      audio_url: `https://cdn.example.com/audio/ans_${id}_01_alt2.mp3`,
-                      scenario: '正式回答',
-                      formality: 'formal'
-                    }
-                  ],
-                  usage_notes: '"How are you today?"是询问对方当天状态的常用表达。回答时，通常会先说明自己的状态，然后反问对方。'
-                }
-              }
-            ]
-          },
-          vocabulary: [
-            {
-              vocab_id: `vocab_${id}_01`,
-              scene_id: id,
-              type: 'word',
-              content: 'hello',
-              phonetic: '/həˈloʊ/',
-              translation: '你好',
-              example_sentence: 'Hello! How are you today?',
-              example_translation: '你好！你今天怎么样？',
-              audio_url: `https://cdn.example.com/audio/vocab_hello.mp3`,
-              round_number: 1
-            },
-            {
-              vocab_id: `vocab_${id}_02`,
-              scene_id: id,
-              type: 'word',
-              content: 'thanks',
-              phonetic: '/θæŋks/',
-              translation: '谢谢',
-              example_sentence: "I'm doing great, thanks!",
-              example_translation: '我很好，谢谢！',
-              audio_url: `https://cdn.example.com/audio/vocab_thanks.mp3`,
-              round_number: 1
-            }
-          ],
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString()
-        }
+        const scene = await response.json()
+        return scene
       }
       
-      return scene
-    } catch (error) {
-      console.error(`Error fetching scene ${id}:`, error)
+      // 如果API失败，返回默认数据
       return {
         id: id,
         name: '日常问候',
-        category: 'daily',
+        category: '日常',
         description: '学习日常问候的高频对话，掌握不同场景下的问候方式。',
-        difficulty: 'beginner',
+        difficulty: '初级',
         duration: 10,
         tags: ['问候', '日常', '基础'],
-        dialogue: {
-          dialogue_id: `dlg_${id}`,
-          scene_id: id,
-          full_audio_url: `https://cdn.example.com/audio/${id}_full.mp3`,
-          duration: 30,
-          rounds: []
-        },
-        vocabulary: [],
+        dialogue: [
+          {
+            round_number: 1,
+            speaker: 'speaker1',
+            speaker_name: 'A',
+            text: 'Hello! How are you today?',
+            translation: '你好！你今天怎么样？',
+            audio_url: `https://cdn.example.com/audio/${id}_r1_1.mp3`,
+            is_key_qa: true,
+            index: 1
+          },
+          {
+            round_number: 1,
+            speaker: 'speaker2',
+            speaker_name: 'B',
+            text: "I'm doing great, thanks! How about you?",
+            translation: '我很好，谢谢！你呢？',
+            audio_url: `https://cdn.example.com/audio/${id}_r1_2.mp3`,
+            is_key_qa: false,
+            index: 2
+          }
+        ],
+        vocabulary: [
+          {
+            vocab_id: `vocab_${id}_01`,
+            type: 'word',
+            content: 'hello',
+            phonetic: '/həˈloʊ/',
+            translation: '你好',
+            example: 'Hello! How are you today?',
+            example_translation: '你好！你今天怎么样？',
+            audio_url: `https://cdn.example.com/audio/vocab_hello.mp3`,
+            example_audio_url: `https://cdn.example.com/audio/vocab_hello_example.mp3`,
+            round_number: 1
+          }
+        ],
         createdAt: new Date().toISOString(),
         updatedAt: new Date().toISOString()
       }
+    } catch (error) {
+      console.error(`Error fetching scene ${id}:`, error)
+      throw error
     }
   }
 
@@ -292,20 +181,9 @@ export default function SceneDetail() {
         const sceneData = await getSceneById(id)
         setScene(sceneData)
         
-        const rounds = sceneData.dialogue.rounds.map(round => ({
-          ...round,
-          content: round.content.map(dialogue => ({
-            ...dialogue,
-            audio_url: dialogue.audio_url && dialogue.audio_url.trim() !== '' ? dialogue.audio_url : ''
-          }))
-        }))
-        setDialogueRounds(rounds)
-        
-        const vocab = sceneData.vocabulary.map(vocab => ({
-          ...vocab,
-          audio_url: vocab.audio_url && vocab.audio_url.trim() !== '' ? vocab.audio_url : ''
-        }))
-        setVocabulary(vocab)
+        // 新格式：dialogue 直接是数组
+        setDialogueItems(sceneData.dialogue || [])
+        setVocabulary(sceneData.vocabulary || [])
       } catch (error) {
         console.error('Error fetching scene data:', error)
       } finally {
@@ -386,7 +264,20 @@ export default function SceneDetail() {
                 {scene.duration}分钟
               </span>
             </div>
-            <PlayAllButton rounds={dialogueRounds} />
+            {/* 将对话项按 round_number 分组传递给 PlayAllButton */}
+            <PlayAllButton rounds={dialogueItems.reduce((acc, item) => {
+              const round = acc.find(r => r.round_number === item.round_number)
+              if (round) {
+                round.content.push(item)
+              } else {
+                acc.push({
+                  round_number: item.round_number,
+                  content: [item],
+                  analysis: null
+                })
+              }
+              return acc
+            }, [] as {round_number: number, content: DialogueItem[], analysis: null}[])} />
           </div>
           
           {/* 描述 */}
@@ -416,11 +307,26 @@ export default function SceneDetail() {
               <DialogueIcon />
             </div>
             <h2 className="text-lg font-bold text-gray-900">对话学习</h2>
-            <span className="text-xs text-gray-400 ml-auto">{dialogueRounds.length} 轮对话</span>
+            <span className="text-xs text-gray-400 ml-auto">
+              {new Set(dialogueItems.map(d => d.round_number)).size} 轮对话
+            </span>
           </div>
           
           <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
-            <DialogueContent rounds={dialogueRounds} />
+            {/* 将扁平数组转换回 rounds 格式给 DialogueContent */}
+            <DialogueContent rounds={dialogueItems.reduce((acc, item) => {
+              const round = acc.find(r => r.round_number === item.round_number)
+              if (round) {
+                round.content.push(item)
+              } else {
+                acc.push({
+                  round_number: item.round_number,
+                  content: [item],
+                  analysis: null
+                })
+              }
+              return acc
+            }, [] as {round_number: number, content: DialogueItem[], analysis: null}[])} />
           </div>
         </motion.div>
 

@@ -62,13 +62,48 @@ kouyu/
 |------|------|------|
 | id | text | 主键 |
 | name | text | 场景名称 |
-| category | text | 分类(daily/workplace/study_abroad/travel/social) |
+| category | text | 分类(中文: 日常/职场/留学/旅行/社交) |
 | description | text | 场景描述 |
-| difficulty | text | 难度(beginner/intermediate/advanced) |
-| duration | integer | 学习时长(分钟) |
+| difficulty | text | 难度(中文: 初级/中级/高级) |
+| duration | integer | 学习时长(分钟)，根据内容动态计算 |
 | tags | jsonb | 关键词标签 |
-| dialogue | jsonb | 对话内容(含音频URL) |
+| dialogue | jsonb | 对话内容(扁平数组格式) |
 | vocabulary | jsonb | 高频词汇(含音频URL) |
+
+### dialogue 字段格式（扁平数组）
+```json
+[
+  {
+    "round_number": 1,
+    "speaker": "speaker1",
+    "speaker_name": "张三",
+    "text": "Excuse me, where can I find the apples?",
+    "translation": "打扰一下，苹果在哪里？",
+    "audio_url": "COS:/scene/dialogues/daily_003_round1_speaker1.mp3",
+    "is_key_qa": true,
+    "index": 1
+  }
+]
+```
+
+### vocabulary 字段格式
+```json
+[
+  {
+    "vocab_id": "daily_003_vocab_01",
+    "type": "word",
+    "content": "Excuse me",
+    "phonetic": "/ɪɡˈzɛs ˈmiːm/",
+    "translation": "打扰一下",
+    "audio_url": "COS:/scene/vocabulary/daily_003_vocab1_word.mp3",
+    "example": "Excuse me, where is the bathroom?",
+    "example_translation": "打扰一下，洗手间在哪里？",
+    "example_audio_url": "COS:/scene/vocabulary/daily_003_vocab1_example.mp3",
+    "round_number": 1,
+    "difficulty": "easy"
+  }
+]
+```
 
 ### phrases 表
 | 字段 | 类型 | 说明 |
@@ -111,11 +146,11 @@ https://kouyu-scene-1300762139.cos.ap-guangzhou.myqcloud.com/scene/dialogues/dai
 
 | 类别 | ID前缀 | 数量 | 说明 |
 |------|--------|------|------|
-| daily | daily_ | 30 | 日常场景 |
-| workplace | workplace_ | 25 | 职场场景 |
-| study_abroad | study_abroad_ | 20 | 留学场景 |
-| travel | travel_ | 15 | 旅行场景 |
-| social | social_ | 10 | 社交场景 |
+| 日常 | daily_ | 31 | 日常场景 |
+| 职场 | workplace_ | 24 | 职场场景 |
+| 留学 | study_abroad_ | 20 | 留学场景 |
+| 旅行 | travel_ | 15 | 旅行场景 |
+| 社交 | social_ | 10 | 社交场景 |
 
 ## 7. 常用命令
 
@@ -170,3 +205,24 @@ NEXT_PUBLIC_COS_BASE_URL=https://kouyu-scene-1300762139.cos.ap-guangzhou.myqclou
 
 ### 填空测试
 - `POST /api/fill-blank/evaluate` - 评估答案
+
+## 11. 数据格式规范
+
+### 11.1 category/difficulty 字段
+- **category** 使用中文：`日常`、`职场`、`留学`、`旅行`、`社交`
+- **difficulty** 使用中文：`初级`、`中级`、`高级`
+- 前端无需做映射，直接使用数据库中的中文值
+
+### 11.2 音频字段名统一
+- 单词/短语音频统一使用 `audio_url`
+- 例句音频使用 `example_audio_url`
+- 不再使用 `word_audio_url` 等旧字段名
+
+### 11.3 dialogue 格式
+- 使用扁平数组格式，不再嵌套 rounds/content
+- 每条对话包含完整的 `round_number`、`speaker`、`text`、`translation`、`audio_url` 等字段
+
+### 11.4 duration 学习时长
+- 根据对话轮数和词汇数量动态计算
+- 计算公式：`Math.max(5, Math.min(20, roundCount * 2 + Math.ceil(vocabCount / 2)))`
+- 范围：5-20 分钟

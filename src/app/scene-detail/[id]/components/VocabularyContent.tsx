@@ -7,16 +7,14 @@ import { buildAudioUrl } from '@/lib/audioUrl';
 
 interface VocabularyItem {
   vocab_id: string;
-  scene_id: string;
   type: string;
   content: string;
   phonetic: string;
   translation: string;
-  example_sentence: string;
+  example: string;           // 统一使用 example
   example_translation: string;
-  audio_url?: string;
-  word_audio_url?: string;
-  example_audio_url?: string;
+  audio_url: string;         // 统一使用 audio_url
+  example_audio_url: string;
   round_number: number;
   difficulty?: 'easy' | 'medium' | 'hard';
 }
@@ -151,10 +149,6 @@ const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => 
     }
   };
 
-  const getWordAudioUrl = (vocab: VocabularyItem): string | undefined => {
-    return vocab.word_audio_url || vocab.audio_url;
-  };
-
   const isPlaying = (audioUrl: string | undefined): boolean => {
     if (!audioUrl || !playingAudio) return false;
     return playingAudio === buildAudioUrl(audioUrl);
@@ -280,9 +274,9 @@ const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => 
                     <motion.button
                       whileTap={{ scale: 0.9 }}
                       className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-[#4F7CF0] hover:border-[#4F7CF0] transition-all shadow-sm hover:shadow-md shrink-0"
-                      onClick={() => playAudio(getWordAudioUrl(vocab))}
+                      onClick={() => playAudio(vocab.audio_url)}
                     >
-                      {isPlaying(getWordAudioUrl(vocab)) ? (
+                      {isPlaying(vocab.audio_url) ? (
                         <StopIcon className="text-[#4F7CF0] hover:text-white" />
                       ) : (
                         <VolumeIcon className="text-[#4F7CF0] hover:text-white" />
@@ -292,7 +286,7 @@ const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => 
                   
                   <div className="bg-gray-50 rounded-lg p-3 space-y-1.5 mt-2">
                     <div className="flex items-start justify-between gap-2">
-                      <p className="text-sm text-gray-800 italic flex-1">&quot;{vocab.example_sentence}&quot;</p>
+                      <p className="text-sm text-gray-800 italic flex-1">&quot;{vocab.example}&quot;</p>
                       {vocab.example_audio_url && (
                         <motion.button
                           whileTap={{ scale: 0.9 }}
