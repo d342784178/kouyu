@@ -18,9 +18,16 @@ from pathlib import Path
 from typing import List, Dict, Any
 import edge_tts
 
-VOICE = "en-US-AriaNeural"
+# 角色音色配置
+# speaker1 使用女声，speaker2 使用男声
+VOICE_CONFIG = {
+    "speaker1": "en-US-AriaNeural",      # 女声 - 主角/用户角色
+    "speaker2": "en-US-GuyNeural",       # 男声 - 配角/系统角色
+    "default": "en-US-AriaNeural",       # 默认女声
+}
+
 DATA_DIR = Path(__file__).parent.parent / "data"
-JSON_FILE = DATA_DIR / "scenes_100.json"
+JSON_FILE = DATA_DIR / "scenes_final.json"
 AUDIO_DIR = DATA_DIR / "audio"
 
 DIALOGUES_DIR = AUDIO_DIR / "dialogues"
@@ -37,23 +44,37 @@ class AudioGenerator:
         }
         self.failed_items: List[str] = []
 
-    async def generate_audio(self, text: str, output_path: Path) -> bool:
-        try:
-            if output_path.exists():
-                print(f"  ⏭️  跳过已存在: {output_path.name}")
-                self.stats["skipped"] += 1
-                return True
+    async def generate_audio(self, text: str, output_path: Path, voice: str = None, max_retries: int = 3) -> bool:
+        # 使用指定的音色或默认音色
+        voice_to_use = voice or VOICE_CONFIG["default"]
+        
+        for attempt in range(max_retries):
+            try:
+                if output_path.exists():
+                    print(f"  ⏭️  跳过已存在: {output_path.name}")
+                    self.stats["skipped"] += 1
+                    return True
 
-            communicate = edge_tts.Communicate(text, VOICE)
-            await communicate.save(str(output_path))
-            print(f"  ✅ 生成成功: {output_path.name}")
-            self.stats["success"] += 1
-            return True
-        except Exception as e:
-            print(f"  ❌ 生成失败: {output_path.name} - {str(e)}")
-            self.stats["failed"] += 1
-            self.failed_items.append(f"{output_path.name}: {text}")
-            return False
+                # 使用 +20% 语速（rate="+20%" 表示比正常快20%）
+                communicate = edge_tts.Communicate(text, voice_to_use, rate="+20%")
+                await communicate.save(str(output_path))
+                print(f"  ✅ 生成成功: {output_path.name} ({voice_to_use}, +20%语速)")
+                self.stats["success"] += 1
+                return True
+            except Exception as e:
+                error_msg = str(e)
+                # 如果是最后一次尝试，记录失败
+                if attempt == max_retries - 1:
+                    print(f"  ❌ 生成失败: {output_path.name} - {error_msg}")
+                    self.stats["failed"] += 1
+                    self.failed_items.append(f"{output_path.name}: {text}")
+                    return False
+                # 否则等待后重试
+                else:
+                    wait_time = (attempt + 1) * 2  # 2s, 4s, 6s
+                    print(f"  ⚠️  重试 {attempt + 1}/{max_retries}: {output_path.name} - 等待{wait_time}s")
+                    await asyncio.sleep(wait_time)
+        return False
 
     async def process_scenes(self, scenes: List[Dict[str, Any]]):
         tasks = []
@@ -76,32 +97,31 @@ class AudioGenerator:
                     
                     if text and speaker:
                         audio_path = DIALOGUES_DIR / f"{scene_id}_round{round_number}_{speaker}.mp3"
+                        # 根据 speaker 选择音色
+                        voice = VOICE_CONFIG.get(speaker, VOICE_CONFIG["default"])
                         self.stats["total"] += 1
-                        tasks.append(self.generate_audio(text, audio_path))
+                        tasks.append(self.generate_audio(text, audio_path, voice))
 
-            vocabulary = scene.get("vocabulary", [])
-            for idx, vocab in enumerate(vocabulary, 1):
-                word = vocab.get("content", "")
-                example = vocab.get("example_sentence", "")
-                
-                if word:
-                    word_path = VOCABULARY_DIR / f"{scene_id}_vocab{idx}_word.mp3"
-                    self.stats["total"] += 1
-                    tasks.append(self.generate_audio(word, word_path))
-                
-                if example:
-                    example_path = VOCABULARY_DIR / f"{scene_id}_vocab{idx}_example.mp3"
-                    self.stats["total"] += 1
-                    tasks.append(self.generate_audio(example, example_path))
+            # 不生成词汇音频，只生成对话音频
 
-        batch_size = 20
-        total_tasks = len(tasks)
-        for i in range(0, total_tasks, batch_size):
-            batch = tasks[i:i+batch_size]
-            await asyncio.gather(*batch, return_exceptions=True)
-            progress = min(i+batch_size, total_tasks)
-            print(f"\n  📊 进度: {progress}/{total_tasks} ({progress*100//total_tasks}%)")
-            await asyncio.sleep(0.3)
+        # 使用信号量控制并发数为15
+        semaphore = asyncio.Semaphore(15)
+        
+        async def generate_with_semaphore(task):
+            async with semaphore:
+                return await task
+        
+        # 包装所有任务，添加信号量控制
+        semaphore_tasks = [generate_with_semaphore(task) for task in tasks]
+        
+        total_tasks = len(semaphore_tasks)
+        completed = 0
+        
+        for coro in asyncio.as_completed(semaphore_tasks):
+            await coro
+            completed += 1
+            if completed % 50 == 0 or completed == total_tasks:
+                print(f"\n  📊 进度: {completed}/{total_tasks} ({completed*100//total_tasks}%)")
 
     def print_summary(self):
         print("\n" + "=" * 50)
@@ -122,7 +142,9 @@ class AudioGenerator:
 
 async def main():
     print("🎵 开始为场景数据生成音频文件\n")
-    print(f"🎙️  使用语音: {VOICE}")
+    print("🎙️  音色配置:")
+    print(f"   Speaker1 (主角/用户): {VOICE_CONFIG['speaker1']}")
+    print(f"   Speaker2 (配角/系统): {VOICE_CONFIG['speaker2']}")
     print("=" * 50)
 
     if not JSON_FILE.exists():
