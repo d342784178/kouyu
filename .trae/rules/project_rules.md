@@ -70,20 +70,37 @@ kouyu/
 | dialogue | jsonb | 对话内容(扁平数组格式) |
 | vocabulary | jsonb | 高频词汇(含音频URL) |
 
-### dialogue 字段格式（扁平数组）
+### dialogue 字段格式（嵌套结构）
 ```json
-[
-  {
-    "round_number": 1,
-    "speaker": "speaker1",
-    "speaker_name": "张三",
-    "text": "Excuse me, where can I find the apples?",
-    "translation": "打扰一下，苹果在哪里？",
-    "audio_url": "COS:/scene/dialogues/daily_003_round1_speaker1.mp3",
-    "is_key_qa": true,
-    "index": 1
-  }
-]
+{
+  "rounds": [
+    {
+      "round_number": 1,
+      "content": [
+        {
+          "index": 1,
+          "speaker": "speaker1",
+          "speaker_name": "Customer",
+          "text": "Excuse me, where can I find the apples?",
+          "translation": "打扰一下，苹果在哪里？",
+          "audio_url": "COS:/scene/dialogues/daily_003_round1_speaker1.mp3",
+          "is_key_qa": true
+        }
+      ],
+      "analysis": {
+        "analysis_detail": "分析详情",
+        "standard_answer": {
+          "text": "标准回答",
+          "translation": "翻译",
+          "scenario": "适用场景",
+          "formality": "neutral"
+        },
+        "alternative_answers": [...],
+        "usage_notes": "使用说明"
+      }
+    }
+  ]
+}
 ```
 
 ### vocabulary 字段格式
@@ -128,7 +145,9 @@ kouyu/
 
 ## 5. 音频URL格式
 
-音频使用 `COS:/` 协议前缀，由 `buildAudioUrl` 函数解析：
+### 5.1 自定义协议格式
+
+音频使用自定义协议前缀，格式为 `PROTOCOL:/path`，由 `buildAudioUrl` 函数解析：
 
 ```
 COS:/scene/dialogues/{scene_id}_round{n}_speaker{x}.mp3
@@ -137,20 +156,57 @@ COS:/scene/vocabulary/{scene_id}_vocab{n}_example.mp3
 COS:/phrases/{phrase_id}.mp3
 ```
 
-完整URL示例：
+### 5.2 支持的存储协议
+
+| 协议 | 说明 | 环境变量配置 |
+|------|------|-------------|
+| `COS:/` | 腾讯云 COS | `NEXT_PUBLIC_COS_BASE_URL` |
+| `BLOB:/` | Vercel Blob | `NEXT_PUBLIC_BLOB_BASE_URL` |
+
+
+### 5.3 URL构建规则
+
+1. **协议解析**：提取 `PROTOCOL:/` 部分，匹配对应的存储配置
+2. **路径拼接**：将协议后的路径拼接到 baseUrl 后
+3. **完整URL**：`{baseUrl}/{path}`
+
+### 5.4 使用示例
+
+```typescript
+import { buildAudioUrl } from '@/lib/audioUrl';
+
+// 腾讯云 COS
+buildAudioUrl('COS:/scene/dialogues/daily_001_round1_speaker1.mp3')
+// -> 'https://kouyu-scene-1300762139.cos.ap-guangzhou.myqcloud.com/scene/dialogues/daily_001_round1_speaker1.mp3'
+
+// 已经是完整URL时直接返回
+buildAudioUrl('https://example.com/audio.mp3')
+// -> 'https://example.com/audio.mp3'
+
+// 空值处理
+buildAudioUrl(null) // -> ''
+buildAudioUrl(undefined) // -> ''
 ```
-https://kouyu-scene-1300762139.cos.ap-guangzhou.myqcloud.com/scene/dialogues/daily_001_round1_speaker1.mp3
-```
+
+### 5.5 路径格式规范
+
+| 类型 | 路径格式 | 示例 |
+|------|---------|------|
+| 场景对话 | `COS:/scene/dialogues/{scene_id}_round{n}_{speaker}.mp3` | `COS:/scene/dialogues/daily_001_round1_speaker1.mp3` |
+| 词汇单词 | `COS:/scene/vocabulary/{scene_id}_vocab{n}_word.mp3` | `COS:/scene/vocabulary/daily_001_vocab1_word.mp3` |
+| 词汇例句 | `COS:/scene/vocabulary/{scene_id}_vocab{n}_example.mp3` | `COS:/scene/vocabulary/daily_001_vocab1_example.mp3` |
+| 短语音频 | `COS:/phrases/{phrase_id}.mp3` | `COS:/phrases/phrase_001.mp3` |
 
 ## 6. 场景分类
 
 | 类别 | ID前缀 | 数量 | 说明 |
 |------|--------|------|------|
-| 日常 | daily_ | 31 | 日常场景 |
-| 职场 | workplace_ | 24 | 职场场景 |
-| 留学 | study_abroad_ | 20 | 留学场景 |
-| 旅行 | travel_ | 15 | 旅行场景 |
-| 社交 | social_ | 10 | 社交场景 |
+| 日常 | daily_ | 31 | 日常场景 (daily_001 ~ daily_030 + daily_100) |
+| 职场 | workplace_ | 25 | 职场场景 |
+| 留学 | study_abroad_ | 15 | 留学场景 |
+| 旅行 | travel_ | 20 | 旅行场景 |
+| 社交 | social_ | 20 | 社交场景 |
+| **总计** | - | **110** | - |
 
 ## 7. 常用命令
 
