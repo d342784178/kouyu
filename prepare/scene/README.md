@@ -5,8 +5,7 @@
 ```
 prepare/scene/
 ├── data/
-│   ├── scenes_100.json              # 原始场景数据（无音频URL）
-│   ├── scenes_100_with_audio.json   # 带音频URL的场景数据
+│   ├── scenes_final.json            # 最终场景数据（已导入数据库）
 │   └── audio/                       # 本地音频文件（已上传到COS，可删除）
 │       ├── dialogues/               # 对话音频
 │       ├── vocabulary/              # 词汇音频
@@ -14,8 +13,7 @@ prepare/scene/
 ├── scripts/
 │   ├── scene-manager.ts             # 场景管理脚本（主要）
 │   ├── generate_scenes_100.js       # 生成100个场景数据
-│   ├── generate_scene_audio.py      # 生成音频文件
-│   └── backup_audio.py              # 备份音频文件
+│   └── generate_scene_audio.py      # 生成音频文件
 └── README.md
 ```
 
