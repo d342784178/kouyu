@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
@@ -89,26 +89,41 @@ export default function SceneList() {
   const [isLoadingMore, setIsLoadingMore] = useState(false)
   const [hasMore, setHasMore] = useState(true)
   const [page, setPage] = useState(1)
-  const observerRef = useRef<IntersectionObserver | null>(null)
-  const loadMoreRef = useRef<HTMLDivElement>(null)
+  const [totalCount, setTotalCount] = useState(0)
 
   // 获取场景列表的函数
-  const getScenes = async (): Promise<Scene[]> => {
+  const fetchScenes = async (pageNum: number): Promise<{ scenes: Scene[]; hasMore: boolean; totalCount: number }> => {
     try {
-      const response = await fetch('/api/scenes')
-      
-      let scenes: Scene[] = []
+      const response = await fetch(`/api/scenes?page=${pageNum}&pageSize=${PAGE_SIZE}`)
       
       if (response.ok) {
-        scenes = await response.json()
+        const result = await response.json()
+        return {
+          scenes: result.data || [],
+          hasMore: result.pagination?.hasMore || false,
+          totalCount: result.pagination?.totalCount || 0
+        }
       } else {
         console.error('API call failed:', response.status)
-        scenes = []
+        return { scenes: [], hasMore: false, totalCount: 0 }
       }
-      
-      return scenes
     } catch (error) {
       console.error('Error fetching scenes:', error)
+      return { scenes: [], hasMore: false, totalCount: 0 }
+    }
+  }
+
+  // 获取分类列表的函数
+  const fetchCategories = async (): Promise<string[]> => {
+    try {
+      const response = await fetch('/api/scenes/categories')
+      if (response.ok) {
+        const result = await response.json()
+        return result.categories || []
+      }
+      return []
+    } catch (error) {
+      console.error('Error fetching categories:', error)
       return []
     }
   }
@@ -118,16 +133,18 @@ export default function SceneList() {
     const fetchData = async () => {
       try {
         setIsLoading(true)
-        const scenesData = await getScenes()
-        setScenes(scenesData)
-        setFilteredScenes(scenesData)
-        // 初始显示前PAGE_SIZE条
-        setDisplayScenes(scenesData.slice(0, PAGE_SIZE))
-        setHasMore(scenesData.length > PAGE_SIZE)
         
-        // 从场景数据中提取唯一的category列表
-        const uniqueCategories = Array.from(new Set(scenesData.map(scene => scene.category)))
-        setCategories(['全部', ...uniqueCategories])
+        const [scenesData, categoriesData] = await Promise.all([
+          fetchScenes(1),
+          fetchCategories()
+        ])
+        
+        setScenes(scenesData.scenes)
+        setFilteredScenes(scenesData.scenes)
+        setDisplayScenes(scenesData.scenes)
+        setHasMore(scenesData.hasMore)
+        setTotalCount(scenesData.totalCount)
+        setCategories(['全部', ...categoriesData])
       } catch (error) {
         console.error('Error fetching data:', error)
       } finally {
@@ -140,73 +157,67 @@ export default function SceneList() {
 
   // 根据分类和搜索筛选场景
   useEffect(() => {
-    let filtered = scenes
-    
-    // 分类筛选
-    if (selectedCategory !== '全部') {
-      filtered = filtered.filter(scene => scene.category === selectedCategory)
+    if (selectedCategory === '全部' && !searchQuery.trim()) {
+      setFilteredScenes(scenes)
+      setDisplayScenes(scenes)
+    } else {
+      let filtered = scenes
+      
+      if (selectedCategory !== '全部') {
+        filtered = filtered.filter(scene => scene.category === selectedCategory)
+      }
+      
+      if (searchQuery.trim()) {
+        const query = searchQuery.toLowerCase()
+        filtered = filtered.filter(scene => 
+          scene.name.toLowerCase().includes(query) ||
+          scene.description.toLowerCase().includes(query)
+        )
+      }
+      
+      setFilteredScenes(filtered)
+      setDisplayScenes(filtered)
     }
-    
-    // 搜索筛选
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase()
-      filtered = filtered.filter(scene => 
-        scene.name.toLowerCase().includes(query) ||
-        scene.description.toLowerCase().includes(query)
-      )
-    }
-    
-    setFilteredScenes(filtered)
-    // 重置分页
-    setDisplayScenes(filtered.slice(0, PAGE_SIZE))
-    setPage(1)
-    setHasMore(filtered.length > PAGE_SIZE)
   }, [selectedCategory, searchQuery, scenes])
 
   // 加载更多场景
-  const loadMore = useCallback(() => {
+  const loadMore = useCallback(async () => {
     if (isLoadingMore || !hasMore) return
     
     setIsLoadingMore(true)
     
-    // 模拟延迟，提升用户体验
-    setTimeout(() => {
+    try {
       const nextPage = page + 1
-      const start = (nextPage - 1) * PAGE_SIZE
-      const end = start + PAGE_SIZE
-      const newScenes = filteredScenes.slice(0, end)
+      const { scenes: newScenes, hasMore: more } = await fetchScenes(nextPage)
       
-      setDisplayScenes(newScenes)
+      setScenes(prev => [...prev, ...newScenes])
+      setDisplayScenes(prev => [...prev, ...newScenes])
       setPage(nextPage)
-      setHasMore(end < filteredScenes.length)
+      setHasMore(more)
+    } catch (error) {
+      console.error('Error loading more scenes:', error)
+    } finally {
       setIsLoadingMore(false)
-    }, 500)
-  }, [page, filteredScenes, isLoadingMore, hasMore])
+    }
+  }, [page, isLoadingMore, hasMore])
 
-  // 设置Intersection Observer用于无限滚动
+  // 使用滚动事件实现无限滚动
   useEffect(() => {
-    if (observerRef.current) {
-      observerRef.current.disconnect()
-    }
-
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && hasMore && !isLoadingMore) {
-          loadMore()
-        }
-      },
-      { threshold: 0.5 }
-    )
-
-    if (loadMoreRef.current) {
-      observerRef.current.observe(loadMoreRef.current)
-    }
-
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect()
+    const handleScroll = () => {
+      if (isLoadingMore || !hasMore) return
+      
+      const scrollTop = window.scrollY || document.documentElement.scrollTop
+      const scrollHeight = document.documentElement.scrollHeight
+      const clientHeight = window.innerHeight
+      
+      // 距离底部200px时触发加载
+      if (scrollTop + clientHeight >= scrollHeight - 200) {
+        loadMore()
       }
     }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [loadMore, hasMore, isLoadingMore])
 
   // 检查是否有场景数据
@@ -279,7 +290,7 @@ export default function SceneList() {
         {/* Scene Count - 优化计数显示 */}
         <div className="flex items-center justify-between mb-4">
           <span className="text-sm font-medium text-gray-600">
-            共 <span className="text-[#4F7CF0] font-bold">{filteredScenes.length}</span> 个场景
+            共 <span className="text-[#4F7CF0] font-bold">{selectedCategory === '全部' && !searchQuery.trim() ? totalCount : filteredScenes.length}</span> 个场景
           </span>
         </div>
 
@@ -379,11 +390,16 @@ export default function SceneList() {
             })}
             
             {/* 加载更多触发器 */}
-            <div ref={loadMoreRef} className="py-8">
+            <div className="py-8">
               {isLoadingMore && (
                 <div className="flex flex-col items-center justify-center">
                   <div className="w-10 h-10 border-3 border-[#4F7CF0]/20 border-t-[#4F7CF0] rounded-full animate-spin mb-3"></div>
                   <p className="text-xs text-gray-400">加载更多...</p>
+                </div>
+              )}
+              {hasMore && !isLoadingMore && (
+                <div className="h-10 flex items-center justify-center">
+                  <p className="text-xs text-gray-400">下拉加载更多</p>
                 </div>
               )}
               {!hasMore && displayScenes.length > 0 && (

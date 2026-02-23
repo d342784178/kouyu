@@ -14,7 +14,9 @@ interface VocabularyItem {
   translation: string;
   example_sentence: string;
   example_translation: string;
-  audio_url: string;
+  audio_url?: string;
+  word_audio_url?: string;
+  example_audio_url?: string;
   round_number: number;
   difficulty?: 'easy' | 'medium' | 'hard';
 }
@@ -80,10 +82,10 @@ function FilterIcon({ className }: { className?: string }) {
 
 const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => {
   const [playingAudio, setPlayingAudio] = useState<string | null>(null);
+  const [currentAudioElement, setCurrentAudioElement] = useState<HTMLAudioElement | null>(null);
   const [audioError, setAudioError] = useState<string | null>(null);
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all');
 
-  // 获取所有可用的难度级别
   const availableDifficulties = useMemo(() => {
     const difficulties = new Set<string>();
     vocabulary.forEach(v => {
@@ -94,7 +96,6 @@ const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => 
     return Array.from(difficulties);
   }, [vocabulary]);
 
-  // 筛选词汇
   const filteredVocabulary = useMemo(() => {
     if (selectedDifficulty === 'all') {
       return vocabulary;
@@ -102,9 +103,9 @@ const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => 
     return vocabulary.filter(v => v.difficulty === selectedDifficulty);
   }, [vocabulary, selectedDifficulty]);
 
-  const playAudio = async (audioUrl: string) => {
+  const playAudio = async (audioUrl: string | undefined) => {
     if (!audioUrl) {
-      setAudioError('暂不支持音频播放');
+      setAudioError('暂无音频');
       setTimeout(() => setAudioError(null), 3000);
       return;
     }
@@ -112,9 +113,15 @@ const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => 
     try {
       const fullAudioUrl = buildAudioUrl(audioUrl);
 
-      if (playingAudio) {
-        const currentAudio = new Audio(playingAudio);
-        currentAudio.pause();
+      if (currentAudioElement) {
+        currentAudioElement.pause();
+        currentAudioElement.currentTime = 0;
+        setCurrentAudioElement(null);
+        setPlayingAudio(null);
+        
+        if (playingAudio === fullAudioUrl) {
+          return;
+        }
       }
 
       setPlayingAudio(fullAudioUrl);
@@ -123,21 +130,34 @@ const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => 
       const audio = new Audio(fullAudioUrl);
 
       audio.onerror = () => {
-        setAudioError('暂不支持音频播放');
+        setAudioError('音频加载失败');
         setPlayingAudio(null);
+        setCurrentAudioElement(null);
         setTimeout(() => setAudioError(null), 3000);
       };
 
-      await audio.play();
-
       audio.onended = () => {
         setPlayingAudio(null);
+        setCurrentAudioElement(null);
       };
+
+      setCurrentAudioElement(audio);
+      await audio.play();
     } catch {
-      setAudioError('暂不支持音频播放');
+      setAudioError('音频播放失败');
       setPlayingAudio(null);
+      setCurrentAudioElement(null);
       setTimeout(() => setAudioError(null), 3000);
     }
+  };
+
+  const getWordAudioUrl = (vocab: VocabularyItem): string | undefined => {
+    return vocab.word_audio_url || vocab.audio_url;
+  };
+
+  const isPlaying = (audioUrl: string | undefined): boolean => {
+    if (!audioUrl || !playingAudio) return false;
+    return playingAudio === buildAudioUrl(audioUrl);
   };
 
   return (
@@ -260,9 +280,9 @@ const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => 
                     <motion.button
                       whileTap={{ scale: 0.9 }}
                       className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-[#4F7CF0] hover:border-[#4F7CF0] hover:text-white transition-all shadow-sm group-hover:shadow-md shrink-0"
-                      onClick={() => playAudio(vocab.audio_url)}
+                      onClick={() => playAudio(getWordAudioUrl(vocab))}
                     >
-                      {playingAudio && playingAudio.includes(vocab.audio_url) ? (
+                      {isPlaying(getWordAudioUrl(vocab)) ? (
                         <StopIcon className="text-[#4F7CF0] group-hover:text-white" />
                       ) : (
                         <VolumeIcon className="text-[#4F7CF0] group-hover:text-white" />
@@ -271,7 +291,22 @@ const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => 
                   </div>
                   
                   <div className="bg-gray-50 rounded-lg p-3 space-y-1.5 mt-2">
-                    <p className="text-sm text-gray-800 italic">&quot;{vocab.example_sentence}&quot;</p>
+                    <div className="flex items-start justify-between gap-2">
+                      <p className="text-sm text-gray-800 italic flex-1">&quot;{vocab.example_sentence}&quot;</p>
+                      {vocab.example_audio_url && (
+                        <motion.button
+                          whileTap={{ scale: 0.9 }}
+                          className="w-8 h-8 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-[#4F7CF0] hover:border-[#4F7CF0] hover:text-white transition-all shadow-sm shrink-0"
+                          onClick={() => playAudio(vocab.example_audio_url)}
+                        >
+                          {isPlaying(vocab.example_audio_url) ? (
+                            <StopIcon className="text-[#4F7CF0] group-hover:text-white w-3 h-3" />
+                          ) : (
+                            <VolumeIcon className="text-[#4F7CF0] group-hover:text-white w-3 h-3" />
+                          )}
+                        </motion.button>
+                      )}
+                    </div>
                     <p className="text-xs text-gray-500">{vocab.example_translation}</p>
                   </div>
                 </div>

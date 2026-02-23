@@ -109,15 +109,15 @@ export default function Home() {
   // 获取推荐场景的函数
   const getRecommendedScenes = async (count: number = 3): Promise<Scene[]> => {
     try {
-      const response = await fetch('/api/scenes')
-      
-      let scenes: Scene[] = []
+      const response = await fetch(`/api/scenes?pageSize=${count}`)
       
       if (response.ok) {
-        scenes = await response.json()
+        const result = await response.json()
+        const scenes: Scene[] = result.data || []
+        const shuffled = [...scenes].sort(() => 0.5 - Math.random())
+        return shuffled.slice(0, count)
       } else {
-        // 如果API调用失败，返回模拟数据
-        scenes = [
+        return [
           {
             id: 'scene_1',
             name: '机场值机',
@@ -153,9 +153,6 @@ export default function Home() {
           }
         ]
       }
-      
-      const shuffled = [...scenes].sort(() => 0.5 - Math.random())
-      return shuffled.slice(0, count)
     } catch (error) {
       console.error('Error fetching recommended scenes:', error)
       return []

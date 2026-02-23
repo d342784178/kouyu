@@ -1,28 +1,41 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { NextResponse } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
 import { neon } from '@neondatabase/serverless'
 
-// 禁用 Next.js 数据缓存
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
-    // 使用 neon 客户端执行原始 SQL 查询
     const neonSql = neon(process.env.DATABASE_URL || '')
     
-    // 尝试从数据库获取场景列表
-    let rawScenes
+    const { searchParams } = new URL(request.url)
+    const page = Math.max(1, parseInt(searchParams.get('page') || '1', 10))
+    const pageSize = Math.min(100, Math.max(1, parseInt(searchParams.get('pageSize') || '10', 10)))
+    const offset = (page - 1) * pageSize
+    
+    let totalCount = 0
     try {
-      rawScenes = await neonSql`SELECT * FROM scenes ORDER BY category, name`
+      const countResult = await neonSql`SELECT COUNT(*) as count FROM scenes`
+      totalCount = parseInt(countResult[0]?.count || '0', 10)
     } catch (error) {
-      console.error('Error fetching scenes from database:', error)
-      // 数据库查询失败，返回空数组
-      return NextResponse.json([], { status: 500 })
+      console.error('Error fetching scenes count:', error)
+      return NextResponse.json({ error: 'Failed to fetch count' }, { status: 500 })
     }
     
-    // 手动映射数据
-    const allScenes = rawScenes.map((scene: any) => ({
+    let rawScenes
+    try {
+      rawScenes = await neonSql`
+        SELECT * FROM scenes 
+        ORDER BY category, name 
+        LIMIT ${pageSize} OFFSET ${offset}
+      `
+    } catch (error) {
+      console.error('Error fetching scenes from database:', error)
+      return NextResponse.json({ error: 'Failed to fetch scenes' }, { status: 500 })
+    }
+    
+    const scenes = rawScenes.map((scene: any) => ({
       id: scene.id,
       name: scene.name,
       category: scene.category,
@@ -36,8 +49,18 @@ export async function GET() {
       updatedAt: scene.updated_at
     }))
     
-    // 返回数据，禁用缓存
-    return NextResponse.json(allScenes, { 
+    const totalPages = Math.ceil(totalCount / pageSize)
+    
+    return NextResponse.json({
+      data: scenes,
+      pagination: {
+        page,
+        pageSize,
+        totalCount,
+        totalPages,
+        hasMore: page < totalPages
+      }
+    }, { 
       status: 200,
       headers: {
         'Cache-Control': 'no-store, no-cache, must-revalidate, proxy-revalidate',
@@ -47,7 +70,6 @@ export async function GET() {
     })
   } catch (error) {
     console.error('Error fetching scenes:', error)
-    // 服务器错误，返回空数组
-    return NextResponse.json([], { status: 500 })
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

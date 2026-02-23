@@ -78,8 +78,11 @@ interface Vocabulary {
   translation: string
   example_sentence: string
   example_translation: string
-  audio_url: string
+  audio_url?: string
+  word_audio_url?: string
+  example_audio_url?: string
   round_number: number
+  difficulty?: 'easy' | 'medium' | 'hard'
 }
 
 // 返回箭头图标

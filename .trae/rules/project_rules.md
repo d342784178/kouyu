@@ -1,13 +1,172 @@
-1. 对于需求、交互、设计文档文档都放在`demands`目录下，项目结构如下
-···
+# 项目规则
+
+## 1. 文档目录结构
+
+需求、交互、设计文档都放在 `demands` 目录下，项目结构如下：
+
+```
 ├── demands/                      # 需求文档
 │   ├── v1/                       # v1版本 （迭代名称，取git迭代分支名）
 │   └── v2/                       # v2版本 （迭代名称，取git迭代分支名）
-│       ├── 设计文档/              # 技术设计文档
-│       ├── 需求文档.md            # 增量需求文档
+│       ├── 设计文档/              # 当前迭代增量技术设计文档
+│       ├── 需求文档.md            # 当前迭代增量需求文档
 │   └── 原型图/                    # 全量原型图
 │   └── 需求文档.md                # 全量需求文档
-···
-5. 对于项目涉及到依赖变更，需要重启服务器
-6. 我使用的浏览器是edge，我的包管理器是pnpm
-7. 每次代码变更后，都需要进行测试
+```
+
+## 2. 技术栈
+
+- **框架**: Next.js 15 (App Router)
+- **语言**: TypeScript
+- **数据库**: PostgreSQL (Neon)
+- **ORM**: Drizzle ORM
+- **UI**: Tailwind CSS + shadcn/ui
+- **AI**: GLM-4-Flash (智谱AI)
+- **音频存储**: 腾讯云 COS
+- **包管理器**: pnpm
+- **浏览器**: Edge
+
+## 3. 项目结构
+
+```
+kouyu/
+├── src/
+│   ├── app/                      # Next.js App Router
+│   │   ├── api/                  # API 路由
+│   │   │   ├── scenes/           # 场景相关API
+│   │   │   ├── phrases/          # 短语相关API
+│   │   │   ├── open-test/        # 开放式测试API
+│   │   │   └── fill-blank/       # 填空测试API
+│   │   ├── scene-list/           # 场景列表页
+│   │   ├── scene-detail/         # 场景详情页
+│   │   ├── scene-test/           # 场景测试页
+│   │   ├── phrase-library/       # 短语库页
+│   │   └── phrase-detail/        # 短语详情页
+│   ├── components/               # 公共组件
+│   ├── lib/                      # 工具库
+│   │   ├── db/                   # 数据库配置和schema
+│   │   ├── audioUrl.ts           # 音频URL构建工具
+│   │   └── llm.ts                # LLM调用封装
+│   └── types.ts                  # 类型定义
+├── prepare/                      # 数据准备脚本
+│   ├── scene/                    # 场景数据
+│   └── phrases/                  # 短语数据
+├── demands/                      # 需求文档
+└── .trae/                        # Trae配置
+```
+
+## 4. 数据库表结构
+
+### scenes 表
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| id | text | 主键 |
+| name | text | 场景名称 |
+| category | text | 分类(daily/workplace/study_abroad/travel/social) |
+| description | text | 场景描述 |
+| difficulty | text | 难度(beginner/intermediate/advanced) |
+| duration | integer | 学习时长(分钟) |
+| tags | jsonb | 关键词标签 |
+| dialogue | jsonb | 对话内容(含音频URL) |
+| vocabulary | jsonb | 高频词汇(含音频URL) |
+
+### phrases 表
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| id | text | 主键 |
+| english | text | 英文短语 |
+| chinese | text | 中文翻译 |
+| partOfSpeech | text | 词性 |
+| scene | text | 适用场景 |
+| difficulty | text | 难度 |
+| pronunciationTips | text | 发音提示 |
+| audioUrl | text | 音频URL |
+
+### scene_tests 表
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| id | text | 主键 |
+| sceneId | text | 关联场景ID |
+| type | text | 测试类型(choice/qa/open_dialogue) |
+| order | integer | 题目顺序 |
+| content | jsonb | 题目内容 |
+
+## 5. 音频URL格式
+
+音频使用 `COS:/` 协议前缀，由 `buildAudioUrl` 函数解析：
+
+```
+COS:/scene/dialogues/{scene_id}_round{n}_speaker{x}.mp3
+COS:/scene/vocabulary/{scene_id}_vocab{n}_word.mp3
+COS:/scene/vocabulary/{scene_id}_vocab{n}_example.mp3
+COS:/phrases/{phrase_id}.mp3
+```
+
+完整URL示例：
+```
+https://kouyu-scene-1300762139.cos.ap-guangzhou.myqcloud.com/scene/dialogues/daily_001_round1_speaker1.mp3
+```
+
+## 6. 场景分类
+
+| 类别 | ID前缀 | 数量 | 说明 |
+|------|--------|------|------|
+| daily | daily_ | 30 | 日常场景 |
+| workplace | workplace_ | 25 | 职场场景 |
+| study_abroad | study_abroad_ | 20 | 留学场景 |
+| travel | travel_ | 15 | 旅行场景 |
+| social | social_ | 10 | 社交场景 |
+
+## 7. 常用命令
+
+```bash
+# 开发
+pnpm dev
+
+# 构建
+pnpm build
+
+# 数据库操作
+npx ts-node prepare/scene/scripts/scene-manager.ts <command>
+# command: test | update-audio | reset | update-db | verify
+
+# 短语数据操作
+npx ts-node prepare/phrases/scripts/reinit_database.ts
+```
+
+## 8. 环境变量
+
+需要在 `.env.local` 中配置：
+
+```env
+DATABASE_URL=postgresql://...
+GLM_API_KEY=xxx
+NEXT_PUBLIC_COS_BASE_URL=https://kouyu-scene-1300762139.cos.ap-guangzhou.myqcloud.com
+```
+
+## 9. 开发规范
+
+1. **依赖变更**: 涉及依赖变更需要重启服务器
+2. **代码变更**: 每次代码变更后，都需要进行测试
+3. **临时文件**: 生成的临时文件放到 `.trae/temp/{sessionId}` 中
+4. **语言**: 对话使用中文，代码注释使用中文
+
+## 10. API 路由
+
+### 场景相关
+- `GET /api/scenes` - 获取场景列表
+- `GET /api/scenes/[id]` - 获取场景详情
+- `GET /api/scenes/[id]/tests` - 获取场景测试题
+
+### 短语相关
+- `GET /api/phrases` - 获取短语列表
+- `GET /api/phrases/[id]` - 获取短语详情
+
+### 开放式测试
+- `POST /api/open-test/initiate` - 初始化测试
+- `POST /api/open-test/chat` - 对话交互
+- `POST /api/open-test/analyze` - 分析结果
+- `GET /api/open-test/audio/[id]` - 获取音频
+
+### 填空测试
+- `POST /api/fill-blank/evaluate` - 评估答案
