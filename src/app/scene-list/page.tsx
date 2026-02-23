@@ -83,6 +83,7 @@ export default function SceneList() {
   const [filteredScenes, setFilteredScenes] = useState<Scene[]>([])
   const [displayScenes, setDisplayScenes] = useState<Scene[]>([])
   const [categories, setCategories] = useState<string[]>([])
+  const [categoryCounts, setCategoryCounts] = useState<Record<string, number>>({})
   const [selectedCategory, setSelectedCategory] = useState('全部')
   const [searchQuery, setSearchQuery] = useState('')
   const [isLoading, setIsLoading] = useState(true)
@@ -92,9 +93,10 @@ export default function SceneList() {
   const [totalCount, setTotalCount] = useState(0)
 
   // 获取场景列表的函数
-  const fetchScenes = async (pageNum: number): Promise<{ scenes: Scene[]; hasMore: boolean; totalCount: number }> => {
+  const fetchScenes = async (pageNum: number, category?: string): Promise<{ scenes: Scene[]; hasMore: boolean; totalCount: number }> => {
     try {
-      const response = await fetch(`/api/scenes?page=${pageNum}&pageSize=${PAGE_SIZE}`)
+      const categoryParam = category && category !== '全部' ? `&category=${encodeURIComponent(category)}` : ''
+      const response = await fetch(`/api/scenes?page=${pageNum}&pageSize=${PAGE_SIZE}${categoryParam}`)
       
       if (response.ok) {
         const result = await response.json()
@@ -114,17 +116,20 @@ export default function SceneList() {
   }
 
   // 获取分类列表的函数
-  const fetchCategories = async (): Promise<string[]> => {
+  const fetchCategories = async (): Promise<{ categories: string[]; categoryCounts: Record<string, number> }> => {
     try {
       const response = await fetch('/api/scenes/categories')
       if (response.ok) {
         const result = await response.json()
-        return result.categories || []
+        return {
+          categories: result.categories || [],
+          categoryCounts: result.categoryCounts || {}
+        }
       }
-      return []
+      return { categories: [], categoryCounts: {} }
     } catch (error) {
       console.error('Error fetching categories:', error)
-      return []
+      return { categories: [], categoryCounts: {} }
     }
   }
 
@@ -144,7 +149,8 @@ export default function SceneList() {
         setDisplayScenes(scenesData.scenes)
         setHasMore(scenesData.hasMore)
         setTotalCount(scenesData.totalCount)
-        setCategories(['全部', ...categoriesData])
+        setCategories(['全部', ...categoriesData.categories])
+        setCategoryCounts(categoriesData.categoryCounts)
       } catch (error) {
         console.error('Error fetching data:', error)
       } finally {
@@ -155,30 +161,48 @@ export default function SceneList() {
     fetchData()
   }, [])
 
-  // 根据分类和搜索筛选场景
+  // 根据分类切换重新获取数据
   useEffect(() => {
-    if (selectedCategory === '全部' && !searchQuery.trim()) {
-      setFilteredScenes(scenes)
-      setDisplayScenes(scenes)
-    } else {
-      let filtered = scenes
-      
-      if (selectedCategory !== '全部') {
-        filtered = filtered.filter(scene => scene.category === selectedCategory)
+    // 只在分类改变时触发，避免初始化时重复请求
+    if (selectedCategory) {
+      const fetchDataByCategory = async () => {
+        try {
+          setIsLoading(true)
+          setPage(1)
+          
+          const scenesData = await fetchScenes(1, selectedCategory)
+          
+          setScenes(scenesData.scenes)
+          setFilteredScenes(scenesData.scenes)
+          setDisplayScenes(scenesData.scenes)
+          setHasMore(scenesData.hasMore)
+          setTotalCount(scenesData.totalCount)
+        } catch (error) {
+          console.error('Error fetching data by category:', error)
+        } finally {
+          setIsLoading(false)
+        }
       }
-      
-      if (searchQuery.trim()) {
-        const query = searchQuery.toLowerCase()
-        filtered = filtered.filter(scene => 
-          scene.name.toLowerCase().includes(query) ||
-          scene.description.toLowerCase().includes(query)
-        )
-      }
-      
+
+      fetchDataByCategory()
+    }
+  }, [selectedCategory])
+
+  // 根据搜索词筛选场景（本地过滤）
+  useEffect(() => {
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase()
+      const filtered = scenes.filter(scene => 
+        scene.name.toLowerCase().includes(query) ||
+        scene.description.toLowerCase().includes(query)
+      )
       setFilteredScenes(filtered)
       setDisplayScenes(filtered)
+    } else {
+      setFilteredScenes(scenes)
+      setDisplayScenes(scenes)
     }
-  }, [selectedCategory, searchQuery, scenes])
+  }, [searchQuery, scenes])
 
   // 加载更多场景
   const loadMore = useCallback(async () => {
@@ -188,7 +212,7 @@ export default function SceneList() {
     
     try {
       const nextPage = page + 1
-      const { scenes: newScenes, hasMore: more } = await fetchScenes(nextPage)
+      const { scenes: newScenes, hasMore: more } = await fetchScenes(nextPage, selectedCategory)
       
       setScenes(prev => [...prev, ...newScenes])
       setDisplayScenes(prev => [...prev, ...newScenes])
@@ -199,7 +223,7 @@ export default function SceneList() {
     } finally {
       setIsLoadingMore(false)
     }
-  }, [page, isLoadingMore, hasMore])
+  }, [page, isLoadingMore, hasMore, selectedCategory])
 
   // 使用滚动事件实现无限滚动
   useEffect(() => {
@@ -290,7 +314,14 @@ export default function SceneList() {
         {/* Scene Count - 优化计数显示 */}
         <div className="flex items-center justify-between mb-4">
           <span className="text-sm font-medium text-gray-600">
-            共 <span className="text-[#4F7CF0] font-bold">{selectedCategory === '全部' && !searchQuery.trim() ? totalCount : filteredScenes.length}</span> 个场景
+            共 <span className="text-[#4F7CF0] font-bold">
+              {!searchQuery.trim() 
+                ? (selectedCategory === '全部' 
+                    ? Object.values(categoryCounts).reduce((sum, count) => sum + count, 0)
+                    : categoryCounts[selectedCategory] || 0)
+                : filteredScenes.length
+              }
+            </span> 个场景
           </span>
         </div>
 

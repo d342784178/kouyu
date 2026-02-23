@@ -27,7 +27,7 @@ import * as dotenv from 'dotenv';
 dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
 
 const DATA_DIR = path.resolve(process.cwd(), 'prepare/scene/data');
-const SCENES_FILE = path.join(DATA_DIR, 'scenes_100.json');
+const SCENES_FILE = path.join(DATA_DIR, 'scenes_final.json');
 const SCENES_WITH_AUDIO_FILE = path.join(DATA_DIR, 'scenes_100_with_audio.json');
 const COS_BASE_URL = 'https://kouyu-scene-1300762139.cos.ap-guangzhou.myqcloud.com';
 
@@ -62,21 +62,20 @@ interface VocabularyItem {
 }
 
 interface SceneData {
-  scene_id: string;
-  scene_name: string;
+  id: string;
+  name: string;
   description: string;
+  category: string;
+  difficulty: string;
   tags: string[];
   dialogue: {
     rounds: DialogueRound[];
   };
   vocabulary: VocabularyItem[];
-  category: string;
-  difficulty: string;
 }
 
 function buildDialogueAudioUrl(sceneId: string, roundNumber: number, speaker: string): string {
-  const speakerNum = speaker === 'speaker1' ? '1' : '2';
-  return `COS:/scene/dialogues/${sceneId}_round${roundNumber}_speaker${speakerNum}.mp3`;
+  return `COS:/scene/dialogues/${sceneId}_round${roundNumber}_${speaker}.mp3`;
 }
 
 function buildVocabularyAudioUrl(sceneId: string, vocabIndex: number, type: 'word' | 'example'): string {
@@ -86,33 +85,37 @@ function buildVocabularyAudioUrl(sceneId: string, vocabIndex: number, type: 'wor
 function updateSceneAudioUrls(scene: SceneData): SceneData {
   const updatedScene = { ...scene };
 
+  // 更新对话音频URL
   if (updatedScene.dialogue?.rounds) {
     updatedScene.dialogue.rounds = updatedScene.dialogue.rounds.map(round => {
       const updatedRound = { ...round };
       updatedRound.content = round.content.map(item => ({
         ...item,
-        audio_url: buildDialogueAudioUrl(scene.scene_id, round.round_number, item.speaker)
+        audio_url: buildDialogueAudioUrl(scene.id, round.round_number, item.speaker)
       }));
       return updatedRound;
     });
   }
 
-  if (updatedScene.vocabulary) {
+  // 更新词汇音频URL（如果存在词汇）
+  if (updatedScene.vocabulary && updatedScene.vocabulary.length > 0) {
     const vocabIndexMap = new Map<string, number>();
     let currentVocabIndex = 1;
     
     updatedScene.vocabulary = updatedScene.vocabulary.map(vocab => {
-      if (!vocabIndexMap.has(vocab.vocab_id)) {
-        vocabIndexMap.set(vocab.vocab_id, currentVocabIndex);
+      const vocabId = vocab.vocab_id || `${scene.id}_vocab_${String(currentVocabIndex).padStart(2, '0')}`;
+      if (!vocabIndexMap.has(vocabId)) {
+        vocabIndexMap.set(vocabId, currentVocabIndex);
         currentVocabIndex++;
       }
       
-      const vocabIndex = vocabIndexMap.get(vocab.vocab_id)!;
+      const vocabIndex = vocabIndexMap.get(vocabId)!;
       
       return {
         ...vocab,
-        word_audio_url: buildVocabularyAudioUrl(scene.scene_id, vocabIndex, 'word'),
-        example_audio_url: buildVocabularyAudioUrl(scene.scene_id, vocabIndex, 'example')
+        vocab_id: vocabId,
+        audio_url: buildVocabularyAudioUrl(scene.id, vocabIndex, 'word'),
+        example_audio_url: buildVocabularyAudioUrl(scene.id, vocabIndex, 'example')
       };
     });
   }
@@ -177,11 +180,11 @@ async function updateAudioUrls(): Promise<void> {
       });
     }
     
-    if (updatedScene.vocabulary) {
+    if (updatedScene.vocabulary && updatedScene.vocabulary.length > 0) {
       vocabularyAudioCount += updatedScene.vocabulary.length * 2;
     }
 
-    console.log(`✅ [${index + 1}/${scenes.length}] ${scene.scene_id} - ${scene.scene_name}`);
+    console.log(`✅ [${index + 1}/${scenes.length}] ${scene.id} - ${scene.name}`);
     return updatedScene;
   });
 
@@ -229,26 +232,25 @@ async function resetDatabase(): Promise<void> {
       await sql`
         INSERT INTO scenes (
           id, name, category, description, difficulty,
-          duration, tags, dialogue, vocabulary,
+          tags, dialogue, vocabulary,
           created_at, updated_at
         ) VALUES (
-          ${scene.scene_id},
-          ${scene.scene_name},
+          ${scene.id},
+          ${scene.name},
           ${scene.category},
           ${scene.description},
           ${scene.difficulty},
-          10,
           ${JSON.stringify(scene.tags)}::jsonb,
           ${JSON.stringify(scene.dialogue)}::jsonb,
-          ${JSON.stringify(scene.vocabulary)}::jsonb,
+          ${JSON.stringify(scene.vocabulary || [])}::jsonb,
           NOW(),
           NOW()
         )
       `;
       inserted++;
-      console.log(`  ✅ 插入: ${scene.scene_id} - ${scene.scene_name}`);
+      console.log(`  ✅ 插入: ${scene.id} - ${scene.name}`);
     } catch (error) {
-      console.error(`  ❌ 插入失败: ${scene.scene_id}`, error);
+      console.error(`  ❌ 插入失败: ${scene.id}`, error);
       errors++;
     }
   }
@@ -294,11 +296,11 @@ async function updateDatabaseAudioUrls(): Promise<void> {
   for (const scene of scenes) {
     try {
       const existingScene = await sql`
-        SELECT id FROM scenes WHERE id = ${scene.scene_id}
+        SELECT id FROM scenes WHERE id = ${scene.id}
       `;
 
       if (existingScene.length === 0) {
-        console.log(`  ⚠️ 未找到: ${scene.scene_id} - ${scene.scene_name}`);
+        console.log(`  ⚠️ 未找到: ${scene.id} - ${scene.name}`);
         notFound++;
         continue;
       }
@@ -307,15 +309,15 @@ async function updateDatabaseAudioUrls(): Promise<void> {
         UPDATE scenes 
         SET 
           dialogue = ${JSON.stringify(scene.dialogue)}::jsonb,
-          vocabulary = ${JSON.stringify(scene.vocabulary)}::jsonb,
+          vocabulary = ${JSON.stringify(scene.vocabulary || [])}::jsonb,
           updated_at = NOW()
-        WHERE id = ${scene.scene_id}
+        WHERE id = ${scene.id}
       `;
 
       updated++;
-      console.log(`  ✅ 更新: ${scene.scene_id} - ${scene.scene_name}`);
+      console.log(`  ✅ 更新: ${scene.id} - ${scene.name}`);
     } catch (error) {
-      console.error(`  ❌ 更新失败: ${scene.scene_id}`, error);
+      console.error(`  ❌ 更新失败: ${scene.id}`, error);
       errors++;
     }
   }
@@ -380,10 +382,10 @@ async function verifyAudioUrls(): Promise<void> {
     const vocabulary = scene.vocabulary as any[];
     if (vocabulary?.[0]) {
       const firstVocab = vocabulary[0];
-      console.log(`   词汇音频URL: ${firstVocab.word_audio_url || '❌ 未设置'}`);
+      console.log(`   词汇音频URL: ${firstVocab.audio_url || '❌ 未设置'}`);
       
-      if (firstVocab.word_audio_url) {
-        const fullUrl = `${COS_BASE_URL}/${firstVocab.word_audio_url.replace('COS:/', '')}`;
+      if (firstVocab.audio_url) {
+        const fullUrl = `${COS_BASE_URL}/${firstVocab.audio_url.replace('COS:/', '')}`;
         try {
           const response = await fetch(fullUrl, { method: 'HEAD' });
           if (response.ok) {
@@ -402,7 +404,7 @@ async function verifyAudioUrls(): Promise<void> {
     SELECT 
       COUNT(*) as total,
       COUNT(CASE WHEN dialogue::text LIKE '%audio_url%' THEN 1 END) as has_dialogue_audio,
-      COUNT(CASE WHEN vocabulary::text LIKE '%word_audio_url%' THEN 1 END) as has_vocab_audio
+      COUNT(CASE WHEN vocabulary::text LIKE '%audio_url%' THEN 1 END) as has_vocab_audio
     FROM scenes
   `;
 

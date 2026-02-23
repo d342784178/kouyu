@@ -8,16 +8,40 @@ import DialogueContent from './components/DialogueContent'
 import VocabularyContent from './components/VocabularyContent'
 import PlayAllButton from './components/PlayAllButton'
 
-// 定义对话项类型（新格式：扁平数组）
+// 定义对话项类型
 interface DialogueItem {
-  round_number: number
+  index: number
   speaker: string
   speaker_name: string
   text: string
   translation: string
   audio_url: string
   is_key_qa: boolean
-  index: number
+}
+
+// 定义对话分析类型
+interface DialogueAnalysis {
+  analysis_detail: string
+  standard_answer: {
+    text: string
+    translation: string
+    scenario: string
+    formality: 'casual' | 'neutral' | 'formal'
+  }
+  alternative_answers: Array<{
+    text: string
+    translation: string
+    scenario: string
+    formality: 'casual' | 'neutral' | 'formal'
+  }>
+  usage_notes: string
+}
+
+// 定义对话轮次类型
+interface DialogueRound {
+  round_number: number
+  content: DialogueItem[]
+  analysis?: DialogueAnalysis
 }
 
 // 定义词汇类型（新格式）
@@ -44,7 +68,9 @@ interface Scene {
   difficulty: string  // 中文: 初级/中级/高级
   duration: number
   tags: string[]
-  dialogue: DialogueItem[]  // 新格式：扁平数组
+  dialogue: {
+    rounds: DialogueRound[]
+  }
   vocabulary: Vocabulary[]
   createdAt: string
   updatedAt: string
@@ -105,7 +131,7 @@ export default function SceneDetail() {
   const id = params.id || ''
   
   const [scene, setScene] = useState<Scene | null>(null)
-  const [dialogueItems, setDialogueItems] = useState<DialogueItem[]>([])
+  const [dialogueRounds, setDialogueRounds] = useState<DialogueRound[]>([])
   const [vocabulary, setVocabulary] = useState<Vocabulary[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
@@ -128,28 +154,51 @@ export default function SceneDetail() {
         difficulty: '初级',
         duration: 10,
         tags: ['问候', '日常', '基础'],
-        dialogue: [
-          {
-            round_number: 1,
-            speaker: 'speaker1',
-            speaker_name: 'A',
-            text: 'Hello! How are you today?',
-            translation: '你好！你今天怎么样？',
-            audio_url: `https://cdn.example.com/audio/${id}_r1_1.mp3`,
-            is_key_qa: true,
-            index: 1
-          },
-          {
-            round_number: 1,
-            speaker: 'speaker2',
-            speaker_name: 'B',
-            text: "I'm doing great, thanks! How about you?",
-            translation: '我很好，谢谢！你呢？',
-            audio_url: `https://cdn.example.com/audio/${id}_r1_2.mp3`,
-            is_key_qa: false,
-            index: 2
-          }
-        ],
+        dialogue: {
+          rounds: [
+            {
+              round_number: 1,
+              content: [
+                {
+                  index: 1,
+                  speaker: 'speaker1',
+                  speaker_name: 'A',
+                  text: 'Hello! How are you today?',
+                  translation: '你好！你今天怎么样？',
+                  audio_url: `https://cdn.example.com/audio/${id}_r1_1.mp3`,
+                  is_key_qa: true
+                },
+                {
+                  index: 2,
+                  speaker: 'speaker2',
+                  speaker_name: 'B',
+                  text: "I'm doing great, thanks! How about you?",
+                  translation: '我很好，谢谢！你呢？',
+                  audio_url: `https://cdn.example.com/audio/${id}_r1_2.mp3`,
+                  is_key_qa: false
+                }
+              ],
+              analysis: {
+                analysis_detail: '这是问候场景的基本对话',
+                standard_answer: {
+                  text: "I'm doing great, thanks! How about you?",
+                  translation: '我很好，谢谢！你呢？',
+                  scenario: '日常问候',
+                  formality: 'neutral'
+                },
+                alternative_answers: [
+                  {
+                    text: "I'm fine, thank you. And you?",
+                    translation: '我很好，谢谢。你呢？',
+                    scenario: '正式场合',
+                    formality: 'formal'
+                  }
+                ],
+                usage_notes: '这是最基本的英语问候方式'
+              }
+            }
+          ]
+        },
         vocabulary: [
           {
             vocab_id: `vocab_${id}_01`,
@@ -181,8 +230,8 @@ export default function SceneDetail() {
         const sceneData = await getSceneById(id)
         setScene(sceneData)
         
-        // 新格式：dialogue 直接是数组
-        setDialogueItems(sceneData.dialogue || [])
+        // 新格式：dialogue 是 {rounds: [...]} 结构
+        setDialogueRounds(sceneData.dialogue?.rounds || [])
         setVocabulary(sceneData.vocabulary || [])
       } catch (error) {
         console.error('Error fetching scene data:', error)
@@ -264,20 +313,8 @@ export default function SceneDetail() {
                 {scene.duration}分钟
               </span>
             </div>
-            {/* 将对话项按 round_number 分组传递给 PlayAllButton */}
-            <PlayAllButton rounds={dialogueItems.reduce((acc, item) => {
-              const round = acc.find(r => r.round_number === item.round_number)
-              if (round) {
-                round.content.push(item)
-              } else {
-                acc.push({
-                  round_number: item.round_number,
-                  content: [item],
-                  analysis: null
-                })
-              }
-              return acc
-            }, [] as {round_number: number, content: DialogueItem[], analysis: null}[])} />
+            {/* 传递对话轮次给 PlayAllButton */}
+            <PlayAllButton rounds={dialogueRounds} />
           </div>
           
           {/* 描述 */}
@@ -308,25 +345,13 @@ export default function SceneDetail() {
             </div>
             <h2 className="text-lg font-bold text-gray-900">对话学习</h2>
             <span className="text-xs text-gray-400 ml-auto">
-              {new Set(dialogueItems.map(d => d.round_number)).size} 轮对话
+              {dialogueRounds.length} 轮对话
             </span>
           </div>
           
           <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
-            {/* 将扁平数组转换回 rounds 格式给 DialogueContent */}
-            <DialogueContent rounds={dialogueItems.reduce((acc, item) => {
-              const round = acc.find(r => r.round_number === item.round_number)
-              if (round) {
-                round.content.push(item)
-              } else {
-                acc.push({
-                  round_number: item.round_number,
-                  content: [item],
-                  analysis: null
-                })
-              }
-              return acc
-            }, [] as {round_number: number, content: DialogueItem[], analysis: null}[])} />
+            {/* 传递对话轮次给 DialogueContent */}
+            <DialogueContent rounds={dialogueRounds} />
           </div>
         </motion.div>
 

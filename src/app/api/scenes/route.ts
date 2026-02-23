@@ -12,12 +12,18 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url)
     const page = Math.max(1, parseInt(searchParams.get('page') || '1', 10))
     const pageSize = Math.min(100, Math.max(1, parseInt(searchParams.get('pageSize') || '10', 10)))
+    const category = searchParams.get('category')
     const offset = (page - 1) * pageSize
     
     let totalCount = 0
     try {
-      const countResult = await neonSql`SELECT COUNT(*) as count FROM scenes`
-      totalCount = parseInt(countResult[0]?.count || '0', 10)
+      if (category && category !== '全部') {
+        const countResult = await neonSql`SELECT COUNT(*) as count FROM scenes WHERE category = ${category}`
+        totalCount = parseInt(countResult[0]?.count || '0', 10)
+      } else {
+        const countResult = await neonSql`SELECT COUNT(*) as count FROM scenes`
+        totalCount = parseInt(countResult[0]?.count || '0', 10)
+      }
     } catch (error) {
       console.error('Error fetching scenes count:', error)
       return NextResponse.json({ error: 'Failed to fetch count' }, { status: 500 })
@@ -25,11 +31,20 @@ export async function GET(request: NextRequest) {
     
     let rawScenes
     try {
-      rawScenes = await neonSql`
-        SELECT * FROM scenes 
-        ORDER BY category, name 
-        LIMIT ${pageSize} OFFSET ${offset}
-      `
+      if (category && category !== '全部') {
+        rawScenes = await neonSql`
+          SELECT * FROM scenes 
+          WHERE category = ${category}
+          ORDER BY name 
+          LIMIT ${pageSize} OFFSET ${offset}
+        `
+      } else {
+        rawScenes = await neonSql`
+          SELECT * FROM scenes 
+          ORDER BY category, name 
+          LIMIT ${pageSize} OFFSET ${offset}
+        `
+      }
     } catch (error) {
       console.error('Error fetching scenes from database:', error)
       return NextResponse.json({ error: 'Failed to fetch scenes' }, { status: 500 })

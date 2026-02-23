@@ -5,22 +5,50 @@ export interface Scene {
   description: string;
   category: string;  // 中文: 日常/职场/留学/旅行/社交
   difficulty: string; // 中文: 初级/中级/高级
-  duration: number;  // 学习时长（分钟），根据内容动态计算
   tags: string[];
-  dialogue: DialogueItem[];
+  dialogue: DialogueData;
   vocabulary: VocabularyItem[];
+}
+
+// 对话数据结构
+export interface DialogueData {
+  rounds: DialogueRound[];
+}
+
+// 对话轮次
+export interface DialogueRound {
+  round_number: number;
+  content: DialogueItem[];
+  analysis?: DialogueAnalysis;
 }
 
 // 对话项
 export interface DialogueItem {
-  round_number: number;
+  index: number;
   speaker: string;
   speaker_name: string;
   text: string;
   translation: string;
-  audio_url: string;  // 统一使用 audio_url
+  audio_url: string;
   is_key_qa: boolean;
-  index: number;
+}
+
+// 对话分析
+export interface DialogueAnalysis {
+  analysis_detail: string;
+  standard_answer: {
+    text: string;
+    translation: string;
+    scenario: string;
+    formality: 'casual' | 'neutral' | 'formal';
+  };
+  alternative_answers: Array<{
+    text: string;
+    translation: string;
+    scenario: string;
+    formality: 'casual' | 'neutral' | 'formal';
+  }>;
+  usage_notes: string;
 }
 
 // 词汇项
@@ -32,8 +60,8 @@ export interface VocabularyItem {
   translation: string;
   difficulty: string;
   round_number: number;
-  audio_url: string;  // 统一使用 audio_url（原 word_audio_url）
-  example: string;    // 统一使用 example（原 example_sentence）
+  audio_url: string;
+  example: string;
   example_translation: string;
   example_audio_url: string;
 }

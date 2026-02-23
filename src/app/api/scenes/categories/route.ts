@@ -9,15 +9,21 @@ export async function GET() {
     const neonSql = neon(process.env.DATABASE_URL || '')
     
     const result = await neonSql`
-      SELECT DISTINCT category 
+      SELECT category, COUNT(*) as count
       FROM scenes 
+      GROUP BY category
       ORDER BY category
     `
     
-    const categories = result.map((row: { category: string }) => row.category)
+    const categories = result.map((row: { category: string; count: string }) => row.category)
+    const categoryCounts: Record<string, number> = {}
+    result.forEach((row: { category: string; count: string }) => {
+      categoryCounts[row.category] = parseInt(row.count, 10)
+    })
     
     return NextResponse.json({
-      categories
+      categories,
+      categoryCounts
     }, { 
       status: 200,
       headers: {

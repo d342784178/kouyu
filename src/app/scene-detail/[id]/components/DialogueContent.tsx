@@ -245,11 +245,13 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
 
   // 确定角色类型
   const isSystemRole = (speaker: string) => {
-    return ['waiter', 'A', 'agent', 'clerk', 'barman', 'salesperson', 'doctor', 'pharmacist', 'cashier', 'staff', 'receptionist', 'speaker2'].includes(speaker);
+    const systemRoles = ['waiter', 'A', 'agent', 'clerk', 'barman', 'salesperson', 'doctor', 'pharmacist', 'cashier', 'staff', 'receptionist', 'speaker2', 'Receptionist', 'Waiter', 'Agent', 'Clerk', 'Barman', 'Salesperson', 'Doctor', 'Pharmacist', 'Cashier', 'Staff'];
+    return systemRoles.includes(speaker);
   };
 
   const isUserRole = (speaker: string) => {
-    return ['customer', 'B', 'passenger', 'patient', 'guest', 'visitor', 'buyer', 'speaker1'].includes(speaker);
+    const userRoles = ['customer', 'B', 'passenger', 'patient', 'guest', 'visitor', 'buyer', 'speaker1', 'Tourist', 'Customer', 'Passenger', 'Patient', 'Guest', 'Visitor', 'Buyer', 'tourist'];
+    return userRoles.includes(speaker);
   };
 
   return (
