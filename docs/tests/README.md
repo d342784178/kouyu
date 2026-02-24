@@ -68,8 +68,11 @@ node docs/tests/scripts/run-content-tests-llm.js
 # 或使用命令行参数
 node docs/tests/scripts/run-content-tests-llm.js --api-key=your_api_key
 ```
+注: 执行内容测试需要准备用例数据，具体参考 [Q: 内容测试用例数据如何准备？](#q-内容测试用例数据如何准备)
 
 ---
+
+
 
 ## 测试脚本说明
 
@@ -131,6 +134,38 @@ A: 查看 `reports/` 目录下的 `*-test-results.json` 文件，定位失败项
 ### Q: 如何添加新的测试用例？
 
 A: 编辑 `data/structure-tests.json` 或 `data/content-tests.json` 文件，按照现有格式添加测试用例。
+
+
+### Q: 内容测试用例数据如何准备？
+
+A: 内容测试需要提前准备用例数据(历史数据可能无效)，需要根据当前项目工程内容随机生成关于项目各方面的10个问题，数据格式参考 `data/content-tests.json`，每次覆盖 `data/content-tests.json`。
+
+**数据格式示例：**
+
+```json
+{
+  "testSuite": "文档内容有效性测试",
+  "version": "1.0",
+  "description": "验证项目文档的内容有效性",
+  "questions": [
+    {
+      "id": "Q001",
+      "question": "依赖变更后需要做什么？",
+      "expectedAnswer": "重启服务器",
+      "score": 10
+    }
+  ]
+}
+```
+
+**字段说明：**
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| `id` | string | 问题唯一标识，格式为 `Q` + 三位数字 |
+| `question` | string | 问题内容 |
+| `expectedAnswer` | string | 预期答案（关键词匹配） |
+| `score` | number | 该题分值 |
 
 
 ### Q: 没有API密钥怎么办？

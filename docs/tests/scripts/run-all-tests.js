@@ -69,7 +69,7 @@ if (runStructure) {
 if (runContent) {
   console.log(`${colors.bright}>>> 执行内容有效性测试...${colors.reset}\n`);
   try {
-    execSync('node docs/tests/scripts/run-content-tests.js', {
+    execSync('node docs/tests/scripts/run-content-tests-llm.js', {
       cwd: process.cwd(),
       stdio: 'inherit'
     });
@@ -101,7 +101,7 @@ if (generateReport) {
   }
   
   try {
-    const contentPath = path.join(reportsDir, 'content-test-results.json');
+    const contentPath = path.join(reportsDir, 'content-test-results-llm.json');
     if (fs.existsSync(contentPath)) {
       contentResults = JSON.parse(fs.readFileSync(contentPath, 'utf-8'));
     }

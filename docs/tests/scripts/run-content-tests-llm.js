@@ -181,6 +181,7 @@ function readLocalDocument(filePath) {
     if (!fs.existsSync(fullPath)) {
       return { error: `文件不存在: ${filePath}` };
     }
+    console.log(`[SCRIPT] 读取文件: ${fullPath}`);
     const content = fs.readFileSync(fullPath, 'utf-8');
     return { content, path: filePath };
   } catch (error) {
@@ -191,16 +192,12 @@ function readLocalDocument(filePath) {
 /**
  * 调用NVIDIA API获取LLM回答（带重试机制）
  */
-async function callLLM(messages, tools = null, retryCount = 0) {
-  if (!API_KEY) {
-    throw new Error('未设置 NVIDIA_API_KEY');
-  }
-
+async function callLLMOnce(messages, tools = null, maxTokens = 2048) {
   const body = {
     model: MODEL,
     messages: messages,
     temperature: 0.3,
-    max_tokens: 1024,
+    max_tokens: maxTokens,
     stream: false
   };
 
@@ -209,24 +206,45 @@ async function callLLM(messages, tools = null, retryCount = 0) {
     body.tool_choice = 'auto';
   }
 
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 60000); // 60秒超时
+
+  const response = await fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${API_KEY}`
+    },
+    body: JSON.stringify(body),
+    signal: controller.signal
+  });
+
+  clearTimeout(timeoutId);
+
+  if (!response.ok) {
+    const error = await response.text();
+    throw new Error(`API请求失败: ${response.status} - ${error}`);
+  }
+
+  return await response.json();
+}
+
+/**
+ * 调用NVIDIA API获取LLM回答（带重试机制和并发控制）
+ */
+async function callLLM(messages, tools = null, retryCount = 0, maxTokens = 2048) {
+  if (!API_KEY) {
+    throw new Error('未设置 NVIDIA_API_KEY');
+  }
+
+  // 获取信号量许可，控制并发
+  await semaphore.acquire();
+
   try {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 60000); // 60秒超时
-
-    const response = await fetch(API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_KEY}`
-      },
-      body: JSON.stringify(body),
-      signal: controller.signal
-    });
-
-    clearTimeout(timeoutId);
-
+    return await callLLMOnce(messages, tools, maxTokens);
+  } catch (error) {
     // 处理限速错误
-    if (response.status === 429) {
+    if (error.message.includes('429') || error.message.includes('rate limit')) {
       if (retryCount < MAX_RETRIES) {
         logScript(`触发限速，等待 ${RETRY_DELAY / 1000} 秒后重试 (${retryCount + 1}/${MAX_RETRIES})...`);
         await delay(RETRY_DELAY);
@@ -235,13 +253,6 @@ async function callLLM(messages, tools = null, retryCount = 0) {
       throw new Error('达到最大重试次数，API仍限速');
     }
 
-    if (!response.ok) {
-      const error = await response.text();
-      throw new Error(`API请求失败: ${response.status} - ${error}`);
-    }
-
-    return await response.json();
-  } catch (error) {
     // 处理超时错误
     if (error.name === 'AbortError') {
       if (retryCount < MAX_RETRIES) {
@@ -258,9 +269,12 @@ async function callLLM(messages, tools = null, retryCount = 0) {
       await delay(RETRY_DELAY);
       return callLLM(messages, tools, retryCount + 1);
     }
-    
+
     logScript(`LLM API调用失败: ${error.message}`);
     throw error;
+  } finally {
+    // 释放信号量许可
+    semaphore.release();
   }
 }
 
@@ -368,19 +382,35 @@ async function analyzeConsistency(question, expectedAnswer, actualAnswer) {
 请分析两个答案的一致性。`;
 
   try {
+    // 一致性分析需要更多token，因为模型需要思考过程
     const response = await callLLM([
       { role: 'system', content: systemPrompt },
       { role: 'user', content: prompt }
-    ]);
+    ], null, 0, 100096);
+
+    // 调试：检查响应结构
+    if (!response.choices || !response.choices[0] || !response.choices[0].message) {
+      console.log('[DEBUG] 异常响应结构:', JSON.stringify(response, null, 2).substring(0, 500));
+      return { consistent: false, score: 0, reason: 'LLM响应结构异常' };
+    }
 
     const content = response.choices[0].message.content;
 
-    const jsonMatch = content.match(/\{[\s\S]*\}/);
-    if (jsonMatch) {
-      return JSON.parse(jsonMatch[0]);
+    if (!content) {
+      console.log('[DEBUG] content为空, message对象:', JSON.stringify(response.choices[0].message, null, 2));
+      return { consistent: false, score: 0, reason: 'LLM返回内容为空，可能是token不足' };
     }
 
-    return { consistent: false, score: 0, reason: '无法解析分析结果' };
+    const jsonMatch = content.match(/\{[\s\S]*\}/);
+    if (jsonMatch) {
+      try {
+        return JSON.parse(jsonMatch[0]);
+      } catch (parseError) {
+        return { consistent: false, score: 0, reason: `JSON解析失败: ${parseError.message}` };
+      }
+    }
+
+    return { consistent: false, score: 0, reason: '无法解析分析结果，未找到JSON格式' };
   } catch (error) {
     return { consistent: false, score: 0, reason: `分析失败: ${error.message}` };
   }
@@ -412,14 +442,12 @@ function recordResult(questionId, passed, earnedScore, totalScore, message) {
 }
 
 /**
- * 执行单个问题测试（带并发控制）
+ * 执行单个问题测试
  */
 async function testQuestion(q) {
-  await semaphore.acquire();
-  
-  try {
-    logScript(`开始测试问题 ${q.id}: ${q.question}`);
+  logScript(`开始测试问题 ${q.id}: ${q.question}`);
 
+  try {
     // 获取LLM回答
     const llmResult = await getLLMAnswer(q.question, true);
 
@@ -449,13 +477,11 @@ async function testQuestion(q) {
 
     recordResult(q.id, passed, earnedScore, q.score,
       `${analysis.reason} (评分: ${analysis.score}%)`);
-      
+
     logScript(`问题 ${q.id} 测试完成`);
   } catch (error) {
     logScript(`问题 ${q.id} 测试异常: ${error.message}`);
     recordResult(q.id, false, 0, q.score, `异常: ${error.message}`);
-  } finally {
-    semaphore.release();
   }
 }
 
@@ -491,9 +517,9 @@ async function runTests() {
   }
 
   const questions = testConfig.questions || [];
-  logScript(`共 ${questions.length} 个测试问题，开始并发执行...\n`);
+  logScript(`共 ${questions.length} 个测试问题，开始执行 (API并发数: ${CONCURRENCY})...\n`);
 
-  // 并发执行所有问题
+  // 并发执行所有问题（实际的并发控制已在callLLM中实现）
   const startTime = Date.now();
   await Promise.all(questions.map(q => testQuestion(q)));
   const duration = ((Date.now() - startTime) / 1000).toFixed(2);
