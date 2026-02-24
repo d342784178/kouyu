@@ -93,7 +93,7 @@ const cliArgs = parseArgs();
 
 // API配置（优先级：命令行 > 系统环境变量 > .env.local）
 const API_KEY = cliArgs['api-key'] || process.env.NVIDIA_API_KEY || envLocal.NVIDIA_API_KEY || '';
-const MODEL = process.env.NVIDIA_MODEL || envLocal.NVIDIA_MODEL || 'stepfun-ai/step-3.5-flash';
+const MODEL = process.env.NVIDIA_MODEL || envLocal.NVIDIA_MODEL || 'z-ai/glm4.7';
 const API_URL = process.env.NVIDIA_API_URL || envLocal.NVIDIA_API_URL || 'https://integrate.api.nvidia.com/v1/chat/completions';
 
 // 并发配置
@@ -207,7 +207,7 @@ async function callLLMOnce(messages, tools = null, maxTokens = 10480) {
   }
 
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 120000); // 120秒超时
+  const timeoutId = setTimeout(() => controller.abort(), 180000); // 120秒超时
 
   const response = await fetch(API_URL, {
     method: 'POST',
