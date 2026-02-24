@@ -85,7 +85,7 @@ interface TestResult {
   isCorrect: boolean
   score: number
   analysis: string
-  suggestion: string
+  suggestions: string[]
   userAnswer: string
   correctAnswer: string
 }
@@ -203,7 +203,7 @@ export default function SceneTest() {
       isCorrect,
       score: isCorrect ? 100 : 0,
       analysis: content.analysis,
-      suggestion: isCorrect ? '继续努力！' : '请再仔细思考一下。',
+      suggestions: isCorrect ? ['继续努力！'] : ['请再仔细思考一下。'],
       userAnswer: option,
       correctAnswer: content.options[content.correct_answer]
     }
@@ -239,7 +239,7 @@ export default function SceneTest() {
         body: JSON.stringify({
           question: content.question,
           userAnswer: answer,
-          correctAnswer: content.reference_answers[0]?.text || ''
+          referenceAnswers: content.reference_answers
         }),
       })
       if (!response.ok) {
@@ -253,7 +253,7 @@ export default function SceneTest() {
         isCorrect: data.isCorrect || false,
         score: data.isCorrect ? 100 : 0,
         analysis: data.analysis || '评测完成',
-        suggestion: data.suggestions?.[0] || '继续努力！',
+        suggestions: data.suggestions || ['继续努力！'],
         userAnswer: answer,
         correctAnswer: content.reference_answers[0]?.text || ''
       }
@@ -621,9 +621,16 @@ export default function SceneTest() {
                       <span className="font-medium text-gray-700">{testResults[currentTest.id]?.correctAnswer}</span>
                     </div>
                   )}
-                  <div className="mt-2 bg-white/70 rounded-xl px-3 py-2 text-xs text-gray-500">
-                    💡 {testResults[currentTest.id]?.suggestion}
-                  </div>
+                  {/* 显示所有改进建议 */}
+                  {testResults[currentTest.id]?.suggestions && testResults[currentTest.id].suggestions.length > 0 && (
+                    <div className="mt-3 space-y-2">
+                      {testResults[currentTest.id].suggestions.map((suggestion, idx) => (
+                        <div key={idx} className="bg-white/70 rounded-xl px-3 py-2 text-xs text-gray-500">
+                          💡 {suggestion}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.div>

@@ -35,11 +35,7 @@ export async function callLLM(
   temperature: number = 0.7,
   maxTokens: number = 1000
 ): Promise<LLMResponse> {
-  const startTime = Date.now()
-  
-  console.log('[LLM] 开始调用:', new Date().toISOString())
-  console.log('[LLM] 请求消息:', JSON.stringify(messages, null, 2))
-  
+   const startTime = Date.now()
   try {
     // 确保消息格式正确
     const formattedMessages = messages.map(msg => ({
@@ -74,9 +70,8 @@ export async function callLLM(
 
     const data = await response.json()
     const content = data.choices[0]?.message?.content || ''
-    
+
     console.log('[LLM] 响应内容:', content)
-    console.log('[LLM] Token使用:', data.usage)
     console.log('[LLM] 调用耗时:', Date.now() - startTime, 'ms')
     
     return {
