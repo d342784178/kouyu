@@ -38,11 +38,25 @@ export interface DifficultyConfig {
   bg: string
 }
 
+// 开放式对话内容（来自数据库）
+export interface OpenDialogueContent {
+  topic: string
+  description: string
+  roles: {
+    name: string
+    description: string
+    is_user: boolean
+  }[]
+  scenario_context: string
+  suggested_opening: string
+  analysis: string
+}
+
 // OpenTestDialog 组件 Props
 export interface OpenTestDialogProps {
   sceneId: string
   testId: string
-  testQuestion: string
+  testContent: OpenDialogueContent
   currentIndex?: number
   totalTests?: number
   onComplete: () => void

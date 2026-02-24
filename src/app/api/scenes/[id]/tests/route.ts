@@ -13,103 +13,28 @@ export async function GET(
   const { id } = params
 
   try {
-    // 使用 neon 客户端执行原始 SQL 查询
     const neonSql = neon(process.env.DATABASE_URL || '')
     
-    // 尝试从数据库获取场景测试题
-    let testData
-    try {
-      const result = await neonSql`SELECT * FROM scene_tests WHERE scene_id = ${id} ORDER BY "order"`
-      testData = result
-      
-      if (!testData || testData.length === 0) {
-        // 如果数据库中没有找到测试题，返回空数组
-        return NextResponse.json([], { status: 200 })
-      }
-    } catch (error) {
-      console.error('Error fetching scene tests from database:', error)
-      // 数据库查询失败，返回空数组
-      return NextResponse.json([], { status: 500 })
+    const result = await neonSql`SELECT * FROM scene_tests WHERE scene_id = ${id} ORDER BY "order"`
+    
+    if (!result || result.length === 0) {
+      return NextResponse.json([], { status: 200 })
     }
     
-    // 转换数据库格式为API响应格式
-    const tests = testData.map((test: any) => {
-      const content = test.content || {};
-      
-      // 根据不同类型的题目映射字段
-      let question = '';
-      let options: string[] = [];
-      let answer = '';
-      let analysis = '';
-      
-      // 映射类型
-      let mappedType: 'multiple-choice' | 'fill-blank' | 'open' = 'open';
-      switch (test.type) {
-        case 'choice':
-          mappedType = 'multiple-choice';
-          question = content.question || '';
-          options = content.options || [];
-          // 从correct_answer获取正确选项文本
-          if (content.correct_answer !== undefined && options[content.correct_answer]) {
-            answer = options[content.correct_answer];
-          }
-          analysis = '请选择正确的答案';
-          break;
-        case 'qa':
-          mappedType = 'fill-blank';
-          question = content.question || '';
-          answer = content.answer || '';
-          analysis = '请填写正确的答案';
-          break;
-        case 'open_dialogue':
-          mappedType = 'open';
-          // 构建开放式对话题目描述
-          const topic = content.topic || '';
-          const scenarioContext = content.scenario_context || '';
-          const description = content.description || '';
-          const roles = content.roles || [];
-          
-          // 组合成完整的题目描述
-          let questionParts = [];
-          if (topic) questionParts.push(`主题：${topic}`);
-          if (scenarioContext) questionParts.push(`场景：${scenarioContext}`);
-          if (description) questionParts.push(`描述：${description}`);
-          if (roles.length > 0) {
-            const roleNames = roles.map((r: any) => r.name).join('、');
-            questionParts.push(`角色：${roleNames}`);
-          }
-          
-          question = questionParts.join('\n');
-          answer = content.suggested_opening || '';
-          analysis = content.analysis || '请根据场景自由回答';
-          break;
-        default:
-          mappedType = 'open';
-          question = content.question || content.prompt || '';
-          answer = content.answer || '';
-          analysis = '请回答问题';
-      }
-      
-      return {
-        id: test.id,
-        sceneId: test.scene_id,
-        type: mappedType,
-        question: question,
-        options: mappedType === 'multiple-choice' ? options : undefined,
-        answer: answer,
-        analysis: analysis,
-        order: test.order,
-        createdAt: test.created_at,
-        updatedAt: test.updated_at
-      };
-    })
+    // 直接返回数据库中的原始数据，不做任何映射转换
+    const tests = result.map((test: any) => ({
+      id: test.id,
+      sceneId: test.scene_id,
+      type: test.type,
+      order: test.order,
+      content: test.content,
+      createdAt: test.created_at,
+      updatedAt: test.updated_at
+    }))
     
     return NextResponse.json(tests, { status: 200 })
   } catch (error) {
     console.error('Error in GET /api/scenes/[id]/tests:', error)
-    // 服务器错误，返回空数组
     return NextResponse.json([], { status: 500 })
   }
 }
-
-
