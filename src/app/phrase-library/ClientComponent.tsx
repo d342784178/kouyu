@@ -387,42 +387,42 @@ export default function PhraseLibraryClient() {
 
       {/* 筛选弹窗 */}
       {showFilterModal && (
-        <div id="filter-modal" className="fixed inset-0 z-50 backdrop-filter blur(10px) bg-black/50">
+        <div id="filter-modal" className="fixed inset-0 z-50 bg-black/50">
           <div id="filter-overlay" className="absolute inset-0" onClick={() => setShowFilterModal(false)}></div>
-          <div id="filter-content" className={`absolute bottom-0 left-0 right-0 bg-white rounded-2xl p-6 transition-transform duration-300 ${showFilterModal ? 'translate-y-0' : 'translate-y-full'}`}>
+          <div id="filter-content" className={`absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl p-6 transition-transform duration-300 ${showFilterModal ? 'translate-y-0' : 'translate-y-full'}`}>
             <div id="filter-header" className="flex items-center justify-between mb-6">
               <h3 className="text-lg font-semibold text-text-primary">筛选条件</h3>
               <button id="close-filter-btn" type="button" aria-label="关闭筛选" className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors" onClick={() => setShowFilterModal(false)}>
                 <i className="fas fa-times text-gray-600 text-sm"></i>
               </button>
             </div>
-            
+
             {/* 难度筛选 */}
             <div id="difficulty-filter" className="mb-6">
               <h4 className="text-sm font-medium text-text-primary mb-3">难度等级</h4>
               <div className="flex flex-wrap gap-2">
-                <button 
+                <button
                   id="difficulty-all"
                   type="button"
                   aria-pressed={difficulty === 'all'}
                   className={`px-3 py-2 rounded-full text-sm transition-colors ${difficulty === 'all' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
                   onClick={() => setDifficulty('all')}
                 >全部</button>
-                <button 
+                <button
                   id="difficulty-beginner"
                   type="button"
                   aria-pressed={difficulty === 'beginner'}
                   className={`px-3 py-2 rounded-full text-sm transition-colors ${difficulty === 'beginner' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
                   onClick={() => setDifficulty('beginner')}
                 >入门</button>
-                <button 
+                <button
                   id="difficulty-intermediate"
                   type="button"
                   aria-pressed={difficulty === 'intermediate'}
                   className={`px-3 py-2 rounded-full text-sm transition-colors ${difficulty === 'intermediate' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
                   onClick={() => setDifficulty('intermediate')}
                 >进阶</button>
-                <button 
+                <button
                   id="difficulty-advanced"
                   type="button"
                   aria-pressed={difficulty === 'advanced'}
@@ -508,7 +508,7 @@ export default function PhraseLibraryClient() {
               <button
                 id="reset-filter-btn"
                 type="button"
-                className="flex-1 py-3 bg-gray-100 text-gray-600 text-sm font-medium rounded-xl hover:bg-gray-200 transition-colors"
+                className="flex-1 py-3 bg-gray-100 text-gray-600 text-sm font-semibold rounded-xl hover:bg-gray-200 transition-colors"
                 onClick={resetFilters}
               >
                 重置
@@ -516,7 +516,7 @@ export default function PhraseLibraryClient() {
               <button
                 id="apply-filter-btn"
                 type="button"
-                className="flex-1 py-3 bg-primary text-white text-sm font-medium rounded-xl hover:opacity-90 transition-opacity"
+                className="flex-1 py-3 bg-primary text-white text-sm font-semibold rounded-xl hover:opacity-90 transition-opacity"
                 onClick={applyFilters}
               >
                 应用筛选
