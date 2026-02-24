@@ -93,10 +93,11 @@ export default function SceneList() {
   const [totalCount, setTotalCount] = useState(0)
 
   // 获取场景列表的函数
-  const fetchScenes = async (pageNum: number, category?: string): Promise<{ scenes: Scene[]; hasMore: boolean; totalCount: number }> => {
+  const fetchScenes = async (pageNum: number, category?: string, search?: string): Promise<{ scenes: Scene[]; hasMore: boolean; totalCount: number }> => {
     try {
       const categoryParam = category && category !== '全部' ? `&category=${encodeURIComponent(category)}` : ''
-      const response = await fetch(`/api/scenes?page=${pageNum}&pageSize=${PAGE_SIZE}${categoryParam}`)
+      const searchParam = search ? `&search=${encodeURIComponent(search)}` : ''
+      const response = await fetch(`/api/scenes?page=${pageNum}&pageSize=${PAGE_SIZE}${categoryParam}${searchParam}`)
       
       if (response.ok) {
         const result = await response.json()
@@ -188,21 +189,29 @@ export default function SceneList() {
     }
   }, [selectedCategory])
 
-  // 根据搜索词筛选场景（本地过滤）
+  // 根据搜索词调用后端API
   useEffect(() => {
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase()
-      const filtered = scenes.filter(scene => 
-        scene.name.toLowerCase().includes(query) ||
-        scene.description.toLowerCase().includes(query)
-      )
-      setFilteredScenes(filtered)
-      setDisplayScenes(filtered)
-    } else {
-      setFilteredScenes(scenes)
-      setDisplayScenes(scenes)
+    const fetchDataBySearch = async () => {
+      try {
+        setIsLoading(true)
+        setPage(1)
+        
+        const scenesData = await fetchScenes(1, selectedCategory, searchQuery)
+        
+        setScenes(scenesData.scenes)
+        setFilteredScenes(scenesData.scenes)
+        setDisplayScenes(scenesData.scenes)
+        setHasMore(scenesData.hasMore)
+        setTotalCount(scenesData.totalCount)
+      } catch (error) {
+        console.error('Error fetching data by search:', error)
+      } finally {
+        setIsLoading(false)
+      }
     }
-  }, [searchQuery, scenes])
+
+    fetchDataBySearch()
+  }, [searchQuery, selectedCategory])
 
   // 加载更多场景
   const loadMore = useCallback(async () => {
@@ -212,7 +221,7 @@ export default function SceneList() {
     
     try {
       const nextPage = page + 1
-      const { scenes: newScenes, hasMore: more } = await fetchScenes(nextPage, selectedCategory)
+      const { scenes: newScenes, hasMore: more } = await fetchScenes(nextPage, selectedCategory, searchQuery)
       
       setScenes(prev => [...prev, ...newScenes])
       setDisplayScenes(prev => [...prev, ...newScenes])
@@ -223,7 +232,7 @@ export default function SceneList() {
     } finally {
       setIsLoadingMore(false)
     }
-  }, [page, isLoadingMore, hasMore, selectedCategory])
+  }, [page, isLoadingMore, hasMore, selectedCategory, searchQuery])
 
   // 使用滚动事件实现无限滚动
   useEffect(() => {
@@ -315,12 +324,7 @@ export default function SceneList() {
         <div className="flex items-center justify-between mb-4">
           <span className="text-sm font-medium text-gray-600">
             共 <span className="text-[#4F7CF0] font-bold">
-              {!searchQuery.trim() 
-                ? (selectedCategory === '全部' 
-                    ? Object.values(categoryCounts).reduce((sum, count) => sum + count, 0)
-                    : categoryCounts[selectedCategory] || 0)
-                : filteredScenes.length
-              }
+              {totalCount}
             </span> 个场景
           </span>
         </div>

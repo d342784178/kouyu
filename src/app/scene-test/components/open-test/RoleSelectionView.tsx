@@ -179,6 +179,13 @@ export default function RoleSelectionView({
           </button>
         </div>
 
+        {/* Error Message - 错误提示 */}
+        {error && (
+          <div className="text-center text-[#EF4444] text-sm mb-4">
+            {error}
+          </div>
+        )}
+
         {/* Start Button - 开始对话练习按钮 */}
         <motion.button
           whileTap={{ scale: 0.97 }}
@@ -189,12 +196,6 @@ export default function RoleSelectionView({
           开始对话练习
           <ChevronRight className="h-4 w-4" />
         </motion.button>
-
-        {error && (
-          <div className="text-center text-[#EF4444] text-sm">
-            {error}
-          </div>
-        )}
       </div>
     </div>
   )
