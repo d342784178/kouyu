@@ -126,6 +126,9 @@ const PlayAllButton: React.FC<PlayAllButtonProps> = ({ rounds }) => {
 
   return (
     <motion.button
+      type="button"
+      aria-label={isPlaying ? '停止播放' : '播放全部'}
+      aria-pressed={isPlaying}
       id="play-all-btn"
       onClick={isPlaying ? stopPlaying : playAll}
       whileTap={{ scale: 0.95 }}
@@ -133,8 +136,8 @@ const PlayAllButton: React.FC<PlayAllButtonProps> = ({ rounds }) => {
     >
       {isPlaying ? <StopIcon /> : <PlayIcon />}
       <span className="flex-shrink-0">
-        {isPlaying 
-          ? `${currentIndex + 1}/${getAllAudioUrls().length}` 
+        {isPlaying
+          ? `${currentIndex + 1}/${getAllAudioUrls().length}`
           : '播放全部'
         }
       </span>

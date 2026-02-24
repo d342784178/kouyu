@@ -91,7 +91,7 @@ export default function SceneDetailClient({ scene }: SceneDetailClientProps) {
             
             <h1 className="text-lg font-bold text-gray-900">{scene.name}</h1>
             
-            <button className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors">
+            <button type="button" aria-label="分享" className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors">
               <ShareIcon />
             </button>
           </div>

@@ -314,6 +314,8 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
                       {/* 用户角色的播放按钮在左侧 */}
                       {userRole && (
                         <motion.button
+                          type="button"
+                          aria-label={isPlayingCurrent(dialogue.audio_url) ? '暂停播放' : '播放音频'}
                           id={`play-turn-${round.round_number}-${dialogue.index}`}
                           whileTap={{ scale: 0.9 }}
                           className="w-9 h-9 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 hover:border-[#4F7CF0]/30 transition-all flex-shrink-0 shadow-sm"
@@ -347,6 +349,8 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
                       {/* 系统角色的播放按钮在右侧 */}
                       {(systemRole || !userRole) && (
                         <motion.button
+                          type="button"
+                          aria-label={isPlayingCurrent(dialogue.audio_url) ? '暂停播放' : '播放音频'}
                           id={`play-turn-${round.round_number}-${dialogue.index}`}
                           whileTap={{ scale: 0.9 }}
                           className="w-9 h-9 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 hover:border-gray-300 transition-all flex-shrink-0 shadow-sm"

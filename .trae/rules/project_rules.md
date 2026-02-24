@@ -14,6 +14,8 @@
 | **代码变更** | 每次代码变更后必须测试 | 引入Bug |
 | **临时文件** | 临时文件放到 `.trae/temp/{sessionId}` | 污染工作区 |
 | **语言规范** | 对话用中文，代码注释用中文 | 不符合规范 |
+| **文档优先** | 对于任何操作都优先查看文档, 任何修改也需要评估是否维护到文档上 | 不符合规范 |
+
 
 
 ## 二、文档索引系统
@@ -25,7 +27,7 @@
 | 1 | `docs/00-core/core-project-overview-v1.0.md` | 项目背景、核心功能、技术架构、目标用户 | P0 | 10分钟 |
 | 2 | `docs/00-core/core-quickstart-v1.0.md` | 环境要求、安装步骤、配置说明、常见问题 | P0 | 15分钟 |
 | 3 | `docs/01-architecture/arch-tech-stack-v1.0.md` | 技术栈详解、依赖版本、选型理由、环境变量 | P1 | 15分钟 |
-| 4 | `docs/01-architecture/arch-project-structure-v1.0.md` | 目录结构、文件组织、命名规范、关键文件索引 | P1 | 10分钟 |
+| 4 | `docs/01-architecture/arch-project-structure-v1.0.md` | 项目的目录结构、文件组织规范及关键文件说明 | P1 | 10分钟 |
 | 5 | `docs/01-architecture/arch-database-schema-v1.0.md` | 表结构定义、字段说明、数据格式、查询示例 | P1 | 20分钟 |
 | 6 | `docs/02-development/dev-coding-standards-v1.0.md` | 编码规范、组件规范、TypeScript规范、导入顺序 | P1 | 15分钟 |
 | 7 | `docs/03-api/api-endpoints-v1.0.md` | 所有API端点、请求/响应格式、错误码说明 | P1 | 20分钟 |

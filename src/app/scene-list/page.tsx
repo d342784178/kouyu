@@ -281,6 +281,8 @@ export default function SceneList() {
             <SearchIcon />
           </div>
           <input
+            type="text"
+            aria-label="搜索场景"
             placeholder="搜索场景..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -302,6 +304,8 @@ export default function SceneList() {
             return (
               <motion.button
                 key={category}
+                type="button"
+                aria-pressed={isActive}
                 onClick={() => setSelectedCategory(category)}
                 whileTap={{ scale: 0.95 }}
                 className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
@@ -313,7 +317,7 @@ export default function SceneList() {
                   backgroundColor: isActive ? config.color : undefined,
                 }}
               >
-                <span>{config.icon}</span>
+                <span aria-hidden="true">{config.icon}</span>
                 <span>{category}</span>
               </motion.button>
             )

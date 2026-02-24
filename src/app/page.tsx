@@ -194,6 +194,8 @@ export default function Home() {
           <div className="flex-1 flex items-center bg-white rounded-2xl px-4 py-3 shadow-sm border border-gray-100">
             <SearchIcon />
             <input
+              type="text"
+              aria-label="搜索短语"
               placeholder="搜索短语..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
@@ -292,13 +294,14 @@ export default function Home() {
           {quickActions.map((item, index) => (
             <motion.button
               key={item.label}
+              type="button"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.1 + index * 0.05 }}
               whileTap={{ scale: 0.95 }}
               className={`${item.color} rounded-2xl p-3 flex flex-col items-center gap-1.5 hover:opacity-90 transition-opacity`}
             >
-              <span className="text-xl">{item.icon}</span>
+              <span className="text-xl" aria-hidden="true">{item.icon}</span>
               <span className={`text-xs font-medium ${item.textColor}`}>{item.label}</span>
             </motion.button>
           ))}

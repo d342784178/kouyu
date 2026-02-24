@@ -292,8 +292,7 @@ export default function SceneTest() {
         const { scene, tests } = JSON.parse(cachedData)
         setScene(scene)
         setTests(tests)
-        setIsLoading(false)
-        setNotFound(false)
+        // 不要在这里设置 isLoading，让第二个 useEffect 处理
         return
       }
       
@@ -314,9 +313,9 @@ export default function SceneTest() {
         setTests(testsData)
       } catch (error) {
         setNotFound(true)
+        setIsLoading(false)
       } finally {
         isFetching.current = false
-        setIsLoading(false)
       }
     }
     
@@ -325,7 +324,18 @@ export default function SceneTest() {
 
   // 当测试列表或 testId 变化时，更新当前测试信息
   useEffect(() => {
-    if (!testId || tests.length === 0) return
+    if (!testId) return
+    
+    // 如果测试列表为空，可能是数据还在加载中
+    if (tests.length === 0) {
+      // 检查是否已经有场景数据（从缓存加载的情况）
+      if (scene) {
+        // 有场景数据但没有测试数据，说明测试列表为空
+        setNotFound(true)
+        setIsLoading(false)
+      }
+      return
+    }
     
     resetAnswerState()
     
@@ -339,10 +349,12 @@ export default function SceneTest() {
       setPrevTest(prev)
       setNextTest(next)
       setNotFound(false)
+      setIsLoading(false)
     } else {
       setNotFound(true)
+      setIsLoading(false)
     }
-  }, [testId, tests])
+  }, [testId, tests, scene])
 
   // 初始化语音识别
   useEffect(() => {

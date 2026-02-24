@@ -125,6 +125,7 @@ export default function BottomNav() {
             <Link
               key={path}
               href={path}
+              aria-current={active ? 'page' : undefined}
               className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-colors ${
                 active ? 'text-[#4F7CF0]' : 'text-gray-400 hover:text-gray-600'
               }`}
@@ -147,6 +148,7 @@ export default function BottomNav() {
                   layoutId="activeTab"
                   className="absolute bottom-1 w-1 h-1 rounded-full bg-[#4F7CF0]"
                   transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                  aria-hidden="true"
                 />
               )}
             </Link>
