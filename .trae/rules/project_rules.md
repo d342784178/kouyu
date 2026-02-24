@@ -1,291 +1,196 @@
-# 项目规则
+# 语习集 - AI助手工作指南
 
-## 1. 文档目录结构
+> 本文档是AI助手的核心工作规范，包含项目约束、文档索引和维护要求。
 
-需求、交互、设计文档都放在 `demands` 目录下，项目结构如下：
+---
 
-```
-├── demands/                      # 需求文档
-│   ├── v1/                       # v1版本 （迭代名称，取git迭代分支名）
-│   └── v2/                       # v2版本 （迭代名称，取git迭代分支名）
-│       ├── 设计文档/              # 当前迭代增量技术设计文档
-│       ├── 需求文档.md            # 当前迭代增量需求文档
-│   └── 原型图/                    # 全量原型图
-│   └── 需求文档.md                # 全量需求文档
-│   └── 交互风格说明文档.md         # 交互风格说明文档
-```
+## 一、项目级注意事项（必读）
 
-## 2. 技术栈
+### 1.1 核心约束
 
-- **框架**: Next.js 15 (App Router)
-- **语言**: TypeScript
-- **数据库**: PostgreSQL (Neon)
-- **ORM**: Drizzle ORM
-- **UI**: Tailwind CSS + shadcn/ui
-- **AI**: GLM-4-Flash (智谱AI)
-- **音频存储**: 腾讯云 COS
-- **包管理器**: pnpm
-- **浏览器**: Edge
+| 约束项 | 说明 | 违反后果 |
+|--------|------|----------|
+| **依赖变更** | 涉及依赖变更需重启服务器 | 变更不生效 |
+| **代码变更** | 每次代码变更后必须测试 | 引入Bug |
+| **临时文件** | 临时文件放到 `.trae/temp/{sessionId}` | 污染工作区 |
+| **语言规范** | 对话用中文，代码注释用中文 | 不符合规范 |
 
-## 3. 项目结构
 
-```
-kouyu/
-├── src/
-│   ├── app/                      # Next.js App Router
-│   │   ├── api/                  # API 路由
-│   │   │   ├── scenes/           # 场景相关API
-│   │   │   ├── phrases/          # 短语相关API
-│   │   │   ├── open-test/        # 开放式测试API
-│   │   │   └── fill-blank/       # 填空测试API
-│   │   ├── scene-list/           # 场景列表页
-│   │   ├── scene-detail/         # 场景详情页
-│   │   ├── scene-test/           # 场景测试页
-│   │   ├── phrase-library/       # 短语库页
-│   │   └── phrase-detail/        # 短语详情页
-│   ├── components/               # 公共组件
-│   ├── lib/                      # 工具库
-│   │   ├── db/                   # 数据库配置和schema
-│   │   ├── audioUrl.ts           # 音频URL构建工具
-│   │   └── llm.ts                # LLM调用封装
-│   └── types.ts                  # 类型定义
-├── prepare/                      # 数据准备脚本
-│   ├── scene/                    # 场景数据
-│   └── phrases/                  # 短语数据
-├── demands/                      # 需求文档
-└── .trae/                        # Trae配置
-```
+## 二、文档索引系统
 
-## 4. 数据库表结构
+### 2.1 文档清单
 
-### scenes 表
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| id | text | 主键 |
-| name | text | 场景名称 |
-| category | text | 分类(中文: 日常/职场/留学/旅行/社交) |
-| description | text | 场景描述 |
-| difficulty | text | 难度(中文: 初级/中级/高级) |
-| duration | integer | 学习时长(分钟)，根据内容动态计算 |
-| tags | jsonb | 关键词标签 |
-| dialogue | jsonb | 对话内容(扁平数组格式) |
-| vocabulary | jsonb | 高频词汇(含音频URL) |
+| 序号 | 文档路径 | 内容简介 | 优先级 | 阅读时间 |
+|------|----------|----------|--------|----------|
+| 1 | `docs/00-core/core-project-overview-v1.0.md` | 项目背景、核心功能、技术架构、目标用户 | P0 | 10分钟 |
+| 2 | `docs/00-core/core-quickstart-v1.0.md` | 环境要求、安装步骤、配置说明、常见问题 | P0 | 15分钟 |
+| 3 | `docs/01-architecture/arch-tech-stack-v1.0.md` | 技术栈详解、依赖版本、选型理由、环境变量 | P1 | 15分钟 |
+| 4 | `docs/01-architecture/arch-project-structure-v1.0.md` | 目录结构、文件组织、命名规范、关键文件索引 | P1 | 10分钟 |
+| 5 | `docs/01-architecture/arch-database-schema-v1.0.md` | 表结构定义、字段说明、数据格式、查询示例 | P1 | 20分钟 |
+| 6 | `docs/02-development/dev-coding-standards-v1.0.md` | 编码规范、组件规范、TypeScript规范、导入顺序 | P1 | 15分钟 |
+| 7 | `docs/03-api/api-endpoints-v1.0.md` | 所有API端点、请求/响应格式、错误码说明 | P1 | 20分钟 |
 
-### dialogue 字段格式（嵌套结构）
-```json
-{
-  "rounds": [
-    {
-      "round_number": 1,
-      "content": [
-        {
-          "index": 1,
-          "speaker": "speaker1",
-          "speaker_name": "Customer",
-          "text": "Excuse me, where can I find the apples?",
-          "translation": "打扰一下，苹果在哪里？",
-          "audio_url": "COS:/scene/dialogues/daily_003_round1_speaker1.mp3",
-          "is_key_qa": true
-        }
-      ],
-      "analysis": {
-        "analysis_detail": "分析详情",
-        "standard_answer": {
-          "text": "标准回答",
-          "translation": "翻译",
-          "scenario": "适用场景",
-          "formality": "neutral"
-        },
-        "alternative_answers": [...],
-        "usage_notes": "使用说明"
-      }
-    }
-  ]
-}
+### 2.2 使用场景指引
+
+| 你的任务 | 应查阅的文档 |
+|----------|-------------|
+| 首次了解项目 | 文档1（项目概述） |
+| 搭建开发环境 | 文档2（快速开始） |
+| 开发新功能 | 文档4（项目结构）+ 文档6（编码规范） |
+| 调用API | 文档7（API接口） |
+| 修改数据库 | 文档5（数据库设计） |
+| 排查问题 | 文档2（快速开始-常见问题） |
+
+### 2.3 关键源代码文件
+
+| 文件路径 | 用途说明 |
+|----------|----------|
+| `src/lib/db/schema.ts` | 数据库表结构定义（Drizzle ORM） |
+| `src/lib/llm.ts` | GLM-4 API调用封装 |
+| `src/lib/audioUrl.ts` | 音频URL构建工具（支持多存储协议） |
+| `src/types.ts` | 全局TypeScript类型定义 |
+| `src/hooks/useAudio.ts` | 音频播放状态管理Hook |
+
+---
+
+## 三、文档工程维护规范
+
+### 3.1 维护责任声明
+
+**AI助手必须严格遵守以下文档维护规范。任何对项目代码的变更，都必须同步更新相关文档，确保文档与代码实现完全一致。**
+
+### 3.2 变更触发条件
+
+当发生以下任一情况时，必须更新对应文档：
+
+| 变更类型 | 必须更新的文档 | 更新内容 |
+|----------|---------------|----------|
+| 新增/修改API接口 | `docs/03-api/api-endpoints-v1.0.md` | 接口定义、请求/响应格式、错误码 |
+| 修改数据库表结构 | `docs/01-architecture/arch-database-schema-v1.0.md` | 表定义、字段说明、数据格式 |
+| 新增/删除核心功能 | `docs/00-core/core-project-overview-v1.0.md` | 核心功能列表、项目亮点 |
+| 新增/升级技术栈 | `docs/01-architecture/arch-tech-stack-v1.0.md` | 技术栈列表、依赖版本、选型理由 |
+| 修改项目目录结构 | `docs/01-architecture/arch-project-structure-v1.0.md` | 目录说明、文件组织、关键文件索引 |
+| 修改编码规范 | `docs/02-development/dev-coding-standards-v1.0.md` | 命名规范、组件规范、代码示例 |
+| 修改环境配置要求 | `docs/00-core/core-quickstart-v1.0.md` | 环境变量、配置步骤、常见问题 |
+| 新增/修改子文档 | **本文档（project_rules.md）** | 文档索引表（第2.1节） |
+
+### 3.3 文档更新操作规范
+
+#### 步骤1：更新目标文档
+
+```markdown
+# 文档标题
+
+> 版本: v1.1                    ← 更新版本号（小版本+1）
+> 最后更新: 2026-02-25          ← 更新日期
+> 优先级: P0/P1/P2
+> 阅读时间: X分钟
+
+... 文档内容 ...
+
+## 变更日志
+
+| 版本 | 日期 | 变更内容 | 作者 |
+|------|------|----------|------|
+| v1.1 | 2026-02-25 | 新增XX功能说明 | AI |
+| v1.0 | 2026-02-24 | 初始版本 | - |
 ```
 
-### vocabulary 字段格式
-```json
-[
-  {
-    "vocab_id": "daily_003_vocab_01",
-    "type": "word",
-    "content": "Excuse me",
-    "phonetic": "/ɪɡˈzɛs ˈmiːm/",
-    "translation": "打扰一下",
-    "audio_url": "COS:/scene/vocabulary/daily_003_vocab1_word.mp3",
-    "example": "Excuse me, where is the bathroom?",
-    "example_translation": "打扰一下，洗手间在哪里？",
-    "example_audio_url": "COS:/scene/vocabulary/daily_003_vocab1_example.mp3",
-    "round_number": 1,
-    "difficulty": "easy"
-  }
-]
+#### 步骤2：更新本文档索引（如新增/修改子文档）
+
+如果操作涉及新增、删除或重命名子文档，**必须同步更新本文档第2.1节的"文档清单"表格**，确保：
+- 文档序号连续
+- 路径准确无误
+- 简介反映最新内容
+- 优先级标注正确
+
+#### 步骤3：验证链接有效性
+
+更新后执行以下检查：
+- [ ] 文档内所有相对链接可正常跳转
+- [ ] 代码示例与当前实现一致
+- [ ] 版本号已递增
+- [ ] 变更日志已记录
+
+### 3.4 禁止事项
+
+以下行为严格禁止：
+
+- ❌ **代码已变更但文档未更新** - 导致文档与实现不一致
+- ❌ **新增子文档但未更新project_rules索引** - 导致文档无法被发现
+- ❌ **文档中出现与代码不符的示例** - 误导后续开发者
+- ❌ **无效的文档链接** - 导致404错误
+- ❌ **过时的环境配置说明** - 导致环境搭建失败
+- ❌ **删除文档但未更新索引** - 导致死链
+
+### 3.5 文档模板标准
+
+所有子文档必须包含以下元信息头部：
+
+```markdown
+# 文档标题
+
+> 版本: v1.0
+> 最后更新: YYYY-MM-DD
+> 优先级: P0/P1/P2
+> 阅读时间: X分钟
+
+---
+
+## 文档简介
+
+一句话说明本文档的目的和范围。
+
+---
+
+## 目录
+
+- [章节1](#章节1)
+- [章节2](#章节2)
+
+---
+
+## 正文内容
+
+...
+
+---
+
+## 变更日志
+
+| 版本 | 日期 | 变更内容 | 作者 |
+|------|------|----------|------|
+| v1.0 | YYYY-MM-DD | 初始版本 | - |
 ```
 
-### phrases 表
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| id | text | 主键 |
-| english | text | 英文短语 |
-| chinese | text | 中文翻译 |
-| partOfSpeech | text | 词性 |
-| scene | text | 适用场景 |
-| difficulty | text | 难度 |
-| pronunciationTips | text | 发音提示 |
-| audioUrl | text | 音频URL |
+---
 
-### scene_tests 表
-| 字段 | 类型 | 说明 |
-|------|------|------|
-| id | text | 主键 |
-| sceneId | text | 关联场景ID |
-| type | text | 测试类型(choice/qa/open_dialogue) |
-| order | integer | 题目顺序 |
-| content | jsonb | 题目内容 |
+## 附录：项目速查
 
-## 5. 音频URL格式
+### 技术栈
 
-### 5.1 自定义协议格式
+Next.js 14 + TypeScript + PostgreSQL + Drizzle ORM + Tailwind CSS + GLM-4-Flash
 
-音频使用自定义协议前缀，格式为 `PROTOCOL:/path`，由 `buildAudioUrl` 函数解析：
-
-```
-COS:/scene/dialogues/{scene_id}_round{n}_speaker{x}.mp3
-COS:/scene/vocabulary/{scene_id}_vocab{n}_word.mp3
-COS:/scene/vocabulary/{scene_id}_vocab{n}_example.mp3
-COS:/phrases/{phrase_id}.mp3
-```
-
-### 5.2 支持的存储协议
-
-| 协议 | 说明 | 环境变量配置 |
-|------|------|-------------|
-| `COS:/` | 腾讯云 COS | `NEXT_PUBLIC_COS_BASE_URL` |
-| `BLOB:/` | Vercel Blob | `NEXT_PUBLIC_BLOB_BASE_URL` |
-
-
-### 5.3 URL构建规则
-
-1. **协议解析**：提取 `PROTOCOL:/` 部分，匹配对应的存储配置
-2. **路径拼接**：将协议后的路径拼接到 baseUrl 后
-3. **完整URL**：`{baseUrl}/{path}`
-
-### 5.4 使用示例
-
-```typescript
-import { buildAudioUrl } from '@/lib/audioUrl';
-
-// 腾讯云 COS
-buildAudioUrl('COS:/scene/dialogues/daily_001_round1_speaker1.mp3')
-// -> 'https://kouyu-scene-1300762139.cos.ap-guangzhou.myqcloud.com/scene/dialogues/daily_001_round1_speaker1.mp3'
-
-// 已经是完整URL时直接返回
-buildAudioUrl('https://example.com/audio.mp3')
-// -> 'https://example.com/audio.mp3'
-
-// 空值处理
-buildAudioUrl(null) // -> ''
-buildAudioUrl(undefined) // -> ''
-```
-
-### 5.5 路径格式规范
-
-| 类型 | 路径格式 | 示例 |
-|------|---------|------|
-| 场景对话 | `COS:/scene/dialogues/{scene_id}_round{n}_{speaker}.mp3` | `COS:/scene/dialogues/daily_001_round1_speaker1.mp3` |
-| 词汇单词 | `COS:/scene/vocabulary/{scene_id}_vocab{n}_word.mp3` | `COS:/scene/vocabulary/daily_001_vocab1_word.mp3` |
-| 词汇例句 | `COS:/scene/vocabulary/{scene_id}_vocab{n}_example.mp3` | `COS:/scene/vocabulary/daily_001_vocab1_example.mp3` |
-| 短语音频 | `COS:/phrases/{phrase_id}.mp3` | `COS:/phrases/phrase_001.mp3` |
-
-## 6. 场景分类
-
-| 类别 | ID前缀 | 数量 | 说明 |
-|------|--------|------|------|
-| 日常 | daily_ | 31 | 日常场景 (daily_001 ~ daily_030 + daily_100) |
-| 职场 | workplace_ | 25 | 职场场景 |
-| 留学 | study_abroad_ | 15 | 留学场景 |
-| 旅行 | travel_ | 20 | 旅行场景 |
-| 社交 | social_ | 20 | 社交场景 |
-| **总计** | - | **110** | - |
-
-## 7. 常用命令
+### 快速启动
 
 ```bash
-# 开发
+pnpm install
+cp .env.example .env.local
+# 配置 DATABASE_URL, GLM_API_KEY 等
 pnpm dev
-
-# 构建
-pnpm build
-
-# 数据库操作
-npx ts-node prepare/scene/scripts/scene-manager.ts <command>
-# command: test | update-audio | reset | update-db | verify
-
-# 短语数据操作
-npx ts-node prepare/phrases/scripts/reinit_database.ts
 ```
 
-## 8. 环境变量
+### 场景分类统计
 
-需要在 `.env.local` 中配置：
+| 分类 | ID前缀 | 数量 |
+|------|--------|------|
+| 日常 | `daily_` | 31 |
+| 职场 | `workplace_` | 25 |
+| 留学 | `study_abroad_` | 15 |
+| 旅行 | `travel_` | 20 |
+| 社交 | `social_` | 20 |
+| **总计** | - | **111** |
 
-```env
-DATABASE_URL=postgresql://...
-GLM_API_KEY=xxx
-NEXT_PUBLIC_COS_BASE_URL=https://kouyu-scene-1300762139.cos.ap-guangzhou.myqcloud.com
-```
+---
 
-## 9. 开发规范
-
-1. **依赖变更**: 涉及依赖变更需要重启服务器
-2. **代码变更**: 每次代码变更后，都需要进行测试
-3. **临时文件**: 生成的临时文件放到 `.trae/temp/{sessionId}` 中
-4. **语言**: 对话使用中文，代码注释使用中文
-
-## 10. API 路由
-
-### 场景相关
-- `GET /api/scenes` - 获取场景列表
-- `GET /api/scenes/[id]` - 获取场景详情
-- `GET /api/scenes/[id]/tests` - 获取场景测试题
-
-### 短语相关
-- `GET /api/phrases` - 获取短语列表
-- `GET /api/phrases/[id]` - 获取短语详情
-
-### 开放式测试
-- `POST /api/open-test/initiate` - 初始化测试
-- `POST /api/open-test/chat` - 对话交互
-- `POST /api/open-test/analyze` - 分析结果
-- `GET /api/open-test/audio/[id]` - 获取音频
-
-### 填空测试
-- `POST /api/fill-blank/evaluate` - 评估答案
-
-## 11. 数据格式规范
-
-### 11.1 category/difficulty 字段
-- **category** 使用中文：`日常`、`职场`、`留学`、`旅行`、`社交`
-- **difficulty** 使用中文：`初级`、`中级`、`高级`
-- 前端无需做映射，直接使用数据库中的中文值
-
-### 11.2 音频字段名统一
-- 单词/短语音频统一使用 `audio_url`
-- 例句音频使用 `example_audio_url`
-- 不再使用 `word_audio_url` 等旧字段名
-
-### 11.3 dialogue 格式
-- 使用扁平数组格式，不再嵌套 rounds/content
-- 每条对话包含完整的 `round_number`、`speaker`、`text`、`translation`、`audio_url` 等字段
-
-### 11.4 duration 学习时长
-- 根据对话轮数和词汇数量动态计算
-- 计算公式：`Math.max(5, Math.min(20, roundCount * 2 + Math.ceil(vocabCount / 2)))`
-- 范围：5-20 分钟
-
-
-
-## 注意事项
-
-1. 对于本地脚本调用nvidia大模型时, 可以配置10个并发, 当出现限速报错时, 可以等待10s后在重试
+*本文档版本: v3.0 | 最后更新: 2026-02-24 | 面向AI助手*
