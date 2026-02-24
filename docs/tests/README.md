@@ -138,7 +138,7 @@ A: 编辑 `data/structure-tests.json` 或 `data/content-tests.json` 文件，按
 
 ### Q: 内容测试用例数据如何准备？
 
-A: 内容测试需要提前准备用例数据(历史数据可能无效)，需要根据当前项目工程内容随机生成关于项目各方面的10个问题，数据格式参考 `data/content-tests.json`，每次覆盖 `data/content-tests.json`。
+A: 内容测试需要提前准备用例数据(历史数据可能无效)，需要根据当前项目工程内容(排除docs目录下文档,本用例就是用来测试文档质量的)随机生成关于项目多个方面的10个问题，数据格式参考 `data/content-tests.json`，每次覆盖 `data/content-tests.json`。
 
 **数据格式示例：**
 

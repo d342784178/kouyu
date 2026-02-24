@@ -93,7 +93,7 @@ const cliArgs = parseArgs();
 
 // API配置（优先级：命令行 > 系统环境变量 > .env.local）
 const API_KEY = cliArgs['api-key'] || process.env.NVIDIA_API_KEY || envLocal.NVIDIA_API_KEY || '';
-const MODEL = process.env.NVIDIA_MODEL || envLocal.NVIDIA_MODEL || 'meta/llama-3.1-405b-instruct';
+const MODEL = process.env.NVIDIA_MODEL || envLocal.NVIDIA_MODEL || 'stepfun-ai/step-3.5-flash';
 const API_URL = process.env.NVIDIA_API_URL || envLocal.NVIDIA_API_URL || 'https://integrate.api.nvidia.com/v1/chat/completions';
 
 // 并发配置
@@ -192,7 +192,7 @@ function readLocalDocument(filePath) {
 /**
  * 调用NVIDIA API获取LLM回答（带重试机制）
  */
-async function callLLMOnce(messages, tools = null, maxTokens = 2048) {
+async function callLLMOnce(messages, tools = null, maxTokens = 10480) {
   const body = {
     model: MODEL,
     messages: messages,
@@ -207,7 +207,7 @@ async function callLLMOnce(messages, tools = null, maxTokens = 2048) {
   }
 
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 60000); // 60秒超时
+  const timeoutId = setTimeout(() => controller.abort(), 120000); // 120秒超时
 
   const response = await fetch(API_URL, {
     method: 'POST',
@@ -232,7 +232,7 @@ async function callLLMOnce(messages, tools = null, maxTokens = 2048) {
 /**
  * 调用NVIDIA API获取LLM回答（带重试机制和并发控制）
  */
-async function callLLM(messages, tools = null, retryCount = 0, maxTokens = 2048) {
+async function callLLM(messages, tools = null, retryCount = 0, maxTokens = 10048) {
   if (!API_KEY) {
     throw new Error('未设置 NVIDIA_API_KEY');
   }
