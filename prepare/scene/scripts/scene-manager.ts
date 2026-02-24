@@ -29,7 +29,7 @@ dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
 const DATA_DIR = path.resolve(process.cwd(), 'prepare/scene/data');
 const SCENES_FILE = path.join(DATA_DIR, 'scenes_final.json');
 const SCENES_WITH_AUDIO_FILE = path.join(DATA_DIR, 'scenes_100_with_audio.json');
-const COS_BASE_URL = 'https://kouyu-scene-1300762139.cos.ap-guangzhou.myqcloud.com';
+const COS_BASE_URL = process.env.NEXT_PUBLIC_COS_BASE_URL || '';
 
 interface DialogueContent {
   index: number;

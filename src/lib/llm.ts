@@ -3,9 +3,9 @@
  * 统一封装GLM-4.5 API调用
  */
 
-const GLM_API_KEY = '4731aefc2a564a798985b658a5f84d22.XnN63UR33hl2upJm'
-const GLM_API_URL = 'https://open.bigmodel.cn/api/paas/v4/chat/completions'
-const MODEL = 'glm-4-flash'
+const GLM_API_KEY = process.env.GLM_API_KEY || ''
+const GLM_API_URL = process.env.GLM_API_URL || 'https://open.bigmodel.cn/api/paas/v4/chat/completions'
+const MODEL = process.env.GLM_MODEL || 'glm-4-flash'
 
 export interface Message {
   role: 'system' | 'user' | 'assistant'

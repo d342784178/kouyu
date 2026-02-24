@@ -7,11 +7,11 @@
 const STORAGE_CONFIG: Record<string, { baseUrl: string; bucket?: string }> = {
   // 腾讯云 COS
   COS: {
-    baseUrl: process.env.NEXT_PUBLIC_COS_BASE_URL || 'https://kouyu-scene-1300762139.cos.ap-guangzhou.myqcloud.com',
+    baseUrl: process.env.NEXT_PUBLIC_COS_BASE_URL || '',
   },
   // 腾讯云 COS (别名)
   TX_COS: {
-    baseUrl: process.env.NEXT_PUBLIC_COS_BASE_URL || 'https://kouyu-scene-1300762139.cos.ap-guangzhou.myqcloud.com',
+    baseUrl: process.env.NEXT_PUBLIC_COS_BASE_URL || '',
   },
   // Vercel Blob
   BLOB: {

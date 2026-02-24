@@ -25,10 +25,10 @@ interface ChatResponse {
   round: number
 }
 
-// OpenRouter API配置
-const OPENROUTER_API_KEY = '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'
-const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions'
-const MODEL = 'stepfun/step-3.5-flash:free'
+// NVIDIA API配置
+const NVIDIA_API_KEY = process.env.NVIDIA_API_KEY || ''
+const NVIDIA_API_URL = process.env.NVIDIA_API_URL || 'https://integrate.api.nvidia.com/v1/chat/completions'
+const MODEL = process.env.NVIDIA_MODEL || 'z-ai/glm4.7'
 
 export async function POST(request: Request) {
   try {
@@ -147,17 +147,15 @@ Great! Could you please provide your name and reservation number?
       messages = [...messages, ...conversation]
     }
 
-    console.log('[大模型对话] 调用OpenRouter API...')
+    console.log('[大模型对话] 调用NVIDIA API...')
     console.log('[大模型对话] 请求内容:', JSON.stringify(messages, null, 2))
 
-    // 调用OpenRouter API
-    const response = await fetch(OPENROUTER_API_URL, {
+    // 调用NVIDIA API
+    const response = await fetch(NVIDIA_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
-        'Referer': 'https://your-application.com', // 替换为实际域名
-        'X-Title': 'English Learning Scene Test',
+        'Authorization': `Bearer ${NVIDIA_API_KEY}`,
       },
       body: JSON.stringify({
         model: MODEL,
@@ -165,11 +163,7 @@ Great! Could you please provide your name and reservation number?
         temperature: 0.7,
         max_tokens: 500,
         top_p: 0.95,
-        frequency_penalty: 0,
-        presence_penalty: 0,
-        reasoning: {
-          exclude: true
-        }
+        stream: false,
       }),
     })
 
@@ -280,10 +274,11 @@ Great! Could you please provide your name and reservation number?
         console.log('[大模型对话] 未成功提取到回复，保持为空')
       }
       
-      // 5. 最终检查，确保回复是英文的
-      if (!/^[A-Za-z\s.,!?'"-]+$/.test(assistantMessage)) {
-        console.log('[大模型对话] 回复包含非英文内容，保持为空')
-        assistantMessage = ''
+      // 5. 最终检查，确保回复是英文的（允许常见标点符号和数字）
+      const englishPattern = /^[A-Za-z0-9\s.,!?'"\-:;()]+$/
+      if (!englishPattern.test(assistantMessage)) {
+        console.log('[大模型对话] 回复可能包含非英文内容，但仍使用:', assistantMessage)
+        // 不再清空，而是记录警告继续使用
       } else {
         console.log('[大模型对话] 回复是英文的，直接使用')
       }
