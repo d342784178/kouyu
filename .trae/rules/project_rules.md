@@ -106,7 +106,7 @@
 
 #### 步骤3：执行自动化测试验证
 
-**每次更新本文档后，必须执行自动化测试脚本验证文档质量：**
+**每次更新./docs/目录下的文档后，必须执行自动化测试脚本验证文档质量：**
 
 ```bash
 # 执行完整的文档质量验证
@@ -127,6 +127,11 @@ node docs/tests/scripts/run-content-tests-llm.js       # 仅内容测试（LLM�
 - 测试通过后，文档更新方可提交
 - 测试报告自动保存至 `docs/tests/doc-quality-report.json`
 
+文档自动化测试的详细说明（包括测试脚本位置、覆盖范围、维护责任、更新流程等）请查阅：
+
+**[docs/tests/README.md](../../docs/tests/README.md)**
+
+
 #### 步骤4：验证链接有效性
 
 更新后执行以下检查：
@@ -135,12 +140,6 @@ node docs/tests/scripts/run-content-tests-llm.js       # 仅内容测试（LLM�
 - [ ] 版本号已递增
 - [ ] 变更日志已记录
 - [ ] **自动化测试已通过**
-
-### 3.4 文档质量测试脚本说明
-
-文档自动化测试的详细说明（包括测试脚本位置、覆盖范围、维护责任、更新流程等）请查阅：
-
-**[docs/tests/README.md](../../docs/tests/README.md)**
 
 ### 3.5 禁止事项
 
