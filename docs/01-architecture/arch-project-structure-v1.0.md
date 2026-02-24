@@ -1,6 +1,6 @@
 # 语习集 - 项目结构
 
-> 版本: v1.0  
+> 版本: v1.1  
 > 最后更新: 2026-02-24  
 > 优先级: P1  
 > 阅读时间: 10分钟
@@ -46,7 +46,7 @@ kouyu/
 │   ├── types.ts                  # 全局类型定义
 │   └── styles/                   # 全局样式
 ├── prepare/                      # 数据准备脚本
-├── demands/                      # 需求文档
+├── demands/                      # 需求文档（详见下方说明）
 ├── tests/                        # 测试文件
 ├── .trae/                        # Trae 配置
 └── package.json
@@ -201,11 +201,38 @@ export default function SceneDetailClient({ scene }: { scene: Scene }) {
 
 ---
 
+## 需求文档目录 (demands/)
+
+`demands/` 文件夹包含产品需求文档、技术设计文档和交互原型，是了解产品功能和设计规范的重要入口。
+
+### 文档清单
+
+| 文档路径 | 内容说明 | 适用读者 |
+|----------|----------|----------|
+| `demands/README.md` | demands 文件夹总览和导航 | 所有人 |
+| `demands/需求文档.md` | v1 全量需求文档 | 产品经理、开发 |
+| `demands/v2/需求文档.md` | v2 增量需求（场景学习、AI对话） | 产品经理、开发 |
+| `demands/设计文档.md` | v1 技术设计 | 开发 |
+| `demands/v2/设计文档/技术设计文档.md` | 增量技术架构设计 | 开发 |
+| `demands/v2/设计文档/英语口语场景数据模型设计.md` | 场景数据模型详细设计 | 后端开发 |
+| `demands/交互风格说明文档.md` | 项目UI/UX 设计规范 | 设计师、前端开发 |
+| `demands/原型图/yuxiji/` | 高保真交互原型（React+Vite项目） | 设计师、开发 |
+
+### 快速导航
+
+- **产品经理** → 阅读 `需求文档.md` 和 `v2/需求文档.md`
+- **UI/UX设计师** → 阅读 `交互风格说明文档.md` 和查看原型图
+- **前端开发** → 阅读 `v2/设计文档/技术设计文档.md` 的组件设计章节
+- **后端开发** → 阅读 `v2/设计文档/技术设计文档.md` 的数据模型和API章节
+
+---
+
 ## 相关文档
 
 - [技术栈详解](./arch-tech-stack-v1.0.md) - 技术选型说明
 - [数据库设计](./arch-database-schema-v1.0.md) - 数据模型说明
 - [编码规范](../02-development/dev-coding-standards-v1.0.md) - 代码规范
+- [需求文档目录](../../demands/README.md) - 产品需求和设计文档
 
 ---
 
@@ -213,4 +240,5 @@ export default function SceneDetailClient({ scene }: { scene: Scene }) {
 
 | 版本 | 日期 | 变更内容 | 作者 |
 |------|------|----------|------|
+| v1.1 | 2026-02-24 | 新增 demands/ 目录详细说明 | AI |
 | v1.0 | 2026-02-24 | 初始版本 | - |
