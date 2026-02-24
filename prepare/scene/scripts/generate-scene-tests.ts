@@ -440,9 +440,12 @@ ${dialogueText}
 题目形式：设定主题和角色，用户选择角色进行对话。
 
 要求：
-1. topic: 对话主题（简洁明了）
-2. description: 对话描述（50字以内）
-3. roles: 列出所有角色，每个角色包含 name、description、is_user（用户是否可扮演，都设为true）
+1. topic: 对话主题（中文，10字以内，简洁明了）
+2. description: 对话描述（中文，50字以内，说明练习目标）
+3. roles: 列出所有角色，每个角色包含：
+   - name: 角色名（中文，如"顾客"、"服务员"、"医生"、"患者"等）
+   - description: 角色描述（中文）
+   - is_user: 用户是否可扮演（都设为true）
 4. scenario_context: 对话发生的背景（中文）
 5. suggested_opening: 建议的开场白（英文）
 6. analysis: 对话要点和注意事项（中文）
@@ -450,12 +453,12 @@ ${dialogueText}
 输出格式（必须是合法JSON）：
 {
   "open_dialogue": {
-    "topic": "对话主题",
-    "description": "对话描述",
+    "topic": "对话主题（中文）",
+    "description": "对话描述（中文）",
     "roles": [
       {
-        "name": "角色名",
-        "description": "角色描述",
+        "name": "中文角色名",
+        "description": "角色描述（中文）",
         "is_user": true
       }
     ],
@@ -467,6 +470,9 @@ ${dialogueText}
 
 注意：
 - 所有字符串必须使用英文双引号"
+- topic、description 必须是中文
+- roles[].name 必须是中文（如"顾客"、"服务员"）
+- roles[].description 必须是中文
 - 所有角色都设置 is_user 为 true，让用户可以选择扮演任意角色
 - 确保JSON格式完整，不要截断`;
 }

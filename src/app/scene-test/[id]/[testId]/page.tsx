@@ -606,13 +606,7 @@ export default function SceneTest() {
                 </div>
                 <div className="flex-1">
                   <div className="font-semibold text-gray-800 mb-1">
-                    {testResults[currentTest.id]?.isCorrect ? '回答正确！' : '回答错误'} {
-                      testResults[currentTest.id]?.score !== undefined && (
-                        <span className="text-sm font-normal text-gray-500">
-                          得分：{testResults[currentTest.id].score}
-                        </span>
-                      )
-                    }
+                    {testResults[currentTest.id]?.isCorrect ? '回答正确！' : '回答错误'}
                   </div>
                   <p className="text-sm text-gray-600 mb-2">{testResults[currentTest.id]?.analysis}</p>
                   {!testResults[currentTest.id]?.isCorrect && currentTest.type === 'choice' && (

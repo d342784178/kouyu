@@ -99,10 +99,12 @@ export interface ActiveChatViewProps extends ViewProps {
   isGeneratingResponse: boolean
   playingMessageIndex: number | null
   error: string
+  isRoundLimitReached: boolean
   onStartRecording: () => void
   onStopRecording: () => void
   onPlayAudio: (audioUrl: string, index: number) => void
   onSendText: (text: string) => void
+  onSubmitEvaluation: () => void
   messagesEndRef: React.RefObject<HTMLDivElement>
 }
 
