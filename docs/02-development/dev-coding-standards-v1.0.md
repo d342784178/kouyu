@@ -139,8 +139,8 @@ import { utils } from './utils'
 
 ## 相关文档
 
-- [API开发指南](./dev-api-development-v1.0.md)
-- [组件开发指南](./dev-component-guide-v1.0.md)
+- [API接口文档](../03-api/api-endpoints-v1.0.md)
+- [项目结构文档](../01-architecture/arch-project-structure-v1.0.md)
 
 ---
 

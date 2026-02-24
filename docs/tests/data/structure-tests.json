@@ -1,0 +1,123 @@
+{
+  "testSuite": "文档结构合规性测试",
+  "version": "1.0",
+  "description": "验证项目文档的结构合规性，包括元信息完整性、章节结构规范性、文档索引一致性和交叉引用有效性。自动扫描 docs/ 目录下所有 .md 文件（排除 tests/ 目录）",
+  "scanConfig": {
+    "scanDir": "docs",
+    "excludeDir": "tests",
+    "filePattern": "*.md"
+  },
+  "testCases": [
+    {
+      "id": "TC-STRUCT-001",
+      "name": "元信息完整性检查",
+      "type": "metadata",
+      "description": "验证所有子文档包含必需的元信息字段",
+      "validationRules": [
+        {
+          "field": "version",
+          "pattern": "> 版本: v\\d+\\.\\d+",
+          "required": true,
+          "description": "版本号格式：vX.Y"
+        },
+        {
+          "field": "lastUpdated",
+          "pattern": "> 最后更新: \\d{4}-\\d{2}-\\d{2}",
+          "required": true,
+          "description": "日期格式：YYYY-MM-DD"
+        },
+        {
+          "field": "priority",
+          "pattern": "> 优先级: P[0-2]",
+          "required": true,
+          "description": "优先级：P0/P1/P2"
+        },
+        {
+          "field": "readingTime",
+          "pattern": "> 阅读时间: \\d+分钟",
+          "required": true,
+          "description": "阅读时间格式：X分钟"
+        }
+      ]
+    },
+    {
+      "id": "TC-STRUCT-002",
+      "name": "章节结构规范性检查",
+      "type": "structure",
+      "description": "验证所有子文档包含必需的章节",
+      "requiredSections": [
+        {
+          "name": "文档简介",
+          "pattern": "## 文档简介",
+          "required": true
+        },
+        {
+          "name": "目录",
+          "pattern": "## 目录",
+          "required": true
+        },
+        {
+          "name": "变更日志",
+          "pattern": "## 变更日志",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "TC-STRUCT-003",
+      "name": "文档索引一致性检查",
+      "type": "index",
+      "description": "验证project_rules.md中的文档清单与实际文件一致",
+      "sourceFile": ".trae/rules/project_rules.md",
+      "expectedDocuments": [
+        {
+          "id": 1,
+          "path": "docs/00-core/core-project-overview-v1.0.md",
+          "priority": "P0"
+        },
+        {
+          "id": 2,
+          "path": "docs/00-core/core-quickstart-v1.0.md",
+          "priority": "P0"
+        },
+        {
+          "id": 3,
+          "path": "docs/01-architecture/arch-tech-stack-v1.0.md",
+          "priority": "P1"
+        },
+        {
+          "id": 4,
+          "path": "docs/01-architecture/arch-project-structure-v1.0.md",
+          "priority": "P1"
+        },
+        {
+          "id": 5,
+          "path": "docs/01-architecture/arch-database-schema-v1.0.md",
+          "priority": "P1"
+        },
+        {
+          "id": 6,
+          "path": "docs/02-development/dev-coding-standards-v1.0.md",
+          "priority": "P1"
+        },
+        {
+          "id": 7,
+          "path": "docs/03-api/api-endpoints-v1.0.md",
+          "priority": "P1"
+        }
+      ]
+    },
+    {
+      "id": "TC-STRUCT-004",
+      "name": "交叉引用有效性检查",
+      "type": "links",
+      "description": "验证文档中的所有相对链接有效",
+      "sourceFile": ".trae/rules/project_rules.md",
+      "linkPattern": "\\[([^\\]]+)\\]\\(([^)]+)\\)",
+      "excludedPatterns": [
+        "^https?://",
+        "^#"
+      ]
+    }
+  ]
+}
