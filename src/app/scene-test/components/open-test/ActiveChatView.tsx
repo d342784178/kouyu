@@ -34,13 +34,22 @@ export default function ActiveChatView({
   const handleSendText = () => {
     // 优先使用输入框的当前值，确保能获取到最新输入
     const currentValue = inputRef.current?.value || textInput
+    console.log('handleSendText 被调用', {
+      inputRefValue: inputRef.current?.value,
+      textInput,
+      currentValue,
+      hasValue: !!currentValue.trim()
+    })
     if (currentValue.trim()) {
+      console.log('发送文本:', currentValue.trim())
       onSendText(currentValue.trim())
       setTextInput('')
       if (inputRef.current) {
         inputRef.current.value = ''
       }
       setShowTextInput(false)
+    } else {
+      console.log('没有可发送的文本')
     }
   }
 

@@ -1,14 +1,16 @@
 import { NextResponse } from 'next/server'
 import { join } from 'path'
 import { existsSync, readFileSync } from 'fs'
+import { tmpdir } from 'os'
 
 export async function GET(request: Request, { params }: { params: { id: string } }) {
   try {
     const { id } = params
     console.log('请求音频文件:', id)
     
-    // 构建音频文件路径
-    const audioPath = join('/tmp', `speech_${id}.mp3`)
+    // 构建音频文件路径 - 使用跨平台的临时目录
+    const tempDir = tmpdir()
+    const audioPath = join(tempDir, `speech_${id}.mp3`)
     console.log('音频文件路径:', audioPath)
     
     // 检查文件是否存在

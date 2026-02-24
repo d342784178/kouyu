@@ -1,5 +1,6 @@
 import { writeFileSync, unlinkSync, existsSync } from 'fs'
 import { join } from 'path'
+import { tmpdir } from 'os'
 import * as sdk from "microsoft-cognitiveservices-speech-sdk"
 
 interface SpeechOptions {
@@ -14,6 +15,11 @@ interface SpeechResult {
   warning?: string
 }
 
+// 获取跨平台的临时目录
+const getTempDir = () => {
+  return tmpdir()
+}
+
 export async function generateSpeech({ text, voice = 'en-US-AriaNeural' }: SpeechOptions): Promise<SpeechResult> {
   if (!text || text.trim() === '') {
     throw new Error('Text is required')
@@ -21,7 +27,8 @@ export async function generateSpeech({ text, voice = 'en-US-AriaNeural' }: Speec
 
   // 生成唯一文件名
   const timestamp = Date.now()
-  const outputPath = join('/tmp', `speech_${timestamp}.mp3`)
+  const tempDir = getTempDir()
+  const outputPath = join(tempDir, `speech_${timestamp}.mp3`)
 
   try {
     // 从环境变量中读取Azure Speech SDK配置
@@ -35,6 +42,7 @@ export async function generateSpeech({ text, voice = 'en-US-AriaNeural' }: Speec
     }
     
     console.log('开始生成语音...')
+    console.log('临时文件路径:', outputPath)
     
     // 创建SpeechConfig实例
     const speechConfig = sdk.SpeechConfig.fromSubscription(subscriptionKey, serviceRegion)

@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { callLLM, Message as LLMMessage } from '@/lib/llm'
 import { generateSpeech } from '../utils/speechGenerator'
 
 // 定义消息类型
@@ -24,11 +25,6 @@ interface ChatResponse {
   isEnd: boolean
   round: number
 }
-
-// NVIDIA API配置
-const NVIDIA_API_KEY = process.env.NVIDIA_API_KEY || ''
-const NVIDIA_API_URL = process.env.NVIDIA_API_URL || 'https://integrate.api.nvidia.com/v1/chat/completions'
-const MODEL = process.env.NVIDIA_MODEL || 'z-ai/glm4.7'
 
 export async function POST(request: Request) {
   try {
@@ -138,57 +134,30 @@ Great! Could you please provide your name and reservation number?
     }
 
     // 构建消息历史
-    let messages = [
+    let messages: LLMMessage[] = [
       { role: 'system', content: systemPrompt }
     ]
     
-    // 只有在初始化对话时才添加对话历史，继续对话时系统提示词中已经包含了完整对话历史
-    if (isInitialization && conversation.length > 0) {
-      messages = [...messages, ...conversation]
+    // 添加对话历史（如果有的话）
+    if (conversation && conversation.length > 0) {
+      messages = [...messages, ...conversation.map((msg: Message) => ({
+        role: msg.role as 'user' | 'assistant',
+        content: msg.content
+      }))]
+    }
+    
+    // GLM API 要求 system 消息后必须有 user 消息
+    // 如果只有 system 消息（如分析请求），添加一个默认的 user 消息
+    if (messages.length === 1) {
+      messages.push({ role: 'user', content: '请根据以上要求完成任务。' })
     }
 
-    console.log('[大模型对话] 调用NVIDIA API...')
+    console.log('[大模型对话] 调用LLM API...')
     console.log('[大模型对话] 请求内容:', JSON.stringify(messages, null, 2))
 
-    // 调用NVIDIA API
-    const response = await fetch(NVIDIA_API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${NVIDIA_API_KEY}`,
-      },
-      body: JSON.stringify({
-        model: MODEL,
-        messages: messages,
-        temperature: 0.7,
-        max_tokens: 500,
-        top_p: 0.95,
-        stream: false,
-      }),
-    })
-
-    const endTime = Date.now()
-    const apiCallTime = endTime - startTime
-
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}))
-      console.error('[大模型对话] API错误:', response.status, errorData)
-      console.error('[大模型对话] 调用时间:', apiCallTime, 'ms')
-      // 返回真实错误信息
-      return NextResponse.json(
-        {
-          error: '大模型API调用失败',
-          details: errorData,
-          status: response.status
-        },
-        {
-          status: response.status
-        }
-      )
-    }
-
-    const data = await response.json()
-    const message = data.choices[0]?.message
+    // 调用统一的LLM API
+    const llmResponse = await callLLM(messages, 0.7, 500)
+    const content = llmResponse.content
     
     console.log('[大模型对话] 处理API响应...')
     
@@ -203,11 +172,11 @@ Great! Could you please provide your name and reservation number?
       
       try {
         // 尝试解析JSON格式的分析结果
-        if (message?.content) {
-          const content = message.content.trim()
+        if (content) {
+          const trimmedContent = content.trim()
           
           // 提取JSON部分
-          const jsonMatch = content.match(/\{[\s\S]*\}/)
+          const jsonMatch = trimmedContent.match(/\{[\s\S]*\}/)
           if (jsonMatch) {
             const parsedResult = JSON.parse(jsonMatch[0])
             // 验证解析结果是否包含必要字段
@@ -227,65 +196,11 @@ Great! Could you please provide your name and reservation number?
     } else {
       // 处理对话生成请求的响应
       // 从响应中提取完整的对话回复
-      let assistantMessage = ''
+      let assistantMessage = content.trim()
       
-      // 1. 首先检查 content 字段
-      if (message?.content) {
-        const content = message.content.trim()
-        console.log('[大模型对话] 大模型回复:', content)
-        if (content.length > 0) {
-          assistantMessage = content
-          console.log('[大模型对话] 从content字段提取回复:', assistantMessage)
-        }
-      }
-      
-      // 2. 如果 content 不适用，检查 parts 字段
-      if (assistantMessage === 'Hello! How can I help you today?' && message?.parts && Array.isArray(message.parts)) {
-        console.log('[大模型对话] 检查parts字段:', JSON.stringify(message.parts, null, 2))
-        for (const part of message.parts) {
-          if (part?.text) {
-            const textContent = part.text.trim()
-            console.log('[大模型对话] 从parts中提取到text内容:', textContent)
-            
-            // 直接使用text内容作为回复
-            if (textContent.length > 0) {
-              assistantMessage = textContent
-              console.log('[大模型对话] 从parts字段提取回复:', assistantMessage)
-              break
-            }
-          }
-        }
-      }
-      
-      // 3. 如果 content 和 parts 都不适用，尝试从 reasoning 中提取
-      if (assistantMessage === 'Hello! How can I help you today?' && message?.reasoning) {
-        const reasoning = message.reasoning
-        console.log('[大模型对话] 从reasoning中提取回复:', reasoning)
-        
-        // 直接使用reasoning内容作为回复
-        if (reasoning.length > 0) {
-          assistantMessage = reasoning
-          console.log('[大模型对话] 从reasoning字段提取回复:', assistantMessage)
-        }
-      }
-      
-      // 4. 检查是否成功提取到回复
-      if (assistantMessage === '') {
-        console.log('[大模型对话] 未成功提取到回复，保持为空')
-      }
-      
-      // 5. 最终检查，确保回复是英文的（允许常见标点符号和数字）
-      const englishPattern = /^[A-Za-z0-9\s.,!?'"\-:;()]+$/
-      if (!englishPattern.test(assistantMessage)) {
-        console.log('[大模型对话] 回复可能包含非英文内容，但仍使用:', assistantMessage)
-        // 不再清空，而是记录警告继续使用
-      } else {
-        console.log('[大模型对话] 回复是英文的，直接使用')
-      }
-      
+      console.log('[大模型对话] 大模型回复:', assistantMessage)
       console.log('[大模型对话] 提取回复:', assistantMessage)
-      console.log('[大模型对话] 消耗tokens:', data.usage?.total_tokens || '未知')
-      console.log('[大模型对话] 完整响应:', JSON.stringify(data, null, 2))
+      console.log('[大模型对话] 消耗tokens:', llmResponse.usage?.total_tokens || '未知')
 
       // 检查是否成功提取到回复
       if (assistantMessage === '') {
