@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { useParams } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import OpenTestDialog from './OpenTestDialog'
@@ -70,6 +70,7 @@ const getQuestionTypeLabel = (type: string) => {
 
 export default function SceneTest() {
   const params = useParams<{ id: string; testId: string }>()
+  const router = useRouter()
   const id = params.id || ''
   const testId = params.testId || ''
 
@@ -344,40 +345,74 @@ export default function SceneTest() {
     setTestResults({})
   }
 
+  // 使用 localStorage 缓存避免重复调用
+  const isFetching = useRef(false)
+
+  // 获取场景数据和测试列表
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchSceneAndTests = async () => {
+      if (!id || isFetching.current) return
+      
+      // 检查 localStorage 缓存
+      const cachedData = localStorage.getItem(`scene_${id}`)
+      if (cachedData) {
+        console.log('Using localStorage cached data for id:', id)
+        const { scene, tests } = JSON.parse(cachedData)
+        setScene(scene)
+        setTests(tests)
+        setIsLoading(false)
+        setNotFound(false)
+        return
+      }
+      
       try {
+        isFetching.current = true
         setIsLoading(true)
         setNotFound(false)
-        resetAnswerState()
-        if (id && testId) {
-          const sceneData = await getSceneById(id)
-          setScene(sceneData)
-          const testsData = await getSceneTests(id)
-          setTests(testsData)
-          const currentTestData = testsData.find(test => test.id === testId)
-          if (currentTestData) {
-            setCurrentTest(currentTestData)
-            const index = testsData.findIndex(test => test.id === testId)
-            setCurrentIndex(index)
-            const prev = index > 0 ? testsData[index - 1] : null
-            const next = index < testsData.length - 1 ? testsData[index + 1] : null
-            setPrevTest(prev)
-            setNextTest(next)
-          } else {
-            setNotFound(true)
-          }
-        } else {
-          setNotFound(true)
-        }
+        
+        console.log('Fetching scene and tests for id:', id)
+        const sceneData = await getSceneById(id)
+        const testsData = await getSceneTests(id)
+        
+        // 存入 localStorage 缓存
+        const cacheData = { scene: sceneData, tests: testsData }
+        localStorage.setItem(`scene_${id}`, JSON.stringify(cacheData))
+        
+        setScene(sceneData)
+        setTests(testsData)
       } catch (error) {
         setNotFound(true)
       } finally {
+        isFetching.current = false
         setIsLoading(false)
       }
     }
-    fetchData()
-  }, [id, testId])
+    
+    fetchSceneAndTests()
+  }, [id])
+
+  // 当测试列表或 testId 变化时，更新当前测试信息
+  useEffect(() => {
+    if (!testId || tests.length === 0) return
+    
+    resetAnswerState()
+    
+    const currentTestData = tests.find(test => test.id === testId)
+    if (currentTestData) {
+      setCurrentTest(currentTestData)
+      const index = tests.findIndex(test => test.id === testId)
+      setCurrentIndex(index)
+      const prev = index > 0 ? tests[index - 1] : null
+      const next = index < tests.length - 1 ? tests[index + 1] : null
+      setPrevTest(prev)
+      setNextTest(next)
+      setNotFound(false)
+    } else {
+      setNotFound(true)
+    }
+  }, [testId, tests])
+
+
 
   if (isLoading) {
     return (
@@ -412,17 +447,17 @@ export default function SceneTest() {
 
   const handleOpenTestComplete = () => {
     if (nextTest) {
-      window.location.href = `/scene-test/${id}/${nextTest.id}`
+      router.push(`/scene-test/${id}/${nextTest.id}`)
     } else {
-      window.location.href = `/scene-detail/${id}`
+      router.push(`/scene-detail/${id}`)
     }
   }
 
   const handleNext = () => {
     if (nextTest) {
-      window.location.href = `/scene-test/${id}/${nextTest.id}`
+      router.push(`/scene-test/${id}/${nextTest.id}`)
     } else {
-      window.location.href = `/scene-detail/${id}`
+      router.push(`/scene-detail/${id}`)
     }
   }
 
@@ -434,11 +469,18 @@ export default function SceneTest() {
       <div className={`max-w-[430px] mx-auto ${isOpenTest ? 'h-screen flex flex-col' : 'pt-6'}`}>
         {/* Back + Progress */}
         <div className={`flex items-center gap-3 mb-5 ${isOpenTest ? 'px-4 pt-6 shrink-0' : ''}`}>
-          <Link href={`/scene-detail/${id}`}>
-            <div className="h-8 w-8 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100">
-              <ArrowLeft className="h-4 w-4 text-gray-500" />
-            </div>
-          </Link>
+          <button
+            onClick={() => {
+              if (prevTest) {
+                router.push(`/scene-test/${id}/${prevTest.id}`)
+              } else {
+                router.push(`/scene-detail/${id}`)
+              }
+            }}
+            className="h-8 w-8 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100"
+          >
+            <ArrowLeft className="h-4 w-4 text-gray-500" />
+          </button>
           <div className="flex-1">
             <div className="flex items-center justify-between mb-1">
               <span className="text-sm font-medium text-gray-700">
