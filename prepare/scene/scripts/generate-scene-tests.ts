@@ -94,9 +94,7 @@ interface SceneData {
   description: string;
   difficulty: string;
   tags: string[];
-  dialogue: {
-    rounds: DialogueRound[];
-  };
+  dialogue: DialogueRound[];
   vocabulary: VocabularyItem[];
 }
 
@@ -291,7 +289,7 @@ async function callGLM4(
 
 // 生成选择题 Prompt
 function buildChoicePrompt(scene: SceneData): string {
-  const dialogueText = scene.dialogue.rounds
+  const dialogueText = scene.dialogue
     .map((round) => {
       const contentText = round.content
         .map((item) => `${item.speaker_name}: ${item.text} (${item.translation})`)
@@ -341,7 +339,7 @@ ${dialogueText}
 
 // 生成问答题 Prompt
 function buildQAPrompt(scene: SceneData): string {
-  const dialogueText = scene.dialogue.rounds
+  const dialogueText = scene.dialogue
     .filter((round) => round.analysis?.standard_answer)
     .map((round) => {
       const contentText = round.content
@@ -407,7 +405,7 @@ ${dialogueText}
 
 // 生成开放式对话 Prompt
 function buildOpenDialoguePrompt(scene: SceneData): string {
-  const dialogueText = scene.dialogue.rounds
+  const dialogueText = scene.dialogue
     .map((round) => {
       return round.content
         .map((item) => `${item.speaker_name}: ${item.text}`)
@@ -416,7 +414,7 @@ function buildOpenDialoguePrompt(scene: SceneData): string {
     .join('\n\n');
 
   const speakers = new Set<string>();
-  scene.dialogue.rounds.forEach((round) => {
+  scene.dialogue.forEach((round) => {
     round.content.forEach((item) => {
       speakers.add(item.speaker_name);
     });
@@ -641,7 +639,7 @@ async function loadScenesFromDB(): Promise<SceneData[]> {
     description: scene.description,
     difficulty: scene.difficulty,
     tags: scene.tags as string[],
-    dialogue: scene.dialogue as { rounds: DialogueRound[] },
+    dialogue: scene.dialogue as DialogueRound[],
     vocabulary: (scene.vocabulary as VocabularyItem[]) || [],
   }));
 }

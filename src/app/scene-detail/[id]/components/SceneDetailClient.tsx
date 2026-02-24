@@ -66,15 +66,13 @@ interface SceneDetailClientProps {
     difficulty: string
     duration: number
     tags: string[]
-    dialogue: {
-      rounds: DialogueRound[]
-    }
+    dialogue: DialogueRound[]
     vocabulary: VocabularyItem[]
   }
 }
 
 export default function SceneDetailClient({ scene }: SceneDetailClientProps) {
-  const dialogueRounds = scene.dialogue?.rounds || []
+  const dialogueRounds = scene.dialogue || []
   const vocabulary = scene.vocabulary || []
   const difficulty = difficultyConfig[scene.difficulty] || { label: scene.difficulty, color: '#6B7280', bgColor: '#F3F4F6' }
 

@@ -4,7 +4,7 @@
  * 用法: npx ts-node scripts/test-llm-prompts.ts
  */
 
-import { callLLM, Message } from '../src/lib/llm'
+import { callLLM, Message } from '../../src/lib/llm'
 
 // 测试配置
 const TEST_CONFIG = {

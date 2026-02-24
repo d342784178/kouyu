@@ -3,6 +3,9 @@
  * 
  * 使用方法：
  * node generate_scenes_110.js
+ * 
+ * 数据格式说明：
+ * dialogue 字段为扁平数组格式，每条对话包含 round_number 字段
  */
 
 const fs = require('fs');
@@ -325,65 +328,103 @@ async function generateScene(template, index) {
   "scene_name": "场景名称（中文）",
   "description": "场景描述，说明适用场景和学习目标（50-100字）",
   "tags": ["标签1", "标签2", "标签3"],
-  "dialogue": {
-    "rounds": [
-      {
-        "round_number": 1,
-        "content": [
+  "dialogue": [
+    {
+      "round_number": 1,
+      "content": [
+        {
+          "index": 1,
+          "speaker": "speaker1",
+          "speaker_name": "角色1名称",
+          "text": "英文对话内容",
+          "translation": "中文翻译",
+          "is_key_qa": false,
+          "audio_url": "COS:/scene/dialogues/${sceneId}_round1_speaker1.mp3"
+        },
+        {
+          "index": 2,
+          "speaker": "speaker2",
+          "speaker_name": "角色2名称",
+          "text": "英文对话内容",
+          "translation": "中文翻译",
+          "is_key_qa": true,
+          "audio_url": "COS:/scene/dialogues/${sceneId}_round1_speaker2.mp3"
+        }
+      ],
+      "analysis": {
+        "analysis_detail": "对这轮对话的场景分析，说明对话发生的上下文和交际目的（中文）",
+        "standard_answer": {
+          "text": "标准回答的英文",
+          "translation": "标准回答的中文翻译",
+          "scenario": "适用场景描述（中文）",
+          "formality": "语言正式程度：casual/neutral/formal"
+        },
+        "alternative_answers": [
           {
-            "index": 1,
-            "speaker": "speaker1",
-            "speaker_name": "角色1名称",
-            "text": "英文对话内容",
-            "translation": "中文翻译",
-            "is_key_qa": true
+            "text": "备选回答1英文",
+            "translation": "备选回答1中文",
+            "scenario": "备选回答1适用场景（中文）",
+            "formality": "casual/neutral/formal"
           },
           {
-            "index": 2,
-            "speaker": "speaker2",
-            "speaker_name": "角色2名称",
-            "text": "英文对话内容",
-            "translation": "中文翻译",
-            "is_key_qa": false
+            "text": "备选回答2英文",
+            "translation": "备选回答2中文",
+            "scenario": "备选回答2适用场景（中文）",
+            "formality": "casual/neutral/formal"
           }
         ],
-        "analysis": {
-          "analysis_detail": "对这轮对话的场景分析，说明对话发生的上下文和交际目的（中文）",
-          "standard_answer": {
-            "text": "标准回答的英文",
-            "translation": "标准回答的中文翻译",
-            "scenario": "适用场景描述（中文）",
-            "formality": "语言正式程度：casual/neutral/formal"
-          },
-          "alternative_answers": [
-            {
-              "text": "备选回答1英文",
-              "translation": "备选回答1中文",
-              "scenario": "备选回答1适用场景（中文）",
-              "formality": "casual/neutral/formal"
-            },
-            {
-              "text": "备选回答2英文",
-              "translation": "备选回答2中文",
-              "scenario": "备选回答2适用场景（中文）",
-              "formality": "casual/neutral/formal"
-            }
-          ],
-          "usage_notes": "使用提示和注意事项（中文）"
-        }
+        "usage_notes": "使用提示和注意事项（中文）"
       }
-    ]
-  },
+    },
+    {
+      "round_number": 2,
+      "content": [
+        {
+          "index": 1,
+          "speaker": "speaker1",
+          "speaker_name": "角色1名称",
+          "text": "英文对话内容",
+          "translation": "中文翻译",
+          "is_key_qa": false,
+          "audio_url": "COS:/scene/dialogues/${sceneId}_round2_speaker1.mp3"
+        },
+        {
+          "index": 2,
+          "speaker": "speaker2",
+          "speaker_name": "角色2名称",
+          "text": "英文对话内容",
+          "translation": "中文翻译",
+          "is_key_qa": true,
+          "audio_url": "COS:/scene/dialogues/${sceneId}_round2_speaker2.mp3"
+        }
+      ],
+      "analysis": {
+        "analysis_detail": "对这轮对话的场景分析",
+        "standard_answer": {
+          "text": "标准回答",
+          "translation": "翻译",
+          "scenario": "适用场景",
+          "formality": "neutral"
+        },
+        "alternative_answers": [],
+        "usage_notes": "使用说明"
+      }
+    }
+  ],
   "category": "${template.category === 'daily' ? '日常' : template.category === 'workplace' ? '职场' : template.category === 'travel' ? '旅行' : template.category === 'social' ? '社交' : '留学'}",
   "difficulty": "${template.difficulty}"
 }
 
 注意：
-1. 每轮对话的is_key_qa标记为true的应该是学习者需要重点掌握的关键句
-2. analysis字段用于教学分析，帮助学习者理解对话场景
-3. standard_answer是被标记为is_key_qa=true的那句话的标准回答
-4. alternative_answers提供2个备选回答，覆盖不同情境
-5. 所有字符串必须使用英文双引号"，不能使用中文引号""`;
+1. dialogue字段是数组，每个元素代表一轮对话
+2. 每轮对话包含round_number、content和analysis字段
+3. content数组包含该轮的所有对话内容
+4. 每轮对话的is_key_qa标记为true的应该是学习者需要重点掌握的关键句
+5. analysis字段在每轮对话级别，包含标准回答、备选回答等教学分析
+6. standard_answer是被标记为is_key_qa=true的那句话的标准回答
+7. alternative_answers提供2个备选回答，覆盖不同情境
+8. audio_url格式为：COS:/scene/dialogues/${sceneId}_round{轮次}_{speaker}.mp3
+9. 所有字符串必须使用英文双引号"，不能使用中文引号""`;
 
   try {
     const result = await callGLM4([
@@ -397,18 +438,9 @@ async function generateScene(template, index) {
     sceneData.id = sceneId;
     sceneData.vocabulary = [];
 
-    // 构建音频URL
-    if (sceneData.dialogue?.rounds) {
-      sceneData.dialogue.rounds = sceneData.dialogue.rounds.map((round) => {
-        round.content = round.content.map((item) => ({
-          ...item,
-          audio_url: `COS:/scene/dialogues/${sceneId}_round${round.round_number}_${item.speaker}.mp3`
-        }));
-        return round;
-      });
-    }
-
-    console.log(`✓ [${index}/${CONFIG.SCENE_COUNT}] ${sceneId} - ${sceneData.name}`);
+    const roundCount = sceneData.dialogue?.length || 0;
+    const contentCount = sceneData.dialogue?.reduce((sum, r) => sum + (r.content?.length || 0), 0) || 0;
+    console.log(`✓ [${index}/${CONFIG.SCENE_COUNT}] ${sceneId} - ${sceneData.scene_name} (${roundCount}轮, ${contentCount}条对话)`);
     return { success: true, data: sceneData, index };
 
   } catch (error) {
@@ -426,6 +458,7 @@ async function main() {
   console.log(`并发数: ${CONFIG.CONCURRENCY}`);
   console.log(`Max Tokens: ${CONFIG.MAX_TOKENS}`);
   console.log(`NVIDIA API Key: ${CONFIG.NVIDIA_API_KEY ? '已设置' : '未设置'}`);
+  console.log('数据格式: 扁平数组 (dialogue: [...])');
   console.log('');
 
   if (!CONFIG.NVIDIA_API_KEY) {
@@ -485,6 +518,7 @@ async function main() {
   console.log(`失败: ${failedTasks.length} 个场景`);
   console.log(`耗时: ${duration} 分钟`);
   console.log(`数据文件: ${finalFile}`);
+  console.log(`数据格式: 扁平数组 (dialogue: [...])`);
   if (failedTasks.length > 0) {
     console.log(`失败记录: ${path.join(CONFIG.OUTPUT_DIR, 'scenes_failed.json')}`);
   }

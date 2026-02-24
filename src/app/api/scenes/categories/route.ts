@@ -15,9 +15,13 @@ export async function GET() {
       ORDER BY category
     `
     
-    const categories = result.map((row: { category: string; count: string }) => row.category)
+    interface CategoryRow {
+      category: string
+      count: string
+    }
+    const categories = (result as CategoryRow[]).map((row) => row.category)
     const categoryCounts: Record<string, number> = {}
-    result.forEach((row: { category: string; count: string }) => {
+    ;(result as CategoryRow[]).forEach((row) => {
       categoryCounts[row.category] = parseInt(row.count, 10)
     })
     

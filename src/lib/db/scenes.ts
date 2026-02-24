@@ -14,7 +14,7 @@ interface RawSceneData {
   difficulty: string
   duration: number
   tags: string | string[]
-  dialogue: string | { rounds: DialogueRound[] }
+  dialogue: string | DialogueRound[]
   vocabulary: string | VocabularyItem[]
   created_at: string
   updated_at: string
@@ -40,7 +40,7 @@ export async function getSceneById(id: string): Promise<Scene | null> {
     let dialogue = sceneData.dialogue
     let vocabulary = sceneData.vocabulary
     let tags = sceneData.tags
-    
+
     if (typeof dialogue === 'string') {
       dialogue = JSON.parse(dialogue)
     }
@@ -50,19 +50,15 @@ export async function getSceneById(id: string): Promise<Scene | null> {
     if (typeof tags === 'string') {
       tags = JSON.parse(tags)
     }
-    
-    // 标准化对话数据 - 处理扁平数组格式
-    // 数据库中可能是 { rounds: [...] } 或直接的数组
-    let normalizedDialogue: { rounds: DialogueRound[] }
+
+    // 标准化对话数据
+    let normalizedDialogue: DialogueRound[]
     if (Array.isArray(dialogue)) {
-      // 扁平数组格式，需要转换为 rounds 结构
-      normalizedDialogue = { rounds: dialogue }
-    } else if (dialogue && typeof dialogue === 'object' && 'rounds' in dialogue) {
-      // 已经是 { rounds: [...] } 格式
-      normalizedDialogue = dialogue as { rounds: DialogueRound[] }
+      // 已经是数组格式
+      normalizedDialogue = dialogue as DialogueRound[]
     } else {
-      // 默认空结构
-      normalizedDialogue = { rounds: [] }
+      // 默认空数组
+      normalizedDialogue = []
     }
     
     // 标准化词汇数据
@@ -72,7 +68,7 @@ export async function getSceneById(id: string): Promise<Scene | null> {
       content: vocab.content || '',
       phonetic: vocab.phonetic || '',
       translation: vocab.translation || '',
-      audio_url: vocab.audio_url || '',
+      audio_url: vocab.audio_url || (vocab as any).word_audio_url || '',
       example: vocab.example || '',
       example_translation: vocab.example_translation || '',
       example_audio_url: vocab.example_audio_url || '',
@@ -107,7 +103,7 @@ export async function getAllSceneIds(): Promise<string[]> {
   try {
     const neonSql = neon(process.env.DATABASE_URL || '')
     const result = await neonSql`SELECT id FROM scenes`
-    return result.map((row: { id: string }) => row.id)
+    return (result as { id: string }[]).map((row) => row.id)
   } catch (error) {
     console.error('[getAllSceneIds] 获取场景ID列表失败:', error)
     return []

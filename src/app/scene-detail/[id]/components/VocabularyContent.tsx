@@ -11,12 +11,12 @@ interface VocabularyItem {
   content: string;
   phonetic: string;
   translation: string;
-  example: string;           // 统一使用 example
+  example: string;
   example_translation: string;
-  audio_url: string;         // 统一使用 audio_url
+  audio_url: string;
   example_audio_url: string;
   round_number: number;
-  difficulty?: 'easy' | 'medium' | 'hard';
+  difficulty?: string;
 }
 
 interface VocabularyContentProps {

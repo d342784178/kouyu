@@ -57,7 +57,7 @@ interface VocabularyItem {
   difficulty: string;
   round_number: number;
   vocab_id: string;
-  word_audio_url?: string;
+  audio_url?: string;
   example_audio_url?: string;
 }
 
@@ -70,9 +70,7 @@ interface SceneData {
   category: string;
   difficulty: string;
   tags: string[];
-  dialogue: {
-    rounds: DialogueRound[];
-  };
+  dialogue: DialogueRound[];
   vocabulary: VocabularyItem[];
 }
 
@@ -87,37 +85,36 @@ function buildVocabularyAudioUrl(sceneId: string, vocabIndex: number, type: 'wor
 function updateSceneAudioUrls(scene: SceneData): SceneData {
   const updatedScene = { ...scene };
   const sceneId = scene.scene_id || scene.id;
-  
+
   if (!sceneId) {
     return updatedScene;
   }
 
-  // 更新对话音频URL
-  if (updatedScene.dialogue?.rounds) {
-    updatedScene.dialogue.rounds = updatedScene.dialogue.rounds.map(round => {
-      const updatedRound = { ...round };
-      updatedRound.content = round.content.map(item => ({
+  // 更新对话音频URL（按轮次分组格式）
+  if (updatedScene.dialogue && Array.isArray(updatedScene.dialogue)) {
+    updatedScene.dialogue = updatedScene.dialogue.map(round => ({
+      ...round,
+      content: round.content.map(item => ({
         ...item,
         audio_url: buildDialogueAudioUrl(sceneId, round.round_number, item.speaker)
-      }));
-      return updatedRound;
-    });
+      }))
+    }));
   }
 
   // 更新词汇音频URL（如果存在词汇）
   if (updatedScene.vocabulary && updatedScene.vocabulary.length > 0) {
     const vocabIndexMap = new Map<string, number>();
     let currentVocabIndex = 1;
-    
+
     updatedScene.vocabulary = updatedScene.vocabulary.map(vocab => {
       const vocabId = vocab.vocab_id || `${sceneId}_vocab_${String(currentVocabIndex).padStart(2, '0')}`;
       if (!vocabIndexMap.has(vocabId)) {
         vocabIndexMap.set(vocabId, currentVocabIndex);
         currentVocabIndex++;
       }
-      
+
       const vocabIndex = vocabIndexMap.get(vocabId)!;
-      
+
       return {
         ...vocab,
         vocab_id: vocabId,
@@ -180,13 +177,12 @@ async function updateAudioUrls(): Promise<void> {
 
   const updatedScenes = scenes.map((scene, index) => {
     const updatedScene = updateSceneAudioUrls(scene);
-    
-    if (updatedScene.dialogue?.rounds) {
-      updatedScene.dialogue.rounds.forEach(round => {
-        dialogueAudioCount += round.content.length;
-      });
+
+    // 统计对话音频数量（按轮次分组格式）
+    if (updatedScene.dialogue && Array.isArray(updatedScene.dialogue)) {
+      dialogueAudioCount += updatedScene.dialogue.reduce((sum, round) => sum + (round.content?.length || 0), 0);
     }
-    
+
     if (updatedScene.vocabulary && updatedScene.vocabulary.length > 0) {
       vocabularyAudioCount += updatedScene.vocabulary.length * 2;
     }
@@ -390,11 +386,12 @@ async function verifyAudioUrls(): Promise<void> {
     console.log('-'.repeat(50));
 
     const dialogue = scene.dialogue as any;
-    if (dialogue?.rounds?.[0]?.content?.[0]) {
-      const firstContent = dialogue.rounds[0].content[0];
-      console.log(`   对话音频URL: ${firstContent.audio_url || '❌ 未设置'}`);
-      
-      if (firstContent.audio_url) {
+    if (Array.isArray(dialogue) && dialogue.length > 0) {
+      const firstRound = dialogue[0];
+      const firstContent = firstRound?.content?.[0];
+      console.log(`   对话音频URL: ${firstContent?.audio_url || '❌ 未设置'}`);
+
+      if (firstContent?.audio_url) {
         const fullUrl = `${COS_BASE_URL}/${firstContent.audio_url.replace('COS:/', '')}`;
         try {
           const response = await fetch(fullUrl, { method: 'HEAD' });

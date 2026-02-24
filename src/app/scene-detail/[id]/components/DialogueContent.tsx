@@ -6,10 +6,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { getAudioUrl } from '@/lib/audioUrl';
 
 interface Answer {
-  answer_id: string;
+  answer_id?: string;
   text: string;
   translation: string;
-  audio_url: string;
+  audio_url?: string;
   scenario: string;
   formality: string;
 }
@@ -21,17 +21,19 @@ interface QAAnalysis {
   usage_notes: string;
 }
 
+interface DialogueItem {
+  index: number;
+  speaker: string;
+  speaker_name: string;
+  text: string;
+  translation: string;
+  audio_url: string;
+  is_key_qa: boolean;
+}
+
 interface DialogueRound {
   round_number: number;
-  content: Array<{
-    index: number;
-    speaker: string;
-    speaker_name: string;
-    text: string;
-    translation: string;
-    audio_url: string;
-    is_key_qa: boolean;
-  }>;
+  content: DialogueItem[];
   analysis?: QAAnalysis;
 }
 
@@ -436,7 +438,7 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
                               <motion.button
                                 whileTap={{ scale: 0.95 }}
                                 className="flex items-center gap-2 px-4 py-2 bg-[#4F7CF0] text-white text-sm font-medium rounded-xl hover:bg-[#3D6AE0] transition-colors shadow-sm"
-                                onClick={() => playAudio(round.analysis!.standard_answer.audio_url)}
+                                onClick={() => playAudio(round.analysis!.standard_answer.audio_url!)}
                               >
                                 {isPlayingCurrent(round.analysis.standard_answer.audio_url) ? (
                                   <StopIcon className="w-4 h-4" />
@@ -476,7 +478,7 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
                                       <motion.button
                                         whileTap={{ scale: 0.9 }}
                                         className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors shrink-0"
-                                        onClick={() => playAudio(altAnswer.audio_url)}
+                                        onClick={() => playAudio(altAnswer.audio_url!)}
                                       >
                                         {isPlayingCurrent(altAnswer.audio_url) ? (
                                           <StopIcon className="text-gray-600 w-3.5 h-3.5" />
