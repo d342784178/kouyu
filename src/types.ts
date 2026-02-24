@@ -5,9 +5,12 @@ export interface Scene {
   description: string;
   category: string;  // 中文: 日常/职场/留学/旅行/社交
   difficulty: string; // 中文: 初级/中级/高级
+  duration: number;  // 学习时长（分钟）
   tags: string[];
-  dialogue: DialogueData;
+  dialogue: DialogueItem[];  // 扁平数组格式，与数据库一致
   vocabulary: VocabularyItem[];
+  createdAt?: string;  // 创建时间
+  updatedAt?: string;  // 更新时间
 }
 
 // 对话数据结构
@@ -97,7 +100,7 @@ export interface AnalysisResult {
 
 export interface Message {
   id: string;
-  role: 'ai' | 'user';
+  role: 'assistant' | 'user';
   text: string;
   timestamp: number;
 }
