@@ -338,7 +338,7 @@ export default function TestAnalysis({ sceneId, testId, conversation, rounds, on
   const overallLevel = getScoreLevel(analysis.overallScore)
 
   return (
-    <div className="flex-1 overflow-y-auto bg-gradient-to-br from-slate-50 via-white to-slate-100">
+    <div className="flex-1 bg-gradient-to-br from-slate-50 via-white to-slate-100">
       {/* 顶部总体评分卡片 */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 opacity-90" />
