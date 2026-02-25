@@ -1,9 +1,9 @@
 # 语习集 - 项目结构
 
-> 版本: v1.1  
-> 最后更新: 2026-02-24  
+> 版本: v1.2  
+> 最后更新: 2026-02-25  
 > 优先级: P1  
-> 阅读时间: 10分钟
+> 阅读时间: 15分钟
 
 ---
 
@@ -45,7 +45,7 @@ kouyu/
 │   ├── lib/                      # 工具库
 │   ├── types.ts                  # 全局类型定义
 │   └── styles/                   # 全局样式
-├── prepare/                      # 数据准备脚本
+├── prepare/                      # 数据准备脚本（详见下方说明）
 ├── demands/                      # 需求文档（详见下方说明）
 ├── tests/                        # 测试文件
 ├── .trae/                        # Trae 配置
@@ -201,6 +201,117 @@ export default function SceneDetailClient({ scene }: { scene: Scene }) {
 
 ---
 
+## 数据准备目录 (prepare/)
+
+`prepare/` 文件夹包含项目的数据准备脚本、原始数据和音频资源，用于初始化和管理场景数据、短语数据及其相关音频文件。该目录是项目数据资产的核心存储区域。
+
+### 目录结构
+
+```
+prepare/
+├── phrases/                      # 短语数据准备
+│   ├── data/                     # 短语数据和音频
+│   │   ├── phrases_100_quality.json    # 100个高质量短语JSON
+│   │   ├── phrases_100_quality.sql     # PostgreSQL插入脚本
+│   │   └── audio/                # 音频文件（300个MP3）
+│   │       ├── phrases/          # 100个短语音频
+│   │       └── examples/         # 200个示例音频
+│   ├── scripts/                  # 数据处理脚本
+│   │   ├── generate_audio_edge_tts.py       # 生成音频(edge-tts)
+│   │   ├── upload_audio_and_update_json.ts  # 上传音频到Vercel Blob
+│   │   ├── generate_and_upload_all.py       # 一键生成并上传
+│   │   ├── reinit_database.ts               # 重新初始化数据库
+│   │   └── verify_database.ts               # 验证数据库数据
+│   ├── docs/                     # 交付文档
+│   ├── requirements.txt          # Python依赖
+│   └── README.md                 # 短语数据说明
+│
+└── scene/                        # 场景数据准备
+    ├── data/                     # 场景数据和音频
+    │   ├── scenes_final.json           # 最终场景数据
+    │   ├── scene_tests.json            # 测试题数据
+    │   └── audio/                # 场景音频文件
+    │       └── dialogues/        # 对话音频
+    ├── scripts/                  # 数据处理脚本
+    │   ├── scene-manager.ts             # 场景管理主脚本
+    │   ├── generate-scene-tests.ts      # 生成测试数据
+    │   ├── generate_scenes_100.js       # 生成100个场景
+    │   └── generate_scene_audio.py      # 生成音频文件
+    └── README.md                 # 场景数据说明
+```
+
+### 短语数据 (prepare/phrases/)
+
+包含 **100个高质量英语连读短语** 的完整数据包，每个短语配有2个真实场景示例句和对应的音频文件。
+
+| 资源类型 | 数量 | 说明 |
+|----------|------|------|
+| 短语 | 100个 | 含连读说明、音标、场景分类 |
+| 示例句 | 200个 | 真实场景对话，无模板化内容 |
+| 音频文件 | 300个 | 短语音频100个 + 示例音频200个 |
+
+**核心脚本说明**:
+
+| 脚本 | 功能 | 使用场景 |
+|------|------|----------|
+| `generate_audio_edge_tts.py` | 使用 edge-tts 生成音频 | 首次生成或更新音频 |
+| `upload_audio_and_update_json.ts` | 上传音频到 Vercel Blob | 音频生成后上传 |
+| `reinit_database.ts` | 重新初始化数据库 | 数据更新后重置数据库 |
+| `verify_database.ts` | 验证数据库数据完整性 | 数据导入后检查 |
+
+**快速使用**:
+```bash
+# 一键生成音频并上传
+python prepare/phrases/scripts/generate_and_upload_all.py
+
+# 重新初始化数据库
+npx ts-node prepare/phrases/scripts/reinit_database.ts
+```
+
+### 场景数据 (prepare/scene/)
+
+包含 **111个英语口语场景** 的完整数据包（日常30个、职场25个、留学20个、旅行15个、社交20个），每个场景包含多轮对话、词汇学习和测试题目。
+
+| 资源类型 | 数量 | 说明 |
+|----------|------|------|
+| 场景 | 111个 | 含对话、词汇、解析 |
+| 测试题 | 约666道 | 选择题、问答题、开放式对话 |
+| 音频文件 | 1000+ | 对话音频，存储于腾讯云COS |
+
+**核心脚本说明**:
+
+| 脚本 | 功能 | 使用场景 |
+|------|------|----------|
+| `scene-manager.ts` | 场景数据管理（测试/更新/重置/验证） | 日常数据维护 |
+| `generate-scene-tests.ts` | 自动生成场景测试题 | 新增场景后生成测试 |
+| `generate_scenes_100.js` | 使用GLM API生成场景数据 | 批量生成新场景 |
+| `generate_scene_audio.py` | 使用edge-tts生成音频 | 生成场景对话音频 |
+
+**快速使用**:
+```bash
+# 生成测试数据并导入
+npx ts-node prepare/scene/scripts/generate-scene-tests.ts generate-and-import
+
+# 重置数据库场景数据
+npx ts-node prepare/scene/scripts/scene-manager.ts reset
+
+# 验证音频URL
+npx ts-node prepare/scene/scripts/scene-manager.ts verify
+```
+
+### 音频存储说明
+
+| 数据类型 | 存储平台 | URL协议 | 说明 |
+|----------|----------|---------|------|
+| 短语音频 | Vercel Blob | `https://` | 全球CDN分发 |
+| 场景音频 | 腾讯云COS | `COS:/` | 国内访问优化 |
+
+**COS:/ 协议解析**: 场景音频URL使用 `COS:/` 前缀，由 `buildAudioUrl` 函数解析为完整URL：
+- 格式: `COS:/scene/dialogues/{scene_id}_round{n}_speaker{x}.mp3`
+- 示例: `COS:/scene/dialogues/daily_001_round1_speaker1.mp3`
+
+---
+
 ## 需求文档目录 (demands/)
 
 `demands/` 文件夹包含产品需求文档、技术设计文档和交互原型，是了解产品功能和设计规范的重要入口。
@@ -238,5 +349,6 @@ export default function SceneDetailClient({ scene }: { scene: Scene }) {
 
 | 版本 | 日期 | 变更内容 | 作者 |
 |------|------|----------|------|
+| v1.2 | 2026-02-25 | 新增 prepare/ 目录详细说明 | AI |
 | v1.1 | 2026-02-24 | 新增 demands/ 目录详细说明 | AI |
 | v1.0 | 2026-02-24 | 初始版本 | - |
