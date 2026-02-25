@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { callLLM, Message } from '@/lib/llm'
+import { callLLMForScene, Message } from '@/lib/llm'
 
 // 问答题评测
 export async function POST(request: Request) {
@@ -90,8 +90,8 @@ ${referenceAnswersText ? `可以参考的回答方式：\n${referenceAnswersText
       { role: 'user', content: evaluationContent }
     ]
 
-    // 调用GLM API
-    const response = await callLLM(messages, 0.7, 500)
+    // 调用LLM API - 问答题评测使用高质量模型
+    const response = await callLLMForScene('question-evaluation', messages, 0.7, 500)
     const content = response.content
 
     // 处理评测响应

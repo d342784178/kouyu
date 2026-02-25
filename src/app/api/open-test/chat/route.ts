@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { callLLM, Message as LLMMessage } from '@/lib/llm'
+import { callLLMForScene, Message as LLMMessage } from '@/lib/llm'
 import { generateSpeech } from '../utils/speechGenerator'
 
 // 定义消息类型
@@ -155,8 +155,11 @@ Great! Could you please provide your name and reservation number?
     console.log('[大模型对话] 调用LLM API...')
     console.log('[大模型对话] 请求内容:', JSON.stringify(messages, null, 2))
 
-    // 调用统一的LLM API
-    const llmResponse = await callLLM(messages, 0.7, 500)
+    // 根据请求类型选择模型
+    // - 题目分析使用高质量模型
+    // - 对话生成使用快速模型
+    const sceneType = analysisRequest ? 'scene-analysis' : 'dialogue-generation'
+    const llmResponse = await callLLMForScene(sceneType, messages, 0.7, 500)
     const content = llmResponse.content
     
     console.log('[大模型对话] 处理API响应...')
