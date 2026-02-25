@@ -68,7 +68,7 @@ node docs/tests/scripts/run-content-tests-llm.js
 # 或使用命令行参数
 node docs/tests/scripts/run-content-tests-llm.js --api-key=your_api_key
 ```
-**前置准备**: 内容测试必须重新准备用例数据(历史数据可能无效)，需要根据当前项目工程内容随机生成关于项目多个方面的20个问题，数据格式参考 `data/content-tests.json`，每次覆盖 `data/content-tests.json`。
+**内容测试前置准备**: 内容测试必须重新准备用例数据(历史数据可能无效)，需要根据当前项目工程内容随机生成关于项目多个方面的20个问题，数据格式参考 `data/content-tests.json`，每次覆盖 `data/content-tests.json`。
 
 **数据准备要求**:
 1. **排除范围**: 必须排除 `docs` 目录下的所有文档，因为本测试套件正是用来验证文档质量的，不应使用被测文档作为测试数据来源

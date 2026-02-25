@@ -161,6 +161,25 @@ function runStructureTest(testCase, targetFiles) {
   });
 }
 
+// 从 project_rules.md 中提取文档索引列表
+function extractIndexedDocuments(content) {
+  const indexedDocs = [];
+  // 匹配文档清单表格中的行
+  // 格式: | 序号 | `docs/...` | 内容简介 | 优先级 | 阅读时间 |
+  const tableRowRegex = /\|\s*(\d+)\s*\|\s*`([^`]+)`\s*\|[^|]+\|\s*(P\d)\s*\|[^|]+\|/g;
+  
+  let match;
+  while ((match = tableRowRegex.exec(content)) !== null) {
+    indexedDocs.push({
+      id: parseInt(match[1], 10),
+      path: match[2],
+      priority: match[3]
+    });
+  }
+  
+  return indexedDocs;
+}
+
 // 文档索引一致性测试
 function runIndexTest(testCase) {
   const sourcePath = path.join(process.cwd(), testCase.sourceFile);
@@ -170,32 +189,58 @@ function runIndexTest(testCase) {
     return;
   }
   
+  const sourceContent = fs.readFileSync(sourcePath, 'utf-8');
+  
+  // 从 project_rules.md 中动态提取文档索引
+  const indexedDocuments = extractIndexedDocuments(sourceContent);
+  
+  if (indexedDocuments.length === 0) {
+    recordResult(testCase.id, '文档索引一致性', false, '未能从 project_rules.md 中提取到文档索引');
+    return;
+  }
+  
   let allPassed = true;
   const errors = [];
+  const warnings = [];
   
   // 检查 project_rules.md 中列出的文档是否都存在
-  testCase.expectedDocuments.forEach(doc => {
+  indexedDocuments.forEach(doc => {
     const docPath = path.join(process.cwd(), doc.path);
     
     if (!fs.existsSync(docPath)) {
       allPassed = false;
-      errors.push(`文档${doc.id}不存在: ${doc.path}`);
+      errors.push(`索引文档不存在: ${doc.path}`);
     }
   });
   
-  // 检查扫描到的文档是否都在索引中（可选的完整性检查）
-  const indexedPaths = new Set(testCase.expectedDocuments.map(d => d.path));
+  // 检查扫描到的文档是否都在索引中
+  const indexedPaths = new Set(indexedDocuments.map(d => d.path));
   const unindexedDocs = allDocFiles.filter(file => 
     file.startsWith('docs/') && !indexedPaths.has(file) && !file.includes('/tests/')
   );
   
   if (unindexedDocs.length > 0) {
-    console.log(`\n   ⚠️ 警告: 以下文档未被索引，请检查是否需要更新 project_rules.md:`);
-    unindexedDocs.forEach(doc => console.log(`      - ${doc}`));
+    allPassed = false;
+    unindexedDocs.forEach(doc => {
+      errors.push(`实际文档未被索引: ${doc}`);
+    });
+  }
+  
+  // 检查是否有索引了但实际不存在的文档
+  const actualDocPaths = new Set(allDocFiles.filter(file => 
+    file.startsWith('docs/') && !file.includes('/tests/')
+  ));
+  const ghostDocs = indexedDocuments.filter(doc => !actualDocPaths.has(doc.path));
+  
+  if (ghostDocs.length > 0) {
+    allPassed = false;
+    ghostDocs.forEach(doc => {
+      errors.push(`索引指向不存在的文档: ${doc.path}`);
+    });
   }
   
   // 检查序号连续性
-  const ids = testCase.expectedDocuments.map(d => d.id).sort((a, b) => a - b);
+  const ids = indexedDocuments.map(d => d.id).sort((a, b) => a - b);
   for (let i = 0; i < ids.length; i++) {
     if (ids[i] !== i + 1) {
       allPassed = false;
@@ -204,7 +249,11 @@ function runIndexTest(testCase) {
     }
   }
   
-  recordResult(testCase.id, '文档索引一致性', allPassed, errors.join('; ') || '所有文档存在且序号连续');
+  const message = errors.length > 0 
+    ? errors.join('; ')
+    : `共${indexedDocuments.length}个文档，索引与实际完全一致`;
+  
+  recordResult(testCase.id, '文档索引一致性', allPassed, message);
 }
 
 // 交叉引用有效性测试
