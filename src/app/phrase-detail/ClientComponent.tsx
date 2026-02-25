@@ -654,20 +654,17 @@ export default function PhraseDetailClient() {
                       try {
                         // 如果正在加载，不执行操作
                         if (exampleLoadingStates[example.id]) return;
-                        
+
                         if (audioElement.paused) {
-                          // 如果音频没有 src 或者 src 不是 blob URL，需要先获取
-                          if (!audioElement.src || !audioElement.src.startsWith('blob:')) {
+                          // 如果音频没有 src，使用代理接口获取
+                          if (!audioElement.src) {
                             setExampleLoadingStates(prev => ({ ...prev, [example.id]: true }));
-                            
-                            const response = await fetch(`/api/audio?path=${encodeURIComponent(example.audioUrl)}`);
-                            if (!response.ok) {
-                              throw new Error('Failed to fetch audio URL');
-                            }
-                            const data = await response.json();
-                            audioElement.src = data.url;
+
+                            // 使用代理接口直接播放
+                            const proxyUrl = `/api/audio/proxy?path=${encodeURIComponent(example.audioUrl)}`;
+                            audioElement.src = proxyUrl;
                           }
-                          
+
                           await audioElement.play();
                         } else {
                           audioElement.pause();

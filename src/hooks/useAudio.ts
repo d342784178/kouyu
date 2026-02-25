@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useCallback, useRef, useEffect } from 'react'
+import { getAudioUrl } from '@/lib/audioUrl'
 
 interface AudioState {
   isPlaying: boolean
@@ -29,27 +30,10 @@ export function useAudio(): UseAudioReturn {
     duration: 0,
     playCount: 0,
   })
-  
+
   const audioRef = useRef<HTMLAudioElement>(null)
   const currentBlobPathRef = useRef<string | null>(null)
   const loopRef = useRef<boolean>(false)
-
-  const fetchAudioUrl = async (blobPath: string): Promise<string | null> => {
-    try {
-      const response = await fetch(`/api/audio?path=${encodeURIComponent(blobPath)}`)
-      
-      if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.error || 'Failed to fetch audio URL')
-      }
-      
-      const data = await response.json()
-      return data.url
-    } catch (error) {
-      console.error('Error fetching audio URL:', error)
-      return null
-    }
-  }
 
   const play = useCallback(async (blobPath: string, loop: boolean = false) => {
     if (!audioRef.current) return
@@ -60,32 +44,33 @@ export function useAudio(): UseAudioReturn {
     try {
       // 如果路径变了，需要重新获取 URL
       if (currentBlobPathRef.current !== blobPath || !audioRef.current.src) {
-        const audioUrl = await fetchAudioUrl(blobPath)
-        
+        // 使用 getAudioUrl 获取音频URL（支持代理模式）
+        const audioUrl = getAudioUrl(blobPath)
+
         if (!audioUrl) {
           setState(prev => ({ ...prev, isLoading: false, error: '无法获取音频文件' }))
           return
         }
-        
+
         audioRef.current.src = audioUrl
         audioRef.current.loop = loop
         currentBlobPathRef.current = blobPath
       }
 
       await audioRef.current.play()
-      setState(prev => ({ 
-        ...prev, 
-        isPlaying: true, 
+      setState(prev => ({
+        ...prev,
+        isPlaying: true,
         isLoading: false,
         duration: audioRef.current?.duration || 0
       }))
     } catch (error) {
       console.error('Error playing audio:', error)
-      setState(prev => ({ 
-        ...prev, 
-        isPlaying: false, 
-        isLoading: false, 
-        error: '音频播放失败' 
+      setState(prev => ({
+        ...prev,
+        isPlaying: false,
+        isLoading: false,
+        error: '音频播放失败'
       }))
     }
   }, [])

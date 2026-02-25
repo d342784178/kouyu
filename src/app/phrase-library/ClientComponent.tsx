@@ -169,62 +169,93 @@ export default function PhraseLibraryClient() {
       {/* 顶部导航栏 */}
       <header id="top-header" className="bg-white px-6 py-4 shadow-sm">
         <div id="header-content" className="flex items-center justify-between">
-          {/* 搜索框 */}
-          <div id="search-container" className="flex-1 mr-4">
-            <div className="relative">
-              <input 
-                type="text" 
-                id="search-input"
-                placeholder="搜索短语..." 
-                className="w-full pl-10 pr-4 py-3 bg-gray-50 border-0 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all"
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-              <i className="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
-            </div>
-          </div>
+          {/* 页面标题 */}
+          <h1 id="page-title" className="text-lg font-semibold text-text-primary">短语库</h1>
           
-          {/* 筛选按钮 */}
-          <button id="filter-btn" className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center" onClick={() => setShowFilterModal(true)}>
-            <i className="fas fa-filter text-gray-600 text-sm"></i>
-          </button>
+          {/* 右侧操作按钮 */}
+          <div id="header-actions" className="flex items-center space-x-3">
+            {/* 搜索框 */}
+            <div id="search-container" className="hidden md:flex flex-1 max-w-xs mr-3">
+              <div className="relative">
+                <input 
+                  type="text" 
+                  id="search-input"
+                  placeholder="搜索短语..." 
+                  className="w-full pl-10 pr-4 py-2 bg-gray-50 border-0 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all"
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+                <i className="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
+              </div>
+            </div>
+            
+            {/* 筛选按钮 */}
+            <button id="filter-btn" type="button" aria-label="打开筛选" className="w-10 h-10 bg-gray-50 rounded-xl flex items-center justify-center hover:bg-gray-100 transition-colors" onClick={() => setShowFilterModal(true)}>
+              <i className="fas fa-filter text-gray-600 text-sm"></i>
+            </button>
+          </div>
         </div>
       </header>
+      
+      {/* 移动端搜索框 */}
+      <div id="mobile-search" className="bg-white px-6 py-3 border-b border-gray-100 md:hidden">
+        <div className="relative">
+          <input 
+            type="text" 
+            id="mobile-search-input"
+            placeholder="搜索短语..." 
+            className="w-full pl-10 pr-4 py-3 bg-gray-50 border-0 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          <i className="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm"></i>
+        </div>
+      </div>
 
       {/* 筛选标签栏 */}
       <section id="filter-tabs" className="px-6 py-4">
         <div id="tabs-container" className="flex space-x-3 overflow-x-auto">
           <button 
             id="tab-all" 
-            className={`px-4 py-2 rounded-full whitespace-nowrap ${scene === 'all' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'} text-sm`}
+            type="button"
+            aria-pressed={scene === 'all'}
+            className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${scene === 'all' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'} text-sm`}
             onClick={() => setScene('all')}
           >
             全部
           </button>
           <button 
             id="tab-conversation" 
-            className={`px-4 py-2 rounded-full whitespace-nowrap ${scene === 'conversation' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'} text-sm`}
+            type="button"
+            aria-pressed={scene === 'conversation'}
+            className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${scene === 'conversation' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'} text-sm`}
             onClick={() => setScene('conversation')}
           >
             对话交流
           </button>
           <button 
             id="tab-daily" 
-            className={`px-4 py-2 rounded-full whitespace-nowrap ${scene === 'daily_life' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'} text-sm`}
+            type="button"
+            aria-pressed={scene === 'daily_life'}
+            className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${scene === 'daily_life' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'} text-sm`}
             onClick={() => setScene('daily_life')}
           >
             日常生活
           </button>
           <button 
             id="tab-work" 
-            className={`px-4 py-2 rounded-full whitespace-nowrap ${scene === 'work' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'} text-sm`}
+            type="button"
+            aria-pressed={scene === 'work'}
+            className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${scene === 'work' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'} text-sm`}
             onClick={() => setScene('work')}
           >
             工作职场
           </button>
           <button 
             id="tab-social" 
-            className={`px-4 py-2 rounded-full whitespace-nowrap ${scene === 'social' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'} text-sm`}
+            type="button"
+            aria-pressed={scene === 'social'}
+            className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${scene === 'social' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'} text-sm`}
             onClick={() => setScene('social')}
           >
             社交场合
@@ -278,7 +309,10 @@ export default function PhraseLibraryClient() {
                     </div>
                   </Link>
                   <button 
-                    className={`phrase-audio-btn w-10 h-10 rounded-full flex items-center justify-center ml-4 ${
+                    type="button"
+                    aria-label={isPlaying ? '暂停播放' : '播放音频'}
+                    aria-pressed={isPlaying}
+                    className={`phrase-audio-btn w-10 h-10 rounded-full flex items-center justify-center ml-4 transition-colors ${
                       isLoading ? 'bg-gray-200' : 'bg-gray-50 hover:bg-gray-100'
                     }`}
                     data-phrase-id={phrase.id}
@@ -303,17 +337,13 @@ export default function PhraseLibraryClient() {
                       
                       try {
                         setLoadingPhraseId(phrase.id)
-                        
-                        // 获取音频 URL
-                        const response = await fetch(`/api/audio?path=${encodeURIComponent(phrase.audioUrl)}`)
-                        if (!response.ok) {
-                          throw new Error('Failed to fetch audio URL')
-                        }
-                        const data = await response.json()
-                        
+
+                        // 使用代理接口获取音频
+                        const proxyUrl = `/api/audio/proxy?path=${encodeURIComponent(phrase.audioUrl)}`
+
                         // 设置音频源并播放
                         if (audioRef.current) {
-                          audioRef.current.src = data.url
+                          audioRef.current.src = proxyUrl
                           audioRef.current.onended = () => setPlayingPhraseId(null)
                           audioRef.current.onerror = () => {
                             setPlayingPhraseId(null)
@@ -357,38 +387,46 @@ export default function PhraseLibraryClient() {
 
       {/* 筛选弹窗 */}
       {showFilterModal && (
-        <div id="filter-modal" className="fixed inset-0 z-50 backdrop-filter blur(10px) bg-black/50">
+        <div id="filter-modal" className="fixed inset-0 z-50 bg-black/50">
           <div id="filter-overlay" className="absolute inset-0" onClick={() => setShowFilterModal(false)}></div>
-          <div id="filter-content" className={`absolute bottom-0 left-0 right-0 bg-white rounded-2xl p-6 transition-transform duration-300 ${showFilterModal ? 'translate-y-0' : 'translate-y-full'}`}>
+          <div id="filter-content" className={`absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl p-6 transition-transform duration-300 ${showFilterModal ? 'translate-y-0' : 'translate-y-full'}`}>
             <div id="filter-header" className="flex items-center justify-between mb-6">
               <h3 className="text-lg font-semibold text-text-primary">筛选条件</h3>
-              <button id="close-filter-btn" className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center" onClick={() => setShowFilterModal(false)}>
+              <button id="close-filter-btn" type="button" aria-label="关闭筛选" className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors" onClick={() => setShowFilterModal(false)}>
                 <i className="fas fa-times text-gray-600 text-sm"></i>
               </button>
             </div>
-            
+
             {/* 难度筛选 */}
             <div id="difficulty-filter" className="mb-6">
               <h4 className="text-sm font-medium text-text-primary mb-3">难度等级</h4>
               <div className="flex flex-wrap gap-2">
-                <button 
-                  id="difficulty-all" 
-                  className={`px-3 py-2 rounded-full text-sm ${difficulty === 'all' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'}`}
+                <button
+                  id="difficulty-all"
+                  type="button"
+                  aria-pressed={difficulty === 'all'}
+                  className={`px-3 py-2 rounded-full text-sm transition-colors ${difficulty === 'all' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
                   onClick={() => setDifficulty('all')}
                 >全部</button>
-                <button 
-                  id="difficulty-beginner" 
-                  className={`px-3 py-2 rounded-full text-sm ${difficulty === 'beginner' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'}`}
+                <button
+                  id="difficulty-beginner"
+                  type="button"
+                  aria-pressed={difficulty === 'beginner'}
+                  className={`px-3 py-2 rounded-full text-sm transition-colors ${difficulty === 'beginner' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
                   onClick={() => setDifficulty('beginner')}
                 >入门</button>
-                <button 
-                  id="difficulty-intermediate" 
-                  className={`px-3 py-2 rounded-full text-sm ${difficulty === 'intermediate' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'}`}
+                <button
+                  id="difficulty-intermediate"
+                  type="button"
+                  aria-pressed={difficulty === 'intermediate'}
+                  className={`px-3 py-2 rounded-full text-sm transition-colors ${difficulty === 'intermediate' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
                   onClick={() => setDifficulty('intermediate')}
                 >进阶</button>
-                <button 
-                  id="difficulty-advanced" 
-                  className={`px-3 py-2 rounded-full text-sm ${difficulty === 'advanced' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600'}`}
+                <button
+                  id="difficulty-advanced"
+                  type="button"
+                  aria-pressed={difficulty === 'advanced'}
+                  className={`px-3 py-2 rounded-full text-sm transition-colors ${difficulty === 'advanced' ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}
                   onClick={() => setDifficulty('advanced')}
                 >精通</button>
               </div>
@@ -467,16 +505,18 @@ export default function PhraseLibraryClient() {
             
             {/* 操作按钮 */}
             <div id="filter-actions" className="flex space-x-3">
-              <button 
-                id="reset-filter-btn" 
-                className="flex-1 py-3 bg-gray-100 text-gray-600 text-sm font-medium rounded-xl"
+              <button
+                id="reset-filter-btn"
+                type="button"
+                className="flex-1 py-3 bg-gray-100 text-gray-600 text-sm font-semibold rounded-xl hover:bg-gray-200 transition-colors"
                 onClick={resetFilters}
               >
                 重置
               </button>
-              <button 
-                id="apply-filter-btn" 
-                className="flex-1 py-3 bg-primary text-white text-sm font-medium rounded-xl"
+              <button
+                id="apply-filter-btn"
+                type="button"
+                className="flex-1 py-3 bg-primary text-white text-sm font-semibold rounded-xl hover:opacity-90 transition-opacity"
                 onClick={applyFilters}
               >
                 应用筛选

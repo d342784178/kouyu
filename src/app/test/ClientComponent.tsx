@@ -44,9 +44,11 @@ export default function TestClientComponent() {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   
+  // 测试数据
+  const [testData, setTestData] = useState<TestQuestion[]>([])
+  
   // 测试相关状态
   const [currentQuestion, setCurrentQuestion] = useState(0)
-  const [totalQuestions] = useState(3)
   const [testCompleted, setTestCompleted] = useState(false)
   const [scores, setScores] = useState<TestScores>({
     listening: 0,
@@ -54,24 +56,8 @@ export default function TestClientComponent() {
     scenario: 0
   })
   
-  // 测试数据
-  const [testData, setTestData] = useState<TestQuestion[]>([
-    {
-      type: 'listening',
-      correctAnswer: 'A',
-      answered: false
-    },
-    {
-      type: 'pronunciation',
-      correctAnswer: 'B',
-      answered: false
-    },
-    {
-      type: 'scenario',
-      correctAnswer: 'A',
-      answered: false
-    }
-  ])
+  // 计算总题目数
+  const totalQuestions = testData.length
   
   // 录音相关状态
   const [isRecording, setIsRecording] = useState(false)
@@ -106,6 +92,29 @@ export default function TestClientComponent() {
     }
     
     fetchPhrase()
+  }, [phraseId])
+  
+  // 获取测试数据
+  useEffect(() => {
+    async function fetchTestData() {
+      if (!phraseId) return
+      
+      try {
+        const response = await fetch(`/api/phrases/${phraseId}/tests`)
+        if (!response.ok) {
+          throw new Error('Failed to fetch test data')
+        }
+        const data = await response.json()
+        if (data && data.length > 0) {
+          setTestData(data)
+        }
+      } catch (err) {
+        console.error('Error fetching test data:', err)
+        // 如果API调用失败，不设置错误状态，让组件继续使用空数组
+      }
+    }
+    
+    fetchTestData()
   }, [phraseId])
   
   // 录音定时器
@@ -174,8 +183,10 @@ export default function TestClientComponent() {
   const stopRecording = () => {
     setIsRecording(false)
     
-    // 模拟AI评分
+    // 这里应该调用真实的AI评分API
+    // 暂时使用模拟数据作为占位符
     setTimeout(() => {
+      // 注意：这是临时的模拟数据，实际项目中应该替换为真实的AI评分API调用
       const randomScore = Math.floor(Math.random() * 20) + 80 // 80-99分
       setPronunciationScore(randomScore)
       setShowAIFeedback(true)
@@ -277,6 +288,48 @@ export default function TestClientComponent() {
           </button>
           <button 
             className="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm"
+            onClick={handleBack}
+          >
+            返回短语详情
+          </button>
+        </div>
+      </div>
+    )
+  }
+  
+  // 无测试数据状态
+  if (testData.length === 0) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="text-center">
+          <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i className="fas fa-question-circle text-gray-400 text-2xl"></i>
+          </div>
+          <h3 className="text-lg font-medium text-text-primary mb-2">暂无测试数据</h3>
+          <p className="text-sm text-text-secondary mb-4">该短语暂未配置测试题目</p>
+          <button 
+            className="px-4 py-2 bg-primary text-white rounded-lg text-sm"
+            onClick={handleBack}
+          >
+            返回短语详情
+          </button>
+        </div>
+      </div>
+    )
+  }
+  
+  // 题目索引超出范围
+  if (currentQuestion >= totalQuestions) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="text-center">
+          <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i className="fas fa-exclamation-circle text-red-500 text-2xl"></i>
+          </div>
+          <h3 className="text-lg font-medium text-text-primary mb-2">测试数据错误</h3>
+          <p className="text-sm text-text-secondary mb-4">测试题目索引超出范围</p>
+          <button 
+            className="px-4 py-2 bg-primary text-white rounded-lg text-sm"
             onClick={handleBack}
           >
             返回短语详情

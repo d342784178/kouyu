@@ -1,0 +1,219 @@
+import { NextResponse } from 'next/server'
+import { callLLM, Message } from '@/lib/llm'
+import { generateSpeech } from '../utils/speechGenerator'
+
+// 定义消息类型
+interface ConversationMessage {
+  role: 'user' | 'assistant'
+  content: string
+}
+
+// 定义响应类型
+interface ContinueResponse {
+  message: string
+  audioUrl?: string
+  isEnd: boolean
+  round: number
+  isComplete?: boolean // 对话是否已完成标志
+}
+
+export async function POST(request: Request) {
+  try {
+    const startTime = Date.now()
+    const body: any = await request.json()
+    const { sceneId, testId, conversation, round, maxRounds, scene, aiRole, userRole, dialogueGoal, difficultyLevel } = body
+
+    // 验证必要的参数
+    if (!difficultyLevel || !conversation || !Array.isArray(conversation)) {
+      return NextResponse.json(
+        {
+          error: '缺少必要的参数',
+          details: '请提供难度等级和对话历史'
+        },
+        {
+          status: 400
+        }
+      )
+    }
+    
+    // 为可选参数设置默认值
+    const defaultScene = scene || '餐厅'
+    const defaultAiRole = aiRole || '服务员'
+    const defaultUserRole = userRole || '顾客'
+    const defaultDialogueGoal = dialogueGoal || '顾客与服务员对话'
+
+    // 验证对话历史是否为空
+    if (conversation.length === 0) {
+      return NextResponse.json(
+        {
+          error: '对话历史为空',
+          details: '请提供至少一条对话记录'
+        },
+        {
+          status: 400
+        }
+      )
+    }
+
+    console.log('[对话生成] 开始处理:', new Date().toISOString())
+    console.log('[对话生成] 场景:', sceneId, '测试:', testId, `轮数: ${round}/${maxRounds}`)
+    console.log('[对话生成] 场景:', defaultScene, 'AI角色:', defaultAiRole, '用户角色:', defaultUserRole)
+    console.log('[对话生成] 对话目标:', defaultDialogueGoal, '难度等级:', difficultyLevel)
+    console.log('[对话生成] 对话历史长度:', conversation.length)
+    console.log('[对话生成] 完整对话历史:', JSON.stringify(conversation, null, 2))
+
+    // 构建系统提示词
+    const systemPrompt = `You are ${defaultAiRole} in a ${defaultScene} scenario. The user is ${defaultUserRole}.
+Your dialogue goal is: ${defaultDialogueGoal}.
+
+Difficulty Level: ${difficultyLevel}
+- Beginner: Use simple sentences, basic vocabulary, avoid idioms
+- Intermediate: Use compound sentences, natural expressions, moderate idioms
+- Advanced: Use complex sentence structures, authentic idioms, implied intentions/humor
+
+## Your Task
+First, analyze if the dialogue goal has been achieved based on the conversation history.
+Then respond in this exact JSON format:
+{"isComplete":true/false,"message":"Your English response here"}
+
+## When is Dialogue Complete?
+Set isComplete to TRUE when:
+- The dialogue goal has been achieved (e.g., order completed, directions given)
+- User clearly indicates ending (says goodbye, thanks and ends)
+- Dialogue naturally concludes with no need to continue
+
+Set isComplete to FALSE when:
+- The goal is not yet achieved
+- More information or action is needed
+- Natural dialogue should continue
+
+## Important Rules
+1. Output ONLY the JSON object, no other text
+2. isComplete must be a boolean (true or false)
+3. message must be in English, matching the difficulty level
+4. If isComplete is true, message should be a polite closing
+5. If isComplete is false, message should continue the conversation naturally
+6. No Chinese, no explanations, no markdown code blocks
+
+## Examples
+Complete dialogue: {"isComplete":true,"message":"Thank you for dining with us! Have a wonderful day!"}
+Incomplete dialogue: {"isComplete":false,"message":"Would you like anything else to drink?"}`
+
+    // 构建消息历史 - 包含系统提示和所有对话历史
+    const messages: Message[] = [
+      { role: 'system', content: systemPrompt },
+      // 将所有历史对话转换为消息格式
+      ...conversation.map((msg: ConversationMessage) => ({
+        role: msg.role,
+        content: msg.content
+      }))
+    ]
+
+    console.log('[对话生成] 调用GLM API...')
+    console.log('[对话生成] 传递给GLM的消息:', JSON.stringify(messages, null, 2))
+
+    // 调用GLM API
+    const response = await callLLM(messages, 0.7, 500)
+    const content = response.content.trim()
+    
+    console.log('[对话生成] 大模型回复:', content)
+
+    // 检查是否成功提取到回复
+    if (!content) {
+      console.error('[对话生成] 未成功提取到回复')
+      return NextResponse.json(
+        {
+          error: '未成功提取到回复',
+          details: '大模型返回的响应中未包含有效的回复'
+        },
+        {
+          status: 500
+        }
+      )
+    }
+    
+    // 解析大模型返回的JSON
+    let isComplete = false
+    let assistantMessage = ''
+    
+    try {
+      // 提取JSON部分
+      const jsonMatch = content.match(/\{[\s\S]*\}/)
+      if (jsonMatch) {
+        const parsedResult = JSON.parse(jsonMatch[0])
+        
+        // 验证必要字段
+        if (typeof parsedResult.isComplete === 'boolean' && parsedResult.message) {
+          isComplete = parsedResult.isComplete
+          assistantMessage = parsedResult.message
+          console.log('[对话生成] 解析结果:', { isComplete, message: assistantMessage })
+        } else {
+          console.log('[对话生成] 解析结果缺少必要字段，使用原始内容')
+          assistantMessage = content
+        }
+      } else {
+        console.log('[对话生成] 未找到JSON格式，使用原始内容')
+        assistantMessage = content
+      }
+    } catch (error) {
+      console.error('[对话生成] 解析JSON失败:', error)
+      // 如果解析失败，使用原始内容
+      assistantMessage = content
+    }
+    
+    console.log('[对话生成] 提取回复:', assistantMessage)
+    console.log('[对话生成] 对话完成状态:', isComplete ? '已完成' : '未完成')
+    console.log('[对话生成] 消耗tokens:', response.usage?.total_tokens || '未知')
+
+    // 检查是否达到最大轮数（作为后备条件）
+    const isMaxRoundsReached = round >= maxRounds
+    const finalIsEnd = isComplete || isMaxRoundsReached
+    
+    console.log('[对话生成] 最终对话状态:', finalIsEnd ? '结束' : '继续')
+    if (isMaxRoundsReached && !isComplete) {
+      console.log('[对话生成] 达到最大轮数，强制结束对话')
+    }
+
+    // 生成语音
+    let audioUrl: string | undefined
+    console.log('[对话生成] 生成语音...')
+    
+    try {
+      // 使用语音生成辅助函数
+      const speechResult = await generateSpeech({
+        text: assistantMessage,
+        voice: 'en-US-AriaNeural'
+      })
+      
+      audioUrl = speechResult.audioUrl
+      console.log('[对话生成] 语音生成成功')
+    } catch (speechError) {
+      console.error('[对话生成] 语音生成失败:', speechError)
+    }
+
+    // 构建响应
+    const continueResponse: ContinueResponse = {
+      message: assistantMessage,
+      audioUrl: audioUrl,
+      isEnd: finalIsEnd,
+      isComplete: isComplete,
+      round: round + 1,
+    }
+
+    console.log('[对话生成] 处理完成:', Date.now() - startTime, 'ms')
+
+    return NextResponse.json(continueResponse)
+  } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : '对话生成API错误'
+    console.error('[对话生成] 处理错误:', errorMessage)
+    // 返回真实错误信息
+    return NextResponse.json(
+      {
+        error: errorMessage
+      },
+      {
+        status: 500
+      }
+    )
+  }
+}
