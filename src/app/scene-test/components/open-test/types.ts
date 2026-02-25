@@ -46,6 +46,7 @@ export interface OpenDialogueContent {
     name: string
     description: string
     is_user: boolean
+    suggest: boolean
   }[]
   scenario_context: string
   suggested_opening: string

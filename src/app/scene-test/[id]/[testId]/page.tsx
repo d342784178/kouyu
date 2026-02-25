@@ -41,6 +41,7 @@ interface Role {
   name: string
   description: string
   is_user: boolean
+  suggest: boolean
 }
 
 // 开放式对话内容
