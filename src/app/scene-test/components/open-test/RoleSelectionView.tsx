@@ -5,23 +5,23 @@ import { Target, CheckCircle, MessageSquare, ChevronRight, Volume2, VolumeX } fr
 import { RoleSelectionViewProps, DifficultyLevel, DifficultyConfig } from './types'
 
 const DIFFICULTY_CONFIG: Record<DifficultyLevel, DifficultyConfig> = {
-  easy: { 
-    label: '入门', 
-    desc: 'AI语速慢，词汇简单', 
-    color: 'text-gray-600', 
-    bg: 'bg-white border-gray-200' 
+  easy: {
+    label: '入门',
+    desc: 'AI语速慢，词汇简单',
+    color: 'text-[#4F7CF0]',
+    bg: 'bg-white border-[#4F7CF0]'
   },
-  medium: { 
-    label: '标准', 
-    desc: '正常语速，日常词汇', 
-    color: 'text-[#4F7CF0]', 
-    bg: 'bg-white border-[#4F7CF0]' 
+  medium: {
+    label: '标准',
+    desc: '正常语速，日常词汇',
+    color: 'text-[#4F7CF0]',
+    bg: 'bg-white border-[#4F7CF0]'
   },
-  hard: { 
-    label: '挑战', 
-    desc: '正常语速，地道表达', 
-    color: 'text-gray-600', 
-    bg: 'bg-white border-gray-200' 
+  hard: {
+    label: '挑战',
+    desc: '正常语速，地道表达',
+    color: 'text-[#4F7CF0]',
+    bg: 'bg-white border-[#4F7CF0]'
   }
 }
 

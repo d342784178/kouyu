@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Send, Mic, Keyboard, Play, Pause, CheckCircle } from 'lucide-react'
+import { Send, Mic, Keyboard, Play, Pause, CheckCircle, ChevronLeft } from 'lucide-react'
 import { ActiveChatViewProps } from './types'
 
 export default function ActiveChatView({
@@ -19,7 +19,8 @@ export default function ActiveChatView({
   onPlayAudio,
   onSendText,
   onSubmitEvaluation,
-  messagesEndRef
+  messagesEndRef,
+  onBack
 }: ActiveChatViewProps) {
   const [showTextInput, setShowTextInput] = useState(false)
   const [textInput, setTextInput] = useState('')
@@ -57,8 +58,25 @@ export default function ActiveChatView({
 
   return (
     <div className="flex flex-col h-full bg-white">
+      {/* 顶部导航栏 - 包含回退按钮 */}
+      <div className="flex items-center px-4 py-3 border-b border-gray-100">
+        {onBack && (
+          <button
+            onClick={onBack}
+            className="flex items-center text-gray-600 hover:text-[#4F7CF0] transition-colors"
+          >
+            <ChevronLeft className="h-5 w-5" />
+            <span className="text-sm font-medium">返回</span>
+          </button>
+        )}
+        <div className="flex-1 text-center">
+          <span className="text-sm font-medium text-gray-700">对话练习</span>
+        </div>
+        {onBack && <div className="w-16" />}
+      </div>
+
       {/* 对话区域 - 可滚动 */}
-      <div 
+      <div
         ref={scrollContainerRef}
         className="flex-1 overflow-y-auto px-4 py-4 space-y-4"
       >

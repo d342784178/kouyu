@@ -99,16 +99,17 @@ Good afternoon! Welcome to our hotel. May I help you with your check-in?
     // 生成语音
     let audioUrl: string | undefined
     console.log('[对话初始化] 生成语音...')
-    
+
     try {
-      // 使用语音生成辅助函数
+      // 使用语音生成辅助函数，传入难度等级以调整语速
       const speechResult = await generateSpeech({
         text: assistantMessage,
-        voice: 'en-US-AriaNeural'
+        voice: 'en-US-AriaNeural',
+        difficultyLevel: difficultyLevel
       })
-      
+
       audioUrl = speechResult.audioUrl
-      console.log('[对话初始化] 语音生成成功')
+      console.log('[对话初始化] 语音生成成功，语速配置:', difficultyLevel)
     } catch (speechError) {
       console.error('[对话初始化] 语音生成失败:', speechError)
     }
