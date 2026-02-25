@@ -82,14 +82,24 @@ ${conversation.map(msg => `${msg.role === 'user' ? userRole : aiRole}: ${msg.con
 【任务】
 以${aiRole}的身份，根据对话历史自然回应。保持简短（1-2句话）。
 
+【相关性检查】
+在回应之前，请先判断用户的最后一句话是否与当前对话场景和上下文相关：
+- 如果用户回答与场景无关（如答非所问、说"yes I'm cool"等不相关内容），你需要：
+  1. 友好地引导用户回到对话主题
+  2. 可以重复或重新表述之前的问题/话题
+  3. 不要假装用户回答了正确内容
+- 如果用户回答相关，则正常继续对话
+
 【重要要求】
 1. 你必须始终以${aiRole}的身份说话，不要切换角色
 2. 只返回英文回复，不要包含任何中文
 3. 不要包含思考过程、解释或其他内容
 4. 确保回复符合${aiRole}的身份和对话上下文
+5. 如果用户回答不相关，要自然地将对话引导回正轨
 
 【输出格式示例】
-That sounds great! I would love to hear more about it.
+相关回答的回应：That sounds great! I would love to hear more about it.
+不相关回答的引导：I'm not sure I follow. I was asking about the menu. Would you like to see our specials today?
 
 现在，作为${aiRole}，请直接输出你的英文回应：`
 

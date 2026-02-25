@@ -65,14 +65,14 @@ export default function ActiveChatView({
             onClick={onBack}
             className="flex items-center text-gray-600 hover:text-[#4F7CF0] transition-colors"
           >
-            <ChevronLeft className="h-5 w-5" />
-            <span className="text-sm font-medium">返回</span>
+            <ChevronLeft className="h-6 w-6" />
+            <span className="text-base font-medium">返回</span>
           </button>
         )}
         <div className="flex-1 text-center">
-          <span className="text-sm font-medium text-gray-700">对话练习</span>
+          <span className="text-lg font-semibold text-gray-800">对话练习</span>
         </div>
-        {onBack && <div className="w-16" />}
+        {onBack && <div className="w-20" />}
       </div>
 
       {/* 对话区域 - 可滚动 */}
