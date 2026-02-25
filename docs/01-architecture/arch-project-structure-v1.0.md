@@ -209,7 +209,6 @@ export default function SceneDetailClient({ scene }: { scene: Scene }) {
 
 | 文档路径 | 内容说明 | 适用读者 |
 |----------|----------|----------|
-| `demands/README.md` | demands 文件夹总览和导航 | 所有人 |
 | `demands/需求文档.md` | v1 全量需求文档 | 产品经理、开发 |
 | `demands/v2/需求文档.md` | v2 增量需求（场景学习、AI对话） | 产品经理、开发 |
 | `demands/设计文档.md` | v1 技术设计 | 开发 |
@@ -232,7 +231,6 @@ export default function SceneDetailClient({ scene }: { scene: Scene }) {
 - [技术栈详解](./arch-tech-stack-v1.0.md) - 技术选型说明
 - [数据库设计](./arch-database-schema-v1.0.md) - 数据模型说明
 - [编码规范](../02-development/dev-coding-standards-v1.0.md) - 代码规范
-- [需求文档目录](../../demands/README.md) - 产品需求和设计文档
 
 ---
 

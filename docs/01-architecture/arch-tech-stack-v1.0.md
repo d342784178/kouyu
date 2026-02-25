@@ -1,8 +1,8 @@
 # 语习集 - 技术栈详解
 
-> 版本: v1.0  
-> 最后更新: 2026-02-24  
-> 优先级: P1  
+> 版本: v1.1
+> 最后更新: 2026-02-24
+> 优先级: P1
 > 阅读时间: 15分钟
 
 ---
@@ -40,7 +40,7 @@
                               │
 ┌─────────────────────────────────────────────────────────────┐
 │                        数据层                                │
-│  PostgreSQL (Neon) + 腾讯云 COS                            │
+│  PostgreSQL (Neon) + 腾讯云 COS + Vercel Blob              │
 └─────────────────────────────────────────────────────────────┘
                               │
 ┌─────────────────────────────────────────────────────────────┐
@@ -68,6 +68,7 @@
 | Tailwind CSS | 3.4.14 | 原子化CSS框架 | 快速构建响应式界面 |
 | Framer Motion | 12.34.0 | 动画库 | 流畅的交互动画 |
 | Lucide React | ^0.575.0 | 图标库 | 统一的图标系统 |
+| FontAwesome Free | ^7.1.0 | 图标库 | 补充图标资源 |
 
 ### 关键依赖
 
@@ -79,7 +80,8 @@
   "typescript": "^5",
   "tailwindcss": "^3.4.14",
   "framer-motion": "^12.34.0",
-  "lucide-react": "^0.575.0"
+  "lucide-react": "^0.575.0",
+  "@fortawesome/fontawesome-free": "^7.1.0"
 }
 ```
 
@@ -93,6 +95,7 @@
 |------|------|------|------|
 | Next.js API Routes | 14.2.15 | API服务 | 内置API路由，无需单独后端 |
 | Drizzle ORM | ^0.45.1 | 数据库ORM | 类型安全，轻量级 |
+| Drizzle Kit | ^0.31.8 | 数据库工具 | 迁移和生成工具 |
 
 ### 数据库
 
@@ -106,6 +109,7 @@
 ```json
 {
   "drizzle-orm": "^0.45.1",
+  "drizzle-kit": "^0.31.8",
   "@neondatabase/serverless": "^1.0.2"
 }
 ```
@@ -130,13 +134,25 @@
 
 | 服务 | 用途 | 特点 |
 |------|------|------|
-| 腾讯云 COS | 音频文件 | CDN加速，高可用 |
+| 腾讯云 COS | 音频文件（静态资源） | CDN加速，高可用 |
+| Vercel Blob | 动态生成音频 | Serverless存储，自动CDN |
 
 **存储路径格式**:
+
 ```
 COS:/scene/dialogues/{scene_id}_round{n}_{speaker}.mp3
 COS:/scene/vocabulary/{scene_id}_vocab{n}_word.mp3
 COS:/phrases/{phrase_id}.mp3
+Vercel Blob:/audio/{generated_id}.mp3
+```
+
+### 存储相关依赖
+
+```json
+{
+  "cos-nodejs-sdk-v5": "^2.15.4",
+  "@vercel/blob": "^2.2.0"
+}
 ```
 
 ---
@@ -151,11 +167,19 @@ COS:/phrases/{phrase_id}.mp3
 
 **API端点**: `https://open.bigmodel.cn/api/paas/v4/chat/completions`
 
+**配置参数**:
+- 模型: `glm-4-flash`
+- 温度: `0.7`
+- 最大Token: `1000`
+- Top P: `0.95`
+
 ### 语音服务
 
-| 服务 | 用途 | 特点 |
-|------|------|------|
-| Azure Speech SDK | 语音合成(TTS) | 高质量，多音色 |
+| 服务 | 用途 | 特点 | 版本 |
+|------|------|------|------|
+| Azure Speech SDK | 语音合成(TTS) | 高质量，多音色 | ^1.48.0 |
+| Edge TTS | 备用语音合成 | 免费，无需密钥 | ^1.0.1 |
+| msedge-tts | 备用语音合成 | Edge浏览器TTS | ^2.0.4 |
 
 **配置参数**:
 - 默认音色: `en-US-AriaNeural`
@@ -166,7 +190,9 @@ COS:/phrases/{phrase_id}.mp3
 
 ```json
 {
-  "microsoft-cognitiveservices-speech-sdk": "^1.48.0"
+  "microsoft-cognitiveservices-speech-sdk": "^1.48.0",
+  "edge-tts": "^1.0.1",
+  "msedge-tts": "^2.0.4"
 }
 ```
 
@@ -195,6 +221,31 @@ COS:/phrases/{phrase_id}.mp3
 | pnpm | >=8.0 | 包管理 |
 | PostCSS | ^8.4.47 | CSS处理 |
 | Autoprefixer | ^10.4.20 | CSS前缀 |
+| ts-node | ^10.9.2 | TypeScript执行 |
+
+### 部署工具
+
+| 工具 | 版本 | 用途 |
+|------|------|------|
+| Vercel CLI | ^50.0.1 | 部署和开发 |
+
+### 开发依赖
+
+```json
+{
+  "@playwright/test": "^1.58.2",
+  "@types/node": "^20",
+  "@types/react": "^18",
+  "@types/react-dom": "^18",
+  "autoprefixer": "^10.4.20",
+  "dotenv": "^17.2.4",
+  "eslint": "^8",
+  "eslint-config-next": "14.2.15",
+  "postcss": "^8.4.47",
+  "ts-node": "^10.9.2",
+  "vercel": "^50.0.1"
+}
+```
 
 ---
 
@@ -235,6 +286,13 @@ COS:/phrases/{phrase_id}.mp3
 3. **SSML支持**: 支持语音标记语言，精细控制
 4. **稳定性**: 微软服务稳定可靠
 
+### 为什么选择Vercel Blob？
+
+1. **Serverless**: 无需配置存储服务器
+2. **自动CDN**: 全球加速，低延迟
+3. **与Next.js集成**: 无缝集成，开发体验好
+4. **按需付费**: 适合动态生成内容的存储
+
 ---
 
 ## 环境变量
@@ -250,8 +308,13 @@ GLM_API_KEY=your_glm_api_key
 GLM_API_URL=https://open.bigmodel.cn/api/paas/v4/chat/completions
 GLM_MODEL=glm-4-flash
 
-# 音频存储
+# 音频存储 - 腾讯云COS
 NEXT_PUBLIC_COS_BASE_URL=https://your-bucket.cos.ap-region.myqcloud.com
+COS_SECRET_ID=your_secret_id
+COS_SECRET_KEY=your_secret_key
+
+# 音频存储 - Vercel Blob
+BLOB_READ_WRITE_TOKEN=your_blob_token
 
 # Azure语音
 AZURE_SPEECH_KEY=your_azure_speech_key
@@ -265,6 +328,7 @@ AZURE_SPEECH_REGION=your_region
 | DATABASE_URL | [Neon控制台](https://console.neon.tech) |
 | GLM_API_KEY | [智谱AI开放平台](https://open.bigmodel.cn) |
 | COS_BASE_URL | [腾讯云COS控制台](https://console.cloud.tencent.com/cos) |
+| BLOB_READ_WRITE_TOKEN | [Vercel控制台](https://vercel.com/dashboard) |
 | AZURE_SPEECH_KEY | [Azure门户](https://portal.azure.com) |
 
 ---
@@ -289,4 +353,5 @@ AZURE_SPEECH_REGION=your_region
 
 | 版本 | 日期 | 变更内容 | 作者 |
 |------|------|----------|------|
+| v1.1 | 2026-02-24 | 更新依赖版本，补充Vercel Blob、Edge TTS等新依赖 | AI |
 | v1.0 | 2026-02-24 | 初始版本 | - |

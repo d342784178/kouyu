@@ -30,7 +30,10 @@
 | 4 | `docs/01-architecture/arch-project-structure-v1.0.md` | 项目的目录结构、文件组织规范及关键文件说明 | P1 | 10分钟 |
 | 5 | `docs/01-architecture/arch-database-schema-v1.0.md` | 表结构定义、字段说明、数据格式、查询示例 | P1 | 20分钟 |
 | 6 | `docs/02-development/dev-coding-standards-v1.0.md` | 编码规范、组件规范、TypeScript规范、导入顺序 | P1 | 15分钟 |
-| 7 | `docs/03-api/api-endpoints-v1.0.md` | 所有API端点、请求/响应格式、错误码说明 | P1 | 20分钟 |
+| 7 | `docs/03-api/api-endpoints-v1.0.md` | 所有API端点、请求/响应格式、错误码说明 | P1 | 30分钟 |
+| 8 | `docs/04-operations/ops-deployment-v1.0.md` | 部署架构、环境配置、生产部署、回滚策略 | P1 | 15分钟 |
+| 9 | `docs/04-operations/ops-troubleshooting-v1.0.md` | 常见问题及解决方案、调试技巧、性能优化 | P1 | 20分钟 |
+| 10 | `demands/README.md` | 需求文档目录导航、产品需求、设计规范 | P1 | 10分钟 |
 
 ### 2.2 使用场景指引
 
@@ -41,7 +44,9 @@
 | 开发新功能 | 文档4（项目结构）+ 文档6（编码规范） |
 | 调用API | 文档7（API接口） |
 | 修改数据库 | 文档5（数据库设计） |
-| 排查问题 | 文档2（快速开始-常见问题） |
+| 部署项目 | 文档8（部署流程） |
+| 排查问题 | 文档9（常见问题） |
+| 了解产品需求 | 文档10（需求文档） |
 
 ### 2.3 关键源代码文件
 
@@ -74,6 +79,7 @@
 | 修改项目目录结构 | `docs/01-architecture/arch-project-structure-v1.0.md` | 目录说明、文件组织、关键文件索引 |
 | 修改编码规范 | `docs/02-development/dev-coding-standards-v1.0.md` | 命名规范、组件规范、代码示例 |
 | 修改环境配置要求 | `docs/00-core/core-quickstart-v1.0.md` | 环境变量、配置步骤、常见问题 |
+| 修改部署流程 | `docs/04-operations/ops-deployment-v1.0.md` | 部署步骤、配置说明 |
 | 新增/修改子文档 | **本文档（project_rules.md）** | 文档索引表（第2.1节） |
 
 ### 3.3 文档更新操作规范
@@ -224,4 +230,4 @@ pnpm dev
 
 ---
 
-*本文档版本: v3.0 | 最后更新: 2026-02-24 | 面向AI助手*
+*本文档版本: v3.1 | 最后更新: 2026-02-24 | 面向AI助手*
