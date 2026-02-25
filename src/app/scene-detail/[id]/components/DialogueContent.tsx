@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getAudioUrl } from '@/lib/audioUrl';
 
@@ -48,6 +48,24 @@ function VolumeIcon({ className }: { className?: string }) {
       <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
       <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
       <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+    </svg>
+  );
+}
+
+// 加载动画图标
+function LoadingIcon({ className }: { className?: string }) {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M21 12a9 9 0 1 1-6.219-8.56" strokeLinecap="round" strokeLinejoin="round">
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          from="0 12 12"
+          to="360 12 12"
+          dur="1s"
+          repeatCount="indefinite"
+        />
+      </path>
     </svg>
   );
 }
@@ -120,6 +138,8 @@ function NotesIcon({ className }: { className?: string }) {
 const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
   // 音频播放状态
   const [playingAudio, setPlayingAudio] = useState<string | null>(null);
+  // 音频加载中状态
+  const [loadingAudio, setLoadingAudio] = useState<string | null>(null);
   // 音频加载错误状态
   const [audioError, setAudioError] = useState<string | null>(null);
   // 展开的解析卡片状态
@@ -140,7 +160,7 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
     try {
       // 构建完整的音频URL（使用代理模式）
       const fullAudioUrl = getAudioUrl(audioUrl);
-      
+
       // 如果点击的是当前正在播放的音频，则停止播放
       if (playingAudio === fullAudioUrl) {
         console.log('[DialogueContent] 停止当前播放的音频:', fullAudioUrl);
@@ -149,6 +169,7 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
           currentAudioRef.current = null;
         }
         setPlayingAudio(null);
+        setLoadingAudio(null);
         return;
       }
 
@@ -164,8 +185,8 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
         currentAudioRef.current = null;
       }
 
-      // 设置当前播放的音频
-      setPlayingAudio(fullAudioUrl);
+      // 设置加载状态
+      setLoadingAudio(fullAudioUrl);
       setAudioError(null);
 
       try {
@@ -183,6 +204,7 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
           });
           setAudioError('暂不支持音频播放');
           setPlayingAudio(null);
+          setLoadingAudio(null);
           currentAudioRef.current = null;
           setTimeout(() => setAudioError(null), 3000);
         };
@@ -194,6 +216,8 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
 
         await audio.play();
         console.log('[DialogueContent] 音频开始播放:', fullAudioUrl);
+        setPlayingAudio(fullAudioUrl);
+        setLoadingAudio(null);
 
         // 音频播放结束后重置状态
         audio.onended = () => {
@@ -209,6 +233,7 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
         });
         setAudioError('暂不支持音频播放');
         setPlayingAudio(null);
+        setLoadingAudio(null);
         currentAudioRef.current = null;
         setTimeout(() => setAudioError(null), 3000);
       }
@@ -219,6 +244,7 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
       });
       setAudioError('暂不支持音频播放');
       setPlayingAudio(null);
+      setLoadingAudio(null);
       currentAudioRef.current = null;
       setTimeout(() => setAudioError(null), 3000);
     }
@@ -234,6 +260,11 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
     return playingAudio && playingAudio.includes(audioUrl);
   };
 
+  // 检查是否正在加载当前音频
+  const isLoadingCurrent = (audioUrl: string) => {
+    return loadingAudio && loadingAudio.includes(audioUrl);
+  };
+
   // 切换解析卡片的展开/折叠状态
   const toggleAnalysis = (roundNumber: number) => {
     setExpandedAnalysis(prev => {
@@ -245,15 +276,83 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
     });
   };
 
+  // 基于对话数据分析，智能判断角色类型
+  // 使用 useMemo 缓存角色映射，避免每次渲染重新计算
+  const roleMapping = React.useMemo(() => {
+    const mapping: Record<string, 'user' | 'system'> = {};
+    
+    // 收集所有轮次中的角色
+    const allSpeakers = new Set<string>();
+    rounds.forEach(round => {
+      round.content.forEach(dialogue => {
+        allSpeakers.add(dialogue.speaker);
+      });
+    });
+    
+    const speakers = Array.from(allSpeakers);
+    
+    // 如果只有两个角色，根据对话顺序判断：
+    // 通常用户先发起对话（第一轮的第一个说话者）
+    if (speakers.length === 2) {
+      // 找到第一轮的第一个说话者，假设为用户
+      const firstRound = rounds[0];
+      if (firstRound && firstRound.content.length > 0) {
+        const firstSpeaker = firstRound.content[0].speaker;
+        const secondSpeaker = speakers.find(s => s !== firstSpeaker);
+        
+        if (firstSpeaker) {
+          mapping[firstSpeaker] = 'user';
+        }
+        if (secondSpeaker) {
+          mapping[secondSpeaker] = 'system';
+        }
+      }
+    } else if (speakers.length > 2) {
+      // 多个角色时，统计每个角色在对话中的位置
+      // 用户角色通常更频繁地发起对话（在每轮中先说话）
+      const speakerStats: Record<string, { firstInRound: number; total: number }> = {};
+      
+      speakers.forEach(s => {
+        speakerStats[s] = { firstInRound: 0, total: 0 };
+      });
+      
+      rounds.forEach(round => {
+        if (round.content.length > 0) {
+          const firstSpeaker = round.content[0].speaker;
+          speakerStats[firstSpeaker].firstInRound++;
+        }
+        round.content.forEach(dialogue => {
+          speakerStats[dialogue.speaker].total++;
+        });
+      });
+      
+      // 找出最频繁作为每轮第一个说话者的角色，判定为用户
+      let userSpeaker = speakers[0];
+      let maxFirstInRound = -1;
+      
+      speakers.forEach(speaker => {
+        if (speakerStats[speaker].firstInRound > maxFirstInRound) {
+          maxFirstInRound = speakerStats[speaker].firstInRound;
+          userSpeaker = speaker;
+        }
+      });
+      
+      // 设置角色映射
+      speakers.forEach(speaker => {
+        mapping[speaker] = speaker === userSpeaker ? 'user' : 'system';
+      });
+    }
+    
+    return mapping;
+  }, [rounds]);
+
   // 确定角色类型
   const isSystemRole = (speaker: string) => {
-    const systemRoles = ['waiter', 'A', 'agent', 'clerk', 'barman', 'salesperson', 'doctor', 'pharmacist', 'cashier', 'staff', 'receptionist', 'speaker2', 'Receptionist', 'Waiter', 'Agent', 'Clerk', 'Barman', 'Salesperson', 'Doctor', 'Pharmacist', 'Cashier', 'Staff'];
-    return systemRoles.includes(speaker);
+    return roleMapping[speaker] === 'system';
   };
 
   const isUserRole = (speaker: string) => {
-    const userRoles = ['customer', 'B', 'passenger', 'patient', 'guest', 'visitor', 'buyer', 'speaker1', 'Tourist', 'Customer', 'Passenger', 'Patient', 'Guest', 'Visitor', 'Buyer', 'tourist'];
-    return userRoles.includes(speaker);
+    return roleMapping[speaker] === 'user';
   };
 
   return (
@@ -315,14 +414,17 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
                       {userRole && (
                         <motion.button
                           type="button"
-                          aria-label={isPlayingCurrent(dialogue.audio_url) ? '暂停播放' : '播放音频'}
+                          aria-label={isPlayingCurrent(dialogue.audio_url) ? '暂停播放' : isLoadingCurrent(dialogue.audio_url) ? '加载中' : '播放音频'}
                           id={`play-turn-${round.round_number}-${dialogue.index}`}
                           whileTap={{ scale: 0.9 }}
-                          className="w-9 h-9 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 hover:border-[#4F7CF0]/30 transition-all flex-shrink-0 shadow-sm"
+                          disabled={isLoadingCurrent(dialogue.audio_url)}
+                          className="w-9 h-9 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 hover:border-[#4F7CF0]/30 transition-all flex-shrink-0 shadow-sm disabled:opacity-70 disabled:cursor-not-allowed"
                           onClick={() => playAudio(dialogue.audio_url)}
                           title={dialogue.audio_url || '暂无音频'}
                         >
-                          {isPlayingCurrent(dialogue.audio_url) ? (
+                          {isLoadingCurrent(dialogue.audio_url) ? (
+                            <LoadingIcon className="text-[#4F7CF0]" />
+                          ) : isPlayingCurrent(dialogue.audio_url) ? (
                             <StopIcon className="text-[#4F7CF0]" />
                           ) : (
                             <VolumeIcon className="text-[#4F7CF0]" />
@@ -350,14 +452,17 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
                       {(systemRole || !userRole) && (
                         <motion.button
                           type="button"
-                          aria-label={isPlayingCurrent(dialogue.audio_url) ? '暂停播放' : '播放音频'}
+                          aria-label={isPlayingCurrent(dialogue.audio_url) ? '暂停播放' : isLoadingCurrent(dialogue.audio_url) ? '加载中' : '播放音频'}
                           id={`play-turn-${round.round_number}-${dialogue.index}`}
                           whileTap={{ scale: 0.9 }}
-                          className="w-9 h-9 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 hover:border-gray-300 transition-all flex-shrink-0 shadow-sm"
+                          disabled={isLoadingCurrent(dialogue.audio_url)}
+                          className="w-9 h-9 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-gray-50 hover:border-gray-300 transition-all flex-shrink-0 shadow-sm disabled:opacity-70 disabled:cursor-not-allowed"
                           onClick={() => playAudio(dialogue.audio_url)}
                           title={dialogue.audio_url || '暂无音频'}
                         >
-                          {isPlayingCurrent(dialogue.audio_url) ? (
+                          {isLoadingCurrent(dialogue.audio_url) ? (
+                            <LoadingIcon className="text-gray-500" />
+                          ) : isPlayingCurrent(dialogue.audio_url) ? (
                             <StopIcon className="text-gray-500" />
                           ) : (
                             <VolumeIcon className="text-gray-500" />
@@ -441,15 +546,18 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
                             <div className="mt-3">
                               <motion.button
                                 whileTap={{ scale: 0.95 }}
-                                className="flex items-center gap-2 px-4 py-2 bg-[#4F7CF0] text-white text-sm font-medium rounded-xl hover:bg-[#3D6AE0] transition-colors shadow-sm"
+                                disabled={isLoadingCurrent(round.analysis.standard_answer.audio_url)}
+                                className="flex items-center gap-2 px-4 py-2 bg-[#4F7CF0] text-white text-sm font-medium rounded-xl hover:bg-[#3D6AE0] transition-colors shadow-sm disabled:opacity-70 disabled:cursor-not-allowed"
                                 onClick={() => playAudio(round.analysis!.standard_answer.audio_url!)}
                               >
-                                {isPlayingCurrent(round.analysis.standard_answer.audio_url) ? (
+                                {isLoadingCurrent(round.analysis.standard_answer.audio_url) ? (
+                                  <LoadingIcon className="w-4 h-4" />
+                                ) : isPlayingCurrent(round.analysis.standard_answer.audio_url) ? (
                                   <StopIcon className="w-4 h-4" />
                                 ) : (
                                   <VolumeIcon className="w-4 h-4" />
                                 )}
-                                播放发音
+                                {isLoadingCurrent(round.analysis.standard_answer.audio_url) ? '加载中...' : isPlayingCurrent(round.analysis.standard_answer.audio_url) ? '停止播放' : '播放发音'}
                               </motion.button>
                             </div>
                           )}
@@ -481,10 +589,13 @@ const DialogueContent: React.FC<DialogueContentProps> = ({ rounds }) => {
                                     {altAnswer.audio_url && (
                                       <motion.button
                                         whileTap={{ scale: 0.9 }}
-                                        className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors shrink-0"
+                                        disabled={isLoadingCurrent(altAnswer.audio_url)}
+                                        className="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors shrink-0 disabled:opacity-70 disabled:cursor-not-allowed"
                                         onClick={() => playAudio(altAnswer.audio_url!)}
                                       >
-                                        {isPlayingCurrent(altAnswer.audio_url) ? (
+                                        {isLoadingCurrent(altAnswer.audio_url) ? (
+                                          <LoadingIcon className="text-gray-600 w-3.5 h-3.5" />
+                                        ) : isPlayingCurrent(altAnswer.audio_url) ? (
                                           <StopIcon className="text-gray-600 w-3.5 h-3.5" />
                                         ) : (
                                           <VolumeIcon className="text-gray-600 w-3.5 h-3.5" />
