@@ -109,6 +109,7 @@ export interface ActiveChatViewProps extends ViewProps {
   onSendText: (text: string) => void
   onSubmitEvaluation: () => void
   messagesEndRef: React.RefObject<HTMLDivElement>
+  interimTranscript?: string
 }
 
 export interface CompletedViewProps extends ViewProps {
