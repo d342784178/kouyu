@@ -1,7 +1,7 @@
 # 语习集 - 数据库设计
 
-> 版本: v1.1
-> 最后更新: 2026-02-24
+> 版本: v1.2
+> 最后更新: 2026-02-25
 > 优先级: P1
 > 阅读时间: 20分钟
 
@@ -102,6 +102,63 @@ interface DialogueContent {
   "translation": "欢迎光临！您有预约吗？",
   "audio_url": "https://xxx.cos.ap-beijing.myqcloud.com/scene/daily_001/dialogues/daily_001_round1_waiter.mp3",
   "is_key_qa": true
+}
+```
+
+### dialogue analysis 字段格式（对话分析）
+
+对于关键问答（`is_key_qa: true`）的对话项，包含对话分析数据：
+
+```typescript
+interface DialogueAnalysis {
+  analysis_detail: string;        // 对话分析说明
+  standard_answer: Answer;        // 标准回答
+  alternative_answers: Answer[];  // 备选回答列表
+  usage_notes: string;           // 用法说明
+}
+
+interface Answer {
+  text: string;          // 英文回答内容
+  translation: string;   // 中文翻译
+  scenario: string;      // 使用场景说明
+  formality: 'casual' | 'neutral' | 'formal';  // 语气正式程度
+}
+```
+
+**formality 字段可选值说明：**
+
+| 值 | 说明 | 使用场景 |
+|----|------|----------|
+| `casual` | 随意/非正式 | 朋友、熟人之间的对话 |
+| `neutral` | 中性 | 一般服务场合，不特别正式也不随意 |
+| `formal` | 正式 | 商务场合、正式宴会、重要场合 |
+
+**示例:**
+
+```json
+{
+  "analysis_detail": "这是进店时的初次接触。服务员询问是否有预订，顾客提出入座要求。",
+  "standard_answer": {
+    "text": "A table for two, please.",
+    "translation": "请安排一张两人桌。",
+    "scenario": "当你进入餐厅没有预订，需要告诉服务员人数时使用。",
+    "formality": "neutral"
+  },
+  "alternative_answers": [
+    {
+      "text": "We'd like a table for two, please.",
+      "translation": "我们想要一张两人桌。",
+      "scenario": "更礼貌地表达需求，适合正式场合。",
+      "formality": "formal"
+    },
+    {
+      "text": "Just two of us.",
+      "translation": "就我们两个人。",
+      "scenario": "比较随意的回答，通常配合手势。",
+      "formality": "casual"
+    }
+  ],
+  "usage_notes": "表达人数时常用 'A table for + 数字'。"
 }
 ```
 
@@ -475,5 +532,6 @@ CREATE INDEX idx_scenes_search ON scenes USING gin(to_tsvector('chinese', name |
 
 | 版本 | 日期 | 变更内容 | 作者 |
 |------|------|----------|------|
+| v1.2 | 2026-02-25 | 补充dialogue analysis字段格式说明，包括formality字段可选值 | AI |
 | v1.1 | 2026-02-24 | 补充scene_tests.content字段详细格式、phrase_examples字段说明、索引设计建议 | AI |
 | v1.0 | 2026-02-24 | 初始版本 | - |

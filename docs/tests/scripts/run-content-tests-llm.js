@@ -2,7 +2,7 @@
  * 文档内容有效性测试执行脚本（LLM版本）
  * 用法: node docs/tests/scripts/run-content-tests-llm.js [--api-key=YOUR_API_KEY]
  *
- * 本脚本通过调用外部大模型（NVIDIA API）验证项目文档的内容有效性：
+ * 本脚本通过调用GLM-4-Flash大模型验证项目文档的内容有效性：
  * a) 基于项目内容设计一系列测试题目及对应的预期答案
  * b) 配置大模型在回答过程中可通过tool调用功能调阅本地子文档
  * c) 获取大模型针对测试题目的实际回答
@@ -10,9 +10,9 @@
  *
  * 环境变量（优先级从高到低）：
  * 1. 命令行参数 --api-key=xxx
- * 2. 系统环境变量 NVIDIA_API_KEY
- * 3. .env.local 文件中的 NVIDIA_API_KEY
- * - NVIDIA_MODEL: 使用的模型（默认: meta/llama-3.1-405b-instruct）
+ * 2. 系统环境变量 GLM_API_KEY
+ * 3. .env.local 文件中的 GLM_API_KEY
+ * - GLM_MODEL: 使用的模型（默认: glm-4-flash）
  */
 
 const fs = require('fs');
@@ -92,14 +92,14 @@ const envLocal = loadEnvLocal();
 const cliArgs = parseArgs();
 
 // API配置（优先级：命令行 > 系统环境变量 > .env.local）
-const API_KEY = cliArgs['api-key'] || process.env.NVIDIA_API_KEY || envLocal.NVIDIA_API_KEY || '';
-const MODEL = process.env.NVIDIA_MODEL || envLocal.NVIDIA_MODEL || 'z-ai/glm4.7';
-const API_URL = process.env.NVIDIA_API_URL || envLocal.NVIDIA_API_URL || 'https://integrate.api.nvidia.com/v1/chat/completions';
+const API_KEY = cliArgs['api-key'] || process.env.GLM_API_KEY || envLocal.GLM_API_KEY || '';
+const MODEL = process.env.GLM_MODEL || envLocal.GLM_MODEL || 'glm-4-flash';
+const API_URL = process.env.GLM_API_URL || envLocal.GLM_API_URL || 'https://open.bigmodel.cn/api/paas/v4/chat/completions';
 
 // 并发配置
-const CONCURRENCY = 5;
-const MAX_RETRIES = 5;
-const RETRY_DELAY = 3000; // 3秒
+const CONCURRENCY = 10;
+const MAX_RETRIES = 3;
+const RETRY_DELAY = 2000; // 2秒
 
 // 测试结果
 const results = {
@@ -190,7 +190,7 @@ function readLocalDocument(filePath) {
 }
 
 /**
- * 调用NVIDIA API获取LLM回答（带重试机制）
+ * 调用GLM API获取LLM回答（带重试机制）
  */
 async function callLLMOnce(messages, tools = null, maxTokens = 10480) {
   const body = {
@@ -198,7 +198,7 @@ async function callLLMOnce(messages, tools = null, maxTokens = 10480) {
     messages: messages,
     temperature: 0.3,
     max_tokens: maxTokens,
-    stream: false
+    top_p: 0.7
   };
 
   if (tools) {
@@ -207,7 +207,7 @@ async function callLLMOnce(messages, tools = null, maxTokens = 10480) {
   }
 
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 180000); // 120秒超时
+  const timeoutId = setTimeout(() => controller.abort(), 120000); // 120秒超时
 
   const response = await fetch(API_URL, {
     method: 'POST',
@@ -230,11 +230,11 @@ async function callLLMOnce(messages, tools = null, maxTokens = 10480) {
 }
 
 /**
- * 调用NVIDIA API获取LLM回答（带重试机制和并发控制）
+ * 调用GLM API获取LLM回答（带重试机制和并发控制）
  */
-async function callLLM(messages, tools = null, retryCount = 0, maxTokens = 10048) {
+async function callLLM(messages, tools = null, retryCount = 0, maxTokens = 10480) {
   if (!API_KEY) {
-    throw new Error('未设置 NVIDIA_API_KEY');
+    throw new Error('未设置 GLM_API_KEY');
   }
 
   // 获取信号量许可，控制并发
@@ -386,7 +386,7 @@ async function analyzeConsistency(question, expectedAnswer, actualAnswer) {
     const response = await callLLM([
       { role: 'system', content: systemPrompt },
       { role: 'user', content: prompt }
-    ], null, 0, 100096);
+    ], null, 0, 10480);
 
     // 调试：检查响应结构
     if (!response.choices || !response.choices[0] || !response.choices[0].message) {
@@ -498,9 +498,9 @@ async function runTests() {
   let keySource = '';
   if (cliArgs['api-key']) {
     keySource = '命令行参数';
-  } else if (process.env.NVIDIA_API_KEY) {
+  } else if (process.env.GLM_API_KEY) {
     keySource = '系统环境变量';
-  } else if (envLocal.NVIDIA_API_KEY) {
+  } else if (envLocal.GLM_API_KEY) {
     keySource = '.env.local文件';
   }
 
@@ -508,11 +508,11 @@ async function runTests() {
     logScript(`API密钥来源: ${keySource}`);
     logScript(`API密钥: ${API_KEY.substring(0, 10)}...${API_KEY.substring(API_KEY.length - 4)}`);
   } else {
-    console.error('\n[SCRIPT] ❌ 错误: 未设置 NVIDIA_API_KEY');
+    console.error('\n[SCRIPT] ❌ 错误: 未设置 GLM_API_KEY');
     console.log('\n[SCRIPT] 请通过以下方式之一设置API密钥:');
     console.log('  1. 命令行参数: --api-key=your_api_key');
-    console.log('  2. 系统环境变量: set NVIDIA_API_KEY=your_api_key');
-    console.log('  3. .env.local文件: NVIDIA_API_KEY=your_api_key');
+    console.log('  2. 系统环境变量: set GLM_API_KEY=your_api_key');
+    console.log('  3. .env.local文件: GLM_API_KEY=your_api_key');
     process.exit(1);
   }
 
@@ -543,7 +543,7 @@ async function runTests() {
   const passRate = results.summary.earnedScore / results.summary.totalScore;
   const success = passRate >= 0.75;
   logResult(`测试${success ? '✅ 通过' : '❌ 失败'} (阈值: 75%, 实际: ${(passRate * 100).toFixed(2)}%)`);
-  
+
   return success;
 }
 
