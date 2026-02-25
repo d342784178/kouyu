@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { callLLM, Message } from '@/lib/llm'
 import { generateSpeech } from '../utils/speechGenerator'
+import { generateContinuePrompt } from '@/lib/prompts/role-play-prompts'
 
 // 定义消息类型
 interface ConversationMessage {
@@ -62,42 +63,17 @@ export async function POST(request: Request) {
     console.log('[对话生成] 对话历史长度:', conversation.length)
     console.log('[对话生成] 完整对话历史:', JSON.stringify(conversation, null, 2))
 
-    // 构建系统提示词
-    const systemPrompt = `You are ${defaultAiRole} in a ${defaultScene} scenario. The user is ${defaultUserRole}.
-Your dialogue goal is: ${defaultDialogueGoal}.
+    // 使用新的提示词模板生成系统提示词
+    const systemPrompt = generateContinuePrompt(
+      defaultScene,
+      defaultAiRole,
+      defaultUserRole,
+      defaultDialogueGoal,
+      difficultyLevel,
+      conversation
+    )
 
-Difficulty Level: ${difficultyLevel}
-- Beginner: Use simple sentences, basic vocabulary, avoid idioms
-- Intermediate: Use compound sentences, natural expressions, moderate idioms
-- Advanced: Use complex sentence structures, authentic idioms, implied intentions/humor
-
-## Your Task
-First, analyze if the dialogue goal has been achieved based on the conversation history.
-Then respond in this exact JSON format:
-{"isComplete":true/false,"message":"Your English response here"}
-
-## When is Dialogue Complete?
-Set isComplete to TRUE when:
-- The dialogue goal has been achieved (e.g., order completed, directions given)
-- User clearly indicates ending (says goodbye, thanks and ends)
-- Dialogue naturally concludes with no need to continue
-
-Set isComplete to FALSE when:
-- The goal is not yet achieved
-- More information or action is needed
-- Natural dialogue should continue
-
-## Important Rules
-1. Output ONLY the JSON object, no other text
-2. isComplete must be a boolean (true or false)
-3. message must be in English, matching the difficulty level
-4. If isComplete is true, message should be a polite closing
-5. If isComplete is false, message should continue the conversation naturally
-6. No Chinese, no explanations, no markdown code blocks
-
-## Examples
-Complete dialogue: {"isComplete":true,"message":"Thank you for dining with us! Have a wonderful day!"}
-Incomplete dialogue: {"isComplete":false,"message":"Would you like anything else to drink?"}`
+    console.log('[对话生成] 生成的提示词:\n', systemPrompt)
 
     // 构建消息历史 - 包含系统提示和所有对话历史
     const messages: Message[] = [

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { callLLMForScene, Message as LLMMessage } from '@/lib/llm'
 import { generateSpeech } from '../utils/speechGenerator'
+import { generateInitiatePrompt, generateContinuePrompt, generateAnalysisPrompt } from '@/lib/prompts'
 
 // 定义消息类型
 interface Message {
@@ -41,96 +42,27 @@ export async function POST(request: Request) {
     // 根据操作类型构建不同的系统提示词
     let systemPrompt
     if (analysisRequest) {
-      // 题目分析：分析测试题目，提取场景、角色和对话目标
-      systemPrompt = `
-你是一位英语学习助手。请分析以下测试题目并提取：
-1. 场景：对话发生的地点
-2. 角色：对话参与者（作为列表）
-3. 对话目标：对话的主题
-
-保持分析简洁明了。仅以JSON格式输出这三个部分的内容。
-
-示例输入：
-在餐厅点餐
-
-示例输出：
-{
-  "scene": "餐厅",
-  "roles": ["顾客", "服务员"],
-  "dialogueGoal": "顾客向服务员点餐"
-}
-
-另一个示例输入：
-在酒店办理入住
-
-示例输出：
-{
-  "scene": "酒店前台",
-  "roles": ["客人", "酒店接待员"],
-  "dialogueGoal": "客人在酒店办理入住"
-}
-      `.trim()
+      // 题目分析：使用通用分析提示词
+      systemPrompt = generateAnalysisPrompt(scene || '')
     } else if (isInitialization) {
-      // 对话初始化：根据场景、角色和难度等级生成开场白
-      systemPrompt = `
-你是${aiRole}，在${scene}场景中。用户是${userRole}。
-
-你的目标是开始一段关于${dialogueGoal}的自然英语对话。
-
-难度等级：${difficultyLevel}
-- Beginner：使用简单句子，基础词汇，避免俚语
-- Intermediate：使用复合句，自然表达，适量习语
-- Advanced：使用复杂句式，地道俚语，隐含意图/幽默
-
-生成一句友好、自然的开场白，邀请用户回应。
-保持简短（1-2句话）。
-
-重要要求：
-1. 只返回英文回复，不要包含任何中文或其他语言
-2. 不要包含任何思考过程、解释或其他内容
-3. 直接返回最终的英文回复文本
-4. 确保回复是完整的句子，符合英文语法
-
-示例：
-
-场景：餐厅 | AI：服务员 | 用户：顾客 | 目标：点餐
-Welcome to our restaurant! What can I get for you today?
-
-场景：酒店 | AI：接待员 | 用户：客人 | 目标：办理入住
-Good afternoon! Welcome to our hotel. May I help you with your check-in?
-      `.trim()
+      // 对话初始化：使用通用提示词生成器
+      systemPrompt = generateInitiatePrompt(
+        scene || '',
+        aiRole || 'AI助手',
+        userRole || '用户',
+        dialogueGoal || '进行对话',
+        difficultyLevel || 'medium'
+      )
     } else {
-      // 继续对话：根据历史上下文生成回应
-      systemPrompt = `
-你是${aiRole}，在${scene}场景中。用户是${userRole}。
-
-你的目标是继续关于${dialogueGoal}的对话。
-
-难度等级：${difficultyLevel}
-- Beginner：使用简单句子，基础词汇，避免俚语
-- Intermediate：使用复合句，自然表达，适量习语
-- Advanced：使用复杂句式，地道俚语，隐含意图/幽默
-
-分析以下完整对话历史，并以${aiRole}的身份自然用英语回应：
-
-${conversation.map((msg: Message) => `${msg.role === 'user' ? userRole : aiRole}: ${msg.content}`).join('\n')}
-
-保持回应简短（1-2句话）。
-
-重要要求：
-1. 只返回英文回复，不要包含任何中文或其他语言
-2. 不要包含任何思考过程、解释或其他内容
-3. 直接返回最终的英文回复文本
-4. 确保回复是完整的句子，符合英文语法
-
-示例：
-
-顾客：I would like to order a hamburger and fries, please.
-Sure! How would you like your hamburger cooked, and would you like a drink with that?
-
-客人：I have a reservation for tonight.
-Great! Could you please provide your name and reservation number?
-      `.trim()
+      // 继续对话：使用通用提示词生成器
+      systemPrompt = generateContinuePrompt(
+        scene || '',
+        aiRole || 'AI助手',
+        userRole || '用户',
+        dialogueGoal || '进行对话',
+        difficultyLevel || 'medium',
+        conversation || []
+      )
     }
 
     // 构建消息历史

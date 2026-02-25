@@ -187,7 +187,7 @@ export async function callLLM(
     const apiUrl = `${baseUrl}/chat/completions`
 
     console.log('[LLM] 请求 URL:', apiUrl)
-    console.log('[LLM] 请求消息数:', messages.length)
+    console.log('[LLM] 请求消息:', messages)
 
     const response = await fetch(apiUrl, {
       method: 'POST',
