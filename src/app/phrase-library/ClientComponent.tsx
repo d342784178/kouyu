@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
+import { LoadingSpinner } from '@/components/Loading'
 
 // 定义短语类型
 interface Phrase {
@@ -362,7 +363,7 @@ export default function PhraseLibraryClient() {
                     disabled={isLoading}
                   >
                     {isLoading ? (
-                      <i className="fas fa-spinner fa-spin text-gray-600 text-sm"></i>
+                      <LoadingSpinner size="sm" />
                     ) : (
                       <i className={`fas ${isPlaying ? 'fa-pause' : 'fa-play'} text-gray-600 text-sm`}></i>
                     )}

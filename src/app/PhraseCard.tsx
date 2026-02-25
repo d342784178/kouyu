@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useAudio } from '@/hooks/useAudio'
+import { LoadingSpinner } from '@/components/Loading'
 
 interface Phrase {
   id: string
@@ -81,7 +82,7 @@ export default function PhraseCard({ phrase, index }: PhraseCardProps) {
             disabled={isLoading}
           >
             {isLoading ? (
-              <i className="fas fa-spinner fa-spin text-gray-600 text-sm"></i>
+              <LoadingSpinner size="sm" />
             ) : (
               <i className={`fas ${isPlaying ? 'fa-pause' : 'fa-play'} text-gray-600 text-sm`}></i>
             )}

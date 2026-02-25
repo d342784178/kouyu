@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Send, Mic, Keyboard, Play, Pause, CheckCircle, ChevronLeft } from 'lucide-react'
+import { LoadingSpinner } from '@/components/Loading'
 import { ActiveChatViewProps } from './types'
 
 // 录音波形动画组件
@@ -273,7 +274,7 @@ export default function ActiveChatView({
                     </>
                   ) : isGeneratingResponse ? (
                     <>
-                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      <LoadingSpinner size="sm" variant="primary" className="border-white/30 border-t-white" />
                       <span>AI 思考中...</span>
                     </>
                   ) : (

@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import OpenTestDialog from './OpenTestDialog'
 import LoadingSpinner from './components/LoadingSpinner'
+import { LoadingSpinner as SimpleLoadingSpinner } from '@/components/Loading'
 import {
   ArrowLeft,
   Mic,
@@ -701,7 +702,7 @@ export default function SceneTest() {
               exit={{ scale: 0.85, opacity: 0 }}
               className="bg-white rounded-2xl p-8 text-center mx-6 shadow-xl"
             >
-              <Loader2 className="h-12 w-12 animate-spin text-[#4F7CF0] mx-auto mb-4" />
+              <SimpleLoadingSpinner size="lg" className="mx-auto mb-4" />
               <h3 className="font-semibold text-gray-800 mb-1">AI 正在评测...</h3>
               <p className="text-sm text-gray-400">请稍候片刻</p>
             </motion.div>

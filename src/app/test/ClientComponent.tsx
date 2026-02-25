@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { useAudio } from '@/hooks/useAudio'
+import Loading, { LoadingSpinner } from '@/components/Loading'
 
 // 定义短语类型
 interface Phrase {
@@ -258,15 +259,11 @@ export default function TestClientComponent() {
   // 加载中状态
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        <div className="text-center">
-          <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 animate-spin">
-            <i className="fas fa-spinner text-gray-400 text-2xl"></i>
-          </div>
-          <h3 className="text-lg font-medium text-text-primary mb-2">加载中...</h3>
-          <p className="text-sm text-text-secondary">正在获取测试数据，请稍候</p>
-        </div>
-      </div>
+      <Loading
+        message="加载中..."
+        subMessage="正在获取测试数据，请稍候"
+        fullScreen
+      />
     )
   }
   
@@ -450,7 +447,7 @@ export default function TestClientComponent() {
                   <div id="audio-player" className="bg-gray-50 rounded-xl p-4 mb-6">
                     <button 
                       id="audio-play-btn" 
-                      className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto ${isAudioLoading ? 'bg-gray-400' : 'bg-primary'}`}
+                      className={`w-16 h-16 rounded-full flex items-center justify-center mx-auto transition-all ${isAudioLoading ? 'bg-gray-300' : 'bg-primary hover:bg-primary/90'}`}
                       onClick={async () => {
                         if (!phrase?.audioUrl) {
                           alert('当前短语暂无音频');
@@ -466,7 +463,7 @@ export default function TestClientComponent() {
                       disabled={isAudioLoading}
                     >
                       {isAudioLoading ? (
-                        <i className="fas fa-spinner fa-spin text-white text-xl"></i>
+                        <LoadingSpinner size="sm" variant="primary" className="border-white/30 border-t-white" />
                       ) : (
                         <i id="audio-play-icon" className={`fas ${isPlaying ? 'fa-pause' : 'fa-play'} text-white text-xl`}></i>
                       )}

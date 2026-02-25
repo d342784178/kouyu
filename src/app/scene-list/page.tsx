@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { LoadingSpinner } from '@/components/Loading'
 
 // 定义场景类型
 interface Scene {
@@ -432,8 +433,8 @@ export default function SceneList() {
             <div className="py-8">
               {isLoadingMore && (
                 <div className="flex flex-col items-center justify-center">
-                  <div className="w-10 h-10 border-3 border-[#4F7CF0]/20 border-t-[#4F7CF0] rounded-full animate-spin mb-3"></div>
-                  <p className="text-xs text-gray-400">加载更多...</p>
+                  <LoadingSpinner size="md" />
+                  <p className="text-xs text-gray-400 mt-3">加载更多...</p>
                 </div>
               )}
               {hasMore && !isLoadingMore && (
