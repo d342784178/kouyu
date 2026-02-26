@@ -94,7 +94,8 @@ const cliArgs = parseArgs();
 // API配置（优先级：命令行 > 系统环境变量 > .env.local）
 const API_KEY = cliArgs['api-key'] || process.env.GLM_API_KEY || envLocal.GLM_API_KEY || '';
 const MODEL = process.env.GLM_MODEL || envLocal.GLM_MODEL || 'glm-4-flash';
-const API_URL = process.env.GLM_API_URL || envLocal.GLM_API_URL || 'https://open.bigmodel.cn/api/paas/v4/chat/completions';
+const GLM_BASE_URL = process.env.GLM_API_URL || envLocal.GLM_API_URL || 'https://open.bigmodel.cn/api/paas/v4';
+const API_URL = GLM_BASE_URL.endsWith('/chat/completions') ? GLM_BASE_URL : `${GLM_BASE_URL}/chat/completions`;
 
 // 并发配置
 const CONCURRENCY = 10;
@@ -282,14 +283,15 @@ async function callLLM(messages, tools = null, retryCount = 0, maxTokens = 10480
  * 获取LLM对测试题目的回答
  */
 async function getLLMAnswer(question, enableTools = true) {
-  const systemPrompt = `请阅读下面的文档，然后对用户问题进行解答。
+  const systemPrompt = `你是一个项目文档查阅助手。你只能通过 read_document 工具读取 docs/ 目录下的文档文件来回答问题。
 
-可用工具：
-- read_document: 读取指定路径的文档内容
+**重要规则**：
+1. 只能读取 docs/ 目录下的文档文件，不能读取源码文件。
+2. 必须主动调用工具查阅相关文档，不要依赖记忆或猜测。
+3. 回答要简洁，直接给出答案。
+4. 如果文档中没有相关信息，如实回答"文档中未记录"。
 
-请根据问题需要，使用工具调阅相关文档获取准确信息，然后给出简洁准确的回答。
-
-================下方为文档内容
+================下方为文档索引（用于定位应查阅哪个文档）
 ${projectRulesContent}`;
 
   const userPrompt = question;
@@ -304,13 +306,13 @@ ${projectRulesContent}`;
       type: 'function',
       function: {
         name: 'read_document',
-        description: '读取指定路径的文档内容',
+        description: '读取 docs/ 目录下的文档文件内容。只能读取文档文件，不能读取源码文件。',
         parameters: {
           type: 'object',
           properties: {
             path: {
               type: 'string',
-              description: '文档路径，如 "docs/01-architecture/arch-database-schema-v1.0.md"'
+              description: '文档路径，必须以 "docs/" 开头，如 "docs/01-architecture/arch-database-schema-v1.0.md"'
             }
           },
           required: ['path']
@@ -321,14 +323,22 @@ ${projectRulesContent}`;
 
   let finalAnswer = '';
   let toolCalls = [];
+  let totalToolCalls = [];
 
   try {
     const response = await callLLM(messages, tools);
 
-    if (response.choices[0].message.tool_calls) {
-      toolCalls = response.choices[0].message.tool_calls;
+    // 支持多轮工具调用（最多3轮）
+    let currentResponse = response;
+    let rounds = 0;
+    const MAX_ROUNDS = 3;
 
-      const toolResults = toolCalls.map(toolCall => {
+    while (currentResponse.choices[0].message.tool_calls && rounds < MAX_ROUNDS) {
+      rounds++;
+      const currentToolCalls = currentResponse.choices[0].message.tool_calls;
+      totalToolCalls = totalToolCalls.concat(currentToolCalls);
+
+      const toolResults = currentToolCalls.map(toolCall => {
         const functionName = toolCall.function.name;
         const args = JSON.parse(toolCall.function.arguments);
 
@@ -338,8 +348,8 @@ ${projectRulesContent}`;
         return { error: '未知工具' };
       });
 
-      messages.push(response.choices[0].message);
-      toolCalls.forEach((toolCall, index) => {
+      messages.push(currentResponse.choices[0].message);
+      currentToolCalls.forEach((toolCall, index) => {
         messages.push({
           role: 'tool',
           tool_call_id: toolCall.id,
@@ -347,11 +357,11 @@ ${projectRulesContent}`;
         });
       });
 
-      const finalResponse = await callLLM(messages, null);
-      finalAnswer = finalResponse.choices[0].message.content;
-    } else {
-      finalAnswer = response.choices[0].message.content;
+      currentResponse = await callLLM(messages, tools);
     }
+
+    finalAnswer = currentResponse.choices[0].message.content;
+    toolCalls = totalToolCalls;
 
     return { answer: finalAnswer, toolCalls };
   } catch (error) {
