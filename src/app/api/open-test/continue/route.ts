@@ -63,26 +63,24 @@ export async function POST(request: Request) {
     console.log('[对话生成] 对话历史长度:', conversation.length)
     console.log('[对话生成] 完整对话历史:', JSON.stringify(conversation, null, 2))
 
-    // 使用新的提示词模板生成系统提示词
+    // 生成系统提示词（只含角色规则，不含对话历史）
     const systemPrompt = generateContinuePrompt(
       defaultScene,
       defaultAiRole,
       defaultUserRole,
       defaultDialogueGoal,
-      difficultyLevel,
-      conversation
+      difficultyLevel
     )
 
     console.log('[对话生成] 生成的提示词:\n', systemPrompt)
 
-    // 构建消息历史 - 包含系统提示和所有对话历史
+    // 构建消息：system prompt + 对话历史（避免重复传递）
     const messages: Message[] = [
       { role: 'system', content: systemPrompt },
-      // 将所有历史对话转换为消息格式
       ...conversation.map((msg: ConversationMessage) => ({
         role: msg.role,
-        content: msg.content
-      }))
+        content: msg.content,
+      })),
     ]
 
     console.log('[对话生成] 调用GLM API...')

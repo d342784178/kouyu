@@ -68,12 +68,16 @@ export default function TestAnalysis({ sceneId, testId, conversation, rounds, on
   // 使用 ref 来跟踪播放状态，避免闭包问题
   const isPlayingRef = useRef(false)
   const stopPlaybackRef = useRef(false)
+  // 防止重复调用分析 API（React StrictMode 双调用 / 组件重渲染）
+  const hasFetchedRef = useRef(false)
 
   useEffect(() => {
     isPlayingRef.current = isPlaying
   }, [isPlaying])
 
   useEffect(() => {
+    if (hasFetchedRef.current) return
+    hasFetchedRef.current = true
     fetchAnalysis()
   }, [])
 

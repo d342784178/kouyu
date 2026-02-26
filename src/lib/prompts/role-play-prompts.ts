@@ -7,9 +7,16 @@
 
 // 难度等级映射
 const difficultyMap: Record<string, string> = {
-  'easy': 'Beginner',
-  'medium': 'Intermediate',
-  'hard': 'Advanced'
+  easy: 'Beginner',
+  medium: 'Intermediate',
+  hard: 'Advanced',
+}
+
+// 难度等级对应的语言要求
+const difficultyInstructions: Record<string, string> = {
+  Beginner: 'Use simple sentences and basic vocabulary. Avoid slang and idioms.',
+  Intermediate: 'Use compound sentences and natural expressions. Include some common idioms.',
+  Advanced: 'Use complex structures, idiomatic English, and implied meaning where natural.',
 }
 
 /**
@@ -23,87 +30,46 @@ export function generateInitiatePrompt(
   dialogueGoal: string,
   difficultyLevel: string
 ): string {
-  const prompt = `【角色设定】
-你是${aiRole}，在${scene}场景中。用户是${userRole}。
+  const difficulty = difficultyMap[difficultyLevel] || difficultyLevel
+  const instruction = difficultyInstructions[difficulty] || difficultyInstructions['Intermediate']
 
-【对话目标】
-${dialogueGoal}
+  return `You are ${aiRole} in a ${scene} scenario. The user is playing ${userRole}.
 
-【难度等级】${difficultyMap[difficultyLevel] || difficultyLevel}
-- Beginner：使用简单句子，基础词汇，避免俚语
-- Intermediate：使用复合句，自然表达，适量习语
-- Advanced：使用复杂句式，地道俚语，隐含意图/幽默
+Goal: ${dialogueGoal}
 
-【任务】
-作为${aiRole}，生成一句友好、自然的英文开场白，邀请用户（${userRole}）回应。保持简短（1-2句话）。
+Difficulty (${difficulty}): ${instruction}
 
-【重要要求】
-1. 你必须始终以${aiRole}的身份说话，不要扮演${userRole}或其他角色
-2. 从${aiRole}的视角出发，自然地开始对话
-3. 直接输出英文回复，不要思考过程
-4. 不要包含任何中文、解释或其他内容
-5. 只返回纯英文句子
-6. 确保是完整的英文句子
-
-【输出格式示例】
-Hello! Nice to meet you.
-
-现在，作为${aiRole}，请直接输出你的英文开场白：`
-
-  return prompt
+Start the conversation with a natural, friendly English greeting (1-2 sentences).
+Rules:
+- Speak only as ${aiRole}, never as ${userRole}
+- Output only the English sentence, no explanations or Chinese text`
 }
 
 /**
  * 生成继续对话的系统提示词
- * 完全通用，所有参数从外部传入
+ * 对话历史通过 messages 数组传递，此处只定义角色规则
  */
 export function generateContinuePrompt(
   scene: string,
   aiRole: string,
   userRole: string,
   dialogueGoal: string,
-  difficultyLevel: string,
-  conversation: { role: string; content: string }[]
+  difficultyLevel: string
 ): string {
-  const prompt = `【角色设定】
-你是${aiRole}，在${scene}场景中。用户是${userRole}。
+  const difficulty = difficultyMap[difficultyLevel] || difficultyLevel
+  const instruction = difficultyInstructions[difficulty] || difficultyInstructions['Intermediate']
 
-【对话目标】
-${dialogueGoal}
+  return `You are ${aiRole} in a ${scene} scenario. The user is playing ${userRole}.
 
-【难度等级】${difficultyMap[difficultyLevel] || difficultyLevel}
-- Beginner：使用简单句子，基础词汇，避免俚语
-- Intermediate：使用复合句，自然表达，适量习语
-- Advanced：使用复杂句式，地道俚语，隐含意图/幽默
+Goal: ${dialogueGoal}
 
-【对话历史】
-${conversation.map(msg => `${msg.role === 'user' ? userRole : aiRole}: ${msg.content}`).join('\n')}
+Difficulty (${difficulty}): ${instruction}
 
-【任务】
-以${aiRole}的身份，根据对话历史自然回应。保持简短（1-2句话）。
-
-【相关性检查】
-在回应之前，请先判断用户的最后一句话是否与当前对话场景和上下文相关：
-- 如果用户回答与场景无关（如答非所问、说"yes I'm cool"等不相关内容），你需要：
-  1. 友好地引导用户回到对话主题
-  2. 可以重复或重新表述之前的问题/话题
-  3. 不要假装用户回答了正确内容
-- 如果用户回答相关，则正常继续对话
-
-【重要要求】
-1. 你必须始终以${aiRole}的身份说话，不要切换角色
-2. 只返回英文回复，不要包含任何中文
-3. 不要包含思考过程、解释或其他内容
-4. 确保回复符合${aiRole}的身份和对话上下文
-5. 如果用户回答不相关，要自然地将对话引导回正轨
-
-【输出格式示例】
-相关回答的回应：That sounds great! I would love to hear more about it.
-不相关回答的引导：I'm not sure I follow. I was asking about the menu. Would you like to see our specials today?
-
-现在，作为${aiRole}，请直接输出你的英文回应：`
-
-  return prompt
+Rules:
+- Speak only as ${aiRole}, never switch roles
+- Keep responses concise (1-2 sentences)
+- If the user's reply is off-topic, gently redirect: e.g. "I'm not sure I follow. I was asking about [topic]."
+- Output only the English response, no explanations or Chinese text`
 }
 
 /**
@@ -111,21 +77,21 @@ ${conversation.map(msg => `${msg.role === 'user' ? userRole : aiRole}: ${msg.con
  * 用于从场景描述中提取关键信息
  */
 export function generateAnalysisPrompt(sceneDescription: string): string {
-  return `你是一位英语学习助手。请分析以下场景描述并提取：
-1. 场景：对话发生的地点
-2. 角色：对话参与者（作为列表）
-3. 对话目标：对话的主题
+  return `You are an English learning assistant. Analyze the scene description and extract:
+1. scene: where the dialogue takes place
+2. roles: participants (as a list)
+3. dialogueGoal: the topic/purpose of the dialogue
 
-保持分析简洁明了。仅以JSON格式输出这三个部分的内容。
+Output only valid JSON, no other text.
 
-场景描述：
+Scene description:
 ${sceneDescription}
 
-请以JSON格式输出：
+Output format:
 {
-  "scene": "场景名称",
-  "roles": ["角色1", "角色2"],
-  "dialogueGoal": "对话目标描述"
+  "scene": "scene name",
+  "roles": ["role1", "role2"],
+  "dialogueGoal": "dialogue goal description"
 }`
 }
 
@@ -139,9 +105,12 @@ export function validatePromptRoleConsistency(
 ): { isValid: boolean; issues: string[] } {
   const issues: string[] = []
 
-  // 检查提示词中是否包含正确的角色定义
-  const rolePattern = /你是(.+?)，/
-  const match = prompt.match(rolePattern)
+  // 检查提示词中是否包含正确的角色定义（支持中英文格式）
+  const rolePatternEn = /You are (.+?) in/
+  const rolePatternZh = /你是(.+?)，/
+  const matchEn = prompt.match(rolePatternEn)
+  const matchZh = prompt.match(rolePatternZh)
+  const match = matchEn || matchZh
 
   if (match) {
     const detectedRole = match[1].trim()
@@ -152,14 +121,20 @@ export function validatePromptRoleConsistency(
     issues.push('提示词中未找到角色定义')
   }
 
-  // 检查是否包含角色坚持警告
-  if (!prompt.includes('不要扮演') && !prompt.includes('不要切换角色')) {
-    issues.push('提示词缺少角色坚持警告')
+  // 检查是否包含角色坚持规则
+  const hasRoleRule =
+    prompt.includes('never switch roles') ||
+    prompt.includes('Speak only as') ||
+    prompt.includes('不要扮演') ||
+    prompt.includes('不要切换角色')
+
+  if (!hasRoleRule) {
+    issues.push('提示词缺少角色坚持规则')
   }
 
   return {
     isValid: issues.length === 0,
-    issues
+    issues,
   }
 }
 
@@ -175,28 +150,22 @@ export function generateRoleGuidancePrompt(
   aiRoleTraits?: string[],
   typicalPhrases?: string[]
 ): string {
-  const traitsSection = aiRoleTraits && aiRoleTraits.length > 0
-    ? `\n【角色行为特征】\n${aiRoleTraits.map(trait => `- ${trait}`).join('\n')}`
-    : ''
+  const traitsSection =
+    aiRoleTraits && aiRoleTraits.length > 0
+      ? `\nCharacter traits:\n${aiRoleTraits.map((t) => `- ${t}`).join('\n')}`
+      : ''
 
-  const phrasesSection = typicalPhrases && typicalPhrases.length > 0
-    ? `\n【参考表达方式】\n${typicalPhrases.map(phrase => `- "${phrase}"`).join('\n')}`
-    : ''
+  const phrasesSection =
+    typicalPhrases && typicalPhrases.length > 0
+      ? `\nTypical phrases:\n${typicalPhrases.map((p) => `- "${p}"`).join('\n')}`
+      : ''
 
-  return `【角色设定】
-你是${aiRole}，在${scene}场景中。用户是${userRole}。
+  return `You are ${aiRole} in a ${scene} scenario. The user is playing ${userRole}.
 
-【对话目标】
-${dialogueGoal}${traitsSection}${phrasesSection}
+Goal: ${dialogueGoal}${traitsSection}${phrasesSection}
 
-【任务】
-作为${aiRole}，生成一句友好、自然的英文开场白。保持简短（1-2句话）。
-
-【重要要求】
-1. 你必须始终以${aiRole}的身份说话
-2. 直接输出英文回复，不要思考过程
-3. 不要包含任何中文、解释或其他内容
-4. 只返回纯英文句子
-
-现在，作为${aiRole}，请直接输出你的英文开场白：`
+Start the conversation with a natural, friendly English greeting (1-2 sentences).
+Rules:
+- Speak only as ${aiRole}
+- Output only the English sentence, no explanations or Chinese text`
 }
