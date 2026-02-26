@@ -479,7 +479,7 @@ export default function TestAnalysis({ sceneId, testId, conversation, rounds, on
       </div>
 
       {/* 内容区域 */}
-      <div className="px-4 py-6">
+      <div className="px-4 py-6 pb-28">
         <AnimatePresence mode="wait">
           {/* 维度分析 Tab */}
           {activeTab === 'dimensions' && (
