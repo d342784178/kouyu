@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { callLLM, Message } from '@/lib/llm'
 import { generateSpeech } from '../utils/speechGenerator'
+import { generateInitiatePrompt } from '@/lib/prompts/role-play-prompts'
 
 // 定义响应类型
 interface InitiateResponse {
@@ -34,31 +35,10 @@ export async function POST(request: Request) {
     console.log('[对话初始化] 场景:', scene, 'AI角色:', aiRole, '用户角色:', userRole)
     console.log('[对话初始化] 对话目标:', dialogueGoal, '难度等级:', difficultyLevel)
 
-    // 构建系统提示词
-    const systemPrompt = `
-你是${aiRole}，在${scene}场景中。用户是${userRole}。
-你的目标是开始一段关于${dialogueGoal}的自然英语对话。
+    // 使用新的提示词模板生成系统提示词
+    const systemPrompt = generateInitiatePrompt(scene, aiRole, userRole, dialogueGoal, difficultyLevel)
 
-难度等级：${difficultyLevel}
-- Beginner：使用简单句子，基础词汇，避免俚语
-- Intermediate：使用复合句，自然表达，适量习语
-- Advanced：使用复杂句式，地道俚语，隐含意图/幽默
-
-直接生成一句友好、自然的英文开场白，邀请用户回应。保持简短（1-2句话）。
-
-重要要求：
-1. 直接输出英文回复，不要思考过程
-2. 不要包含任何中文、解释或其他内容
-3. 只返回纯英文句子
-4. 确保是完整的英文句子
-
-示例：
-场景：餐厅 | AI：服务员 | 用户：顾客 | 目标：点餐
-Welcome to our restaurant! What can I get for you today?
-
-场景：酒店 | AI：接待员 | 用户：客人 | 目标：办理入住
-Good afternoon! Welcome to our hotel. May I help you with your check-in?
-    `.trim()
+    console.log('[对话初始化] 生成的提示词:\n', systemPrompt)
 
     // 构建消息历史 - GLM API 需要至少一条 user 消息
     const messages: Message[] = [
@@ -99,16 +79,17 @@ Good afternoon! Welcome to our hotel. May I help you with your check-in?
     // 生成语音
     let audioUrl: string | undefined
     console.log('[对话初始化] 生成语音...')
-    
+
     try {
-      // 使用语音生成辅助函数
+      // 使用语音生成辅助函数，传入难度等级以调整语速
       const speechResult = await generateSpeech({
         text: assistantMessage,
-        voice: 'en-US-AriaNeural'
+        voice: 'en-US-AriaNeural',
+        difficultyLevel: difficultyLevel
       })
-      
+
       audioUrl = speechResult.audioUrl
-      console.log('[对话初始化] 语音生成成功')
+      console.log('[对话初始化] 语音生成成功，语速配置:', difficultyLevel)
     } catch (speechError) {
       console.error('[对话初始化] 语音生成失败:', speechError)
     }

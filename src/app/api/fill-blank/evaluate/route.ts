@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { callLLM, Message } from '@/lib/llm'
+import { callLLMForScene, Message } from '@/lib/llm'
 
 // 问答题评测
 export async function POST(request: Request) {
@@ -33,56 +33,24 @@ export async function POST(request: Request) {
         ).join('\n')
       : ''
 
-    // 构建系统提示词
-    const systemPrompt = `
-你是一位专业的英语口语评测专家。请评测用户的问答题回答，判断是否符合题目要求并给出分析。
+    // 构建系统提示词（参考答案放在 system prompt，避免 user 消息中的措辞矛盾）
+    const systemPrompt = `You are an English speaking evaluator. Evaluate whether the user's answer matches the expected expression for the given question.
 
-## 评测标准
-1. **正确性判断**（isCorrect）：
-   - 将用户回答与标准回答列表进行对比，判断是否表达了相同或相近的意思
-   - 考虑同义词、不同表达方式、语法变体等情况
-   - 如果用户回答在意图上与任一标准回答一致，即使措辞不同也应判定为正确
-   - 如果用户回答存在明显语法错误或语义偏差，则判定为错误
+Evaluation criteria:
+1. isCorrect: Compare the user's answer against the expected expressions. Accept synonyms, paraphrases, and grammatical variants that convey the same meaning.
+2. analysis: Write in Chinese. Explain why the answer is correct or incorrect. Be specific and constructive. Do NOT mention "参考答案" or "标准回答".
+3. suggestions: 2-3 actionable improvement tips in Chinese.
 
-2. **分析内容**（analysis）：
-   - 使用中文说明用户回答的质量
-   - 指出用户回答的优点（如词汇使用、语法结构等）
-   - 指出需要改进的地方
-   - 解释为什么判定为正确或错误
-   - **分析中不要提到"参考答案"或"标准回答"等字眼**，只描述回答本身的质量
-
-3. **改进建议**（suggestions）：
-   - 提供2-3条具体、可操作的中文改进建议
-   - 建议应针对用户的具体错误类型（如词汇、语法、表达等）
-   - 建议应帮助用户更好地理解和掌握相关知识点
-
-## 输出要求
-请以JSON格式输出结果，不要包含任何其他文字：
+${referenceAnswersText ? `Expected expressions for this question:\n${referenceAnswersText}\n` : ''}
+Output ONLY valid JSON, no other text:
 {
   "isCorrect": true/false,
-  "analysis": "使用中文撰写的详细分析说明，只描述用户回答本身的质量",
-  "suggestions": ["中文建议1", "中文建议2", "中文建议3"]
-}
+  "analysis": "<Chinese explanation>",
+  "suggestions": ["<tip1>", "<tip2>", "<tip3>"]
+}`.trim()
 
-## 重要提示
-1. isCorrect 必须是布尔值（true/false）
-2. analysis 必须使用中文撰写，要具体、有建设性，解释判定原因
-3. suggestions 数组必须使用中文，包含2-3条实用建议
-4. 考虑英语表达的多样性，不要仅因措辞不同就判定为错误
-5. 如果用户回答使用了正确的同义词或等价表达，应判定为正确
-6. **所有文字输出必须使用中文，除了引用英文单词或句子**
-7. **分析中不要提到"参考答案"、"标准回答"等字眼**
-`.trim()
-
-    // 构建评测内容
-    const evaluationContent = `
-题目：${question}
-${referenceAnswersText ? `可以参考的回答方式：\n${referenceAnswersText}` : ''}
-
-用户的实际回答：${userAnswer}
-
-请评测用户的回答是否符合题目场景要求，并给出分析。
-`.trim()
+    // 构建评测内容（user 消息只含题目和用户回答）
+    const evaluationContent = `Question: ${question}\n\nUser's answer: ${userAnswer}`
 
     // 构建消息历史
     const messages: Message[] = [
@@ -90,8 +58,8 @@ ${referenceAnswersText ? `可以参考的回答方式：\n${referenceAnswersText
       { role: 'user', content: evaluationContent }
     ]
 
-    // 调用GLM API
-    const response = await callLLM(messages, 0.7, 500)
+    // 调用LLM API - 问答题评测使用高质量模型
+    const response = await callLLMForScene('question-evaluation', messages, 0.7, 500)
     const content = response.content
 
     // 处理评测响应

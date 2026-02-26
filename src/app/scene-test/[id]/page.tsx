@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import Loading from '@/components/Loading'
 
 // 定义测试题目类型
 interface Test {
@@ -112,12 +113,11 @@ export default function SceneTestEntry() {
   // 加载状态
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8] flex items-center justify-center">
-        <div className="flex flex-col items-center">
-          <div className="w-10 h-10 border-3 border-[#4F7CF0]/20 border-t-[#4F7CF0] rounded-full animate-spin mb-4"></div>
-          <p className="text-gray-500 text-sm">加载中...</p>
-        </div>
-      </div>
+      <Loading
+        message="正在加载测试题目..."
+        subMessage="请稍候，正在准备您的学习内容"
+        fullScreen
+      />
     )
   }
 

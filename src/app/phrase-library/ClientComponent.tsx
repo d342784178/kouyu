@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
+import { LoadingSpinner } from '@/components/Loading'
 
 // 定义短语类型
 interface Phrase {
@@ -181,7 +182,7 @@ export default function PhraseLibraryClient() {
                   type="text" 
                   id="search-input"
                   placeholder="搜索短语..." 
-                  className="w-full pl-10 pr-4 py-2 bg-gray-50 border-0 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all"
+                  className="w-full pl-10 pr-4 py-2 bg-gray-50 border-0 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                 />
@@ -204,7 +205,7 @@ export default function PhraseLibraryClient() {
             type="text" 
             id="mobile-search-input"
             placeholder="搜索短语..." 
-            className="w-full pl-10 pr-4 py-3 bg-gray-50 border-0 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all"
+            className="w-full pl-10 pr-4 py-3 bg-gray-50 border-0 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
@@ -362,7 +363,7 @@ export default function PhraseLibraryClient() {
                     disabled={isLoading}
                   >
                     {isLoading ? (
-                      <i className="fas fa-spinner fa-spin text-gray-600 text-sm"></i>
+                      <LoadingSpinner size="sm" />
                     ) : (
                       <i className={`fas ${isPlaying ? 'fa-pause' : 'fa-play'} text-gray-600 text-sm`}></i>
                     )}

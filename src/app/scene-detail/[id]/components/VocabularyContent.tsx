@@ -40,6 +40,24 @@ function VolumeIcon({ className }: { className?: string }) {
   );
 }
 
+// 加载动画图标
+function LoadingIcon({ className }: { className?: string }) {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <path d="M21 12a9 9 0 1 1-6.219-8.56" strokeLinecap="round" strokeLinejoin="round">
+        <animateTransform
+          attributeName="transform"
+          type="rotate"
+          from="0 12 12"
+          to="360 12 12"
+          dur="1s"
+          repeatCount="indefinite"
+        />
+      </path>
+    </svg>
+  );
+}
+
 // 停止图标
 function StopIcon({ className }: { className?: string }) {
   return (
@@ -80,6 +98,7 @@ function FilterIcon({ className }: { className?: string }) {
 
 const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => {
   const [playingAudio, setPlayingAudio] = useState<string | null>(null);
+  const [loadingAudio, setLoadingAudio] = useState<string | null>(null);
   const [currentAudioElement, setCurrentAudioElement] = useState<HTMLAudioElement | null>(null);
   const [audioError, setAudioError] = useState<string | null>(null);
   const [selectedDifficulty, setSelectedDifficulty] = useState<string>('all');
@@ -116,13 +135,14 @@ const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => 
         currentAudioElement.currentTime = 0;
         setCurrentAudioElement(null);
         setPlayingAudio(null);
-        
+
         if (playingAudio === fullAudioUrl) {
+          setLoadingAudio(null);
           return;
         }
       }
 
-      setPlayingAudio(fullAudioUrl);
+      setLoadingAudio(fullAudioUrl);
       setAudioError(null);
 
       const audio = new Audio(fullAudioUrl);
@@ -130,6 +150,7 @@ const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => 
       audio.onerror = () => {
         setAudioError('音频加载失败');
         setPlayingAudio(null);
+        setLoadingAudio(null);
         setCurrentAudioElement(null);
         setTimeout(() => setAudioError(null), 3000);
       };
@@ -141,9 +162,12 @@ const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => 
 
       setCurrentAudioElement(audio);
       await audio.play();
+      setPlayingAudio(fullAudioUrl);
+      setLoadingAudio(null);
     } catch {
       setAudioError('音频播放失败');
       setPlayingAudio(null);
+      setLoadingAudio(null);
       setCurrentAudioElement(null);
       setTimeout(() => setAudioError(null), 3000);
     }
@@ -152,6 +176,11 @@ const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => 
   const isPlaying = (audioUrl: string | undefined): boolean => {
     if (!audioUrl || !playingAudio) return false;
     return playingAudio === getAudioUrl(audioUrl);
+  };
+
+  const isLoading = (audioUrl: string | undefined): boolean => {
+    if (!audioUrl || !loadingAudio) return false;
+    return loadingAudio === getAudioUrl(audioUrl);
   };
 
   return (
@@ -273,10 +302,13 @@ const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => 
                     
                     <motion.button
                       whileTap={{ scale: 0.9 }}
-                      className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-[#4F7CF0] hover:border-[#4F7CF0] transition-all shadow-sm hover:shadow-md shrink-0"
+                      disabled={isLoading(vocab.audio_url)}
+                      className="w-10 h-10 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-[#4F7CF0] hover:border-[#4F7CF0] transition-all shadow-sm hover:shadow-md shrink-0 disabled:opacity-70 disabled:cursor-not-allowed"
                       onClick={() => playAudio(vocab.audio_url)}
                     >
-                      {isPlaying(vocab.audio_url) ? (
+                      {isLoading(vocab.audio_url) ? (
+                        <LoadingIcon className="text-[#4F7CF0]" />
+                      ) : isPlaying(vocab.audio_url) ? (
                         <StopIcon className="text-[#4F7CF0] hover:text-white" />
                       ) : (
                         <VolumeIcon className="text-[#4F7CF0] hover:text-white" />
@@ -290,10 +322,13 @@ const VocabularyContent: React.FC<VocabularyContentProps> = ({ vocabulary }) => 
                       {vocab.example_audio_url && (
                         <motion.button
                           whileTap={{ scale: 0.9 }}
-                          className="w-8 h-8 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-[#4F7CF0] hover:border-[#4F7CF0] transition-all shadow-sm shrink-0"
+                          disabled={isLoading(vocab.example_audio_url)}
+                          className="w-8 h-8 bg-white border border-gray-200 rounded-full flex items-center justify-center hover:bg-[#4F7CF0] hover:border-[#4F7CF0] transition-all shadow-sm shrink-0 disabled:opacity-70 disabled:cursor-not-allowed"
                           onClick={() => playAudio(vocab.example_audio_url)}
                         >
-                          {isPlaying(vocab.example_audio_url) ? (
+                          {isLoading(vocab.example_audio_url) ? (
+                            <LoadingIcon className="text-[#4F7CF0] w-3 h-3" />
+                          ) : isPlaying(vocab.example_audio_url) ? (
                             <StopIcon className="text-[#4F7CF0] hover:text-white w-3 h-3" />
                           ) : (
                             <VolumeIcon className="text-[#4F7CF0] hover:text-white w-3 h-3" />

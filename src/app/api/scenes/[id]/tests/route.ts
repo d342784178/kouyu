@@ -2,6 +2,10 @@
 import { NextResponse } from 'next/server'
 import { neon } from '@neondatabase/serverless'
 
+// 强制动态渲染，禁用缓存
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export async function GET(
   request: Request,
   {

@@ -46,6 +46,7 @@ export interface OpenDialogueContent {
     name: string
     description: string
     is_user: boolean
+    suggest: boolean
   }[]
   scenario_context: string
   suggested_opening: string
@@ -61,6 +62,7 @@ export interface OpenTestDialogProps {
   totalTests?: number
   onComplete: () => void
   autoStart?: boolean
+  onStatusChange?: (status: TestStatus) => void
 }
 
 // 子组件共享的 Props 类型
@@ -84,6 +86,7 @@ export interface RoleSelectionViewProps extends ViewProps {
   onSelectDifficulty: (level: DifficultyLevel) => void
   onToggleVoice: () => void
   onConfirm: () => void
+  onClearError?: () => void
 }
 
 export interface InitializingViewProps extends ViewProps {
@@ -106,6 +109,7 @@ export interface ActiveChatViewProps extends ViewProps {
   onSendText: (text: string) => void
   onSubmitEvaluation: () => void
   messagesEndRef: React.RefObject<HTMLDivElement>
+  interimTranscript?: string
 }
 
 export interface CompletedViewProps extends ViewProps {

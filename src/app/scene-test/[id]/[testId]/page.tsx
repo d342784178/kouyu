@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import OpenTestDialog from './OpenTestDialog'
 import LoadingSpinner from './components/LoadingSpinner'
+import { LoadingSpinner as SimpleLoadingSpinner } from '@/components/Loading'
 import {
   ArrowLeft,
   Mic,
@@ -41,6 +42,7 @@ interface Role {
   name: string
   description: string
   is_user: boolean
+  suggest: boolean
 }
 
 // 开放式对话内容
@@ -140,6 +142,7 @@ export default function SceneTest() {
   const [recognition, setRecognition] = useState<any>(null)
   const [answers, setAnswers] = useState<Record<string, string>>({})
   const [testResults, setTestResults] = useState<Record<string, TestResult>>({})
+  const [openTestStatus, setOpenTestStatus] = useState<string>('idle')
   const inputRef = useRef<HTMLTextAreaElement>(null)
 
   const getSceneById = async (sceneId: string): Promise<Scene> => {
@@ -434,9 +437,19 @@ export default function SceneTest() {
   // 获取当前题目内容
   const currentContent = currentTest.content
   
+  // 角色选择状态使用固定高度，对话状态使用动态高度
+  const isRoleSelection = isOpenTest && openTestStatus === 'role-selection'
+  const isActiveChat = isOpenTest && openTestStatus === 'active'
+
   return (
     <div className={`min-h-screen bg-[#F5F6FA] ${isOpenTest ? 'pb-0' : 'pb-6'}`}>
-      <div className={`max-w-[430px] mx-auto ${isOpenTest ? 'h-screen flex flex-col' : 'pt-6'}`}>
+      <div className={`max-w-[430px] mx-auto ${
+        isActiveChat 
+          ? 'h-[calc(100vh-80px)] flex flex-col' 
+          : isRoleSelection
+            ? 'h-[calc(100vh-80px)] overflow-hidden'
+            : 'pt-6'
+      }`}>
         {/* Back + Progress */}
         <div className={`flex items-center gap-3 mb-5 ${isOpenTest ? 'px-4 pt-6 shrink-0' : ''}`}>
           <button
@@ -447,7 +460,7 @@ export default function SceneTest() {
                 router.push(`/scene-detail/${id}`)
               }
             }}
-            className="h-8 w-8 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100"
+            className="h-11 w-11 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100"
           >
             <ArrowLeft className="h-4 w-4 text-gray-500" />
           </button>
@@ -477,8 +490,12 @@ export default function SceneTest() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -30 }}
             transition={{ duration: 0.3 }}
-            className={`bg-white rounded-2xl shadow-sm border border-gray-100 mb-4 overflow-hidden ${
-              isOpenTest ? 'p-0 flex-1 flex flex-col min-h-0 mx-4' : 'p-5'
+            className={`bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden ${
+              isActiveChat 
+                ? 'p-0 flex-1 flex flex-col mx-4 min-h-0' 
+                : isRoleSelection
+                  ? 'p-0 mx-4 flex-1 flex flex-col min-h-0'
+                  : 'p-5 mb-4'
             }`}
           >
             {!isOpenTest && (
@@ -586,6 +603,7 @@ export default function SceneTest() {
                 totalTests={tests.length}
                 onComplete={handleOpenTestComplete}
                 autoStart={true}
+                onStatusChange={setOpenTestStatus}
               />
             )}
           </motion.div>
@@ -684,7 +702,7 @@ export default function SceneTest() {
               exit={{ scale: 0.85, opacity: 0 }}
               className="bg-white rounded-2xl p-8 text-center mx-6 shadow-xl"
             >
-              <Loader2 className="h-12 w-12 animate-spin text-[#4F7CF0] mx-auto mb-4" />
+              <SimpleLoadingSpinner size="lg" className="mx-auto mb-4" />
               <h3 className="font-semibold text-gray-800 mb-1">AI 正在评测...</h3>
               <p className="text-sm text-gray-400">请稍候片刻</p>
             </motion.div>

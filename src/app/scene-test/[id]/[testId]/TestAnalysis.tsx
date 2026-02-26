@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
+import Loading from '@/components/Loading'
 
 // 定义消息类型
 interface Message {
@@ -67,12 +68,16 @@ export default function TestAnalysis({ sceneId, testId, conversation, rounds, on
   // 使用 ref 来跟踪播放状态，避免闭包问题
   const isPlayingRef = useRef(false)
   const stopPlaybackRef = useRef(false)
+  // 防止重复调用分析 API（React StrictMode 双调用 / 组件重渲染）
+  const hasFetchedRef = useRef(false)
 
   useEffect(() => {
     isPlayingRef.current = isPlaying
   }, [isPlaying])
 
   useEffect(() => {
+    if (hasFetchedRef.current) return
+    hasFetchedRef.current = true
     fetchAnalysis()
   }, [])
 
@@ -220,13 +225,105 @@ export default function TestAnalysis({ sceneId, testId, conversation, rounds, on
     }
   }
 
-  // 获取评分等级
+  // 获取评分等级 - 托福标准
   const getScoreLevel = (score: number) => {
-    if (score >= 90) return { label: '优秀', color: 'text-emerald-500', bg: 'bg-emerald-500' }
-    if (score >= 80) return { label: '良好', color: 'text-blue-500', bg: 'bg-blue-500' }
-    if (score >= 70) return { label: '中等', color: 'text-amber-500', bg: 'bg-amber-500' }
-    if (score >= 60) return { label: '及格', color: 'text-orange-500', bg: 'bg-orange-500' }
-    return { label: '需提升', color: 'text-rose-500', bg: 'bg-rose-500' }
+    // Level 4: 优秀 (90-100分) - 接近母语者水平
+    if (score >= 95) return { 
+      label: '卓越', 
+      level: 'Level 4',
+      toefl: '26-30',
+      color: 'text-emerald-600', 
+      bg: 'bg-emerald-600',
+      description: '接近母语者水平'
+    }
+    if (score >= 90) return { 
+      label: '优秀', 
+      level: 'Level 4',
+      toefl: '26-30',
+      color: 'text-emerald-500', 
+      bg: 'bg-emerald-500',
+      description: '表达清晰流畅，语言使用准确多样'
+    }
+    
+    // Level 3: 良好 (75-89分)
+    if (score >= 85) return { 
+      label: '良好+', 
+      level: 'Level 3+',
+      toefl: '23-25',
+      color: 'text-blue-500', 
+      bg: 'bg-blue-500',
+      description: '表达基本清晰，有小瑕疵但不影响理解'
+    }
+    if (score >= 80) return { 
+      label: '良好', 
+      level: 'Level 3',
+      toefl: '20-22',
+      color: 'text-blue-500', 
+      bg: 'bg-blue-500',
+      description: '表达基本清晰，内容较完整'
+    }
+    if (score >= 75) return { 
+      label: '良好-', 
+      level: 'Level 3-',
+      toefl: '20-22',
+      color: 'text-blue-400', 
+      bg: 'bg-blue-400',
+      description: '基本能表达，但需要一定引导'
+    }
+    
+    // Level 2: 中等 (60-74分)
+    if (score >= 70) return { 
+      label: '中等+', 
+      level: 'Level 2+',
+      toefl: '17-19',
+      color: 'text-amber-500', 
+      bg: 'bg-amber-500',
+      description: '表达有限，错误影响部分理解'
+    }
+    if (score >= 65) return { 
+      label: '中等', 
+      level: 'Level 2',
+      toefl: '17-19',
+      color: 'text-amber-500', 
+      bg: 'bg-amber-500',
+      description: '表达不够清晰，内容不够完整'
+    }
+    if (score >= 60) return { 
+      label: '中等-', 
+      level: 'Level 2-',
+      toefl: '14-16',
+      color: 'text-amber-600', 
+      bg: 'bg-amber-600',
+      description: '表达困难，需要大量引导'
+    }
+    
+    // Level 1: 薄弱 (40-59分)
+    if (score >= 50) return { 
+      label: '薄弱', 
+      level: 'Level 1',
+      toefl: '10-13',
+      color: 'text-orange-500', 
+      bg: 'bg-orange-500',
+      description: '表达困难，错误严重影响理解'
+    }
+    if (score >= 40) return { 
+      label: '薄弱-', 
+      level: 'Level 1-',
+      toefl: '10-13',
+      color: 'text-orange-600', 
+      bg: 'bg-orange-600',
+      description: '表达极度困难，内容严重缺失'
+    }
+    
+    // Level 0: 基础 (0-39分)
+    return { 
+      label: '基础', 
+      level: 'Level 0',
+      toefl: '0-9',
+      color: 'text-rose-500', 
+      bg: 'bg-rose-500',
+      description: '几乎无法表达，无法参与对话'
+    }
   }
 
   // 获取维度数据
@@ -285,23 +382,12 @@ export default function TestAnalysis({ sceneId, testId, conversation, rounds, on
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-        <div className="text-center">
-          <motion.div
-            className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 180, 360],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-          <p className="text-slate-600 font-medium">正在生成分析报告...</p>
-        </div>
-      </div>
+      <Loading
+        message="正在生成分析报告..."
+        subMessage="AI 正在分析您的对话表现，请稍候"
+        fullScreen
+        variant="purple"
+      />
     )
   }
 
@@ -338,7 +424,7 @@ export default function TestAnalysis({ sceneId, testId, conversation, rounds, on
   const overallLevel = getScoreLevel(analysis.overallScore)
 
   return (
-    <div className="flex-1 overflow-y-auto bg-gradient-to-br from-slate-50 via-white to-slate-100">
+    <div className="flex-1 bg-gradient-to-br from-slate-50 via-white to-slate-100">
       {/* 顶部总体评分卡片 */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 opacity-90" />
@@ -393,7 +479,7 @@ export default function TestAnalysis({ sceneId, testId, conversation, rounds, on
       </div>
 
       {/* 内容区域 */}
-      <div className="px-4 py-6">
+      <div className="px-4 py-6 pb-28">
         <AnimatePresence mode="wait">
           {/* 维度分析 Tab */}
           {activeTab === 'dimensions' && (
@@ -742,7 +828,7 @@ export default function TestAnalysis({ sceneId, testId, conversation, rounds, on
       </div>
 
       {/* 底部按钮 */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 p-4 safe-area-bottom">
+      <div className="fixed bottom-[64px] left-0 right-0 bg-white border-t border-slate-200 p-4 safe-area-bottom">
         <button
           onClick={onComplete}
           className="w-full py-3.5 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl font-semibold shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 transition-all active:scale-[0.98]"

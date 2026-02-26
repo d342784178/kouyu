@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { callLLM, Message } from '@/lib/llm'
+import { callLLMForScene, Message } from '@/lib/llm'
 import { db } from '@/lib/db'
 import { sceneTests, scenes } from '@/lib/db/schema'
 import { eq } from 'drizzle-orm'
@@ -167,7 +167,8 @@ ${sceneName ? `- 参考场景名称："${sceneName}"，请结合这个场景名�
   ]
 
   try {
-    const response = await callLLM(messages, 0.7, 500)
+    // 题目分析使用高质量模型
+    const response = await callLLMForScene('scene-analysis', messages, 0.7, 500)
     const content = response.content?.trim()
     
     if (!content) {

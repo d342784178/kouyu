@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { useAudio } from '@/hooks/useAudio'
+import Loading, { LoadingSpinner } from '@/components/Loading'
 
 // 定义短语类型
 interface PhraseExample {
@@ -216,15 +217,11 @@ export default function PhraseDetailClient() {
   // 如果加载中，显示加载状态
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        <div className="text-center">
-          <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 animate-spin">
-            <i className="fas fa-spinner text-gray-400 text-2xl"></i>
-          </div>
-          <h3 className="text-lg font-medium text-text-primary mb-2">加载中...</h3>
-          <p className="text-sm text-text-secondary">正在获取短语详情，请稍候</p>
-        </div>
-      </div>
+      <Loading
+        message="加载中..."
+        subMessage="正在获取短语详情，请稍候"
+        fullScreen
+      />
     )
   }
   
@@ -261,7 +258,7 @@ export default function PhraseDetailClient() {
       <header id="top-header" className="bg-white px-6 py-4 shadow-sm">
         <div id="header-content" className="flex items-center justify-between">
           {/* 返回按钮 */}
-          <button id="back-btn" className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center" onClick={() => router.back()}>
+          <button id="back-btn" className="w-11 h-11 rounded-full bg-gray-50 flex items-center justify-center" onClick={() => router.back()}>
             <i className="fas fa-arrow-left text-gray-600 text-sm"></i>
           </button>
           
@@ -272,12 +269,12 @@ export default function PhraseDetailClient() {
           <div id="header-actions" className="flex items-center space-x-2">
             <button 
               id="favorite-btn" 
-              className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center"
+              className="w-11 h-11 rounded-full bg-gray-50 flex items-center justify-center"
               onClick={() => setIsFavorite(!isFavorite)}
             >
               <i className={`${isFavorite ? 'fas fa-heart text-danger' : 'far fa-heart text-gray-600'} text-sm`}></i>
             </button>
-            <button id="share-btn" className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center">
+            <button id="share-btn" className="w-11 h-11 rounded-full bg-gray-50 flex items-center justify-center">
               <i className="fas fa-share text-gray-600 text-sm"></i>
             </button>
           </div>
@@ -357,18 +354,18 @@ export default function PhraseDetailClient() {
                       disabled={isAudioLoading}
                     >
                       {isAudioLoading ? (
-                        <i className="fas fa-spinner fa-spin text-white text-2xl"></i>
+                        <LoadingSpinner size="sm" variant="primary" className="border-white/30 border-t-white" />
                       ) : (
                         <i className={`fa-solid text-white text-2xl ${isPlaying ? 'fa-pause' : 'fa-play'} ml-1`}></i>
                       )}
                     </button>
-                    
+
                     {/* 循环开关 */}
                     <button
                       id="loop-btn"
                       className={`w-12 h-12 rounded-full flex items-center justify-center transition-all border-2 ${
-                        isLooping 
-                          ? 'bg-primary border-primary text-white' 
+                        isLooping
+                          ? 'bg-primary border-primary text-white'
                           : 'bg-white border-gray-200 text-gray-400 hover:border-gray-300'
                       }`}
                       onClick={() => {
@@ -379,7 +376,7 @@ export default function PhraseDetailClient() {
                       }}
                       title={isLooping ? '关闭循环' : '循环播放'}
                     >
-                      <i className={`fas fa-repeat ${isLooping ? 'animate-spin' : ''}`} style={{ animationDuration: '3s' }}></i>
+                      <i className={`fas fa-repeat ${isLooping ? 'fa-spin' : ''}`} style={{ animationDuration: '3s' }}></i>
                     </button>
                   </div>
                   
@@ -440,7 +437,7 @@ export default function PhraseDetailClient() {
                         disabled={isAudioLoading}
                       >
                         {isAudioLoading ? (
-                          <i className="fas fa-spinner fa-spin text-white text-xl"></i>
+                          <LoadingSpinner size="sm" variant="primary" className="border-white/30 border-t-white" />
                         ) : (
                           <i className={`fa-solid text-white text-xl ${isPlaying ? 'fa-pause' : 'fa-play'} ml-0.5`}></i>
                         )}
@@ -682,7 +679,7 @@ export default function PhraseDetailClient() {
                     }`}
                   >
                     {exampleLoadingStates[example.id] ? (
-                      <i className="fas fa-spinner fa-spin text-gray-600 text-sm"></i>
+                      <LoadingSpinner size="sm" />
                     ) : (
                       <i className={`fas ${examplePlayStates[example.id] ? 'fa-pause' : 'fa-play'} text-gray-600 text-sm`}></i>
                     )}

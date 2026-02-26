@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { LoadingSpinner } from '@/components/Loading'
 
 // 定义场景类型
 interface Scene {
@@ -286,7 +287,7 @@ export default function SceneList() {
             placeholder="搜索场景..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-white rounded-2xl pl-12 pr-4 py-3.5 text-sm text-gray-700 placeholder:text-gray-400 outline-none shadow-sm border border-gray-100 focus:border-[#4F7CF0] focus:ring-2 focus:ring-[#4F7CF0]/10 transition-all"
+            className="w-full bg-white rounded-2xl pl-12 pr-4 py-3.5 text-base text-gray-700 placeholder:text-gray-400 outline-none shadow-sm border border-gray-100 focus:border-[#4F7CF0] focus:ring-2 focus:ring-[#4F7CF0]/10 transition-all"
           />
         </motion.div>
 
@@ -308,7 +309,7 @@ export default function SceneList() {
                 aria-pressed={isActive}
                 onClick={() => setSelectedCategory(category)}
                 whileTap={{ scale: 0.95 }}
-                className={`shrink-0 flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                className={`shrink-0 flex items-center gap-2 px-4 py-2.5 min-h-[44px] rounded-xl text-sm font-medium transition-all ${
                   isActive
                     ? 'text-white shadow-md'
                     : 'bg-white text-gray-600 border border-gray-100 hover:border-gray-200'
@@ -432,8 +433,8 @@ export default function SceneList() {
             <div className="py-8">
               {isLoadingMore && (
                 <div className="flex flex-col items-center justify-center">
-                  <div className="w-10 h-10 border-3 border-[#4F7CF0]/20 border-t-[#4F7CF0] rounded-full animate-spin mb-3"></div>
-                  <p className="text-xs text-gray-400">加载更多...</p>
+                  <LoadingSpinner size="md" />
+                  <p className="text-xs text-gray-400 mt-3">加载更多...</p>
                 </div>
               )}
               {hasMore && !isLoadingMore && (

@@ -124,6 +124,7 @@ interface Role {
   name: string;
   description: string;
   is_user: boolean;
+  suggest: boolean;
 }
 
 interface OpenDialogue {
@@ -444,6 +445,9 @@ ${dialogueText}
    - name: 角色名（中文，如"顾客"、"服务员"、"医生"、"患者"等）
    - description: 角色描述（中文）
    - is_user: 用户是否可扮演（都设为true）
+   - suggest: 是否推荐作为默认角色（boolean）
+     * 对于常见日常角色（如"顾客"、"患者"、"客户"、"学生"、"求职者"等用户视角的角色），设置为 true
+     * 对于服务提供方角色（如"店员"、"服务员"、"医生"、"护士"、"老师"等），设置为 false
 4. scenario_context: 对话发生的背景（中文）
 5. suggested_opening: 建议的开场白（英文）
 6. analysis: 对话要点和注意事项（中文）
@@ -457,7 +461,8 @@ ${dialogueText}
       {
         "name": "中文角色名",
         "description": "角色描述（中文）",
-        "is_user": true
+        "is_user": true,
+        "suggest": true
       }
     ],
     "scenario_context": "对话背景（中文）",
@@ -472,6 +477,7 @@ ${dialogueText}
 - roles[].name 必须是中文（如"顾客"、"服务员"）
 - roles[].description 必须是中文
 - 所有角色都设置 is_user 为 true，让用户可以选择扮演任意角色
+- suggest 字段必须设置，用于前端自动选择默认角色
 - 确保JSON格式完整，不要截断`;
 }
 
