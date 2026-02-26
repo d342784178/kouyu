@@ -199,7 +199,7 @@ export default function Home() {
               placeholder="搜索短语..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-1 bg-transparent outline-none text-sm text-gray-600 placeholder:text-gray-400 ml-2"
+              className="flex-1 bg-transparent outline-none text-base text-gray-600 placeholder:text-gray-400 ml-2"
             />
           </div>
           <Link href="/profile">
@@ -221,7 +221,7 @@ export default function Home() {
         >
           <div className="flex items-center justify-between mb-4">
             <span className="font-semibold text-gray-800">今日学习</span>
-            <Link href="/profile" className="text-sm text-[#4F7CF0] flex items-center gap-0.5 hover:opacity-80 transition-opacity">
+            <Link href="/profile" className="text-sm text-[#4F7CF0] flex items-center gap-0.5 hover:opacity-80 transition-opacity py-2 px-1 -mr-1">
               查看全部
               <ChevronRightIcon />
             </Link>
@@ -280,7 +280,7 @@ export default function Home() {
               <Link href="/phrase-library">
                 <motion.button 
                   whileTap={{ scale: 0.95 }}
-                  className="text-sm font-medium text-[#FF7043] bg-white rounded-xl px-3 py-1.5 shadow-sm border border-[#FFE4D9] hover:bg-gray-50 transition-colors"
+                  className="text-sm font-medium text-[#FF7043] bg-white rounded-xl px-3 py-2.5 min-h-[44px] shadow-sm border border-[#FFE4D9] hover:bg-gray-50 transition-colors"
                 >
                   去复习
                 </motion.button>
@@ -311,7 +311,7 @@ export default function Home() {
         <div className="mb-6">
           <div className="flex items-center justify-between mb-3">
             <span className="font-semibold text-gray-800">推荐场景</span>
-            <Link href="/scene-list" className="text-sm text-[#4F7CF0] flex items-center gap-0.5 hover:opacity-80 transition-opacity">
+            <Link href="/scene-list" className="text-sm text-[#4F7CF0] flex items-center gap-0.5 hover:opacity-80 transition-opacity py-2 px-1 -mr-1">
               更多
               <ChevronRightIcon />
             </Link>

@@ -460,7 +460,7 @@ export default function SceneTest() {
                 router.push(`/scene-detail/${id}`)
               }
             }}
-            className="h-8 w-8 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100"
+            className="h-11 w-11 rounded-full bg-white flex items-center justify-center shadow-sm border border-gray-100"
           >
             <ArrowLeft className="h-4 w-4 text-gray-500" />
           </button>

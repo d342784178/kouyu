@@ -258,7 +258,7 @@ export default function PhraseDetailClient() {
       <header id="top-header" className="bg-white px-6 py-4 shadow-sm">
         <div id="header-content" className="flex items-center justify-between">
           {/* 返回按钮 */}
-          <button id="back-btn" className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center" onClick={() => router.back()}>
+          <button id="back-btn" className="w-11 h-11 rounded-full bg-gray-50 flex items-center justify-center" onClick={() => router.back()}>
             <i className="fas fa-arrow-left text-gray-600 text-sm"></i>
           </button>
           
@@ -269,12 +269,12 @@ export default function PhraseDetailClient() {
           <div id="header-actions" className="flex items-center space-x-2">
             <button 
               id="favorite-btn" 
-              className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center"
+              className="w-11 h-11 rounded-full bg-gray-50 flex items-center justify-center"
               onClick={() => setIsFavorite(!isFavorite)}
             >
               <i className={`${isFavorite ? 'fas fa-heart text-danger' : 'far fa-heart text-gray-600'} text-sm`}></i>
             </button>
-            <button id="share-btn" className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center">
+            <button id="share-btn" className="w-11 h-11 rounded-full bg-gray-50 flex items-center justify-center">
               <i className="fas fa-share text-gray-600 text-sm"></i>
             </button>
           </div>

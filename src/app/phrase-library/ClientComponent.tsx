@@ -182,7 +182,7 @@ export default function PhraseLibraryClient() {
                   type="text" 
                   id="search-input"
                   placeholder="搜索短语..." 
-                  className="w-full pl-10 pr-4 py-2 bg-gray-50 border-0 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all"
+                  className="w-full pl-10 pr-4 py-2 bg-gray-50 border-0 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                 />
@@ -205,7 +205,7 @@ export default function PhraseLibraryClient() {
             type="text" 
             id="mobile-search-input"
             placeholder="搜索短语..." 
-            className="w-full pl-10 pr-4 py-3 bg-gray-50 border-0 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all"
+            className="w-full pl-10 pr-4 py-3 bg-gray-50 border-0 rounded-xl text-base focus:outline-none focus:ring-2 focus:ring-primary focus:bg-white transition-all"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
