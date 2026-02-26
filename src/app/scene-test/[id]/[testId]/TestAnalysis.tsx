@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
+import Loading from '@/components/Loading'
 
 // 定义消息类型
 interface Message {
@@ -377,23 +378,12 @@ export default function TestAnalysis({ sceneId, testId, conversation, rounds, on
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
-        <div className="text-center">
-          <motion.div
-            className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-blue-500 to-purple-500"
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 180, 360],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
-          <p className="text-slate-600 font-medium">正在生成分析报告...</p>
-        </div>
-      </div>
+      <Loading
+        message="正在生成分析报告..."
+        subMessage="AI 正在分析您的对话表现，请稍候"
+        fullScreen
+        variant="purple"
+      />
     )
   }
 
