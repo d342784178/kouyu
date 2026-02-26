@@ -824,7 +824,7 @@ export default function TestAnalysis({ sceneId, testId, conversation, rounds, on
       </div>
 
       {/* 底部按钮 */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 p-4 safe-area-bottom">
+      <div className="fixed bottom-[64px] left-0 right-0 bg-white border-t border-slate-200 p-4 safe-area-bottom">
         <button
           onClick={onComplete}
           className="w-full py-3.5 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl font-semibold shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 transition-all active:scale-[0.98]"
