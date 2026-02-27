@@ -7,6 +7,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import OpenTestDialog from './OpenTestDialog'
 import LoadingSpinner from './components/LoadingSpinner'
 import { LoadingSpinner as SimpleLoadingSpinner } from '@/components/Loading'
+import FillBlankQuestion from '@/app/scene-test/components/FillBlankQuestion'
+import GuidedRoleplayQuestion from '@/app/scene-test/components/GuidedRoleplayQuestion'
+import VocabActivationQuestion from '@/app/scene-test/components/VocabActivationQuestion'
+import type { FillBlankContent, GuidedRoleplayContent, VocabActivationContent } from '@/types'
 import {
   ArrowLeft,
   Mic,
@@ -59,9 +63,9 @@ interface OpenDialogueContent {
 interface Test {
   id: string
   sceneId: string
-  type: 'choice' | 'qa' | 'open_dialogue'
+  type: 'choice' | 'qa' | 'open_dialogue' | 'fill_blank' | 'guided_roleplay' | 'vocab_activation'
   order: number
-  content: ChoiceContent | QAContent | OpenDialogueContent
+  content: ChoiceContent | QAContent | OpenDialogueContent | FillBlankContent | GuidedRoleplayContent | VocabActivationContent
   createdAt: string
   updatedAt: string
 }
@@ -105,6 +109,21 @@ function isOpenDialogueContent(content: any): content is OpenDialogueContent {
   return content && 'topic' in content && 'roles' in content
 }
 
+// 填空题内容类型守卫
+function isFillBlankContent(content: any): content is FillBlankContent {
+  return content && 'template' in content && 'scenarioHint' in content
+}
+
+// 情景再现内容类型守卫
+function isGuidedRoleplayContent(content: any): content is GuidedRoleplayContent {
+  return content && 'situationDescription' in content && 'dialogueGoal' in content
+}
+
+// 词汇激活内容类型守卫
+function isVocabActivationContent(content: any): content is VocabActivationContent {
+  return content && 'chineseHint' in content && 'targetWord' in content
+}
+
 const getQuestionTypeLabel = (type: string) => {
   switch (type) {
     case 'choice':
@@ -113,6 +132,12 @@ const getQuestionTypeLabel = (type: string) => {
       return { label: '问答题', color: 'bg-[#F0FFF4] text-[#34D399]' }
     case 'open_dialogue':
       return { label: '开放题', color: 'bg-[#FFF0F5] text-[#EC4899]' }
+    case 'fill_blank':
+      return { label: '填空题', color: 'bg-[#FFF7ED] text-[#F59E0B]' }
+    case 'guided_roleplay':
+      return { label: '情景再现', color: 'bg-[#F5F3FF] text-[#7C3AED]' }
+    case 'vocab_activation':
+      return { label: '词汇激活', color: 'bg-[#ECFDF5] text-[#059669]' }
     default:
       return { label: '未知题型', color: 'bg-gray-50 text-gray-500' }
   }
@@ -283,7 +308,27 @@ export default function SceneTest() {
   // 使用 localStorage 缓存避免重复调用
   const isFetching = useRef(false)
 
-  // 获取场景数据和测试列表
+  // 获取场景数据和测试列表（可强制刷新缓存）
+  const fetchSceneAndTestsFromServer = async (sceneId: string) => {
+    if (isFetching.current) return
+    try {
+      isFetching.current = true
+      setIsLoading(true)
+      setNotFound(false)
+      const sceneData = await getSceneById(sceneId)
+      const testsData = await getSceneTests(sceneId)
+      const cacheData = { scene: sceneData, tests: testsData }
+      localStorage.setItem(`scene_${sceneId}`, JSON.stringify(cacheData))
+      setScene(sceneData)
+      setTests(testsData)
+    } catch (error) {
+      setNotFound(true)
+      setIsLoading(false)
+    } finally {
+      isFetching.current = false
+    }
+  }
+
   useEffect(() => {
     const fetchSceneAndTests = async () => {
       if (!id || isFetching.current) return
@@ -291,7 +336,6 @@ export default function SceneTest() {
       // 检查 localStorage 缓存
       const cachedData = localStorage.getItem(`scene_${id}`)
       if (cachedData) {
-        console.log('Using localStorage cached data for id:', id)
         const { scene, tests } = JSON.parse(cachedData)
         setScene(scene)
         setTests(tests)
@@ -299,27 +343,7 @@ export default function SceneTest() {
         return
       }
       
-      try {
-        isFetching.current = true
-        setIsLoading(true)
-        setNotFound(false)
-        
-        console.log('Fetching scene and tests for id:', id)
-        const sceneData = await getSceneById(id)
-        const testsData = await getSceneTests(id)
-        
-        // 存入 localStorage 缓存
-        const cacheData = { scene: sceneData, tests: testsData }
-        localStorage.setItem(`scene_${id}`, JSON.stringify(cacheData))
-        
-        setScene(sceneData)
-        setTests(testsData)
-      } catch (error) {
-        setNotFound(true)
-        setIsLoading(false)
-      } finally {
-        isFetching.current = false
-      }
+      await fetchSceneAndTestsFromServer(id)
     }
     
     fetchSceneAndTests()
@@ -342,8 +366,17 @@ export default function SceneTest() {
     
     resetAnswerState()
     
+    // 先按 ID 精确匹配，再按 order 数字匹配（兼容直接用 order 值访问的情况）
+    const orderNum = parseInt(testId, 10)
     const currentTestData = tests.find(test => test.id === testId)
+      || (!isNaN(orderNum) ? tests.find(test => test.order === orderNum) : null)
+
     if (currentTestData) {
+      // 如果是通过 order 匹配到的，重定向到正确的 ID URL
+      if (currentTestData.id !== testId) {
+        router.replace(`/scene-test/${id}/${currentTestData.id}`)
+        return
+      }
       setCurrentTest(currentTestData)
       const index = tests.findIndex(test => test.id === testId)
       setCurrentIndex(index)
@@ -354,8 +387,13 @@ export default function SceneTest() {
       setNotFound(false)
       setIsLoading(false)
     } else {
-      setNotFound(true)
-      setIsLoading(false)
+      // testId 在当前列表中找不到，且已有完整数据，跳转到第一题
+      if (tests.length > 0) {
+        router.replace(`/scene-test/${id}/${tests[0].id}`)
+      } else {
+        setNotFound(true)
+        setIsLoading(false)
+      }
     }
   }, [testId, tests, scene])
 
@@ -504,10 +542,13 @@ export default function SceneTest() {
                   {questionType.label}
                 </span>
 
-                <h3 className="text-gray-800 mt-4 mb-5 leading-relaxed">
-                  {isChoiceContent(currentContent) && currentContent.question}
-                  {isQAContent(currentContent) && currentContent.question}
-                </h3>
+                {/* 选择题和问答题展示题目文字，填空题题目由组件内部渲染 */}
+                {(isChoiceContent(currentContent) || isQAContent(currentContent)) && (
+                  <h3 className="text-gray-800 mt-4 mb-5 leading-relaxed">
+                    {isChoiceContent(currentContent) && currentContent.question}
+                    {isQAContent(currentContent) && currentContent.question}
+                  </h3>
+                )}
               </>
             )}
 
@@ -606,12 +647,92 @@ export default function SceneTest() {
                 onStatusChange={setOpenTestStatus}
               />
             )}
+
+            {/* Fill Blank */}
+            {currentTest.type === 'fill_blank' && (
+              isFillBlankContent(currentContent) ? (
+                <FillBlankQuestion
+                  content={currentContent}
+                  disabled={hasResult}
+                  onResult={(fillResult) => {
+                    // 将填空题评测结果存入 testResults，格式与现有 TestResult 一致
+                    const result: TestResult = {
+                      isCorrect: fillResult.isCorrect,
+                      score: fillResult.isCorrect ? 100 : 0,
+                      analysis: fillResult.semanticAnalysis,
+                      suggestions: fillResult.feedback ? [fillResult.feedback] : [],
+                      userAnswer: fillResult.userAnswers.join(', '),
+                      correctAnswer: fillResult.referenceAnswer,
+                    }
+                    setTestResults({ ...testResults, [currentTest.id]: result })
+                    setIsAnswered(true)
+                  }}
+                />
+              ) : (
+                // content 格式异常时展示降级提示
+                <div className="py-8 text-center text-sm text-gray-400">题目加载失败，请刷新重试</div>
+              )
+            )}
+
+            {/* Guided Roleplay（情景再现） */}
+            {currentTest.type === 'guided_roleplay' && (
+              isGuidedRoleplayContent(currentContent) ? (
+                <GuidedRoleplayQuestion
+                  content={currentContent}
+                  disabled={hasResult}
+                  onResult={(roleplayResult) => {
+                    // 意图达成度 ≥ 60 视为通过
+                    const isCorrect = roleplayResult.intentScore >= 60
+                    const result: TestResult = {
+                      isCorrect,
+                      score: roleplayResult.intentScore,
+                      analysis: roleplayResult.naturalness,
+                      suggestions: roleplayResult.suggestions,
+                      userAnswer: roleplayResult.userAnswer,
+                      correctAnswer: roleplayResult.referenceExpression,
+                    }
+                    setTestResults({ ...testResults, [currentTest.id]: result })
+                    setIsAnswered(true)
+                  }}
+                />
+              ) : (
+                <div className="py-8 text-center text-sm text-gray-400">题目加载失败，请刷新重试</div>
+              )
+            )}
+
+            {/* Vocab Activation（词汇激活） */}
+            {currentTest.type === 'vocab_activation' && (
+              isVocabActivationContent(currentContent) ? (
+                <VocabActivationQuestion
+                  content={currentContent}
+                  disabled={hasResult}
+                  onResult={(vocabResult) => {
+                    const result: TestResult = {
+                      isCorrect: vocabResult.isCorrect,
+                      score: vocabResult.isCorrect ? 100 : vocabResult.isClose ? 50 : 0,
+                      analysis: vocabResult.isCorrect
+                        ? '回答正确！'
+                        : vocabResult.isClose
+                          ? `接近正确答案，正确答案是 "${vocabResult.targetWord}"`
+                          : `正确答案是 "${vocabResult.targetWord}"`,
+                      suggestions: vocabResult.isClose ? ['注意拼写细节'] : [],
+                      userAnswer: vocabResult.userAnswer,
+                      correctAnswer: vocabResult.targetWord,
+                    }
+                    setTestResults({ ...testResults, [currentTest.id]: result })
+                    setIsAnswered(true)
+                  }}
+                />
+              ) : (
+                <div className="py-8 text-center text-sm text-gray-400">题目加载失败，请刷新重试</div>
+              )
+            )}
           </motion.div>
         </AnimatePresence>
 
-        {/* Result Card */}
+        {/* Result Card（fill_blank / guided_roleplay / vocab_activation 结果由组件内部展示，此处跳过） */}
         <AnimatePresence>
-          {hasResult && currentTest.type !== 'open_dialogue' && (
+          {hasResult && currentTest.type !== 'open_dialogue' && currentTest.type !== 'fill_blank' && currentTest.type !== 'guided_roleplay' && currentTest.type !== 'vocab_activation' && (
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -674,7 +795,7 @@ export default function SceneTest() {
                 提交答案
               </button>
             )}
-            {/* 已答题显示下一题按钮 */}
+            {/* 已答题显示下一题按钮（fill_blank 由组件内部触发 hasResult，此处统一展示） */}
             {hasResult && (
               <button
                 className="flex-1 h-12 bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white rounded-2xl font-medium"

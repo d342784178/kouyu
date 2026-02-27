@@ -108,6 +108,66 @@ export const MOCK_TESTS = [
   },
 ]
 
+// 新题型 mock 数据
+export const MOCK_FILL_BLANK_TEST = {
+  id: 'test_fill_blank_001',
+  sceneId: 'daily_001',
+  type: 'fill_blank',
+  order: 3,
+  content: {
+    template: "Nice to ___ you. My name ___ Tom.",
+    scenarioHint: '初次见面时的自我介绍场景',
+    referenceAnswer: 'meet / is',
+    keywords: ['meet', 'is', 'name'],
+  },
+}
+
+export const MOCK_GUIDED_ROLEPLAY_TEST = {
+  id: 'test_guided_roleplay_001',
+  sceneId: 'daily_001',
+  type: 'guided_roleplay',
+  order: 4,
+  content: {
+    situationDescription: '你在一个商务会议上第一次见到新同事，需要进行自我介绍。',
+    dialogueGoal: '用英语向新同事介绍自己的姓名和职位',
+    keywordHints: ['name', 'position', 'pleased', 'meet'],
+    evaluationDimensions: ['意图达成度', '语言自然度', '词汇使用'],
+  },
+}
+
+export const MOCK_VOCAB_ACTIVATION_TEST = {
+  id: 'test_vocab_001',
+  sceneId: 'daily_001',
+  type: 'vocab_activation',
+  order: 5,
+  content: {
+    chineseHint: '很高兴认识你',
+    targetWord: 'pleased',
+    partOfSpeech: 'adjective',
+    sceneId: 'daily_001',
+    exampleSentence: "I'm pleased to meet you.",
+    exampleTranslation: '很高兴认识你。',
+    phonetic: '/pliːzd/',
+  },
+}
+
+// 填空题评测 mock 响应
+export const MOCK_FILL_BLANK_EVALUATE_RESPONSE = {
+  isCorrect: true,
+  referenceAnswer: 'meet / is',
+  semanticAnalysis: '答案符合场景语境，表达自然流畅。',
+  feedback: '很好！这是初次见面的标准表达方式。',
+}
+
+// 情景再现评测 mock 响应
+export const MOCK_GUIDED_ROLEPLAY_EVALUATE_RESPONSE = {
+  intentScore: 85,
+  naturalness: '表达自然，符合商务场合语气。',
+  vocabularyFeedback: '词汇使用得当，"pleased to meet you" 是地道表达。',
+  suggestions: ['可以加上职位信息使介绍更完整', '语调可以更自信一些'],
+  referenceExpression: "Hi, I'm Tom. I'm the project manager. Pleased to meet you.",
+}
+
 // 测试选择器
 export const SELECTORS = {
   // 场景列表页
@@ -138,5 +198,20 @@ export const SELECTORS = {
     nextButton: 'button:has-text("下一题")',
     backToSceneButton: 'button:has-text("返回场景")',
     resultCard: '[class*="rounded-2xl"]:has-text("回答")',
+    // 新题型选择器
+    fillBlankInput: 'input[placeholder="填写答案"]',
+    fillBlankSubmit: 'button:has-text("提交")',
+    fillBlankResult: 'text=/回答正确|回答有误/',
+    guidedRoleplayTextarea: 'textarea[placeholder*="英文"]',
+    guidedRoleplaySubmit: 'button:has-text("提交")',
+    guidedRoleplayScore: 'text=/意图达成度/',
+    vocabInput: 'input[placeholder*="英文单词"]',
+    vocabSubmit: 'button:has-text("确认")',
+    vocabResult: 'text=/回答正确|回答有误|接近正确/',
+  },
+  // 场景详情页跟读练习
+  shadowing: {
+    entryButton: 'button:has-text("跟读练习")',
+    module: '[class*="ShadowingModule"], text=/跟读练习/',
   },
 }

@@ -1,7 +1,7 @@
 # 语习集 - API接口文档
 
-> 版本: v1.1
-> 最后更新: 2026-02-24
+> 版本: v1.3
+> 最后更新: 2026-07-01
 > 优先级: P1
 > 阅读时间: 30分钟
 
@@ -21,6 +21,8 @@
 - [短语API](#短语api)
 - [开放式测试API](#开放式测试api)
 - [音频API](#音频api)
+- [跟读评测API](#跟读评测api)
+- [填空测试API](#填空测试api)
 - [错误码](#错误码)
 
 ---
@@ -33,6 +35,7 @@
 | 短语 | `/api/phrases` | 短语列表、详情 |
 | 开放式测试 | `/api/open-test` | 对话初始化、交互、分析 |
 | 音频 | `/api/audio` | 音频代理、语音生成 |
+| 跟读评测 | `/api/shadowing` | 发音评测（Microsoft Speech SDK） |
 | 填空测试 | `/api/fill-blank` | 填空题评估 |
 
 ---
@@ -517,19 +520,83 @@ interface SpeechRequest {
 
 ---
 
+## 跟读评测API
+
+### POST /api/shadowing/evaluate
+
+对用户跟读录音进行发音评测，调用 Microsoft Cognitive Services Speech SDK 返回逐词评分。
+
+#### 请求体
+
+`Content-Type: multipart/form-data`
+
+| 字段 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| audio | File (Blob) | 是 | 用户录音文件，格式 `audio/webm` |
+| text | string | 是 | 目标文本（用于发音对比评测） |
+
+#### 响应示例（成功）
+
+```json
+{
+  "score": 82,
+  "accuracyScore": 85,
+  "intonationScore": 78,
+  "wordFeedback": [
+    { "word": "Welcome", "isCorrect": true, "score": 90 },
+    { "word": "to", "isCorrect": true, "score": 95 },
+    { "word": "our", "isCorrect": false, "score": 45 },
+    { "word": "restaurant", "isCorrect": true, "score": 88 }
+  ]
+}
+```
+
+#### 响应字段说明
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| score | number | 综合得分（0-100） |
+| accuracyScore | number | 发音准确度（0-100） |
+| intonationScore | number | 语调评分（0-100） |
+| wordFeedback | array | 逐词反馈列表 |
+| wordFeedback[].word | string | 单词文本 |
+| wordFeedback[].isCorrect | boolean | 是否发音正确（准确度 ≥ 60 为正确） |
+| wordFeedback[].score | number | 该词得分（0-100） |
+
+#### 错误响应
+
+```json
+{ "error": "缺少音频文件" }           // 400 - 缺少 audio 字段
+{ "error": "缺少目标文本" }           // 400 - 缺少 text 字段
+{ "error": "语音识别失败: ..." }      // 422 - SDK 识别失败
+{ "error": "Azure Speech SDK 配置缺失..." } // 500 - 环境变量未配置
+```
+
+#### 依赖环境变量
+
+| 变量名 | 说明 |
+|--------|------|
+| `AZURE_SPEECH_KEY` | Microsoft Azure 语音服务订阅密钥 |
+| `AZURE_SPEECH_REGION` | Azure 服务区域，如 `eastasia` |
+
+---
+
 ## 填空测试API
 
 ### POST /api/fill-blank/evaluate
 
-评估填空题答案。
+评估问答题答案（语义匹配）。
 
 #### 请求体
 
 ```typescript
 interface FillBlankEvaluateRequest {
-  questionId: string    // 题目ID
-  userAnswer: string    // 用户答案
-  correctAnswer: string // 正确答案
+  question: string              // 题目文本
+  userAnswer: string            // 用户答案
+  referenceAnswers?: Array<{    // 参考答案列表（可选）
+    text: string
+    description?: string
+  }>
 }
 ```
 
@@ -538,13 +605,54 @@ interface FillBlankEvaluateRequest {
 ```json
 {
   "isCorrect": true,
-  "score": 100,
-  "analysis": "答案正确！",
-  "suggestion": "继续保持",
-  "userAnswer": "make a reservation",
-  "correctAnswer": "make a reservation"
+  "analysis": "回答准确，表达自然。",
+  "suggestions": ["继续保持良好的学习习惯"]
 }
 ```
+
+---
+
+### POST /api/fill-blank/evaluate-pattern
+
+填空题（Pattern Drill）语义评测，调用 GLM-4-Flash 判断用户填写内容是否符合场景语境。
+
+#### 请求体
+
+```typescript
+interface EvaluatePatternRequest {
+  template: string        // 句型模板，含 ___ 占位符，必填
+  userAnswers: string[]   // 用户填写的答案数组，每个占位符对应一项，必填
+  referenceAnswer?: string  // 参考答案（可选）
+  keywords?: string[]     // 关键词列表（可选）
+  scenarioHint?: string   // 场景提示（可选）
+}
+```
+
+#### 响应示例
+
+```json
+{
+  "isCorrect": true,
+  "referenceAnswer": "make a reservation",
+  "semanticAnalysis": "用户填写的 'book a table' 与场景语境完全吻合，表达地道自然。",
+  "feedback": "非常好！'book a table' 是餐厅预订场景中最常用的表达之一。"
+}
+```
+
+#### 错误响应
+
+```json
+{
+  "error": "缺少必要的参数",
+  "details": "请提供句型模板(template)和用户答案(userAnswers)"
+}
+```
+
+| 状态码 | 说明 |
+|--------|------|
+| 200 | 评测成功 |
+| 400 | 缺少 template 或 userAnswers |
+| 500 | LLM 调用失败 |
 
 ---
 
@@ -591,5 +699,7 @@ interface FillBlankEvaluateRequest {
 
 | 版本 | 日期 | 变更内容 | 作者 |
 |------|------|----------|------|
+| v1.3 | 2026-07-01 | 新增 /api/fill-blank/evaluate-pattern 接口文档；修正 /api/fill-blank/evaluate 请求体格式 | AI |
+| v1.2 | 2026-06-20 | 新增跟读评测API（/api/shadowing/evaluate）文档 | AI |
 | v1.1 | 2026-02-24 | 补充完整的API接口定义、请求/响应格式、错误码说明 | AI |
 | v1.0 | 2026-02-24 | 初始版本 | - |

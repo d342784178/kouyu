@@ -1,7 +1,7 @@
 # 语习集 - 项目结构
 
-> 版本: v1.2  
-> 最后更新: 2026-02-25  
+> 版本: v1.3  
+> 最后更新: 2026-02-28  
 > 优先级: P1  
 > 阅读时间: 15分钟
 
@@ -275,7 +275,7 @@ npx ts-node prepare/phrases/scripts/reinit_database.ts
 | 资源类型 | 数量 | 说明 |
 |----------|------|------|
 | 场景 | 111个 | 含对话、词汇、解析 |
-| 测试题 | 约666道 | 选择题、问答题、开放式对话 |
+| 测试题 | 963道 | 选择题、问答题、填空题、情景再现、词汇激活、开放式对话 |
 | 音频文件 | 1000+ | 对话音频，存储于腾讯云COS |
 
 **核心脚本说明**:
@@ -283,14 +283,20 @@ npx ts-node prepare/phrases/scripts/reinit_database.ts
 | 脚本 | 功能 | 使用场景 |
 |------|------|----------|
 | `scene-manager.ts` | 场景数据管理（测试/更新/重置/验证） | 日常数据维护 |
-| `generate-scene-tests.ts` | 自动生成场景测试题 | 新增场景后生成测试 |
-| `generate_scenes_100.js` | 使用GLM API生成场景数据 | 批量生成新场景 |
+| `generate-scene-tests.ts` | 统一生成全部6种题型测试数据，支持 `--types` 按需生成，支持 `export` 从数据库导出备份 | 新增场景后生成测试 |
+| `generate_scenes_110.js` | 使用GLM API批量生成场景数据 | 批量生成新场景 |
 | `generate_scene_audio.py` | 使用edge-tts生成音频 | 生成场景对话音频 |
 
 **快速使用**:
 ```bash
-# 生成测试数据并导入
+# 生成所有题型测试数据并导入
 npx ts-node prepare/scene/scripts/generate-scene-tests.ts generate-and-import
+
+# 只生成指定题型
+npx ts-node prepare/scene/scripts/generate-scene-tests.ts generate --types fill_blank,vocab_activation
+
+# 从数据库导出当前测试数据（备份）
+npx ts-node prepare/scene/scripts/generate-scene-tests.ts export
 
 # 重置数据库场景数据
 npx ts-node prepare/scene/scripts/scene-manager.ts reset
@@ -349,6 +355,7 @@ npx ts-node prepare/scene/scripts/scene-manager.ts verify
 
 | 版本 | 日期 | 变更内容 | 作者 |
 |------|------|----------|------|
+| v1.3 | 2026-02-28 | 更新场景脚本说明：generate-scene-tests.ts 合并为统一版，修正脚本文件名和测试题数量 | AI |
 | v1.2 | 2026-02-25 | 新增 prepare/ 目录详细说明 | AI |
 | v1.1 | 2026-02-24 | 新增 demands/ 目录详细说明 | AI |
 | v1.0 | 2026-02-24 | 初始版本 | - |

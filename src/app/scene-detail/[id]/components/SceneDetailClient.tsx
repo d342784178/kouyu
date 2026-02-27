@@ -1,10 +1,12 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import DialogueContent from './DialogueContent'
 import VocabularyContent from './VocabularyContent'
 import PlayAllButton from './PlayAllButton'
+import ShadowingModule from './ShadowingModule'
 import type { DialogueRound, VocabularyItem } from '@/types'
 
 // 难度配置（支持中文）
@@ -75,6 +77,9 @@ export default function SceneDetailClient({ scene }: SceneDetailClientProps) {
   const dialogueRounds = scene.dialogue || []
   const vocabulary = scene.vocabulary || []
   const difficulty = difficultyConfig[scene.difficulty] || { label: scene.difficulty, color: '#6B7280', bgColor: '#F3F4F6' }
+
+  // 控制跟读练习模块的展开/收起状态
+  const [showShadowing, setShowShadowing] = useState(false)
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8] pb-24">
@@ -159,6 +164,57 @@ export default function SceneDetailClient({ scene }: SceneDetailClientProps) {
             {/* 传递对话轮次给 DialogueContent */}
             <DialogueContent rounds={dialogueRounds} />
           </div>
+        </motion.div>
+
+        {/* 跟读练习入口 */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15 }}
+          className="mb-6"
+        >
+          {/* 入口按钮卡片 */}
+          <button
+            type="button"
+            onClick={() => setShowShadowing(!showShadowing)}
+            className="w-full bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex items-center justify-between hover:bg-amber-50/50 transition-colors"
+          >
+            {/* 左侧：麦克风图标 + 文字 */}
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0">
+                {/* 麦克风 SVG 图标 */}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                  <line x1="12" y1="19" x2="12" y2="23" />
+                  <line x1="8" y1="23" x2="16" y2="23" />
+                </svg>
+              </div>
+              <span className="text-base font-bold text-gray-900">跟读练习</span>
+            </div>
+            {/* 右侧：展开/收起箭头图标 */}
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className={`text-gray-400 transition-transform duration-200 ${showShadowing ? 'rotate-180' : ''}`}
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+
+          {/* 展开时渲染 ShadowingModule */}
+          {showShadowing && (
+            <ShadowingModule
+              rounds={dialogueRounds}
+              onExit={() => setShowShadowing(false)}
+            />
+          )}
         </motion.div>
 
         {/* 高频词汇 */}
