@@ -174,8 +174,8 @@ export default function ActiveChatView({
         )}
       </div>
 
-      {/* 底部固定控制栏 */}
-      <div className="shrink-0 bg-white border-t border-gray-100 px-6 py-3 pb-safe safe-bottom shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+      {/* 底部固定控制栏 - pb-16 留出底部导航栏空间 */}
+      <div className="shrink-0 bg-white border-t border-gray-100 px-6 py-3 pb-4 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
         {/* 轮次显示 */}
         <div className="text-center text-xs text-gray-500 mb-3">
           第 {currentRound} / {maxRounds} 轮

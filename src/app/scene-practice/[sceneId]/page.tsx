@@ -128,9 +128,10 @@ export default function ScenePracticePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8]">
-      <div className="max-w-[430px] mx-auto px-6 pt-6">
-        <div className="flex items-center mb-4">
+    <div className="h-screen bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8] flex flex-col">
+      {/* 顶部标题栏 */}
+      <div className="shrink-0 px-6 pt-6 pb-4">
+        <div className="flex items-center">
           <BackButton onClick={handleBack} />
           <div className="ml-3">
             <h2 className="text-base font-medium text-gray-900">{practiceContent.scene.name}</h2>
@@ -139,15 +140,18 @@ export default function ScenePracticePage() {
         </div>
       </div>
 
-      <div className="max-w-[430px] mx-auto h-[calc(100vh-80px)]">
-        <OpenTestDialog
-          sceneId={sceneId}
-          testId={`practice_${sceneId}`}
-          testContent={practiceContent.testContent}
-          scene={practiceContent.scene}
-          onComplete={handleComplete}
-          autoStart={true}
-        />
+      {/* 对话内容区域 - 填充剩余空间 */}
+      <div className="flex-1 min-h-0">
+        <div className="max-w-[430px] mx-auto h-full">
+          <OpenTestDialog
+            sceneId={sceneId}
+            testId={`practice_${sceneId}`}
+            testContent={practiceContent.testContent}
+            scene={practiceContent.scene}
+            onComplete={handleComplete}
+            autoStart={true}
+          />
+        </div>
       </div>
     </div>
   )
