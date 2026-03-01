@@ -193,9 +193,9 @@ function AIPracticeBtn({
       whileTap={{ scale: 0.97 }}
       className="w-full py-4 rounded-card font-semibold text-base shadow-md transition-all active:shadow-sm border-2"
       style={{
-        background: 'linear-gradient(135deg, #FEF3C7, #FDE68A)',
-        borderColor: '#F59E0B',
-        color: '#92400E',
+        background: 'linear-gradient(135deg, #EEF2FF, #E0E7FF)',
+        borderColor: '#4F7CF0',
+        color: '#1E40AF',
       }}
     >
       <span className="flex items-center justify-center gap-2">

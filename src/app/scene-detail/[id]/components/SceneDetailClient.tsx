@@ -81,11 +81,22 @@ export default function SceneDetailClient({ scene }: SceneDetailClientProps) {
   // 控制跟读练习模块的展开/收起状态
   const [showShadowing, setShowShadowing] = useState(false)
 
+  // 场景分类颜色映射
+  const categoryColorMap: Record<string, { bgColor: string; textColor: string }> = {
+    '日常': { bgColor: 'bg-blue-50', textColor: 'text-blue-600' },
+    '职场': { bgColor: 'bg-purple-50', textColor: 'text-purple-600' },
+    '留学': { bgColor: 'bg-green-50', textColor: 'text-green-600' },
+    '旅行': { bgColor: 'bg-green-50', textColor: 'text-green-600' },
+    '社交': { bgColor: 'bg-purple-50', textColor: 'text-purple-600' }
+  }
+
+  const categoryColor = categoryColorMap[scene.category] || { bgColor: 'bg-gray-50', textColor: 'text-gray-600' }
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8] pb-24">
+    <div className="min-h-screen bg-bg-secondary pb-24 safe-bottom">
       {/* 顶部导航栏 */}
-      <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <div className="max-w-[430px] mx-auto px-4 py-3">
+      <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-border-light safe-top">
+        <div className="max-w-[430px] mx-auto mx-6 py-3">
           <div className="flex items-center justify-between">
             <Link 
               href="/scene-list" 
@@ -94,7 +105,7 @@ export default function SceneDetailClient({ scene }: SceneDetailClientProps) {
               <ArrowLeftIcon />
             </Link>
             
-            <h1 className="text-lg font-bold text-gray-900">{scene.name}</h1>
+            <h1 className="text-lg font-semibold text-text-primary">{scene.name}</h1>
             
             <button type="button" aria-label="分享" className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors">
               <ShareIcon />
@@ -103,12 +114,12 @@ export default function SceneDetailClient({ scene }: SceneDetailClientProps) {
         </div>
       </header>
 
-      <div className="max-w-[430px] mx-auto px-4 pt-4">
+      <div className="max-w-[430px] mx-auto mx-6 pt-4 space-y-6">
         {/* 场景信息卡片 */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 mb-6"
+          className="bg-white rounded-card p-6 shadow-card border border-border-light hover:shadow-card-hover transition-all"
         >
           {/* 标签和操作 */}
           <div className="flex items-center justify-between mb-4">
@@ -119,7 +130,10 @@ export default function SceneDetailClient({ scene }: SceneDetailClientProps) {
               >
                 {difficulty.label}
               </span>
-              <span className="flex items-center gap-1 text-xs text-gray-500">
+              <span className={`px-3 py-1.5 rounded-full text-xs font-semibold ${categoryColor.bgColor} ${categoryColor.textColor}`}>
+                {scene.category}
+              </span>
+              <span className="flex items-center gap-1 text-xs text-text-secondary">
                 <ClockIcon />
                 {scene.duration}分钟
               </span>
@@ -129,13 +143,13 @@ export default function SceneDetailClient({ scene }: SceneDetailClientProps) {
           </div>
           
           {/* 描述 */}
-          <p className="text-sm text-gray-600 leading-relaxed">{scene.description}</p>
+          <p className="text-sm text-text-secondary leading-relaxed">{scene.description}</p>
           
           {/* 标签 */}
           {scene.tags && scene.tags.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-4">
               {scene.tags.map((tag, index) => (
-                <span key={index} className="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs rounded-lg">
+                <span key={index} className="px-2.5 py-1 bg-gray-100 text-gray-600 text-xs rounded-full">
                   #{tag}
                 </span>
               ))}
@@ -148,19 +162,18 @@ export default function SceneDetailClient({ scene }: SceneDetailClientProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="mb-6"
         >
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 rounded-xl bg-[#4F7CF0]/10 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
               <DialogueIcon />
             </div>
-            <h2 className="text-lg font-bold text-gray-900">对话学习</h2>
-            <span className="text-xs text-gray-400 ml-auto">
+            <h2 className="text-lg font-semibold text-text-primary">对话学习</h2>
+            <span className="text-xs text-text-secondary ml-auto">
               {dialogueRounds.length} 轮对话
             </span>
           </div>
           
-          <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+          <div className="bg-white rounded-card p-6 shadow-card border border-border-light hover:shadow-card-hover transition-all">
             {/* 传递对话轮次给 DialogueContent */}
             <DialogueContent rounds={dialogueRounds} />
           </div>
@@ -171,26 +184,25 @@ export default function SceneDetailClient({ scene }: SceneDetailClientProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
-          className="mb-6"
         >
           {/* 入口按钮卡片 */}
           <button
             type="button"
             onClick={() => setShowShadowing(!showShadowing)}
-            className="w-full bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex items-center justify-between hover:bg-amber-50/50 transition-colors"
+            className="w-full bg-white rounded-card p-4 shadow-card border border-border-light flex items-center justify-between hover:bg-amber-50/50 transition-all transform hover:-translate-y-1"
           >
             {/* 左侧：麦克风图标 + 文字 */}
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center flex-shrink-0">
                 {/* 麦克风 SVG 图标 */}
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
                   <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
                   <line x1="12" y1="19" x2="12" y2="23" />
                   <line x1="8" y1="23" x2="16" y2="23" />
                 </svg>
               </div>
-              <span className="text-base font-bold text-gray-900">跟读练习</span>
+              <span className="text-base font-semibold text-text-primary">跟读练习</span>
             </div>
             {/* 右侧：展开/收起箭头图标 */}
             <svg
@@ -202,7 +214,7 @@ export default function SceneDetailClient({ scene }: SceneDetailClientProps) {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
-              className={`text-gray-400 transition-transform duration-200 ${showShadowing ? 'rotate-180' : ''}`}
+              className={`text-text-secondary transition-transform duration-300 ${showShadowing ? 'rotate-180' : ''}`}
             >
               <polyline points="6 9 12 15 18 9" />
             </svg>
@@ -223,21 +235,20 @@ export default function SceneDetailClient({ scene }: SceneDetailClientProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mb-6"
           >
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-xl bg-green-100 flex items-center justify-center">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <div className="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22C55E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M4 7V4h16v3" />
                   <path d="M9 20h6" />
                   <path d="M12 4v16" />
                 </svg>
               </div>
-              <h2 className="text-lg font-bold text-gray-900">高频词汇</h2>
-              <span className="text-xs text-gray-400 ml-auto">{vocabulary.length} 个词汇</span>
+              <h2 className="text-lg font-semibold text-text-primary">高频词汇</h2>
+            <span className="text-xs text-text-secondary ml-auto">{vocabulary.length} 个词汇</span>
             </div>
             
-            <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
+            <div className="bg-white rounded-card p-6 shadow-card border border-border-light hover:shadow-card-hover transition-all">
               <VocabularyContent vocabulary={vocabulary} />
             </div>
           </motion.div>
@@ -252,7 +263,7 @@ export default function SceneDetailClient({ scene }: SceneDetailClientProps) {
         >
           <Link 
             href={`/scene-test/${scene.id}`}
-            className="block w-full py-4 bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white rounded-2xl text-base font-bold text-center shadow-lg shadow-[#4F7CF0]/25 hover:shadow-xl hover:shadow-[#4F7CF0]/30 transition-all active:scale-[0.98]"
+            className="block w-full py-4 bg-primary text-white rounded-card text-base font-semibold text-center shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all active:scale-[0.98]"
           >
             开始测试
           </Link>
