@@ -74,7 +74,7 @@ export default function ActiveChatView({
   }
 
   return (
-    <div className="flex flex-col h-full bg-[#F5F6FA] min-h-screen">
+    <div className="flex flex-col h-[calc(100vh-64px)] bg-[#F5F6FA]">
       {/* 顶部导航栏 - 仅显示居中标题 */}
       <div className="flex items-center justify-center px-6 py-4 border-b border-gray-100 bg-white shrink-0 shadow-sm">
         <div className="text-center">
@@ -85,7 +85,7 @@ export default function ActiveChatView({
       {/* 对话区域 - 可滚动 */}
       <div
         ref={scrollContainerRef}
-        className="flex-1 overflow-y-auto px-6 py-6 space-y-5"
+        className="flex-1 overflow-y-auto px-6 py-6 space-y-5 min-h-0"
       >
         {messages.length === 0 ? (
           <div className="flex items-center justify-center h-full text-[#6B7280] text-sm">
@@ -174,8 +174,8 @@ export default function ActiveChatView({
         )}
       </div>
 
-      {/* 底部固定控制栏 - 使用 sticky 定位固定在对话区域底部 */}
-      <div className="sticky bottom-0 bg-white border-t border-gray-100 px-6 py-3 pb-safe safe-bottom shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+      {/* 底部固定控制栏 */}
+      <div className="shrink-0 bg-white border-t border-gray-100 px-6 py-3 pb-safe safe-bottom shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
         {/* 轮次显示 */}
         <div className="text-center text-xs text-gray-500 mb-3">
           第 {currentRound} / {maxRounds} 轮

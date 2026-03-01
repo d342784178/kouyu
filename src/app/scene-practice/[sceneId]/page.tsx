@@ -139,7 +139,7 @@ export default function ScenePracticePage() {
         </div>
       </div>
 
-      <div className="max-w-[430px] mx-auto">
+      <div className="max-w-[430px] mx-auto h-[calc(100vh-80px)]">
         <OpenTestDialog
           sceneId={sceneId}
           testId={`practice_${sceneId}`}
