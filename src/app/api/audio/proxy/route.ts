@@ -69,8 +69,17 @@ export async function GET(request: Request) {
 
     if (!response.ok) {
       console.error('[Audio Proxy] Failed to fetch audio:', response.status, response.statusText)
+      
+      // 根据状态码返回不同的错误信息
+      if (response.status === 404) {
+        return NextResponse.json(
+          { error: '音频不存在', code: 'AUDIO_NOT_FOUND', path },
+          { status: 404 }
+        )
+      }
+      
       return NextResponse.json(
-        { error: 'Failed to fetch audio from source', status: response.status },
+        { error: '获取音频失败', code: 'AUDIO_FETCH_ERROR', status: response.status },
         { status: 502 }
       )
     }

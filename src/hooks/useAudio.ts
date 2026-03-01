@@ -13,11 +13,22 @@ interface AudioState {
   playCount: number
 }
 
-interface UseAudioReturn extends AudioState {
+interface UseAudioReturn {
+  // 播放状态
+  isPlaying: boolean
+  isLoading: boolean
+  error: string | null
+  progress: number
+  currentTime: number
+  duration: number
+  playCount: number
+  
+  // 方法
   play: (blobPath: string, loop?: boolean) => Promise<void>
   pause: () => void
   toggle: (blobPath: string, loop?: boolean) => Promise<void>
   audioRef: React.RefObject<HTMLAudioElement>
+  clearError: () => void
 }
 
 export function useAudio(): UseAudioReturn {
@@ -38,20 +49,20 @@ export function useAudio(): UseAudioReturn {
   const play = useCallback(async (blobPath: string, loop: boolean = false) => {
     if (!audioRef.current) return
 
+    // 清除之前的错误
     setState(prev => ({ ...prev, isLoading: true, error: null }))
     loopRef.current = loop
 
     try {
-      // 如果路径变了，需要重新获取 URL
+      const audioUrl = getAudioUrl(blobPath)
+
+      if (!audioUrl) {
+        setState(prev => ({ ...prev, isLoading: false, error: '无法获取音频文件' }))
+        return
+      }
+
+      // 如果路径变了，需要重新设置 src
       if (currentBlobPathRef.current !== blobPath || !audioRef.current.src) {
-        // 使用 getAudioUrl 获取音频URL（支持代理模式）
-        const audioUrl = getAudioUrl(blobPath)
-
-        if (!audioUrl) {
-          setState(prev => ({ ...prev, isLoading: false, error: '无法获取音频文件' }))
-          return
-        }
-
         audioRef.current.src = audioUrl
         audioRef.current.loop = loop
         currentBlobPathRef.current = blobPath
@@ -66,6 +77,8 @@ export function useAudio(): UseAudioReturn {
       }))
     } catch (error) {
       console.error('Error playing audio:', error)
+      // 播放失败时清除当前路径，避免影响其他音频
+      currentBlobPathRef.current = null
       setState(prev => ({
         ...prev,
         isPlaying: false,
@@ -90,27 +103,52 @@ export function useAudio(): UseAudioReturn {
     }
   }, [state.isPlaying, play, pause])
 
-  // 监听音频事件
+  const clearError = useCallback(() => {
+    setState(prev => ({ ...prev, error: null }))
+  }, [])
+
   useEffect(() => {
     const audio = audioRef.current
     if (!audio) return
 
     const handleEnded = () => {
-      // 检查 audio.loop 属性来获取最新的循环状态
       if (!audio.loop) {
         setState(prev => ({ ...prev, isPlaying: false, progress: 0, currentTime: 0 }))
       } else {
-        // 循环模式下，重置进度但保持播放状态
         setState(prev => ({ ...prev, progress: 0, currentTime: 0 }))
       }
     }
 
-    const handleError = () => {
+    const handleError = (event: Event) => {
+      const audioElement = event.target as HTMLAudioElement
+      let errorMessage = '音频加载失败'
+      
+      // 尝试从网络错误中获取更详细的信息
+      if (audioElement.error) {
+        switch (audioElement.error.code) {
+          case MediaError.MEDIA_ERR_NOT_FOUND:
+            errorMessage = '音频不存在'
+            break
+          case MediaError.MEDIA_ERR_DECODE:
+            errorMessage = '音频解码失败'
+            break
+          case MediaError.MEDIA_ERR_NETWORK:
+            errorMessage = '网络错误'
+            break
+          case MediaError.MEDIA_ERR_ABORTED:
+            errorMessage = '音频加载被中断'
+            break
+        }
+      }
+      
+      // 清除当前路径，避免影响其他音频
+      currentBlobPathRef.current = null
+      
       setState(prev => ({ 
         ...prev, 
         isPlaying: false, 
         isLoading: false, 
-        error: '音频加载失败' 
+        error: errorMessage 
       }))
     }
 
@@ -153,5 +191,6 @@ export function useAudio(): UseAudioReturn {
     pause,
     toggle,
     audioRef,
+    clearError,
   }
 }

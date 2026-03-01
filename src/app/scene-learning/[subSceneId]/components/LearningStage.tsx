@@ -1,5 +1,3 @@
-'use client'
-
 import { useState, useCallback, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useAudio } from '@/hooks/useAudio'
@@ -10,64 +8,9 @@ import type { QAPair, QAResponse } from '@/types'
 // 类型定义
 // ============================================================
 
-interface LearningStageProps {
-  /** 子场景ID */
-  subSceneId: string
-  /** 该子场景下所有问答对 */
-  qaPairs: QAPair[]
-  /** 定向重练模式：仅展示这些 id 的问答对（空数组 = 展示全部） */
-  failedQaIds?: string[]
-  /** 进入下一阶段（练习题）的回调 */
-  onProceed: () => void
-}
-
-/** 单个问答对的练习状态 */
 interface QAPairPracticeState {
-  /** 是否已展开 */
   isExpanded: boolean
-  /** 每个答案的开口练习完成状态（索引 -> 是否完成） */
   answerPracticeCompleted: Record<number, boolean>
-}
-
-// ============================================================
-// 工具函数
-// ============================================================
-
-/** 安全解析 responses JSON 字段 */
-function parseResponses(raw: unknown): QAResponse[] {
-  if (Array.isArray(raw)) {
-    // 检查数组中的对象是否包含必要的字段
-    return raw.map(item => {
-      if (typeof item === 'object' && item !== null) {
-        return {
-          text: (item as any).text || (item as any).english || (item as any).answer || '',
-          text_cn: (item as any).text_cn || (item as any).chinese || (item as any).answer_cn || '',
-          audio_url: (item as any).audio_url || (item as any).audio || ''
-        }
-      }
-      return { text: '', text_cn: '', audio_url: '' }
-    })
-  }
-  if (typeof raw === 'string') {
-    try {
-      const parsed = JSON.parse(raw)
-      if (Array.isArray(parsed)) {
-        return parsed.map(item => {
-          if (typeof item === 'object' && item !== null) {
-            return {
-              text: (item as any).text || (item as any).english || (item as any).answer || '',
-              text_cn: (item as any).text_cn || (item as any).chinese || (item as any).answer_cn || '',
-              audio_url: (item as any).audio_url || (item as any).audio || ''
-            }
-          }
-          return { text: '', text_cn: '', audio_url: '' }
-        })
-      }
-    } catch {
-      return []
-    }
-  }
-  return []
 }
 
 // ============================================================
@@ -75,32 +18,24 @@ function parseResponses(raw: unknown): QAResponse[] {
 // ============================================================
 
 function QATypeTag({ qaType }: { qaType: string }) {
-  const isMustSpeak = qaType === 'must_speak'
+  if (qaType === 'must_speak') {
+    return (
+      <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 text-xs font-medium">
+        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <polyline points="16 11 12 15 8 11" />
+        </svg>
+        <span className="ml-1">需要会说</span>
+      </span>
+    )
+  }
   return (
-    <span
-      className={`inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-        isMustSpeak
-          ? 'bg-[#EEF2FF] text-[#4F7CF0]'
-          : 'bg-gray-100 text-gray-400'
-      }`}
-    >
-      {isMustSpeak ? (
-        <>
-          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-            <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-          </svg>
-          需要会说
-        </>
-      ) : (
-        <>
-          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
-            <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
-          </svg>
-          听懂就好
-        </>
-      )}
+    <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-gray-50 text-gray-600 text-xs font-medium">
+      <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+      </svg>
+      <span className="ml-1">听懂就好</span>
     </span>
   )
 }
@@ -149,6 +84,65 @@ function AudioButton({ audioUrl, label, isPlaying, isLoading, onToggle }: AudioB
         </svg>
       )}
     </button>
+  )
+}
+
+// ============================================================
+// 子组件：通知
+// ============================================================
+
+interface NotificationProps {
+  message: string
+  type: 'error' | 'success' | 'info'
+  onClose: () => void
+}
+
+function Notification({ message, type, onClose }: NotificationProps) {
+  const bgColor = type === 'error' ? 'bg-red-50' : type === 'success' ? 'bg-green-50' : 'bg-blue-50'
+  const textColor = type === 'error' ? 'text-red-600' : type === 'success' ? 'text-green-600' : 'text-blue-600'
+  const borderColor = type === 'error' ? 'border-red-200' : type === 'success' ? 'border-green-200' : 'border-blue-200'
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      className={`fixed top-4 right-4 ${bgColor} ${textColor} ${borderColor} border rounded-lg px-4 py-3 flex items-center gap-2 shadow-lg z-50 max-w-xs`}
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        {type === 'error' && (
+          <>
+            <circle cx="12" cy="12" r="10" />
+            <line x1="15" y1="9" x2="9" y2="15" />
+            <line x1="9" y1="9" x2="15" y2="15" />
+          </>
+        )}
+        {type === 'success' && (
+          <>
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+          </>
+        )}
+        {type === 'info' && (
+          <>
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </>
+        )}
+      </svg>
+      <span className="text-sm font-medium">{message}</span>
+      <button
+        onClick={onClose}
+        className="ml-2 text-gray-400 hover:text-gray-600"
+        aria-label="关闭通知"
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+    </motion.div>
   )
 }
 
@@ -241,38 +235,28 @@ function QAPairCard({
       </button>
 
       {/* 展开内容 */}
-      <AnimatePresence initial={false}>
+      <AnimatePresence>
         {isExpanded && (
           <motion.div
-            key="expanded"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: 'easeInOut' }}
-            className="overflow-hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="px-4 pb-4"
           >
-            <div className="px-4 pb-4 border-t border-gray-50 pt-3 space-y-3">
+            <div className="border-t border-gray-100 pt-4">
+              <h3 className="text-sm font-semibold text-gray-900 mb-3">你可以这样回应</h3>
 
-
-
-              {/* 回应表达列表 */}
-              {responses.length > 0 && (
-                <div className="space-y-2">
-                  <p className="text-xs font-medium text-gray-400 uppercase tracking-wide">
-                    你可以这样回应
-                  </p>
-                  {responses.map((resp, i) => (
-                    <div
-                      key={i}
-                      className="p-2.5 rounded-xl bg-[#F8FAFF] border border-[#E8EEFF]"
-                    >
-                      <div className="flex items-start gap-2">
-                        {/* 回应文本 */}
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-gray-900">{resp.text}</p>
-                          <p className="text-xs text-gray-400 mt-0.5">{resp.text_cn}</p>
-                        </div>
-                        {/* 回应音频按钮 */}
+              <div className="space-y-3">
+                {responses.map((resp, i) => (
+                  <div key={i} className="bg-gray-50 rounded-lg p-3">
+                    <div className="flex items-start gap-3">
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-gray-900">{resp.text}</p>
+                        <p className="text-xs text-gray-400 mt-0.5">{resp.text_cn}</p>
+                      </div>
+                      {/* 回应音频按钮 */}
+                      {resp.audio_url && (
                         <AudioButton
                           audioUrl={resp.audio_url}
                           label={`播放回应 ${i + 1}`}
@@ -280,32 +264,35 @@ function QAPairCard({
                           isLoading={isAudioLoading && playingUrl === resp.audio_url}
                           onToggle={() => resp.audio_url && onPlayAudio(resp.audio_url)}
                         />
-                      </div>
-                      {/* 每个答案的开口练习 */}
-                      <SpeakingPracticeEmpty
-                        subSceneId={subSceneId}
-                        qaId={qaPair.id}
-                        answerIndex={i}
-                        answerText={resp.text}
-                        answerTextCn={resp.text_cn}
-                        demoAudioUrl={resp.audio_url}
-                        onCompleted={() => onAnswerPracticeCompleted(i)}
-                        isCompleted={answerPracticeCompleted?.[i] ?? false}
-                      />
+                      )}
                     </div>
-                  ))}
-                </div>
-              )}
+                    {/* 开口练习 - 放在每个回答下方 */}
+                    {isMustSpeak && (
+                      <div className="mt-3">
+                        <SpeakingPracticeEmpty
+                          subSceneId={subSceneId}
+                          qaId={qaPair.id}
+                          answerIndex={i}
+                          answerText={resp.text}
+                          answerTextCn={resp.text_cn}
+                          isCompleted={answerPracticeCompleted[i]}
+                          onCompleted={() => onAnswerPracticeCompleted(i)}
+                        />
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
 
-              {/* 使用说明 */}
+              {/* 学习提示 */}
               {qaPair.usageNote && (
-                <div className="flex items-start gap-2 px-3 py-2 rounded-xl bg-amber-50 border border-amber-100">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 mt-0.5">
+                <div className="mt-4 px-3 py-2 rounded-lg bg-blue-50 border border-blue-100 flex items-start gap-2">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4F7CF0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10" />
                     <line x1="12" y1="8" x2="12" y2="12" />
                     <line x1="12" y1="16" x2="12.01" y2="16" />
                   </svg>
-                  <p className="text-xs text-amber-700 leading-relaxed">{qaPair.usageNote}</p>
+                  <p className="text-xs text-blue-600 font-medium">{qaPair.usageNote}</p>
                 </div>
               )}
             </div>
@@ -317,24 +304,63 @@ function QAPairCard({
 }
 
 // ============================================================
-// 主组件：LearningStage
+// 主组件
 // ============================================================
 
-export default function LearningStage({
-  subSceneId,
-  qaPairs,
-  failedQaIds = [],
-  onProceed,
-}: LearningStageProps) {
-  // 定向重练模式：仅展示 failedQaIds 中的问答对
-  const displayPairs = failedQaIds.length > 0
-    ? qaPairs.filter((qa) => failedQaIds.includes(qa.id))
-    : qaPairs
+interface LearningStageProps {
+  qaPairs: QAPair[]
+  subSceneId: string
+  /** 定向重练的问答对 ID 列表（可选） */
+  failedQaIds?: string[]
+}
 
-  // 按 order 排序
-  const sortedPairs = [...displayPairs].sort((a, b) => a.order - b.order)
+/** 安全解析 responses JSON 字段 */
+function parseResponses(raw: unknown): QAResponse[] {
+  if (Array.isArray(raw)) {
+    // 检查数组中的对象是否包含必要的字段
+    return raw.map(item => {
+      if (typeof item === 'object' && item !== null) {
+        return {
+          text: (item as any).text || (item as any).english || (item as any).answer || '',
+          text_cn: (item as any).text_cn || (item as any).chinese || (item as any).answer_cn || '',
+          audio_url: (item as any).audio_url || (item as any).audio || ''
+        }
+      }
+      return { text: '', text_cn: '', audio_url: '' }
+    })
+  }
+  if (typeof raw === 'string') {
+    try {
+      const parsed = JSON.parse(raw)
+      if (Array.isArray(parsed)) {
+        return parsed.map(item => {
+          if (typeof item === 'object' && item !== null) {
+            return {
+              text: (item as any).text || (item as any).english || (item as any).answer || '',
+              text_cn: (item as any).text_cn || (item as any).chinese || (item as any).answer_cn || '',
+              audio_url: (item as any).audio_url || (item as any).audio || ''
+            }
+          }
+          return { text: '', text_cn: '', audio_url: '' }
+        })
+      }
+    } catch {
+      return []
+    }
+  }
+  return []
+}
 
-  // 每个问答对的练习状态
+export default function LearningStage({ qaPairs, subSceneId, failedQaIds = [] }: LearningStageProps) {
+  // 按 order 字段排序（如果没有 order 则按索引）
+  const sortedPairs = [...qaPairs].sort((a, b) => (a.order || 0) - (b.order || 0))
+
+  // 定向重练：过滤只显示失败的问答对
+  const filteredPairs = failedQaIds.length > 0
+    ? sortedPairs.filter((qa) => failedQaIds.includes(qa.id))
+    : sortedPairs
+
+  // 练习状态（展开/收起、开口练习完成状态）
   const [practiceStates, setPracticeStates] = useState<Record<string, QAPairPracticeState>>(() => {
     const init: Record<string, QAPairPracticeState> = {}
     for (const qa of sortedPairs) {
@@ -344,9 +370,10 @@ export default function LearningStage({
   })
 
   // 音频播放（全局单例，同时只播放一个）
-  const { play, pause, isPlaying, isLoading, audioRef } = useAudio()
+  const { play, pause, isPlaying, isLoading, error: audioError, audioRef, clearError } = useAudio()
   const [playingUrl, setPlayingUrl] = useState<string | null>(null)
   const wasPlayingRef = useRef(false)
+  const [notification, setNotification] = useState<{ message: string; type: 'error' | 'success' | 'info' } | null>(null)
 
   // 当 qaPairs 变化时（如定向重练切换），重置状态
   const prevPairsRef = useRef(sortedPairs)
@@ -362,6 +389,30 @@ export default function LearningStage({
       prevPairsRef.current = sortedPairs
     }
   })
+
+  // 音频播放结束时清除 playingUrl（仅在从播放变为停止时）
+  useEffect(() => {
+    if (isPlaying) {
+      wasPlayingRef.current = true
+    } else if (wasPlayingRef.current && playingUrl) {
+      // 只有之前在播放，现在停止了，才清除
+      setPlayingUrl(null)
+      wasPlayingRef.current = false
+    }
+  }, [isPlaying, playingUrl])
+
+  // 处理音频错误，显示通知
+  useEffect(() => {
+    if (audioError) {
+      setNotification({ message: audioError, type: 'error' })
+      // 3秒后自动关闭
+      const timer = setTimeout(() => {
+        setNotification(null)
+        clearError()
+      }, 3000)
+      return () => clearTimeout(timer)
+    }
+  }, [audioError, clearError])
 
   // ---- 展开/收起卡片（手风琴：展开一个时收起其他） ----
   const handleToggleExpand = useCallback((qaId: string) => {
@@ -397,26 +448,19 @@ export default function LearningStage({
         pause()
         setPlayingUrl(null)
       } else {
+        // 播放新音频前清除之前的错误
+        if (audioError) {
+          clearError()
+        }
         play(url)
         setPlayingUrl(url)
       }
     },
-    [playingUrl, isPlaying, play, pause]
+    [playingUrl, isPlaying, play, pause, audioError, clearError]
   )
 
-  // 音频播放结束时清除 playingUrl（仅在从播放变为停止时）
-  useEffect(() => {
-    if (isPlaying) {
-      wasPlayingRef.current = true
-    } else if (wasPlayingRef.current && playingUrl) {
-      // 只有之前在播放，现在停止了，才清除
-      setPlayingUrl(null)
-      wasPlayingRef.current = false
-    }
-  }, [isPlaying, playingUrl])
-
   // ---- 空状态 ----
-  if (sortedPairs.length === 0) {
+  if (filteredPairs.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-16 px-6 text-center">
         <p className="text-gray-400 text-sm">暂无问答对内容</p>
@@ -441,7 +485,7 @@ export default function LearningStage({
 
       {/* QA_Pair 卡片列表 */}
       <div className="space-y-3">
-        {sortedPairs.map((qa, index) => (
+        {filteredPairs.map((qa, index) => (
           <QAPairCard
             key={qa.id}
             qaPair={qa}
@@ -461,26 +505,16 @@ export default function LearningStage({
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
       <audio ref={audioRef} className="hidden" />
 
-      {/* 底部固定：进入练习题按钮（始终显示） */}
-      <div className="fixed bottom-0 left-0 right-0 px-4 pb-24 pt-3 bg-gradient-to-t from-white via-white to-transparent">
-        <div className="max-w-[430px] mx-auto">
-          <button
-            type="button"
-            onClick={onProceed}
-            className="w-full py-4 rounded-card font-semibold text-base text-white shadow-md transition-all active:shadow-sm"
-            style={{
-              background: 'linear-gradient(135deg, #4F7CF0, #6366F1)',
-            }}
-          >
-            <span className="flex items-center justify-center gap-2">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <polygon points="5 3 19 12 5 21 5 3" />
-              </svg>
-              {failedQaIds.length > 0 ? '重练完成，进入AI对话' : '进入练习题'}
-            </span>
-          </button>
-        </div>
-      </div>
+      {/* 通知 */}
+      <AnimatePresence>
+        {notification && (
+          <Notification
+            message={notification.message}
+            type={notification.type}
+            onClose={() => setNotification(null)}
+          />
+        )}
+      </AnimatePresence>
     </div>
   )
 }
