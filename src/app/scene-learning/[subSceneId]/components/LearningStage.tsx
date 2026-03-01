@@ -312,6 +312,8 @@ interface LearningStageProps {
   subSceneId: string
   /** 定向重练的问答对 ID 列表（可选） */
   failedQaIds?: string[]
+  /** 进入下一阶段回调 */
+  onProceed?: () => void
 }
 
 /** 安全解析 responses JSON 字段 */
@@ -351,7 +353,7 @@ function parseResponses(raw: unknown): QAResponse[] {
   return []
 }
 
-export default function LearningStage({ qaPairs, subSceneId, failedQaIds = [] }: LearningStageProps) {
+export default function LearningStage({ qaPairs, subSceneId, failedQaIds = [], onProceed }: LearningStageProps) {
   // 按 order 字段排序（如果没有 order 则按索引）
   const sortedPairs = [...qaPairs].sort((a, b) => (a.order || 0) - (b.order || 0))
 
@@ -500,6 +502,23 @@ export default function LearningStage({ qaPairs, subSceneId, failedQaIds = [] }:
           />
         ))}
       </div>
+
+      {/* 进入练习按钮 */}
+      {onProceed && (
+        <div className="mt-8 flex justify-center">
+          <button
+            type="button"
+            onClick={onProceed}
+            className="px-8 py-3 rounded-full bg-[#4F7CF0] text-white text-sm font-semibold shadow-md hover:bg-[#3D6ADE] transition-colors flex items-center gap-2"
+          >
+            <span>进入练习</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      )}
 
       {/* 隐藏的 audio 元素（useAudio hook 需要） */}
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
