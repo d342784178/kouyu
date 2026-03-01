@@ -133,12 +133,21 @@ async function generateSubScenesForScene(scene) {
 
 请设计 3-5 个子场景，每个子场景包含 3-6 个问答对。
 
+**重要：用户角色定位原则**
+- 用户（学习者）应该扮演"消费者"、"使用者"、"顾客"、"求职者"、"学生"等角色
+- 用户应该是"接受服务"或"提出需求"的一方
+- speakerText 应该是服务提供者说的话（如服务员、店员、医生、面试官等）
+- responses 应该是用户作为消费者/使用者的回应
+- 例如：在餐厅场景中，speakerText 是服务员说的话，responses 是顾客（用户）的回应
+
+请设计 3-5 个子场景，每个子场景包含 3-6 个问答对。
+
 要求：
 1. 子场景要覆盖该场景的核心交流环节（如：问候→询问→确认→道别）
 2. 每个问答对包含：
-   - speaker_text: 对方说的话（英文，自然口语）
+   - speaker_text: 对方（服务提供者）说的话（英文，自然口语）
    - speaker_text_cn: 对方说的话（中文翻译）
-   - responses: 2-3 种回应方式（正式/非正式/简短）
+   - responses: 用户（消费者/使用者）的2-3种回应方式（正式/非正式/简短）
    - usage_note: 使用说明（中文，20字以内）
    - qa_type: "must_speak"（需要用户开口练习）或 "listen_only"（只需听）
 3. 每个子场景至少有 2 个 must_speak 类型的问答对
@@ -170,7 +179,7 @@ async function generateSubScenesForScene(scene) {
 }`
 
   const content = await callQwen([
-    { role: 'system', content: '你是英语口语教学内容设计专家，擅长设计自然、实用的口语练习场景。请严格按要求的JSON格式返回，不要有其他内容。' },
+    { role: 'system', content: '你是英语口语教学内容设计专家，擅长设计自然、实用的口语练习场景。重要：用户（学习者）必须扮演消费者、使用者、顾客等角色，speakerText应该是服务提供者说的话，responses是用户的回应。请严格按要求的JSON格式返回，不要有其他内容。' },
     { role: 'user', content: prompt },
   ])
 
@@ -197,17 +206,27 @@ async function generateSubScenesForScene(scene) {
         description: sub.description,
         order: sub.order ?? subIdx + 1,
         estimatedMinutes: sub.estimatedMinutes ?? 5,
-        qaPairs: (sub.qaPairs || []).map((qa, qaIdx) => ({
-          id: `${subSceneId}_qa_${qaIdx + 1}`,
-          subSceneId,
-          speakerText: qa.speakerText,
-          speakerTextCn: qa.speakerTextCn,
-          responses: qa.responses || [],
-          usageNote: qa.usageNote || null,
-          audioUrl: null,
-          qaType: qa.qaType || 'must_speak',
-          order: qa.order ?? qaIdx + 1,
-        })),
+        qaPairs: (sub.qaPairs || []).map((qa, qaIdx) => {
+          const qaId = `${subSceneId}_qa_${qaIdx + 1}`
+          // 为每个答案生成音频URL
+          const responses = (qa.responses || []).map((resp, respIdx) => ({
+            text: resp.text || '',
+            text_cn: resp.text_cn || '',
+            audio_url: `COS:/qa/responses/${qaId}_response${respIdx}.mp3`
+          }))
+          
+          return {
+            id: qaId,
+            subSceneId,
+            speakerText: qa.speakerText,
+            speakerTextCn: qa.speakerTextCn,
+            responses,
+            usageNote: qa.usageNote || null,
+            audioUrl: `COS:/qa/questions/${qaId}.mp3`,
+            qaType: qa.qaType || 'must_speak',
+            order: qa.order ?? qaIdx + 1,
+          }
+        }),
       }
     }),
   }

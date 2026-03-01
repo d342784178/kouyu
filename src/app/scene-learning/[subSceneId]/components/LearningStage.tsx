@@ -35,10 +35,34 @@ interface QAPairPracticeState {
 
 /** 安全解析 responses JSON 字段 */
 function parseResponses(raw: unknown): QAResponse[] {
-  if (Array.isArray(raw)) return raw as QAResponse[]
+  if (Array.isArray(raw)) {
+    // 检查数组中的对象是否包含必要的字段
+    return raw.map(item => {
+      if (typeof item === 'object' && item !== null) {
+        return {
+          text: (item as any).text || (item as any).english || (item as any).answer || '',
+          text_cn: (item as any).text_cn || (item as any).chinese || (item as any).answer_cn || '',
+          audio_url: (item as any).audio_url || (item as any).audio || ''
+        }
+      }
+      return { text: '', text_cn: '', audio_url: '' }
+    })
+  }
   if (typeof raw === 'string') {
     try {
-      return JSON.parse(raw) as QAResponse[]
+      const parsed = JSON.parse(raw)
+      if (Array.isArray(parsed)) {
+        return parsed.map(item => {
+          if (typeof item === 'object' && item !== null) {
+            return {
+              text: (item as any).text || (item as any).english || (item as any).answer || '',
+              text_cn: (item as any).text_cn || (item as any).chinese || (item as any).answer_cn || '',
+              audio_url: (item as any).audio_url || (item as any).audio || ''
+            }
+          }
+          return { text: '', text_cn: '', audio_url: '' }
+        })
+      }
     } catch {
       return []
     }

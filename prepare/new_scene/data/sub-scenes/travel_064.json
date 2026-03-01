@@ -1,7 +1,7 @@
 {
   "sceneId": "travel_064",
   "sceneName": "行李寄存",
-  "generatedAt": "2026-03-01T03:38:40.132Z",
+  "generatedAt": "2026-03-01T07:22:33.080Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
@@ -15,27 +15,27 @@
         {
           "id": "travel_064_sub_1_qa_1",
           "subSceneId": "travel_064_sub_1",
-          "speakerText": "Excuse me, where's the luggage storage?",
-          "speakerTextCn": "打扰一下，行李寄存处在哪？",
+          "speakerText": "Hi there! Can I help you find something?",
+          "speakerTextCn": "您好！需要帮忙找什么吗？",
           "responses": [
             {
-              "text": "It's right over there, next to the info desk.",
-              "text_cn": "就在那边，信息台旁边。",
-              "audio_url": ""
+              "text": "Yes, where's the luggage storage?",
+              "text_cn": "请问行李寄存处在哪？",
+              "audio_url": "COS:/qa/responses/travel_064_sub_1_qa_1_response0.mp3"
             },
             {
-              "text": "You can find it down the hall, past the coffee shop.",
-              "text_cn": "穿过走廊，经过咖啡店就到了。",
-              "audio_url": ""
+              "text": "Do you know where I can leave my bags?",
+              "text_cn": "我知道哪能寄存行李吗？",
+              "audio_url": "COS:/qa/responses/travel_064_sub_1_qa_1_response1.mp3"
             },
             {
-              "text": "Luggage storage? Uh, I think it's closed today.",
-              "text_cn": "寄存处？嗯，今天好像关门了。",
-              "audio_url": ""
+              "text": "Luggage storage?",
+              "text_cn": "寄存行李在哪？",
+              "audio_url": "COS:/qa/responses/travel_064_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用where's代替where is更自然",
-          "audioUrl": null,
+          "usageNote": "初次询问位置，用简单句即可",
+          "audioUrl": "COS:/qa/questions/travel_064_sub_1_qa_1.mp3",
           "qaType": "must_speak",
           "order": 1
         }
@@ -44,64 +44,64 @@
     {
       "id": "travel_064_sub_2",
       "sceneId": "travel_064",
-      "name": "询问收费标准",
-      "description": "旅客了解寄存费用和计费方式",
+      "name": "询问收费",
+      "description": "顾客了解寄存费用和计时方式",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_064_sub_2_qa_1",
           "subSceneId": "travel_064_sub_2",
-          "speakerText": "How much is it to store a bag for a few hours?",
-          "speakerTextCn": "寄存一个包几小时要多少钱？",
+          "speakerText": "It's $5 per bag for up to 24 hours.",
+          "speakerTextCn": "每件行李24小时内收费5美元。",
           "responses": [
             {
-              "text": "It's $5 per bag for up to 6 hours.",
-              "text_cn": "每件包5美元，最多6小时。",
-              "audio_url": ""
+              "text": "That's affordable. I'll leave two bags.",
+              "text_cn": "价格合理，我寄两件。",
+              "audio_url": "COS:/qa/responses/travel_064_sub_2_qa_1_response0.mp3"
             },
             {
-              "text": "Ten bucks for the day, no matter how long.",
-              "text_cn": "一天10美元，不管寄多久。",
-              "audio_url": ""
+              "text": "Is there a discount for longer storage?",
+              "text_cn": "寄久一点有优惠吗？",
+              "audio_url": "COS:/qa/responses/travel_064_sub_2_qa_1_response1.mp3"
             },
             {
-              "text": "We charge by the hour—$2 for the first hour.",
-              "text_cn": "按小时收费，第一小时2美元。",
-              "audio_url": ""
+              "text": "Okay, got it.",
+              "text_cn": "好的，明白了。",
+              "audio_url": "COS:/qa/responses/travel_064_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用per bag和for up to更地道",
-          "audioUrl": null,
+          "usageNote": "确认价格后决定是否寄存",
+          "audioUrl": "COS:/qa/questions/travel_064_sub_2_qa_1.mp3",
           "qaType": "must_speak",
-          "order": 1
+          "order": 2
         },
         {
           "id": "travel_064_sub_2_qa_2",
           "subSceneId": "travel_064_sub_2",
-          "speakerText": "Do you take cards or just cash?",
-          "speakerTextCn": "你们收信用卡还是只收现金？",
+          "speakerText": "We charge by the day, not by the hour.",
+          "speakerTextCn": "我们按天收费，不是按小时。",
           "responses": [
             {
-              "text": "We take both—credit cards and cash.",
-              "text_cn": "两者都收，信用卡和现金都可以。",
-              "audio_url": ""
+              "text": "So if I leave it for 12 hours, it's still $5?",
+              "text_cn": "那我寄12小时也是5美元？",
+              "audio_url": "COS:/qa/responses/travel_064_sub_2_qa_2_response0.mp3"
             },
             {
-              "text": "Cash only, sorry.",
-              "text_cn": "只收现金，抱歉。",
-              "audio_url": ""
+              "text": "Perfect, I'm leaving for three days.",
+              "text_cn": "太好了，我要寄三天。",
+              "audio_url": "COS:/qa/responses/travel_064_sub_2_qa_2_response1.mp3"
             },
             {
-              "text": "Card's fine, but no Apple Pay.",
-              "text_cn": "信用卡可以，但不支持苹果支付。",
-              "audio_url": ""
+              "text": "Got it, thanks.",
+              "text_cn": "明白了，谢谢。",
+              "audio_url": "COS:/qa/responses/travel_064_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "用just cash比only cash更口语",
-          "audioUrl": null,
+          "usageNote": "澄清计费方式，避免误会",
+          "audioUrl": "COS:/qa/questions/travel_064_sub_2_qa_2.mp3",
           "qaType": "must_speak",
-          "order": 2
+          "order": 3
         }
       ]
     },
@@ -109,100 +109,137 @@
       "id": "travel_064_sub_3",
       "sceneId": "travel_064",
       "name": "确认取件时间",
-      "description": "旅客确认寄存期限和取件流程",
+      "description": "顾客确认取件时间与凭证要求",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_064_sub_3_qa_1",
           "subSceneId": "travel_064_sub_3",
-          "speakerText": "Can I pick it up tomorrow morning?",
-          "speakerTextCn": "我明天早上能来取吗？",
+          "speakerText": "You can pick up your bags anytime before midnight tomorrow.",
+          "speakerTextCn": "您明天午夜前都可以来取行李。",
           "responses": [
             {
-              "text": "Sure, until 8 PM tomorrow—just show your receipt.",
-              "text_cn": "可以，明天晚上8点前都行，拿好收据就行。",
-              "audio_url": ""
+              "text": "What do I need to show when I pick them up?",
+              "text_cn": "取行李时需要出示什么？",
+              "audio_url": "COS:/qa/responses/travel_064_sub_3_qa_1_response0.mp3"
             },
             {
-              "text": "You gotta get it by noon tomorrow, or we charge extra.",
-              "text_cn": "明天中午前必须取，超时要加钱。",
-              "audio_url": ""
+              "text": "Can I come back in the evening?",
+              "text_cn": "我晚上来取可以吗？",
+              "audio_url": "COS:/qa/responses/travel_064_sub_3_qa_1_response1.mp3"
             },
             {
-              "text": "We hold it for 24 hours only.",
-              "text_cn": "我们只保管24小时。",
-              "audio_url": ""
+              "text": "Thanks, I'll be back by 8 PM.",
+              "text_cn": "谢谢，我晚上8点来取。",
+              "audio_url": "COS:/qa/responses/travel_064_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用gotta代替have to更口语化",
-          "audioUrl": null,
+          "usageNote": "确认取件时间与凭证",
+          "audioUrl": "COS:/qa/questions/travel_064_sub_3_qa_1.mp3",
           "qaType": "must_speak",
-          "order": 1
+          "order": 4
         },
         {
           "id": "travel_064_sub_3_qa_2",
           "subSceneId": "travel_064_sub_3",
-          "speakerText": "Will my bag be safe?",
-          "speakerTextCn": "我的包会安全吗？",
+          "speakerText": "Just show your receipt and ID.",
+          "speakerTextCn": "出示收据和身份证即可。",
           "responses": [
             {
-              "text": "Absolutely—locked room, 24/7 security.",
-              "text_cn": "绝对安全，上锁房间，24小时监控。",
-              "audio_url": ""
+              "text": "I'll keep the receipt safe.",
+              "text_cn": "我会保管好收据。",
+              "audio_url": "COS:/qa/responses/travel_064_sub_3_qa_2_response0.mp3"
             },
             {
-              "text": "We've got cameras and staff watching.",
-              "text_cn": "有摄像头，还有人看着呢。",
-              "audio_url": ""
+              "text": "Do I need my passport?",
+              "text_cn": "需要护照吗？",
+              "audio_url": "COS:/qa/responses/travel_064_sub_3_qa_2_response1.mp3"
             },
             {
-              "text": "We're not responsible if it gets stolen.",
-              "text_cn": "被偷了我们不负责。",
-              "audio_url": ""
+              "text": "Got it.",
+              "text_cn": "知道了。",
+              "audio_url": "COS:/qa/responses/travel_064_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "用Absolutely开头加强语气",
-          "audioUrl": null,
+          "usageNote": "确认取件所需证件",
+          "audioUrl": "COS:/qa/questions/travel_064_sub_3_qa_2.mp3",
           "qaType": "must_speak",
-          "order": 2
+          "order": 5
         }
       ]
     },
     {
       "id": "travel_064_sub_4",
       "sceneId": "travel_064",
-      "name": "道别与感谢",
-      "description": "旅客完成寄存后礼貌道别",
+      "name": "询问安全性",
+      "description": "顾客关心行李安全与监控措施",
       "order": 4,
-      "estimatedMinutes": 3,
+      "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_064_sub_4_qa_1",
           "subSceneId": "travel_064_sub_4",
-          "speakerText": "Thanks so much for your help!",
-          "speakerTextCn": "非常感谢你的帮助！",
+          "speakerText": "Our storage room is under 24-hour camera surveillance and locked at night.",
+          "speakerTextCn": "我们的寄存室有24小时监控，夜间上锁。",
           "responses": [
             {
-              "text": "No problem! Have a great trip!",
-              "text_cn": "不客气！旅途愉快！",
-              "audio_url": ""
+              "text": "That's reassuring. Are the bags checked before storage?",
+              "text_cn": "这让我安心了，寄存前会检查行李吗？",
+              "audio_url": "COS:/qa/responses/travel_064_sub_4_qa_1_response0.mp3"
             },
             {
-              "text": "You're welcome. Don't forget your receipt!",
-              "text_cn": "不客气，别忘了收据！",
-              "audio_url": ""
+              "text": "Is there insurance if something gets lost?",
+              "text_cn": "如果丢了有保险吗？",
+              "audio_url": "COS:/qa/responses/travel_064_sub_4_qa_1_response1.mp3"
             },
             {
-              "text": "Anytime.",
-              "text_cn": "随时欢迎。",
-              "audio_url": ""
+              "text": "Good to know.",
+              "text_cn": "知道啦。",
+              "audio_url": "COS:/qa/responses/travel_064_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用No problem比Thank you更自然",
-          "audioUrl": null,
-          "qaType": "listen_only",
-          "order": 1
+          "usageNote": "询问安全措施，增强信任感",
+          "audioUrl": "COS:/qa/questions/travel_064_sub_4_qa_1.mp3",
+          "qaType": "must_speak",
+          "order": 6
+        }
+      ]
+    },
+    {
+      "id": "travel_064_sub_5",
+      "sceneId": "travel_064",
+      "name": "道别与感谢",
+      "description": "顾客寄存后礼貌道别",
+      "order": 5,
+      "estimatedMinutes": 3,
+      "qaPairs": [
+        {
+          "id": "travel_064_sub_5_qa_1",
+          "subSceneId": "travel_064_sub_5",
+          "speakerText": "Here's your receipt. Have a great day!",
+          "speakerTextCn": "这是您的收据，祝您今天愉快！",
+          "responses": [
+            {
+              "text": "Thank you so much! I really appreciate your help.",
+              "text_cn": "非常感谢！太帮了。",
+              "audio_url": "COS:/qa/responses/travel_064_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "Thanks! See you tomorrow.",
+              "text_cn": "谢谢！明天见。",
+              "audio_url": "COS:/qa/responses/travel_064_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "Appreciate it!",
+              "text_cn": "太感谢了！",
+              "audio_url": "COS:/qa/responses/travel_064_sub_5_qa_1_response2.mp3"
+            }
+          ],
+          "usageNote": "礼貌道别，提升沟通温度",
+          "audioUrl": "COS:/qa/questions/travel_064_sub_5_qa_1.mp3",
+          "qaType": "must_speak",
+          "order": 7
         }
       ]
     }

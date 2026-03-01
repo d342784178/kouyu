@@ -1,105 +1,132 @@
 {
   "sceneId": "travel_075",
   "sceneName": "长途巴士",
-  "generatedAt": "2026-03-01T03:39:20.108Z",
+  "generatedAt": "2026-03-01T07:22:32.129Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "travel_075_sub_1",
       "sceneId": "travel_075",
-      "name": "问候与开场",
-      "description": "乘客向工作人员礼貌打招呼并说明来意",
+      "name": "询问班次",
+      "description": "乘客咨询下一班长途巴士的发车时间",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_075_sub_1_qa_1",
           "subSceneId": "travel_075_sub_1",
-          "speakerText": "Hi there! I'm catching the 2 PM bus to Chicago—can you help me out?",
-          "speakerTextCn": "嗨！我要坐下午两点去芝加哥的车，能帮帮我吗？",
+          "speakerText": "Hi! Can I help you with the bus schedule?",
+          "speakerTextCn": "您好！需要帮您查班车时间吗？",
           "responses": [
             {
-              "text": "Of course! What do you need to know?",
-              "text_cn": "当然！你需要了解什么？",
-              "audio_url": ""
+              "text": "Yes, when's the next bus to Shanghai?",
+              "text_cn": "是的，去上海的下一班车几点发？",
+              "audio_url": "COS:/qa/responses/travel_075_sub_1_qa_1_response0.mp3"
             },
             {
-              "text": "Sure thing! Just ask away.",
-              "text_cn": "没问题，尽管问吧。",
-              "audio_url": ""
+              "text": "Could you tell me the departure time for Shanghai?",
+              "text_cn": "能告诉我去上海的发车时间吗？",
+              "audio_url": "COS:/qa/responses/travel_075_sub_1_qa_1_response1.mp3"
             },
             {
-              "text": "Yeah, go ahead.",
-              "text_cn": "嗯，说吧。",
-              "audio_url": ""
+              "text": "Shanghai bus?",
+              "text_cn": "去上海的车？",
+              "audio_url": "COS:/qa/responses/travel_075_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用礼貌开场语自然引出需求",
-          "audioUrl": null,
+          "usageNote": "询问班次常用句型",
+          "audioUrl": "COS:/qa/questions/travel_075_sub_1_qa_1.mp3",
           "qaType": "must_speak",
           "order": 1
+        },
+        {
+          "id": "travel_075_sub_1_qa_2",
+          "subSceneId": "travel_075_sub_1",
+          "speakerText": "The next bus to Shanghai leaves at 3:30 PM. It’s a direct route.",
+          "speakerTextCn": "下一班去上海的车下午3点半发车，是直达车。",
+          "responses": [
+            {
+              "text": "Great, I’ll take that one. Thanks!",
+              "text_cn": "太好了，我就坐这班，谢谢！",
+              "audio_url": "COS:/qa/responses/travel_075_sub_1_qa_2_response0.mp3"
+            },
+            {
+              "text": "Is that the last bus of the day?",
+              "text_cn": "这是今天最后一班吗？",
+              "audio_url": "COS:/qa/responses/travel_075_sub_1_qa_2_response1.mp3"
+            },
+            {
+              "text": "3:30? Okay, got it.",
+              "text_cn": "3点半？好的，知道了。",
+              "audio_url": "COS:/qa/responses/travel_075_sub_1_qa_2_response2.mp3"
+            }
+          ],
+          "usageNote": "确认时间并表达感谢",
+          "audioUrl": "COS:/qa/questions/travel_075_sub_1_qa_2.mp3",
+          "qaType": "must_speak",
+          "order": 2
         }
       ]
     },
     {
       "id": "travel_075_sub_2",
       "sceneId": "travel_075",
-      "name": "询问班次时间",
-      "description": "乘客确认发车时间及是否准点",
+      "name": "行李规定",
+      "description": "乘客确认行李尺寸和免费托运限制",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_075_sub_2_qa_1",
           "subSceneId": "travel_075_sub_2",
-          "speakerText": "Just to double-check, is the 2 PM bus still leaving on time?",
-          "speakerTextCn": "我再确认下，两点的车还准点发车吗？",
+          "speakerText": "Do you know the baggage policy? We allow one large suitcase and one small carry-on.",
+          "speakerTextCn": "您知道行李规定吗？每人可免费托运一件大行李和一件小随身包。",
           "responses": [
             {
-              "text": "Yep, no delays—boarding starts at 1:45.",
-              "text_cn": "对，没延误，1:45开始登车。",
-              "audio_url": ""
+              "text": "What’s the weight limit for the big suitcase?",
+              "text_cn": "大行李的重量限制是多少？",
+              "audio_url": "COS:/qa/responses/travel_075_sub_2_qa_1_response0.mp3"
             },
             {
-              "text": "Absolutely! It’s on schedule as usual.",
-              "text_cn": "没错，和平时一样准时。",
-              "audio_url": ""
+              "text": "Can I bring two backpacks instead?",
+              "text_cn": "我可以带两个背包代替吗？",
+              "audio_url": "COS:/qa/responses/travel_075_sub_2_qa_1_response1.mp3"
             },
             {
-              "text": "On time.",
-              "text_cn": "准点。",
-              "audio_url": ""
+              "text": "Just one big bag, got it.",
+              "text_cn": "只有一件大行李，明白了。",
+              "audio_url": "COS:/qa/responses/travel_075_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用‘double-check’体现谨慎确认",
-          "audioUrl": null,
+          "usageNote": "确认行李数量和重量",
+          "audioUrl": "COS:/qa/questions/travel_075_sub_2_qa_1.mp3",
           "qaType": "must_speak",
           "order": 1
         },
         {
           "id": "travel_075_sub_2_qa_2",
           "subSceneId": "travel_075_sub_2",
-          "speakerText": "Is there a later bus if I miss this one?",
-          "speakerTextCn": "如果赶不上这班，有下一班吗？",
+          "speakerText": "The large suitcase can’t exceed 20 kg. Extra bags cost $10 each.",
+          "speakerTextCn": "大行李不得超过20公斤，额外行李每件10美元。",
           "responses": [
             {
-              "text": "Yeah, the next one’s at 5 PM—same route.",
-              "text_cn": "有，下一班是五点，路线一样。",
-              "audio_url": ""
+              "text": "I’ll check my bag’s weight then. Thanks!",
+              "text_cn": "那我先去称一下重量，谢谢！",
+              "audio_url": "COS:/qa/responses/travel_075_sub_2_qa_2_response0.mp3"
             },
             {
-              "text": "There’s a 5:30, but it’s a bit slower.",
-              "text_cn": "五点半有一班，但慢一点。",
-              "audio_url": ""
+              "text": "Okay, I’ll pay for the extra one.",
+              "text_cn": "好的，我付额外行李费。",
+              "audio_url": "COS:/qa/responses/travel_075_sub_2_qa_2_response1.mp3"
             },
             {
-              "text": "No later ones.",
-              "text_cn": "没更晚的了。",
-              "audio_url": ""
+              "text": "No extra bags, I’m good.",
+              "text_cn": "我不带额外行李，够了。",
+              "audio_url": "COS:/qa/responses/travel_075_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "询问替代方案体现应变能力",
-          "audioUrl": null,
+          "usageNote": "决定是否支付额外行李费",
+          "audioUrl": "COS:/qa/questions/travel_075_sub_2_qa_2.mp3",
           "qaType": "must_speak",
           "order": 2
         }
@@ -108,99 +135,126 @@
     {
       "id": "travel_075_sub_3",
       "sceneId": "travel_075",
-      "name": "行李规定咨询",
-      "description": "乘客询问行李尺寸与免费额度",
+      "name": "车上设施",
+      "description": "乘客询问巴士是否提供Wi-Fi、充电和卫生间",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_075_sub_3_qa_1",
           "subSceneId": "travel_075_sub_3",
-          "speakerText": "How much luggage can I bring? I’ve got a big backpack and a suitcase.",
-          "speakerTextCn": "我能带多少行李？我有个大背包和一���行李箱。",
+          "speakerText": "The bus has free Wi-Fi, USB charging ports, and a restroom on board.",
+          "speakerTextCn": "车上提供免费Wi-Fi、USB充电口和卫生间。",
           "responses": [
             {
-              "text": "You’re good! One checked bag and one carry-on are free.",
-              "text_cn": "没问题！一件托运行李加一件随身行李免费。",
-              "audio_url": ""
+              "text": "Is the Wi-Fi strong enough for video calls?",
+              "text_cn": "Wi-Fi能支持视频通话吗？",
+              "audio_url": "COS:/qa/responses/travel_075_sub_3_qa_1_response0.mp3"
             },
             {
-              "text": "Yep, that’s totally fine—no extra charge.",
-              "text_cn": "完全没问题，不收额外费用。",
-              "audio_url": ""
+              "text": "Are the outlets near the seats?",
+              "text_cn": "充电口在座位附近吗？",
+              "audio_url": "COS:/qa/responses/travel_075_sub_3_qa_1_response1.mp3"
             },
             {
-              "text": "Free for two.",
-              "text_cn": "两个免费。",
-              "audio_url": ""
+              "text": "Nice! That’s helpful.",
+              "text_cn": "太好了，这很实用。",
+              "audio_url": "COS:/qa/responses/travel_075_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用‘I’ve got’自然描述携带物品",
-          "audioUrl": null,
+          "usageNote": "确认车上便利设施",
+          "audioUrl": "COS:/qa/questions/travel_075_sub_3_qa_1.mp3",
           "qaType": "must_speak",
           "order": 1
+        },
+        {
+          "id": "travel_075_sub_3_qa_2",
+          "subSceneId": "travel_075_sub_3",
+          "speakerText": "Yes, each seat has two USB ports. Wi-Fi works well except in tunnels.",
+          "speakerTextCn": "是的，每个座位有两个USB口，Wi-Fi在隧道外信号很好。",
+          "responses": [
+            {
+              "text": "Perfect, I’ll charge my phone.",
+              "text_cn": "太好了，我给手机充电。",
+              "audio_url": "COS:/qa/responses/travel_075_sub_3_qa_2_response0.mp3"
+            },
+            {
+              "text": "Will it work during the whole trip?",
+              "text_cn": "全程都能用吗？",
+              "audio_url": "COS:/qa/responses/travel_075_sub_3_qa_2_response1.mp3"
+            },
+            {
+              "text": "Cool, thanks!",
+              "text_cn": "太棒了，谢谢！",
+              "audio_url": "COS:/qa/responses/travel_075_sub_3_qa_2_response2.mp3"
+            }
+          ],
+          "usageNote": "确认设施可用性",
+          "audioUrl": "COS:/qa/questions/travel_075_sub_3_qa_2.mp3",
+          "qaType": "must_speak",
+          "order": 2
         }
       ]
     },
     {
       "id": "travel_075_sub_4",
       "sceneId": "travel_075",
-      "name": "车上设施确认",
-      "description": "乘客了解是否有Wi-Fi、充电口和卫生间",
+      "name": "购票确认",
+      "description": "乘客支付票款并确认座位和上车点",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_075_sub_4_qa_1",
           "subSceneId": "travel_075_sub_4",
-          "speakerText": "Does the bus have Wi-Fi and power outlets?",
-          "speakerTextCn": "车上有没有Wi-Fi和电源插座？",
+          "speakerText": "Your ticket is confirmed. Seat 14B, boarding at Gate 5 in 15 minutes.",
+          "speakerTextCn": "您的票已确认，14B座，15分钟后从5号门上车。",
           "responses": [
             {
-              "text": "Yep, free Wi-Fi and outlets at every seat.",
-              "text_cn": "有，免费Wi-Fi，每个座位都有插座。",
-              "audio_url": ""
+              "text": "Is seat 14B by the window?",
+              "text_cn": "14B是靠窗的座位吗？",
+              "audio_url": "COS:/qa/responses/travel_075_sub_4_qa_1_response0.mp3"
             },
             {
-              "text": "All seats got USB ports and Wi-Fi—no problem.",
-              "text_cn": "每个座位都有USB口和Wi-Fi，没问题。",
-              "audio_url": ""
+              "text": "Can I change to an aisle seat?",
+              "text_cn": "我能换到过道座位吗？",
+              "audio_url": "COS:/qa/responses/travel_075_sub_4_qa_1_response1.mp3"
             },
             {
-              "text": "Yes, both.",
-              "text_cn": "都有。",
-              "audio_url": ""
+              "text": "Gate 5, got it.",
+              "text_cn": "5号门，记下了。",
+              "audio_url": "COS:/qa/responses/travel_075_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用‘at every seat’明确位置更实用",
-          "audioUrl": null,
+          "usageNote": "确认座位位置",
+          "audioUrl": "COS:/qa/questions/travel_075_sub_4_qa_1.mp3",
           "qaType": "must_speak",
           "order": 1
         },
         {
           "id": "travel_075_sub_4_qa_2",
           "subSceneId": "travel_075_sub_4",
-          "speakerText": "And are there restrooms on board?",
-          "speakerTextCn": "车上有没有卫生间？",
+          "speakerText": "I’m sorry, seat 14B is the only one left. But it’s a great window view.",
+          "speakerTextCn": "抱歉，只剩14B了，但窗外风景很好。",
           "responses": [
             {
-              "text": "Yes, there’s one at the back—clean and stocked.",
-              "text_cn": "有，在车尾，干净且备有用品。",
-              "audio_url": ""
+              "text": "No problem, I’ll take it!",
+              "text_cn": "没关系，我就要这个！",
+              "audio_url": "COS:/qa/responses/travel_075_sub_4_qa_2_response0.mp3"
             },
             {
-              "text": "Yep, and they refill at stops.",
-              "text_cn": "有，中途停靠会补给。",
-              "audio_url": ""
+              "text": "Okay, window’s fine.",
+              "text_cn": "好吧，靠窗也行。",
+              "audio_url": "COS:/qa/responses/travel_075_sub_4_qa_2_response1.mp3"
             },
             {
-              "text": "Yes.",
-              "text_cn": "有。",
-              "audio_url": ""
+              "text": "Any other options?",
+              "text_cn": "还有别的座位吗？",
+              "audio_url": "COS:/qa/responses/travel_075_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "用‘stocked’和‘refill’体现细节关注",
-          "audioUrl": null,
+          "usageNote": "接受或请求更换座位",
+          "audioUrl": "COS:/qa/questions/travel_075_sub_4_qa_2.mp3",
           "qaType": "must_speak",
           "order": 2
         }
@@ -209,62 +263,62 @@
     {
       "id": "travel_075_sub_5",
       "sceneId": "travel_075",
-      "name": "购票与道别",
-      "description": "乘客完成购票并礼貌告别",
+      "name": "道别与提醒",
+      "description": "工作人员提醒乘客上车时间和注意事项",
       "order": 5,
-      "estimatedMinutes": 5,
+      "estimatedMinutes": 4,
       "qaPairs": [
         {
           "id": "travel_075_sub_5_qa_1",
           "subSceneId": "travel_075_sub_5",
-          "speakerText": "I’d like to buy a one-way ticket to Chicago—cash or card?",
-          "speakerTextCn": "我想买一张去芝加哥的单程票，现金还是刷卡？",
+          "speakerText": "Please be at Gate 5 10 minutes before departure. Don’t forget your belongings!",
+          "speakerTextCn": "请在发车前10分钟到达5号门，别忘了随身物品！",
           "responses": [
             {
-              "text": "Card’s faster, but we take both—here’s your receipt.",
-              "text_cn": "刷卡更快，但两种都收，这是你的收据。",
-              "audio_url": ""
+              "text": "Will there be an announcement?",
+              "text_cn": "会有广播提醒吗？",
+              "audio_url": "COS:/qa/responses/travel_075_sub_5_qa_1_response0.mp3"
             },
             {
-              "text": "Either’s fine—I’ll take card, thanks.",
-              "text_cn": "哪种都行，我刷卡，谢谢。",
-              "audio_url": ""
+              "text": "Thanks for the reminder!",
+              "text_cn": "谢谢提醒！",
+              "audio_url": "COS:/qa/responses/travel_075_sub_5_qa_1_response1.mp3"
             },
             {
-              "text": "Card.",
-              "text_cn": "刷卡。",
-              "audio_url": ""
+              "text": "I won’t forget.",
+              "text_cn": "我不会忘的。",
+              "audio_url": "COS:/qa/responses/travel_075_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用‘I’d like to’表达礼貌购买意愿",
-          "audioUrl": null,
+          "usageNote": "回应上车提醒",
+          "audioUrl": "COS:/qa/questions/travel_075_sub_5_qa_1.mp3",
           "qaType": "must_speak",
           "order": 1
         },
         {
           "id": "travel_075_sub_5_qa_2",
           "subSceneId": "travel_075_sub_5",
-          "speakerText": "Thanks so much—you’ve been super helpful!",
-          "speakerTextCn": "太感谢了，你帮了大忙！",
+          "speakerText": "The driver will announce stops. If you need help, press the call button.",
+          "speakerTextCn": "司机将播报站点，如有需要请按呼叫按钮。",
           "responses": [
             {
-              "text": "You’re welcome! Have a great trip!",
-              "text_cn": "不客气，祝你旅途愉快！",
-              "audio_url": ""
+              "text": "What if I miss my stop?",
+              "text_cn": "如果错过站点怎么办？",
+              "audio_url": "COS:/qa/responses/travel_075_sub_5_qa_2_response0.mp3"
             },
             {
-              "text": "No problem! See you in Chicago!",
-              "text_cn": "小事！芝加哥见！",
-              "audio_url": ""
+              "text": "Got it, I’ll press the button.",
+              "text_cn": "明白了，我会按按钮。",
+              "audio_url": "COS:/qa/responses/travel_075_sub_5_qa_2_response1.mp3"
             },
             {
-              "text": "Sure thing!",
-              "text_cn": "没问题！",
-              "audio_url": ""
+              "text": "Thanks, have a good day!",
+              "text_cn": "谢谢，祝你今天愉快！",
+              "audio_url": "COS:/qa/responses/travel_075_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "用‘super helpful’增强情感表达",
-          "audioUrl": null,
+          "usageNote": "确认下车方式并道别",
+          "audioUrl": "COS:/qa/questions/travel_075_sub_5_qa_2.mp3",
           "qaType": "must_speak",
           "order": 2
         }

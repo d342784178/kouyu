@@ -1,68 +1,68 @@
 {
   "sceneId": "daily_002",
   "sceneName": "超市购物",
-  "generatedAt": "2026-03-01T03:35:42.570Z",
+  "generatedAt": "2026-03-01T07:04:32.909Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_002_sub_1",
       "sceneId": "daily_002",
-      "name": "找商品位置",
-      "description": "询问牛奶和燕麦片在哪个区域",
+      "name": "寻找商品",
+      "description": "询问商品所在区域位置",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_002_sub_1_qa_1",
           "subSceneId": "daily_002_sub_1",
-          "speakerText": "Excuse me, where can I find the milk?",
-          "speakerTextCn": "不好意思，牛奶在哪儿？",
+          "speakerText": "Excuse me, where can I find the dairy section?",
+          "speakerTextCn": "不好意思，请问乳制品区在哪里？",
           "responses": [
             {
-              "text": "It's in the dairy section, right next to the eggs.",
-              "text_cn": "在乳制品区，就在鸡蛋旁边。",
-              "audio_url": ""
+              "text": "It's down the aisle to the left, next to the eggs.",
+              "text_cn": "在左边过道，挨着鸡蛋那边。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_1_qa_1_response0.mp3"
             },
             {
-              "text": "Just head left past the bread, you'll see it.",
-              "text_cn": "往前走，穿过面包区就看到了。",
-              "audio_url": ""
+              "text": "Just go straight and turn left at the produce section.",
+              "text_cn": "直走，到蔬果区左转。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_1_qa_1_response1.mp3"
             },
             {
-              "text": "Dairy aisle.",
-              "text_cn": "乳品区。",
-              "audio_url": ""
+              "text": "Over there, near the cheese.",
+              "text_cn": "那边，奶酪附近。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "常用在询问商品位置时，简洁礼貌",
-          "audioUrl": null,
+          "usageNote": "用于询问商品具体位置",
+          "audioUrl": "COS:/qa/questions/daily_002_sub_1_qa_1.mp3",
           "qaType": "must_speak",
           "order": 1
         },
         {
           "id": "daily_002_sub_1_qa_2",
           "subSceneId": "daily_002_sub_1",
-          "speakerText": "Do you have gluten-free oatmeal?",
-          "speakerTextCn": "你们有无麸质燕麦片吗？",
+          "speakerText": "Do you have almond milk in the refrigerated section?",
+          "speakerTextCn": "冷藏区有杏仁奶吗？",
           "responses": [
             {
-              "text": "Yeah, they're in the health food aisle, near the nuts.",
-              "text_cn": "有的，在健康食品区，坚果旁边。",
-              "audio_url": ""
+              "text": "Yes, it's on the bottom shelf, next to the soy milk.",
+              "text_cn": "有，在最下层，挨着豆浆。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_1_qa_2_response0.mp3"
             },
             {
-              "text": "I'm not sure, but try the organic section.",
-              "text_cn": "我不确定，试试有机食品区。",
-              "audio_url": ""
+              "text": "Sorry, we're out of stock right now.",
+              "text_cn": "抱歉，现在缺货。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_1_qa_2_response1.mp3"
             },
             {
-              "text": "Check the top shelf.",
-              "text_cn": "看看上层货架。",
-              "audio_url": ""
+              "text": "Try the organic aisle, aisle 5.",
+              "text_cn": "试试有机区，5号通道。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "适合询问特殊需求商品，语气自然",
-          "audioUrl": null,
+          "usageNote": "确认特定商品是否在售",
+          "audioUrl": "COS:/qa/questions/daily_002_sub_1_qa_2.mp3",
           "qaType": "must_speak",
           "order": 2
         }
@@ -71,62 +71,62 @@
     {
       "id": "daily_002_sub_2",
       "sceneId": "daily_002",
-      "name": "确认计量单位",
-      "description": "确认商品是按公斤还是按袋卖",
+      "name": "确认计量",
+      "description": "询问商品单位与重量",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_002_sub_2_qa_1",
           "subSceneId": "daily_002_sub_2",
-          "speakerText": "Is this rice sold by the kilo or by the bag?",
-          "speakerTextCn": "这个米是按公斤卖还是按袋卖？",
+          "speakerText": "Is this yogurt sold by the pound or by the container?",
+          "speakerTextCn": "这个酸奶是按磅卖还是按盒卖？",
           "responses": [
             {
-              "text": "It's $2.99 per kilo, or you can get a 5kg bag for $12.",
-              "text_cn": "每公斤2.99美元，或者5公斤装12美元。",
-              "audio_url": ""
+              "text": "It's sold by the container — each one is 16 ounces.",
+              "text_cn": "按盒卖，每盒16盎司。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_2_qa_1_response0.mp3"
             },
             {
-              "text": "By the bag only — we don't do loose rice.",
-              "text_cn": "只卖整袋，不散装。",
-              "audio_url": ""
+              "text": "You can buy them in packs of four.",
+              "text_cn": "可以四盒一起买。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_2_qa_1_response1.mp3"
             },
             {
-              "text": "Kilo.",
-              "text_cn": "按公斤。",
-              "audio_url": ""
+              "text": "Just grab one — they're all the same size.",
+              "text_cn": "拿一盒就行，都一样大。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "购物时确认价格单位的关键提问",
-          "audioUrl": null,
+          "usageNote": "确认商品计价单位",
+          "audioUrl": "COS:/qa/questions/daily_002_sub_2_qa_1.mp3",
           "qaType": "must_speak",
           "order": 1
         },
         {
           "id": "daily_002_sub_2_qa_2",
           "subSceneId": "daily_002_sub_2",
-          "speakerText": "How much is this yogurt? Per cup or per pack?",
-          "speakerTextCn": "这个酸奶是按杯还是按盒算？",
+          "speakerText": "How much does this bag of apples weigh?",
+          "speakerTextCn": "这袋苹果有多重？",
           "responses": [
             {
-              "text": "It's $1.50 per cup, but the 6-pack's cheaper at $8.",
-              "text_cn": "每杯1.5美元，但6装只要8美元更划算。",
-              "audio_url": ""
+              "text": "It's exactly 2 pounds — the scale shows it.",
+              "text_cn": "正好两磅，秤上显示了。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_2_qa_2_response0.mp3"
             },
             {
-              "text": "Per pack — each pack has four cups.",
-              "text_cn": "按盒算，每盒四杯。",
-              "audio_url": ""
+              "text": "You can pick your own — they're sold by weight.",
+              "text_cn": "你可以自己挑，按重量计价。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_2_qa_2_response1.mp3"
             },
             {
-              "text": "The label says per cup.",
-              "text_cn": "价签上写的是每杯。",
-              "audio_url": ""
+              "text": "Pre-packaged — 1.5 lbs each.",
+              "text_cn": "预包装的，每袋1.5磅。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "避免结账时价格误解，必须确认",
-          "audioUrl": null,
+          "usageNote": "询问散装商品重量",
+          "audioUrl": "COS:/qa/questions/daily_002_sub_2_qa_2.mp3",
           "qaType": "must_speak",
           "order": 2
         }
@@ -135,62 +135,62 @@
     {
       "id": "daily_002_sub_3",
       "sceneId": "daily_002",
-      "name": "询问促销活动",
-      "description": "确认商品是否有折扣或赠品",
+      "name": "促销询问",
+      "description": "了解当前折扣与优惠",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_002_sub_3_qa_1",
           "subSceneId": "daily_002_sub_3",
-          "speakerText": "Is there a deal on these canned beans?",
-          "speakerTextCn": "这些罐装豆子有优惠吗？",
+          "speakerText": "Is there a special deal on bread today?",
+          "speakerTextCn": "今天面包有促销吗？",
           "responses": [
             {
-              "text": "Yeah, buy two, get one free — right now!",
-              "text_cn": "有，买二送一，现在就有效！",
-              "audio_url": ""
+              "text": "Yes! Buy one, get one half off — it's on the end cap.",
+              "text_cn": "有！买一送半价，在端架上。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_3_qa_1_response0.mp3"
             },
             {
-              "text": "Not today, but they were on sale last week.",
-              "text_cn": "今天没有，但上周有打折。",
-              "audio_url": ""
+              "text": "No deals right now, but it's usually cheaper on Wednesdays.",
+              "text_cn": "现在没有，周三通常便宜。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_3_qa_1_response1.mp3"
             },
             {
-              "text": "Nope, regular price.",
-              "text_cn": "没有，原价。",
-              "audio_url": ""
+              "text": "Try the loyalty app — you get 10% off if you scan it.",
+              "text_cn": "用会员App扫一下，打九折。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用‘deal’更口语，适合快速确认促销",
-          "audioUrl": null,
+          "usageNote": "询问商品促销信息",
+          "audioUrl": "COS:/qa/questions/daily_002_sub_3_qa_1.mp3",
           "qaType": "must_speak",
           "order": 1
         },
         {
           "id": "daily_002_sub_3_qa_2",
           "subSceneId": "daily_002_sub_3",
-          "speakerText": "Do you get a free bag with this purchase?",
-          "speakerTextCn": "买这个会送免费购物袋吗？",
+          "speakerText": "Do you have any coupons for cereal?",
+          "speakerTextCn": "有麦片的优惠券吗？",
           "responses": [
             {
-              "text": "Only if you spend over $20 — you're just under.",
-              "text_cn": "满20美元才送，你差一点。",
-              "audio_url": ""
+              "text": "They're at the front near the checkout — grab one!",
+              "text_cn": "收银台附近有，自己拿一份！",
+              "audio_url": "COS:/qa/responses/daily_002_sub_3_qa_2_response0.mp3"
             },
             {
-              "text": "We don't give free bags anymore — it's 10 cents now.",
-              "text_cn": "不送免费袋了，现在要10美分。",
-              "audio_url": ""
+              "text": "Not today, but we're running a buy-3-get-1-free.",
+              "text_cn": "今天没有，但有买三送一。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_3_qa_2_response1.mp3"
             },
             {
-              "text": "Sure, here you go.",
-              "text_cn": "当然，给你。",
-              "audio_url": ""
+              "text": "You can download them from our website.",
+              "text_cn": "可以去官网下载。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "用于确认环保政策或赠品规则",
-          "audioUrl": null,
+          "usageNote": "索取或确认优惠券",
+          "audioUrl": "COS:/qa/questions/daily_002_sub_3_qa_2.mp3",
           "qaType": "must_speak",
           "order": 2
         }
@@ -199,63 +199,127 @@
     {
       "id": "daily_002_sub_4",
       "sceneId": "daily_002",
-      "name": "找收银台",
-      "description": "询问最近的收银台在哪里",
+      "name": "寻找收银台",
+      "description": "询问收银台位置与排队情况",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_002_sub_4_qa_1",
           "subSceneId": "daily_002_sub_4",
-          "speakerText": "Where's the nearest checkout?",
-          "speakerTextCn": "最近的收银台在哪？",
+          "speakerText": "Where's the nearest checkout counter?",
+          "speakerTextCn": "最近的收银台在哪里？",
           "responses": [
             {
-              "text": "Right at the front, next to the doors.",
-              "text_cn": "就在前面，门口旁边。",
-              "audio_url": ""
+              "text": "Right at the front, just past the magazines.",
+              "text_cn": "就在前面，杂志区后面。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_4_qa_1_response0.mp3"
             },
             {
-              "text": "Turn left at the snacks, then straight ahead.",
-              "text_cn": "在零食区左转，然后直走。",
-              "audio_url": ""
+              "text": "There's one on the left near the pharmacy.",
+              "text_cn": "左边药房旁有个。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_4_qa_1_response1.mp3"
             },
             {
-              "text": "Over there.",
-              "text_cn": "就在那边。",
-              "audio_url": ""
+              "text": "Try the self-checkout by the doors.",
+              "text_cn": "试试门口的自助结账。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "简洁问法，适合结账前急用",
-          "audioUrl": null,
+          "usageNote": "询问收银台位置",
+          "audioUrl": "COS:/qa/questions/daily_002_sub_4_qa_1.mp3",
           "qaType": "must_speak",
           "order": 1
         },
         {
           "id": "daily_002_sub_4_qa_2",
           "subSceneId": "daily_002_sub_4",
-          "speakerText": "Is there a self-checkout nearby?",
-          "speakerTextCn": "附近有自助结账机吗？",
+          "speakerText": "Which line is moving fastest right now?",
+          "speakerTextCn": "现在哪条队伍最快？",
           "responses": [
             {
-              "text": "Yeah, two lanes just past the magazines.",
-              "text_cn": "有，杂志区过去有两台。",
-              "audio_url": ""
+              "text": "The self-checkout — only two people ahead.",
+              "text_cn": "自助结账，前面只有两人。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_4_qa_2_response0.mp3"
             },
             {
-              "text": "Nope, only manned registers.",
-              "text_cn": "没有，只有人工收银。",
-              "audio_url": ""
+              "text": "Avoid the one with the elderly lady — she's paying with cash.",
+              "text_cn": "别排那位老人的队，他付现金。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_4_qa_2_response1.mp3"
             },
             {
-              "text": "Try the back corner.",
-              "text_cn": "试试后角。",
-              "audio_url": ""
+              "text": "The express lane — under 10 items.",
+              "text_cn": "快速通道，限10件以内。",
+              "audio_url": "COS:/qa/responses/daily_002_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "适合想快速结账的顾客提问",
-          "audioUrl": null,
+          "usageNote": "选择最有效率的结账队伍",
+          "audioUrl": "COS:/qa/questions/daily_002_sub_4_qa_2.mp3",
           "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_002_sub_5",
+      "sceneId": "daily_002",
+      "name": "道别致谢",
+      "description": "购物后礼貌道别与致谢",
+      "order": 5,
+      "estimatedMinutes": 3,
+      "qaPairs": [
+        {
+          "id": "daily_002_sub_5_qa_1",
+          "subSceneId": "daily_002_sub_5",
+          "speakerText": "Thanks so much for your help today!",
+          "speakerTextCn": "今天太感谢你的帮助了！",
+          "responses": [
+            {
+              "text": "You're welcome! Have a great day!",
+              "text_cn": "不客气，祝你今天愉快！",
+              "audio_url": "COS:/qa/responses/daily_002_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "No problem! See you next time!",
+              "text_cn": "小事！下次见！",
+              "audio_url": "COS:/qa/responses/daily_002_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "Glad I could help!",
+              "text_cn": "很高兴帮上忙！",
+              "audio_url": "COS:/qa/responses/daily_002_sub_5_qa_1_response2.mp3"
+            }
+          ],
+          "usageNote": "对服务人员表达感谢",
+          "audioUrl": "COS:/qa/questions/daily_002_sub_5_qa_1.mp3",
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_002_sub_5_qa_2",
+          "subSceneId": "daily_002_sub_5",
+          "speakerText": "Have a nice day!",
+          "speakerTextCn": "祝你今天愉快！",
+          "responses": [
+            {
+              "text": "You too! Thanks for shopping with us!",
+              "text_cn": "你也是！谢谢惠顾！",
+              "audio_url": "COS:/qa/responses/daily_002_sub_5_qa_2_response0.mp3"
+            },
+            {
+              "text": "Same to you!",
+              "text_cn": "你也是！",
+              "audio_url": "COS:/qa/responses/daily_002_sub_5_qa_2_response1.mp3"
+            },
+            {
+              "text": "Thanks, bye!",
+              "text_cn": "谢谢，再见！",
+              "audio_url": "COS:/qa/responses/daily_002_sub_5_qa_2_response2.mp3"
+            }
+          ],
+          "usageNote": "自然结束对话的礼貌用语",
+          "audioUrl": "COS:/qa/questions/daily_002_sub_5_qa_2.mp3",
+          "qaType": "listen_only",
           "order": 2
         }
       ]
