@@ -10,8 +10,8 @@ new_scene/
 │   └── sub-scenes/          # 生成的子场景 JSON 文件（每个场景一个文件）
 └── scripts/
     ├── generate-sub-scenes.js       # 生成脚本（NVIDIA Qwen3）
-    ├── import-sub-scenes-simple.js  # 导入脚本（直接 SQL，推荐）
-    └── import-sub-scenes.ts         # 导入脚本（TypeScript + Drizzle ORM）
+    ├── import-sub-scenes-simple.js  # 导入脚本（直接 SQL）
+    └── import-sub-scenes.ts         # 导入脚本（并发批量，TypeScript + Drizzle ORM）
 ```
 
 ## 前置条件
@@ -46,17 +46,20 @@ node prepare/new_scene/scripts/generate-sub-scenes.js --dry-run
 ### 第二步：导入数据库
 
 ```bash
-# 推荐：直接 SQL 版本
-node prepare/new_scene/scripts/import-sub-scenes-simple.js
+# 推荐：并发批量导入（TypeScript 版本，速度快）
+npx ts-node --compilerOptions '{"module":"commonjs","moduleResolution":"node"}' prepare/new_scene/scripts/import-sub-scenes.ts
 
-# 或 TypeScript 版本（需要 ts-node）
-npx ts-node prepare/new_scene/scripts/import-sub-scenes.ts
+# 指定并发数（默认 10）
+npx ts-node --compilerOptions '{"module":"commonjs","moduleResolution":"node"}' prepare/new_scene/scripts/import-sub-scenes.ts --concurrency 20
 
 # 只导入指定场景
-node prepare/new_scene/scripts/import-sub-scenes-simple.js --scene daily_001
+npx ts-node --compilerOptions '{"module":"commonjs","moduleResolution":"node"}' prepare/new_scene/scripts/import-sub-scenes.ts --scene daily_001
 
 # 预览导入操作（不写数据库）
-node prepare/new_scene/scripts/import-sub-scenes-simple.js --dry-run
+npx ts-node --compilerOptions '{"module":"commonjs","moduleResolution":"node"}' prepare/new_scene/scripts/import-sub-scenes.ts --dry-run
+
+# 备选：直接 SQL 版本
+node prepare/new_scene/scripts/import-sub-scenes-simple.js
 ```
 
 ## 数据格式
