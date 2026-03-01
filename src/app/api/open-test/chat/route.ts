@@ -60,8 +60,7 @@ export async function POST(request: Request) {
         aiRole || 'AI助手',
         userRole || '用户',
         dialogueGoal || '进行对话',
-        difficultyLevel || 'medium',
-        conversation || []
+        difficultyLevel || 'medium'
       )
     }
 

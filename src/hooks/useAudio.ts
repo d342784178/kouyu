@@ -126,17 +126,17 @@ export function useAudio(): UseAudioReturn {
       // 尝试从网络错误中获取更详细的信息
       if (audioElement.error) {
         switch (audioElement.error.code) {
-          case MediaError.MEDIA_ERR_NOT_FOUND:
-            errorMessage = '音频不存在'
+          case 1: // MEDIA_ERR_ABORTED
+            errorMessage = '音频加载被中断'
             break
-          case MediaError.MEDIA_ERR_DECODE:
-            errorMessage = '音频解码失败'
-            break
-          case MediaError.MEDIA_ERR_NETWORK:
+          case 2: // MEDIA_ERR_NETWORK
             errorMessage = '网络错误'
             break
-          case MediaError.MEDIA_ERR_ABORTED:
-            errorMessage = '音频加载被中断'
+          case 3: // MEDIA_ERR_DECODE
+            errorMessage = '音频解码失败'
+            break
+          case 4: // MEDIA_ERR_SRC_NOT_SUPPORTED
+            errorMessage = '音频格式不支持'
             break
         }
       }

@@ -57,7 +57,7 @@ export async function POST(request: Request) {
     )
 
     // 将 PCM 数据推入 stream，然后关闭
-    pushStream.write(pcmBuffer)
+    pushStream.write(pcmBuffer.buffer.slice(pcmBuffer.byteOffset, pcmBuffer.byteOffset + pcmBuffer.byteLength))
     pushStream.close()
 
     const audioConfig = sdk.AudioConfig.fromStreamInput(pushStream)
@@ -96,7 +96,7 @@ export async function POST(request: Request) {
       const evaluationResult = {
         score: Math.round(pronunciationResult.pronunciationScore ?? 0),
         accuracyScore: Math.round(pronunciationResult.accuracyScore ?? 0),
-        intonationScore: Math.round(pronunciationResult.intonationScore ?? 0),
+        intonationScore: Math.round(pronunciationResult.prosodyScore ?? 0),
         wordFeedback,
       }
 

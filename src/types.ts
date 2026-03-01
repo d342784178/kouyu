@@ -208,7 +208,7 @@ export interface BlankItem {
 export type PracticeQuestion =
   | { type: 'choice'; qaId: string; audioUrl: string; speakerText: string; speakerTextCn: string; options: ChoiceOption[] }
   | { type: 'fill_blank'; qaId: string; template: string; blanks: BlankItem[] }
-  | { type: 'speaking'; qaId: string; speakerText: string; speakerTextCn: string }
+  | { type: 'speaking'; qaId: string; speakerText: string; speakerTextCn: string; expectedAnswer?: string }
 
 /**
  * AI 模拟对话 API 请求体
