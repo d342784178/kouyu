@@ -111,8 +111,6 @@ export async function GET(request: NextRequest) {
       difficulty: scene.difficulty,
       duration: scene.duration,
       tags: scene.tags,
-      dialogue: scene.dialogue,
-      vocabulary: scene.vocabulary,
       createdAt: scene.created_at,
       updatedAt: scene.updated_at
     }))

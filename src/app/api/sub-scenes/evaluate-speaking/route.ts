@@ -68,7 +68,10 @@ export async function POST(request: NextRequest) {
       throw new Error('LLM响应格式错误')
     }
 
-    const result = JSON.parse(jsonMatch[0])
+    // 修复LLM返回的JSON中可能包含的无效转义字符
+    // 例如：\' 不是有效的JSON转义序列，需要替换为 '
+    let jsonStr = jsonMatch[0].replace(/\\'/g, "'")
+    const result = JSON.parse(jsonStr)
     console.log('[评测API] 解析结果:', result)
 
     return NextResponse.json({

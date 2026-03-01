@@ -50,6 +50,8 @@ type RecordingState = 'idle' | 'recording' | 'recognizing' | 'error'
 interface RetryPrompt {
   /** AI 提示文案 */
   hint: string
+  /** 判断理由 */
+  reason?: string
   /** 需要撤销的用户消息 id */
   userMsgId: string
 }
@@ -359,7 +361,7 @@ export default function AIDialogueStage({
         if (!res.ok) throw new Error('API 请求失败')
 
         const data = await res.json()
-        const { pass, nextQaIndex, aiMessage, isComplete: done, hint } = data
+        const { pass, nextQaIndex, aiMessage, isComplete: done, hint, reason } = data
 
         // 记录当前 QA_Pair 的回应状态（仅在通过时记录）
         const currentQa = qaPairs[currentQaIndexRef.current]
@@ -389,7 +391,7 @@ export default function AIDialogueStage({
           setMessages((prev) => {
             const lastUserMsg = [...prev].reverse().find((m) => m.role === 'user')
             if (lastUserMsg) {
-              setRetryPrompt({ hint: hintText, userMsgId: lastUserMsg.id })
+              setRetryPrompt({ hint: hintText, reason, userMsgId: lastUserMsg.id })
             }
             return prev
           })
@@ -734,6 +736,9 @@ export default function AIDialogueStage({
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-[#1F2937] mb-1">回答与场景不符</p>
+                  {retryPrompt.reason && (
+                    <p className="text-sm text-amber-600 font-medium mb-1">{retryPrompt.reason}</p>
+                  )}
                   <p className="text-sm text-[#6B7280] leading-relaxed">{retryPrompt.hint}</p>
                 </div>
               </div>

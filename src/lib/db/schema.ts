@@ -31,17 +31,15 @@ export const phraseExamples = pgTable('phrase_examples', {
 })
 
 
-// 场景表（包含解析/对话/高频词汇）
+// 场景表
 export const scenes = pgTable('scenes', {
   id: text('id').primaryKey(),
   name: text('name').notNull(),
   category: text('category').notNull(),
   description: text('description').notNull(),
   difficulty: text('difficulty').notNull(),
-  duration: integer('duration').default(10), // 学习时长（分钟）
-  tags: jsonb('tags'), // 关键词标签
-  dialogue: jsonb('dialogue'), // 对话内容
-  vocabulary: jsonb('vocabulary'), // 高频单词/短语
+  duration: integer('duration').default(10),
+  tags: jsonb('tags'),
   createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
   updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`)
 })

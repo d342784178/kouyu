@@ -3,7 +3,7 @@
  * 用于服务端组件中获取场景数据
  */
 import { neon } from '@neondatabase/serverless'
-import type { Scene, DialogueRound, VocabularyItem } from '@/types'
+import type { Scene } from '@/types'
 
 // 数据库返回的原始场景数据类型
 interface RawSceneData {
@@ -14,8 +14,6 @@ interface RawSceneData {
   difficulty: string
   duration: number
   tags: string | string[]
-  dialogue: string | DialogueRound[]
-  vocabulary: string | VocabularyItem[]
   created_at: string
   updated_at: string
 }
@@ -36,45 +34,10 @@ export async function getSceneById(id: string): Promise<Scene | null> {
     
     const sceneData = result[0] as RawSceneData
     
-    // 解析 JSONB 字段
-    let dialogue = sceneData.dialogue
-    let vocabulary = sceneData.vocabulary
     let tags = sceneData.tags
-
-    if (typeof dialogue === 'string') {
-      dialogue = JSON.parse(dialogue)
-    }
-    if (typeof vocabulary === 'string') {
-      vocabulary = JSON.parse(vocabulary)
-    }
     if (typeof tags === 'string') {
       tags = JSON.parse(tags)
     }
-
-    // 标准化对话数据
-    let normalizedDialogue: DialogueRound[]
-    if (Array.isArray(dialogue)) {
-      // 已经是数组格式
-      normalizedDialogue = dialogue as DialogueRound[]
-    } else {
-      // 默认空数组
-      normalizedDialogue = []
-    }
-    
-    // 标准化词汇数据
-    const normalizedVocabulary = ((vocabulary as VocabularyItem[]) || []).map((vocab) => ({
-      vocab_id: vocab.vocab_id || '',
-      type: vocab.type || 'word',
-      content: vocab.content || '',
-      phonetic: vocab.phonetic || '',
-      translation: vocab.translation || '',
-      audio_url: vocab.audio_url || (vocab as any).word_audio_url || '',
-      example: vocab.example || '',
-      example_translation: vocab.example_translation || '',
-      example_audio_url: vocab.example_audio_url || '',
-      round_number: vocab.round_number || 1,
-      difficulty: vocab.difficulty || 'easy'
-    }))
     
     return {
       id: sceneData.id,
@@ -84,8 +47,6 @@ export async function getSceneById(id: string): Promise<Scene | null> {
       difficulty: sceneData.difficulty,
       duration: sceneData.duration,
       tags: (tags as string[]) || [],
-      dialogue: normalizedDialogue,
-      vocabulary: normalizedVocabulary,
       createdAt: sceneData.created_at,
       updatedAt: sceneData.updated_at
     }

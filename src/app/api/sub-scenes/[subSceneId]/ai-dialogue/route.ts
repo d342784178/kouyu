@@ -92,6 +92,7 @@ ${responseOptions}
     // 解析 LLM 返回的 JSON
     let pass = false
     let hint: string | undefined
+    let reason: string | undefined
     try {
       // 提取 JSON 内容（防止 LLM 返回多余文字）
       const jsonMatch = llmResult.content.match(/\{[\s\S]*\}/)
@@ -99,6 +100,7 @@ ${responseOptions}
         const parsed = JSON.parse(jsonMatch[0])
         pass = Boolean(parsed.pass)
         hint = parsed.hint
+        reason = parsed.reason
       }
     } catch {
       console.warn('[ai-dialogue] LLM 返回内容解析失败，默认 pass=false:', llmResult.content)
@@ -125,6 +127,7 @@ ${responseOptions}
       aiMessage,
       isComplete,
       hint: !pass ? hint : undefined,
+      reason: !pass ? reason : undefined,
     }
 
     return NextResponse.json(response, { status: 200 })
