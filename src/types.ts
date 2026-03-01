@@ -225,21 +225,6 @@ export interface QAResponse {
 }
 
 /**
- * localStorage 中保存的子场景学习进度
- * key 格式：`sub_scene_progress_${subSceneId}`
- */
-export interface SubSceneProgress {
-  /** 学习状态 */
-  status: 'not_started' | 'in_progress' | 'completed'
-  /** 当前所处阶段（1=逐句学习, 2=练习题, 3=AI对话, 4=对话后处理） */
-  currentStage: 1 | 2 | 3 | 4
-  /** 定向重练用，存储未通过的 QA_Pair id */
-  failedQaIds: string[]
-  /** ISO 8601 时间戳 */
-  lastUpdated: string
-}
-
-/**
  * 子场景详情 API 响应结构
  * GET /api/sub-scenes/[subSceneId]
  */

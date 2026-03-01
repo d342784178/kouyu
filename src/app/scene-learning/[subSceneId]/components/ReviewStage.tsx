@@ -4,7 +4,6 @@ import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { getReviewBranch } from '@/lib/scene-learning/scoring'
-import { saveProgress } from '@/lib/scene-learning/progress'
 import type { QAPair, ReviewHighlight, ReviewRequest, ReviewResponse } from '@/types'
 
 // ============================================================
@@ -377,17 +376,11 @@ export default function ReviewStage({
     fetchHighlights()
   }, [branch, subSceneId, fluencyScore, dialogueHistory])
 
-  // ---- 完成：更新 localStorage 进度为 completed，触发回调 ----
+  // ---- 完成：触发回调并跳转 ----
   const handleComplete = useCallback(() => {
-    saveProgress(subSceneId, {
-      status: 'completed',
-      currentStage: 4,
-      failedQaIds: [],
-      lastUpdated: new Date().toISOString(),
-    })
     onComplete()
     router.push(`/scene-overview/${sceneId}`)
-  }, [subSceneId, sceneId, onComplete, router])
+  }, [sceneId, onComplete, router])
 
   return (
     <motion.div

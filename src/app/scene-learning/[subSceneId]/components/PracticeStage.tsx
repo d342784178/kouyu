@@ -9,7 +9,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { getAudioUrl } from '@/lib/audioUrl'
-import { validateFillBlankAnswer } from '@/lib/scene-learning/progress'
 import type { PracticeQuestion, ChoiceOption } from '@/types'
 
 // ============================================================
@@ -25,6 +24,11 @@ interface PracticeStageProps {
 // ============================================================
 // 工具函数
 // ============================================================
+
+/** 验证填空题答案是否有效（纯空白字符串返回 false） */
+function validateFillBlankAnswer(answer: string): boolean {
+  return answer.trim().length > 0
+}
 
 /** 播放音频（支持 COS:/ 协议） */
 function playAudio(audioUrl: string) {

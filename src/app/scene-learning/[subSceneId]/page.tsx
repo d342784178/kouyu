@@ -3,12 +3,11 @@
 import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { loadProgress, saveProgress } from '@/lib/scene-learning/progress'
 import LearningStage from './components/LearningStage'
 import PracticeStage from './components/PracticeStage'
 import AIDialogueStage from './components/AIDialogueStage'
 import ReviewStage from './components/ReviewStage'
-import type { SubSceneDetailResponse, SubSceneProgress } from '@/types'
+import type { SubSceneDetailResponse } from '@/types'
 
 // ============================================================
 // 常量：四阶段配置
@@ -301,7 +300,7 @@ export default function SceneLearningPage({
   const [error, setError] = useState<string | null>(null)
 
   // ---- 四阶段状态机 ----
-  const [currentStage, setCurrentStageRaw] = useState<1 | 2 | 3 | 4>(1)
+  const [currentStage, setCurrentStage] = useState<1 | 2 | 3 | 4>(1)
 
   // ---- 定向重练：未通过的 QA_Pair id 列表 ----
   const [failedQaIds, setFailedQaIds] = useState<string[]>([])
@@ -340,61 +339,17 @@ export default function SceneLearningPage({
     }
   }, [subSceneId])
 
-  // ---- 初始化：加载数据 + 恢复 localStorage 进度 ----
+  // ---- 初始化：加载数据 ----
   useEffect(() => {
     fetchData()
   }, [fetchData])
-
-  // ---- 数据加载完成后，从 localStorage 恢复进度 ----
-  useEffect(() => {
-    if (!data) return
-
-    const saved = loadProgress(subSceneId)
-    if (saved) {
-      setCurrentStageRaw(saved.currentStage)
-      setFailedQaIds(saved.failedQaIds)
-    }
-  }, [data, subSceneId])
-
-  // ---- 阶段切换：自动保存进度 ----
-  const setCurrentStage = useCallback(
-    (stage: 1 | 2 | 3 | 4) => {
-      setCurrentStageRaw(stage)
-
-      // 构建进度对象并保存
-      const progress: SubSceneProgress = {
-        status: stage === 4 ? 'in_progress' : 'in_progress',
-        currentStage: stage,
-        failedQaIds,
-        lastUpdated: new Date().toISOString(),
-      }
-      saveProgress(subSceneId, progress)
-    },
-    [subSceneId, failedQaIds]
-  )
 
   // ---- 进入下一阶段 ----
   const handleNextStage = useCallback(() => {
     if (currentStage < 4) {
       setCurrentStage((currentStage + 1) as 1 | 2 | 3 | 4)
     }
-  }, [currentStage, setCurrentStage])
-
-  // ---- 更新 failedQaIds（供子组件调用） ----
-  const handleSetFailedQaIds = useCallback(
-    (ids: string[]) => {
-      setFailedQaIds(ids)
-      // 同步保存到 localStorage
-      const progress: SubSceneProgress = {
-        status: 'in_progress',
-        currentStage,
-        failedQaIds: ids,
-        lastUpdated: new Date().toISOString(),
-      }
-      saveProgress(subSceneId, progress)
-    },
-    [subSceneId, currentStage]
-  )
+  }, [currentStage])
 
   // ---- 渲染 ----
   return (
@@ -487,9 +442,8 @@ export default function SceneLearningPage({
                       subSceneId={subSceneId}
                       qaPairs={data.qaPairs}
                       onProceed={(score, ids, history) => {
-                        // 保存 AI 对话结果，进入第四阶段
                         setFluencyScore(score)
-                        handleSetFailedQaIds(ids)
+                        setFailedQaIds(ids)
                         if (history) setDialogueHistory(history)
                         setCurrentStage(4)
                       }}
@@ -507,8 +461,7 @@ export default function SceneLearningPage({
                     dialogueHistory={dialogueHistory}
                     onComplete={() => {/* router.push 在 ReviewStage 内部处理 */}}
                     onRetry={(ids) => {
-                      // 定向重练：回到第一阶段，仅展示未通过项
-                      handleSetFailedQaIds(ids)
+                      setFailedQaIds(ids)
                       setCurrentStage(1)
                     }}
                   />
@@ -521,25 +474,4 @@ export default function SceneLearningPage({
       </div>
     </div>
   )
-}
-
-// ============================================================
-// 导出供子组件使用的类型（后续阶段组件通过 props 接收）
-// ============================================================
-
-/**
- * 阶段组件通用 Props 接口
- * LearningStage / PracticeStage / AIDialogueStage / ReviewStage 均需实现此接口
- */
-export interface StageProps {
-  /** 子场景详情数据 */
-  data: SubSceneDetailResponse
-  /** 当前阶段 */
-  currentStage: 1 | 2 | 3 | 4
-  /** 切换阶段（含自动保存进度） */
-  setCurrentStage: (stage: 1 | 2 | 3 | 4) => void
-  /** 定向重练：未通过的 QA_Pair id 列表 */
-  failedQaIds: string[]
-  /** 更新 failedQaIds */
-  setFailedQaIds: (ids: string[]) => void
 }

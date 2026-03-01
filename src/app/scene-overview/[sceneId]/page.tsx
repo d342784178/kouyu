@@ -3,8 +3,6 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
-import { loadProgress } from '@/lib/scene-learning/progress'
-import type { SubSceneProgress } from '@/types'
 
 // ============================================================
 // 类型定义
@@ -38,36 +36,6 @@ interface SubScenesApiResponse {
 // ============================================================
 // 工具函数
 // ============================================================
-
-/** 根据进度状态返回对应的显示配置 */
-function getStatusConfig(status: SubSceneProgress['status'] | 'not_started') {
-  switch (status) {
-    case 'completed':
-      return {
-        label: '已完成',
-        bgColor: 'bg-green-50',
-        textColor: 'text-green-600',
-        borderColor: 'border-green-100',
-        dotColor: 'bg-green-500',
-      }
-    case 'in_progress':
-      return {
-        label: '进行中',
-        bgColor: 'bg-blue-50',
-        textColor: 'text-blue-600',
-        borderColor: 'border-blue-100',
-        dotColor: 'bg-blue-500',
-      }
-    default:
-      return {
-        label: '未开始',
-        bgColor: 'bg-gray-50',
-        textColor: 'text-gray-400',
-        borderColor: 'border-gray-100',
-        dotColor: 'bg-gray-300',
-      }
-  }
-}
 
 /** 格式化预计时长显示 */
 function formatDuration(minutes: number | null): string {
@@ -117,36 +85,17 @@ function SceneHeader({ scene, subSceneCount }: { scene: SceneInfo; subSceneCount
 }
 
 // ============================================================
-// 子组件：状态徽章
-// ============================================================
-function StatusBadge({ status }: { status: SubSceneProgress['status'] | 'not_started' }) {
-  const config = getStatusConfig(status)
-  return (
-    <span className={`inline-flex items-center gap-1.5 text-xs font-medium px-2.5 py-1 rounded-full ${config.bgColor} ${config.textColor}`}>
-      <span className={`w-1.5 h-1.5 rounded-full ${config.dotColor}`} aria-hidden="true" />
-      {config.label}
-    </span>
-  )
-}
-
-// ============================================================
 // 子组件：子场景卡片
 // ============================================================
 function SubSceneCard({
   subScene,
   index,
-  progress,
   onClick,
 }: {
   subScene: SubSceneItem
   index: number
-  progress: SubSceneProgress | null
   onClick: () => void
 }) {
-  const status = progress?.status ?? 'not_started'
-  const statusConfig = getStatusConfig(status)
-  const isCompleted = status === 'completed'
-
   return (
     <motion.button
       type="button"
@@ -155,24 +104,12 @@ function SubSceneCard({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.06 }}
       whileTap={{ scale: 0.98 }}
-      className={`w-full text-left bg-white rounded-card shadow-card border ${statusConfig.borderColor} p-4 transition-all hover:shadow-md`}
+      className="w-full text-left bg-white rounded-card shadow-card border border-gray-100 p-4 transition-all hover:shadow-md"
     >
       <div className="flex items-start gap-3">
         {/* 序号圆圈 */}
-        <div
-          className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 mt-0.5 ${
-            isCompleted
-              ? 'bg-green-500 text-white'
-              : 'bg-gray-100 text-gray-500'
-          }`}
-        >
-          {isCompleted ? (
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="20 6 9 17 4 12" />
-            </svg>
-          ) : (
-            index + 1
-          )}
+        <div className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 mt-0.5 bg-gray-100 text-gray-500">
+          {index + 1}
         </div>
 
         {/* 内容区域 */}
@@ -186,7 +123,6 @@ function SubSceneCard({
 
           {/* 元信息行 */}
           <div className="flex items-center gap-3 flex-wrap">
-            <StatusBadge status={status} />
             <span className="text-xs text-gray-400 flex items-center gap-1">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10" />
@@ -202,28 +138,17 @@ function SubSceneCard({
 }
 
 // ============================================================
-// 子组件：按顺序学习按钮
+// 子组件：开始学习按钮
 // ============================================================
-function SequentialStartBtn({
+function StartLearningBtn({
   subScenes,
-  progressMap,
   onClick,
 }: {
   subScenes: SubSceneItem[]
-  progressMap: Record<string, SubSceneProgress | null>
   onClick: (subSceneId: string) => void
 }) {
-  // 找到第一个未完成的子场景（按 order 排序）
-  const firstIncomplete = subScenes.find(
-    (s) => (progressMap[s.id]?.status ?? 'not_started') !== 'completed'
-  )
-
-  // 全部完成时，跳转到第一个子场景（复习）
-  const targetSubScene = firstIncomplete ?? subScenes[0]
-
+  const targetSubScene = subScenes[0]
   if (!targetSubScene) return null
-
-  const allCompleted = !firstIncomplete
 
   return (
     <motion.button
@@ -235,28 +160,14 @@ function SequentialStartBtn({
       whileTap={{ scale: 0.97 }}
       className="w-full py-4 rounded-card font-semibold text-base text-white shadow-md transition-all active:shadow-sm"
       style={{
-        background: allCompleted
-          ? 'linear-gradient(135deg, #10B981, #059669)'
-          : 'linear-gradient(135deg, #4F7CF0, #6366F1)',
+        background: 'linear-gradient(135deg, #4F7CF0, #6366F1)',
       }}
     >
       <span className="flex items-center justify-center gap-2">
-        {allCompleted ? (
-          <>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="23 4 23 10 17 10" />
-              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
-            </svg>
-            重新学习
-          </>
-        ) : (
-          <>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <polygon points="5 3 19 12 5 21 5 3" />
-            </svg>
-            按顺序学习
-          </>
-        )}
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <polygon points="5 3 19 12 5 21 5 3" />
+        </svg>
+        开始学习
       </span>
     </motion.button>
   )
@@ -337,7 +248,6 @@ export default function SceneOverviewPage({
 
   const [scene, setScene] = useState<SceneInfo | null>(null)
   const [subScenes, setSubScenes] = useState<SubSceneItem[]>([])
-  const [progressMap, setProgressMap] = useState<Record<string, SubSceneProgress | null>>({})
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -371,17 +281,6 @@ export default function SceneOverviewPage({
 
     fetchData()
   }, [sceneId])
-
-  // 从 localStorage 读取各子场景进度（在子场景列表加载完成后）
-  useEffect(() => {
-    if (subScenes.length === 0) return
-
-    const map: Record<string, SubSceneProgress | null> = {}
-    for (const s of subScenes) {
-      map[s.id] = loadProgress(s.id)
-    }
-    setProgressMap(map)
-  }, [subScenes])
 
   // 跳转到指定子场景学习页
   const handleNavigateToSubScene = (subSceneId: string) => {
@@ -442,11 +341,10 @@ export default function SceneOverviewPage({
               <ContentPreparing />
             ) : (
               <>
-                {/* 按顺序学习按钮 */}
+                {/* 开始学习按钮 */}
                 <div className="mb-5">
-                  <SequentialStartBtn
+                  <StartLearningBtn
                     subScenes={subScenes}
-                    progressMap={progressMap}
                     onClick={handleNavigateToSubScene}
                   />
                 </div>
@@ -459,7 +357,6 @@ export default function SceneOverviewPage({
                       key={subScene.id}
                       subScene={subScene}
                       index={index}
-                      progress={progressMap[subScene.id] ?? null}
                       onClick={() => handleNavigateToSubScene(subScene.id)}
                     />
                   ))}
