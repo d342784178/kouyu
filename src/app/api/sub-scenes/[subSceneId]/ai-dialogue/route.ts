@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSubSceneById, getQAPairsBySubSceneId } from '@/lib/db/sub-scenes'
-import { callLLM } from '@/lib/llm'
+import { callLLMForScene } from '@/lib/llm'
 import type { AIDialogueRequest, AIDialogueResponse, QAResponse } from '@/types'
 
 // 禁用 Next.js 数据缓存
@@ -9,7 +9,8 @@ export const revalidate = 0
 
 /**
  * POST /api/sub-scenes/[subSceneId]/ai-dialogue
- * 调用 GLM-4-Flash 判断用户回应是否语义匹配当前 QA_Pair，并推进对话
+ * 调用大模型判断用户回应是否语义匹配当前 QA_Pair，并推进对话
+ * 使用模型: nvidia/qwen/qwen3-next-80b-a3b-instruct (测评模型)
  */
 export async function POST(
   request: NextRequest,
@@ -57,7 +58,7 @@ export async function POST(
       .map(msg => `${msg.role === 'ai' ? 'AI' : '用户'}: ${msg.text}`)
       .join('\n')
 
-    // 调用 GLM-4-Flash 进行语义判断
+    // 调用测评模型进行语义判断
     const messages = [
       {
         role: 'system' as const,
@@ -87,7 +88,7 @@ ${responseOptions}
       },
     ]
 
-    const llmResult = await callLLM(messages, 0.3, 300, 'glm')
+    const llmResult = await callLLMForScene('question-evaluation', messages, 0.3, 300)
 
     // 解析 LLM 返回的 JSON
     let pass = false

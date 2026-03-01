@@ -88,8 +88,8 @@ export async function POST(request: Request) {
     console.log('[大模型对话] 请求内容:', JSON.stringify(messages, null, 2))
 
     // 根据请求类型选择模型
-    // - 题目分析使用高质量模型
-    // - 对话生成使用快速模型
+    // - 题目分析使用测评模型: nvidia/qwen/qwen3-next-80b-a3b-instruct
+    // - 对话生成使用对话模型: meta/llama-3.1-8b-instruct
     const sceneType = analysisRequest ? 'scene-analysis' : 'dialogue-generation'
     const llmResponse = await callLLMForScene(sceneType, messages, 0.7, 500)
     const content = llmResponse.content

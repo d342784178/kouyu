@@ -16,7 +16,6 @@ interface SceneInfo {
 interface PracticeContent {
   roles: Array<{
     name: string
-    is_user: boolean
     suggest: boolean
     description: string
   }>
@@ -63,9 +62,10 @@ export async function GET(
       testContent
     })
   } catch (error) {
+    const errorMessage = error instanceof Error ? error.message : '生成练习内容失败'
     console.error('Error in GET /api/scenes/[id]/practice-content:', error)
     return NextResponse.json(
-      { error: '获取练习内容失败' },
+      { error: errorMessage },
       { status: 500 }
     )
   }
@@ -126,34 +126,25 @@ async function generatePracticeContent(scene: SceneInfo): Promise<PracticeConten
     { role: 'user', content: userPrompt }
   ]
 
-  try {
-    const response = await callLLMForScene('scene-analysis', messages, 0.3, 10000)
-    const content = response.content?.trim()
-    
-    if (!content) {
-      console.log('[Practice Content] LLM返回空内容，使用默认配置')
-      return getDefaultPracticeContent(scene)
-    }
-    
-    const jsonMatch = content.match(/\{[\s\S]*\}/)
-    if (!jsonMatch) {
-      console.log('[Practice Content] 未找到JSON格式，使用默认配置')
-      return getDefaultPracticeContent(scene)
-    }
-    
-    const parsedResult = JSON.parse(jsonMatch[0])
-    
-    if (validatePracticeContent(parsedResult)) {
-      return parsedResult
-    }
-    
-    console.log('[Practice Content] JSON验证失败，使用默认配置')
-    return getDefaultPracticeContent(scene)
-    
-  } catch (error) {
-    console.error('[Practice Content] LLM调用或解析失败:', error)
-    return getDefaultPracticeContent(scene)
+  const response = await callLLMForScene('scene-analysis', messages, 0.3, 10000)
+  const content = response.content?.trim()
+
+  if (!content) {
+    throw new Error('LLM返回空内容')
   }
+
+  const jsonMatch = content.match(/\{[\s\S]*\}/)
+  if (!jsonMatch) {
+    throw new Error('LLM返回内容中未找到JSON格式')
+  }
+
+  const parsedResult = JSON.parse(jsonMatch[0])
+
+  if (!validatePracticeContent(parsedResult)) {
+    throw new Error('LLM返回的JSON格式验证失败')
+  }
+
+  return parsedResult
 }
 
 function validatePracticeContent(data: any): data is PracticeContent {
@@ -163,14 +154,8 @@ function validatePracticeContent(data: any): data is PracticeContent {
     return false
   }
 
-  // 检查是否恰好有一个用户角色和一个建议角色
-  const userRoles = data.roles.filter((r: any) => r.is_user === true)
+  // 检查是否恰好有一个建议角色
   const suggestRoles = data.roles.filter((r: any) => r.suggest === true)
-
-  if (userRoles.length !== 1) {
-    console.log('[Practice Content] 用户角色数量不符合要求，期望1个，实际:', userRoles.length)
-    return false
-  }
 
   if (suggestRoles.length !== 1) {
     console.log('[Practice Content] 建议角色数量不符合要求，期望1个，实际:', suggestRoles.length)
@@ -178,7 +163,7 @@ function validatePracticeContent(data: any): data is PracticeContent {
   }
 
   for (const role of data.roles) {
-    if (!role.name || typeof role.is_user !== 'boolean' || typeof role.suggest !== 'boolean' || !role.description) {
+    if (!role.name || typeof role.suggest !== 'boolean' || !role.description) {
       console.log('[Practice Content] 角色字段缺失:', role)
       return false
     }
@@ -192,26 +177,4 @@ function validatePracticeContent(data: any): data is PracticeContent {
   return true
 }
 
-function getDefaultPracticeContent(scene: SceneInfo): PracticeContent {
-  return {
-    roles: [
-      {
-        name: 'AI Assistant',
-        is_user: false,
-        suggest: false,
-        description: 'A helpful conversation partner'
-      },
-      {
-        name: 'You',
-        is_user: true,
-        suggest: true,
-        description: 'Practice your English conversation skills'
-      }
-    ],
-    topic: scene.name,
-    analysis: `这是一个关于${scene.name}的${scene.category}场景练习。请尝试用英语进行对话。`,
-    description: scene.description,
-    scenario_context: `Practice English conversation in the context of ${scene.name}. ${scene.description}`,
-    suggested_opening: `Hello! Let's practice English conversation about ${scene.name}. How can I help you today?`
-  }
-}
+

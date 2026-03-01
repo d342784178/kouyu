@@ -3,7 +3,8 @@ import { callLLMForScene, Message } from '@/lib/llm'
 
 /**
  * 填空题（Pattern Drill）语义评测 API
- * 接收用户填写的答案，调用 GLM-4-Flash 进行语义评测
+ * 接收用户填写的答案，调用大模型进行语义评测
+ * 使用模型: nvidia/qwen/qwen3-next-80b-a3b-instruct (测评模型)
  */
 export async function POST(request: Request) {
   try {

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSubSceneById, getQAPairsBySubSceneId } from '@/lib/db/sub-scenes'
-import { callLLM } from '@/lib/llm'
+import { callLLMForScene } from '@/lib/llm'
 import type { ReviewRequest, ReviewResponse, ReviewHighlight, QAResponse } from '@/types'
 
 // 禁用 Next.js 数据缓存
@@ -9,7 +9,8 @@ export const revalidate = 0
 
 /**
  * POST /api/sub-scenes/[subSceneId]/review
- * 对 passed=false 的对话条目调用 GLM-4-Flash 生成更地道的表达建议
+ * 对 passed=false 的对话条目调用大模型生成更地道的表达建议
+ * 使用模型: nvidia/qwen/qwen3-next-80b-a3b-instruct (测评模型)
  * LLM 调用失败时降级返回空 highlights 数组
  */
 export async function POST(
@@ -77,7 +78,7 @@ export async function POST(
           },
         ]
 
-        const llmResult = await callLLM(messages, 0.5, 200, 'glm')
+        const llmResult = await callLLMForScene('question-evaluation', messages, 0.5, 200)
 
         // 解析 LLM 返回的 JSON
         const jsonMatch = llmResult.content.match(/\{[\s\S]*\}/)

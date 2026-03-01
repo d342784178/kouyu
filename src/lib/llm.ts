@@ -364,47 +364,49 @@ export function getModelForScene(sceneType: SceneType): {
   quality: ModelQuality
 } {
   // 从环境变量读取配置
-  const nvidiaFastModel = process.env.NVIDIA_MODEL_FAST || 'meta/llama-3.1-8b-instruct'
-  const nvidiaQualityModel = process.env.NVIDIA_MODEL_QUALITY || 'meta/llama-3.1-70b-instruct'
+  // 测评类任务使用 qwen3-next-80b-a3b-instruct
+  const nvidiaEvaluationModel = process.env.NVIDIA_MODEL_EVALUATION || 'qwen/qwen3-next-80b-a3b-instruct'
+  // 对话生成任务使用 llama-3.1-8b-instruct
+  const nvidiaDialogueModel = process.env.NVIDIA_MODEL_DIALOGUE || 'meta/llama-3.1-8b-instruct'
 
   switch (sceneType) {
-    // 问答题评测 - 使用高质量模型
+    // 问答题评测 - 使用测评模型
     case 'question-evaluation':
       return {
         provider: 'nvidia',
-        model: nvidiaQualityModel,
+        model: nvidiaEvaluationModel,
         quality: 'quality',
       }
 
-    // 开放式测试 - 使用高质量模型
+    // 开放式测试 - 使用测评模型
     case 'open-ended-test':
       return {
         provider: 'nvidia',
-        model: nvidiaQualityModel,
+        model: nvidiaEvaluationModel,
         quality: 'quality',
       }
 
-    // 场景分析 - 使用高质量模型
+    // 场景分析 - 使用测评模型
     case 'scene-analysis':
       return {
         provider: 'nvidia',
-        model: nvidiaFastModel,
+        model: nvidiaEvaluationModel,
         quality: 'quality',
       }
 
-    // 对话生成 - 使用快速模型
+    // 对话生成 - 使用对话生成模型
     case 'dialogue-generation':
       return {
         provider: 'nvidia',
-        model: nvidiaFastModel,
+        model: nvidiaDialogueModel,
         quality: 'fast',
       }
 
-    // 默认使用平衡配置
+    // 默认使用对话生成模型
     default:
       return {
         provider: (process.env.LLM_PROVIDER as LLMProvider) || 'nvidia',
-        model: nvidiaFastModel,
+        model: nvidiaDialogueModel,
         quality: 'balanced',
       }
   }
