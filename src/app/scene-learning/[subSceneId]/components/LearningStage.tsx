@@ -182,9 +182,21 @@ function QAPairCard({
 
           {/* 文本内容 */}
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-semibold text-gray-900 leading-snug mb-1">
-              {qaPair.speakerText}
-            </p>
+            <div className="flex items-center justify-between mb-1">
+              <p className="text-sm font-semibold text-gray-900 leading-snug">
+                {qaPair.speakerText}
+              </p>
+              {/* 音频播放按钮 */}
+              {qaPair.audioUrl && (
+                <AudioButton
+                  audioUrl={qaPair.audioUrl}
+                  label="播放对方说的话"
+                  isPlaying={playingUrl === qaPair.audioUrl}
+                  isLoading={isAudioLoading && playingUrl === qaPair.audioUrl}
+                  onToggle={() => onPlayAudio(qaPair.audioUrl!)}
+                />
+              )}
+            </div>
             <p className="text-xs text-gray-400 leading-snug mb-2">
               {qaPair.speakerTextCn}
             </p>
@@ -217,19 +229,7 @@ function QAPairCard({
           >
             <div className="px-4 pb-4 border-t border-gray-50 pt-3 space-y-3">
 
-              {/* speaker_text 音频播放按钮 */}
-              {qaPair.audioUrl && (
-                <div className="flex items-center gap-2">
-                  <AudioButton
-                    audioUrl={qaPair.audioUrl}
-                    label="播放对方说的话"
-                    isPlaying={playingUrl === qaPair.audioUrl}
-                    isLoading={isAudioLoading && playingUrl === qaPair.audioUrl}
-                    onToggle={() => onPlayAudio(qaPair.audioUrl!)}
-                  />
-                  <span className="text-xs text-gray-400">听对方说的话</span>
-                </div>
-              )}
+
 
               {/* 回应表达列表 */}
               {responses.length > 0 && (
@@ -243,6 +243,11 @@ function QAPairCard({
                       className="p-2.5 rounded-xl bg-[#F8FAFF] border border-[#E8EEFF]"
                     >
                       <div className="flex items-start gap-2">
+                        {/* 回应文本 */}
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium text-gray-900">{resp.text}</p>
+                          <p className="text-xs text-gray-400 mt-0.5">{resp.text_cn}</p>
+                        </div>
                         {/* 回应音频按钮 */}
                         <AudioButton
                           audioUrl={resp.audio_url}
@@ -251,11 +256,6 @@ function QAPairCard({
                           isLoading={isAudioLoading && playingUrl === resp.audio_url}
                           onToggle={() => resp.audio_url && onPlayAudio(resp.audio_url)}
                         />
-                        {/* 回应文本 */}
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-gray-900">{resp.text}</p>
-                          <p className="text-xs text-gray-400 mt-0.5">{resp.text_cn}</p>
-                        </div>
                       </div>
                       {/* 每个答案的开口练习 */}
                       <SpeakingPracticeEmpty
@@ -322,6 +322,7 @@ export default function LearningStage({
   // 音频播放（全局单例，同时只播放一个）
   const { play, pause, isPlaying, isLoading, audioRef } = useAudio()
   const [playingUrl, setPlayingUrl] = useState<string | null>(null)
+  const wasPlayingRef = useRef(false)
 
   // 当 qaPairs 变化时（如定向重练切换），重置状态
   const prevPairsRef = useRef(sortedPairs)
@@ -379,10 +380,14 @@ export default function LearningStage({
     [playingUrl, isPlaying, play, pause]
   )
 
-  // 音频播放结束时清除 playingUrl
+  // 音频播放结束时清除 playingUrl（仅在从播放变为停止时）
   useEffect(() => {
-    if (!isPlaying && playingUrl) {
+    if (isPlaying) {
+      wasPlayingRef.current = true
+    } else if (wasPlayingRef.current && playingUrl) {
+      // 只有之前在播放，现在停止了，才清除
       setPlayingUrl(null)
+      wasPlayingRef.current = false
     }
   }, [isPlaying, playingUrl])
 
