@@ -65,6 +65,8 @@ function generateChoiceQuestion(
     type: 'choice',
     qaId: targetQa.id,
     audioUrl: targetQa.audioUrl ?? '',
+    speakerText: targetQa.speakerText,
+    speakerTextCn: targetQa.speakerTextCn,
     options,
   }
 }

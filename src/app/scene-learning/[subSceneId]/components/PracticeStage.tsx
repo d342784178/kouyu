@@ -86,6 +86,11 @@ function ChoiceQuestion({ question, onNext }: ChoiceQuestionProps) {
     }
   }, [question.audioUrl])
 
+  // 切换题目时重置音频播放标记
+  useEffect(() => {
+    audioPlayedRef.current = false
+  }, [question.qaId])
+
   const handleSelect = (option: ChoiceOption) => {
     if (hasAnswered) return
     setSelected(option.id)
@@ -122,6 +127,13 @@ function ChoiceQuestion({ question, onNext }: ChoiceQuestionProps) {
           </svg>
           再次播放音频
         </button>
+      </div>
+
+      {/* 音频文本展示 */}
+      <div className="bg-white rounded-card shadow-card border border-gray-100 p-4 mb-5">
+        <p className="text-xs text-gray-400 mb-1">对方说：</p>
+        <p className="text-base font-medium text-gray-900 leading-snug">{question.speakerText}</p>
+        <p className="text-sm text-gray-400 mt-1">{question.speakerTextCn}</p>
       </div>
 
       {/* 选项列表 */}

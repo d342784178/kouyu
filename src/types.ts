@@ -206,7 +206,7 @@ export interface BlankItem {
  * 练习题联合类型（选择题 / 填空题 / 问答题）
  */
 export type PracticeQuestion =
-  | { type: 'choice'; qaId: string; audioUrl: string; options: ChoiceOption[] }
+  | { type: 'choice'; qaId: string; audioUrl: string; speakerText: string; speakerTextCn: string; options: ChoiceOption[] }
   | { type: 'fill_blank'; qaId: string; template: string; blanks: BlankItem[] }
   | { type: 'speaking'; qaId: string; speakerText: string; speakerTextCn: string }
 
