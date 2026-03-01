@@ -408,6 +408,7 @@ export default function SceneLearningPage({
                     transition={{ duration: 0.25 }}
                   >
                     <LearningStage
+                      subSceneId={subSceneId}
                       qaPairs={data.qaPairs}
                       failedQaIds={failedQaIds}
                       onProceed={handleNextStage}

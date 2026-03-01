@@ -3,7 +3,7 @@
 import { useState, useCallback, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useAudio } from '@/hooks/useAudio'
-import SpeakingPractice from './SpeakingPractice'
+import SpeakingPracticeEmpty from './SpeakingPracticeEmpty'
 import type { QAPair, QAResponse } from '@/types'
 
 // ============================================================
@@ -11,6 +11,8 @@ import type { QAPair, QAResponse } from '@/types'
 // ============================================================
 
 interface LearningStageProps {
+  /** 子场景ID */
+  subSceneId: string
   /** 该子场景下所有问答对 */
   qaPairs: QAPair[]
   /** 定向重练模式：仅展示这些 id 的问答对（空数组 = 展示全部） */
@@ -23,8 +25,8 @@ interface LearningStageProps {
 interface QAPairPracticeState {
   /** 是否已展开 */
   isExpanded: boolean
-  /** must_speak 类型是否已完成开口练习 */
-  speakingCompleted: boolean
+  /** 每个答案的开口练习完成状态（索引 -> 是否完成） */
+  answerPracticeCompleted: Record<number, boolean>
 }
 
 // ============================================================
@@ -133,9 +135,10 @@ function AudioButton({ audioUrl, label, isPlaying, isLoading, onToggle }: AudioB
 interface QAPairCardProps {
   qaPair: QAPair
   index: number
+  subSceneId: string
   practiceState: QAPairPracticeState
   onToggleExpand: () => void
-  onSpeakingCompleted: () => void
+  onAnswerPracticeCompleted: (answerIndex: number) => void
   /** 当前正在播放的音频 URL（用于同步播放状态） */
   playingUrl: string | null
   isAudioLoading: boolean
@@ -145,15 +148,16 @@ interface QAPairCardProps {
 function QAPairCard({
   qaPair,
   index,
+  subSceneId,
   practiceState,
   onToggleExpand,
-  onSpeakingCompleted,
+  onAnswerPracticeCompleted,
   playingUrl,
   isAudioLoading,
   onPlayAudio,
 }: QAPairCardProps) {
   const responses = parseResponses(qaPair.responses)
-  const { isExpanded, speakingCompleted } = practiceState
+  const { isExpanded, answerPracticeCompleted } = practiceState
   const isMustSpeak = qaPair.qaType === 'must_speak'
 
   return (
@@ -161,11 +165,7 @@ function QAPairCard({
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.25, delay: index * 0.05 }}
-      className={`bg-white rounded-card shadow-card border transition-colors ${
-        speakingCompleted && isMustSpeak
-          ? 'border-green-100'
-          : 'border-gray-100'
-      }`}
+      className="bg-white rounded-card shadow-card border border-gray-100"
     >
       {/* 折叠头部（点击展开/收起） */}
       <button
@@ -176,20 +176,8 @@ function QAPairCard({
       >
         <div className="flex items-start gap-3">
           {/* 序号 */}
-          <div
-            className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5 ${
-              speakingCompleted && isMustSpeak
-                ? 'bg-green-500 text-white'
-                : 'bg-gray-100 text-gray-500'
-            }`}
-          >
-            {speakingCompleted && isMustSpeak ? (
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-            ) : (
-              index + 1
-            )}
+          <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5 bg-gray-100 text-gray-500">
+            {index + 1}
           </div>
 
           {/* 文本内容 */}
@@ -252,21 +240,34 @@ function QAPairCard({
                   {responses.map((resp, i) => (
                     <div
                       key={i}
-                      className="flex items-start gap-2 p-2.5 rounded-xl bg-[#F8FAFF] border border-[#E8EEFF]"
+                      className="p-2.5 rounded-xl bg-[#F8FAFF] border border-[#E8EEFF]"
                     >
-                      {/* 回应音频按钮 */}
-                      <AudioButton
-                        audioUrl={resp.audio_url}
-                        label={`播放回应 ${i + 1}`}
-                        isPlaying={playingUrl === resp.audio_url}
-                        isLoading={isAudioLoading && playingUrl === resp.audio_url}
-                        onToggle={() => resp.audio_url && onPlayAudio(resp.audio_url)}
-                      />
-                      {/* 回应文本 */}
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-gray-900">{resp.text}</p>
-                        <p className="text-xs text-gray-400 mt-0.5">{resp.text_cn}</p>
+                      <div className="flex items-start gap-2">
+                        {/* 回应音频按钮 */}
+                        <AudioButton
+                          audioUrl={resp.audio_url}
+                          label={`播放回应 ${i + 1}`}
+                          isPlaying={playingUrl === resp.audio_url}
+                          isLoading={isAudioLoading && playingUrl === resp.audio_url}
+                          onToggle={() => resp.audio_url && onPlayAudio(resp.audio_url)}
+                        />
+                        {/* 回应文本 */}
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium text-gray-900">{resp.text}</p>
+                          <p className="text-xs text-gray-400 mt-0.5">{resp.text_cn}</p>
+                        </div>
                       </div>
+                      {/* 每个答案的开口练习 */}
+                      <SpeakingPracticeEmpty
+                        subSceneId={subSceneId}
+                        qaId={qaPair.id}
+                        answerIndex={i}
+                        answerText={resp.text}
+                        answerTextCn={resp.text_cn}
+                        demoAudioUrl={resp.audio_url}
+                        onCompleted={() => onAnswerPracticeCompleted(i)}
+                        isCompleted={answerPracticeCompleted?.[i] ?? false}
+                      />
                     </div>
                   ))}
                 </div>
@@ -283,19 +284,6 @@ function QAPairCard({
                   <p className="text-xs text-amber-700 leading-relaxed">{qaPair.usageNote}</p>
                 </div>
               )}
-
-              {/* 开口练习（must_speak 类型） */}
-              {isMustSpeak && (
-                <div>
-                  <p className="text-xs font-medium text-gray-500 mb-1.5">开口练习</p>
-                  <SpeakingPractice
-                    responses={responses}
-                    demoAudioUrl={responses[0]?.audio_url ?? ''}
-                    onCompleted={onSpeakingCompleted}
-                    isCompleted={speakingCompleted}
-                  />
-                </div>
-              )}
             </div>
           </motion.div>
         )}
@@ -309,6 +297,7 @@ function QAPairCard({
 // ============================================================
 
 export default function LearningStage({
+  subSceneId,
   qaPairs,
   failedQaIds = [],
   onProceed,
@@ -325,7 +314,7 @@ export default function LearningStage({
   const [practiceStates, setPracticeStates] = useState<Record<string, QAPairPracticeState>>(() => {
     const init: Record<string, QAPairPracticeState> = {}
     for (const qa of sortedPairs) {
-      init[qa.id] = { isExpanded: false, speakingCompleted: false }
+      init[qa.id] = { isExpanded: false, answerPracticeCompleted: {} }
     }
     return init
   })
@@ -342,7 +331,7 @@ export default function LearningStage({
     if (prevIds !== currIds) {
       const init: Record<string, QAPairPracticeState> = {}
       for (const qa of sortedPairs) {
-        init[qa.id] = { isExpanded: false, speakingCompleted: false }
+        init[qa.id] = { isExpanded: false, answerPracticeCompleted: {} }
       }
       setPracticeStates(init)
       prevPairsRef.current = sortedPairs
@@ -362,11 +351,17 @@ export default function LearningStage({
     })
   }, [])
 
-  // ---- 开口练习完成 ----
-  const handleSpeakingCompleted = useCallback((qaId: string) => {
+  // ---- 答案开口练习完成 ----
+  const handleAnswerPracticeCompleted = useCallback((qaId: string, answerIndex: number) => {
     setPracticeStates((prev) => ({
       ...prev,
-      [qaId]: { ...prev[qaId], speakingCompleted: true },
+      [qaId]: {
+        ...prev[qaId],
+        answerPracticeCompleted: {
+          ...prev[qaId].answerPracticeCompleted,
+          [answerIndex]: true,
+        },
+      },
     }))
   }, [])
 
@@ -390,12 +385,6 @@ export default function LearningStage({
       setPlayingUrl(null)
     }
   }, [isPlaying, playingUrl])
-
-  // ---- 计算是否所有 must_speak 都已完成 ----
-  const mustSpeakPairs = sortedPairs.filter((qa) => qa.qaType === 'must_speak')
-  const allMustSpeakCompleted =
-    mustSpeakPairs.length === 0 ||
-    mustSpeakPairs.every((qa) => practiceStates[qa.id]?.speakingCompleted)
 
   // ---- 空状态 ----
   if (sortedPairs.length === 0) {
@@ -428,9 +417,10 @@ export default function LearningStage({
             key={qa.id}
             qaPair={qa}
             index={index}
-            practiceState={practiceStates[qa.id] ?? { isExpanded: false, speakingCompleted: false }}
+            subSceneId={subSceneId}
+            practiceState={practiceStates[qa.id] ?? { isExpanded: false, answerPracticeCompleted: {} }}
             onToggleExpand={() => handleToggleExpand(qa.id)}
-            onSpeakingCompleted={() => handleSpeakingCompleted(qa.id)}
+            onAnswerPracticeCompleted={(answerIndex) => handleAnswerPracticeCompleted(qa.id, answerIndex)}
             playingUrl={playingUrl}
             isAudioLoading={isLoading}
             onPlayAudio={handlePlayAudio}
