@@ -144,6 +144,7 @@ export default function ScenePracticePage() {
           sceneId={sceneId}
           testId={`practice_${sceneId}`}
           testContent={practiceContent.testContent}
+          scene={practiceContent.scene}
           onComplete={handleComplete}
           autoStart={true}
         />

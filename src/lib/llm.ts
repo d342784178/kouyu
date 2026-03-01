@@ -207,7 +207,7 @@ export async function callLLM(
     const data = await response.json()
     const content = data.choices?.[0]?.message?.content || ''
 
-    console.log('[LLM] 响应内容:', content.substring(0, 100) + (content.length > 100 ? '...' : ''))
+    console.log('[LLM] 响应内容:', content)
     console.log('[LLM] 调用耗时:', Date.now() - startTime, 'ms')
     console.log('[LLM] Token 使用:', data.usage)
 
