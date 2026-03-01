@@ -174,6 +174,41 @@ function StartLearningBtn({
 }
 
 // ============================================================
+// 子组件：自主AI练习按钮
+// ============================================================
+function AIPracticeBtn({
+  sceneId,
+  onClick,
+}: {
+  sceneId: string
+  onClick: (sceneId: string) => void
+}) {
+  return (
+    <motion.button
+      type="button"
+      onClick={() => onClick(sceneId)}
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3, delay: 0.15 }}
+      whileTap={{ scale: 0.97 }}
+      className="w-full py-4 rounded-card font-semibold text-base shadow-md transition-all active:shadow-sm border-2"
+      style={{
+        background: 'linear-gradient(135deg, #FEF3C7, #FDE68A)',
+        borderColor: '#F59E0B',
+        color: '#92400E',
+      }}
+    >
+      <span className="flex items-center justify-center gap-2">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A1.5 1.5 0 0 0 6 14.5 1.5 1.5 0 0 0 7.5 16 1.5 1.5 0 0 0 9 14.5 1.5 1.5 0 0 0 7.5 13m9 0a1.5 1.5 0 0 0-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 0 1.5-1.5 1.5 1.5 0 0 0-1.5-1.5M12 17.5a1.5 1.5 0 0 0-1.5 1.5 1.5 1.5 0 0 0 1.5 1.5 1.5 1.5 0 0 0 1.5-1.5 1.5 1.5 0 0 0-1.5-1.5" />
+        </svg>
+        自主AI练习
+      </span>
+    </motion.button>
+  )
+}
+
+// ============================================================
 // 子组件：内容准备中占位
 // ============================================================
 function ContentPreparing() {
@@ -287,6 +322,11 @@ export default function SceneOverviewPage({
     router.push(`/scene-learning/${subSceneId}`)
   }
 
+  // 跳转到自主AI练习页面
+  const handleNavigateToAIPractice = (sceneId: string) => {
+    router.push(`/scene-practice/${sceneId}`)
+  }
+
   // 返回上一页
   const handleBack = () => {
     router.back()
@@ -342,10 +382,18 @@ export default function SceneOverviewPage({
             ) : (
               <>
                 {/* 开始学习按钮 */}
-                <div className="mb-5">
+                <div className="mb-3">
                   <StartLearningBtn
                     subScenes={subScenes}
                     onClick={handleNavigateToSubScene}
+                  />
+                </div>
+
+                {/* 自主AI练习按钮 */}
+                <div className="mb-5">
+                  <AIPracticeBtn
+                    sceneId={sceneId}
+                    onClick={handleNavigateToAIPractice}
                   />
                 </div>
 
