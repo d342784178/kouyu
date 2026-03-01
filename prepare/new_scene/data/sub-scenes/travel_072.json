@@ -1,0 +1,237 @@
+{
+  "sceneId": "travel_072",
+  "sceneName": "叫出租车",
+  "generatedAt": "2026-03-01T03:38:56.004Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "travel_072_sub_1",
+      "sceneId": "travel_072",
+      "name": "预约出租车",
+      "description": "礼貌致电并说明目的地",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_072_sub_1_qa_1",
+          "subSceneId": "travel_072_sub_1",
+          "speakerText": "Hi, I'd like to book a taxi, please.",
+          "speakerTextCn": "你好，我想预约一辆出租车。",
+          "responses": [
+            {
+              "text": "Sure! Where to?",
+              "text_cn": "当然！去哪儿？",
+              "audio_url": ""
+            },
+            {
+              "text": "Of course. Could you tell me your pickup address?",
+              "text_cn": "当然，请告诉我您的上车地址？",
+              "audio_url": ""
+            },
+            {
+              "text": "Got it. Address?",
+              "text_cn": "好的，地址是？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用简洁句式快速引导对方提供地址",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_072_sub_1_qa_2",
+          "subSceneId": "travel_072_sub_1",
+          "speakerText": "I need to go to 123 Main Street, downtown.",
+          "speakerTextCn": "我要去市中心主街123号。",
+          "responses": [
+            {
+              "text": "123 Main Street, got it. Any special instructions?",
+              "text_cn": "主街123号，记下了，有特别要求吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "OK, that's downtown. I'll send a car.",
+              "text_cn": "好的，市中心，马上派车。",
+              "audio_url": ""
+            },
+            {
+              "text": "Main Street? Is that near the bank?",
+              "text_cn": "主街？是在银行附近吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "确认地址时可补充地标帮助定位",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_072_sub_2",
+      "sceneId": "travel_072",
+      "name": "确认等待时间",
+      "description": "询问车辆预计到达时间",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_072_sub_2_qa_1",
+          "subSceneId": "travel_072_sub_2",
+          "speakerText": "How soon can you get here?",
+          "speakerTextCn": "你们多久能到？",
+          "responses": [
+            {
+              "text": "About 8-10 minutes, depending on traffic.",
+              "text_cn": "大概8到10分钟，看路况。",
+              "audio_url": ""
+            },
+            {
+              "text": "Ten minutes max, I'll text you the driver's details.",
+              "text_cn": "最多10分钟，我会短信发司机信息。",
+              "audio_url": ""
+            },
+            {
+              "text": "Soon! Driver's on the way.",
+              "text_cn": "马上就到！司机已经在路上了。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用口语缩写让表达更自然流畅",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_072_sub_2_qa_2",
+          "subSceneId": "travel_072_sub_2",
+          "speakerText": "Can you send me the driver’s name and car number?",
+          "speakerTextCn": "能发司机名字和车牌号吗？",
+          "responses": [
+            {
+              "text": "Yep, texted you just now.",
+              "text_cn": "发了，刚发短信给你。",
+              "audio_url": ""
+            },
+            {
+              "text": "I'll email it too, for your safety.",
+              "text_cn": "我也会发邮件，为了您的安全。",
+              "audio_url": ""
+            },
+            {
+              "text": "Sure, hold on.",
+              "text_cn": "好的，稍等。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "安全需求可礼貌提出，对方通常配合",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_072_sub_3",
+      "sceneId": "travel_072",
+      "name": "支付方式确认",
+      "description": "确认是否支持现金或刷卡",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_072_sub_3_qa_1",
+          "subSceneId": "travel_072_sub_3",
+          "speakerText": "Do you take credit cards?",
+          "speakerTextCn": "你们收信用卡吗？",
+          "responses": [
+            {
+              "text": "Yeah, all cards accepted, no cash needed.",
+              "text_cn": "收，所有卡都行，不用现金。",
+              "audio_url": ""
+            },
+            {
+              "text": "We take both — cash or card’s fine.",
+              "text_cn": "现金和刷卡都可以。",
+              "audio_url": ""
+            },
+            {
+              "text": "Cash only, sorry.",
+              "text_cn": "只收现金，抱歉。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "提前确认支付方式避免上车尴尬",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_072_sub_3_qa_2",
+          "subSceneId": "travel_072_sub_3",
+          "speakerText": "I'll pay with cash, thanks.",
+          "speakerTextCn": "我用现金支付，谢谢。",
+          "responses": [
+            {
+              "text": "Perfect! Driver’s got change.",
+              "text_cn": "太好了，司机备了零钱。",
+              "audio_url": ""
+            },
+            {
+              "text": "Alright, just have bills ready.",
+              "text_cn": "好的，准备好纸币就行。",
+              "audio_url": ""
+            },
+            {
+              "text": "Got it.",
+              "text_cn": "知道了。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "简单确认即可，无需过多解释",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_072_sub_4",
+      "sceneId": "travel_072",
+      "name": "道别与感谢",
+      "description": "结束通话前礼貌致谢",
+      "order": 4,
+      "estimatedMinutes": 3,
+      "qaPairs": [
+        {
+          "id": "travel_072_sub_4_qa_1",
+          "subSceneId": "travel_072_sub_4",
+          "speakerText": "Thanks so much for your help!",
+          "speakerTextCn": "非常感谢你的帮助！",
+          "responses": [
+            {
+              "text": "Anytime! Have a great trip.",
+              "text_cn": "随时效劳！祝您旅途愉快。",
+              "audio_url": ""
+            },
+            {
+              "text": "You're welcome! See you soon.",
+              "text_cn": "不客气，马上见。",
+              "audio_url": ""
+            },
+            {
+              "text": "No prob. Bye!",
+              "text_cn": "小事，拜拜！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用简短感谢语让对话更温暖自然",
+          "audioUrl": null,
+          "qaType": "listen_only",
+          "order": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "sceneId": "daily_014",
+  "sceneName": "电影院购票",
+  "generatedAt": "2026-03-01T03:35:56.496Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "daily_014_sub_1",
+      "sceneId": "daily_014",
+      "name": "问候与开场",
+      "description": "顾客与售票员打招呼并说明需求",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_014_sub_1_qa_1",
+          "subSceneId": "daily_014_sub_1",
+          "speakerText": "Hi there! What're you gonna watch today?",
+          "speakerTextCn": "嗨！今天想看哪部电影？",
+          "responses": [
+            {
+              "text": "I'd like to see the new Spider-Man, please.",
+              "text_cn": "我想看新《蜘蛛侠》，谢谢。",
+              "audio_url": ""
+            },
+            {
+              "text": "Spider-Man, yeah. Anytime soon?",
+              "text_cn": "就《蜘蛛侠》，有最近的场次吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Spider-Man.",
+              "text_cn": "蜘蛛侠。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用I'd like to...表达明确需求",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_014_sub_1_qa_2",
+          "subSceneId": "daily_014_sub_1",
+          "speakerText": "Awesome! We've got showtimes at 5, 7:30, and 9:45.",
+          "speakerTextCn": "太棒了！有5点、7点半和9点45的场次。",
+          "responses": [
+            {
+              "text": "Can I get the 7:30 one? I don't want to be too late.",
+              "text_cn": "能买7点半的吗？我不想太晚。",
+              "audio_url": ""
+            },
+            {
+              "text": "7:30's good. Any 3D?",
+              "text_cn": "7点半不错，有3D的吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "7:30.",
+              "text_cn": "7点半。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Can I get...礼貌请求特定场次",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_014_sub_2",
+      "sceneId": "daily_014",
+      "name": "询问票价与选项",
+      "description": "确认票价、是否含爆米花或座位偏好",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_014_sub_2_qa_1",
+          "subSceneId": "daily_014_sub_2",
+          "speakerText": "The 7:30 is $12 for adults, $9 for kids. Want to add popcorn and drink?",
+          "speakerTextCn": "7点半成人12刀，小孩9刀，加爆米花和饮料吗？",
+          "responses": [
+            {
+              "text": "I'll take the combo, please. Large popcorn and soda.",
+              "text_cn": "我要套餐，大份爆米花加可乐。",
+              "audio_url": ""
+            },
+            {
+              "text": "Nah, just the ticket. I brought my own snack.",
+              "text_cn": "不用了，我就买票，自带零食。",
+              "audio_url": ""
+            },
+            {
+              "text": "Combo.",
+              "text_cn": "套餐。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用I'll take...直接确认选项",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_014_sub_2_qa_2",
+          "subSceneId": "daily_014_sub_2",
+          "speakerText": "Okay, seats in the middle or front? We've got a few left.",
+          "speakerTextCn": "好的，要中间还是前排？还有几个座位。",
+          "responses": [
+            {
+              "text": "Middle, please. Front's too close.",
+              "text_cn": "中间吧，前排太近了。",
+              "audio_url": ""
+            },
+            {
+              "text": "Front row! I wanna feel the explosions.",
+              "text_cn": "前排！我想感受爆炸效果。",
+              "audio_url": ""
+            },
+            {
+              "text": "Middle.",
+              "text_cn": "中间。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用please和理由让请求更自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_014_sub_3",
+      "sceneId": "daily_014",
+      "name": "支付与确认",
+      "description": "完成付款并确认票务信息",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_014_sub_3_qa_1",
+          "subSceneId": "daily_014_sub_3",
+          "speakerText": "Total's $18.50. Card or cash?",
+          "speakerTextCn": "总共18.5刀，刷卡还是现金？",
+          "responses": [
+            {
+              "text": "Card, please. I'll tap it.",
+              "text_cn": "刷卡，我刷一下。",
+              "audio_url": ""
+            },
+            {
+              "text": "Cash. Here's twenty.",
+              "text_cn": "现金，给你二十。",
+              "audio_url": ""
+            },
+            {
+              "text": "Card.",
+              "text_cn": "刷卡。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用I'll tap it或Here's...自然表达支付方式",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_014_sub_3_qa_2",
+          "subSceneId": "daily_014_sub_3",
+          "speakerText": "Alright, here's your ticket and change. Showtime's 7:30, row G, seats 12 and 13.",
+          "speakerTextCn": "好的，这是票和找零，7点半，G排，12和13号座。",
+          "responses": [
+            {
+              "text": "Perfect, thanks! See you at the movie!",
+              "text_cn": "太好了，谢谢！电影里见！",
+              "audio_url": ""
+            },
+            {
+              "text": "Got it. Thanks!",
+              "text_cn": "明白了，谢谢！",
+              "audio_url": ""
+            },
+            {
+              "text": "Thanks.",
+              "text_cn": "谢谢。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Perfect或Got it确认信息准确",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}

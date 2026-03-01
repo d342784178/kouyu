@@ -1,0 +1,183 @@
+{
+  "sceneId": "travel_061",
+  "sceneName": "餐厅预订",
+  "generatedAt": "2026-03-01T03:38:16.990Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "travel_061_sub_1",
+      "sceneId": "travel_061",
+      "name": "礼貌问候",
+      "description": "接电话后礼貌开场并表明意图",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_061_sub_1_qa_1",
+          "subSceneId": "travel_061_sub_1",
+          "speakerText": "Hi, this is Bella's Bistro, how can I help?",
+          "speakerTextCn": "您好，这里是Bella餐厅，有什么可以帮您？",
+          "responses": [
+            {
+              "text": "Hi, I'd like to book a table for tonight.",
+              "text_cn": "您好，我想预订今晚的座位。",
+              "audio_url": ""
+            },
+            {
+              "text": "Hey, can I reserve a table for 4?",
+              "text_cn": "嘿，能帮我订个四人桌吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Book table, please.",
+              "text_cn": "请帮我订个桌。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用I'd like或Can I开头更自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "travel_061_sub_2",
+      "sceneId": "travel_061",
+      "name": "说明需求",
+      "description": "告知人数、时间与特殊要求",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_061_sub_2_qa_1",
+          "subSceneId": "travel_061_sub_2",
+          "speakerText": "Sure! How many people and what time?",
+          "speakerTextCn": "好的！几位？几点？",
+          "responses": [
+            {
+              "text": "Four people at 7:30 PM, and we'd love a window seat if possible.",
+              "text_cn": "四个人，晚上7点半，如果可以的话想要靠窗位。",
+              "audio_url": ""
+            },
+            {
+              "text": "Uh, 3 people, 8 o'clock. Any table's fine.",
+              "text_cn": "三个人，八点，随便哪张桌都行。",
+              "audio_url": ""
+            },
+            {
+              "text": "6 people, 7 PM. Window table, please.",
+              "text_cn": "六人，七点，要靠窗的。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用'if possible'让请求更礼貌",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_061_sub_3",
+      "sceneId": "travel_061",
+      "name": "确认信息",
+      "description": "核对预订细节避免出错",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_061_sub_3_qa_1",
+          "subSceneId": "travel_061_sub_3",
+          "speakerText": "Alright, so that's four at 7:30 by the window?",
+          "speakerTextCn": "好的，四人，七点半靠窗，对吗？",
+          "responses": [
+            {
+              "text": "Yes, that's correct! Thanks so much!",
+              "text_cn": "对，没错！非常感谢！",
+              "audio_url": ""
+            },
+            {
+              "text": "Yep, window seat for four at 7:30.",
+              "text_cn": "对，七点半四人靠窗。",
+              "audio_url": ""
+            },
+            {
+              "text": "Correct.",
+              "text_cn": "没错。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "重复关键信息确认更稳妥",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 3
+        },
+        {
+          "id": "travel_061_sub_3_qa_2",
+          "subSceneId": "travel_061_sub_3",
+          "speakerText": "And your name for the reservation?",
+          "speakerTextCn": "预订人姓名是？",
+          "responses": [
+            {
+              "text": "It's Alex Chen.",
+              "text_cn": "我叫Alex Chen。",
+              "audio_url": ""
+            },
+            {
+              "text": "Alex Chen, yeah.",
+              "text_cn": "Alex Chen，没错。",
+              "audio_url": ""
+            },
+            {
+              "text": "Chen, Alex.",
+              "text_cn": "陈，亚历克斯。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "说全名时姓氏可后置更自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "id": "travel_061_sub_4",
+      "sceneId": "travel_061",
+      "name": "结束预订",
+      "description": "礼貌道别并确认后续安排",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_061_sub_4_qa_1",
+          "subSceneId": "travel_061_sub_4",
+          "speakerText": "Great! We'll see you at 7:30. Just show up and ask for the host.",
+          "speakerTextCn": "太好了！七点半见，到时找领位员就行。",
+          "responses": [
+            {
+              "text": "Perfect, thanks! See you then!",
+              "text_cn": "太好了，谢谢！到时候见！",
+              "audio_url": ""
+            },
+            {
+              "text": "Cool, appreciate it!",
+              "text_cn": "搞定，谢谢啦！",
+              "audio_url": ""
+            },
+            {
+              "text": "Okay, bye.",
+              "text_cn": "好，拜。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用See you then更显自然亲切",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 5
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+{
+  "sceneId": "daily_003",
+  "sceneName": "咖啡店点单",
+  "generatedAt": "2026-03-01T03:35:36.124Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "daily_003_sub_1",
+      "sceneId": "daily_003",
+      "name": "打招呼点单",
+      "description": "店员问候并引导点单",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_003_sub_1_qa_1",
+          "subSceneId": "daily_003_sub_1",
+          "speakerText": "Hey there! What can I get for you today?",
+          "speakerTextCn": "嗨！今天想喝点什么？",
+          "responses": [
+            {
+              "text": "I'd like a latte, please.",
+              "text_cn": "我要一杯拿铁，谢谢。",
+              "audio_url": ""
+            },
+            {
+              "text": "Uh, maybe a cappuccino?",
+              "text_cn": "呃，来杯卡布奇诺？",
+              "audio_url": ""
+            },
+            {
+              "text": "What do you recommend?",
+              "text_cn": "你有什么推荐吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用I'd like或What do you recommend自然开场",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_003_sub_1_qa_2",
+          "subSceneId": "daily_003_sub_1",
+          "speakerText": "We've got a new caramel cold brew — super popular!",
+          "speakerTextCn": "我们新出焦糖冷萃，特别火！",
+          "responses": [
+            {
+              "text": "Sounds good! I'll try that.",
+              "text_cn": "听起来不错，我就要这个。",
+              "audio_url": ""
+            },
+            {
+              "text": "Nah, I'm good with hot coffee.",
+              "text_cn": "算了，我还是喝热的吧。",
+              "audio_url": ""
+            },
+            {
+              "text": "Is it sweet?",
+              "text_cn": "甜吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Sounds good或I'll try表达兴趣",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_003_sub_2",
+      "sceneId": "daily_003",
+      "name": "确认口味",
+      "description": "确认咖啡浓度、糖量和奶类",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_003_sub_2_qa_1",
+          "subSceneId": "daily_003_sub_2",
+          "speakerText": "Want that with whole milk or oat?",
+          "speakerTextCn": "要全脂奶还是燕麦奶？",
+          "responses": [
+            {
+              "text": "Oat milk, please.",
+              "text_cn": "请给我燕麦奶。",
+              "audio_url": ""
+            },
+            {
+              "text": "Regular milk's fine.",
+              "text_cn": "普通牛奶就行。",
+              "audio_url": ""
+            },
+            {
+              "text": "Do you have almond?",
+              "text_cn": "有杏仁奶吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "直接说奶类名称，简洁有效",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_003_sub_2_qa_2",
+          "subSceneId": "daily_003_sub_2",
+          "speakerText": "How many sugars?",
+          "speakerTextCn": "要几勺糖？",
+          "responses": [
+            {
+              "text": "One, please.",
+              "text_cn": "一勺就行。",
+              "audio_url": ""
+            },
+            {
+              "text": "None, I like it black.",
+              "text_cn": "不要糖，我喜欢黑咖啡。",
+              "audio_url": ""
+            },
+            {
+              "text": "Two, and a splash of syrup.",
+              "text_cn": "两勺，再加点糖浆。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用None或black表达无糖偏好",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_003_sub_3",
+      "sceneId": "daily_003",
+      "name": "询问价格",
+      "description": "确认价格和是否需要外带",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_003_sub_3_qa_1",
+          "subSceneId": "daily_003_sub_3",
+          "speakerText": "That'll be $5.20. For here or to go?",
+          "speakerTextCn": "5块2，这里喝还是带走？",
+          "responses": [
+            {
+              "text": "To go, please.",
+              "text_cn": "请打包带走。",
+              "audio_url": ""
+            },
+            {
+              "text": "I'll sit here.",
+              "text_cn": "我在这儿喝。",
+              "audio_url": ""
+            },
+            {
+              "text": "Can I get a discount?",
+              "text_cn": "能打折吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用To go或I'll sit here明确需求",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_003_sub_3_qa_2",
+          "subSceneId": "daily_003_sub_3",
+          "speakerText": "You're all set — just $5.20.",
+          "speakerTextCn": "好了，一共5块2。",
+          "responses": [
+            {
+              "text": "Here you go.",
+              "text_cn": "给你钱。",
+              "audio_url": ""
+            },
+            {
+              "text": "Can I pay with Apple Pay?",
+              "text_cn": "能用苹果支付吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Do you take cash?",
+              "text_cn": "收现金吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Can I pay with...询问支付方式",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_003_sub_4",
+      "sceneId": "daily_003",
+      "name": "道别离店",
+      "description": "完成支付后礼貌道别",
+      "order": 4,
+      "estimatedMinutes": 3,
+      "qaPairs": [
+        {
+          "id": "daily_003_sub_4_qa_1",
+          "subSceneId": "daily_003_sub_4",
+          "speakerText": "Here's your coffee, have a great day!",
+          "speakerTextCn": "您的咖啡，祝您今天愉快！",
+          "responses": [
+            {
+              "text": "Thanks so much! You too!",
+              "text_cn": "太感谢了！你也是！",
+              "audio_url": ""
+            },
+            {
+              "text": "Appreciate it!",
+              "text_cn": "谢谢啦！",
+              "audio_url": ""
+            },
+            {
+              "text": "See you tomorrow!",
+              "text_cn": "明天见！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Thanks so much或Appreciate it自然回应",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_003_sub_4_qa_2",
+          "subSceneId": "daily_003_sub_4",
+          "speakerText": "Your order's ready!",
+          "speakerTextCn": "您的单子好了！",
+          "responses": [
+            {
+              "text": "Perfect, thanks!",
+              "text_cn": "太好了，谢谢！",
+              "audio_url": ""
+            },
+            {
+              "text": "Cool, I'm good.",
+              "text_cn": "行，没问题。",
+              "audio_url": ""
+            },
+            {
+              "text": "Wait, I forgot my cup!",
+              "text_cn": "等下，我忘了拿杯子！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Perfect或Cool快速确认收货",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}

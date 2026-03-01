@@ -1,0 +1,247 @@
+{
+  "sceneId": "travel_066",
+  "sceneName": "货币兑换",
+  "generatedAt": "2026-03-01T03:38:43.205Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "travel_066_sub_1",
+      "sceneId": "travel_066",
+      "name": "打招呼请求兑换",
+      "description": "在兑换点礼貌发起兑换请求",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_066_sub_1_qa_1",
+          "subSceneId": "travel_066_sub_1",
+          "speakerText": "Hi there! Can I exchange some USD for euros?",
+          "speakerTextCn": "嗨！我能把美元换成欧元吗？",
+          "responses": [
+            {
+              "text": "Sure! How much would you like to exchange?",
+              "text_cn": "当然！您想换多少？",
+              "audio_url": ""
+            },
+            {
+              "text": "Of course! USD to EUR, got it.",
+              "text_cn": "没问题！美元换欧元，明白。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, sure.",
+              "text_cn": "行啊。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Can I...?礼貌发起请求，避免直接说I want",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "travel_066_sub_2",
+      "sceneId": "travel_066",
+      "name": "询问汇率和手续费",
+      "description": "主动问清当前汇率和额外费用",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_066_sub_2_qa_1",
+          "subSceneId": "travel_066_sub_2",
+          "speakerText": "What's the current rate for USD to EUR?",
+          "speakerTextCn": "现在美元兑欧元的汇率是多少？",
+          "responses": [
+            {
+              "text": "It's 0.92 euros per dollar, and there's a $5 fee.",
+              "text_cn": "1美元换0.92欧元，另收5美元手续费。",
+              "audio_url": ""
+            },
+            {
+              "text": "0.92, but don't forget the $5 service charge.",
+              "text_cn": "0.92，别忘了还有5美元服务费。",
+              "audio_url": ""
+            },
+            {
+              "text": "About 0.92, fee's included.",
+              "text_cn": "大概0.92，费用已含。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用What's the rate?直接问汇率，避免说How much is?",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        },
+        {
+          "id": "travel_066_sub_2_qa_2",
+          "subSceneId": "travel_066_sub_2",
+          "speakerText": "Is the fee included or extra?",
+          "speakerTextCn": "手续费是包含的还是额外的？",
+          "responses": [
+            {
+              "text": "It's extra — $5 flat.",
+              "text_cn": "额外收，固定5美元。",
+              "audio_url": ""
+            },
+            {
+              "text": "Not included. You pay it on top.",
+              "text_cn": "不包含，要额外付。",
+              "audio_url": ""
+            },
+            {
+              "text": "Extra.",
+              "text_cn": "额外的。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Is it included?确认费用结构，避免事后纠纷",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "travel_066_sub_3",
+      "sceneId": "travel_066",
+      "name": "确认金额和钞票面额",
+      "description": "指定要换的金额和钞票种类",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_066_sub_3_qa_1",
+          "subSceneId": "travel_066_sub_3",
+          "speakerText": "I'd like to exchange $500, please.",
+          "speakerTextCn": "我想换500美元，谢谢。",
+          "responses": [
+            {
+              "text": "Okay, that'll be 460 euros after the fee. Do you want it in hundreds or fifties?",
+              "text_cn": "好的，扣掉手续费是460欧元，要100元还是50元面额？",
+              "audio_url": ""
+            },
+            {
+              "text": "Got it. 460 euros. Mostly hundreds?",
+              "text_cn": "明白，460欧元， mostly 100元的？",
+              "audio_url": ""
+            },
+            {
+              "text": "500? Alright.",
+              "text_cn": "500？行。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用I'd like to...表达需求，比I want更礼貌",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 4
+        },
+        {
+          "id": "travel_066_sub_3_qa_2",
+          "subSceneId": "travel_066_sub_3",
+          "speakerText": "Can I get mostly hundreds, with a few fifties for small purchases?",
+          "speakerTextCn": "能 mostly 给100元，再配几张50元用于小额消费吗？",
+          "responses": [
+            {
+              "text": "Sure thing! 4 x 100 and 2 x 50?",
+              "text_cn": "没问题！4张100和2张50？",
+              "audio_url": ""
+            },
+            {
+              "text": "No problem — 400 in hundreds, 60 in fifties?",
+              "text_cn": "没问题——400用100元，60用50元？",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, 100s and 50s.",
+              "text_cn": "行，100和50的。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用mostly + with a few...清晰表达主次搭配需求",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "travel_066_sub_4",
+      "sceneId": "travel_066",
+      "name": "确认交易完成",
+      "description": "核对金额并确认交易结束",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_066_sub_4_qa_1",
+          "subSceneId": "travel_066_sub_4",
+          "speakerText": "Here's your 460 euros — 4 hundreds and 2 fifties.",
+          "speakerTextCn": "这是您的460欧元，4张100和2张50。",
+          "responses": [
+            {
+              "text": "Perfect, thanks! I'll count it quickly.",
+              "text_cn": "太好了，谢谢！我快速数一下。",
+              "audio_url": ""
+            },
+            {
+              "text": "Looks good. Thanks a lot!",
+              "text_cn": "没问题，非常感谢！",
+              "audio_url": ""
+            },
+            {
+              "text": "Yep, all good.",
+              "text_cn": "对，都对。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Perfect/Looks good确认无误，避免沉默走人",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 6
+        }
+      ]
+    },
+    {
+      "id": "travel_066_sub_5",
+      "sceneId": "travel_066",
+      "name": "道别与感谢",
+      "description": "礼貌结束交易并表达谢意",
+      "order": 5,
+      "estimatedMinutes": 3,
+      "qaPairs": [
+        {
+          "id": "travel_066_sub_5_qa_1",
+          "subSceneId": "travel_066_sub_5",
+          "speakerText": "All set! Have a great trip!",
+          "speakerTextCn": "搞定啦！祝您旅途愉快！",
+          "responses": [
+            {
+              "text": "Thanks so much! You've been super helpful.",
+              "text_cn": "太感谢了，您帮了大忙！",
+              "audio_url": ""
+            },
+            {
+              "text": "Appreciate it! Bye!",
+              "text_cn": "谢谢！拜！",
+              "audio_url": ""
+            },
+            {
+              "text": "Thanks!",
+              "text_cn": "谢谢！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Thanks so much/ appreciate it表达真诚感谢，避免只说Thanks",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 7
+        }
+      ]
+    }
+  ]
+}

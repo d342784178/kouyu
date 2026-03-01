@@ -1,0 +1,274 @@
+{
+  "sceneId": "daily_005",
+  "sceneName": "看医生",
+  "generatedAt": "2026-03-01T03:35:40.807Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "daily_005_sub_1",
+      "sceneId": "daily_005",
+      "name": "挂号登记",
+      "description": "患者到诊所报到并填写基本信息",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_005_sub_1_qa_1",
+          "subSceneId": "daily_005_sub_1",
+          "speakerText": "Hi, I'm here for my appointment. My name's Tom Chen.",
+          "speakerTextCn": "嗨，我来就诊，我叫汤姆·陈。",
+          "responses": [
+            {
+              "text": "Yeah, I'm Tom Chen. I booked at 3 PM.",
+              "text_cn": "对，我叫汤姆·陈，三点约的。",
+              "audio_url": ""
+            },
+            {
+              "text": "Good afternoon. I'm Tom Chen, scheduled for a checkup.",
+              "text_cn": "下午好，我是汤姆·陈，预约了体检。",
+              "audio_url": ""
+            },
+            {
+              "text": "Tom Chen. Appointment's at three.",
+              "text_cn": "汤姆·陈，三点预约。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用简短句快速报姓名和时间",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "daily_005_sub_2",
+      "sceneId": "daily_005",
+      "name": "描述症状",
+      "description": "向医生说明身体不适的具体表现",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_005_sub_2_qa_1",
+          "subSceneId": "daily_005_sub_2",
+          "speakerText": "So, what's been going on?",
+          "speakerTextCn": "那你最近哪儿不舒服？",
+          "responses": [
+            {
+              "text": "I've had a bad headache for two days, and my neck's stiff.",
+              "text_cn": "我头疼两天了，脖子也僵硬。",
+              "audio_url": ""
+            },
+            {
+              "text": "My head's killing me since Monday, and I can't turn my neck.",
+              "text_cn": "从周一就开始头痛，脖子都转不动了。",
+              "audio_url": ""
+            },
+            {
+              "text": "Headache + stiff neck. Two days.",
+              "text_cn": "头疼加脖子僵，两天了。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用具体时间+身体部位描述症状",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_005_sub_2_qa_2",
+          "subSceneId": "daily_005_sub_2",
+          "speakerText": "Any fever or nausea?",
+          "speakerTextCn": "有发烧或恶心吗？",
+          "responses": [
+            {
+              "text": "No fever, but I feel kinda sick to my stomach.",
+              "text_cn": "没发烧，但有点想吐。",
+              "audio_url": ""
+            },
+            {
+              "text": "I didn't check my temperature, but yeah, I'm a bit nauseous.",
+              "text_cn": "没量体温，不过确实有点恶心。",
+              "audio_url": ""
+            },
+            {
+              "text": "No fever. Maybe a little nauseous.",
+              "text_cn": "没发烧，可能有点恶心。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用but或yeah加强语气，更自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_005_sub_3",
+      "sceneId": "daily_005",
+      "name": "回答病史",
+      "description": "医生询问过往病史或生活习惯",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_005_sub_3_qa_1",
+          "subSceneId": "daily_005_sub_3",
+          "speakerText": "Do you smoke or drink much?",
+          "speakerTextCn": "你抽烟或喝酒多吗？",
+          "responses": [
+            {
+              "text": "I used to smoke, but I quit last year. I drink wine once a week.",
+              "text_cn": "以前抽，去年戒了，每周喝点红酒。",
+              "audio_url": ""
+            },
+            {
+              "text": "Nah, I don't smoke. Just a beer on weekends.",
+              "text_cn": "不抽，周末偶尔喝瓶啤酒。",
+              "audio_url": ""
+            },
+            {
+              "text": "No smoking. Rarely drink.",
+              "text_cn": "不抽烟，很少喝酒。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用used to / nah / rarelly体现不同语气",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_005_sub_3_qa_2",
+          "subSceneId": "daily_005_sub_3",
+          "speakerText": "Any allergies or chronic conditions?",
+          "speakerTextCn": "有过敏或慢性病吗？",
+          "responses": [
+            {
+              "text": "I'm allergic to penicillin. No other issues.",
+              "text_cn": "我对青霉素过敏，没别的问题。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, penicillin makes me break out. Otherwise, I'm good.",
+              "text_cn": "对，青霉素会让我起疹子，其他都还好。",
+              "audio_url": ""
+            },
+            {
+              "text": "Penicillin allergy. Nothing else.",
+              "text_cn": "青霉素过敏，没别的。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用makes me break out更口语化",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_005_sub_4",
+      "sceneId": "daily_005",
+      "name": "获取医嘱",
+      "description": "医生给出治疗建议和注意事项",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_005_sub_4_qa_1",
+          "subSceneId": "daily_005_sub_4",
+          "speakerText": "You're probably just stressed. Rest up, drink water, and take this painkiller.",
+          "speakerTextCn": "你可能是压力大，多休息、多喝水，吃这个止痛药。",
+          "responses": [
+            {
+              "text": "Got it. Should I avoid caffeine?",
+              "text_cn": "明白，我该避免咖啡因吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Okay, thanks. Is coffee okay?",
+              "text_cn": "好的，谢谢，咖啡能喝吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Thanks. No coffee?",
+              "text_cn": "谢谢，不能喝咖啡？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Got it / Okay / Thanks开头，自然回应",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_005_sub_4_qa_2",
+          "subSceneId": "daily_005_sub_4",
+          "speakerText": "Come back if it gets worse in 48 hours.",
+          "speakerTextCn": "48小时后如果更糟，就回来复诊。",
+          "responses": [
+            {
+              "text": "Will do. Thanks so much!",
+              "text_cn": "好的，太感谢了！",
+              "audio_url": ""
+            },
+            {
+              "text": "Okay, I'll call if it doesn't improve.",
+              "text_cn": "好，没好转我就打电话。",
+              "audio_url": ""
+            },
+            {
+              "text": "Understood.",
+              "text_cn": "明白了。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Will do最地道，Understood最简短",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_005_sub_5",
+      "sceneId": "daily_005",
+      "name": "道别离场",
+      "description": "就诊结束，礼貌告别医护人员",
+      "order": 5,
+      "estimatedMinutes": 3,
+      "qaPairs": [
+        {
+          "id": "daily_005_sub_5_qa_1",
+          "subSceneId": "daily_005_sub_5",
+          "speakerText": "Alright, take care, Tom.",
+          "speakerTextCn": "好的，保重，汤姆。",
+          "responses": [
+            {
+              "text": "Thanks, doc. You too!",
+              "text_cn": "谢谢医生，您也是！",
+              "audio_url": ""
+            },
+            {
+              "text": "Appreciate it. Have a good one!",
+              "text_cn": "感谢，您也好好休息！",
+              "audio_url": ""
+            },
+            {
+              "text": "Thanks.",
+              "text_cn": "谢谢。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用You too / Have a good one更显礼貌",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    }
+  ]
+}

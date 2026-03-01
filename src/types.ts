@@ -203,3 +203,136 @@ export interface SceneTest {
   /** 题目内容，根据 type 对应不同的 content 结构 */
   content: unknown;
 }
+
+// ============================================================
+// 场景学习增强模块 - 新增接口定义
+// ============================================================
+
+// 从数据库 schema 导入子场景和问答对类型
+import type { SubScene, QAPair } from '@/lib/db/schema'
+export type { SubScene, QAPair }
+
+/**
+ * QAPair.responses 字段中每条回应的结构
+ */
+export interface QAResponse {
+  /** 英文表达，如 "Hot, please." */
+  text: string
+  /** 中文翻译，如 "要热的。" */
+  text_cn: string
+  /** COS:/ 协议音频路径 */
+  audio_url: string
+}
+
+/**
+ * localStorage 中保存的子场景学习进度
+ * key 格式：`sub_scene_progress_${subSceneId}`
+ */
+export interface SubSceneProgress {
+  /** 学习状态 */
+  status: 'not_started' | 'in_progress' | 'completed'
+  /** 当前所处阶段（1=逐句学习, 2=练习题, 3=AI对话, 4=对话后处理） */
+  currentStage: 1 | 2 | 3 | 4
+  /** 定向重练用，存储未通过的 QA_Pair id */
+  failedQaIds: string[]
+  /** ISO 8601 时间戳 */
+  lastUpdated: string
+}
+
+/**
+ * 子场景详情 API 响应结构
+ * GET /api/sub-scenes/[subSceneId]
+ */
+export interface SubSceneDetailResponse {
+  subScene: SubScene
+  qaPairs: QAPair[]
+  /** 该场景下子场景总数 */
+  totalSubScenes: number
+  /** 当前子场景在场景中的位置（1-based） */
+  currentIndex: number
+}
+
+/**
+ * 选择题选项
+ */
+export interface ChoiceOption {
+  id: string
+  text: string
+  isCorrect: boolean
+}
+
+/**
+ * 填空题空格项
+ */
+export interface BlankItem {
+  index: number
+  /** 正确答案（用于前端对比） */
+  answer: string
+}
+
+/**
+ * 练习题联合类型（选择题 / 填空题 / 问答题）
+ */
+export type PracticeQuestion =
+  | { type: 'choice'; qaId: string; audioUrl: string; options: ChoiceOption[] }
+  | { type: 'fill_blank'; qaId: string; template: string; blanks: BlankItem[] }
+  | { type: 'speaking'; qaId: string; speakerText: string; speakerTextCn: string }
+
+/**
+ * AI 模拟对话 API 请求体
+ * POST /api/sub-scenes/[subSceneId]/ai-dialogue
+ */
+export interface AIDialogueRequest {
+  /** 用户本轮输入的文字 */
+  userMessage: string
+  /** 当前正在处理的 QA_Pair 索引（0-based） */
+  currentQaIndex: number
+  /** 本轮对话历史 */
+  conversationHistory: { role: 'ai' | 'user'; text: string }[]
+}
+
+/**
+ * AI 模拟对话 API 响应体
+ */
+export interface AIDialogueResponse {
+  /** 本轮用户回应是否通过语义匹配 */
+  pass: boolean
+  /** 下一个待处理的 QA_Pair 索引（0-based） */
+  nextQaIndex: number
+  /** 下一条 speaker_text 或提示语 */
+  aiMessage?: string
+  /** 是否所有 QA_Pair 都已完成 */
+  isComplete: boolean
+}
+
+/**
+ * 对话后处理（Review）API 请求体
+ * POST /api/sub-scenes/[subSceneId]/review
+ */
+export interface ReviewRequest {
+  /** 流畅度得分（0-100） */
+  fluencyScore: number
+  /** 本次对话历史记录 */
+  dialogueHistory: { qaId: string; userText: string; passed: boolean }[]
+}
+
+/**
+ * 对话后处理（Review）API 响应体
+ */
+export interface ReviewResponse {
+  /** 需要高亮标注的条目列表 */
+  highlights: ReviewHighlight[]
+}
+
+/**
+ * 单条高亮标注项
+ */
+export interface ReviewHighlight {
+  qaId: string
+  /** 用户原始表达 */
+  userText: string
+  /** 问题描述 */
+  issue: string
+  /** 更地道的表达建议 */
+  betterExpression: string
+}

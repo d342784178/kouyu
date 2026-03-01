@@ -1,0 +1,264 @@
+{
+  "sceneId": "daily_006",
+  "sceneName": "银行办理业务",
+  "generatedAt": "2026-03-01T03:35:40.079Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "daily_006_sub_1",
+      "sceneId": "daily_006",
+      "name": "问候与需求",
+      "description": "客户到银行问候并说明来意",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_006_sub_1_qa_1",
+          "subSceneId": "daily_006_sub_1",
+          "speakerText": "Hi there! How can I help you today?",
+          "speakerTextCn": "您好！今天有什么可以帮您的？",
+          "responses": [
+            {
+              "text": "I'd like to open a new savings account.",
+              "text_cn": "我想开一个新储蓄账户。",
+              "audio_url": ""
+            },
+            {
+              "text": "Hey, I need to set up a checking account.",
+              "text_cn": "嘿，我想开个支票账户。",
+              "audio_url": ""
+            },
+            {
+              "text": "Opening an account.",
+              "text_cn": "我要开户。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用I'd like来表达礼貌需求",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_006_sub_1_qa_2",
+          "subSceneId": "daily_006_sub_1",
+          "speakerText": "Sure thing! Do you have your ID and proof of address?",
+          "speakerTextCn": "当然！您有身份证和住址证明吗？",
+          "responses": [
+            {
+              "text": "Yes, here's my passport and utility bill.",
+              "text_cn": "有，这是我的护照和水电账单。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yep, I've got both right here.",
+              "text_cn": "有，我这就拿出来。",
+              "audio_url": ""
+            },
+            {
+              "text": "I forgot the bill. Can I use my lease?",
+              "text_cn": "我忘了带账单，能用租房合同吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用here's/ I've got表达即时出示",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_006_sub_2",
+      "sceneId": "daily_006",
+      "name": "账户类型选择",
+      "description": "柜员介绍账户类型，客户做选择",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_006_sub_2_qa_1",
+          "subSceneId": "daily_006_sub_2",
+          "speakerText": "We've got basic savings with 0.5% interest, or a premium one with higher returns but a $500 minimum deposit.",
+          "speakerTextCn": "我们有利率0.5%的基础储蓄，或高收益的高级账户，需存500美元起。",
+          "responses": [
+            {
+              "text": "I'll go with the basic one for now.",
+              "text_cn": "我先选基础版。",
+              "audio_url": ""
+            },
+            {
+              "text": "Hmm, I think I'd prefer the premium one—I can deposit $600.",
+              "text_cn": "嗯，我想选高级的，我能存600美元。",
+              "audio_url": ""
+            },
+            {
+              "text": "Basic is fine.",
+              "text_cn": "基础版就行。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用I'll go with表达明确选择",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_006_sub_2_qa_2",
+          "subSceneId": "daily_006_sub_2",
+          "speakerText": "You'll need to sign here and initial the terms.",
+          "speakerTextCn": "您需要在这里签名并签署条款。",
+          "responses": [
+            {
+              "text": "Got it—I'll sign right away.",
+              "text_cn": "好的，我马上签。",
+              "audio_url": ""
+            },
+            {
+              "text": "Sure thing, let me grab a pen.",
+              "text_cn": "没问题，我找支笔。",
+              "audio_url": ""
+            },
+            {
+              "text": "Sign here? Okay.",
+              "text_cn": "这里签？行。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Got it/Sure thing回应操作指令",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_006_sub_3",
+      "sceneId": "daily_006",
+      "name": "存款与确认",
+      "description": "客户存入首笔资金并确认账户信息",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_006_sub_3_qa_1",
+          "subSceneId": "daily_006_sub_3",
+          "speakerText": "How much would you like to deposit as your opening balance?",
+          "speakerTextCn": "您想存多少作为初始余额？",
+          "responses": [
+            {
+              "text": "I'll put in $1,000.",
+              "text_cn": "我存1000美元。",
+              "audio_url": ""
+            },
+            {
+              "text": "Can I deposit $750? That's all I've got right now.",
+              "text_cn": "我能存750吗？我现在就这些。",
+              "audio_url": ""
+            },
+            {
+              "text": "A thousand.",
+              "text_cn": "一千。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用I'll put in表达主动存款",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_006_sub_3_qa_2",
+          "subSceneId": "daily_006_sub_3",
+          "speakerText": "Your account number is 8842-1095, and your card will arrive in 5–7 business days.",
+          "speakerTextCn": "您的账号是8842-1095，卡片将在5到7个工作日内寄到。",
+          "responses": [
+            {
+              "text": "Thanks! Can I get a digital copy now?",
+              "text_cn": "谢谢！现在能给我电子版吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Cool, I'll check my mail.",
+              "text_cn": "好的，我等邮件。",
+              "audio_url": ""
+            },
+            {
+              "text": "Got it.",
+              "text_cn": "知道了。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Can I...?礼貌请求额外服务",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_006_sub_4",
+      "sceneId": "daily_006",
+      "name": "道别与后续",
+      "description": "柜员礼貌道别，客户表达感谢",
+      "order": 4,
+      "estimatedMinutes": 3,
+      "qaPairs": [
+        {
+          "id": "daily_006_sub_4_qa_1",
+          "subSceneId": "daily_006_sub_4",
+          "speakerText": "Thanks for banking with us! Is there anything else I can help you with?",
+          "speakerTextCn": "感谢选择我们银行！还有其他能帮您的吗？",
+          "responses": [
+            {
+              "text": "No, that's all—really appreciate your help!",
+              "text_cn": "不用了，太感谢了！",
+              "audio_url": ""
+            },
+            {
+              "text": "Nah, good to go. You're awesome!",
+              "text_cn": "不用了，搞定了，你真棒！",
+              "audio_url": ""
+            },
+            {
+              "text": "All set, thanks.",
+              "text_cn": "搞定了，谢谢。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用That's all/All set简���结束对话",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_006_sub_4_qa_2",
+          "subSceneId": "daily_006_sub_4",
+          "speakerText": "Have a great day!",
+          "speakerTextCn": "祝您今天愉快！",
+          "responses": [
+            {
+              "text": "You too! See you next time.",
+              "text_cn": "你也是！下次见。",
+              "audio_url": ""
+            },
+            {
+              "text": "Thanks, you too!",
+              "text_cn": "谢谢，你也一样！",
+              "audio_url": ""
+            },
+            {
+              "text": "Bye!",
+              "text_cn": "拜！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用You too!回应祝福最自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}

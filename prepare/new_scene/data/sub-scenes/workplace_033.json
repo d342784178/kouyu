@@ -1,0 +1,328 @@
+{
+  "sceneId": "workplace_033",
+  "sceneName": "职场邮件沟通",
+  "generatedAt": "2026-03-01T03:39:23.485Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "workplace_033_sub_1",
+      "sceneId": "workplace_033",
+      "name": "询问邮件状态",
+      "description": "礼貌询问对方是否已发送项目进度邮件",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "workplace_033_sub_1_qa_1",
+          "subSceneId": "workplace_033_sub_1",
+          "speakerText": "Hey, did you get a chance to send the project update email?",
+          "speakerTextCn": "嘿，你有空发项目更新邮件了吗？",
+          "responses": [
+            {
+              "text": "I haven't sent it yet—I'm still finalizing the numbers.",
+              "text_cn": "我还没发，正在最后核对数据。",
+              "audio_url": ""
+            },
+            {
+              "text": "Just sent it a minute ago! Check your inbox.",
+              "text_cn": "刚发了，去邮箱看看。",
+              "audio_url": ""
+            },
+            {
+              "text": "Not yet, but I'll send it by noon.",
+              "text_cn": "还没，中午前发。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用非正式语气拉近距离，适合同级同事",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "workplace_033_sub_1_qa_2",
+          "subSceneId": "workplace_033_sub_1",
+          "speakerText": "Just checking in—was the email to the client sent?",
+          "speakerTextCn": "顺口问下，给客户的邮件发了吗？",
+          "responses": [
+            {
+              "text": "I'm still waiting on Sarah's input—I'll send it after her review.",
+              "text_cn": "等Sarah反馈，她审完我就发。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yes, it went out this morning with the attachment.",
+              "text_cn": "发了，今天早上带附件发的。",
+              "audio_url": ""
+            },
+            {
+              "text": "Not yet, but I'm on it now.",
+              "text_cn": "还没，我马上处理。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "正式场合用‘checking in’更得体",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "workplace_033_sub_2",
+      "sceneId": "workplace_033",
+      "name": "解释延迟原因",
+      "description": "礼貌说明邮件延迟发送的合理原因",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "workplace_033_sub_2_qa_1",
+          "subSceneId": "workplace_033_sub_2",
+          "speakerText": "Sorry I haven't sent the report—my laptop crashed last night.",
+          "speakerTextCn": "抱歉没发报告，我昨晚电脑崩了。",
+          "responses": [
+            {
+              "text": "No worries—just resend it when you can. We've got time.",
+              "text_cn": "没事，有空重发就行，还来得及。",
+              "audio_url": ""
+            },
+            {
+              "text": "Oh no! Did you lose any data? Let me know if you need help.",
+              "text_cn": "天啊！数据丢了吗？需要帮忙吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Understood. Send it by EOD.",
+              "text_cn": "明白，今天下班前发一下。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用‘No worries’缓解对方压力，适合非正式场景",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "workplace_033_sub_2_qa_2",
+          "subSceneId": "workplace_033_sub_2",
+          "speakerText": "I apologize for the delay—the client changed the requirements again.",
+          "speakerTextCn": "很抱歉延迟了，客户又改了需求。",
+          "responses": [
+            {
+              "text": "That's understandable. Please update me once it's sent.",
+              "text_cn": "能理解，发了记得告诉我一声。",
+              "audio_url": ""
+            },
+            {
+              "text": "Again? Can I help you restructure the report?",
+              "text_cn": "又改？要我帮你重排结构吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Please prioritize this—CC me when done.",
+              "text_cn": "请优先处理，发完抄送我。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "正式回应需体现支持与跟进意识",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "workplace_033_sub_3",
+      "sceneId": "workplace_033",
+      "name": "提出替代方案",
+      "description": "因附件问题提供其他发送方式或格式",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "workplace_033_sub_3_qa_1",
+          "subSceneId": "workplace_033_sub_3",
+          "speakerText": "The PDF file is too big to send—can I share it via Google Drive instead?",
+          "speakerTextCn": "PDF太大发不了，能改用Google Drive吗？",
+          "responses": [
+            {
+              "text": "Sure! Just send me the link and set it to 'Anyone with link can view'.",
+              "text_cn": "可以，发链接，设成‘任何人可查看’。",
+              "audio_url": ""
+            },
+            {
+              "text": "I prefer email attachments for security—can you compress it?",
+              "text_cn": "为安全起见，还是邮件附件，能压缩吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Go ahead—link's fine.",
+              "text_cn": "发链接吧，没问题。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "提供方案时，主动说明权限设置更专业",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "workplace_033_sub_3_qa_2",
+          "subSceneId": "workplace_033_sub_3",
+          "speakerText": "I can't open the .xlsx file—it says it's corrupted. Any chance you can resend as .csv?",
+          "speakerTextCn": "打不开xlsx文件，提示损坏，能重发成csv吗？",
+          "responses": [
+            {
+              "text": "I'll resend it as CSV right away—thanks for flagging this!",
+              "text_cn": "马上重发CSV，谢谢提醒！",
+              "audio_url": ""
+            },
+            {
+              "text": "Try opening it in Google Sheets—it might work there.",
+              "text_cn": "试试用Google Sheets打开，可能能读。",
+              "audio_url": ""
+            },
+            {
+              "text": "Done. CSV attached. Let me know if it works.",
+              "text_cn": "好了，已附CSV，有事告诉我。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "先解决再确认，避免重复沟通",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "workplace_033_sub_4",
+      "sceneId": "workplace_033",
+      "name": "确认抄送与格式",
+      "description": "确认邮件抄送对象和附件格式是否正确",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "workplace_033_sub_4_qa_1",
+          "subSceneId": "workplace_033_sub_4",
+          "speakerText": "Just sent the update—CC'd Linda and Mark, right?",
+          "speakerTextCn": "刚发了更新，抄送了Linda和Mark对吧？",
+          "responses": [
+            {
+              "text": "Yes, but please also add Priya—she needs the data for the meeting.",
+              "text_cn": "对，但别忘了加Priya，她要开会用数据。",
+              "audio_url": ""
+            },
+            {
+              "text": "Mark's out this week—remove him and CC his assistant instead.",
+              "text_cn": "Mark这周不在，换成他助理。",
+              "audio_url": ""
+            },
+            {
+              "text": "Got it, added Priya.",
+              "text_cn": "收到，已加Priya。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "确认抄送时，直接指出需增删人员更高效",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "workplace_033_sub_4_qa_2",
+          "subSceneId": "workplace_033_sub_4",
+          "speakerText": "The attachment is in .docx—should I convert it to PDF for consistency?",
+          "speakerTextCn": "附件是.docx格式，要转成PDF统一格式吗？",
+          "responses": [
+            {
+              "text": "Yes, please—our templates are all PDF now.",
+              "text_cn": "要的，现在模板都统一用PDF。",
+              "audio_url": ""
+            },
+            {
+              "text": "No need—docx is fine if they're editing it.",
+              "text_cn": "不用，他们要修改的话docx更方便。",
+              "audio_url": ""
+            },
+            {
+              "text": "Converted and resent as PDF.",
+              "text_cn": "已转PDF，重发了。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "说明格式选择依据，减少后续争议",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "workplace_033_sub_5",
+      "sceneId": "workplace_033",
+      "name": "结束沟通",
+      "description": "礼貌收尾并确认后续跟进方式",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "workplace_033_sub_5_qa_1",
+          "subSceneId": "workplace_033_sub_5",
+          "speakerText": "Alright, I've sent everything—let me know if you need anything else.",
+          "speakerTextCn": "好了，都发了，有需要随时说。",
+          "responses": [
+            {
+              "text": "Thanks! I'll review it by tomorrow and get back to you.",
+              "text_cn": "谢谢，我明天看完再回复你。",
+              "audio_url": ""
+            },
+            {
+              "text": "Appreciate it! Have a great afternoon.",
+              "text_cn": "太感谢了，祝你下午愉快！",
+              "audio_url": ""
+            },
+            {
+              "text": "Got it.",
+              "text_cn": "收到。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "简短回应适合快节奏办公场景",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "workplace_033_sub_5_qa_2",
+          "subSceneId": "workplace_033_sub_5",
+          "speakerText": "Just confirming—we're all set on the email? No changes needed?",
+          "speakerTextCn": "确认一下，邮件没问题了吧？不需要改了？",
+          "responses": [
+            {
+              "text": "Perfect—everything looks good. Thanks for your help!",
+              "text_cn": "完美，都很好，谢谢你帮忙！",
+              "audio_url": ""
+            },
+            {
+              "text": "Actually, can you add the Q3 forecast slide? Just one more.",
+              "text_cn": "对了，能加个Q3预测页吗？就一个。",
+              "audio_url": ""
+            },
+            {
+              "text": "All clear.",
+              "text_cn": "没问题了。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用‘all clear’简洁收尾，适合确认型对话",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}

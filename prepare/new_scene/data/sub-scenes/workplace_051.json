@@ -1,0 +1,247 @@
+{
+  "sceneId": "workplace_051",
+  "sceneName": "会议室预订",
+  "generatedAt": "2026-03-01T03:40:10.807Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "workplace_051_sub_1",
+      "sceneId": "workplace_051",
+      "name": "问候与开场",
+      "description": "礼貌开场，询问会议室预订事宜",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "workplace_051_sub_1_qa_1",
+          "subSceneId": "workplace_051_sub_1",
+          "speakerText": "Hi, could you help me book a meeting room?",
+          "speakerTextCn": "嗨，你能帮我预订个会议室吗？",
+          "responses": [
+            {
+              "text": "Of course! What time and room size do you need?",
+              "text_cn": "当然可以！您需要什么时间、多大的房间？",
+              "audio_url": ""
+            },
+            {
+              "text": "Sure thing! Let me check availability.",
+              "text_cn": "没问题，我查一下空闲时段。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, what's up?",
+              "text_cn": "嗯，什么事？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用礼貌请求开启对话，避免直接命令",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "workplace_051_sub_2",
+      "sceneId": "workplace_051",
+      "name": "询问可用时间",
+      "description": "确认会议室在特定时段是否可用",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "workplace_051_sub_2_qa_1",
+          "subSceneId": "workplace_051_sub_2",
+          "speakerText": "Is the big conference room free on Thursday at 2 PM?",
+          "speakerTextCn": "周四下午两点大会议室有空吗？",
+          "responses": [
+            {
+              "text": "Let me check... Yep, it's available!",
+              "text_cn": "我查一下……有空！",
+              "audio_url": ""
+            },
+            {
+              "text": "Actually, it's booked until 4 PM. How about 4:30?",
+              "text_cn": "其实它被订到四点了，四点半行吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Nope, sorry.",
+              "text_cn": "没空，抱歉。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "主动提出替代时间，提高预订成功率",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "workplace_051_sub_2_qa_2",
+          "subSceneId": "workplace_051_sub_2",
+          "speakerText": "Do you have any smaller rooms open at 10 AM?",
+          "speakerTextCn": "上午十点有小会议室空着吗？",
+          "responses": [
+            {
+              "text": "The huddle room’s free — perfect for 4 people.",
+              "text_cn": "小讨论室有空，适合四人会议。",
+              "audio_url": ""
+            },
+            {
+              "text": "We only have the boardroom — it’s big, but free.",
+              "text_cn": "只有董事会议室，大了点但空着。",
+              "audio_url": ""
+            },
+            {
+              "text": "Not at 10, but 10:30 works.",
+              "text_cn": "十点不行，十点半可以。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "根据人数灵活推荐合适房间类型",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "workplace_051_sub_3",
+      "sceneId": "workplace_051",
+      "name": "确认设备需求",
+      "description": "明确会议所需设备如投影、视频等",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "workplace_051_sub_3_qa_1",
+          "subSceneId": "workplace_051_sub_3",
+          "speakerText": "Can you set up the projector and mic for us?",
+          "speakerTextCn": "能帮我们安排投影仪和话筒吗？",
+          "responses": [
+            {
+              "text": "Already on it — projector, mic, and Wi-Fi covered.",
+              "text_cn": "已安排好：投影、话筒和Wi-Fi都包了。",
+              "audio_url": ""
+            },
+            {
+              "text": "We’ve got the projector, but no mic — can you bring your own?",
+              "text_cn": "有投影仪，但没话筒，你能自带吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Sure, no problem.",
+              "text_cn": "没问题，包在我身上。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "主动确认设备，避免会议现场出状况",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "workplace_051_sub_3_qa_2",
+          "subSceneId": "workplace_051_sub_3",
+          "speakerText": "Do you have Zoom setup ready?",
+          "speakerTextCn": "有准备好Zoom会议设备吗？",
+          "responses": [
+            {
+              "text": "Yep, the room’s got Zoom-ready monitors and cameras.",
+              "text_cn": "有，房间配有支持Zoom的屏幕和摄像头。",
+              "audio_url": ""
+            },
+            {
+              "text": "We only have Teams — is that okay?",
+              "text_cn": "我们只有Teams，可以吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "I’ll get a laptop ready.",
+              "text_cn": "我来准备一台笔记本。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "确认平台兼容性，避免技术尴尬",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "workplace_051_sub_4",
+      "sceneId": "workplace_051",
+      "name": "最终确认与预订",
+      "description": "确认时间、房间、设备并完成预订",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "workplace_051_sub_4_qa_1",
+          "subSceneId": "workplace_051_sub_4",
+          "speakerText": "So, Thursday at 2 in the big room, projector and Zoom — got it?",
+          "speakerTextCn": "所以周四下午两点，大会议室，投影和Zoom，对吧？",
+          "responses": [
+            {
+              "text": "Yes, booked! I’ll send you a calendar invite now.",
+              "text_cn": "对，订好了！我马上发日历邀请。",
+              "audio_url": ""
+            },
+            {
+              "text": "Perfect, thanks! I’ll see you there.",
+              "text_cn": "太好了，谢谢！到时候见。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yup, all set.",
+              "text_cn": "嗯，搞定了。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "复述关键信息确保无误，再确认预订",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "workplace_051_sub_5",
+      "sceneId": "workplace_051",
+      "name": "道别与后续",
+      "description": "礼貌结束对话，说明后续安排",
+      "order": 5,
+      "estimatedMinutes": 3,
+      "qaPairs": [
+        {
+          "id": "workplace_051_sub_5_qa_1",
+          "subSceneId": "workplace_051_sub_5",
+          "speakerText": "Thanks so much for helping out!",
+          "speakerTextCn": "非常感谢你的帮助！",
+          "responses": [
+            {
+              "text": "Anytime! Just let me know if anything changes.",
+              "text_cn": "随时找我！有变动记得告诉我。",
+              "audio_url": ""
+            },
+            {
+              "text": "No worries — have a great meeting!",
+              "text_cn": "别客气，会议顺利！",
+              "audio_url": ""
+            },
+            {
+              "text": "Cool, peace out.",
+              "text_cn": "行，拜拜。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用积极语句收尾，留下良好印象",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    }
+  ]
+}

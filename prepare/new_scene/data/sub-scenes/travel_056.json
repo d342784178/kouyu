@@ -1,0 +1,247 @@
+{
+  "sceneId": "travel_056",
+  "sceneName": "酒店入住",
+  "generatedAt": "2026-03-01T03:38:22.229Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "travel_056_sub_1",
+      "sceneId": "travel_056",
+      "name": "礼貌问候",
+      "description": "前台接待旅客并致意",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_056_sub_1_qa_1",
+          "subSceneId": "travel_056_sub_1",
+          "speakerText": "Hi there! Welcome to Hotel Sunshine. How can I help you today?",
+          "speakerTextCn": "嗨！欢迎光临阳光酒店，有什么可以帮您的吗？",
+          "responses": [
+            {
+              "text": "Hi! I've got a reservation under John Smith.",
+              "text_cn": "嗨，我有预订，名字是约翰·史密斯。",
+              "audio_url": ""
+            },
+            {
+              "text": "Hey! Booked for John Smith, yeah?",
+              "text_cn": "嘿，我订了，名字是约翰·史密斯，对吧？",
+              "audio_url": ""
+            },
+            {
+              "text": "I'm John Smith. I booked a room.",
+              "text_cn": "我是约翰·史密斯，我订了房间。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "先打招呼，再报预订名，自然开场",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "travel_056_sub_2",
+      "sceneId": "travel_056",
+      "name": "确认预订",
+      "description": "核对姓名与预订信息",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_056_sub_2_qa_1",
+          "subSceneId": "travel_056_sub_2",
+          "speakerText": "Let me check that for you... Yep, John Smith, one night, standard room. Is that right?",
+          "speakerTextCn": "我查一下... 对，约翰·史密斯，住一晚，标准间，对吗？",
+          "responses": [
+            {
+              "text": "Yes, that's correct. Thanks!",
+              "text_cn": "对，没错，谢谢！",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, perfect! Just me and my wife.",
+              "text_cn": "对，太好了！就我和我老婆。",
+              "audio_url": ""
+            },
+            {
+              "text": "Correct.",
+              "text_cn": "没错。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "确认信息时，用yes或yeah都行，别紧张",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_056_sub_2_qa_2",
+          "subSceneId": "travel_056_sub_2",
+          "speakerText": "Do you have any special requests? Like extra pillows or a late check-out?",
+          "speakerTextCn": "您有特殊要求吗？比如多要枕头或延迟退房？",
+          "responses": [
+            {
+              "text": "No, thanks. Everything's fine.",
+              "text_cn": "不用了，谢谢，一切都好。",
+              "audio_url": ""
+            },
+            {
+              "text": "Actually, could I get an extra towel?",
+              "text_cn": "能多给一条毛巾吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Nope.",
+              "text_cn": "不用。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "想要东西就说could I get...，简单直接",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_056_sub_3",
+      "sceneId": "travel_056",
+      "name": "出示证件与押金",
+      "description": "出示护照并支付押金",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_056_sub_3_qa_1",
+          "subSceneId": "travel_056_sub_3",
+          "speakerText": "Could I see your passport, please? And we'll need a $50 deposit for incidentals.",
+          "speakerTextCn": "能出示一下您的护照吗？另外需要50美元押金作为杂费。",
+          "responses": [
+            {
+              "text": "Sure, here's my passport. I'll pay with my card.",
+              "text_cn": "好的，这是护照，我用信用卡付。",
+              "audio_url": ""
+            },
+            {
+              "text": "Here you go. Cash or card?",
+              "text_cn": "给你。现金还是刷卡？",
+              "audio_url": ""
+            },
+            {
+              "text": "Passport. Card only.",
+              "text_cn": "护照，只刷信用卡。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "递证件时说here's，付押金时明确支付方式",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "travel_056_sub_4",
+      "sceneId": "travel_056",
+      "name": "询问设施与早餐",
+      "description": "咨询WiFi和早餐时间",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_056_sub_4_qa_1",
+          "subSceneId": "travel_056_sub_4",
+          "speakerText": "The WiFi is free. The password's on the card. Breakfast is from 7 to 10 in the dining room.",
+          "speakerTextCn": "WiFi免费，密码在卡片上。早餐7点到10点在餐厅。",
+          "responses": [
+            {
+              "text": "Great! Is the WiFi good in the room?",
+              "text_cn": "太好了！房间里WiFi稳吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "What time's breakfast end?",
+              "text_cn": "早餐几点结束？",
+              "audio_url": ""
+            },
+            {
+              "text": "Thanks. WiFi password?",
+              "text_cn": "谢谢，WiFi密码是？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "问WiFi和早餐时间，用简单句问清楚就行",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_056_sub_4_qa_2",
+          "subSceneId": "travel_056_sub_4",
+          "speakerText": "We also have a free shuttle to the city center at 8 AM and 6 PM.",
+          "speakerTextCn": "我们还有免费班车，早上8点和下午6点发车去市中心。",
+          "responses": [
+            {
+              "text": "Do you have a shuttle after 10 PM?",
+              "text_cn": "晚上10点后有班车吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "No thanks, I'll walk.",
+              "text_cn": "不用了，我走路去。",
+              "audio_url": ""
+            },
+            {
+              "text": "Shuttle at 6? Perfect!",
+              "text_cn": "6点有班车？太好了！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "想坐班车就问有没有晚班，别怕问",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_056_sub_5",
+      "sceneId": "travel_056",
+      "name": "道别与指引",
+      "description": "领取房卡并指引房间位置",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_056_sub_5_qa_1",
+          "subSceneId": "travel_056_sub_5",
+          "speakerText": "Here's your key card. Room 402 is on the fourth floor, elevator's right there.",
+          "speakerTextCn": "这是您的房卡，402房在四楼，电梯就在那儿。",
+          "responses": [
+            {
+              "text": "Thanks! Is there a fridge in the room?",
+              "text_cn": "谢谢！房间里有冰箱吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Got it. Thanks a lot!",
+              "text_cn": "知道了，太感谢了！",
+              "audio_url": ""
+            },
+            {
+              "text": "402, okay.",
+              "text_cn": "402，明白。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "道别前可再问1个问题，说完就走不拖沓",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    }
+  ]
+}

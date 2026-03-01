@@ -1,0 +1,264 @@
+{
+  "sceneId": "daily_029",
+  "sceneName": "玩具店买玩具",
+  "generatedAt": "2026-03-01T03:36:34.246Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "daily_029_sub_1",
+      "sceneId": "daily_029",
+      "name": "打招呼询问",
+      "description": "家长进店后向店员礼貌问候并询问玩具位置",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_029_sub_1_qa_1",
+          "subSceneId": "daily_029_sub_1",
+          "speakerText": "Hi there! Do you know where the action figures are?",
+          "speakerTextCn": "你好！你知道动作玩偶在哪儿吗？",
+          "responses": [
+            {
+              "text": "Sure! They're down aisle 3, next to the dolls.",
+              "text_cn": "当然！在3号通道，玩偶旁边。",
+              "audio_url": ""
+            },
+            {
+              "text": "Aisle 3, just past the puzzles.",
+              "text_cn": "3号通道，过了拼图就到。",
+              "audio_url": ""
+            },
+            {
+              "text": "Over there!",
+              "text_cn": "就在那儿！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用简单方向词引导用户表达位置",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_029_sub_1_qa_2",
+          "subSceneId": "daily_029_sub_1",
+          "speakerText": "Thanks! And do you have any with batteries included?",
+          "speakerTextCn": "谢谢！有带电池的吗？",
+          "responses": [
+            {
+              "text": "Most do! This one comes with 4 AA batteries.",
+              "text_cn": "大多数都有！这个配了4节AA电池。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, check the box—it says 'batteries included'.",
+              "text_cn": "有，看包装，上面写着‘含电池’。",
+              "audio_url": ""
+            },
+            {
+              "text": "Not sure, let me check.",
+              "text_cn": "我不确定，我去看看。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "强调‘batteries included’关键表达",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_029_sub_2",
+      "sceneId": "daily_029",
+      "name": "询价确认",
+      "description": "家长询问价格并确认是否符合预算",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_029_sub_2_qa_1",
+          "subSceneId": "daily_029_sub_2",
+          "speakerText": "How much is this robot?",
+          "speakerTextCn": "这个机器人多少钱？",
+          "responses": [
+            {
+              "text": "It's $24.99. It's on sale today!",
+              "text_cn": "24.99美元，今天打折！",
+              "audio_url": ""
+            },
+            {
+              "text": "Twenty-five bucks, roughly.",
+              "text_cn": "大概25美元。",
+              "audio_url": ""
+            },
+            {
+              "text": "Let me scan it for you.",
+              "text_cn": "我帮你扫一下价格。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "训练用buck/price表达价格的口语习惯",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_029_sub_2_qa_2",
+          "subSceneId": "daily_029_sub_2",
+          "speakerText": "That's a bit over my budget. Do you have anything cheaper?",
+          "speakerTextCn": "有点超预算了，有便宜点的吗？",
+          "responses": [
+            {
+              "text": "How about this one? It's $15 and still super fun.",
+              "text_cn": "这个怎么样？15美元，也很有趣。",
+              "audio_url": ""
+            },
+            {
+              "text": "We've got a $12 version—same features, less flashy.",
+              "text_cn": "有12美元的版本，功能一样，没那么花哨。",
+              "audio_url": ""
+            },
+            {
+              "text": "Sorry, not right now.",
+              "text_cn": "抱歉，现在没有。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "引导用户用‘cheaper’表达价格比较",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_029_sub_3",
+      "sceneId": "daily_029",
+      "name": "支付方式",
+      "description": "家长确认付款方式并完成结账",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_029_sub_3_qa_1",
+          "subSceneId": "daily_029_sub_3",
+          "speakerText": "I'll take this one. Can I pay with card?",
+          "speakerTextCn": "我就要这个了，能刷卡吗？",
+          "responses": [
+            {
+              "text": "Sure! Tap or insert—it's got NFC.",
+              "text_cn": "当然！刷卡或插卡，支持NFC。",
+              "audio_url": ""
+            },
+            {
+              "text": "Cash or card? We take both.",
+              "text_cn": "现金还是刷卡？都收。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, just swipe it.",
+              "text_cn": "对，刷一下就行。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "强调‘tap/insert/swipe’等支付动词",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_029_sub_3_qa_2",
+          "subSceneId": "daily_029_sub_3",
+          "speakerText": "Do you accept Apple Pay?",
+          "speakerTextCn": "你们支持苹果支付吗？",
+          "responses": [
+            {
+              "text": "Yep! Just hold your phone near the reader.",
+              "text_cn": "支持！把手机靠近读卡器就行。",
+              "audio_url": ""
+            },
+            {
+              "text": "Sorry, not yet—we're upgrading.",
+              "text_cn": "抱歉，还没开通，正在升级。",
+              "audio_url": ""
+            },
+            {
+              "text": "We do! You're all set.",
+              "text_cn": "支持！没问题。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "训练用户询问新型支付方式",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_029_sub_4",
+      "sceneId": "daily_029",
+      "name": "礼貌道别",
+      "description": "完成购买后家长与店员礼貌告别",
+      "order": 4,
+      "estimatedMinutes": 3,
+      "qaPairs": [
+        {
+          "id": "daily_029_sub_4_qa_1",
+          "subSceneId": "daily_029_sub_4",
+          "speakerText": "Thanks so much for your help!",
+          "speakerTextCn": "非常感谢你的帮助！",
+          "responses": [
+            {
+              "text": "You're welcome! Have a great day!",
+              "text_cn": "不客气！祝你今天愉快！",
+              "audio_url": ""
+            },
+            {
+              "text": "No problem! Enjoy the toy!",
+              "text_cn": "小事！玩得开心！",
+              "audio_url": ""
+            },
+            {
+              "text": "Sure thing!",
+              "text_cn": "没问题！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "练习感谢与回应的自然口语模式",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_029_sub_4_qa_2",
+          "subSceneId": "daily_029_sub_4",
+          "speakerText": "I'll be back next week for my kid's birthday!",
+          "speakerTextCn": "我下周还会来，给我孩子买生日礼物！",
+          "responses": [
+            {
+              "text": "Awesome! We'll have new stuff in then!",
+              "text_cn": "太好了！到时会有新品！",
+              "audio_url": ""
+            },
+            {
+              "text": "Cool! Tell your kid we said hi!",
+              "text_cn": "太棒了！替我们跟孩子问好！",
+              "audio_url": ""
+            },
+            {
+              "text": "See ya!",
+              "text_cn": "再见！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "鼓励用户表达未来计划，增强对话延续性",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}

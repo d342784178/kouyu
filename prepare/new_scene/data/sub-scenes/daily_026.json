@@ -1,0 +1,210 @@
+{
+  "sceneId": "daily_026",
+  "sceneName": "菜市场买菜",
+  "generatedAt": "2026-03-01T03:36:30.391Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "daily_026_sub_1",
+      "sceneId": "daily_026",
+      "name": "打招呼问候",
+      "description": "摊主主动打招呼，开启对话",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_026_sub_1_qa_1",
+          "subSceneId": "daily_026_sub_1",
+          "speakerText": "Hey there! What can I get you today?",
+          "speakerTextCn": "嘿，今天想买点啥？",
+          "responses": [
+            {
+              "text": "Hi! I'm looking for some tomatoes.",
+              "text_cn": "嗨，我想买点西红柿。",
+              "audio_url": ""
+            },
+            {
+              "text": "Hiya! Got any fresh veggies?",
+              "text_cn": "嗨，有新鲜蔬菜吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Tomatoes, please.",
+              "text_cn": "给我点西红柿。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用简短句直接表达需求，避免冗长",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "daily_026_sub_2",
+      "sceneId": "daily_026",
+      "name": "询问价格",
+      "description": "询问蔬菜单价，比较性价比",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_026_sub_2_qa_1",
+          "subSceneId": "daily_026_sub_2",
+          "speakerText": "These tomatoes are $3 a pound. You want 'em?",
+          "speakerTextCn": "这些西红柿三美元一磅，要吗？",
+          "responses": [
+            {
+              "text": "Can you lower it to $2.50? I'll take two pounds.",
+              "text_cn": "能便宜到2.5美元吗？我买两磅。",
+              "audio_url": ""
+            },
+            {
+              "text": "Hmm, that's a bit steep. Any cheaper ones?",
+              "text_cn": "有点贵啊，有便宜点的吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Sure, two pounds.",
+              "text_cn": "好，来两磅。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Can you...?礼貌砍价，更易被接受",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_026_sub_2_qa_2",
+          "subSceneId": "daily_026_sub_2",
+          "speakerText": "The cucumbers are $2 a piece. They're super fresh!",
+          "speakerTextCn": "黄瓜两美元一根，特别新鲜！",
+          "responses": [
+            {
+              "text": "I'll take three, but can I get one free?",
+              "text_cn": "我要三根，能送一根吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "I'll think about it.",
+              "text_cn": "我再想想。",
+              "audio_url": ""
+            },
+            {
+              "text": "Okay, three please.",
+              "text_cn": "好，来三根。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "提出赠品请求时语气要轻松自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_026_sub_3",
+      "sceneId": "daily_026",
+      "name": "确认数量与重量",
+      "description": "确认购买数量和称重结果",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_026_sub_3_qa_1",
+          "subSceneId": "daily_026_sub_3",
+          "speakerText": "That's two pounds of tomatoes and three cucumbers. Anything else?",
+          "speakerTextCn": "两磅西红柿，三根黄瓜，还要别的吗？",
+          "responses": [
+            {
+              "text": "No, that's it. Can you bag 'em together?",
+              "text_cn": "不用了，就这些，能装一个袋吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Wait, can I add some onions?",
+              "text_cn": "等下，能再加点洋葱吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Nope, that's all.",
+              "text_cn": "不用了，就这些。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用That's it表达结束，简洁有力",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "daily_026_sub_4",
+      "sceneId": "daily_026",
+      "name": "结账付款",
+      "description": "完成付款并确认找零",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_026_sub_4_qa_1",
+          "subSceneId": "daily_026_sub_4",
+          "speakerText": "Total's $11.50. Cash or card?",
+          "speakerTextCn": "总共11.5美元，现金还是刷卡？",
+          "responses": [
+            {
+              "text": "Cash. Here's $15. Keep the change.",
+              "text_cn": "现金，给15，零钱不用找了。",
+              "audio_url": ""
+            },
+            {
+              "text": "Card, please. Do you accept Apple Pay?",
+              "text_cn": "刷卡，能用苹果支付吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Cash. Thanks.",
+              "text_cn": "现金，谢谢。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "说Keep the change显大方，拉近距离",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_026_sub_4_qa_2",
+          "subSceneId": "daily_026_sub_4",
+          "speakerText": "Here's your $3.50 back. Thanks for shopping!",
+          "speakerTextCn": "找你3.5美元，谢谢惠顾！",
+          "responses": [
+            {
+              "text": "Thanks! Have a great day!",
+              "text_cn": "谢谢！祝你今天愉快！",
+              "audio_url": ""
+            },
+            {
+              "text": "You too!",
+              "text_cn": "你也是！",
+              "audio_url": ""
+            },
+            {
+              "text": "Appreciate it. See you tomorrow.",
+              "text_cn": "谢谢，明天见。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "道别时加一句祝福，更显礼貌",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}

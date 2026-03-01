@@ -1,0 +1,220 @@
+{
+  "sceneId": "travel_070",
+  "sceneName": "航班改签",
+  "generatedAt": "2026-03-01T03:38:56.397Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "travel_070_sub_1",
+      "sceneId": "travel_070",
+      "name": "开场致意",
+      "description": "乘客礼貌联系客服说明来电目的",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_070_sub_1_qa_1",
+          "subSceneId": "travel_070_sub_1",
+          "speakerText": "Hi, this is Lisa Chen calling about my flight.",
+          "speakerTextCn": "您好，我是Lisa Chen，想咨询我的航班。",
+          "responses": [
+            {
+              "text": "Hi, I'm calling to reschedule my flight due to an emergency.",
+              "text_cn": "我打电话是想改签航班，因为有急事。",
+              "audio_url": ""
+            },
+            {
+              "text": "Hey, can you help me change my flight? Something came up.",
+              "text_cn": "能帮我改个航班吗？出事了。",
+              "audio_url": ""
+            },
+            {
+              "text": "Lisa Chen, need to change flight.",
+              "text_cn": "Lisa Chen，要改航班。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用简洁理由开场，避免冗长",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "travel_070_sub_2",
+      "sceneId": "travel_070",
+      "name": "说明原因",
+      "description": "乘客清晰说明改签的紧急原因",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_070_sub_2_qa_1",
+          "subSceneId": "travel_070_sub_2",
+          "speakerText": "I need to change my flight because my mom had a sudden accident.",
+          "speakerTextCn": "我得改签，我妈妈突然出事故了。",
+          "responses": [
+            {
+              "text": "My mother was rushed to the hospital — I really need to get there ASAP.",
+              "text_cn": "我妈妈被紧急送医，我必须尽快赶到。",
+              "audio_url": ""
+            },
+            {
+              "text": "Family emergency, gotta change it — can you help?",
+              "text_cn": "家里出急事，能帮我改吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Emergency, mom in hospital.",
+              "text_cn": "急事，妈妈住院了。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用具体事件增强说服力，避免模糊",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "travel_070_sub_3",
+      "sceneId": "travel_070",
+      "name": "查询空位",
+      "description": "客服询问可选日期，乘客提出偏好",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_070_sub_3_qa_1",
+          "subSceneId": "travel_070_sub_3",
+          "speakerText": "We have openings on the 15th at 10 a.m. or the 16th at 3 p.m.",
+          "speakerTextCn": "15号上午10点或16号下午3点有空位。",
+          "responses": [
+            {
+              "text": "Can I get the 15th at 10? I need to be there before noon.",
+              "text_cn": "能选15号10点吗？我中午前必须到。",
+              "audio_url": ""
+            },
+            {
+              "text": "15th works, but is there anything earlier?",
+              "text_cn": "15号可以，有更早的吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "15th 10 a.m. is fine.",
+              "text_cn": "15号10点就行。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "优先表达明确偏好，再询问替代方案",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "travel_070_sub_4",
+      "sceneId": "travel_070",
+      "name": "确认费用",
+      "description": "客服告知改签费用，乘客确认支付方式",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_070_sub_4_qa_1",
+          "subSceneId": "travel_070_sub_4",
+          "speakerText": "There's a $75 change fee, but no fare difference.",
+          "speakerTextCn": "改签费75美元，票价没差价。",
+          "responses": [
+            {
+              "text": "Okay, I'll pay with my card ending in 4421.",
+              "text_cn": "好的，我用尾号4421的卡支付。",
+              "audio_url": ""
+            },
+            {
+              "text": "75 bucks? Ugh. Can I use PayPal instead?",
+              "text_cn": "75刀？真烦，能用PayPal吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Pay with card 4421.",
+              "text_cn": "用卡4421付。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "明确支付方式，避免后续误会",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_070_sub_4_qa_2",
+          "subSceneId": "travel_070_sub_4",
+          "speakerText": "The fee will be charged to your card on file.",
+          "speakerTextCn": "费用将从您登记的卡片扣款。",
+          "responses": [
+            {
+              "text": "Yes, that’s fine — just make sure it’s processed.",
+              "text_cn": "可以，但请确保处理成功。",
+              "audio_url": ""
+            },
+            {
+              "text": "Cool, no problem.",
+              "text_cn": "行，没问题。",
+              "audio_url": ""
+            },
+            {
+              "text": "Processed?",
+              "text_cn": "处理好了吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "确认扣款成功，避免纠纷",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_070_sub_5",
+      "sceneId": "travel_070",
+      "name": "道别确认",
+      "description": "客服确认改签成功，乘客致谢并结束通话",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_070_sub_5_qa_1",
+          "subSceneId": "travel_070_sub_5",
+          "speakerText": "Your new flight is confirmed for the 15th at 10 a.m. You'll get an email shortly.",
+          "speakerTextCn": "您的新航班已确认，15号上午10点，稍后会发邮件。",
+          "responses": [
+            {
+              "text": "Thank you so much — you’ve saved me!",
+              "text_cn": "太感谢了，你救了我！",
+              "audio_url": ""
+            },
+            {
+              "text": "Appreciate it. Bye.",
+              "text_cn": "谢谢，拜。",
+              "audio_url": ""
+            },
+            {
+              "text": "Confirmed? Got it. Thanks.",
+              "text_cn": "确认了？收到，谢谢。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用简短感谢收尾，保持礼貌高效",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    }
+  ]
+}

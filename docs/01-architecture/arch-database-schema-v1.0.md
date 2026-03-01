@@ -1,7 +1,7 @@
 # 语习集 - 数据库设计
 
-> 版本: v1.2
-> 最后更新: 2026-02-25
+> 版本: v1.4
+> 最后更新: 2026-03-01
 > 优先级: P1
 > 阅读时间: 20分钟
 
@@ -35,6 +35,8 @@
 | `phrases` | 短语表 | 英文短语、中文翻译、音频URL | 约200条 |
 | `phrase_examples` | 短语示例表 | 示例句子、用法说明 | 约400条 |
 | `scene_tests` | 场景测试表 | 测试题目、类型、内容 | 约300条 |
+| `sub_scenes` | 子场景表（v2新增） | 子场景名称、排序、预计时长 | 待生成 |
+| `qa_pairs` | 问答对表（v2新增） | 问答内容、回应表达、音频URL | 待生成 |
 
 ---
 
@@ -277,6 +279,113 @@ export const phraseExamples = pgTable('phrase_examples', {
 
 ---
 
+## sub_scenes 表（v2新增）
+
+### 表定义
+
+```typescript
+export const subScenes = pgTable('sub_scenes', {
+  id: text('id').primaryKey(),                                    // 格式: {scene_id}_sub_{n}
+  sceneId: text('scene_id').notNull().references(() => scenes.id),
+  name: text('name').notNull(),
+  description: text('description').notNull(),
+  order: integer('order').notNull(),
+  estimatedMinutes: integer('estimated_minutes').default(5),
+  createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
+  updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`),
+})
+```
+
+### 字段说明
+
+| 字段 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| `id` | text | ✅ | 主键，格式：`{scene_id}_sub_{n}`，如 `daily_001_sub_1` |
+| `scene_id` | text | ✅ | 关联的场景ID，外键 |
+| `name` | text | ✅ | 子场景名称，如"托运行李" |
+| `description` | text | ✅ | 子场景描述 |
+| `order` | integer | ✅ | 在场景中的排序，从1开始 |
+| `estimated_minutes` | integer | - | 预计学习时长（分钟），默认5分钟 |
+| `created_at` | text | - | 创建时间 |
+| `updated_at` | text | - | 更新时间 |
+
+### 关联关系
+
+- 一个场景（`scenes`）可以有多个子场景（`sub_scenes`）
+- 通过 `scene_id` 建立一对多关系
+
+---
+
+## qa_pairs 表（v2新增）
+
+### 表定义
+
+```typescript
+export const qaPairs = pgTable('qa_pairs', {
+  id: text('id').primaryKey(),                                    // 格式: {sub_scene_id}_qa_{n}
+  subSceneId: text('sub_scene_id').notNull().references(() => subScenes.id),
+  speakerText: text('speaker_text').notNull(),
+  speakerTextCn: text('speaker_text_cn').notNull(),
+  responses: jsonb('responses').notNull(),                        // QAResponse[]
+  usageNote: text('usage_note'),
+  audioUrl: text('audio_url'),
+  qaType: text('qa_type').notNull(),                              // 'listen_only' | 'must_speak'
+  order: integer('order').notNull(),
+  createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
+  updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`),
+})
+```
+
+### 字段说明
+
+| 字段 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| `id` | text | ✅ | 主键，格式：`{sub_scene_id}_qa_{n}`，如 `daily_001_sub_1_qa_1` |
+| `sub_scene_id` | text | ✅ | 关联的子场景ID，外键 |
+| `speaker_text` | text | ✅ | 对方说的话（英文） |
+| `speaker_text_cn` | text | ✅ | 对方说的话（中文） |
+| `responses` | jsonb | ✅ | 用户回应表达数组，见下方格式说明 |
+| `usage_note` | text | - | 使用说明 |
+| `audio_url` | text | - | speaker_text 的真人音频（`COS:/...` 格式） |
+| `qa_type` | text | ✅ | 问答类型：`listen_only`（听懂就好）或 `must_speak`（需要会说） |
+| `order` | integer | ✅ | 在子场景中的排序，从1开始 |
+| `created_at` | text | - | 创建时间 |
+| `updated_at` | text | - | 更新时间 |
+
+### responses 字段格式
+
+```typescript
+interface QAResponse {
+  text: string;       // 英文回应表达
+  text_cn: string;    // 中文翻译
+  audio_url?: string; // 该表达的音频（COS:/... 格式）
+}
+```
+
+**示例:**
+
+```json
+[
+  {
+    "text": "I'd like to check in two bags, please.",
+    "text_cn": "我想托运两件行李。",
+    "audio_url": "COS:/scene/sub_scenes/daily_001_sub_1_qa_1_resp1.mp3"
+  },
+  {
+    "text": "Two suitcases to check.",
+    "text_cn": "两个行李箱要托运。",
+    "audio_url": "COS:/scene/sub_scenes/daily_001_sub_1_qa_1_resp2.mp3"
+  }
+]
+```
+
+### 关联关系
+
+- 一个子场景（`sub_scenes`）可以有多个问答对（`qa_pairs`）
+- 通过 `sub_scene_id` 建立一对多关系
+
+---
+
 ## scene_tests 表
 
 ### 表定义
@@ -299,7 +408,7 @@ export const sceneTests = pgTable('scene_tests', {
 |------|------|------|------|
 | `id` | text | ✅ | 主键，格式：`test_{scene_id}_{number}` |
 | `scene_id` | text | ✅ | 关联的场景ID，外键 |
-| `type` | text | ✅ | 测试类型：`choice`/`qa`/`open_dialogue` |
+| `type` | text | ✅ | 测试类型：`choice`/`qa`/`open_dialogue`/`fill_blank`/`guided_roleplay`/`vocab_activation` |
 | `order` | integer | ✅ | 题目顺序，从1开始 |
 | `content` | jsonb | ✅ | 题目内容（JSON格式，根据类型不同结构不同） |
 | `created_at` | text | - | 创建时间 |
@@ -468,7 +577,7 @@ const examples = await db.query.phraseExamples.findMany({
 |------|--------|------|
 | `category` | `日常`, `职场`, `留学`, `旅行`, `社交` | 使用中文 |
 | `difficulty` | `初级`, `中级`, `高级` | 使用中文 |
-| `type` (scene_tests) | `choice`, `qa`, `open_dialogue` | 使用英文小写 |
+| `type` (scene_tests) | `choice`, `qa`, `open_dialogue`, `fill_blank`, `guided_roleplay`, `vocab_activation` | 使用英文小写 |
 | `type` (vocabulary) | `word`, `phrase` | 使用英文小写 |
 
 ### ID生成规则
@@ -479,6 +588,8 @@ const examples = await db.query.phraseExamples.findMany({
 | phrases | `phrase_{number}` | `phrase_001` |
 | scene_tests | `test_{scene_id}_{number}` | `test_daily_001_01` |
 | phrase_examples | 自增整数 | `1`, `2`, `3` |
+| sub_scenes | `{scene_id}_sub_{n}` | `daily_001_sub_1` |
+| qa_pairs | `{sub_scene_id}_qa_{n}` | `daily_001_sub_1_qa_1` |
 
 ### 音频URL规范
 
@@ -532,6 +643,8 @@ CREATE INDEX idx_scenes_search ON scenes USING gin(to_tsvector('chinese', name |
 
 | 版本 | 日期 | 变更内容 | 作者 |
 |------|------|----------|------|
+| v1.4 | 2026-03-01 | 补充 scene_tests.type 新增题型（fill_blank/guided_roleplay/vocab_activation）；更新字段值规范表 | AI |
+| v1.3 | 2026-07-30 | 新增 sub_scenes 和 qa_pairs 表定义（v2场景学习增强功能） | AI |
 | v1.2 | 2026-02-25 | 补充dialogue analysis字段格式说明，包括formality字段可选值 | AI |
 | v1.1 | 2026-02-24 | 补充scene_tests.content字段详细格式、phrase_examples字段说明、索引设计建议 | AI |
 | v1.0 | 2026-02-24 | 初始版本 | - |

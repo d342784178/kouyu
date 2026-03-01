@@ -1,0 +1,264 @@
+{
+  "sceneId": "travel_063",
+  "sceneName": "购物退税",
+  "generatedAt": "2026-03-01T03:38:22.749Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "travel_063_sub_1",
+      "sceneId": "travel_063",
+      "name": "问候与提交",
+      "description": "在退税柜台礼貌问候并提交退税单",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_063_sub_1_qa_1",
+          "subSceneId": "travel_063_sub_1",
+          "speakerText": "Hi, I'd like to claim my tax refund.",
+          "speakerTextCn": "你好，我想办理退税。",
+          "responses": [
+            {
+              "text": "Sure, I can help with that. May I see your passport and receipts?",
+              "text_cn": "当然，我可以帮您，请出示护照和收据？",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, just hand over your stuff.",
+              "text_cn": "行，把东西给我就行。",
+              "audio_url": ""
+            },
+            {
+              "text": "Tax refund? Here's my form.",
+              "text_cn": "退税？这是我的单子。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "初次接触用正式语，避免太随意。",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_063_sub_1_qa_2",
+          "subSceneId": "travel_063_sub_1",
+          "speakerText": "Do you have your shopping receipts and tax-free form?",
+          "speakerTextCn": "您有购物收据和免税单吗？",
+          "responses": [
+            {
+              "text": "Yes, here they are — all signed and stamped.",
+              "text_cn": "有的，都签好了，盖了章。",
+              "audio_url": ""
+            },
+            {
+              "text": "Uh, I think I lost one... can I still get it?",
+              "text_cn": "呃，我好像丢了一张，还能办吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Got 'em! All here.",
+              "text_cn": "在这儿呢，全在这儿。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "确认单据齐全是关键，别慌。",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_063_sub_2",
+      "sceneId": "travel_063",
+      "name": "核对商品",
+      "description": "工作人员核对所购商品与单据",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_063_sub_2_qa_1",
+          "subSceneId": "travel_063_sub_2",
+          "speakerText": "Can you show me the perfume you bought?",
+          "speakerTextCn": "能给我看看您买的香水吗？",
+          "responses": [
+            {
+              "text": "Of course, here it is — still sealed.",
+              "text_cn": "当然，这儿呢，还封着。",
+              "audio_url": ""
+            },
+            {
+              "text": "I opened it... is that a problem?",
+              "text_cn": "我打开了，有问题吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Uh, it's in my suitcase.",
+              "text_cn": "呃，在我行李箱里。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "未拆封更易通过，提前准备好。",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_063_sub_2_qa_2",
+          "subSceneId": "travel_063_sub_2",
+          "speakerText": "Is this the only item you're claiming?",
+          "speakerTextCn": "您就退这一件吗？",
+          "responses": [
+            {
+              "text": "No, I've got three more in this bag.",
+              "text_cn": "不是，包里还有三件。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, just this one.",
+              "text_cn": "对，就这一件。",
+              "audio_url": ""
+            },
+            {
+              "text": "Wait, I forgot my watch!",
+              "text_cn": "等等，我忘了手表！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "别漏报商品，提前清点好。",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_063_sub_3",
+      "sceneId": "travel_063",
+      "name": "选择退款方式",
+      "description": "选择现金、刷卡或银行转账退款",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_063_sub_3_qa_1",
+          "subSceneId": "travel_063_sub_3",
+          "speakerText": "We can refund you in cash, credit, or bank transfer — which do you prefer?",
+          "speakerTextCn": "我们可退现金、刷卡或银行转账，您选哪个？",
+          "responses": [
+            {
+              "text": "I'll take it in cash, please — I need it for the taxi.",
+              "text_cn": "我要现金，打车要用。",
+              "audio_url": ""
+            },
+            {
+              "text": "Bank transfer’s fine, no rush.",
+              "text_cn": "银行转账就行，不着急。",
+              "audio_url": ""
+            },
+            {
+              "text": "Credit? How long?",
+              "text_cn": "刷卡？要多久？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "现金最快，转账需留意到账时间。",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_063_sub_3_qa_2",
+          "subSceneId": "travel_063_sub_3",
+          "speakerText": "Bank transfer might take 5–10 business days.",
+          "speakerTextCn": "银行转账大概要5到10个工作日。",
+          "responses": [
+            {
+              "text": "Okay, I'll go with cash then.",
+              "text_cn": "那我还是选现金吧。",
+              "audio_url": ""
+            },
+            {
+              "text": "Really? That long? Ugh...",
+              "text_cn": "真的？这么久？唉...",
+              "audio_url": ""
+            },
+            {
+              "text": "No problem, I'll do bank transfer.",
+              "text_cn": "没问题，我选银行转账。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "听到时间后要立刻做决定。",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_063_sub_4",
+      "sceneId": "travel_063",
+      "name": "确认到账与道别",
+      "description": "确认退款信息并礼貌道别",
+      "order": 4,
+      "estimatedMinutes": 3,
+      "qaPairs": [
+        {
+          "id": "travel_063_sub_4_qa_1",
+          "subSceneId": "travel_063_sub_4",
+          "speakerText": "Your refund is processed. You'll get a receipt.",
+          "speakerTextCn": "您的退税已处理，这是收据。",
+          "responses": [
+            {
+              "text": "Thanks so much! Have a great day!",
+              "text_cn": "太感谢了！祝你今天愉快！",
+              "audio_url": ""
+            },
+            {
+              "text": "Cool, thanks.",
+              "text_cn": "好了，谢了。",
+              "audio_url": ""
+            },
+            {
+              "text": "Wait — is this the full amount?",
+              "text_cn": "等等，这是全额吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "收据保留好，有争议可查。",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_063_sub_4_qa_2",
+          "subSceneId": "travel_063_sub_4",
+          "speakerText": "If you have any issues, call this number.",
+          "speakerTextCn": "如有问题，请拨打这个电话。",
+          "responses": [
+            {
+              "text": "Got it, I'll save it right away.",
+              "text_cn": "收到，我马上存下来。",
+              "audio_url": ""
+            },
+            {
+              "text": "Okay, thanks.",
+              "text_cn": "哦，谢谢。",
+              "audio_url": ""
+            },
+            {
+              "text": "Can I text you instead?",
+              "text_cn": "我能发短信问吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "别只说谢谢，确认联系方式。",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}

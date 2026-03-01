@@ -1,0 +1,328 @@
+{
+  "sceneId": "workplace_053",
+  "sceneName": "快递收发",
+  "generatedAt": "2026-03-01T03:40:13.931Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "workplace_053_sub_1",
+      "sceneId": "workplace_053",
+      "name": "询问包裹",
+      "description": "员工向前台确认是否有自己的快递",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "workplace_053_sub_1_qa_1",
+          "subSceneId": "workplace_053_sub_1",
+          "speakerText": "Hey, any packages for me today?",
+          "speakerTextCn": "嘿，今天有我的快递吗？",
+          "responses": [
+            {
+              "text": "Yeah, there's one under your name.",
+              "text_cn": "有，下面有你的名字。",
+              "audio_url": ""
+            },
+            {
+              "text": "Let me check the system for you.",
+              "text_cn": "我帮你查一下系统。",
+              "audio_url": ""
+            },
+            {
+              "text": "Not yet, should arrive after lunch.",
+              "text_cn": "还没到，午饭后才到。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "日常询问包裹，用口语缩写更自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "workplace_053_sub_1_qa_2",
+          "subSceneId": "workplace_053_sub_1",
+          "speakerText": "Is there a package from Amazon with my name on it?",
+          "speakerTextCn": "有没一件寄给我的亚马逊快递？",
+          "responses": [
+            {
+              "text": "Yep, red box, third shelf.",
+              "text_cn": "有，红色盒子，第三层。",
+              "audio_url": ""
+            },
+            {
+              "text": "I need your employee ID to verify.",
+              "text_cn": "我需要你的员工号确认。",
+              "audio_url": ""
+            },
+            {
+              "text": "Sorry, no Amazon here today.",
+              "text_cn": "抱歉，今天没有亚马逊的。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "具体描述寄件平台，提高核对效率",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "workplace_053_sub_2",
+      "sceneId": "workplace_053",
+      "name": "请求派送",
+      "description": "员工请前台帮忙把快递送到办公室",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "workplace_053_sub_2_qa_1",
+          "subSceneId": "workplace_053_sub_2",
+          "speakerText": "Can you drop this off at my desk? Thanks!",
+          "speakerTextCn": "能帮我把这送到我工位吗？谢谢！",
+          "responses": [
+            {
+              "text": "Sure thing, I'll bring it over now.",
+              "text_cn": "当然，我马上送过去。",
+              "audio_url": ""
+            },
+            {
+              "text": "I'm swamped right now, can you pick it up?",
+              "text_cn": "我现在忙，你能自己来取吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Will do, just sign here first.",
+              "text_cn": "好的，先在这签个字。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "请求帮助时加thanks更礼貌",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "workplace_053_sub_2_qa_2",
+          "subSceneId": "workplace_053_sub_2",
+          "speakerText": "Could you send this to Marketing? It's urgent.",
+          "speakerTextCn": "能帮我把这送到市场部吗？很急。",
+          "responses": [
+            {
+              "text": "On it! I'll hand-deliver it in 5.",
+              "text_cn": "马上！5分钟内亲自送去。",
+              "audio_url": ""
+            },
+            {
+              "text": "I need a department code for internal delivery.",
+              "text_cn": "内部派送需要部门代码。",
+              "audio_url": ""
+            },
+            {
+              "text": "I'll leave it at the front desk for them.",
+              "text_cn": "我放在前台让他们自取。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "强调urgent时对方更重视",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "workplace_053_sub_3",
+      "sceneId": "workplace_053",
+      "name": "确认签字",
+      "description": "前台要求签收快递时的确认对话",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "workplace_053_sub_3_qa_1",
+          "subSceneId": "workplace_053_sub_3",
+          "speakerText": "Need your signature for this one.",
+          "speakerTextCn": "这个需要你签个名。",
+          "responses": [
+            {
+              "text": "No problem, here you go.",
+              "text_cn": "没问题，给你。",
+              "audio_url": ""
+            },
+            {
+              "text": "Can I sign digitally instead?",
+              "text_cn": "能电子签名吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Wait, is this registered mail?",
+              "text_cn": "等下，这是挂号信吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "签收前确认快递类型很重要",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "workplace_053_sub_3_qa_2",
+          "subSceneId": "workplace_053_sub_3",
+          "speakerText": "You gotta sign here, initials and full name.",
+          "speakerTextCn": "这儿签名，写姓和全名。",
+          "responses": [
+            {
+              "text": "Got it, J.M. and Jane Miller.",
+              "text_cn": "好的，J.M. 和 Jane Miller。",
+              "audio_url": ""
+            },
+            {
+              "text": "Can I just write my first name?",
+              "text_cn": "我能只写名字吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "I'll sign when I get back from lunch.",
+              "text_cn": "我午饭后回来签。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "明确签名要求避免后续麻烦",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "workplace_053_sub_4",
+      "sceneId": "workplace_053",
+      "name": "寄送需求",
+      "description": "员工说明寄快递的具体要求",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "workplace_053_sub_4_qa_1",
+          "subSceneId": "workplace_053_sub_4",
+          "speakerText": "Can you ship this overnight to Boston? It's fragile.",
+          "speakerTextCn": "能帮我加急寄到波士顿吗？易碎品。",
+          "responses": [
+            {
+              "text": "We can do FedEx Priority, $45.",
+              "text_cn": "可选FedEx加急，45刀。",
+              "audio_url": ""
+            },
+            {
+              "text": "Do you have the box and label ready?",
+              "text_cn": "盒子和标签准备好了吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Can we use standard shipping instead?",
+              "text_cn": "能用普通快递吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "说明易碎/加急，避免运输损坏",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "workplace_053_sub_4_qa_2",
+          "subSceneId": "workplace_053_sub_4",
+          "speakerText": "I need to send this to a client tomorrow — any cut-off time?",
+          "speakerTextCn": "我明天要寄给客户，最晚几点能寄？",
+          "responses": [
+            {
+              "text": "Cut-off's 3 PM for same-day shipping.",
+              "text_cn": "当天寄送截止是下午三点。",
+              "audio_url": ""
+            },
+            {
+              "text": "You're late — we're done for today.",
+              "text_cn": "晚了，今天不发了。",
+              "audio_url": ""
+            },
+            {
+              "text": "I can hold it and send first thing tomorrow.",
+              "text_cn": "我帮你留着，明早第一班寄。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "询问截止时间避免错过时效",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "workplace_053_sub_5",
+      "sceneId": "workplace_053",
+      "name": "道别收尾",
+      "description": "完成快递事务后的礼貌结束对话",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "workplace_053_sub_5_qa_1",
+          "subSceneId": "workplace_053_sub_5",
+          "speakerText": "All set! Thanks for your help.",
+          "speakerTextCn": "搞定了！谢谢你帮忙。",
+          "responses": [
+            {
+              "text": "Anytime, have a great day!",
+              "text_cn": "随时找我，祝你今天愉快！",
+              "audio_url": ""
+            },
+            {
+              "text": "No worries, see you at the coffee machine.",
+              "text_cn": "不客气，咖啡机见。",
+              "audio_url": ""
+            },
+            {
+              "text": "You're welcome. Don't forget your ID card.",
+              "text_cn": "不客气，别忘了带工牌。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "道别时加祝福语提升职场亲和力",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "workplace_053_sub_5_qa_2",
+          "subSceneId": "workplace_053_sub_5",
+          "speakerText": "Thanks again — I owe you a coffee.",
+          "speakerTextCn": "再谢一次，我请你喝咖啡。",
+          "responses": [
+            {
+              "text": "Haha, I'll hold you to that!",
+              "text_cn": "哈哈，我记下了啊！",
+              "audio_url": ""
+            },
+            {
+              "text": "Just don't forget next time.",
+              "text_cn": "下次别再忘了就行。",
+              "audio_url": ""
+            },
+            {
+              "text": "Saved! I'm grabbing one now.",
+              "text_cn": "记下了！我现在就去拿。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用请喝咖啡表达感谢很职场常用",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}

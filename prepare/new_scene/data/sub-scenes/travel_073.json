@@ -1,0 +1,264 @@
+{
+  "sceneId": "travel_073",
+  "sceneName": "地铁问路",
+  "generatedAt": "2026-03-01T03:38:42.604Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "travel_073_sub_1",
+      "sceneId": "travel_073",
+      "name": "礼貌打招呼",
+      "description": "初次向路人询问路线前的礼貌开场",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_073_sub_1_qa_1",
+          "subSceneId": "travel_073_sub_1",
+          "speakerText": "Excuse me, could you help me out?",
+          "speakerTextCn": "不好意思，能帮个忙吗？",
+          "responses": [
+            {
+              "text": "Of course! What do you need?",
+              "text_cn": "当然可以！你有什么需要？",
+              "audio_url": ""
+            },
+            {
+              "text": "Sure thing!",
+              "text_cn": "没问题！",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, what's up?",
+              "text_cn": "嗯，啥事？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用excuse me开头更礼貌，避免直接问路",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_073_sub_1_qa_2",
+          "subSceneId": "travel_073_sub_1",
+          "speakerText": "I'm new here and I'm kinda lost.",
+          "speakerTextCn": "我是新手，有点迷路了。",
+          "responses": [
+            {
+              "text": "No worries, I got you!",
+              "text_cn": "别担心，我来帮你！",
+              "audio_url": ""
+            },
+            {
+              "text": "I can help you with that.",
+              "text_cn": "我可以帮你。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, sure.",
+              "text_cn": "行啊。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "表达迷路时用kinda更自然，避免太正式",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_073_sub_2",
+      "sceneId": "travel_073",
+      "name": "询问目的地",
+      "description": "清晰说出想去的地铁站名称",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_073_sub_2_qa_1",
+          "subSceneId": "travel_073_sub_2",
+          "speakerText": "Do you know how to get to Central Station?",
+          "speakerTextCn": "你知道怎么去中央车站吗？",
+          "responses": [
+            {
+              "text": "Yeah, take the Blue Line, then switch at Union.",
+              "text_cn": "有，坐蓝线，在联合站换乘。",
+              "audio_url": ""
+            },
+            {
+              "text": "Central Station? That's two stops down.",
+              "text_cn": "中央站？再坐两站就到。",
+              "audio_url": ""
+            },
+            {
+              "text": "I'm not sure, maybe ask the info desk?",
+              "text_cn": "我不确定，去问服务台吧？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "问路时直接说站名，别用‘我想去’太啰嗦",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_073_sub_2_qa_2",
+          "subSceneId": "travel_073_sub_2",
+          "speakerText": "Is Central Station on the same line?",
+          "speakerTextCn": "中央站是同一条线吗？",
+          "responses": [
+            {
+              "text": "Nah, you gotta switch at Greenfield.",
+              "text_cn": "不是，得在格林菲尔德换乘。",
+              "audio_url": ""
+            },
+            {
+              "text": "Nope, you need to change trains.",
+              "text_cn": "不是，得换车。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yes, it's right on this line.",
+              "text_cn": "是的，就在这条线上。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用gotta/need to区分是否换乘，听清关键词",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_073_sub_3",
+      "sceneId": "travel_073",
+      "name": "确认换乘信息",
+      "description": "确认换乘站、方向和车厢位置",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_073_sub_3_qa_1",
+          "subSceneId": "travel_073_sub_3",
+          "speakerText": "Which platform for the Red Line?",
+          "speakerTextCn": "去红线是哪个站台？",
+          "responses": [
+            {
+              "text": "Platform 3, heading downtown.",
+              "text_cn": "3号站台，往市中心方向。",
+              "audio_url": ""
+            },
+            {
+              "text": "Third one over, and it's the last car.",
+              "text_cn": "过去第三个，坐最后一节车厢。",
+              "audio_url": ""
+            },
+            {
+              "text": "Just follow the signs.",
+              "text_cn": "跟着指示牌走就行。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "重点听platform和heading，这是换乘关键信息",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_073_sub_3_qa_2",
+          "subSceneId": "travel_073_sub_3",
+          "speakerText": "Will I need to go upstairs or downstairs?",
+          "speakerTextCn": "我要上楼还是下楼换乘？",
+          "responses": [
+            {
+              "text": "Downstairs, then left at the tunnel.",
+              "text_cn": "下楼，然后在隧道左转。",
+              "audio_url": ""
+            },
+            {
+              "text": "Just take the escalator down.",
+              "text_cn": "直接坐扶梯下去。",
+              "audio_url": ""
+            },
+            {
+              "text": "It's all on the same level.",
+              "text_cn": "都在同一层。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "问清楚up/down，避免在地铁站绕圈",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_073_sub_4",
+      "sceneId": "travel_073",
+      "name": "最后确认与道别",
+      "description": "复述路线并礼貌感谢后结束对话",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_073_sub_4_qa_1",
+          "subSceneId": "travel_073_sub_4",
+          "speakerText": "So, Blue Line to Union, then switch to Red, right?",
+          "speakerTextCn": "所以坐蓝线到联合站，再换红线，对吧？",
+          "responses": [
+            {
+              "text": "Exactly! You got it.",
+              "text_cn": "没错！你明白了。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yep, that's it!",
+              "text_cn": "对，就是这样！",
+              "audio_url": ""
+            },
+            {
+              "text": "Uh... almost, it's Green Line at Union.",
+              "text_cn": "呃…差不多，联合站是绿线。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "复述路线能避免听错，必须开口确认",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_073_sub_4_qa_2",
+          "subSceneId": "travel_073_sub_4",
+          "speakerText": "Thanks so much for your help!",
+          "speakerTextCn": "非常感谢你的帮助！",
+          "responses": [
+            {
+              "text": "No problem, have a great day!",
+              "text_cn": "不客气，祝你今天愉快！",
+              "audio_url": ""
+            },
+            {
+              "text": "Anytime!",
+              "text_cn": "随时找我！",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, no worries.",
+              "text_cn": "嗯，没事的。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "道别时加have a great day更显礼貌和自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}

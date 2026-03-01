@@ -1,0 +1,264 @@
+{
+  "sceneId": "daily_016",
+  "sceneName": "便利店购物",
+  "generatedAt": "2026-03-01T03:35:58.753Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "daily_016_sub_1",
+      "sceneId": "daily_016",
+      "name": "打招呼询问",
+      "description": "顾客进店问候并询问商品有无",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_016_sub_1_qa_1",
+          "subSceneId": "daily_016_sub_1",
+          "speakerText": "Hey, you got any orange juice?",
+          "speakerTextCn": "嘿，你们有橙汁吗？",
+          "responses": [
+            {
+              "text": "Yeah, we do. It's in the fridge.",
+              "text_cn": "有的，在冷藏柜里。",
+              "audio_url": ""
+            },
+            {
+              "text": "Sorry, we're out of it right now.",
+              "text_cn": "不好意思，现在卖完了。",
+              "audio_url": ""
+            },
+            {
+              "text": "Over there by the drinks.",
+              "text_cn": "饮料区那边。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用简短口语问有无商品，自然又高效",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_016_sub_1_qa_2",
+          "subSceneId": "daily_016_sub_1",
+          "speakerText": "And do you have the chicken sandwich?",
+          "speakerTextCn": "那鸡肉三明治有吗？",
+          "responses": [
+            {
+              "text": "Yep, right next to the salads.",
+              "text_cn": "有，在沙拉旁边。",
+              "audio_url": ""
+            },
+            {
+              "text": "Not today, sorry.",
+              "text_cn": "今天没货，抱歉。",
+              "audio_url": ""
+            },
+            {
+              "text": "We just ran out.",
+              "text_cn": "刚卖完。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用do you have问商品库存，日常高频",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_016_sub_2",
+      "sceneId": "daily_016",
+      "name": "确认价格",
+      "description": "顾客询问商品价格并确认总价",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_016_sub_2_qa_1",
+          "subSceneId": "daily_016_sub_2",
+          "speakerText": "How much is the juice and the sandwich?",
+          "speakerTextCn": "橙汁和三明治多少钱？",
+          "responses": [
+            {
+              "text": "The juice is $2.50, sandwich's $4. So $6.50 total.",
+              "text_cn": "橙汁2.5，三明治4，总共6.5。",
+              "audio_url": ""
+            },
+            {
+              "text": "Juice: $2.50, sandwich: $4. You're good.",
+              "text_cn": "橙汁2.5，三明治4，没问题。",
+              "audio_url": ""
+            },
+            {
+              "text": "Six fifty, please.",
+              "text_cn": "6块5，谢谢。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "直接问总价，避免反复确认",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_016_sub_2_qa_2",
+          "subSceneId": "daily_016_sub_2",
+          "speakerText": "So that's $6.50?",
+          "speakerTextCn": "所以是6块5吗？",
+          "responses": [
+            {
+              "text": "Yeah, that's right.",
+              "text_cn": "对，没错。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yep, you got it.",
+              "text_cn": "没错，你算对了。",
+              "audio_url": ""
+            },
+            {
+              "text": "Exactly.",
+              "text_cn": "正好。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "重复确认金额，避免付错钱",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_016_sub_3",
+      "sceneId": "daily_016",
+      "name": "支付方式",
+      "description": "顾客选择支付方式并完成交易",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_016_sub_3_qa_1",
+          "subSceneId": "daily_016_sub_3",
+          "speakerText": "You good with card or cash?",
+          "speakerTextCn": "刷卡还是现金？",
+          "responses": [
+            {
+              "text": "Card, please. I'll tap it.",
+              "text_cn": "刷卡，我刷卡支付。",
+              "audio_url": ""
+            },
+            {
+              "text": "Cash. Here's a ten.",
+              "text_cn": "现金，给你十块。",
+              "audio_url": ""
+            },
+            {
+              "text": "Apple Pay works?",
+              "text_cn": "能用苹果支付吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用card/cash问支付方式，最常用",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_016_sub_3_qa_2",
+          "subSceneId": "daily_016_sub_3",
+          "speakerText": "Here's your change, $3.50.",
+          "speakerTextCn": "找你3块5。",
+          "responses": [
+            {
+              "text": "Thanks! Have a good one.",
+              "text_cn": "谢谢！祝你今天愉快。",
+              "audio_url": ""
+            },
+            {
+              "text": "Appreciate it!",
+              "text_cn": "太感谢了！",
+              "audio_url": ""
+            },
+            {
+              "text": "Cool, thanks.",
+              "text_cn": "好的，谢谢。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "收钱后礼貌道谢，提升沟通温度",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_016_sub_4",
+      "sceneId": "daily_016",
+      "name": "道别离店",
+      "description": "顾客购物后礼貌告别店员",
+      "order": 4,
+      "estimatedMinutes": 3,
+      "qaPairs": [
+        {
+          "id": "daily_016_sub_4_qa_1",
+          "subSceneId": "daily_016_sub_4",
+          "speakerText": "Thanks for your help!",
+          "speakerTextCn": "谢谢你的帮助！",
+          "responses": [
+            {
+              "text": "No problem, have a great day!",
+              "text_cn": "不客气，祝你今天开心！",
+              "audio_url": ""
+            },
+            {
+              "text": "You too! See ya.",
+              "text_cn": "你也是！再见。",
+              "audio_url": ""
+            },
+            {
+              "text": "Anytime!",
+              "text_cn": "随时欢迎！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用No problem回应感谢，最自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_016_sub_4_qa_2",
+          "subSceneId": "daily_016_sub_4",
+          "speakerText": "See you later!",
+          "speakerTextCn": "待会儿见！",
+          "responses": [
+            {
+              "text": "Bye! Come back soon!",
+              "text_cn": "拜拜！常来啊！",
+              "audio_url": ""
+            },
+            {
+              "text": "Later!",
+              "text_cn": "拜！",
+              "audio_url": ""
+            },
+            {
+              "text": "Will do!",
+              "text_cn": "一定！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Bye/Later道别，口语化更真实",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}

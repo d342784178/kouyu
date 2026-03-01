@@ -1,0 +1,193 @@
+{
+  "sceneId": "study_abroad_100",
+  "sceneName": "选课咨询",
+  "generatedAt": "2026-03-01T03:37:48.215Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "study_abroad_100_sub_1",
+      "sceneId": "study_abroad_100",
+      "name": "初次问候",
+      "description": "学生与顾问开场寒暄并说明来意",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "study_abroad_100_sub_1_qa_1",
+          "subSceneId": "study_abroad_100_sub_1",
+          "speakerText": "Hi there! You're here for course advising, right?",
+          "speakerTextCn": "嗨！你是来选课咨询的吧？",
+          "responses": [
+            {
+              "text": "Yeah, I'm new here and need help picking classes for next semester.",
+              "text_cn": "对，我是新生，想请教你下学期选课。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yes, I'd appreciate some guidance on course selection.",
+              "text_cn": "是的，我想请教一下选课建议。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yep, thanks!",
+              "text_cn": "嗯，谢谢！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用简短回应开场，自然带出需求",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "study_abroad_100_sub_2",
+      "sceneId": "study_abroad_100",
+      "name": "询问先修课",
+      "description": "学生确认目标课程是否有前置要求",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "study_abroad_100_sub_2_qa_1",
+          "subSceneId": "study_abroad_100_sub_2",
+          "speakerText": "Have you taken Intro to Psychology before? It's a prereq for Psych 301.",
+          "speakerTextCn": "你上过心理学导论吗？这是心理学301的先修课。",
+          "responses": [
+            {
+              "text": "No, I haven't — can I still enroll if I take it this term?",
+              "text_cn": "没上过，如果这学期一起修行吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "I took it last year, so I'm good to go.",
+              "text_cn": "我去年上过，没问题。",
+              "audio_url": ""
+            },
+            {
+              "text": "Wait, what's the prereq again?",
+              "text_cn": "等等，先修课是啥？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "直接问先修课，避免选错课",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "study_abroad_100_sub_3",
+      "sceneId": "study_abroad_100",
+      "name": "探讨课程难度",
+      "description": "学生了解课程工作量与挑战程度",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "study_abroad_100_sub_3_qa_1",
+          "subSceneId": "study_abroad_100_sub_3",
+          "speakerText": "Econ 202 is known to be super heavy on readings and weekly papers.",
+          "speakerTextCn": "经济学202阅读量大，每周都有论文。",
+          "responses": [
+            {
+              "text": "Oh no, I'm already swamped with my writing class — should I skip it?",
+              "text_cn": "天啊，我写作课已经忙死了，要不别选？",
+              "audio_url": ""
+            },
+            {
+              "text": "I'm okay with heavy workloads — I actually prefer it.",
+              "text_cn": "我不怕负担重，反而喜欢有挑战的课。",
+              "audio_url": ""
+            },
+            {
+              "text": "Got it, thanks!",
+              "text_cn": "知道了，谢谢！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "表达自身时间状况，合理评估课程负担",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "study_abroad_100_sub_4",
+      "sceneId": "study_abroad_100",
+      "name": "确认截止日期",
+      "description": "学生核实选课最终期限与加退课规则",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "study_abroad_100_sub_4_qa_1",
+          "subSceneId": "study_abroad_100_sub_4",
+          "speakerText": "You've got until Friday at 5 PM to add or drop courses without penalty.",
+          "speakerTextCn": "你周五下午5点前都能免费加退课。",
+          "responses": [
+            {
+              "text": "Perfect — I'll finalize my schedule by Thursday night.",
+              "text_cn": "太好了，我周四晚上就定下来。",
+              "audio_url": ""
+            },
+            {
+              "text": "Can I drop after Friday if I'm struggling?",
+              "text_cn": "周五后如果跟不上还能退吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Thanks, I'll mark it in my calendar.",
+              "text_cn": "谢谢，我记到日历里了。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "明确截止日，避免错过关键时间点",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "study_abroad_100_sub_5",
+      "sceneId": "study_abroad_100",
+      "name": "道别确认",
+      "description": "结束咨询，确认下一步行动与感谢顾问",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "study_abroad_100_sub_5_qa_1",
+          "subSceneId": "study_abroad_100_sub_5",
+          "speakerText": "So you're all set with your four classes? Anything else I can help with?",
+          "speakerTextCn": "你四门课都定好了吗？还有别的需要帮忙的吗？",
+          "responses": [
+            {
+              "text": "Yep, I'm good! Thanks so much for your help — you saved me!",
+              "text_cn": "搞定啦！太感谢你了，你救了我一命！",
+              "audio_url": ""
+            },
+            {
+              "text": "Actually, could you email me the course codes?",
+              "text_cn": "能发我一下课程代码吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "All good, bye!",
+              "text_cn": "没问题，拜！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "礼貌道别，可请求书面确认",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    }
+  ]
+}

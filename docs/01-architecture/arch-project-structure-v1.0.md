@@ -1,7 +1,7 @@
 # 语习集 - 项目结构
 
-> 版本: v1.3  
-> 最后更新: 2026-02-28  
+> 版本: v1.4  
+> 最后更新: 2026-03-01  
 > 优先级: P1  
 > 阅读时间: 15分钟
 
@@ -65,8 +65,11 @@ kouyu/
 | `api/scenes/` | 场景相关 API | `route.ts`, `categories/route.ts`, `[id]/route.ts`, `[id]/tests/route.ts` |
 | `api/phrases/` | 短语相关 API | `route.ts`, `[id]/route.ts` |
 | `api/open-test/` | 开放式测试 API | `initiate/`, `chat/`, `analyze/`, `audio/[id]/` |
-| `api/fill-blank/` | 填空测试 API | `evaluate/route.ts` |
+| `api/fill-blank/` | 填空测试 API | `evaluate/route.ts`, `evaluate-pattern/route.ts` |
+| `api/shadowing/` | 跟读评测 API | `evaluate/route.ts` |
+| `api/guided-roleplay/` | 情景再现评测 API | `evaluate/route.ts` |
 | `api/audio/` | 音频代理 | `proxy/route.ts` |
+| `api/sub-scenes/` | 子场景 API | `[subSceneId]/route.ts`, `[subSceneId]/practice/`, `[subSceneId]/ai-dialogue/`, `[subSceneId]/review/` |
 
 #### 页面路由
 
@@ -355,6 +358,7 @@ npx ts-node prepare/scene/scripts/scene-manager.ts verify
 
 | 版本 | 日期 | 变更内容 | 作者 |
 |------|------|----------|------|
+| v1.4 | 2026-03-01 | 新增 api/guided-roleplay/ 和 api/shadowing/ 路由；补全 api/fill-blank/ 和 api/sub-scenes/ 路由说明 | AI |
 | v1.3 | 2026-02-28 | 更新场景脚本说明：generate-scene-tests.ts 合并为统一版，修正脚本文件名和测试题数量 | AI |
 | v1.2 | 2026-02-25 | 新增 prepare/ 目录详细说明 | AI |
 | v1.1 | 2026-02-24 | 新增 demands/ 目录详细说明 | AI |

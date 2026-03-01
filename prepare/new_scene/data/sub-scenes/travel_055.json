@@ -1,0 +1,183 @@
+{
+  "sceneId": "travel_055",
+  "sceneName": "问路导航",
+  "generatedAt": "2026-03-01T03:38:13.235Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "travel_055_sub_1",
+      "sceneId": "travel_055",
+      "name": "礼貌打招呼",
+      "description": "礼貌打断路人开始问路",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_055_sub_1_qa_1",
+          "subSceneId": "travel_055_sub_1",
+          "speakerText": "Excuse me, can I ask you something?",
+          "speakerTextCn": "不好意思，能问你个问题吗？",
+          "responses": [
+            {
+              "text": "Sure, what is it?",
+              "text_cn": "当然，什么事？",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, go ahead.",
+              "text_cn": "说吧，我听着。",
+              "audio_url": ""
+            },
+            {
+              "text": "Hmm?",
+              "text_cn": "嗯？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用excuse me开头更礼貌",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "travel_055_sub_2",
+      "sceneId": "travel_055",
+      "name": "询问目的地",
+      "description": "清楚说出你要去的地方",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_055_sub_2_qa_1",
+          "subSceneId": "travel_055_sub_2",
+          "speakerText": "Do you know where the Central Library is?",
+          "speakerTextCn": "你知道中央图书馆在哪吗？",
+          "responses": [
+            {
+              "text": "Yeah, it's just two blocks north.",
+              "text_cn": "知道，往北两个街区。",
+              "audio_url": ""
+            },
+            {
+              "text": "Sorry, I'm not from around here.",
+              "text_cn": "抱歉，我不是本地人。",
+              "audio_url": ""
+            },
+            {
+              "text": "You can Google it, I'm busy.",
+              "text_cn": "你自己搜吧，我忙着呢。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用where is...直接问最有效",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_055_sub_3",
+      "sceneId": "travel_055",
+      "name": "确认方向",
+      "description": "确认左右、前后等方位指引",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_055_sub_3_qa_1",
+          "subSceneId": "travel_055_sub_3",
+          "speakerText": "Turn right at the bank, then left at the post office.",
+          "speakerTextCn": "在银行右转，然后在邮局左转。",
+          "responses": [
+            {
+              "text": "So right at the bank, then left? Got it!",
+              "text_cn": "银行右转，邮局左转，明白了！",
+              "audio_url": ""
+            },
+            {
+              "text": "Wait, which way is right?",
+              "text_cn": "等等，哪边是右？",
+              "audio_url": ""
+            },
+            {
+              "text": "Thanks, I'll try that.",
+              "text_cn": "谢谢，我试试看。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "重复确认避免走错方向",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 3
+        },
+        {
+          "id": "travel_055_sub_3_qa_2",
+          "subSceneId": "travel_055_sub_3",
+          "speakerText": "Is it far from here?",
+          "speakerTextCn": "离这儿远吗？",
+          "responses": [
+            {
+              "text": "Nah, only 5 minutes walk.",
+              "text_cn": "不远，走五分钟就到。",
+              "audio_url": ""
+            },
+            {
+              "text": "Actually, it's kinda far.",
+              "text_cn": "其实有点远。",
+              "audio_url": ""
+            },
+            {
+              "text": "You better take a bus.",
+              "text_cn": "你最好坐公交。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用is it far?确认距离很实用",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "id": "travel_055_sub_4",
+      "sceneId": "travel_055",
+      "name": "道谢告别",
+      "description": "表达感谢并礼貌结束对话",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_055_sub_4_qa_1",
+          "subSceneId": "travel_055_sub_4",
+          "speakerText": "Thanks so much for your help!",
+          "speakerTextCn": "非常感谢你的帮助！",
+          "responses": [
+            {
+              "text": "No problem, have a great day!",
+              "text_cn": "不客气，祝你今天愉快！",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, sure thing.",
+              "text_cn": "嗯，小事一桩。",
+              "audio_url": ""
+            },
+            {
+              "text": "You're welcome, bye!",
+              "text_cn": "不客气，再见！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用no problem或you're welcome回应",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 5
+        }
+      ]
+    }
+  ]
+}

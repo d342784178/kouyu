@@ -1,0 +1,274 @@
+{
+  "sceneId": "daily_008",
+  "sceneName": "寄快递",
+  "generatedAt": "2026-03-01T03:35:42.012Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "daily_008_sub_1",
+      "sceneId": "daily_008",
+      "name": "打招呼咨询",
+      "description": "顾客向工作人员问候并询问寄快递服务",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_008_sub_1_qa_1",
+          "subSceneId": "daily_008_sub_1",
+          "speakerText": "Hi there! Can you help me send a package?",
+          "speakerTextCn": "嗨！你能帮我寄个包裹吗？",
+          "responses": [
+            {
+              "text": "Of course! Where you sending it?",
+              "text_cn": "当然可以！寄到哪儿？",
+              "audio_url": ""
+            },
+            {
+              "text": "Sure thing! Just tell me the destination.",
+              "text_cn": "没问题！说下目的地就行。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, sure.",
+              "text_cn": "嗯，可以。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "常用开头句，适合初学者模仿",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "daily_008_sub_2",
+      "sceneId": "daily_008",
+      "name": "说明目的地",
+      "description": "顾客告知包裹寄送地址和国家",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_008_sub_2_qa_1",
+          "subSceneId": "daily_008_sub_2",
+          "speakerText": "I need to send this to Tokyo, Japan.",
+          "speakerTextCn": "我要寄到日本东京。",
+          "responses": [
+            {
+              "text": "Got it. Is it a box or an envelope?",
+              "text_cn": "好的，是纸箱还是信封？",
+              "audio_url": ""
+            },
+            {
+              "text": "Tokyo? Okay, we got that.",
+              "text_cn": "东京？知道了。",
+              "audio_url": ""
+            },
+            {
+              "text": "Japan? That's overseas.",
+              "text_cn": "日本？那是国际件。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "明确地址是计算运费的关键",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        },
+        {
+          "id": "daily_008_sub_2_qa_2",
+          "subSceneId": "daily_008_sub_2",
+          "speakerText": "Do you need the full address?",
+          "speakerTextCn": "你需要完整地址吗？",
+          "responses": [
+            {
+              "text": "Yeah, just the zip code and street name’s fine.",
+              "text_cn": "对，有邮编和街道名就行。",
+              "audio_url": ""
+            },
+            {
+              "text": "Please give me the full address to be safe.",
+              "text_cn": "为保险起见，请给我完整地址。",
+              "audio_url": ""
+            },
+            {
+              "text": "Zip code’s enough.",
+              "text_cn": "有邮编就够了。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "根据对方要求决定提供信息详略",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "daily_008_sub_3",
+      "sceneId": "daily_008",
+      "name": "询问运费和方式",
+      "description": "顾客询问不同快递方式的价格和时效",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_008_sub_3_qa_1",
+          "subSceneId": "daily_008_sub_3",
+          "speakerText": "How much for standard shipping and express?",
+          "speakerTextCn": "普通快递和特快多少钱？",
+          "responses": [
+            {
+              "text": "Standard’s $15, express is $35 — arrives in 3 days.",
+              "text_cn": "普通15刀，特快35刀，3天到。",
+              "audio_url": ""
+            },
+            {
+              "text": "Express is double, but faster.",
+              "text_cn": "特快贵一倍，但快。",
+              "audio_url": ""
+            },
+            {
+              "text": "I’ll take the cheaper one.",
+              "text_cn": "我选便宜的。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "对比价格时用but连接更自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 4
+        },
+        {
+          "id": "daily_008_sub_3_qa_2",
+          "subSceneId": "daily_008_sub_3",
+          "speakerText": "Can I get it there by Friday?",
+          "speakerTextCn": "能周五前送到吗？",
+          "responses": [
+            {
+              "text": "Express can, standard won’t make it.",
+              "text_cn": "特快可以，普通送不到。",
+              "audio_url": ""
+            },
+            {
+              "text": "Depends on when you ship it.",
+              "text_cn": "看你什么时候寄。",
+              "audio_url": ""
+            },
+            {
+              "text": "Friday? No way.",
+              "text_cn": "周五？不可能。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用won’t / can’t 表达否定更地道",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 5
+        }
+      ]
+    },
+    {
+      "id": "daily_008_sub_4",
+      "sceneId": "daily_008",
+      "name": "确认收件信息",
+      "description": "工作人员核对寄送信息并确认最终选择",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_008_sub_4_qa_1",
+          "subSceneId": "daily_008_sub_4",
+          "speakerText": "So you want express to Tokyo, right?",
+          "speakerTextCn": "你要选特快寄东京，对吧？",
+          "responses": [
+            {
+              "text": "Yep, that’s the one.",
+              "text_cn": "对，就选这个。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yes, please. I’ll pay with my card.",
+              "text_cn": "是的，请用我的卡付款。",
+              "audio_url": ""
+            },
+            {
+              "text": "Right.",
+              "text_cn": "没错。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Yep/Right更口语化，适合日常",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 6
+        },
+        {
+          "id": "daily_008_sub_4_qa_2",
+          "subSceneId": "daily_008_sub_4",
+          "speakerText": "Here’s your receipt and tracking number.",
+          "speakerTextCn": "这是你的收据和追踪号。",
+          "responses": [
+            {
+              "text": "Thanks! I’ll text the number to the receiver.",
+              "text_cn": "谢谢！我发追踪号给收件人。",
+              "audio_url": ""
+            },
+            {
+              "text": "Awesome, I’ll check online later.",
+              "text_cn": "太好了，我晚点上网查。",
+              "audio_url": ""
+            },
+            {
+              "text": "Okay.",
+              "text_cn": "好的。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "回应时加动作描述更真实",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 7
+        }
+      ]
+    },
+    {
+      "id": "daily_008_sub_5",
+      "sceneId": "daily_008",
+      "name": "道别离开",
+      "description": "顾客感谢工作人员并礼貌告别",
+      "order": 5,
+      "estimatedMinutes": 3,
+      "qaPairs": [
+        {
+          "id": "daily_008_sub_5_qa_1",
+          "subSceneId": "daily_008_sub_5",
+          "speakerText": "All set! Have a great day!",
+          "speakerTextCn": "搞定啦！祝你今天愉快！",
+          "responses": [
+            {
+              "text": "You too! Thanks a lot!",
+              "text_cn": "你也是！非常感谢！",
+              "audio_url": ""
+            },
+            {
+              "text": "Appreciate it!",
+              "text_cn": "太感谢了！",
+              "audio_url": ""
+            },
+            {
+              "text": "Bye!",
+              "text_cn": "拜拜！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "道别用You too!最自然实用",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 8
+        }
+      ]
+    }
+  ]
+}

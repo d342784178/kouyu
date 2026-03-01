@@ -1,0 +1,264 @@
+{
+  "sceneId": "workplace_050",
+  "sceneName": "设备报修",
+  "generatedAt": "2026-03-01T03:40:10.233Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "workplace_050_sub_1",
+      "sceneId": "workplace_050",
+      "name": "报修发起",
+      "description": "员工发现电脑故障，联系IT支持",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "workplace_050_sub_1_qa_1",
+          "subSceneId": "workplace_050_sub_1",
+          "speakerText": "Hey, can you help? My laptop's totally frozen.",
+          "speakerTextCn": "嘿，能帮个忙吗？我的笔记本彻底卡死了。",
+          "responses": [
+            {
+              "text": "Sure, I'm on it. What's the error message?",
+              "text_cn": "当然，我马上看。有什么错误提示吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Oh no, again? Let me check it out.",
+              "text_cn": "又来了？我来看看。",
+              "audio_url": ""
+            },
+            {
+              "text": "Got it. Describe the issue.",
+              "text_cn": "收到，说说具体问题。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用口语化表达快速说明故障，避免啰嗦",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "workplace_050_sub_1_qa_2",
+          "subSceneId": "workplace_050_sub_1",
+          "speakerText": "It won't boot up—just shows a black screen after the Apple logo.",
+          "speakerTextCn": "开机不了，苹果标志后就黑屏了。",
+          "responses": [
+            {
+              "text": "Have you tried holding the power button for 10 seconds?",
+              "text_cn": "试过长按电源键10秒吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, I did. Still nothing.",
+              "text_cn": "试过了，还是没反应。",
+              "audio_url": ""
+            },
+            {
+              "text": "Okay, I'll schedule a repair.",
+              "text_cn": "好的，我安排维修。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "回应时先问简单排查步骤，体现专业性",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "workplace_050_sub_2",
+      "sceneId": "workplace_050",
+      "name": "初步排查",
+      "description": "IT人员指导用户做基础检查",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "workplace_050_sub_2_qa_1",
+          "subSceneId": "workplace_050_sub_2",
+          "speakerText": "Try unplugging it, then press and hold the power button for 15 secs.",
+          "speakerTextCn": "先拔掉电源，再长按电源键15秒。",
+          "responses": [
+            {
+              "text": "Done. Still black screen. What now?",
+              "text_cn": "弄了，还是黑屏。接下来呢？",
+              "audio_url": ""
+            },
+            {
+              "text": "Okay, I'll try that.",
+              "text_cn": "好，我试试。",
+              "audio_url": ""
+            },
+            {
+              "text": "No change.",
+              "text_cn": "没变化。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用户需反馈操作结果，便于IT判断故障等级",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "workplace_050_sub_2_qa_2",
+          "subSceneId": "workplace_050_sub_2",
+          "speakerText": "Is the charger light on? Any fan noise?",
+          "speakerTextCn": "充电器灯亮吗？有风扇声吗？",
+          "responses": [
+            {
+              "text": "Charger's lit, but no fan sound at all.",
+              "text_cn": "充电灯亮，但一点风扇声都没有。",
+              "audio_url": ""
+            },
+            {
+              "text": "I think the light's on... wait, let me check.",
+              "text_cn": "好像灯亮着…等等，我确认下。",
+              "audio_url": ""
+            },
+            {
+              "text": "Not sure.",
+              "text_cn": "不确定。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "回答需具体，避免模糊词如'maybe'或'kinda'",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "workplace_050_sub_3",
+      "sceneId": "workplace_050",
+      "name": "确认维修",
+      "description": "IT确认需上门维修并约定时间",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "workplace_050_sub_3_qa_1",
+          "subSceneId": "workplace_050_sub_3",
+          "speakerText": "Looks like a hardware issue. I'll send a tech to your desk.",
+          "speakerTextCn": "看起来是硬件问题，我派技术员去你工位。",
+          "responses": [
+            {
+              "text": "Can you come this afternoon? I'm in a meeting till 3.",
+              "text_cn": "下午能来吗？我3点前都在开会。",
+              "audio_url": ""
+            },
+            {
+              "text": "Sure, afternoon works.",
+              "text_cn": "可以，下午就行。",
+              "audio_url": ""
+            },
+            {
+              "text": "Thanks! How long will it take?",
+              "text_cn": "谢谢！大概多久能修好？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "主动提出可用时间段，提高沟通效率",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "workplace_050_sub_3_qa_2",
+          "subSceneId": "workplace_050_sub_3",
+          "speakerText": "Tech will be there at 3:30. Should take under an hour.",
+          "speakerTextCn": "技术员3点半到，一小时内能搞定。",
+          "responses": [
+            {
+              "text": "Perfect, I'll be here. Thanks a lot!",
+              "text_cn": "太好了，我等你，太感谢了！",
+              "audio_url": ""
+            },
+            {
+              "text": "Got it. I'll leave the laptop on the desk.",
+              "text_cn": "收到，我把电脑放桌上。",
+              "audio_url": ""
+            },
+            {
+              "text": "Alright.",
+              "text_cn": "行。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "确认时间后需表达感谢或说明准备动作",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "workplace_050_sub_4",
+      "sceneId": "workplace_050",
+      "name": "结束道别",
+      "description": "对话自然结束，保持礼貌",
+      "order": 4,
+      "estimatedMinutes": 3,
+      "qaPairs": [
+        {
+          "id": "workplace_050_sub_4_qa_1",
+          "subSceneId": "workplace_050_sub_4",
+          "speakerText": "Alright, I'll update you if anything changes.",
+          "speakerTextCn": "好的，有变化我会再通知你。",
+          "responses": [
+            {
+              "text": "Appreciate it! Have a good one!",
+              "text_cn": "太感谢了！你也是！",
+              "audio_url": ""
+            },
+            {
+              "text": "Thanks, see you at 3:30.",
+              "text_cn": "谢谢，3点半见。",
+              "audio_url": ""
+            },
+            {
+              "text": "Cool.",
+              "text_cn": "好的。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "结尾用简短感谢或确认时间收尾最自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "workplace_050_sub_4_qa_2",
+          "subSceneId": "workplace_050_sub_4",
+          "speakerText": "No problem—hope it gets fixed quick!",
+          "speakerTextCn": "不客气，希望快点修好！",
+          "responses": [
+            {
+              "text": "Me too. I've got a deadline today!",
+              "text_cn": "我也是，我今天有截止日期！",
+              "audio_url": ""
+            },
+            {
+              "text": "Thanks for helping!",
+              "text_cn": "谢谢你帮忙！",
+              "audio_url": ""
+            },
+            {
+              "text": "Alright, bye!",
+              "text_cn": "好，拜！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "可补充个人需求，让对话更真实",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}

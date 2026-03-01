@@ -1,0 +1,264 @@
+{
+  "sceneId": "daily_011",
+  "sceneName": "药店买药",
+  "generatedAt": "2026-03-01T03:35:36.836Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "daily_011_sub_1",
+      "sceneId": "daily_011",
+      "name": "问候与需求",
+      "description": "顾客进店说明买药需求",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_011_sub_1_qa_1",
+          "subSceneId": "daily_011_sub_1",
+          "speakerText": "Hi there, I need something for a bad cough.",
+          "speakerTextCn": "嗨，我需要治严重咳嗽的药。",
+          "responses": [
+            {
+              "text": "Sure, I can help with that. How long have you had it?",
+              "text_cn": "当然，我可以帮您。您咳嗽多久了？",
+              "audio_url": ""
+            },
+            {
+              "text": "Got it. Cough syrup or pills?",
+              "text_cn": "明白，要止咳糖浆还是药片？",
+              "audio_url": ""
+            },
+            {
+              "text": "Cough? Try this.",
+              "text_cn": "咳嗽？试试这个。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "主动说明症状，便于药剂师推荐",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_011_sub_1_qa_2",
+          "subSceneId": "daily_011_sub_1",
+          "speakerText": "I've had this cough for three days, and it's worse at night.",
+          "speakerTextCn": "我咳嗽三天了，晚上更严重。",
+          "responses": [
+            {
+              "text": "Yeah, mine's been like that too. Do you have a fever?",
+              "text_cn": "我也是，有发烧吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Nighttime cough? That’s common with post-nasal drip.",
+              "text_cn": "夜间咳嗽？可能是鼻后滴漏。",
+              "audio_url": ""
+            },
+            {
+              "text": "Night cough? Try honey.",
+              "text_cn": "晚上咳？喝点蜂蜜。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "补充症状细节，提高推荐准确性",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_011_sub_2",
+      "sceneId": "daily_011",
+      "name": "询问药效与用法",
+      "description": "确认药品功能与服用方法",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_011_sub_2_qa_1",
+          "subSceneId": "daily_011_sub_2",
+          "speakerText": "This one’s for coughs, right? How often do I take it?",
+          "speakerTextCn": "这个是治咳嗽的吧？一天吃几次？",
+          "responses": [
+            {
+              "text": "Yeah, take one tablet every 8 hours, max 3 a day.",
+              "text_cn": "对，每8小时一片，一天最多三片。",
+              "audio_url": ""
+            },
+            {
+              "text": "Every 8 hours — don’t crush it.",
+              "text_cn": "每8小时一次，别压碎。",
+              "audio_url": ""
+            },
+            {
+              "text": "Take it. Easy.",
+              "text_cn": "吃这个，简单。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "明确用法，避免用药错误",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_011_sub_2_qa_2",
+          "subSceneId": "daily_011_sub_2",
+          "speakerText": "Does it make you sleepy?",
+          "speakerTextCn": "这个会让人犯困吗？",
+          "responses": [
+            {
+              "text": "A little — avoid driving or operating machines.",
+              "text_cn": "有点，别开车或操作机械。",
+              "audio_url": ""
+            },
+            {
+              "text": "Nah, it’s non-drowsy.",
+              "text_cn": "不会，是不嗜睡的。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, sleepy. Take at night.",
+              "text_cn": "会困，晚上吃。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "确认副作用，确保安全使用",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_011_sub_3",
+      "sceneId": "daily_011",
+      "name": "确认支付方式",
+      "description": "结账时确认付款方式",
+      "order": 3,
+      "estimatedMinutes": 3,
+      "qaPairs": [
+        {
+          "id": "daily_011_sub_3_qa_1",
+          "subSceneId": "daily_011_sub_3",
+          "speakerText": "That’ll be $12.99. Credit or cash?",
+          "speakerTextCn": "12.99美元，刷卡还是现金？",
+          "responses": [
+            {
+              "text": "Card, please. I'll tap it.",
+              "text_cn": "刷卡，我刷一下。",
+              "audio_url": ""
+            },
+            {
+              "text": "Cash. Here's $15.",
+              "text_cn": "现金，给你15块。",
+              "audio_url": ""
+            },
+            {
+              "text": "Card.",
+              "text_cn": "刷卡。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "明确支付方式，加快结账流程",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_011_sub_3_qa_2",
+          "subSceneId": "daily_011_sub_3",
+          "speakerText": "Do you take insurance?",
+          "speakerTextCn": "你们收保险吗？",
+          "responses": [
+            {
+              "text": "Yeah, we take most plans. Just show your card.",
+              "text_cn": "收，大部分都行，出示卡就行。",
+              "audio_url": ""
+            },
+            {
+              "text": "Nope, cash or card only.",
+              "text_cn": "不收，只收现金或刷卡。",
+              "audio_url": ""
+            },
+            {
+              "text": "Insurance? Ask at front.",
+              "text_cn": "保险？去前台问。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "提前确认保险可用性，避免尴尬",
+          "audioUrl": null,
+          "qaType": "listen_only",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_011_sub_4",
+      "sceneId": "daily_011",
+      "name": "道别与提醒",
+      "description": "购药后药剂师给予提醒",
+      "order": 4,
+      "estimatedMinutes": 3,
+      "qaPairs": [
+        {
+          "id": "daily_011_sub_4_qa_1",
+          "subSceneId": "daily_011_sub_4",
+          "speakerText": "If it doesn’t get better in 2 days, see a doctor.",
+          "speakerTextCn": "两天还没好，就去看医生。",
+          "responses": [
+            {
+              "text": "Will do. Thanks so much!",
+              "text_cn": "好的，太感谢了！",
+              "audio_url": ""
+            },
+            {
+              "text": "Okay, I’ll keep an eye on it.",
+              "text_cn": "好，我会留意的。",
+              "audio_url": ""
+            },
+            {
+              "text": "Got it.",
+              "text_cn": "知道了。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "回应提醒体现礼貌与配合",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_011_sub_4_qa_2",
+          "subSceneId": "daily_011_sub_4",
+          "speakerText": "No alcohol with this med, okay?",
+          "speakerTextCn": "吃这个药别喝酒，好吗？",
+          "responses": [
+            {
+              "text": "Got it — no drinks.",
+              "text_cn": "明白，不喝酒。",
+              "audio_url": ""
+            },
+            {
+              "text": "I don’t drink anyway.",
+              "text_cn": "我本来就不喝酒。",
+              "audio_url": ""
+            },
+            {
+              "text": "Okay.",
+              "text_cn": "好的。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "回应禁忌提醒，体现安全意识",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}

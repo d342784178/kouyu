@@ -1,0 +1,247 @@
+{
+  "sceneId": "travel_074",
+  "sceneName": "火车站购票",
+  "generatedAt": "2026-03-01T03:39:14.539Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "travel_074_sub_1",
+      "sceneId": "travel_074",
+      "name": "问候与意图",
+      "description": "向售票员说明购票需求",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_074_sub_1_qa_1",
+          "subSceneId": "travel_074_sub_1",
+          "speakerText": "Hi there! Can I help you?",
+          "speakerTextCn": "您好！需要帮忙吗？",
+          "responses": [
+            {
+              "text": "I'd like to buy a train ticket to Beijing, please.",
+              "text_cn": "我想买一张去北京的火车票。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, I need a ticket to Beijing.",
+              "text_cn": "我要一张去北京的票。",
+              "audio_url": ""
+            },
+            {
+              "text": "Ticket to Beijing, please.",
+              "text_cn": "请给我一张去北京的票。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用I'd like表达礼貌需求，避免直接说I want",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "travel_074_sub_2",
+      "sceneId": "travel_074",
+      "name": "询问时间与车次",
+      "description": "询问发车时间与车次类型",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_074_sub_2_qa_1",
+          "subSceneId": "travel_074_sub_2",
+          "speakerText": "When's the next train to Beijing?",
+          "speakerTextCn": "下一班去北京的车什么时候开？",
+          "responses": [
+            {
+              "text": "Is there a high-speed one around 2 PM?",
+              "text_cn": "有下午两点左右的高铁吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Any fast trains after 1:30?",
+              "text_cn": "一点半后有快车吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "What's the next one?",
+              "text_cn": "下一班是几点？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用around或after模糊表达时间，更自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        },
+        {
+          "id": "travel_074_sub_2_qa_2",
+          "subSceneId": "travel_074_sub_2",
+          "speakerText": "We've got one at 2:15 PM — high-speed, about 4.5 hours.",
+          "speakerTextCn": "有一班下午2:15的高铁，大概4个半小时。",
+          "responses": [
+            {
+              "text": "Perfect! How much is it?",
+              "text_cn": "太好了！多少钱？",
+              "audio_url": ""
+            },
+            {
+              "text": "That works. What's the price?",
+              "text_cn": "可以，多少钱？",
+              "audio_url": ""
+            },
+            {
+              "text": "Okay.",
+              "text_cn": "行。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Perfect/That works表达满意，避免只说OK",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "travel_074_sub_3",
+      "sceneId": "travel_074",
+      "name": "指定座位偏好",
+      "description": "提出座位偏好并确认",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_074_sub_3_qa_1",
+          "subSceneId": "travel_074_sub_3",
+          "speakerText": "Window or aisle?",
+          "speakerTextCn": "靠窗还是靠过道？",
+          "responses": [
+            {
+              "text": "Window seat, please. I love the view.",
+              "text_cn": "请给我靠窗的，我喜欢看风景。",
+              "audio_url": ""
+            },
+            {
+              "text": "Aisle, easier to get up.",
+              "text_cn": "靠过道吧，方便起身。",
+              "audio_url": ""
+            },
+            {
+              "text": "Window.",
+              "text_cn": "靠窗。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "简短回应可用单词，但加理由更显自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "id": "travel_074_sub_4",
+      "sceneId": "travel_074",
+      "name": "支付与确认",
+      "description": "完成支付并确认票务信息",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_074_sub_4_qa_1",
+          "subSceneId": "travel_074_sub_4",
+          "speakerText": "That'll be 560 yuan. Cash or card?",
+          "speakerTextCn": "一共560元，现金还是刷卡？",
+          "responses": [
+            {
+              "text": "Card, please. I'll tap it.",
+              "text_cn": "刷卡，我刷一下。",
+              "audio_url": ""
+            },
+            {
+              "text": "Cash. Here you go.",
+              "text_cn": "现金，给你。",
+              "audio_url": ""
+            },
+            {
+              "text": "Card.",
+              "text_cn": "刷卡。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用I'll tap it或Here you go让表达更生动",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 5
+        },
+        {
+          "id": "travel_074_sub_4_qa_2",
+          "subSceneId": "travel_074_sub_4",
+          "speakerText": "Here's your ticket and receipt. Your train leaves from Platform 7 at 2:15.",
+          "speakerTextCn": "这是您的票和收据，7号站台2:15发车。",
+          "responses": [
+            {
+              "text": "Thanks! I'll head to Platform 7.",
+              "text_cn": "谢谢！我这就去7号站台。",
+              "audio_url": ""
+            },
+            {
+              "text": "Got it. Thanks a lot!",
+              "text_cn": "知道了，太感谢了！",
+              "audio_url": ""
+            },
+            {
+              "text": "Platform 7, got it.",
+              "text_cn": "7号站台，记住了。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "重复关键信息（如站台）确认无误",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 6
+        }
+      ]
+    },
+    {
+      "id": "travel_074_sub_5",
+      "sceneId": "travel_074",
+      "name": "道别",
+      "description": "礼貌结束对话",
+      "order": 5,
+      "estimatedMinutes": 3,
+      "qaPairs": [
+        {
+          "id": "travel_074_sub_5_qa_1",
+          "subSceneId": "travel_074_sub_5",
+          "speakerText": "Have a great trip!",
+          "speakerTextCn": "祝您旅途愉快！",
+          "responses": [
+            {
+              "text": "Thanks! You too!",
+              "text_cn": "谢谢！你也是！",
+              "audio_url": ""
+            },
+            {
+              "text": "Appreciate it. Bye!",
+              "text_cn": "谢谢，再见！",
+              "audio_url": ""
+            },
+            {
+              "text": "Bye!",
+              "text_cn": "再见！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "回应时加You too更显礼貌和互动感",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 7
+        }
+      ]
+    }
+  ]
+}

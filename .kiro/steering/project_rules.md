@@ -205,34 +205,4 @@ node docs/tests/scripts/run-content-tests-llm.js       # 仅内容测试（LLM�
 | v1.0 | YYYY-MM-DD | 初始版本 | - |
 ```
 
----
-
-## 附录：项目速查
-
-### 技术栈
-
-Next.js 14 + TypeScript + PostgreSQL + Drizzle ORM + Tailwind CSS + GLM-4-Flash
-
-### 快速启动
-
-```bash
-pnpm install
-cp .env.example .env.local
-# 配置 DATABASE_URL, GLM_API_KEY 等
-pnpm dev
-```
-
-### 场景分类统计
-
-| 分类 | ID前缀 | 数量 |
-|------|--------|------|
-| 日常 | `daily_` | 31 |
-| 职场 | `workplace_` | 25 |
-| 留学 | `study_abroad_` | 15 |
-| 旅行 | `travel_` | 20 |
-| 社交 | `social_` | 20 |
-| **总计** | - | **111** |
-
----
-
 *本文档版本: v3.1 | 最后更新: 2026-02-24 | 面向AI助手*

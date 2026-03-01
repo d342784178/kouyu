@@ -1,0 +1,220 @@
+{
+  "sceneId": "daily_007",
+  "sceneName": "理发店预约",
+  "generatedAt": "2026-03-01T03:35:38.745Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "daily_007_sub_1",
+      "sceneId": "daily_007",
+      "name": "礼貌问候",
+      "description": "顾客拨通电话，礼貌开场",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_007_sub_1_qa_1",
+          "subSceneId": "daily_007_sub_1",
+          "speakerText": "Hi, this is Lisa calling from downtown.",
+          "speakerTextCn": "你好，我是来自市中心的丽莎。",
+          "responses": [
+            {
+              "text": "Hi Lisa, how can I help you today?",
+              "text_cn": "你好丽莎，有什么可以帮您？",
+              "audio_url": ""
+            },
+            {
+              "text": "Hey, what's up?",
+              "text_cn": "嘿，有什么事？",
+              "audio_url": ""
+            },
+            {
+              "text": "Downtown salon, go ahead.",
+              "text_cn": "市中心美发店，说吧。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "初次通话用礼貌问候，避免太随意",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "daily_007_sub_2",
+      "sceneId": "daily_007",
+      "name": "预约意图",
+      "description": "说明想预约理发服务",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_007_sub_2_qa_1",
+          "subSceneId": "daily_007_sub_2",
+          "speakerText": "I'd like to book a haircut for this week.",
+          "speakerTextCn": "我想预约这周的理发。",
+          "responses": [
+            {
+              "text": "Sure! Do you have a preferred day or time?",
+              "text_cn": "当然！您有偏好的日期或时间吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, I need a trim.",
+              "text_cn": "嗯，我需要剪一下。",
+              "audio_url": ""
+            },
+            {
+              "text": "Cut? Okay, what's your name again?",
+              "text_cn": "剪发？好的，您叫什么来着？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用I'd like to表达预约意图，自然又礼貌",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "daily_007_sub_3",
+      "sceneId": "daily_007",
+      "name": "确认时间",
+      "description": "确认可预约的具体时间段",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_007_sub_3_qa_1",
+          "subSceneId": "daily_007_sub_3",
+          "speakerText": "We've got openings on Thursday at 3 PM or Friday at 11 AM.",
+          "speakerTextCn": "我们周四下午3点或周五上午11点有空。",
+          "responses": [
+            {
+              "text": "Thursday at 3 works for me, thanks!",
+              "text_cn": "周四下午3点可以，谢谢！",
+              "audio_url": ""
+            },
+            {
+              "text": "Hmm, can I get it earlier on Friday?",
+              "text_cn": "呃，周五能早点吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Friday, 11.",
+              "text_cn": "周五11点。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用works for me表达接受，简洁自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_007_sub_3_qa_2",
+          "subSceneId": "daily_007_sub_3",
+          "speakerText": "Will that be a standard cut or something special?",
+          "speakerTextCn": "是普通理发还是特殊造型？",
+          "responses": [
+            {
+              "text": "Just a regular trim, nothing fancy.",
+              "text_cn": "普通修剪就好，不用特别造型。",
+              "audio_url": ""
+            },
+            {
+              "text": "I want a fade, please.",
+              "text_cn": "我要个渐变发型。",
+              "audio_url": ""
+            },
+            {
+              "text": "Whatever's fastest.",
+              "text_cn": "哪个快就哪个。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "明确说明服务类型，避免后续误会",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_007_sub_4",
+      "sceneId": "daily_007",
+      "name": "提供信息",
+      "description": "提供姓名和联系方式",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_007_sub_4_qa_1",
+          "subSceneId": "daily_007_sub_4",
+          "speakerText": "Could I get your name and phone number, please?",
+          "speakerTextCn": "能告诉我您的姓名和电话吗？",
+          "responses": [
+            {
+              "text": "Sure, it's Lisa Chen, 555-0192.",
+              "text_cn": "好的，丽莎·陈，电话555-0192。",
+              "audio_url": ""
+            },
+            {
+              "text": "Lisa Chen. Number's 555-0192.",
+              "text_cn": "丽莎·陈，电话555-0192。",
+              "audio_url": ""
+            },
+            {
+              "text": "I'm Lisa. Call me at five-five-five-zero-one-nine-two.",
+              "text_cn": "我是丽莎，打电话555-0192。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "报电话时逐字念数字，清晰易懂",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "daily_007_sub_5",
+      "sceneId": "daily_007",
+      "name": "礼貌道别",
+      "description": "预约成功后礼貌结束通话",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_007_sub_5_qa_1",
+          "subSceneId": "daily_007_sub_5",
+          "speakerText": "Great! See you Thursday at 3.",
+          "speakerTextCn": "太好了！周四下午3点见。",
+          "responses": [
+            {
+              "text": "Thanks so much! See you then!",
+              "text_cn": "非常感谢！到时候见！",
+              "audio_url": ""
+            },
+            {
+              "text": "Cool, bye!",
+              "text_cn": "好，拜！",
+              "audio_url": ""
+            },
+            {
+              "text": "Appreciate it. Have a good day.",
+              "text_cn": "谢谢，祝你今天愉快。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "道别时加感谢，体现礼貌与教养",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    }
+  ]
+}

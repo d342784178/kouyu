@@ -1,0 +1,210 @@
+{
+  "sceneId": "daily_015",
+  "sceneName": "快餐店取餐",
+  "generatedAt": "2026-03-01T03:36:08.607Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "daily_015_sub_1",
+      "sceneId": "daily_015",
+      "name": "报取餐名",
+      "description": "告知店员取餐姓名和订单号",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_015_sub_1_qa_1",
+          "subSceneId": "daily_015_sub_1",
+          "speakerText": "Hi, I'm here to pick up an order.",
+          "speakerTextCn": "你好，我来取餐。",
+          "responses": [
+            {
+              "text": "Yeah, name's Alex, order #1234.",
+              "text_cn": "我叫Alex，订单号1234。",
+              "audio_url": ""
+            },
+            {
+              "text": "I'm Alex with order number 1234, please.",
+              "text_cn": "我是Alex，订单号1234，麻烦了。",
+              "audio_url": ""
+            },
+            {
+              "text": "Alex, 1234.",
+              "text_cn": "Alex，1234。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "报名字+订单号，简洁清晰",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "daily_015_sub_2",
+      "sceneId": "daily_015",
+      "name": "核对订单",
+      "description": "店员确认订单内容是否正确",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_015_sub_2_qa_1",
+          "subSceneId": "daily_015_sub_2",
+          "speakerText": "One cheeseburger, fries, and a Coke, right?",
+          "speakerTextCn": "一个芝士汉堡、薯条和可乐，对吧？",
+          "responses": [
+            {
+              "text": "Yep, that's it. Thanks!",
+              "text_cn": "对，就是这些，谢谢！",
+              "audio_url": ""
+            },
+            {
+              "text": "Actually, I ordered a diet Coke, not regular.",
+              "text_cn": "其实我点的是无糖可乐。",
+              "audio_url": ""
+            },
+            {
+              "text": "Correct.",
+              "text_cn": "没错。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "发现错误要立即纠正",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        },
+        {
+          "id": "daily_015_sub_2_qa_2",
+          "subSceneId": "daily_015_sub_2",
+          "speakerText": "No problem, I'll fix that right away.",
+          "speakerTextCn": "没问题，我马上改。",
+          "responses": [
+            {
+              "text": "Thanks, I appreciate it!",
+              "text_cn": "谢谢，太好了！",
+              "audio_url": ""
+            },
+            {
+              "text": "No worries, take your time.",
+              "text_cn": "不急，慢慢来。",
+              "audio_url": ""
+            },
+            {
+              "text": "Cool.",
+              "text_cn": "好的。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "表达感谢或宽容都可",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "daily_015_sub_3",
+      "sceneId": "daily_015",
+      "name": "确认打包方式",
+      "description": "询问是否需要餐具或堂食",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_015_sub_3_qa_1",
+          "subSceneId": "daily_015_sub_3",
+          "speakerText": "You want that to go, or eat in?",
+          "speakerTextCn": "要外带还是在这吃？",
+          "responses": [
+            {
+              "text": "To go, please. And can I get a napkin?",
+              "text_cn": "外带，能给我一张纸巾吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "I'll eat here, thanks.",
+              "text_cn": "我在这吃，谢谢。",
+              "audio_url": ""
+            },
+            {
+              "text": "Takeaway.",
+              "text_cn": "外带。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "明确说to go或eat in",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 4
+        }
+      ]
+    },
+    {
+      "id": "daily_015_sub_4",
+      "sceneId": "daily_015",
+      "name": "支付与道别",
+      "description": "完成支付后礼貌告别",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_015_sub_4_qa_1",
+          "subSceneId": "daily_015_sub_4",
+          "speakerText": "All set! Your total was $8.50.",
+          "speakerTextCn": "好了，总共8.5美元。",
+          "responses": [
+            {
+              "text": "Here you go. Have a great day!",
+              "text_cn": "给你钱，祝你今天愉快！",
+              "audio_url": ""
+            },
+            {
+              "text": "Paid. Thanks!",
+              "text_cn": "付了，谢谢！",
+              "audio_url": ""
+            },
+            {
+              "text": "Got it. You too!",
+              "text_cn": "收到了，你也是！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "支付后加一句祝福更自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 5
+        },
+        {
+          "id": "daily_015_sub_4_qa_2",
+          "subSceneId": "daily_015_sub_4",
+          "speakerText": "Thanks for coming in!",
+          "speakerTextCn": "谢谢光临！",
+          "responses": [
+            {
+              "text": "Thanks, bye!",
+              "text_cn": "谢谢，拜！",
+              "audio_url": ""
+            },
+            {
+              "text": "Appreciate it, see you next time!",
+              "text_cn": "感谢，下次见！",
+              "audio_url": ""
+            },
+            {
+              "text": "Bye!",
+              "text_cn": "拜！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "简短道别最常用",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 6
+        }
+      ]
+    }
+  ]
+}

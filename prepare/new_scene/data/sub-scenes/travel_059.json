@@ -1,0 +1,274 @@
+{
+  "sceneId": "travel_059",
+  "sceneName": "购买门票",
+  "generatedAt": "2026-03-01T03:38:19.376Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "travel_059_sub_1",
+      "sceneId": "travel_059",
+      "name": "问候与开场",
+      "description": "游客向售票员礼貌打招呼并开启对话",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_059_sub_1_qa_1",
+          "subSceneId": "travel_059_sub_1",
+          "speakerText": "Hi there! Can you help me with tickets?",
+          "speakerTextCn": "嗨！你能帮我买票吗？",
+          "responses": [
+            {
+              "text": "Of course! What attraction are you visiting?",
+              "text_cn": "当然！您想参观哪个景点？",
+              "audio_url": ""
+            },
+            {
+              "text": "Sure! Just tell me which one.",
+              "text_cn": "当然！说下是哪个就行。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, what do you need?",
+              "text_cn": "嗯，你需要什么？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用礼貌开场语自然开启对话",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "travel_059_sub_2",
+      "sceneId": "travel_059",
+      "name": "询问价格与优惠",
+      "description": "游客询问门票价格及是否有折扣",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_059_sub_2_qa_1",
+          "subSceneId": "travel_059_sub_2",
+          "speakerText": "How much is the entry ticket for adults?",
+          "speakerTextCn": "成人门票多少钱？",
+          "responses": [
+            {
+              "text": "It's $25 per person. Student discounts are available.",
+              "text_cn": "每人25美元，学生有优惠。",
+              "audio_url": ""
+            },
+            {
+              "text": "$25, but if you're a student, it's half price.",
+              "text_cn": "25美元，学生半价。",
+              "audio_url": ""
+            },
+            {
+              "text": "Twenty-five bucks. You got ID?",
+              "text_cn": "25刀，有学生证吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "直接问价格，顺带问优惠",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_059_sub_2_qa_2",
+          "subSceneId": "travel_059_sub_2",
+          "speakerText": "Do you have any family or group deals?",
+          "speakerTextCn": "有家庭或团体优惠吗？",
+          "responses": [
+            {
+              "text": "Yes! Three or more get 15% off.",
+              "text_cn": "有！三人以上打八五折。",
+              "audio_url": ""
+            },
+            {
+              "text": "Family pack: 2 adults + 2 kids = $70.",
+              "text_cn": "家庭套票：两成两孩70刀。",
+              "audio_url": ""
+            },
+            {
+              "text": "Nah, no group deals.",
+              "text_cn": "没有团体优惠。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "主动问优惠，争取省钱",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_059_sub_3",
+      "sceneId": "travel_059",
+      "name": "确认开放时间与服务",
+      "description": "游客确认开放时间及是否含导览服务",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_059_sub_3_qa_1",
+          "subSceneId": "travel_059_sub_3",
+          "speakerText": "What time does it close today?",
+          "speakerTextCn": "今天几点关门？",
+          "responses": [
+            {
+              "text": "It closes at 6 PM. Last entry at 5:30.",
+              "text_cn": "六点关门，最晚五点半进。",
+              "audio_url": ""
+            },
+            {
+              "text": "6 PM sharp. Don't be late!",
+              "text_cn": "六点整关门，别迟到！",
+              "audio_url": ""
+            },
+            {
+              "text": "Closes at 6. You got time.",
+              "text_cn": "六点关，来得及。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "确认关门时间避免白跑",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_059_sub_3_qa_2",
+          "subSceneId": "travel_059_sub_3",
+          "speakerText": "Does the ticket include a guided tour?",
+          "speakerTextCn": "门票包含导览吗？",
+          "responses": [
+            {
+              "text": "No, but you can book one for $10 extra.",
+              "text_cn": "不包含，加10美元可预约导览。",
+              "audio_url": ""
+            },
+            {
+              "text": "Not included. Ask at the info desk.",
+              "text_cn": "不含，去咨询台问。",
+              "audio_url": ""
+            },
+            {
+              "text": "Free tour at 10 AM. Just show up.",
+              "text_cn": "上午十点免费导览，直接去。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "问清是否含服务，避免误会",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_059_sub_4",
+      "sceneId": "travel_059",
+      "name": "支付与确认",
+      "description": "游客选择支付方式并确认购票成功",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_059_sub_4_qa_1",
+          "subSceneId": "travel_059_sub_4",
+          "speakerText": "I'll take two adult tickets. Can I pay by card?",
+          "speakerTextCn": "我要两张成人票，能刷卡吗？",
+          "responses": [
+            {
+              "text": "Sure! Just tap or insert your card.",
+              "text_cn": "可以！刷卡或插卡都行。",
+              "audio_url": ""
+            },
+            {
+              "text": "Card's fine. Here's your receipt.",
+              "text_cn": "刷卡OK，这是收据。",
+              "audio_url": ""
+            },
+            {
+              "text": "Card? Nah, cash only.",
+              "text_cn": "刷卡？只收现金。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "明确支付方式，避免尴尬",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_059_sub_4_qa_2",
+          "subSceneId": "travel_059_sub_4",
+          "speakerText": "Can you confirm my tickets are for today?",
+          "speakerTextCn": "能确认一下票是今天的吗？",
+          "responses": [
+            {
+              "text": "Yes, dated today. Valid all day.",
+              "text_cn": "对，今天有效，全天可用。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yep! Today only. Don't save it.",
+              "text_cn": "对，今天用，别留着。",
+              "audio_url": ""
+            },
+            {
+              "text": "All good. You're set.",
+              "text_cn": "没问题，搞定。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "最后确认票务信息无误",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_059_sub_5",
+      "sceneId": "travel_059",
+      "name": "道别与感谢",
+      "description": "游客礼貌道谢并结束对话",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_059_sub_5_qa_1",
+          "subSceneId": "travel_059_sub_5",
+          "speakerText": "Thanks so much for your help!",
+          "speakerTextCn": "非常感谢你的帮助！",
+          "responses": [
+            {
+              "text": "You're welcome! Have a great day!",
+              "text_cn": "不客气，玩得开心！",
+              "audio_url": ""
+            },
+            {
+              "text": "No problem. Enjoy the place!",
+              "text_cn": "小事，好好玩！",
+              "audio_url": ""
+            },
+            {
+              "text": "Yep. Later!",
+              "text_cn": "嗯，拜！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "道谢要真诚，结束自然",
+          "audioUrl": null,
+          "qaType": "listen_only",
+          "order": 1
+        }
+      ]
+    }
+  ]
+}

@@ -108,25 +108,38 @@ const navItems = [
   },
 ]
 
+// 仅在首页显示的额外导航项
+const homeExtraItem = {
+  path: '/scene-learning',
+  label: '场景学习(新)',
+  icon: SceneIcon,
+}
+
 export default function BottomNav() {
   const pathname = usePathname()
+  const isHome = pathname === '/'
 
   const isActive = (path: string) => {
     if (path === '/') return pathname === '/'
     return pathname.startsWith(path)
   }
 
+  // 首页时在"场景学习"后插入额外项
+  const items = isHome
+    ? [...navItems.slice(0, 3), homeExtraItem, ...navItems.slice(3)]
+    : navItems
+
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-100 bottom-nav-shadow safe-bottom">
       <div className="max-w-[430px] mx-auto flex items-center justify-around px-2 py-2">
-        {navItems.map(({ path, label, icon: Icon }) => {
+        {items.map(({ path, label, icon: Icon }) => {
           const active = isActive(path)
           return (
             <Link
-              key={path}
+              key={path + label}
               href={path}
               aria-current={active ? 'page' : undefined}
-              className={`flex flex-col items-center gap-1 px-4 py-2 rounded-xl transition-colors ${
+              className={`relative flex flex-col items-center gap-1 px-3 py-2 rounded-xl transition-colors ${
                 active ? 'text-[#4F7CF0]' : 'text-gray-400 hover:text-gray-600'
               }`}
             >
@@ -144,10 +157,8 @@ export default function BottomNav() {
                 {label}
               </span>
               {active && (
-                <motion.div
-                  layoutId="activeTab"
+                <div
                   className="absolute bottom-1 w-1 h-1 rounded-full bg-[#4F7CF0]"
-                  transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                   aria-hidden="true"
                 />
               )}

@@ -1,0 +1,264 @@
+{
+  "sceneId": "daily_010",
+  "sceneName": "洗衣店取衣",
+  "generatedAt": "2026-03-01T03:35:41.035Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "daily_010_sub_1",
+      "sceneId": "daily_010",
+      "name": "问候取衣",
+      "description": "顾客到店，店员礼貌问候并询问需求",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_010_sub_1_qa_1",
+          "subSceneId": "daily_010_sub_1",
+          "speakerText": "Hi there! How can I help you today?",
+          "speakerTextCn": "您好！今天有什么可以帮您的？",
+          "responses": [
+            {
+              "text": "I'm here to pick up my laundry.",
+              "text_cn": "我来取衣服。",
+              "audio_url": ""
+            },
+            {
+              "text": "Hey, I've got a receipt for pickup.",
+              "text_cn": "嗨，我有取衣单。",
+              "audio_url": ""
+            },
+            {
+              "text": "Could I get my clothes, please?",
+              "text_cn": "能帮我拿一下衣服吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用简单句直接说明来意即可",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_010_sub_1_qa_2",
+          "subSceneId": "daily_010_sub_1",
+          "speakerText": "Sure! Do you have your receipt?",
+          "speakerTextCn": "好的，您有取衣单吗？",
+          "responses": [
+            {
+              "text": "Yeah, here it is.",
+              "text_cn": "有，在这儿。",
+              "audio_url": ""
+            },
+            {
+              "text": "I've got it right here.",
+              "text_cn": "我这就拿出来。",
+              "audio_url": ""
+            },
+            {
+              "text": "Sorry, I lost it. Can you look it up?",
+              "text_cn": "不好意思，我弄丢了，能查一下吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "出示票据是取衣关键步骤",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_010_sub_2",
+      "sceneId": "daily_010",
+      "name": "核对衣物",
+      "description": "店员核对衣物数量与订单是否一致",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_010_sub_2_qa_1",
+          "subSceneId": "daily_010_sub_2",
+          "speakerText": "You've got 3 shirts, 2 pants, and 1 towel, right?",
+          "speakerTextCn": "您有3件衬衫、2条裤子和1条毛巾，对吗？",
+          "responses": [
+            {
+              "text": "Yep, that's all.",
+              "text_cn": "对，就这些。",
+              "audio_url": ""
+            },
+            {
+              "text": "Wait, I think I'm missing one shirt.",
+              "text_cn": "等下，好像少了一件衬衫。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yes, perfect. Thanks!",
+              "text_cn": "对，都齐了，谢谢！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "仔细核对数量，发现错误及时指出",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_010_sub_2_qa_2",
+          "subSceneId": "daily_010_sub_2",
+          "speakerText": "Let me double-check... Oh, here it is! Sorry for the mix-up.",
+          "speakerTextCn": "我再核对一下…哦，在这呢！抱歉搞错了。",
+          "responses": [
+            {
+              "text": "No problem, thanks for checking.",
+              "text_cn": "没关系，谢谢您核对。",
+              "audio_url": ""
+            },
+            {
+              "text": "It's okay, I appreciate it.",
+              "text_cn": "��事，我很感谢。",
+              "audio_url": ""
+            },
+            {
+              "text": "Just give it to me.",
+              "text_cn": "快给我吧。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "回应要体现礼貌，即使对方出错",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_010_sub_3",
+      "sceneId": "daily_010",
+      "name": "支付费用",
+      "description": "店员告知费用，顾客完成支付",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_010_sub_3_qa_1",
+          "subSceneId": "daily_010_sub_3",
+          "speakerText": "Your total is $22. Cash or card?",
+          "speakerTextCn": "总共22美元，现金还是刷卡？",
+          "responses": [
+            {
+              "text": "Card, please.",
+              "text_cn": "刷卡。",
+              "audio_url": ""
+            },
+            {
+              "text": "I'll pay with cash.",
+              "text_cn": "我付现金。",
+              "audio_url": ""
+            },
+            {
+              "text": "Do you take Apple Pay?",
+              "text_cn": "你们收苹果支付吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "明确支付方式，避免沉默尴尬",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_010_sub_3_qa_2",
+          "subSceneId": "daily_010_sub_3",
+          "speakerText": "Here's your receipt and your clothes.",
+          "speakerTextCn": "这是您的收据和衣服。",
+          "responses": [
+            {
+              "text": "Thanks so much!",
+              "text_cn": "非常感谢！",
+              "audio_url": ""
+            },
+            {
+              "text": "Appreciate it!",
+              "text_cn": "太感谢了！",
+              "audio_url": ""
+            },
+            {
+              "text": "Okay, got it.",
+              "text_cn": "好的，收到了。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "支付后要表达��谢，体现礼貌",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_010_sub_4",
+      "sceneId": "daily_010",
+      "name": "礼貌道别",
+      "description": "顾客取衣后与店员自然道别",
+      "order": 4,
+      "estimatedMinutes": 3,
+      "qaPairs": [
+        {
+          "id": "daily_010_sub_4_qa_1",
+          "subSceneId": "daily_010_sub_4",
+          "speakerText": "Have a great day!",
+          "speakerTextCn": "祝你今天愉快！",
+          "responses": [
+            {
+              "text": "You too! Bye!",
+              "text_cn": "你也是！再见！",
+              "audio_url": ""
+            },
+            {
+              "text": "Thanks, I will!",
+              "text_cn": "谢谢，我会的！",
+              "audio_url": ""
+            },
+            {
+              "text": "Goodbye!",
+              "text_cn": "再见！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "简单回应即可，结束对话要自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_010_sub_4_qa_2",
+          "subSceneId": "daily_010_sub_4",
+          "speakerText": "See you next time!",
+          "speakerTextCn": "下次见！",
+          "responses": [
+            {
+              "text": "Definitely! Bye now.",
+              "text_cn": "一定！那先走了。",
+              "audio_url": ""
+            },
+            {
+              "text": "Bye, have a good one!",
+              "text_cn": "拜拜，祝你好运！",
+              "audio_url": ""
+            },
+            {
+              "text": "Okay, thanks again.",
+              "text_cn": "好的，再谢一次。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "道别时可重复感谢，增强印象",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}

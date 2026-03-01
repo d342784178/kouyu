@@ -1,0 +1,237 @@
+{
+  "sceneId": "daily_001",
+  "sceneName": "餐厅点餐",
+  "generatedAt": "2026-03-01T03:35:39.094Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "daily_001_sub_1",
+      "sceneId": "daily_001",
+      "name": "入座问候",
+      "description": "服务员引导入座并问候",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_001_sub_1_qa_1",
+          "subSceneId": "daily_001_sub_1",
+          "speakerText": "Hi there! Table for one?",
+          "speakerTextCn": "您好！一位吗？",
+          "responses": [
+            {
+              "text": "Yeah, just me, thanks.",
+              "text_cn": "对，就我一个，谢谢。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yes, please. I'm alone.",
+              "text_cn": "是的，请。我一个人。",
+              "audio_url": ""
+            },
+            {
+              "text": "One person, please.",
+              "text_cn": "一位，麻烦了。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用简短回答确认人数，语气自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "daily_001_sub_2",
+      "sceneId": "daily_001",
+      "name": "询问推荐",
+      "description": "顾客询问今日特色或推荐菜",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_001_sub_2_qa_1",
+          "subSceneId": "daily_001_sub_2",
+          "speakerText": "What's good today?",
+          "speakerTextCn": "今天有什么推荐的吗？",
+          "responses": [
+            {
+              "text": "I'd go for the grilled salmon — it's amazing!",
+              "text_cn": "我选烤三文鱼，超棒的！",
+              "audio_url": ""
+            },
+            {
+              "text": "The chef's special is really popular.",
+              "text_cn": "主厨特选很受欢迎。",
+              "audio_url": ""
+            },
+            {
+              "text": "Try the pasta. It's fresh.",
+              "text_cn": "试试意面，很新鲜。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用I'd go for...表达个人推荐",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_001_sub_2_qa_2",
+          "subSceneId": "daily_001_sub_2",
+          "speakerText": "Any vegetarian options?",
+          "speakerTextCn": "有素食选项吗？",
+          "responses": [
+            {
+              "text": "Yeah, we got a veggie stir-fry and salad.",
+              "text_cn": "有，有素炒和沙拉。",
+              "audio_url": ""
+            },
+            {
+              "text": "We have a tofu bowl and roasted veggies.",
+              "text_cn": "有豆腐碗和烤蔬菜。",
+              "audio_url": ""
+            },
+            {
+              "text": "Sure, the mushroom risotto is great.",
+              "text_cn": "当然，蘑菇烩饭很棒。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用we got/we have自然回应需求",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_001_sub_3",
+      "sceneId": "daily_001",
+      "name": "点餐确认",
+      "description": "顾客点餐，服务员复述确认",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_001_sub_3_qa_1",
+          "subSceneId": "daily_001_sub_3",
+          "speakerText": "So you'd like the salmon with rice and steamed broccoli?",
+          "speakerTextCn": "您要点三文鱼配米饭和西兰花，对吗？",
+          "responses": [
+            {
+              "text": "Yep, that's right!",
+              "text_cn": "对，没错！",
+              "audio_url": ""
+            },
+            {
+              "text": "Actually, can I swap rice for mashed potatoes?",
+              "text_cn": "能换成土豆泥吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Yes, please. No changes.",
+              "text_cn": "对，不用改。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Yep或Yes确认，或礼貌修改",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_001_sub_3_qa_2",
+          "subSceneId": "daily_001_sub_3",
+          "speakerText": "Would you like a drink with that?",
+          "speakerTextCn": "需要配饮料吗？",
+          "responses": [
+            {
+              "text": "I'll take a glass of water, thanks.",
+              "text_cn": "来杯水就好，谢谢。",
+              "audio_url": ""
+            },
+            {
+              "text": "No thanks, I'm good.",
+              "text_cn": "不用了，我够了。",
+              "audio_url": ""
+            },
+            {
+              "text": "Could I get lemonade?",
+              "text_cn": "可以来杯柠檬水吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用I'll take...或No thanks自然回应",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_001_sub_4",
+      "sceneId": "daily_001",
+      "name": "请求结账",
+      "description": "用餐结束请求结账",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_001_sub_4_qa_1",
+          "subSceneId": "daily_001_sub_4",
+          "speakerText": "How was everything?",
+          "speakerTextCn": "饭菜还合口味吗？",
+          "responses": [
+            {
+              "text": "It was delicious, thanks!",
+              "text_cn": "很好吃，谢谢！",
+              "audio_url": ""
+            },
+            {
+              "text": "Pretty good, yeah.",
+              "text_cn": "还不错，嗯。",
+              "audio_url": ""
+            },
+            {
+              "text": "Awesome! Can I get the check?",
+              "text_cn": "太棒了！能结账吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "先夸再提结账，更礼貌",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_001_sub_4_qa_2",
+          "subSceneId": "daily_001_sub_4",
+          "speakerText": "Can I get the bill, please?",
+          "speakerTextCn": "可以结账吗？",
+          "responses": [
+            {
+              "text": "Sure, I'll bring it right away.",
+              "text_cn": "好的，马上给您。",
+              "audio_url": ""
+            },
+            {
+              "text": "Of course! Will you split it?",
+              "text_cn": "当然！要分开付吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Thanks! I'll pay with card.",
+              "text_cn": "谢谢！我刷卡。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "直接说Can I get...最常用",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}

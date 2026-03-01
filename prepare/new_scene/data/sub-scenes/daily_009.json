@@ -1,0 +1,264 @@
+{
+  "sceneId": "daily_009",
+  "sceneName": "加油站加油",
+  "generatedAt": "2026-03-01T03:35:42.193Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "daily_009_sub_1",
+      "sceneId": "daily_009",
+      "name": "打招呼请求加油",
+      "description": "顾客向加油站员工打招呼并说明需要加油",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_009_sub_1_qa_1",
+          "subSceneId": "daily_009_sub_1",
+          "speakerText": "Hey there! Can I get some gas, please?",
+          "speakerTextCn": "嘿，能给我加点油吗？",
+          "responses": [
+            {
+              "text": "Sure! What kind of gas?",
+              "text_cn": "当然！要哪种油？",
+              "audio_url": ""
+            },
+            {
+              "text": "Of course! Regular, mid-grade, or premium?",
+              "text_cn": "当然！普通、中档还是高级？",
+              "audio_url": ""
+            },
+            {
+              "text": "Yep. What fuel?",
+              "text_cn": "好的，要哪种油？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用简短口语回应，避免冗长",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_009_sub_1_qa_2",
+          "subSceneId": "daily_009_sub_1",
+          "speakerText": "I'd like to fill up, please.",
+          "speakerTextCn": "我想加满油，谢谢。",
+          "responses": [
+            {
+              "text": "No problem. Regular or premium?",
+              "text_cn": "没问题，要普通还是高级？",
+              "audio_url": ""
+            },
+            {
+              "text": "Got it. What grade?",
+              "text_cn": "好的，要什么标号？",
+              "audio_url": ""
+            },
+            {
+              "text": "Sure thing. Which one?",
+              "text_cn": "好的，选哪种？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用缩写形式更自然，适合日常对话",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_009_sub_2",
+      "sceneId": "daily_009",
+      "name": "确认油号和价格",
+      "description": "顾客确认油号并询问单价和总价",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_009_sub_2_qa_1",
+          "subSceneId": "daily_009_sub_2",
+          "speakerText": "Regular's fine. How much per gallon?",
+          "speakerTextCn": "普通就行，每加仑多少钱？",
+          "responses": [
+            {
+              "text": "It's $3.89. Total'll be around $60.",
+              "text_cn": "3.89美元一加仑，总共约60美元。",
+              "audio_url": ""
+            },
+            {
+              "text": "Three eighty-nine. Fill-up's about sixty bucks.",
+              "text_cn": "3.89，加满大概60刀。",
+              "audio_url": ""
+            },
+            {
+              "text": "$3.89/gal. You're looking at $60.",
+              "text_cn": "每加仑3.89，总共60左右。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "注意数字和货币的口语表达方式",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_009_sub_2_qa_2",
+          "subSceneId": "daily_009_sub_2",
+          "speakerText": "Okay, fill it up. Do I need to pay now?",
+          "speakerTextCn": "好的，加满吧，现在付钱吗？",
+          "responses": [
+            {
+              "text": "Yeah, you can pay at the pump or inside.",
+              "text_cn": "对，你可以在加油机或店里付。",
+              "audio_url": ""
+            },
+            {
+              "text": "Either way works. Pay inside or use card at the pump.",
+              "text_cn": "哪种都行，店里付或加油机刷卡都可。",
+              "audio_url": ""
+            },
+            {
+              "text": "Inside. Card or cash?",
+              "text_cn": "去店里，刷卡还是现金？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "提供选择时用either或both更自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_009_sub_3",
+      "sceneId": "daily_009",
+      "name": "支付与索要收据",
+      "description": "顾客选择支付方式并请求收据",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_009_sub_3_qa_1",
+          "subSceneId": "daily_009_sub_3",
+          "speakerText": "I'll pay inside with cash. Can I get a receipt?",
+          "speakerTextCn": "我进去用现金付，能给我收据吗？",
+          "responses": [
+            {
+              "text": "Sure thing. Here you go!",
+              "text_cn": "当然，给你！",
+              "audio_url": ""
+            },
+            {
+              "text": "Yep. Receipt's right here.",
+              "text_cn": "好的，收据在这儿。",
+              "audio_url": ""
+            },
+            {
+              "text": "Of course. You want it printed?",
+              "text_cn": "当然，要打印出来吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "索要收据用Can I get...最自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_009_sub_3_qa_2",
+          "subSceneId": "daily_009_sub_3",
+          "speakerText": "I'm good with card. No receipt, thanks.",
+          "speakerTextCn": "我刷卡就行，不用收据了，谢谢。",
+          "responses": [
+            {
+              "text": "All set! Have a safe trip!",
+              "text_cn": "搞定啦，一路平安！",
+              "audio_url": ""
+            },
+            {
+              "text": "Done! Drive safe!",
+              "text_cn": "好了，开车小心！",
+              "audio_url": ""
+            },
+            {
+              "text": "Cool. See you next time!",
+              "text_cn": "行，下次见！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "拒绝收据后常伴随道别语",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_009_sub_4",
+      "sceneId": "daily_009",
+      "name": "道别与感谢",
+      "description": "顾客和员工礼貌道别，完成对话",
+      "order": 4,
+      "estimatedMinutes": 3,
+      "qaPairs": [
+        {
+          "id": "daily_009_sub_4_qa_1",
+          "subSceneId": "daily_009_sub_4",
+          "speakerText": "Thanks a lot! Have a good one!",
+          "speakerTextCn": "非常感谢！你今天也愉快！",
+          "responses": [
+            {
+              "text": "You're welcome! Drive safe!",
+              "text_cn": "不客气，开车小心！",
+              "audio_url": ""
+            },
+            {
+              "text": "No problem! See ya!",
+              "text_cn": "没事，再见！",
+              "audio_url": ""
+            },
+            {
+              "text": "Anytime! Have a great day!",
+              "text_cn": "随时欢迎，祝你今天愉快！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "回应感谢时用You're welcome最常用",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_009_sub_4_qa_2",
+          "subSceneId": "daily_009_sub_4",
+          "speakerText": "Appreciate it! Bye!",
+          "speakerTextCn": "谢谢！再见！",
+          "responses": [
+            {
+              "text": "Bye! Come back soon!",
+              "text_cn": "拜！欢迎再来！",
+              "audio_url": ""
+            },
+            {
+              "text": "Later!",
+              "text_cn": "回头见！",
+              "audio_url": ""
+            },
+            {
+              "text": "Take care!",
+              "text_cn": "保重！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "非正式道别用Bye/Later更地道",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}

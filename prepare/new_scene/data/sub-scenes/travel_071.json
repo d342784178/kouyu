@@ -1,0 +1,328 @@
+{
+  "sceneId": "travel_071",
+  "sceneName": "酒店退房",
+  "generatedAt": "2026-03-01T03:38:46.777Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "travel_071_sub_1",
+      "sceneId": "travel_071",
+      "name": "问候退房",
+      "description": "客人向前台礼貌提出退房请求",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_071_sub_1_qa_1",
+          "subSceneId": "travel_071_sub_1",
+          "speakerText": "Good morning! I'd like to check out today.",
+          "speakerTextCn": "早上好！我想今天退房。",
+          "responses": [
+            {
+              "text": "Sure, I can help with that. Could I have your room number?",
+              "text_cn": "当然，我来帮您。能告诉我房号吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "OK, checkout? Just a sec!",
+              "text_cn": "好的，退房？等一下！",
+              "audio_url": ""
+            },
+            {
+              "text": "Check out? Room 305?",
+              "text_cn": "退房？305房吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用I'd like to check out最自然，别说I want",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_071_sub_1_qa_2",
+          "subSceneId": "travel_071_sub_1",
+          "speakerText": "I'm in room 412. Can I get my bill now?",
+          "speakerTextCn": "我住412房，能现在给我账单吗？",
+          "responses": [
+            {
+              "text": "Absolutely, I'll pull up your account right away.",
+              "text_cn": "当然，我马上调出您的账单。",
+              "audio_url": ""
+            },
+            {
+              "text": "Bill? One minute, I'll check.",
+              "text_cn": "账单？等一分钟，我查一下。",
+              "audio_url": ""
+            },
+            {
+              "text": "412? Got it, bill coming!",
+              "text_cn": "412？收到，账单马上来！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "问账单用Can I get...最礼貌实用",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_071_sub_2",
+      "sceneId": "travel_071",
+      "name": "核对设施",
+      "description": "确认房间物品是否完好，有无损坏",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_071_sub_2_qa_1",
+          "subSceneId": "travel_071_sub_2",
+          "speakerText": "Did you use the minibar or damage anything?",
+          "speakerTextCn": "您用过迷你吧或弄坏东西了吗？",
+          "responses": [
+            {
+              "text": "No, I didn't touch anything. Everything's fine.",
+              "text_cn": "没有，我什么都没碰，一切正常。",
+              "audio_url": ""
+            },
+            {
+              "text": "I had a soda, but no damage.",
+              "text_cn": "我喝了一罐汽水，没弄坏东西。",
+              "audio_url": ""
+            },
+            {
+              "text": "Minibar? Yeah, one bottle.",
+              "text_cn": "迷你吧？喝了一瓶。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用I didn't touch anything表达无损坏",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_071_sub_2_qa_2",
+          "subSceneId": "travel_071_sub_2",
+          "speakerText": "The TV remote's battery is dead, sorry.",
+          "speakerTextCn": "电视遥控器电池没电了，不好意思。",
+          "responses": [
+            {
+              "text": "No worries, we'll replace it. No extra charge.",
+              "text_cn": "别担心，我们会换，不收费。",
+              "audio_url": ""
+            },
+            {
+              "text": "Oh, my bad! I'll pay for it.",
+              "text_cn": "哦，我的错！我来付钱。",
+              "audio_url": ""
+            },
+            {
+              "text": "Battery? Just tell the desk.",
+              "text_cn": "电池？跟前台说就行。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "道歉用My bad或Sorry，别用I am sorry太正式",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_071_sub_3",
+      "sceneId": "travel_071",
+      "name": "支付确认",
+      "description": "选择支付方式并确认金额",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_071_sub_3_qa_1",
+          "subSceneId": "travel_071_sub_3",
+          "speakerText": "Your total is $189.50. How'd you like to pay?",
+          "speakerTextCn": "总计189.5美元，您想怎么付？",
+          "responses": [
+            {
+              "text": "I'll pay with my credit card, please.",
+              "text_cn": "我用信用卡支付。",
+              "audio_url": ""
+            },
+            {
+              "text": "Cash only, please.",
+              "text_cn": "只付现金。",
+              "audio_url": ""
+            },
+            {
+              "text": "Card's fine.",
+              "text_cn": "刷卡就行。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "How'd you like to pay?是标准问法，别改",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_071_sub_3_qa_2",
+          "subSceneId": "travel_071_sub_3",
+          "speakerText": "The card's declined. Can you try another one?",
+          "speakerTextCn": "卡被拒了，能换一张吗？",
+          "responses": [
+            {
+              "text": "Sure, here's my other card.",
+              "text_cn": "当然，这是另一张卡。",
+              "audio_url": ""
+            },
+            {
+              "text": "Uh, I'll pay cash instead.",
+              "text_cn": "呃，我改付现金吧。",
+              "audio_url": ""
+            },
+            {
+              "text": "Try again? I'll call my bank.",
+              "text_cn": "再试一次？我打给银行。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用I'll pay cash instead表达切换方式",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_071_sub_4",
+      "sceneId": "travel_071",
+      "name": "索取发票",
+      "description": "礼貌索要发票或收据用于报销",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_071_sub_4_qa_1",
+          "subSceneId": "travel_071_sub_4",
+          "speakerText": "Could I get a receipt for my expenses?",
+          "speakerTextCn": "能给我一张报销用的收据吗？",
+          "responses": [
+            {
+              "text": "Of course! I'll email it or print it for you.",
+              "text_cn": "当然！可以发邮件或打印给您。",
+              "audio_url": ""
+            },
+            {
+              "text": "Receipt? Here you go.",
+              "text_cn": "收据？给你。",
+              "audio_url": ""
+            },
+            {
+              "text": "Need a receipt? Just ask next time.",
+              "text_cn": "要收据？下次直接说。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Could I get...最得体，别用Give me",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_071_sub_4_qa_2",
+          "subSceneId": "travel_071_sub_4",
+          "speakerText": "Can you put my company name on it? It's ABC Corp.",
+          "speakerTextCn": "能写上我公司名字吗？是ABC公司。",
+          "responses": [
+            {
+              "text": "No problem, I'll add ABC Corp. right away.",
+              "text_cn": "没问题，马上加上ABC公司。",
+              "audio_url": ""
+            },
+            {
+              "text": "Company? Sure, I'll write it.",
+              "text_cn": "公司？行，我写上。",
+              "audio_url": ""
+            },
+            {
+              "text": "ABC Corp.? Got it.",
+              "text_cn": "ABC公司？收到。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "直接说公司名，别用My company is...",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_071_sub_5",
+      "sceneId": "travel_071",
+      "name": "道别离店",
+      "description": "完成手续后礼貌告别并感谢",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_071_sub_5_qa_1",
+          "subSceneId": "travel_071_sub_5",
+          "speakerText": "All set! Have a great trip home!",
+          "speakerTextCn": "搞定啦！祝您回家旅途愉快！",
+          "responses": [
+            {
+              "text": "Thanks so much! You've been wonderful.",
+              "text_cn": "太感谢了！你们服务真好。",
+              "audio_url": ""
+            },
+            {
+              "text": "Appreciate it! Bye!",
+              "text_cn": "谢谢！拜拜！",
+              "audio_url": ""
+            },
+            {
+              "text": "Cool, thanks. See ya!",
+              "text_cn": "好，谢谢，再见！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用Thanks so much表达真诚感谢",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_071_sub_5_qa_2",
+          "subSceneId": "travel_071_sub_5",
+          "speakerText": "Hope to see you again soon!",
+          "speakerTextCn": "希望很快再见到您！",
+          "responses": [
+            {
+              "text": "I definitely will! Thanks again.",
+              "text_cn": "我一定会再来的！再次感谢。",
+              "audio_url": ""
+            },
+            {
+              "text": "For sure! Bye!",
+              "text_cn": "一定！拜！",
+              "audio_url": ""
+            },
+            {
+              "text": "Maybe next year!",
+              "text_cn": "也许明年吧！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用I definitely will表达明确回访意愿",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}

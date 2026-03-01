@@ -1,0 +1,200 @@
+{
+  "sceneId": "daily_025",
+  "sceneName": "报刊亭买杂志",
+  "generatedAt": "2026-03-01T03:36:40.531Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "daily_025_sub_1",
+      "sceneId": "daily_025",
+      "name": "打招呼问货",
+      "description": "顾客询问报刊亭是否有最新杂志",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_025_sub_1_qa_1",
+          "subSceneId": "daily_025_sub_1",
+          "speakerText": "Hey, got the new National Geographic?",
+          "speakerTextCn": "嘿，有最新一期《国家地理》吗？",
+          "responses": [
+            {
+              "text": "Yeah, right here. Want one?",
+              "text_cn": "有，在这儿呢，要一本吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Sorry, sold out yesterday.",
+              "text_cn": "抱歉，昨天就卖完了。",
+              "audio_url": ""
+            },
+            {
+              "text": "Let me check.",
+              "text_cn": "我看看。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用简短口语问货，别用完整句子",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_025_sub_1_qa_2",
+          "subSceneId": "daily_025_sub_1",
+          "speakerText": "I'd like one, please. How much?",
+          "speakerTextCn": "我想要一本，多少钱？",
+          "responses": [
+            {
+              "text": "Three bucks.",
+              "text_cn": "三美元。",
+              "audio_url": ""
+            },
+            {
+              "text": "That's $3.50 with tax.",
+              "text_cn": "含税3.5美元。",
+              "audio_url": ""
+            },
+            {
+              "text": "Just $3.",
+              "text_cn": "就三块。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "直接问价，别加‘Can you tell me?’",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_025_sub_2",
+      "sceneId": "daily_025",
+      "name": "加购饮料",
+      "description": "顾客顺带问有没有饮料可买",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_025_sub_2_qa_1",
+          "subSceneId": "daily_025_sub_2",
+          "speakerText": "You got any soda or water?",
+          "speakerTextCn": "有汽水或水吗？",
+          "responses": [
+            {
+              "text": "Sure, water's $1.50.",
+              "text_cn": "有，水1.5美元。",
+              "audio_url": ""
+            },
+            {
+              "text": "Only soda left — Coke or Sprite.",
+              "text_cn": "只剩汽水了，可乐或雪碧。",
+              "audio_url": ""
+            },
+            {
+              "text": "Nah, no drinks today.",
+              "text_cn": "没有饮料了。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用‘You got...?’问有无，更自然",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_025_sub_2_qa_2",
+          "subSceneId": "daily_025_sub_2",
+          "speakerText": "I'll take a Coke then. Total?",
+          "speakerTextCn": "那我来瓶可乐，总共多少？",
+          "responses": [
+            {
+              "text": "That's $4.50 all together.",
+              "text_cn": "一共4.5美元。",
+              "audio_url": ""
+            },
+            {
+              "text": "Three for the mag, one fifty for the Coke.",
+              "text_cn": "杂志三块，可乐一块五。",
+              "audio_url": ""
+            },
+            {
+              "text": "Five bucks.",
+              "text_cn": "五块。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用‘Total?’简洁结账，别啰嗦",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "daily_025_sub_3",
+      "sceneId": "daily_025",
+      "name": "确认付款",
+      "description": "顾客付钱，摊主找零并道别",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_025_sub_3_qa_1",
+          "subSceneId": "daily_025_sub_3",
+          "speakerText": "Here's five.",
+          "speakerTextCn": "给你五块钱。",
+          "responses": [
+            {
+              "text": "Thanks! Here's your change — 50 cents.",
+              "text_cn": "谢谢！找你50美分。",
+              "audio_url": ""
+            },
+            {
+              "text": "Got it. Have a good one!",
+              "text_cn": "收到，祝你今天愉快！",
+              "audio_url": ""
+            },
+            {
+              "text": "All set!",
+              "text_cn": "搞定！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "付钱后说‘Here's...’自然又简洁",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "daily_025_sub_3_qa_2",
+          "subSceneId": "daily_025_sub_3",
+          "speakerText": "Thanks! See you tomorrow!",
+          "speakerTextCn": "谢谢！明天见！",
+          "responses": [
+            {
+              "text": "Sure thing! Catch you later!",
+              "text_cn": "没问题！回头见！",
+              "audio_url": ""
+            },
+            {
+              "text": "Bye! Come back soon.",
+              "text_cn": "拜！常来啊。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yep, have a nice day.",
+              "text_cn": "嗯，祝你有美好的一天。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "道别用口语短句，别用‘Goodbye’",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}

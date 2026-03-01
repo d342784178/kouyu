@@ -1,0 +1,210 @@
+{
+  "sceneId": "travel_069",
+  "sceneName": "租车还车",
+  "generatedAt": "2026-03-01T03:38:41.566Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "subScenes": [
+    {
+      "id": "travel_069_sub_1",
+      "sceneId": "travel_069",
+      "name": "问候还车",
+      "description": "到达还车点，与工作人员打招呼",
+      "order": 1,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_069_sub_1_qa_1",
+          "subSceneId": "travel_069_sub_1",
+          "speakerText": "Hi there! You're back with the rental car?",
+          "speakerTextCn": "嗨！你把租的车开回来了？",
+          "responses": [
+            {
+              "text": "Yeah, I'm returning the car from last week.",
+              "text_cn": "是的，我来还上周租的车。",
+              "audio_url": ""
+            },
+            {
+              "text": "Hi! I'd like to return the vehicle, please.",
+              "text_cn": "您好，我想办理还车手续。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yep, here it is.",
+              "text_cn": "对，车在这儿。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "用简短回应快速进入主题",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "travel_069_sub_2",
+      "sceneId": "travel_069",
+      "name": "检查车况",
+      "description": "确认油量和车身损伤情况",
+      "order": 2,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_069_sub_2_qa_1",
+          "subSceneId": "travel_069_sub_2",
+          "speakerText": "The tank's about half full—did you refill it?",
+          "speakerTextCn": "油箱大概一半满，你加过油吗？",
+          "responses": [
+            {
+              "text": "Yeah, I filled it up before returning.",
+              "text_cn": "加满了，我回来前加的油。",
+              "audio_url": ""
+            },
+            {
+              "text": "I didn't, but I thought it was okay.",
+              "text_cn": "我没加，我以为没关系。",
+              "audio_url": ""
+            },
+            {
+              "text": "Oops, I forgot—can I pay extra?",
+              "text_cn": "糟了，我忘了，能补钱吗？",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "如实说明油量情况避免纠纷",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_069_sub_2_qa_2",
+          "subSceneId": "travel_069_sub_2",
+          "speakerText": "There's a small scratch on the driver's side door—did you notice that?",
+          "speakerTextCn": "驾驶座门上有道小划痕，你注意到了吗？",
+          "responses": [
+            {
+              "text": "I'm sorry, I didn't see it when I picked it up.",
+              "text_cn": "抱歉，取车时我没注意到。",
+              "audio_url": ""
+            },
+            {
+              "text": "Yeah, that was there already—I checked the report.",
+              "text_cn": "取车时就有，我看过检查单了。",
+              "audio_url": ""
+            },
+            {
+              "text": "Oh no, I must've gotten it yesterday.",
+              "text_cn": "哎呀，我昨天刮的。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "区分新旧损伤，保留证据",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    },
+    {
+      "id": "travel_069_sub_3",
+      "sceneId": "travel_069",
+      "name": "交接钥匙与收据",
+      "description": "归还钥匙并索要还车收据",
+      "order": 3,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_069_sub_3_qa_1",
+          "subSceneId": "travel_069_sub_3",
+          "speakerText": "Here's your key—everything looks good on our end.",
+          "speakerTextCn": "这是��的钥匙，我们这边检查没问题。",
+          "responses": [
+            {
+              "text": "Great! Could I get a receipt, please?",
+              "text_cn": "太好了！能给我一张收据吗？",
+              "audio_url": ""
+            },
+            {
+              "text": "Thanks! Do you email it or give paper?",
+              "text_cn": "谢谢！是发邮件还是给纸质的？",
+              "audio_url": ""
+            },
+            {
+              "text": "Awesome, thanks!",
+              "text_cn": "太棒了，谢谢！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "主动索要收据，保留凭证",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        }
+      ]
+    },
+    {
+      "id": "travel_069_sub_4",
+      "sceneId": "travel_069",
+      "name": "确认费用与道别",
+      "description": "确认无额外费用后礼貌道别",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_069_sub_4_qa_1",
+          "subSceneId": "travel_069_sub_4",
+          "speakerText": "No extra charges—your card was only charged for the base rate.",
+          "speakerTextCn": "没有额外费用，只扣了基础租金。",
+          "responses": [
+            {
+              "text": "Perfect! Thanks so much for your help.",
+              "text_cn": "太好了！非常感谢你的帮助。",
+              "audio_url": ""
+            },
+            {
+              "text": "No extra fees? Sweet!",
+              "text_cn": "没额外费用？太好了！",
+              "audio_url": ""
+            },
+            {
+              "text": "Really? That's good to hear.",
+              "text_cn": "真的吗？那太好了。",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "确认无争议后表达感谢",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 1
+        },
+        {
+          "id": "travel_069_sub_4_qa_2",
+          "subSceneId": "travel_069_sub_4",
+          "speakerText": "Have a safe trip home!",
+          "speakerTextCn": "回家路上注意安全！",
+          "responses": [
+            {
+              "text": "Thanks, you too! See you next time!",
+              "text_cn": "谢谢，你也是！下次见！",
+              "audio_url": ""
+            },
+            {
+              "text": "Appreciate it! Bye!",
+              "text_cn": "谢谢！拜拜！",
+              "audio_url": ""
+            },
+            {
+              "text": "Will do, thanks!",
+              "text_cn": "一定，谢谢！",
+              "audio_url": ""
+            }
+          ],
+          "usageNote": "简短礼貌道别，留下好印象",
+          "audioUrl": null,
+          "qaType": "must_speak",
+          "order": 2
+        }
+      ]
+    }
+  ]
+}
