@@ -70,7 +70,7 @@ export default function SceneCard({ scene, index }: SceneCardProps) {
   const learningTime = scene.dialogueCount ? `${scene.dialogueCount * 2}分钟` : '10分钟'
 
   return (
-    <Link href={`/scene-detail/${scene.id}`} className="block">
+    <Link href={`/scene-overview/${scene.id}`} className="block">
       <motion.div
         whileTap={{ scale: 0.99 }}
         className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"

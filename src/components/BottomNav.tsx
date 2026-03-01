@@ -97,7 +97,7 @@ const navItems = [
     icon: BookIcon,
   },
   {
-    path: '/scene-list',
+    path: '/scene-learning',
     label: '场景学习',
     icon: SceneIcon,
   },
@@ -108,26 +108,15 @@ const navItems = [
   },
 ]
 
-// 仅在首页显示的额外导航项
-const homeExtraItem = {
-  path: '/scene-learning',
-  label: '场景学习(新)',
-  icon: SceneIcon,
-}
-
 export default function BottomNav() {
   const pathname = usePathname()
-  const isHome = pathname === '/'
 
   const isActive = (path: string) => {
     if (path === '/') return pathname === '/'
     return pathname.startsWith(path)
   }
 
-  // 首页时在"场景学习"后插入额外项
-  const items = isHome
-    ? [...navItems.slice(0, 3), homeExtraItem, ...navItems.slice(3)]
-    : navItems
+  const items = navItems
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-100 bottom-nav-shadow safe-bottom">

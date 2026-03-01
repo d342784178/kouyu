@@ -737,9 +737,19 @@ export default function PracticeStage({ subSceneId, onProceed }: PracticeStagePr
           <span className="text-xs text-gray-500 font-medium">
             第 {currentIndex + 1} 题 / 共 {total} 题
           </span>
-          <span className="text-xs text-gray-400">
-            {currentQuestion.type === 'choice' ? '选择题' : currentQuestion.type === 'fill_blank' ? '填空题' : '问答题'}
-          </span>
+          <div className="flex items-center gap-3">
+            <span className="text-xs text-gray-400">
+              {currentQuestion.type === 'choice' ? '选择题' : currentQuestion.type === 'fill_blank' ? '填空题' : '问答题'}
+            </span>
+            {/* 跳过练习按钮 */}
+            <button
+              type="button"
+              onClick={onProceed}
+              className="text-xs text-[#4F7CF0] hover:text-[#3D6ADE] font-medium transition-colors"
+            >
+              跳过练习
+            </button>
+          </div>
         </div>
         {/* 进度条 */}
         <div className="w-full h-1.5 bg-gray-100 rounded-full overflow-hidden">

@@ -181,7 +181,7 @@ export const SELECTORS = {
   },
   // 场景详情页
   sceneDetail: {
-    backButton: 'a[href="/scene-list"]',
+    backButton: 'a[href="/scene-learning"]',
     sceneName: 'h1',
     difficultyBadge: 'span:has-text("初级"), span:has-text("中级"), span:has-text("高级")',
     dialogueSection: 'h2:has-text("对话学习")',

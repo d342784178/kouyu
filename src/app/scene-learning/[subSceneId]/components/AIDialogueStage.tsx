@@ -359,7 +359,7 @@ export default function AIDialogueStage({
         if (!res.ok) throw new Error('API 请求失败')
 
         const data = await res.json()
-        const { pass, nextQaIndex, aiMessage, isComplete: done } = data
+        const { pass, nextQaIndex, aiMessage, isComplete: done, hint } = data
 
         // 记录当前 QA_Pair 的回应状态（仅在通过时记录）
         const currentQa = qaPairs[currentQaIndexRef.current]
@@ -383,12 +383,13 @@ export default function AIDialogueStage({
 
         // pass: false 时，弹出确认弹窗，等用户确认后撤销消息并重新输入
         if (!pass) {
-          const hint = aiMessage || "Hmm, that doesn't quite fit. Try again!"
+          // 使用大模型返回的具体提示信息，或默认提示
+          const hintText = hint || '回答与场景不符，请重新尝试'
           // 找到刚才加入的用户消息 id（消息列表最后一条）
           setMessages((prev) => {
             const lastUserMsg = [...prev].reverse().find((m) => m.role === 'user')
             if (lastUserMsg) {
-              setRetryPrompt({ hint, userMsgId: lastUserMsg.id })
+              setRetryPrompt({ hint: hintText, userMsgId: lastUserMsg.id })
             }
             return prev
           })

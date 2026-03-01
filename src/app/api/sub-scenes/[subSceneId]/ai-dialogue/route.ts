@@ -66,7 +66,8 @@ export async function POST(
 你需要返回一个 JSON 对象，格式如下：
 {
   "pass": true/false,  // 用户回应是否语义匹配
-  "reason": "简短说明"  // 判断理由（中文，20字以内）
+  "reason": "简短说明判断理由（中文，20字以内）",
+  "hint": "当pass为false时，给出具体的提示信息（中文，告诉用户应该如何回应，30字以内）"
 }
 只返回 JSON，不要有其他内容。`,
       },
@@ -82,20 +83,22 @@ ${responseOptions}
 
 用户实际回应：${userMessage}
 
-请判断用户回应是否语义匹配。`,
+请判断用户回应是否语义匹配。如果不匹配，请给出具体的提示信息。`,
       },
     ]
 
-    const llmResult = await callLLM(messages, 0.3, 200, 'glm')
+    const llmResult = await callLLM(messages, 0.3, 300, 'glm')
 
     // 解析 LLM 返回的 JSON
     let pass = false
+    let hint: string | undefined
     try {
       // 提取 JSON 内容（防止 LLM 返回多余文字）
       const jsonMatch = llmResult.content.match(/\{[\s\S]*\}/)
       if (jsonMatch) {
         const parsed = JSON.parse(jsonMatch[0])
         pass = Boolean(parsed.pass)
+        hint = parsed.hint
       }
     } catch {
       console.warn('[ai-dialogue] LLM 返回内容解析失败，默认 pass=false:', llmResult.content)
@@ -121,6 +124,7 @@ ${responseOptions}
       nextQaIndex,
       aiMessage,
       isComplete,
+      hint: !pass ? hint : undefined,
     }
 
     return NextResponse.json(response, { status: 200 })

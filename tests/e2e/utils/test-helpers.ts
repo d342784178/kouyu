@@ -9,20 +9,20 @@ export async function waitForPageLoad(page: Page) {
 
 // 导航到场景列表页
 export async function navigateToSceneList(page: Page) {
-  await page.goto('/scene-list')
+  await page.goto('/scene-learning')
   await waitForPageLoad(page)
   await expect(page.locator(SELECTORS.sceneList.header)).toBeVisible()
 }
 
 // 导航到场景详情页
 export async function navigateToSceneDetail(page: Page, sceneId: string = TEST_SCENES.daily.id) {
-  await page.goto(`/scene-detail/${sceneId}`)
+  await page.goto(`/scene-overview/${sceneId}`)
   await waitForPageLoad(page)
 }
 
 // 导航到场景测试页
 export async function navigateToSceneTest(page: Page, sceneId: string = TEST_SCENES.daily.id) {
-  await page.goto(`/scene-test/${sceneId}`)
+  await page.goto(`/scene-learning/${sceneId}`)
   await waitForPageLoad(page)
 }
 

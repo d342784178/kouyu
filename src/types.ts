@@ -288,6 +288,8 @@ export interface AIDialogueResponse {
   aiMessage?: string
   /** 是否所有 QA_Pair 都已完成 */
   isComplete: boolean
+  /** 回应不匹配时的具体提示信息（中文） */
+  hint?: string
 }
 
 /**

@@ -244,7 +244,7 @@ test.describe('场景大纲列表页 (scene-overview)', () => {
 
   test('点击返回按钮应返回上一页', async ({ page }) => {
     // 先访问一个页面，再进入大纲页，确保有历史记录
-    await page.goto('/scene-list')
+    await page.goto('/scene-learning')
     await mockSubScenesApi(page)
     await page.goto(`/scene-overview/${MOCK_SCENE_ID}`)
 
@@ -252,7 +252,7 @@ test.describe('场景大纲列表页 (scene-overview)', () => {
 
     // 点击返回按钮
     await page.getByRole('button', { name: '返回' }).click()
-    // 应返回到 scene-list
-    await expect(page).toHaveURL(/scene-list/)
+    // 应返回到 scene-learning
+    await expect(page).toHaveURL(/scene-learning/)
   })
 })

@@ -311,7 +311,7 @@ export default function Home() {
         <div className="mb-6">
           <div className="flex items-center justify-between mb-3">
             <span className="font-semibold text-gray-800">推荐场景</span>
-            <Link href="/scene-list" className="text-sm text-[#4F7CF0] flex items-center gap-0.5 hover:opacity-80 transition-opacity py-2 px-1 -mr-1">
+            <Link href="/scene-learning" className="text-sm text-[#4F7CF0] flex items-center gap-0.5 hover:opacity-80 transition-opacity py-2 px-1 -mr-1">
               更多
               <ChevronRightIcon />
             </Link>
