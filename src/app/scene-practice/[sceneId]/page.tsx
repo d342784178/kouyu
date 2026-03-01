@@ -86,7 +86,7 @@ export default function ScenePracticePage() {
     return (
       <Loading
         message="正在准备练习内容..."
-        subMessage="AI正在为您生成个性化对话场景"
+        subMessage="AI 正在为您生成个性化对话场景"
         fullScreen
       />
     )
@@ -95,10 +95,10 @@ export default function ScenePracticePage() {
   if (error || !practiceContent) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8]">
-        <div className="max-w-[430px] mx-auto px-4 pt-6">
+        <div className="max-w-[430px] mx-auto px-6 pt-6">
           <div className="flex items-center mb-6">
             <BackButton onClick={handleBack} />
-            <h2 className="ml-3 text-base font-medium text-gray-600">自主AI练习</h2>
+            <h2 className="ml-3 text-base font-medium text-gray-600">自主 AI 练习</h2>
           </div>
 
           <motion.div
@@ -129,12 +129,12 @@ export default function ScenePracticePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8]">
-      <div className="max-w-[430px] mx-auto px-4 pt-6">
+      <div className="max-w-[430px] mx-auto px-6 pt-6">
         <div className="flex items-center mb-4">
           <BackButton onClick={handleBack} />
           <div className="ml-3">
             <h2 className="text-base font-medium text-gray-900">{practiceContent.scene.name}</h2>
-            <p className="text-xs text-gray-500">自主AI练习</p>
+            <p className="text-xs text-gray-500">自主 AI 练习</p>
           </div>
         </div>
       </div>

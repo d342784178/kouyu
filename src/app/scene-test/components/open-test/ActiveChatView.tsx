@@ -74,28 +74,18 @@ export default function ActiveChatView({
   }
 
   return (
-    <div className="flex flex-col h-full bg-white">
-      {/* 顶部导航栏 - 简化设计 */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 bg-white">
-        {onBack && (
-          <button
-            onClick={onBack}
-            className="flex items-center gap-1 text-gray-500 hover:text-[#4F7CF0] transition-colors px-2 py-1 -ml-2 rounded-lg hover:bg-gray-50"
-          >
-            <ChevronLeft className="h-5 w-5" />
-            <span className="text-sm font-medium">返回角色选择</span>
-          </button>
-        )}
-        <div className="flex-1 text-center">
+    <div className="flex flex-col h-full bg-[#F5F6FA] relative">
+      {/* 顶部导航栏 - 仅显示居中标题 */}
+      <div className="flex items-center justify-center px-6 py-3 border-b border-gray-100 bg-white shrink-0">
+        <div className="text-center">
           <span className="text-base font-semibold text-gray-800">对话练习</span>
         </div>
-        <div className="w-24" />
       </div>
 
-      {/* 对话区域 - 可滚动 */}
+      {/* 对话区域 - 可滚动，使用 pb-[140px] 为底部固定控制栏留出空间 */}
       <div
         ref={scrollContainerRef}
-        className="flex-1 overflow-y-auto px-4 py-4 space-y-5"
+        className="flex-1 overflow-y-auto px-6 py-4 space-y-5 pb-[140px]"
       >
         {messages.length === 0 ? (
           <div className="flex items-center justify-center h-full text-[#6B7280] text-sm">
@@ -188,8 +178,8 @@ export default function ActiveChatView({
         )}
       </div>
 
-      {/* 底部固定区域 */}
-      <div className="border-t border-gray-100 bg-white px-4 py-3 pb-safe">
+      {/* 底部固定控制栏 - 使用 fixed 定位固定在页面底部 */}
+      <div className="fixed bottom-0 left-0 right-0 max-w-[430px] mx-auto border-t border-gray-100 bg-white px-6 py-4 pb-safe safe-bottom">
         {/* 轮次显示 */}
         <div className="text-center text-xs text-gray-500 mb-3">
           第 {currentRound} / {maxRounds} 轮
