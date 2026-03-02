@@ -1,0 +1,75 @@
+{
+  "subSceneId": "daily_008_sub_3",
+  "subSceneName": "询问运费和方式",
+  "questionType": "speaking",
+  "generatedAt": "2026-03-02T14:37:14.426Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_008_sub_3_speaking_1",
+      "subSceneId": "daily_008_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_008_sub_3_qa_1",
+        "speakerText": "How much for standard shipping and express?",
+        "speakerTextCn": "普通快递和特快多少钱？",
+        "expectedAnswers": [
+          "Standard is $15 and express is $35 — express arrives in 3 days.",
+          "The regular one costs $15, but express is double at $35 and faster.",
+          "I’d go with standard — it’s $15, and express is $35, which is a bit steep."
+        ],
+        "evaluationCriteria": [
+          "是否明确区分了两种方式的价格和时效",
+          "是否使用了 but 或对比结构使表达更自然",
+          "是否使用了场景关键词如 standard, express, arrives, cost"
+        ]
+      }
+    },
+    {
+      "id": "daily_008_sub_3_speaking_2",
+      "subSceneId": "daily_008_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_008_sub_3_qa_2",
+        "speakerText": "Can I get it there by Friday?",
+        "speakerTextCn": "能周五前送到吗？",
+        "expectedAnswers": [
+          "Express can make it by Friday, but standard won’t arrive in time.",
+          "It depends on when you ship — if you send it today, express can, standard can’t.",
+          "No way for standard, but express should get there by Friday."
+        ],
+        "evaluationCriteria": [
+          "是否正确使用 won’t / can’t 表达否定，而非模糊表达",
+          "是否根据物流方式给出合理判断",
+          "是否使用了场景关键词如 express, standard, make it, by Friday"
+        ]
+      }
+    },
+    {
+      "id": "daily_008_sub_3_speaking_3",
+      "subSceneId": "daily_008_sub_3",
+      "type": "speaking",
+      "order": 3,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I need to send this package next week. Which option do you recommend?",
+        "speakerTextCn": "我下周要寄这个包裹，你推荐哪种方式？",
+        "expectedAnswers": [
+          "If you need it fast, go with express — it’s $35 and arrives in 3 days. If not, standard at $15 is fine.",
+          "I’d recommend express if you’re on a deadline, otherwise standard saves you $20.",
+          "It depends — if Friday is your target, only express works. Otherwise, standard is more budget-friendly."
+        ],
+        "evaluationCriteria": [
+          "是否根据对方需求（时间/预算）给出针对性建议",
+          "是否使用了对比结构（if...otherwise / otherwise）增强逻辑性",
+          "是否自然使用了场景关键词如 express, standard, arrives, budget-friendly"
+        ]
+      }
+    }
+  ]
+}

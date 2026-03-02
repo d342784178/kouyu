@@ -1,0 +1,78 @@
+{
+  "subSceneId": "travel_055_sub_2",
+  "subSceneName": "询问地点位置",
+  "questionType": "speaking",
+  "generatedAt": "2026-03-02T14:53:25.506Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_055_sub_2_speaking_1",
+      "subSceneId": "travel_055_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_055_sub_2_qa_1",
+        "speakerText": "Do you know how to get to the Central Museum?",
+        "speakerTextCn": "你知道怎么去中央博物馆吗？",
+        "expectedAnswers": [
+          "Yes, it's two blocks north on Main Street.",
+          "Walk straight and turn left at the bank.",
+          "Sorry, I'm not a local, but you can ask at the information desk."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确给出了方向指引或说明无法帮助",
+          "语言准确性：语法和词汇使用是否正确",
+          "表达自然度：是否使用了地道的指路表达（如 turn left, two blocks north）",
+          "关键词覆盖：是否包含方向词（north/left/right）、距离词（blocks）或地点词（bank, museum）"
+        ]
+      }
+    },
+    {
+      "id": "travel_055_sub_2_speaking_2",
+      "subSceneId": "travel_055_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Excuse me, where is the nearest bus stop?",
+        "speakerTextCn": "打扰一下，最近的公交站在哪里？",
+        "expectedAnswers": [
+          "It's just across the street.",
+          "Go straight for about three minutes, then you'll see it on your right.",
+          "I'm not sure, but there's one near the supermarket."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰指出位置或提供可行指引",
+          "语言准确性：使用了正确的介词（on your right, across the street）和动词（go, see）",
+          "表达自然度：是否符合口语习惯，避免生硬翻译",
+          "关键词覆盖：是否使用了地点词（bus stop）、方向词（right, across）或距离词（three minutes）"
+        ]
+      }
+    },
+    {
+      "id": "travel_055_sub_2_speaking_3",
+      "subSceneId": "travel_055_sub_2",
+      "type": "speaking",
+      "order": 3,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Is the train station far from here?",
+        "speakerTextCn": "火车站离这里远吗？",
+        "expectedAnswers": [
+          "No, it's only a 10-minute walk.",
+          "Yes, you'd better take a taxi — it's about 3 kilometers away.",
+          "Not really, you can walk there in five minutes."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确回应距离问题（近/远）并提供补充信息",
+          "语言准确性：使用了恰当的表达如 'only a ... walk' 或 'about ... kilometers'",
+          "表达自然度：是否使用了口语化表达（如 'you'd better', 'not really'）",
+          "关键词覆盖：是否包含距离表达（minutes, kilometers）、动词（walk, take）和地点词（train station）"
+        ]
+      }
+    }
+  ]
+}

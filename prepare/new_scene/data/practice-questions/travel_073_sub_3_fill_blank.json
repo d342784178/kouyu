@@ -1,0 +1,84 @@
+{
+  "subSceneId": "travel_073_sub_3",
+  "subSceneName": "询问终点站",
+  "questionType": "fill_blank",
+  "generatedAt": "2026-03-02T15:11:39.190Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_073_sub_3_fill_blank_1",
+      "subSceneId": "travel_073_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_073_sub_3_qa_1",
+        "template": "Is this the ___ stop? I don't want to miss it.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "last",
+            "options": [
+              "last",
+              "first",
+              "next",
+              "only"
+            ]
+          }
+        ],
+        "hint": "用于确认列车是否为终点站的关键词",
+        "knowledgePoint": "固定表达（last stop）"
+      }
+    },
+    {
+      "id": "travel_073_sub_3_fill_blank_2",
+      "subSceneId": "travel_073_sub_3",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_073_sub_3_qa_2",
+        "template": "Just stay on until you hear '___ Station, last stop'.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Museum",
+            "options": [
+              "Museum",
+              "Central",
+              "Airport",
+              "Downtown"
+            ]
+          }
+        ],
+        "hint": "根据对话内容，这是列车广播中会提到的终点站名称",
+        "knowledgePoint": "场景高频词汇（终点站名称）"
+      }
+    },
+    {
+      "id": "travel_073_sub_3_fill_blank_3",
+      "subSceneId": "travel_073_sub_3",
+      "type": "fill_blank",
+      "order": 3,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'd like to confirm — this train doesn't require any ___ , right?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "transfers",
+            "options": [
+              "transfers",
+              "tickets",
+              "seats",
+              "stops"
+            ]
+          }
+        ],
+        "hint": "询问是否需要换乘时的核心词汇",
+        "knowledgePoint": "核心句型（no transfers needed）"
+      }
+    }
+  ]
+}

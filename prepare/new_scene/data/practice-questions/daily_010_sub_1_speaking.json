@@ -1,0 +1,78 @@
+{
+  "subSceneId": "daily_010_sub_1",
+  "subSceneName": "问候取衣",
+  "questionType": "speaking",
+  "generatedAt": "2026-03-02T14:39:36.895Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_010_sub_1_speaking_1",
+      "subSceneId": "daily_010_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_010_sub_1_qa_1",
+        "speakerText": "Hi there! How can I help you today?",
+        "speakerTextCn": "您好！今天有什么可以帮您的？",
+        "expectedAnswers": [
+          "I'm here to pick up my laundry.",
+          "I've got a receipt for pickup.",
+          "Could I get my clothes, please?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表达取衣目的",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合日常口语习惯",
+          "关键词覆盖：是否使用了 laundry / receipt / pick up 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_010_sub_1_speaking_2",
+      "subSceneId": "daily_010_sub_1",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_010_sub_1_qa_2",
+        "speakerText": "Sure! Do you have your receipt?",
+        "speakerTextCn": "好的，您有取衣单吗？",
+        "expectedAnswers": [
+          "Yeah, here it is.",
+          "I've got it right here.",
+          "Sorry, I lost it. Can you look it up?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确回应票据问题（有/无）",
+          "语言准确性：使用正确动词和代词（have/it）",
+          "表达自然度：是否使用口语化表达（Yeah, right here）",
+          "关键词覆盖：是否使用 receipt / look up 等核心词汇"
+        ]
+      }
+    },
+    {
+      "id": "daily_010_sub_1_speaking_3",
+      "subSceneId": "daily_010_sub_1",
+      "type": "speaking",
+      "order": 3,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Welcome! Are you here to collect your cleaned clothes?",
+        "speakerTextCn": "欢迎！您是来取清洗好的衣服吗？",
+        "expectedAnswers": [
+          "Yes, I'm here to pick them up.",
+          "I have the receipt — here you go.",
+          "Actually, I lost the receipt, but my name is John Smith. Can you check under that?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰回应取衣意图",
+          "语言准确性：使用正确代词（them）和礼貌表达",
+          "表达自然度：是否自然衔接信息（如递票据、提供姓名）",
+          "关键词覆盖：是否使用 pick up / receipt / look up / name 等场景关键词"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "subSceneId": "daily_030_sub_3",
+  "subSceneName": "询问价格",
+  "questionType": "fill_blank",
+  "generatedAt": "2026-03-02T14:42:46.019Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_030_sub_3_fill_blank_1",
+      "subSceneId": "daily_030_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_030_sub_3_qa_1",
+        "template": "These are $89. We've got a 20% off sale this week. So it's ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "$71.20",
+            "options": [
+              "$71.20",
+              "$69.00",
+              "$75.00",
+              "$80.00"
+            ]
+          }
+        ],
+        "hint": "20% off means you pay 80% of the original price",
+        "knowledgePoint": "折扣计算（原价×0.8）"
+      }
+    },
+    {
+      "id": "daily_030_sub_3_fill_blank_2",
+      "subSceneId": "daily_030_sub_3",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "This shirt is $60. We're offering 25% off today. So the final price is ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "$45",
+            "options": [
+              "$45",
+              "$50",
+              "$48",
+              "$55"
+            ]
+          }
+        ],
+        "hint": "25% off means you pay 75% of the original price",
+        "knowledgePoint": "折扣计算（原价×0.75）"
+      }
+    },
+    {
+      "id": "daily_030_sub_3_fill_blank_3",
+      "subSceneId": "daily_030_sub_3",
+      "type": "fill_blank",
+      "order": 3,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'd like to buy these. Could you tell me the ___ after the discount?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "price",
+            "options": [
+              "price",
+              "color",
+              "size",
+              "material"
+            ]
+          }
+        ],
+        "hint": "当你想确认优惠后的金额时，应询问什么词？",
+        "knowledgePoint": "询问价格的固定表达（ask for the price after discount）"
+      }
+    }
+  ]
+}

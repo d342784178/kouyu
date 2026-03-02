@@ -1,0 +1,78 @@
+{
+  "subSceneId": "travel_071_sub_3",
+  "subSceneName": "支付确认",
+  "questionType": "speaking",
+  "generatedAt": "2026-03-02T15:10:47.705Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_071_sub_3_speaking_1",
+      "subSceneId": "travel_071_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_071_sub_3_qa_1",
+        "speakerText": "Your total is $189.50. How'd you like to pay?",
+        "speakerTextCn": "总计189.5美元，您想怎么付？",
+        "expectedAnswers": [
+          "I'll pay with my credit card, please.",
+          "I'll use my debit card.",
+          "Cash is fine, thanks."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回应了支付方式的选择",
+          "语言准确性：语法正确，无明显错误",
+          "表达自然度：使用了口语化表达如'is fine'或'please'，符合真实语境",
+          "关键词覆盖：使用了'pay with', 'credit card', 'debit card', 'cash'等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_071_sub_3_speaking_2",
+      "subSceneId": "travel_071_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_071_sub_3_qa_2",
+        "speakerText": "The card's declined. Can you try another one?",
+        "speakerTextCn": "卡被拒了，能换一张吗？",
+        "expectedAnswers": [
+          "Sure, here's my other card.",
+          "I'll pay cash instead.",
+          "Can you try once more? I'll call my bank right away."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：有效回应了换卡或切换支付方式的要求",
+          "语言准确性：正确使用了'instead', 'try again', 'call my bank'等表达",
+          "表达自然度：语气自然，包含口语填充词如'Uh'或'right away'可加分",
+          "关键词覆盖：使用了'declined', 'another card', 'pay cash instead'等核心短语"
+        ]
+      }
+    },
+    {
+      "id": "travel_071_sub_3_speaking_3",
+      "subSceneId": "travel_071_sub_3",
+      "type": "speaking",
+      "order": 3,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "The total is $55.20. Would you like to pay with card or cash?",
+        "speakerTextCn": "总计55.20美元，您想用卡还是现金支付？",
+        "expectedAnswers": [
+          "I'll go with the card, please.",
+          "Cash, please — I don't have my card with me.",
+          "Card is fine, thanks. No need for a receipt."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰选择支付方式，未回避问题",
+          "语言准确性：语法正确，使用了恰当的礼貌用语如'please', 'thanks'",
+          "表达自然度：表达简洁，符合日常支付对话节奏",
+          "关键词覆盖：使用了'card', 'cash', 'go with', 'no need for'等场景相关表达"
+        ]
+      }
+    }
+  ]
+}

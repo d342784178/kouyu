@@ -1,0 +1,81 @@
+{
+  "subSceneId": "daily_003_sub_3",
+  "subSceneName": "询问价格",
+  "questionType": "speaking",
+  "generatedAt": "2026-03-02T14:34:35.402Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_003_sub_3_speaking_1",
+      "subSceneId": "daily_003_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_003_sub_3_qa_1",
+        "speakerText": "That'll be $5.20. For here or to go?",
+        "speakerTextCn": "5块2，这里喝还是带走？",
+        "expectedAnswers": [
+          "To go, please.",
+          "I'll have it to go.",
+          "I'd like to take it with me.",
+          "I'll drink it here."
+        ],
+        "evaluationCriteria": [
+          "是否明确回应了'for here or to go'的选择",
+          "语法是否正确，用词是否自然",
+          "是否使用了场景关键词如'to go'或'here'",
+          "是否避免了无关信息（如议价或支付方式）"
+        ]
+      }
+    },
+    {
+      "id": "daily_003_sub_3_speaking_2",
+      "subSceneId": "daily_003_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_003_sub_3_qa_2",
+        "speakerText": "You're all set — just $5.20.",
+        "speakerTextCn": "好了，一共5块2。",
+        "expectedAnswers": [
+          "Here you go.",
+          "I'll pay with cash.",
+          "Can I use Apple Pay?",
+          "I'll pay by card."
+        ],
+        "evaluationCriteria": [
+          "是否正确回应付款情境，而非消费方式",
+          "是否使用了恰当的支付方式表达（pay with / by）",
+          "语言是否自然流畅，符合口语习惯",
+          "是否避免了无关内容（如'Can I get a discount?'）"
+        ]
+      }
+    },
+    {
+      "id": "daily_003_sub_3_speaking_3",
+      "subSceneId": "daily_003_sub_3",
+      "type": "speaking",
+      "order": 3,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "The total is $12.50. How would you like to pay?",
+        "speakerTextCn": "总共12块5，您想怎么支付？",
+        "expectedAnswers": [
+          "I'll pay with my debit card.",
+          "Can I pay with Apple Pay?",
+          "Do you accept cash?",
+          "I'll use my phone to pay."
+        ],
+        "evaluationCriteria": [
+          "是否准确回应支付方式询问",
+          "是否使用了正确的支付方式表达（pay with / use / accept）",
+          "表达是否自然、符合英语母语者习惯",
+          "是否避免了错误搭配（如'pay by cash'应为'pay with cash'）"
+        ]
+      }
+    }
+  ]
+}

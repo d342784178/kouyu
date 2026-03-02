@@ -1,0 +1,78 @@
+{
+  "subSceneId": "travel_064_sub_2",
+  "subSceneName": "询问收费",
+  "questionType": "speaking",
+  "generatedAt": "2026-03-02T15:06:11.008Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_064_sub_2_speaking_1",
+      "subSceneId": "travel_064_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_064_sub_2_qa_1",
+        "speakerText": "It's $5 per bag for up to 24 hours.",
+        "speakerTextCn": "每件行李24小时内收费5美元。",
+        "expectedAnswers": [
+          "That's reasonable. I'll leave one bag.",
+          "I'd like to store two bags then.",
+          "Could you tell me if there's a discount for three bags?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确回应了价格并表达了寄存意愿或进一步询问",
+          "语言准确性：语法和用词正确，无严重错误",
+          "表达自然度：符合日常口语习惯，不生硬",
+          "关键词覆盖：使用了 'bag', 'store', 'discount' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_064_sub_2_speaking_2",
+      "subSceneId": "travel_064_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_064_sub_2_qa_2",
+        "speakerText": "We charge by the day, not by the hour.",
+        "speakerTextCn": "我们按天收费，不是按小时。",
+        "expectedAnswers": [
+          "So even if I pick it up after 18 hours, I still pay $5?",
+          "Perfect, I'm staying for 2 days, so that's $10 total.",
+          "Got it, thanks for clarifying."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确确认了计费方式，避免误解",
+          "语言准确性：使用了正确的时态和表达（如 'pick it up', 'pay $5'）",
+          "表达自然度：语气自然，符合真实对话节奏",
+          "关键词覆盖：使用了 'day', 'hour', 'charge', 'pick up' 等核心词"
+        ]
+      }
+    },
+    {
+      "id": "travel_064_sub_2_speaking_3",
+      "subSceneId": "travel_064_sub_2",
+      "type": "speaking",
+      "order": 3,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "The first 24 hours are free, then $3 per additional day.",
+        "speakerTextCn": "前24小时免费，之后每天3美元。",
+        "expectedAnswers": [
+          "That's great! I'll pick it up in 20 hours then.",
+          "So if I leave it for 36 hours, it'll be $3?",
+          "Can I pay in advance for a week?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否正确理解并回应了阶梯计费规则",
+          "语言准确性：使用了 'additional day', 'pick up', 'pay in advance' 等恰当表达",
+          "表达自然度：语调自然，符合顾客咨询服务的语境",
+          "关键词覆盖：使用了 'free', 'additional day', 'pay', 'pick up' 等关键词"
+        ]
+      }
+    }
+  ]
+}

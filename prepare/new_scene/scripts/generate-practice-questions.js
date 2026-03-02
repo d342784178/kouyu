@@ -1,15 +1,26 @@
 /**
  * 子场景练习题生成脚本
- * 调用 NVIDIA API (qwen/qwen3-next-80b-a3b-instruct) 为每个子场景生成练习题
- * 输出到 prepare/new_scene/data/practice-questions/{sub_scene_id}.json
+ * 调用 NVIDIA API (qwen/qwen3-next-80b-a3b-instruct 为每个子场景生成练习题
+ * 输出到 prepare/new_scene/data/practice-questions/{sub_scene_id}_{type}.json
  *
  * 用法：
- *   node prepare/new_scene/scripts/generate-practice-questions.js [--subScene <id>] [--dry-run] [--force]
+ *   node prepare/new_scene/scripts/generate-practice-questions.js [选项]
  *
  * 选项：
- *   --subScene <id>  只处理指定子场景（不传则处理所有子场景）
- *   --dry-run        只打印生成结果，不写入文件
- *   --force          强制覆盖已有文件
+ *   --subScene <id>   只处理指定子场景（不传则处理所有子场景）
+ *   --type <type>     只生成指定题型：choice, fill_blank, speaking（不传则生成所有题型）
+ *   --dry-run         只打印生成结果，不写入文件
+ *   --force           强制覆盖已有文件
+ *
+ * 示例：
+ *   # 生成所有子场景的所有题型
+ *   node prepare/new_scene/scripts/generate-practice-questions.js
+ *
+ *   # 只生成填空题
+ *   node prepare/new_scene/scripts/generate-practice-questions.js --type fill_blank
+ *
+ *   # 只生成指定子场景的选择题
+ *   node prepare/new_scene/scripts/generate-practice-questions.js --subScene travel_072_sub_1 --type choice
  */
 
 const fs = require('fs')
@@ -49,8 +60,17 @@ const OUTPUT_DIR = path.resolve(__dirname, '../data/practice-questions')
 
 const args = process.argv.slice(2)
 const subSceneFilter = args.includes('--subScene') ? args[args.indexOf('--subScene') + 1] : null
+const typeFilter = args.includes('--type') ? args[args.indexOf('--type') + 1] : null
 const isDryRun = args.includes('--dry-run')
 const isForce = args.includes('--force')
+
+const VALID_TYPES = ['choice', 'fill_blank', 'speaking']
+const TYPES_TO_GENERATE = typeFilter ? [typeFilter] : VALID_TYPES
+
+if (typeFilter && !VALID_TYPES.includes(typeFilter)) {
+  console.error(`无效的题型: ${typeFilter}，有效选项: ${VALID_TYPES.join(', ')}`)
+  process.exit(1)
+}
 
 // ============================================================
 // NVIDIA Qwen3 API 调用
@@ -118,14 +138,15 @@ function callQwen(messages) {
 // ============================================================
 
 /**
- * 为单个子场景生成练习题
+ * 为单个子场景生成指定类型的练习题
  * @param {Object} subSceneData 子场景数据（从 JSON 文件读取）
+ * @param {string} questionType 题型：choice, fill_blank, speaking
  * @returns {Promise<Object>}
  */
-async function generatePracticeQuestions(subSceneData) {
+async function generatePracticeQuestions(subSceneData, questionType) {
   const { id: subSceneId, name, description, estimatedMinutes, qaPairs } = subSceneData
 
-  console.log(`\n[生成] 子场景: ${name} (${subSceneId})`)
+  console.log(`\n[生成] 子场景: ${name} (${subSceneId}) - 题型: ${questionType}`)
 
   // 格式化问答对数据
   const qaPairsText = (qaPairs || []).map((qa, index) => {
@@ -139,7 +160,10 @@ ${responses}
 ${qa.usageNote ? `使用说明: ${qa.usageNote}` : ''}`
   }).join('\n\n')
 
-  const systemPrompt = `你是一位专业的英语口语教学专家，擅长设计高质量的口语练习题。你的任务是根据给定的场景主题和对话内容，生成三种类型的练习题：选择题、填空题和问答题。
+  // 根据题型生成不同的 Prompt
+  const typeSpecificPrompt = getTypeSpecificPrompt(questionType)
+
+  const systemPrompt = `你是一位专业的英语口语教学专家，擅长设计高质量的口语练习题。你的任务是根据给定的场景主题和对话内容，生成${typeSpecificPrompt.title}。
 
 ## 角色定位
 - 你精通英语口语教学法，了解二语习得理论
@@ -150,7 +174,8 @@ ${qa.usageNote ? `使用说明: ${qa.usageNote}` : ''}`
 - 题目可以基于子场景主题自主创作，不必完全依赖给定的对话内容
 - 给定的对话内容是参考材料，帮助你理解场景语境和常见表达
 - 你可以根据场景主题扩展更多相关的对话情境
-- 每个子场景生成 6-9 道题目（每种题型 2-3 道）
+
+${typeSpecificPrompt.rules}
 
 ## 输出要求
 你必须输出严格的 JSON 格式，不要包含任何其他文字说明。JSON 结构如下：
@@ -158,105 +183,19 @@ ${qa.usageNote ? `使用说明: ${qa.usageNote}` : ''}`
 \`\`\`json
 {
   "questions": [
-    {
-      "type": "choice",
-      "qaId": "对应的QA_Pair ID（如果题目来自QA_Pair）或null（如果自主创作）",
-      "speakerText": "对方说的话（英文）",
-      "speakerTextCn": "对方说的话（中文）",
-      "options": [
-        {"id": "opt_1", "text": "选项文本", "isCorrect": true或false}
-      ],
-      "explanation": "答案解析，说明为什么正确答案正确，干扰项错在哪里"
-    },
-    {
-      "type": "fill_blank",
-      "qaId": "对应的QA_Pair ID或null",
-      "template": "挖空后的句子，用___表示空格",
-      "blanks": [{"index": 0, "answer": "正确答案", "options": ["选项1", "选项2", "选项3", "选项4"]}],
-      "hint": "填空提示，帮助用户回忆",
-      "knowledgePoint": "知识点类型，如：动词搭配、介词用法、固定表达等"
-    },
-    {
-      "type": "speaking",
-      "qaId": "对应的QA_Pair ID或null",
-      "speakerText": "对方说的话（英文）",
-      "speakerTextCn": "对方说的话（中文）",
-      "expectedAnswers": ["参考答案1", "参考答案2", "参考答案3"],
-      "evaluationCriteria": ["评分标准1", "评分标准2", "评分标准3"]
-    }
+${typeSpecificPrompt.jsonExample}
   ]
 }
 \`\`\`
-
-## 题型设计规则
-
-### 1. 选择题（choice）
-- 设计 2-3 道选择题
-- 可以基于对话内容，也可以根据场景主题自主创作新的对话情境
-- 每道题生成 4 个选项：1 个正确答案 + 3 个干扰项
-- 干扰项必须是合理的英语表达，但不符合当前语境
-- 干扰项可以来自其他对话的回应，或自行设计语法正确但语境不符的表达
-- 解析要详细说明正确答案的适用场景和干扰项的问题
-
-### 2. 填空题（fill_blank）
-- 设计 2-3 道填空题
-- **核心原则**：题目必须帮助用户掌握该场景的核心对话表达
-
-**考察内容**（必须与场景紧密相关）：
-1. 场景高频词汇（如出租车场景：book, pick up, destination, fare）
-2. 场景核心句型（如预约场景：I'd like to..., Could you...）
-3. 场景功能表达（如打招呼、确认信息、结束对话）
-4. 场景惯用搭配（如 check in, pick up, look for）
-
-**禁止**：
-- 挖空具体信息（地址、人名、数字、时间）
-- 考察与场景无关的语法点
-
-**每个空格生成 4 个选项**：
-- 1 个正确答案
-- 3 个干扰项（常见错误或语境不符的选项）
-
-**输出格式**：
-\`\`\`json
-{
-  "type": "fill_blank",
-  "qaId": "QA_Pair ID或null",
-  "template": "I'd like ___ book a taxi.",
-  "blanks": [{"index": 0, "answer": "to", "options": ["to", "for", "with", "at"]}],
-  "hint": "预约服务时的常用句型",
-  "knowledgePoint": "would like to do（预约场景核心句型）"
-}
-\`\`\`
-
-**好的示例**：
-- \`I'd like ___ book a taxi.\` → \`to\`（考察 would like to do，预约场景核心句型）
-- \`Could you please pick me ___ at the hotel entrance?\` → \`up\`（考察 pick up，出租车场景核心短语）
-- \`What's the ___ to the city center?\` → \`fare\`（考察 fare，出租车场景核心词汇）
-
-**不好的示例**：
-- \`I need a taxi to ___ please.\` → \`123 Main Street\`（具体地址，无意义）
-- \`The taxi will arrive in ___ minutes.\` → \`10\`（具体数字，无意义）
-
-### 3. 问答题（speaking）
-- 设计 2-3 道问答题
-- 可以基于对话内容，也可以根据场景主题创作新的对话情境
-- 提供 2-4 个可接受的参考答案
-- 参考答案应包含不同难度层次（简单表达 → 高级表达）
-- 评分标准要具体可操作，包括：
-  - 意图达成度：是否正确回应了对方的问题
-  - 语言准确性：语法和用词是否正确
-  - 表达自然度：是否符合英语口语习惯
-  - 关键词覆盖：是否使用了场景关键词
 
 ## 质量标准
 1. 所有题目必须紧扣场景主题
 2. 题目难度要符合场景设定的难度等级
 3. 干扰项要有迷惑性但不能误导学习者
 4. 解析和评分标准要具体、有教学价值
-5. 确保输出是合法的 JSON 格式
-6. 每个子场景生成 6-9 道题目（每种题型 2-3 道）`
+5. 确保输出是合法的 JSON 格式`
 
-  const userPrompt = `请根据以下场景信息生成练习题。
+  const userPrompt = `请根据以下场景信息生成${typeSpecificPrompt.title}。
 
 ## 场景信息
 - 场景名称：${name}
@@ -266,13 +205,7 @@ ${qa.usageNote ? `使用说明: ${qa.usageNote}` : ''}`
 ## 参考对话内容
 ${qaPairsText}
 
-## 生成要求
-1. 生成 2-3 道选择题
-2. 生成 2-3 道填空题
-3. 生成 2-3 道问答题
-4. 题目可以基于对话内容，也可以根据场景主题自主创作
-5. 题目按选择题 → 填空题 → 问答题的顺序排列
-6. 确保输出是严格的 JSON 格式，不要包含任何其他文字
+${typeSpecificPrompt.userRequirements}
 
 请直接输出 JSON：`
 
@@ -302,18 +235,124 @@ ${qaPairsText}
   const result = {
     subSceneId,
     subSceneName: name,
+    questionType,
     generatedAt: new Date().toISOString(),
     model: MODEL,
     questions: generated.questions.map((q, index) => ({
-      id: `${subSceneId}_pq_${index + 1}`,
+      id: `${subSceneId}_${questionType}_${index + 1}`,
       subSceneId,
-      type: q.type,
+      type: questionType,
       order: index + 1,
       content: q,
     })),
   }
 
   return result
+}
+
+/**
+ * 获取题型特定的 Prompt 配置
+ * @param {string} questionType 题型
+ * @returns {Object}
+ */
+function getTypeSpecificPrompt(questionType) {
+  const prompts = {
+    choice: {
+      title: '选择题',
+      rules: `### 选择题（choice）设计规则
+- 设计 2-3 道选择题
+- 可以基于对话内容，也可以根据场景主题自主创作新的对话情境
+- 每道题生成 4 个选项：1 个正确答案 + 3 个干扰项
+- 干扰项必须是合理的英语表达，但不符合当前语境
+- 干扰项可以来自其他对话的回应，或自行设计语法正确但语境不符的表达
+- 解析要详细说明正确答案的适用场景和干扰项的问题`,
+      jsonExample: `    {
+      "type": "choice",
+      "qaId": "对应的QA_Pair ID（如果题目来自QA_Pair）或null（如果自主创作）",
+      "speakerText": "对方说的话（英文）",
+      "speakerTextCn": "对方说的话（中文）",
+      "options": [
+        {"id": "opt_1", "text": "选项文本", "isCorrect": true或false}
+      ],
+      "explanation": "答案解析，说明为什么正确答案正确，干扰项错在哪里"
+    }`,
+      userRequirements: `## 生成要求
+1. 生成 2-3 道选择题
+2. 题目可以基于对话内容，也可以根据场景主题自主创作
+3. 确保输出是严格的 JSON 格式，不要包含任何其他文字`,
+    },
+    fill_blank: {
+      title: '填空题',
+      rules: `### 填空题（fill_blank）设计规则
+- 设计 2-3 道填空题
+- **核心原则**：题目必须帮助用户掌握该场景的核心对话表达
+
+**考察内容**（必须与场景紧密相关）：
+1. 场景高频词汇（如出租车场景：book, pick up, destination, fare）
+2. 场景核心句型（如预约场景：I'd like to..., Could you...）
+3. 场景功能表达（如打招呼、确认信息、结束对话）
+4. 场景惯用搭配（如 check in, pick up, look for）
+
+**禁止**：
+- 挖空具体信息（地址、人名、数字、时间）
+- 考察与场景无关的语法点
+
+**每个空格生成 4 个选项**：
+- 1 个正确答案
+- 3 个干扰项（常见错误或语境不符的选项）
+
+**好的示例**：
+- \`I'd like ___ book a taxi.\` → \`to\`（考察 would like to do，预约场景核心句型）
+- \`Could you please pick me ___ at the hotel entrance?\` → \`up\`（考察 pick up，出租车场景核心短语）
+- \`What's the ___ to the city center?\` → \`fare\`（考察 fare，出租车场景核心词汇）
+
+**不好的示例**：
+- \`I need a taxi to ___ please.\` → \`123 Main Street\`（具体地址，无意义）
+- \`The taxi will arrive in ___ minutes.\` → \`10\`（具体数字，无意义）`,
+      jsonExample: `    {
+      "type": "fill_blank",
+      "qaId": "对应的QA_Pair ID或null",
+      "template": "挖空后的句子，用___表示空格",
+      "blanks": [{"index": 0, "answer": "正确答案", "options": ["选项1", "选项2", "选项3", "选项4"]}],
+      "hint": "填空提示，帮助用户回忆",
+      "knowledgePoint": "知识点类型，如：动词搭配、介词用法、固定表达等"
+    }`,
+      userRequirements: `## 生成要求
+1. 生成 2-3 道填空题
+2. 题目必须帮助用户掌握该场景的核心对话表达
+3. 每个空格必须有 4 个选项（1 个正确答案 + 3 个干扰项）
+4. 禁止挖空具体信息（地址、人名、数字、时间）
+5. 确保输出是严格的 JSON 格式，不要包含任何其他文字`,
+    },
+    speaking: {
+      title: '问答题',
+      rules: `### 问答题（speaking）设计规则
+- 设计 2-3 道问答题
+- 可以基于对话内容，也可以根据场景主题创作新的对话情境
+- 提供 2-4 个可接受的参考答案
+- 参考答案应包含不同难度层次（简单表达 → 高级表达）
+- 评分标准要具体可操作，包括：
+  - 意图达成度：是否正确回应了对方的问题
+  - 语言准确性：语法和用词是否正确
+  - 表达自然度：是否符合英语口语习惯
+  - 关键词覆盖：是否使用了场景关键词`,
+      jsonExample: `    {
+      "type": "speaking",
+      "qaId": "对应的QA_Pair ID或null",
+      "speakerText": "对方说的话（英文）",
+      "speakerTextCn": "对方说的话（中文）",
+      "expectedAnswers": ["参考答案1", "参考答案2", "参考答案3"],
+      "evaluationCriteria": ["评分标准1", "评分标准2", "评分标准3"]
+    }`,
+      userRequirements: `## 生成要求
+1. 生成 2-3 道问答题
+2. 题目可以基于对话内容，也可以根据场景主题自主创作
+3. 每道题提供 2-4 个参考答案
+4. 确保输出是严格的 JSON 格式，不要包含任何其他文字`,
+    },
+  }
+
+  return prompts[questionType]
 }
 
 // ============================================================
@@ -325,6 +364,7 @@ async function main() {
   console.log(`模型: ${MODEL}`)
   console.log(`模式: ${isDryRun ? 'dry-run（不写入文件）' : '正式生成'}`)
   console.log(`强制覆盖: ${isForce ? '是' : '否'}`)
+  console.log(`生成题型: ${TYPES_TO_GENERATE.join(', ')}`)
 
   // 确保输出目录存在
   if (!isDryRun) {
@@ -368,91 +408,96 @@ async function main() {
     }
   }
 
-  console.log(`\n共找到 ${subScenes.length} 个子场景，开始生成练习题...\n`)
+  // 构建任务列表：每个子场景 × 每个题型
+  const tasks = []
+  for (const subScene of subScenes) {
+    for (const questionType of TYPES_TO_GENERATE) {
+      const outputPath = path.join(OUTPUT_DIR, `${subScene.id}_${questionType}.json`)
+      if (!isForce && fs.existsSync(outputPath)) {
+        console.log(`⏭ 跳过（已存在）: ${subScene.id}_${questionType}`)
+      } else {
+        tasks.push({ subScene, questionType, outputPath })
+      }
+    }
+  }
+
+  console.log(`\n共 ${subScenes.length} 个子场景 × ${TYPES_TO_GENERATE.length} 个题型 = ${subScenes.length * TYPES_TO_GENERATE.length} 个任务`)
+  console.log(`需要生成: ${tasks.length} 个任务\n`)
+
+  if (tasks.length === 0) {
+    console.log('所有任务已存在，无需生成')
+    return
+  }
 
   let successCount = 0
   let failCount = 0
-  let skipCount = 0
+  let skipCount = subScenes.length * TYPES_TO_GENERATE.length - tasks.length
 
   // 并发控制：15 个并发
   const CONCURRENCY = 15
   // 失败重试次数
   const MAX_RETRY = 2
 
-  // 过滤掉已存在的子场景
-  const pendingSubScenes = []
-  for (const subScene of subScenes) {
-    const outputPath = path.join(OUTPUT_DIR, `${subScene.id}.json`)
-    if (!isForce && fs.existsSync(outputPath)) {
-      skipCount++
-      console.log(`⏭ 跳过（已存在）: ${subScene.id}`)
-    } else {
-      pendingSubScenes.push(subScene)
-    }
-  }
-
-  console.log(`\n需要生成: ${pendingSubScenes.length} 个子场景\n`)
-
   // 并发池控制 - 真正的持续并发
   let currentIndex = 0
   let activeCount = 0
   let processedCount = 0
 
-  async function processSubScene(subScene) {
+  async function processTask(task) {
     activeCount++
-    const outputPath = path.join(OUTPUT_DIR, `${subScene.id}.json`)
+    const { subScene, questionType, outputPath } = task
 
     let lastErr
     for (let attempt = 1; attempt <= MAX_RETRY + 1; attempt++) {
       try {
-        const result = await generatePracticeQuestions(subScene)
+        const result = await generatePracticeQuestions(subScene, questionType)
         if (isDryRun) {
-          console.log(`\n[dry-run] ${subScene.id} 生成结果预览:`)
+          console.log(`\n[dry-run] ${subScene.id}_${questionType} 生成结果预览:`)
           console.log(JSON.stringify(result, null, 2).slice(0, 500) + '...')
         } else {
           fs.writeFileSync(outputPath, JSON.stringify(result, null, 2), 'utf-8')
-          console.log(`✓ ${subScene.id} (题目: ${result.questions.length})`)
+          console.log(`✓ ${subScene.id}_${questionType} (题目: ${result.questions.length})`)
         }
         successCount++
         break
       } catch (err) {
         lastErr = err
         if (attempt <= MAX_RETRY) {
-          console.warn(`⚠ ${subScene.id} 第${attempt}次失败，重试中... (${err.message})`)
+          console.warn(`⚠ ${subScene.id}_${questionType} 第${attempt}次失败，重试中... (${err.message})`)
           await new Promise(r => setTimeout(r, 3000 * attempt))
         }
       }
     }
     
     if (lastErr && !fs.existsSync(outputPath)) {
-      console.error(`✗ ${subScene.id} 最终失败: ${lastErr.message}`)
+      console.error(`✗ ${subScene.id}_${questionType} 最终失败: ${lastErr.message}`)
       failCount++
     }
 
     activeCount--
     processedCount++
-    if (processedCount % 10 === 0 || processedCount === pendingSubScenes.length) {
-      console.log(`\n--- 进度: ${processedCount}/${pendingSubScenes.length} (成功:${successCount} 跳过:${skipCount} 失败:${failCount}) ---\n`)
+    if (processedCount % 10 === 0 || processedCount === tasks.length) {
+      console.log(`\n--- 进度: ${processedCount}/${tasks.length} (成功:${successCount} 跳过:${skipCount} 失败:${failCount}) ---\n`)
     }
 
     // 启动下一个任务
-    if (currentIndex < pendingSubScenes.length) {
-      const next = pendingSubScenes[currentIndex++]
-      processSubScene(next)
+    if (currentIndex < tasks.length) {
+      const next = tasks[currentIndex++]
+      processTask(next)
     }
   }
 
   // 启动初始并发任务
-  const initialBatch = Math.min(CONCURRENCY, pendingSubScenes.length)
+  const initialBatch = Math.min(CONCURRENCY, tasks.length)
   for (let i = 0; i < initialBatch; i++) {
     currentIndex++
-    processSubScene(pendingSubScenes[i])
+    processTask(tasks[i])
   }
 
   // 等待所有任务完成
   await new Promise(resolve => {
     const checkInterval = setInterval(() => {
-      if (activeCount === 0 && currentIndex >= pendingSubScenes.length) {
+      if (activeCount === 0 && currentIndex >= tasks.length) {
         clearInterval(checkInterval)
         resolve(null)
       }

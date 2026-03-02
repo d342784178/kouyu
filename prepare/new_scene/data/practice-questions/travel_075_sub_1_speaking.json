@@ -1,0 +1,78 @@
+{
+  "subSceneId": "travel_075_sub_1",
+  "subSceneName": "询问班次",
+  "questionType": "speaking",
+  "generatedAt": "2026-03-02T15:14:00.487Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_075_sub_1_speaking_1",
+      "subSceneId": "travel_075_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_075_sub_1_qa_1",
+        "speakerText": "Hi! Can I help you with the bus schedule?",
+        "speakerTextCn": "您好！需要帮您查班车时间吗？",
+        "expectedAnswers": [
+          "Yes, when's the next bus to Beijing?",
+          "Could you tell me the departure time for Beijing?",
+          "I'd like to know the next bus to Beijing, please."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确询问下一班车的时间",
+          "语言准确性：语法正确，使用恰当的句型",
+          "表达自然度：符合日常口语习惯，语调自然",
+          "关键词覆盖：使用了 'next bus', 'departure time', 或 'to [destination]' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_075_sub_1_speaking_2",
+      "subSceneId": "travel_075_sub_1",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_075_sub_1_qa_2",
+        "speakerText": "The next bus to Nanjing leaves at 4:15 PM. It’s a direct route.",
+        "speakerTextCn": "下一班去南京的车下午4点15分发车，是直达车。",
+        "expectedAnswers": [
+          "Great, I’ll take that one. Thanks!",
+          "Is that the last bus today?",
+          "4:15? Perfect, I’ll be there."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：对发车时间做出恰当回应（接受、确认或追问）",
+          "语言准确性：语法正确，无明显错误",
+          "表达自然度：语气自然，符合真实对话节奏",
+          "关键词覆盖：使用了 'take that one', 'last bus', 或 'perfect' 等场景常用表达"
+        ]
+      }
+    },
+    {
+      "id": "travel_075_sub_1_speaking_3",
+      "subSceneId": "travel_075_sub_1",
+      "type": "speaking",
+      "order": 3,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "The next bus to Hangzhou is at 5:00 PM. Would you like to book a seat?",
+        "speakerTextCn": "下一班去杭州的车是下午5点，您要预订座位吗？",
+        "expectedAnswers": [
+          "Yes, please. I'd like to book one.",
+          "No, thanks. I'll just buy the ticket at the counter.",
+          "Can I pay by card or only cash?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回应是否要预订座位",
+          "语言准确性：使用正确句型和词汇（book, ticket, pay by card）",
+          "表达自然度：语句连贯，符合服务场景的礼貌与简洁要求",
+          "关键词覆盖：使用了 'book', 'ticket', 'pay by card' 等相关词汇"
+        ]
+      }
+    }
+  ]
+}

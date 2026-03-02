@@ -1,0 +1,84 @@
+{
+  "subSceneId": "travel_075_sub_1",
+  "subSceneName": "询问班次",
+  "questionType": "fill_blank",
+  "generatedAt": "2026-03-02T15:14:00.487Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_075_sub_1_fill_blank_1",
+      "subSceneId": "travel_075_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_075_sub_1_qa_1",
+        "template": "Could you tell me the ___ time for Shanghai?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "departure",
+            "options": [
+              "departure",
+              "arrival",
+              "waiting",
+              "boarding"
+            ]
+          }
+        ],
+        "hint": "询问发车时间时的关键词",
+        "knowledgePoint": "固定搭配：departure time（发车时间）"
+      }
+    },
+    {
+      "id": "travel_075_sub_1_fill_blank_2",
+      "subSceneId": "travel_075_sub_1",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_075_sub_1_qa_1",
+        "template": "Yes, when's the next bus ___ Shanghai?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "at",
+              "from"
+            ]
+          }
+        ],
+        "hint": "表示目的地的介词",
+        "knowledgePoint": "介词搭配：bus to [destination]（去某地的车）"
+      }
+    },
+    {
+      "id": "travel_075_sub_1_fill_blank_3",
+      "subSceneId": "travel_075_sub_1",
+      "type": "fill_blank",
+      "order": 3,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_075_sub_1_qa_2",
+        "template": "The next bus ___ at 3:30 PM.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "leaves",
+            "options": [
+              "leaves",
+              "arrives",
+              "stops",
+              "departs"
+            ]
+          }
+        ],
+        "hint": "描述班车发车的常用动词",
+        "knowledgePoint": "动词搭配：leave (for) 表示发车"
+      }
+    }
+  ]
+}

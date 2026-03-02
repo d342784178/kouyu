@@ -1,0 +1,75 @@
+{
+  "subSceneId": "daily_005_sub_1",
+  "subSceneName": "挂号登记",
+  "questionType": "speaking",
+  "generatedAt": "2026-03-02T14:35:40.120Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_005_sub_1_speaking_1",
+      "subSceneId": "daily_005_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_005_sub_1_qa_1",
+        "speakerText": "Hi, I'm here for my appointment. My name's Tom Chen.",
+        "speakerTextCn": "嗨，我来就诊，我叫汤姆·陈。",
+        "expectedAnswers": [
+          "I'm Tom Chen. Appointment at 3 PM.",
+          "Good afternoon. I'm Tom Chen, scheduled for a checkup.",
+          "Tom Chen. I booked at three o'clock."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确报出姓名和预约时间",
+          "语言准确性：语法正确，无明显错误",
+          "表达自然度：使用简洁口语化表达，符合诊所场景"
+        ]
+      }
+    },
+    {
+      "id": "daily_005_sub_1_speaking_2",
+      "subSceneId": "daily_005_sub_1",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Welcome! Can you confirm your full name and date of birth?",
+        "speakerTextCn": "欢迎！请确认您的全名和出生日期？",
+        "expectedAnswers": [
+          "My name is Tom Chen. I was born on May 15th, 1990.",
+          "Tom Chen. My birthday is May 15, 1990.",
+          "I'm Tom Chen. Date of birth: May 15, 1990."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：完整提供姓名和出生日期",
+          "语言准确性：日期格式正确，语法无误",
+          "表达自然度：使用口语化表达，不冗长"
+        ]
+      }
+    },
+    {
+      "id": "daily_005_sub_1_speaking_3",
+      "subSceneId": "daily_005_sub_1",
+      "type": "speaking",
+      "order": 3,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "This is your registration form. Please fill it out before we call you in.",
+        "speakerTextCn": "这是您的登记表，请在叫号前填写。",
+        "expectedAnswers": [
+          "Sure, I'll fill it out right away.",
+          "Okay, I'll complete this form now.",
+          "Got it. Do I need to include my insurance number?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：表明理解并愿意配合",
+          "语言准确性：使用恰当的回应句式",
+          "表达自然度：语气礼貌，符合服务场景"
+        ]
+      }
+    }
+  ]
+}

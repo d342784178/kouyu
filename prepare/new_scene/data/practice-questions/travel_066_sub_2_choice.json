@@ -1,0 +1,114 @@
+{
+  "subSceneId": "travel_066_sub_2",
+  "subSceneName": "询问汇率和手续费",
+  "questionType": "choice",
+  "generatedAt": "2026-03-02T15:09:07.992Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_066_sub_2_choice_1",
+      "subSceneId": "travel_066_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_066_sub_2_qa_1",
+        "speakerText": "What's the current rate for USD to EUR?",
+        "speakerTextCn": "现在美元兑欧元的汇率是多少？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How much is one dollar in euros?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "What's the current rate for USD to EUR?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you tell me the exchange percentage?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you accept USD here?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了场景中推荐的句型 'What's the rate for...?'，直接、专业且符合口语习惯。选项1虽然意思相近，但使用了 'How much is...'，这是使用说明中明确避免的表达。选项3中的 'percentage' 用词错误，汇率不是百分比。选项4与汇率无关，属于无关提问。"
+      }
+    },
+    {
+      "id": "travel_066_sub_2_choice_2",
+      "subSceneId": "travel_066_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_066_sub_2_qa_2",
+        "speakerText": "Is the fee included or extra?",
+        "speakerTextCn": "手续费是包含的还是额外的？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How much is the fee?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Is the fee included or extra?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you charge extra for currency exchange?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I pay by card?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接使用了场景中推荐的核心句型 'Is it included or extra?'，用于明确费用结构，避免误解。选项1只问金额，未确认是否包含，无法防止事后纠纷。选项3虽语义接近，但不够直接，且不是标准回应句型。选项4完全无关。"
+      }
+    },
+    {
+      "id": "travel_066_sub_2_choice_3",
+      "subSceneId": "travel_066_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I'm exchanging $500. What's the rate and is there a fee?",
+        "speakerTextCn": "我要兑换500美元，汇率是多少？有手续费吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "The rate is 0.91, and the fee is $7.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don't know, ask someone else.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "You should use a credit card instead.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "The fee is included, but the rate is 0.85.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案完整回应了对方两个问题：汇率和手续费，符合场景要求。选项2是推诿，不符合服务场景。选项3转移话题，未回答问题。选项4虽然回答了，但信息矛盾（先说费用包含，后又给出汇率），可能误导用户，不够严谨。"
+      }
+    }
+  ]
+}
