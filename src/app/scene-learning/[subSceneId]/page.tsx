@@ -118,17 +118,17 @@ function SubSceneHeader({ name, currentIndex, totalSubScenes, sceneId }: SubScen
   }
 
   return (
-    <div className="flex items-center gap-3 px-4 py-3 bg-white border-b border-gray-100">
+    <div className="flex items-center gap-3 px-4 py-4 bg-white border-b border-gray-200 shadow-sm">
       {/* 返回按钮 */}
       <button
         type="button"
         onClick={handleBack}
         aria-label="返回子场景列表"
-        className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-50 border border-gray-100 text-gray-600 hover:bg-gray-100 transition-colors shrink-0"
+        className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-50 border border-gray-100 text-gray-600 hover:bg-gray-100 transition-colors shrink-0 shadow-sm"
       >
         <svg
-          width="18"
-          height="18"
+          width="20"
+          height="20"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -142,10 +142,10 @@ function SubSceneHeader({ name, currentIndex, totalSubScenes, sceneId }: SubScen
 
       {/* 标题区域 */}
       <div className="flex-1 min-w-0">
-        <h1 className="text-base font-semibold text-gray-900 truncate leading-tight">
+        <h1 className="text-lg font-semibold text-gray-900 truncate leading-tight">
           {name}
         </h1>
-        <p className="text-xs text-gray-400 mt-0.5">
+        <p className="text-xs text-gray-500 mt-1">
           子场景 {currentIndex} / {totalSubScenes}
         </p>
       </div>
