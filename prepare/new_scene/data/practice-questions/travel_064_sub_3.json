@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_064_sub_3",
+  "subSceneName": "确认取件时间",
+  "generatedAt": "2026-03-02T15:07:29.914Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_064_sub_3_pq_1",
+      "subSceneId": "travel_064_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_064_sub_3_qa_1",
+        "speakerText": "You can pick up your bags anytime before midnight tomorrow.",
+        "speakerTextCn": "您明天午夜前都可以来取行李。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I pick them up at 1 AM tomorrow?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "What documents do I need to bring?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "How much does it cost to store my bags?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you deliver them to my hotel?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案询问所需证件，符合确认取件流程的合理回应。其他选项：A 选项时间超出允许范围（午夜后），C 选项询问费用（场景未涉及），D 选项请求配送（与取件场景不符）"
+      }
+    },
+    {
+      "id": "travel_064_sub_3_pq_2",
+      "subSceneId": "travel_064_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_064_sub_3_qa_2",
+        "speakerText": "Just show your receipt and ID.",
+        "speakerTextCn": "出示收据和身份证即可。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is a driver’s license acceptable as ID?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I pay extra to avoid showing ID?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have lockers for bags?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What time do you close tonight?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案询问身份证的替代形式，属于对证件要求的合理延伸。B 选项试图绕过规定（不合逻辑），C 和 D 与取件凭证无关，偏离核心信息"
+      }
+    },
+    {
+      "id": "travel_064_sub_3_pq_3",
+      "subSceneId": "travel_064_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Your luggage will be held until 11:59 PM tomorrow.",
+        "speakerTextCn": "您的行李将保留到明天晚上11:59。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I’ll come at 7 PM then. Thanks!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I get a refund if I don’t pick them up?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I leave my suitcase here permanently?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you offer insurance for luggage?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确确认取件时间，符合场景功能。B 选项涉及退款（未提及），C 选项要求长期存放（超出服务范围），D 选项询问保险（无关需求）"
+      }
+    },
+    {
+      "id": "travel_064_sub_3_pq_4",
+      "subSceneId": "travel_064_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_064_sub_3_qa_1",
+        "template": "I'd like to pick up my bags ___ tomorrow.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "before midnight",
+            "options": [
+              "before midnight",
+              "after noon",
+              "at 8 AM",
+              "by Friday"
+            ]
+          }
+        ],
+        "hint": "对方提到的取件时间范围",
+        "knowledgePoint": "时间表达（before midnight）"
+      }
+    },
+    {
+      "id": "travel_064_sub_3_pq_5",
+      "subSceneId": "travel_064_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_064_sub_3_qa_2",
+        "template": "To collect my luggage, I need to show my ___ and ID.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "receipt",
+            "options": [
+              "receipt",
+              "ticket",
+              "reservation",
+              "booking"
+            ]
+          }
+        ],
+        "hint": "取件时必须出示的纸质凭证",
+        "knowledgePoint": "核心凭证词汇（receipt）"
+      }
+    },
+    {
+      "id": "travel_064_sub_3_pq_6",
+      "subSceneId": "travel_064_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could I ___ my bags in the evening?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "pick up",
+            "options": [
+              "pick up",
+              "check in",
+              "drop off",
+              "pay for"
+            ]
+          }
+        ],
+        "hint": "取件的常用动词搭配",
+        "knowledgePoint": "动词搭配（pick up luggage）"
+      }
+    },
+    {
+      "id": "travel_064_sub_3_pq_7",
+      "subSceneId": "travel_064_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_064_sub_3_qa_1",
+        "speakerText": "You can pick up your bags anytime before midnight tomorrow.",
+        "speakerTextCn": "您明天午夜前都可以来取行李。",
+        "expectedAnswers": [
+          "I'll be there at 7 PM.",
+          "That works for me—I’ll come back in the evening.",
+          "Great, thanks! I plan to collect them around 8 PM."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回应取件时间，符合对方提供的时间范围",
+          "语言准确性：语法正确，使用恰当的时态和表达",
+          "表达自然度：符合日常英语口语习惯，语气礼貌",
+          "关键词覆盖：使用了 'pick up' 或 'collect' 和具体时间"
+        ]
+      }
+    },
+    {
+      "id": "travel_064_sub_3_pq_8",
+      "subSceneId": "travel_064_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_064_sub_3_qa_2",
+        "speakerText": "Just show your receipt and ID.",
+        "speakerTextCn": "出示收据和身份证即可。",
+        "expectedAnswers": [
+          "Got it. I’ll make sure to bring both.",
+          "Do I need my passport instead of a national ID?",
+          "Perfect—I’ve kept the receipt safe in my wallet."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：确认理解或合理追问证件要求",
+          "语言准确性：正确使用 'receipt', 'ID', 'passport' 等关键词",
+          "表达自然度：语气自然，符合服务场景对话节奏",
+          "关键词覆盖：至少包含 'receipt' 或 'ID' 或 'passport'"
+        ]
+      }
+    },
+    {
+      "id": "travel_064_sub_3_pq_9",
+      "subSceneId": "travel_064_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Your luggage will be held until 11:59 PM tomorrow.",
+        "speakerTextCn": "您的行李将保留到明天晚上11:59。",
+        "expectedAnswers": [
+          "Thanks—I’ll pick them up before 10 PM.",
+          "Is there a late fee if I come after 9 PM?",
+          "I’ll be there right before closing. Appreciate your help!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回应取件计划或合理确认政策",
+          "语言准确性：使用正确的时间表达和动词短语",
+          "表达自然度：语气礼貌、符合服务场景，避免生硬",
+          "关键词覆盖：使用 'pick up', 'luggage', 'before [time]' 或 'closing'"
+        ]
+      }
+    }
+  ]
+}

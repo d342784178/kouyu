@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_024_sub_1",
+  "subSceneName": "打招呼问候",
+  "generatedAt": "2026-03-02T14:40:42.162Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_024_sub_1_pq_1",
+      "subSceneId": "daily_024_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_024_sub_1_qa_1",
+        "speakerText": "Hi there! How can I help you today?",
+        "speakerTextCn": "您好！今天有什么可以帮您的？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I need to buy a new phone.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Hi! I'd like to get these clothes dry cleaned.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you give me your manager?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'm fine, thanks.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了自然的打招呼方式（Hi!）并直接回应服务需求（dry cleaned），符合场景。其他选项：第一个是购买手机，与干洗店无关；第三个是要求见经理，过于生硬且不相关；第四个是回应问候身体状况，但店员问的是服务需求，答非所问。"
+      }
+    },
+    {
+      "id": "daily_024_sub_1_pq_2",
+      "subSceneId": "daily_024_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Hey! Welcome to CleanStyle Laundry. What can I do for you?",
+        "speakerTextCn": "嘿！欢迎来到CleanStyle干洗店，有什么可以帮您的？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'm looking for a coffee shop nearby.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Hi! I need to have my suit dry cleaned, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "How much is the rent here?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I don't need help, thanks.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了自然的打招呼方式（Hi!）并准确表达服务需求（dry cleaned），符合场景。其他选项：第一个是找咖啡店，与洗衣店无关；第三个是问租金，完全不相关；第四个虽然语法正确，但语气生硬，不符合店员热情服务的语境。"
+      }
+    },
+    {
+      "id": "daily_024_sub_1_pq_3",
+      "subSceneId": "daily_024_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Hey there! How’s it going?",
+        "speakerTextCn": "嘿！最近怎么样？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'm good, thanks. I'd like to drop off some laundry.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'm fine, but I need to see the owner.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "It's raining outside.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I don't know you.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案既回应了问候（I'm good, thanks），又自然过渡到服务需求（drop off some laundry），符合日常口语习惯。其他选项：第二个过于正式且不必要提及老板；第三个只回答天气，未回应服务意图；第四个语气粗鲁，不符合服务场景。"
+      }
+    },
+    {
+      "id": "daily_024_sub_1_pq_4",
+      "subSceneId": "daily_024_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_024_sub_1_qa_1",
+        "template": "Hi! I'd like ___ get these clothes dry cleaned.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "with",
+              "at"
+            ]
+          }
+        ],
+        "hint": "表达‘想要做某事’的固定搭配",
+        "knowledgePoint": "would like to do（预约场景核心句型）"
+      }
+    },
+    {
+      "id": "daily_024_sub_1_pq_5",
+      "subSceneId": "daily_024_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Hey! Can you ___ me with dry cleaning these shirts?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "help",
+            "options": [
+              "help",
+              "give",
+              "take",
+              "bring"
+            ]
+          }
+        ],
+        "hint": "请求协助时常用动词",
+        "knowledgePoint": "help sb with sth（服务场景核心搭配）"
+      }
+    },
+    {
+      "id": "daily_024_sub_1_pq_6",
+      "subSceneId": "daily_024_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Hi there! What can I ___ you today?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "help",
+            "options": [
+              "help",
+              "do",
+              "give",
+              "see"
+            ]
+          }
+        ],
+        "hint": "店员标准问候句型",
+        "knowledgePoint": "How can I help you?（服务场景高频句型）"
+      }
+    },
+    {
+      "id": "daily_024_sub_1_pq_7",
+      "subSceneId": "daily_024_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_024_sub_1_qa_1",
+        "speakerText": "Hi there! How can I help you today?",
+        "speakerTextCn": "您好！今天有什么可以帮您的？",
+        "expectedAnswers": [
+          "Hi! I need to get these clothes dry cleaned.",
+          "Hey! Could you help me dry clean these shirts?",
+          "Hi there! I'd like to drop off a few items for dry cleaning, please."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表达了干洗服务需求",
+          "语言准确性：语法和用词是否正确，如使用 'dry cleaned' 或 'drop off'",
+          "表达自然度：是否使用了自然的打招呼方式（Hi/Hey），避免过于正式（如 Good morning, Sir）",
+          "关键词覆盖：是否包含场景关键词如 'dry clean', 'clothes', 'help'"
+        ]
+      }
+    },
+    {
+      "id": "daily_024_sub_1_pq_8",
+      "subSceneId": "daily_024_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Hey! Welcome to CleanStyle. What can I do for you?",
+        "speakerTextCn": "嘿！欢迎来到CleanStyle，有什么可以帮您的？",
+        "expectedAnswers": [
+          "Hi! I have a couple of suits that need dry cleaning.",
+          "Hey, can you take care of these for me? They're all dirty.",
+          "Hi there! I'd like to pick up my cleaned clothes and drop off some new ones."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰说明是送洗或取衣服务",
+          "语言准确性：是否使用正确动词如 'drop off', 'pick up', 'need cleaning'",
+          "表达自然度：是否使用口语化表达（如 'a couple of', 'take care of'）而非机械背诵",
+          "关键词覆盖：是否包含 'dry cleaning', 'clothes', 'suits', 'drop off' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_024_sub_1_pq_9",
+      "subSceneId": "daily_024_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Hey there! How’s it going?",
+        "speakerTextCn": "嘿！最近怎么样？",
+        "expectedAnswers": [
+          "Not bad! I need to get my winter coat dry cleaned.",
+          "Pretty good! I’ve got a few shirts that need cleaning.",
+          "Hey! I’m good, thanks. Can you help me with dry cleaning these pants?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否在回应问候后自然过渡到服务需求",
+          "语言准确性：是否正确使用时态和搭配（如 'need cleaning', 'get...dry cleaned'）",
+          "表达自然度：是否使用了口语化的连接方式，避免生硬的 'I want...' 或完全忽略问候",
+          "关键词覆盖：是否包含 'dry cleaning', 'clothes/shirts/pants', 'help' 等核心词汇"
+        ]
+      }
+    }
+  ]
+}

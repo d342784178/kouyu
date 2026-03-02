@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_003_sub_1",
+  "subSceneName": "打招呼点单",
+  "generatedAt": "2026-03-02T14:42:21.861Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_003_sub_1_pq_1",
+      "subSceneId": "daily_003_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_003_sub_1_qa_1",
+        "speakerText": "Hey there! What can I get for you today?",
+        "speakerTextCn": "嗨！今天想喝点什么？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'd like a latte, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I want a coffee now.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have any coffee?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much is a latte?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'I'd like a latte, please.'是礼貌且符合点单场景的标准表达。'I want'语气生硬，不符合服务场景的礼貌规范；'Do you have any coffee?'是询问库存，而非点单；'How much is a latte?'先问价格，不符合先点单后确认价格的自然流程。"
+      }
+    },
+    {
+      "id": "daily_003_sub_1_pq_2",
+      "subSceneId": "daily_003_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_003_sub_1_qa_2",
+        "speakerText": "We've got a new caramel cold brew — super popular!",
+        "speakerTextCn": "我们新出焦糖冷萃，特别火！",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Sounds good! I'll try that.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "That's expensive.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't like cold drinks.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get a discount?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'Sounds good! I'll try that.'是对推荐的积极回应，符合口语习惯。'That's expensive.'和'Can I get a discount?'过早涉及价格，不符合自然对话节奏；'I don't like cold drinks.'虽合理，但语气消极且未使用推荐回应的常用表达。"
+      }
+    },
+    {
+      "id": "daily_003_sub_1_pq_3",
+      "subSceneId": "daily_003_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Welcome! Are you deciding what to order?",
+        "speakerTextCn": "欢迎！在决定点什么吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What do you recommend?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don't know.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you give me the menu?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'll have the cheapest one.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'What do you recommend?'是礼貌且自然的请求建议方式，符合服务场景。'I don't know.'过于随意，缺乏礼貌；'Can you give me the menu?'虽然合理，但店员已主动引导，无需再索要菜单；'I'll have the cheapest one.'显得不礼貌，不符合社交语境。"
+      }
+    },
+    {
+      "id": "daily_003_sub_1_pq_4",
+      "subSceneId": "daily_003_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_003_sub_1_qa_1",
+        "template": "I'd like ___ a latte, please.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "with",
+              "at"
+            ]
+          }
+        ],
+        "hint": "表达‘想要’点单时的标准句型",
+        "knowledgePoint": "would like to do（预约场景核心句型）"
+      }
+    },
+    {
+      "id": "daily_003_sub_1_pq_5",
+      "subSceneId": "daily_003_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_003_sub_1_qa_2",
+        "template": "Sounds good! I'll ___ that.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "try",
+            "options": [
+              "try",
+              "take",
+              "get",
+              "buy"
+            ]
+          }
+        ],
+        "hint": "对推荐饮品表示接受时的常用动词",
+        "knowledgePoint": "I'll try that（表达尝试推荐品的惯用搭配）"
+      }
+    },
+    {
+      "id": "daily_003_sub_1_pq_6",
+      "subSceneId": "daily_003_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could you tell me what's ___ today?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "special",
+            "options": [
+              "special",
+              "expensive",
+              "popular",
+              "new"
+            ]
+          }
+        ],
+        "hint": "询问今日推荐或特色饮品的常用词",
+        "knowledgePoint": "what's special today（点单场景高频表达）"
+      }
+    },
+    {
+      "id": "daily_003_sub_1_pq_7",
+      "subSceneId": "daily_003_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_003_sub_1_qa_1",
+        "speakerText": "Hey there! What can I get for you today?",
+        "speakerTextCn": "嗨！今天想喝点什么？",
+        "expectedAnswers": [
+          "I'd like a cappuccino, please.",
+          "Hmm, maybe a mocha? What do you suggest?",
+          "What’s your most popular drink?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确表达了点单意愿或请求推荐",
+          "语言准确性：语法正确，使用了恰当的礼貌表达",
+          "表达自然度：符合日常口语节奏，无生硬翻译痕迹",
+          "关键词覆盖：使用了'like', 'recommend', 'popular'等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_003_sub_1_pq_8",
+      "subSceneId": "daily_003_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_003_sub_1_qa_2",
+        "speakerText": "We've got a new caramel cold brew — super popular!",
+        "speakerTextCn": "我们新出焦糖冷萃，特别火！",
+        "expectedAnswers": [
+          "That sounds great! I'll give it a try.",
+          "Is it sweet? I prefer something less sugary.",
+          "Thanks for letting me know — I'll stick with my usual hot coffee."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：回应了推荐并表明选择或进一步询问",
+          "语言准确性：使用了'Sounds good', 'I'll try', 'I prefer'等自然表达",
+          "表达自然度：语气真实，符合真实对话中的犹豫或调整",
+          "关键词覆盖：使用了'sweet', 'popular', 'hot coffee'等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_003_sub_1_pq_9",
+      "subSceneId": "daily_003_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Welcome to our café! Are you ready to order?",
+        "speakerTextCn": "欢迎光临！准备好点单了吗？",
+        "expectedAnswers": [
+          "Yes, I'd like a flat white and a croissant.",
+          "Not quite — could you tell me what you recommend for first-timers?",
+          "I'm torn between the latte and the cold brew — which one do you like best?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰表达点单或请求建议",
+          "语言准确性：使用了恰当的点单句型和礼貌用语",
+          "表达自然度：有自然的犹豫、连接词或补充说明",
+          "关键词覆盖：使用了'I'd like', 'recommend', 'first-timers', 'which one'等场景核心表达"
+        ]
+      }
+    }
+  ]
+}

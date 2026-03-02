@@ -1,0 +1,257 @@
+{
+  "subSceneId": "study_abroad_106_sub_3",
+  "subSceneName": "资金证明",
+  "generatedAt": "2026-03-02T14:53:28.188Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "study_abroad_106_sub_3_pq_1",
+      "subSceneId": "study_abroad_106_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "study_abroad_106_sub_3_qa_1",
+        "speakerText": "How are you funding your studies?",
+        "speakerTextCn": "你的学费和生活费怎么解决？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'm working part-time at a café.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "My parents are covering it — they've got a savings account with enough for all four years, and I've got the bank statements to prove it.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't know yet, I'm still waiting for a scholarship.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I borrowed money from my friend.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确回应了资金来源，并提到具体凭证（bank statements），符合场景中‘带凭证更可信’的要求。选项1虽合理但未体现稳定资金来源；选项3表示不确定性，不符合签证或申请所需的明确性；选项4‘从朋友借钱’缺乏正式性和可验证性，不被官方认可。"
+      }
+    },
+    {
+      "id": "study_abroad_106_sub_3_pq_2",
+      "subSceneId": "study_abroad_106_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Can you show proof that you have sufficient funds for your education?",
+        "speakerTextCn": "你能提供足够资金用于教育的证明吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I have a letter from my university saying I'm accepted.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Yes, here are my bank statements and scholarship award letter.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I'll transfer money once I arrive.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "My cousin promised to help me, but he hasn't sent anything yet.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确提供两类官方凭证（银行流水+奖学金信），符合资金证明的核心要求。选项1是录取信，非资金证明；选项3和4都缺乏当前可验证的资金支持，不符合‘已有足够资金’的审核标准。"
+      }
+    },
+    {
+      "id": "study_abroad_106_sub_3_pq_3",
+      "subSceneId": "study_abroad_106_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "What’s your main source of funding for your master’s program?",
+        "speakerTextCn": "你硕士项目的资金主要来源是什么？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'm relying on my future internship salary.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "I received a full tuition waiver and a monthly stipend from the university.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I hope to get a loan after I arrive.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I sold my car to pay for it.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确说明了官方奖学金形式（tuition waiver + stipend），具有可验证性和稳定性。选项1和3都是未来不确定收入，不符合‘已有资金’要求；选项4虽为自有资金，但‘卖车’不是常规或可证明的稳定资金来源，且可能被质疑持续性。"
+      }
+    },
+    {
+      "id": "study_abroad_106_sub_3_pq_4",
+      "subSceneId": "study_abroad_106_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "study_abroad_106_sub_3_qa_1",
+        "template": "I'm funded by ______ + family support — I've got the award letter right here.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "scholarship",
+            "options": [
+              "scholarship",
+              "loan",
+              "job",
+              "gift"
+            ]
+          }
+        ],
+        "hint": "这是与家庭支持并列的常见资金来源，通常有正式书面文件",
+        "knowledgePoint": "场景高频词汇（奖学金相关表达）"
+      }
+    },
+    {
+      "id": "study_abroad_106_sub_3_pq_5",
+      "subSceneId": "study_abroad_106_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "My parents have a savings account with enough money to cover ______ years of study.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "all four",
+            "options": [
+              "all four",
+              "some",
+              "the next",
+              "my entire"
+            ]
+          }
+        ],
+        "hint": "强调资金足以覆盖整个学习周期，常用表达",
+        "knowledgePoint": "场景核心句型（资金覆盖周期表达）"
+      }
+    },
+    {
+      "id": "study_abroad_106_sub_3_pq_6",
+      "subSceneId": "study_abroad_106_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I can provide ______ to prove I have sufficient funds.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "bank statements",
+            "options": [
+              "bank statements",
+              "passport copy",
+              "transcript",
+              "visa application"
+            ]
+          }
+        ],
+        "hint": "这是最常被要求的官方资金证明文件",
+        "knowledgePoint": "场景惯用搭配（资金证明文件）"
+      }
+    },
+    {
+      "id": "study_abroad_106_sub_3_pq_7",
+      "subSceneId": "study_abroad_106_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "study_abroad_106_sub_3_qa_1",
+        "speakerText": "How are you funding your studies?",
+        "speakerTextCn": "你的学费和生活费怎么解决？",
+        "expectedAnswers": [
+          "My parents are paying for everything. I have their bank statements and a letter confirming their financial support.",
+          "I have a full scholarship from the university, and my family helps with living expenses — I’ve brought the award letter and my family’s bank documents.",
+          "I took out an education loan from a recognized bank, and I have the approval letter and repayment plan ready to show."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确说明了资金来源并提及凭证",
+          "语言准确性：语法正确，用词恰当，无中式英语",
+          "表达自然度：语序和表达符合英语母语者习惯",
+          "关键词覆盖：使用了如 scholarship, bank statements, loan, proof, support 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "study_abroad_106_sub_3_pq_8",
+      "subSceneId": "study_abroad_106_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Can you explain where your funding comes from and how you’ll prove it?",
+        "speakerTextCn": "你能解释一下你的资金来源以及如何证明吗？",
+        "expectedAnswers": [
+          "My funding comes from my family’s savings. I’ve brought six months of bank statements showing consistent deposits and a letter from my father confirming they’re supporting me.",
+          "I’m funded by a government scholarship — I have the official award letter, and I can also show my acceptance letter from the university as additional evidence.",
+          "I secured a student loan from a reputable financial institution. I’ve printed the loan approval document and the disbursement schedule to prove I’ll have access to the funds."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰说明资金来源与证明文件的对应关系",
+          "语言准确性：正确使用金融类词汇如 disbursement, approval, consistent deposits",
+          "表达自然度：逻辑连贯，使用连接词如 'and', 'also', 'to prove'",
+          "关键词覆盖：使用了 funding, proof, bank statements, award letter, loan approval 等核心词汇"
+        ]
+      }
+    },
+    {
+      "id": "study_abroad_106_sub_3_pq_9",
+      "subSceneId": "study_abroad_106_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "What if your funding changes during your studies? How would you handle that?",
+        "speakerTextCn": "如果在学习期间你的资金来源发生变化，你会如何应对？",
+        "expectedAnswers": [
+          "I’ve planned for the full duration of my studies with stable funding, but if something changes, I’ll apply for on-campus work or a teaching assistant position.",
+          "My funding is guaranteed for four years, so I don’t expect changes. But if needed, I have backup options like scholarships or part-time work approved by my university.",
+          "I’ve secured a long-term scholarship that covers tuition and living costs, and I’ve also saved a small emergency fund in case of unexpected expenses."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否回应了潜在风险并提供合理应对方案",
+          "语言准确性：使用了如 guaranteed, backup options, emergency fund 等准确表达",
+          "表达自然度：语气自信但不夸张，符合真实情境",
+          "关键词覆盖：使用了 funding, scholarship, part-time work, emergency fund, guaranteed 等关键词"
+        ]
+      }
+    }
+  ]
+}

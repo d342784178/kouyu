@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_011_sub_2",
+  "subSceneName": "询问药效与用法",
+  "generatedAt": "2026-03-02T14:37:04.969Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_011_sub_2_pq_1",
+      "subSceneId": "daily_011_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_011_sub_2_qa_1",
+        "speakerText": "This one’s for coughs, right? How often do I take it?",
+        "speakerTextCn": "这个是治咳嗽的吧？一天吃几次？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Take two tablets at once for faster results.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Take one tablet every 8 hours, max 3 a day.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Take it only when you feel like it.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Take it with alcohol to make it work better.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 'Take one tablet every 8 hours, max 3 a day.'，这是标准用药指导，避免过量。选项1建议一次性吃两片，可能造成药物过量；选项3随意服用不符合医嘱；选项4建议与酒精同服，极其危险，可能引发严重副作用。"
+      }
+    },
+    {
+      "id": "daily_011_sub_2_pq_2",
+      "subSceneId": "daily_011_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_011_sub_2_qa_2",
+        "speakerText": "Does it make you sleepy?",
+        "speakerTextCn": "这个会让人犯困吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "No, it’s non-drowsy. You can drive safely.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Yes, it makes you energetic. Take it before work.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "It doesn’t affect sleep at all, even if you take it during the day.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "It makes you hungry. Eat more after taking it.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 'No, it’s non-drowsy. You can drive safely.'，符合非嗜睡类药物的说明。选项2错误地将嗜睡描述为‘有活力’，与常识相悖；选项3虽然说‘不影响睡眠’，但未明确是否会导致困倦，表述模糊且不专业；选项4完全无关，属于干扰项。"
+      }
+    },
+    {
+      "id": "daily_011_sub_2_pq_3",
+      "subSceneId": "daily_011_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I’ve been taking this for my headache. Is it okay to take it with my other medicine?",
+        "speakerTextCn": "我一直在吃这个治头痛。能和其他药一起吃吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, mixing medicines is fine — the more, the better.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "It’s best to check with your doctor first — some drugs interact dangerously.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Just take them together — you’ll feel better faster.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "No, you should never take any medicine for headaches.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 'It’s best to check with your doctor first — some drugs interact dangerously.'，强调用药安全和专业咨询的重要性。选项1和3鼓励随意混合药物��可能引发严重药物相互作用；选项4完全否定止痛药使用，不符合医学常识。"
+      }
+    },
+    {
+      "id": "daily_011_sub_2_pq_4",
+      "subSceneId": "daily_011_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_011_sub_2_qa_1",
+        "template": "Take one tablet every ___ hours, max 3 a day.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "8",
+            "options": [
+              "8",
+              "12",
+              "4",
+              "24"
+            ]
+          }
+        ],
+        "hint": "这是常见的服药间隔，避免过量。",
+        "knowledgePoint": "服药频率表达（every X hours）"
+      }
+    },
+    {
+      "id": "daily_011_sub_2_pq_5",
+      "subSceneId": "daily_011_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_011_sub_2_qa_2",
+        "template": "It’s ___ — you won’t feel sleepy.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "non-drowsy",
+            "options": [
+              "non-drowsy",
+              "sleepy",
+              "energetic",
+              "strong"
+            ]
+          }
+        ],
+        "hint": "描述不会引起困倦的药品常用词。",
+        "knowledgePoint": "药品副作用描述词汇（non-drowsy）"
+      }
+    },
+    {
+      "id": "daily_011_sub_2_pq_6",
+      "subSceneId": "daily_011_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "___ crush the tablet — take it whole with water.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Don't",
+            "options": [
+              "Don't",
+              "Can",
+              "Should",
+              "Must"
+            ]
+          }
+        ],
+        "hint": "提醒不要压碎药片的否定指令。",
+        "knowledgePoint": "禁止性表达（Don't + 动词原形）"
+      }
+    },
+    {
+      "id": "daily_011_sub_2_pq_7",
+      "subSceneId": "daily_011_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_011_sub_2_qa_1",
+        "speakerText": "This one’s for coughs, right? How often do I take it?",
+        "speakerTextCn": "这个是治咳嗽的吧？一天吃几次？",
+        "expectedAnswers": [
+          "Take one tablet every 8 hours, and don’t take more than three in a day.",
+          "Every eight hours — and make sure not to crush it.",
+          "Just take one pill every 8 hours, easy as that."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确说明服药频率和最大剂量",
+          "语言准确性：语法正确，无明显错误",
+          "表达自然度：符合口语习惯，使用日常表达",
+          "关键词覆盖：包含 'every 8 hours', 'max 3 a day', 'don't crush' 等关键信息"
+        ]
+      }
+    },
+    {
+      "id": "daily_011_sub_2_pq_8",
+      "subSceneId": "daily_011_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_011_sub_2_qa_2",
+        "speakerText": "Does it make you sleepy?",
+        "speakerTextCn": "这个会让人犯困吗？",
+        "expectedAnswers": [
+          "A little, so avoid driving or using heavy machinery.",
+          "No, it’s non-drowsy — safe to take during the day.",
+          "Yes, it can make you sleepy, so I’d recommend taking it at night."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确说明是否会引起嗜睡及相应建议",
+          "语言准确性：使用正确时态和词汇（e.g., avoid, recommend）",
+          "表达自然度：符合真实对话节奏，不生硬",
+          "关键词覆盖：包含 'sleepy', 'non-drowsy', 'avoid driving', 'take at night' 等关键表达"
+        ]
+      }
+    },
+    {
+      "id": "daily_011_sub_2_pq_9",
+      "subSceneId": "daily_011_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I’m taking this for my allergies. Should I take it with food?",
+        "speakerTextCn": "我吃这个治过敏，应该饭前吃还是饭后吃？",
+        "expectedAnswers": [
+          "It’s fine to take with or without food — just be consistent.",
+          "Take it on an empty stomach for faster absorption.",
+          "You can take it after a meal if it upsets your stomach."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰回答是否需要随餐服用",
+          "语言准确性：使用正确表达如 'on an empty stomach', 'upsets your stomach'",
+          "表达自然度：语气自然，符合药剂师或医生的建议口吻",
+          "关键词覆盖：包含 'with food', 'without food', 'empty stomach', 'upsets your stomach' 等核心表达"
+        ]
+      }
+    }
+  ]
+}

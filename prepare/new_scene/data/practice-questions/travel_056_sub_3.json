@@ -1,0 +1,254 @@
+{
+  "subSceneId": "travel_056_sub_3",
+  "subSceneName": "出示证件与押金",
+  "generatedAt": "2026-03-02T14:53:47.352Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_056_sub_3_pq_1",
+      "subSceneId": "travel_056_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_056_sub_3_qa_1",
+        "speakerText": "Could I see your passport, please? And we'll need a $50 deposit for incidentals.",
+        "speakerTextCn": "能出示一下您的护照吗？另外需要50美元押金作为杂费。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Sure, here's my passport. I'll pay with my card.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don't have a passport, can I use my driver's license?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I'll pay the deposit later, after I check in.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Here's my passport. I'll pay in cash.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了标准回应中的 'here's' 表达递送证件，并明确支付方式为信用卡，符合酒店前台常规流程。选项2错误，因为酒店通常只接受护照作为国际旅客身份证明。选项3错误，因为押金必须在入住时即时支付。选项4虽然语法正确，但与参考对话中 'card only' 的限制冲突，不符合语境。"
+      }
+    },
+    {
+      "id": "travel_056_sub_3_pq_2",
+      "subSceneId": "travel_056_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "We require a valid passport and a security deposit of $50. How would you like to pay?",
+        "speakerTextCn": "我们需要有效的护照和50美元的押金。您想如何支付？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll use my debit card. Here's my passport.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'll pay with Bitcoin. Here's my ID card.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't have any money right now. Can I skip the deposit?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'll pay in euros. My passport is in my room.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案符合场景要求：使用有效证件（passport）和可接受支付方式（debit card）。选项2错误，因为比特币通常不被酒店接受，且ID卡不能替代护照。选项3拒绝支付押金，不符合酒店政策。选项4使用欧元（非当地货币）且护照未当场提供，不符合流程。"
+      }
+    },
+    {
+      "id": "travel_056_sub_3_pq_3",
+      "subSceneId": "travel_056_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "To complete your check-in, I need your passport and a $50 deposit. Do you have that ready?",
+        "speakerTextCn": "为完成入住手续，我需要您的护照和50美元押金。您准备好了吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, here you go. I'll pay by card.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'll get it in a minute. Can I wait until later?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't need a deposit. I'm a VIP guest.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Here's my visa. And I'll pay cash.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案简洁、礼貌、符合流程，使用 'here you go' 递证件，明确支付方式。选项2拖延流程，不符合前台高效服务要求。选项3假设特权，无依据且不礼貌。选项4使用签证（非护照）替代，错误。"
+      }
+    },
+    {
+      "id": "travel_056_sub_3_pq_4",
+      "subSceneId": "travel_056_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_056_sub_3_qa_1",
+        "template": "Could I see your ______, please? And we'll need a $50 deposit for incidentals.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "passport",
+            "options": [
+              "passport",
+              "license",
+              "visa",
+              "reservation"
+            ]
+          }
+        ],
+        "hint": "酒店前台要求出示的官方身份证明文件",
+        "knowledgePoint": "场景高频词汇（护照）"
+      }
+    },
+    {
+      "id": "travel_056_sub_3_pq_5",
+      "subSceneId": "travel_056_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'll pay the deposit ______ my credit card.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "with",
+            "options": [
+              "with",
+              "by",
+              "on",
+              "for"
+            ]
+          }
+        ],
+        "hint": "表示支付方式的常用介词搭配",
+        "knowledgePoint": "动词搭配（pay with）"
+      }
+    },
+    {
+      "id": "travel_056_sub_3_pq_6",
+      "subSceneId": "travel_056_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Here's my ______. Card only, please.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "passport",
+            "options": [
+              "passport",
+              "bill",
+              "key",
+              "ticket"
+            ]
+          }
+        ],
+        "hint": "递交给前台用于身份验证的文件",
+        "knowledgePoint": "场景核心表达（递证件）"
+      }
+    },
+    {
+      "id": "travel_056_sub_3_pq_7",
+      "subSceneId": "travel_056_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_056_sub_3_qa_1",
+        "speakerText": "Could I see your passport, please? And we'll need a $50 deposit for incidentals.",
+        "speakerTextCn": "能出示一下您的护照吗？另外需要50美元押金作为杂费。",
+        "expectedAnswers": [
+          "Sure, here's my passport. I'll pay with my card.",
+          "Here you go. I'll use my debit card for the deposit.",
+          "Passport. Card only, please."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：正确回应护照请求并明确押金支付方式",
+          "语言准确性：使用正确词汇（passport, deposit, card）和语法结构",
+          "表达自然度：符合英语口语习惯，使用 'here's' 或 'here you go' 递证件"
+        ]
+      }
+    },
+    {
+      "id": "travel_056_sub_3_pq_8",
+      "subSceneId": "travel_056_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "We need your passport and a $50 security deposit to check in. How would you like to pay?",
+        "speakerTextCn": "为办理入住，我们需要您的护照和50美元押金。您想如何支付？",
+        "expectedAnswers": [
+          "Here's my passport. I'll pay with my credit card.",
+          "I've got my passport. Can I pay with Apple Pay?",
+          "Passport is here. I'll use my card — no cash, please."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：完整提供护照并明确支付方式，无遗漏",
+          "语言准确性：使用恰当的动词（pay with）、名词（passport, deposit）和介词",
+          "表达自然度：使用口语化但得体的表达，如 'I've got', 'no cash, please'，符合真实场景"
+        ]
+      }
+    },
+    {
+      "id": "travel_056_sub_3_pq_9",
+      "subSceneId": "travel_056_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I need to collect your passport and the $50 deposit before giving you the key. Are you ready?",
+        "speakerTextCn": "在给您房卡之前，我需要收取您的护照和50美元押金。您准备好了吗？",
+        "expectedAnswers": [
+          "Yes, here you go. I'll pay with my card.",
+          "Got it. Passport and card payment — all set.",
+          "I'm ready. Here's my passport. Deposit is on the card."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰回应护照和押金两方面要求",
+          "语言准确性：使用正确术语（passport, deposit, card）和时态",
+          "表达自然度：使用简洁、自然的口语表达，避免机械重复"
+        ]
+      }
+    }
+  ]
+}

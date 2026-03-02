@@ -1,0 +1,254 @@
+{
+  "subSceneId": "daily_017_sub_2",
+  "subSceneName": "询问价格与种类",
+  "generatedAt": "2026-03-02T14:38:47.514Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_017_sub_2_pq_1",
+      "subSceneId": "daily_017_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_017_sub_2_qa_1",
+        "speakerText": "How much are these strawberries?",
+        "speakerTextCn": "这些草莓多少钱一斤？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "They're $5 a pound.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "They're on sale for $50.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't like strawberries.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "They're grown in California.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'They're $5 a pound.' 直接回应了价格询问。选项2虽然提到价格，但$50远高于合理范围，不符合常理；选项3和4与问题无关，属于答非所问。"
+      }
+    },
+    {
+      "id": "daily_017_sub_2_pq_2",
+      "subSceneId": "daily_017_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_017_sub_2_qa_2",
+        "speakerText": "Do you have any ripe mangoes?",
+        "speakerTextCn": "有熟的芒果吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yeah, right here — they're sweet and juicy!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I need to buy some apples.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Mangoes are my favorite fruit.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "The store closes at 8 PM.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Yeah, right here — they're sweet and juicy!' 不仅确认有货，还提供了品质描述，符合口语自然回应。其他选项均未回答问题，属于无关陈述。"
+      }
+    },
+    {
+      "id": "daily_017_sub_2_pq_3",
+      "subSceneId": "daily_017_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "How much do these apples cost?",
+        "speakerTextCn": "这些苹果多少钱？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "They're $2 per pound. Would you like to try one?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I bought some oranges yesterday.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Apples are red and green.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I pay with a credit card?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案不仅回答了价格，还主动提供试吃建议，符合服务场景的自然互动。其他选项均未回应价格询问，属于偏离主题的表达。"
+      }
+    },
+    {
+      "id": "daily_017_sub_2_pq_4",
+      "subSceneId": "daily_017_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_017_sub_2_qa_1",
+        "template": "How much are these strawberries? They're $5 ___ pound.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a",
+            "options": [
+              "a",
+              "an",
+              "the",
+              "per"
+            ]
+          }
+        ],
+        "hint": "表示‘每’的常用表达，用于单价",
+        "knowledgePoint": "单价表达：$X a pound/kg"
+      }
+    },
+    {
+      "id": "daily_017_sub_2_pq_5",
+      "subSceneId": "daily_017_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_017_sub_2_qa_2",
+        "template": "Do you have any ripe mangoes? Yeah, right here — they're ___ and juicy!",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "sweet",
+            "options": [
+              "sweet",
+              "cold",
+              "big",
+              "cheap"
+            ]
+          }
+        ],
+        "hint": "描述成熟水果的常见形容词",
+        "knowledgePoint": "水果品质描述：sweet, juicy, ripe"
+      }
+    },
+    {
+      "id": "daily_017_sub_2_pq_6",
+      "subSceneId": "daily_017_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'd like to buy some kiwis. What's the ___ per kilogram?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "price",
+            "options": [
+              "price",
+              "cost",
+              "money",
+              "rate"
+            ]
+          }
+        ],
+        "hint": "询问单价时最常用的名词",
+        "knowledgePoint": "询问价格的核心词汇：price"
+      }
+    },
+    {
+      "id": "daily_017_sub_2_pq_7",
+      "subSceneId": "daily_017_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_017_sub_2_qa_1",
+        "speakerText": "How much are these strawberries?",
+        "speakerTextCn": "这些草莓多少钱？",
+        "expectedAnswers": [
+          "They're $5 a pound.",
+          "Five bucks per pound — on sale today!",
+          "That's $4.99 per kg. Would you like a pound?"
+        ],
+        "evaluationCriteria": [
+          "是否准确回答了价格（使用了单价单位如 per pound/kg）",
+          "是否使用了口语化表达如 'bucks' 或 'on sale' 增强自然度",
+          "是否包含礼貌或附加服务信息（如 'Would you like...'）"
+        ]
+      }
+    },
+    {
+      "id": "daily_017_sub_2_pq_8",
+      "subSceneId": "daily_017_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_017_sub_2_qa_2",
+        "speakerText": "Do you have any ripe mangoes?",
+        "speakerTextCn": "有熟的芒果吗？",
+        "expectedAnswers": [
+          "Yeah, right here — they're super sweet and juicy!",
+          "We do, but they're a bit pricey — $8 per pound.",
+          "Sorry, they're sold out, but we'll get more tomorrow."
+        ],
+        "evaluationCriteria": [
+          "是否明确回应是否有货（yes/no/sold out）",
+          "是否使用了口语词如 'yeah' 或 'super' 增强真实感",
+          "是否补充了价格或替代信息，体现服务意识"
+        ]
+      }
+    },
+    {
+      "id": "daily_017_sub_2_pq_9",
+      "subSceneId": "daily_017_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "What kinds of fruit do you have today?",
+        "speakerTextCn": "今天你们有什么水果？",
+        "expectedAnswers": [
+          "We have apples, bananas, strawberries, and a few mangoes.",
+          "We've got seasonal fruits like peaches, kiwis, and pineapples — all fresh!",
+          "Let me show you — we have oranges, grapes, and some imported berries."
+        ],
+        "evaluationCriteria": [
+          "是否清晰列举了水果种类（至少3种）",
+          "是否使用了自然口语表达如 'we've got' 或 'let me show you'",
+          "是否使用了场景关键词如 'seasonal', 'fresh', 'imported' 增强描述"
+        ]
+      }
+    }
+  ]
+}

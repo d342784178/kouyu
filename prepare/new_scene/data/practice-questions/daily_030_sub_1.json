@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_030_sub_1",
+  "subSceneName": "进店问候",
+  "generatedAt": "2026-03-02T14:44:40.738Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_030_sub_1_pq_1",
+      "subSceneId": "daily_030_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_030_sub_1_qa_1",
+        "speakerText": "Hi there! How can I help you today?",
+        "speakerTextCn": "嗨！今天需要帮忙吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'm looking for some running shoes.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you give me a discount?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Where is the restroom?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'll take this one.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'I'm looking for some running shoes.'是回应店员服务询问的标准表达，直接说明购物意图。其他选项要么是提前要求折扣（太直接）、要么问洗手间（无关需求）、要么直接下单（未先说明需求），都不符合初次回应的自然流程。"
+      }
+    },
+    {
+      "id": "daily_030_sub_1_pq_2",
+      "subSceneId": "daily_030_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_030_sub_1_qa_2",
+        "speakerText": "Awesome! What size do you usually wear?",
+        "speakerTextCn": "太好了！你平时穿几码？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'm a size 9, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don't know, maybe 10?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Size nine. Got it?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I like the color blue.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'I'm a size 9, please.'清晰、礼貌地回应尺码问题。选项2虽意思接近，但语气犹豫且缺少礼貌词，不够自然；选项3虽正确但语气生硬，像在命令店员；选项4完全偏离问题，未回答尺码。"
+      }
+    },
+    {
+      "id": "daily_030_sub_1_pq_3",
+      "subSceneId": "daily_030_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Welcome to our store! How can I assist you today?",
+        "speakerTextCn": "欢迎光临！今天能帮您什么？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'm just browsing, thanks.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I want to buy a car.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have coffee?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you call me a taxi?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'I'm just browsing, thanks.'是顾客无明确购买意图时的标准礼貌回应。其他选项完全脱离店铺场景：买汽车、问咖啡、叫出租车都与鞋类商店无关，属于语境错配。"
+      }
+    },
+    {
+      "id": "daily_030_sub_1_pq_4",
+      "subSceneId": "daily_030_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_030_sub_1_qa_1",
+        "template": "I'm looking for ___ running shoes.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "some",
+            "options": [
+              "some",
+              "any",
+              "a",
+              "the"
+            ]
+          }
+        ],
+        "hint": "表达‘一些’时，不可数或复数名词前常用此词",
+        "knowledgePoint": "不定量词搭配（some用于肯定句）"
+      }
+    },
+    {
+      "id": "daily_030_sub_1_pq_5",
+      "subSceneId": "daily_030_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_030_sub_1_qa_2",
+        "template": "I'm a size ___ , please.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "9",
+            "options": [
+              "9",
+              "nine",
+              "the nine",
+              "size nine"
+            ]
+          }
+        ],
+        "hint": "回答尺码时，直接用数字+单位，避免重复‘size’",
+        "knowledgePoint": "尺码表达习惯（数字+单位，省略size）"
+      }
+    },
+    {
+      "id": "daily_030_sub_1_pq_6",
+      "subSceneId": "daily_030_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Hi there! How can I ___ you today?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "help",
+            "options": [
+              "help",
+              "assist",
+              "serve",
+              "do"
+            ]
+          }
+        ],
+        "hint": "店员常用问候句型中的核心动词",
+        "knowledgePoint": "服务场景固定搭配（help you / assist you）"
+      }
+    },
+    {
+      "id": "daily_030_sub_1_pq_7",
+      "subSceneId": "daily_030_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_030_sub_1_qa_1",
+        "speakerText": "Hi there! How can I help you today?",
+        "speakerTextCn": "嗨！今天需要帮忙吗？",
+        "expectedAnswers": [
+          "I'm looking for new sneakers.",
+          "I need some running shoes, please.",
+          "I'm just browsing for now, thanks."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达购物意图或浏览态度",
+          "语言准确性：语法正确，无明显错误",
+          "表达自然度：使用口语化表达，语气自然不生硬",
+          "关键词覆盖：使用了running shoes / sneakers / browsing等场景词"
+        ]
+      }
+    },
+    {
+      "id": "daily_030_sub_1_pq_8",
+      "subSceneId": "daily_030_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_030_sub_1_qa_2",
+        "speakerText": "Awesome! What size do you usually wear?",
+        "speakerTextCn": "太好了！你平时穿几码？",
+        "expectedAnswers": [
+          "I wear size 8.5.",
+          "I think I'm a 9, but I'm not sure.",
+          "Size nine, please."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确回应尺码信息，不回避问题",
+          "语言准确性：使用正确单位表达（size + 数字）",
+          "表达自然度：包含适当语气词（I think, but I'm not sure）体现真实口语",
+          "关键词覆盖：使用size / number / wear等关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_030_sub_1_pq_9",
+      "subSceneId": "daily_030_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Welcome to FootFit! Can I help you find something today?",
+        "speakerTextCn": "欢迎光临FootFit！今天能帮您找点什么吗？",
+        "expectedAnswers": [
+          "I need a pair of trail running shoes.",
+          "I'm not sure yet—I’ll take a look around.",
+          "Do you have any discounts on sneakers?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：回应符合店员服务语境，表达明确需求或态度",
+          "语言准确性：语法正确，用词得体，无中式英语",
+          "表达自然度：使用符合英语母语者习惯的表达方式",
+          "关键词覆盖：使用了running shoes / sneakers / discounts / look around等场景词"
+        ]
+      }
+    }
+  ]
+}

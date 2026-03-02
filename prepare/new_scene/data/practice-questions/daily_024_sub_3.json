@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_024_sub_3",
+  "subSceneName": "确认取衣时间",
+  "generatedAt": "2026-03-02T14:41:23.380Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_024_sub_3_pq_1",
+      "subSceneId": "daily_024_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_024_sub_3_qa_1",
+        "speakerText": "When can I pick them up?",
+        "speakerTextCn": "我什么时候能来取？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I can pick them up on Friday.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I get them by Thursday? I need them for a meeting.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "The clothes are too dirty.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I don’t know where the store is.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了 'Can I get them by...' 这一礼貌请求句型，并附加了合理理由 'I need them for a meeting'，符合场景中建议的回应方式。其他选项要么是回答而非提问（opt_1），要么与问题无关（opt_3、opt_4）。"
+      }
+    },
+    {
+      "id": "daily_024_sub_3_pq_2",
+      "subSceneId": "daily_024_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I need my suit for a job interview on Monday. When will it be ready?",
+        "speakerTextCn": "我周一有个面试，需要这件西装，什么时候能好？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I’m not sure. Maybe next week.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Could you make it by Saturday? I need to iron it before the interview.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "The dryer is broken.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you want to buy more clothes?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了 'Could you make it by...' 的礼貌请求结构，并提供了合理的理由（需要提前熨烫），符合场景中‘加理由让请求更合理’的要求。其他选项要么回避问题（opt_1），要么答非所问（opt_3、opt_4）。"
+      }
+    },
+    {
+      "id": "daily_024_sub_3_pq_3",
+      "subSceneId": "daily_024_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I’m leaving town on Wednesday. Can I pick up my laundry before then?",
+        "speakerTextCn": "我周三就要离开 town 了，我能在那之前取走衣服吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, we close at 6 PM.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "What time is your flight?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I’d like to pick them up on Tuesday if possible.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_4",
+            "text": "We don’t do laundry on weekends.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是顾客主动提出一个可行的取衣时间（周二），并使用了 'if possible' 体现礼貌，符合场景中主动提议时间的策略。其他选项要么提供无关信息（opt_1、opt_4），要么反问顾客（opt_2），未回应请求。"
+      }
+    },
+    {
+      "id": "daily_024_sub_3_pq_4",
+      "subSceneId": "daily_024_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_024_sub_3_qa_1",
+        "template": "Can I get them ___ Thursday?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "by",
+            "options": [
+              "by",
+              "on",
+              "at",
+              "for"
+            ]
+          }
+        ],
+        "hint": "表示‘在某个时间点前完成’的常用介词",
+        "knowledgePoint": "介词用法（by 表示截止时间）"
+      }
+    },
+    {
+      "id": "daily_024_sub_3_pq_5",
+      "subSceneId": "daily_024_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I’m in a hurry — what’s the ___ day?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "earliest",
+            "options": [
+              "earliest",
+              "latest",
+              "best",
+              "fastest"
+            ]
+          }
+        ],
+        "hint": "询问最早可取件时间的关键词",
+        "knowledgePoint": "场景高频词汇（earliest day 表示最早时间）"
+      }
+    },
+    {
+      "id": "daily_024_sub_3_pq_6",
+      "subSceneId": "daily_024_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could you please have them ready ___ Friday?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "by",
+            "options": [
+              "by",
+              "on",
+              "in",
+              "for"
+            ]
+          }
+        ],
+        "hint": "请求在某日前完成时使用的固定搭配",
+        "knowledgePoint": "固定表达（have something ready by + 时间）"
+      }
+    },
+    {
+      "id": "daily_024_sub_3_pq_7",
+      "subSceneId": "daily_024_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_024_sub_3_qa_1",
+        "speakerText": "When can I pick them up?",
+        "speakerTextCn": "我什么时候能来取？",
+        "expectedAnswers": [
+          "Can I get them by Wednesday? I have a presentation.",
+          "What’s the earliest I can pick them up? I need them for an event.",
+          "Is it possible to get them tomorrow? I’m traveling on Friday."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问取衣时间并提出合理请求",
+          "语言准确性：语法和词汇使用是否正确，如 'by + day' 或 'earliest' 的使用",
+          "表达自然度：是否使用了自然的口语表达，如 'I’m in a hurry' 或 'if possible'",
+          "关键词覆盖：是否使用了场景关键词如 'pick up', 'by', 'earliest', 'ready'"
+        ]
+      }
+    },
+    {
+      "id": "daily_024_sub_3_pq_8",
+      "subSceneId": "daily_024_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I need my dress for a wedding on Saturday. When can I collect it?",
+        "speakerTextCn": "我周六有个婚礼，需要这件礼服，什么时候能取？",
+        "expectedAnswers": [
+          "Could you have it ready by Thursday? I want to try it on before the wedding.",
+          "Is Friday okay? I need time to steam it before the big day.",
+          "What’s the earliest possible day? I’m really hoping to get it before Saturday."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达需求并请求具体取衣时间",
+          "语言准确性：是否正确使用 'have it ready by', 'could you', 'earliest possible' 等结构",
+          "表达自然度：是否使用符合英语口语习惯的表达，避免生硬直译",
+          "关键词覆盖：是否使用了 'wedding', 'collect', 'ready', 'earliest' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_024_sub_3_pq_9",
+      "subSceneId": "daily_024_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I’m leaving for a business trip on Monday. Can I pick up my shirts before then?",
+        "speakerTextCn": "我周一要出差，能在那之前取走我的衬衫吗？",
+        "expectedAnswers": [
+          "I’d like to pick them up on Friday if that works.",
+          "We can have them ready by Wednesday — would that be okay?",
+          "Since you’re in a hurry, we can prioritize your order. Can you come in tomorrow?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否回应取衣请求并提供可行方案",
+          "语言准确性：是否使用了恰当的请求句型（I’d like to, could you, would that be okay）",
+          "表达自然度：是否体现服务意识和口语流畅性，避免机械回答",
+          "关键词覆盖：是否使用了 'business trip', 'pick up', 'before then', 'ready' 等关键词"
+        ]
+      }
+    }
+  ]
+}

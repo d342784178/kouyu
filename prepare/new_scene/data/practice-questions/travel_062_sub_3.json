@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_062_sub_3",
+  "subSceneName": "确认票价与时间",
+  "generatedAt": "2026-03-02T15:05:24.511Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_062_sub_3_pq_1",
+      "subSceneId": "travel_062_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_062_sub_3_qa_1",
+        "speakerText": "How much is the entrance fee for the museum?",
+        "speakerTextCn": "博物馆门票多少钱？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "It's $12 for adults, but under 18s are free!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I think it's about ten minutes away.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "The museum is very popular.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I pay by credit card?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接回应了票价问题，使用了场景核心表达。选项2混淆了时间与价格；选项3是无关评价；选项4询问支付方式，偏离了问题核心。"
+      }
+    },
+    {
+      "id": "travel_062_sub_3_pq_2",
+      "subSceneId": "travel_062_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_062_sub_3_qa_2",
+        "speakerText": "Do they close early on weekends?",
+        "speakerTextCn": "周末会早关吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, closes at 5 on Sat/Sun.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I love visiting museums on weekends.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "The tickets are cheap.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Would you like a guided tour?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确回应了关于周末关闭时间的疑问。选项1是常见干扰项，但语义无关；选项3谈价格；选项4是服务推荐，均未回答问题。"
+      }
+    },
+    {
+      "id": "travel_062_sub_3_pq_3",
+      "subSceneId": "travel_062_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "What time does the art gallery open on weekdays?",
+        "speakerTextCn": "艺术画廊工作日几点开门？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "It opens at 9 a.m. and closes at 6 p.m.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'm not sure, but it's usually crowded.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "You should buy tickets online.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "The entrance is free on Mondays.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接回答了开放时间，符合场景需求。选项2回避问题；选项3是建议；选项4谈免费政策，而非开门时间，均未精准回应。"
+      }
+    },
+    {
+      "id": "travel_062_sub_3_pq_4",
+      "subSceneId": "travel_062_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_062_sub_3_qa_1",
+        "template": "How much is the ___ for the museum?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "entrance fee",
+            "options": [
+              "entrance fee",
+              "ticket price",
+              "admission cost",
+              "visit charge"
+            ]
+          }
+        ],
+        "hint": "询问门票价格的标准表达",
+        "knowledgePoint": "固定搭配（entrance fee）"
+      }
+    },
+    {
+      "id": "travel_062_sub_3_pq_5",
+      "subSceneId": "travel_062_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_062_sub_3_qa_2",
+        "template": "Do they close ___ on weekends?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "early",
+            "options": [
+              "early",
+              "late",
+              "fast",
+              "soon"
+            ]
+          }
+        ],
+        "hint": "确认特殊关闭时间的常用表达",
+        "knowledgePoint": "功能表达（close early）"
+      }
+    },
+    {
+      "id": "travel_062_sub_3_pq_6",
+      "subSceneId": "travel_062_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Is admission ___ for children under 12?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "free",
+            "options": [
+              "free",
+              "cheap",
+              "open",
+              "available"
+            ]
+          }
+        ],
+        "hint": "询问儿童是否免费时的关键词",
+        "knowledgePoint": "场景高频词汇（free）"
+      }
+    },
+    {
+      "id": "travel_062_sub_3_pq_7",
+      "subSceneId": "travel_062_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_062_sub_3_qa_1",
+        "speakerText": "How much is the entrance fee for the museum?",
+        "speakerTextCn": "博物馆门票多少钱？",
+        "expectedAnswers": [
+          "It's $10 for adults, and kids under 12 get in free.",
+          "Ten dollars. And it's free on Sundays.",
+          "Free! No charge at all."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确回答了票价信息",
+          "语言准确性：语法正确，无严重错误",
+          "表达自然度：使用了口语化表达如 'get in free' 或 'No charge at all'",
+          "关键词覆盖：使用了 'entrance fee', 'adults', 'free', 'kids/children' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_062_sub_3_pq_8",
+      "subSceneId": "travel_062_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_062_sub_3_qa_2",
+        "speakerText": "Do they close early on weekends?",
+        "speakerTextCn": "周末会早关吗？",
+        "expectedAnswers": [
+          "Yes, they close at 5 p.m. on Saturdays and Sundays.",
+          "No, same as weekdays — open until 7 p.m. every day.",
+          "Actually, they stay open later on weekends."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回应是否早关及具体时间",
+          "语言准确性：正确使用时间表达和动词时态",
+          "表达自然度：使用了口语缩略如 'till' 或 'stay open'",
+          "关键词覆盖：使用了 'close early', 'weekends', 'Saturdays/Sundays', 'open until' 等核心表达"
+        ]
+      }
+    },
+    {
+      "id": "travel_062_sub_3_pq_9",
+      "subSceneId": "travel_062_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "What are the opening hours on holidays?",
+        "speakerTextCn": "节假日的开放时间是什么？",
+        "expectedAnswers": [
+          "They're open from 10 a.m. to 6 p.m., just like regular days.",
+          "On holidays, they open later — at 11 a.m. and close at 5 p.m.",
+          "I'm not sure, but you can check their website for holiday hours."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清楚说明节假日开放时间或提供解决方案",
+          "语言准确性：正确使用时间表达和介词（on, from...to）",
+          "表达自然度：使用了 'just like', 'I'm not sure, but...' 等自然口语结构",
+          "关键词覆盖：使用了 'opening hours', 'holidays', 'open', 'close' 等核心词汇"
+        ]
+      }
+    }
+  ]
+}

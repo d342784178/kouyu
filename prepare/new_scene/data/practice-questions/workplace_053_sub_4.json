@@ -1,0 +1,254 @@
+{
+  "subSceneId": "workplace_053_sub_4",
+  "subSceneName": "寄送需求",
+  "generatedAt": "2026-03-02T15:19:33.231Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "workplace_053_sub_4_pq_1",
+      "subSceneId": "workplace_053_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "workplace_053_sub_4_qa_1",
+        "speakerText": "Can you ship this overnight to Boston? It's fragile.",
+        "speakerTextCn": "能帮我加急寄到波士顿吗？易碎品。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "We can use standard shipping, it's cheaper.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "We can do FedEx Priority, $45.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I'm sorry, we don't ship to Boston.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "You should deliver it yourself.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'We can do FedEx Priority, $45.' 是对加急和易碎物品的合理回应，提供专业快递方案。其他选项均不恰当：第一个忽略易碎需求，第三个错误否认服务范围，第四个完全不专业。"
+      }
+    },
+    {
+      "id": "workplace_053_sub_4_pq_2",
+      "subSceneId": "workplace_053_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "workplace_053_sub_4_qa_2",
+        "speakerText": "I need to send this to a client tomorrow — any cut-off time?",
+        "speakerTextCn": "我明天要寄给客户，最晚几点能寄？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "We don't accept packages on weekdays.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Cut-off's 3 PM for same-day shipping.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "You can send it anytime — we ship 24/7.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Just drop it off at the post office.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Cut-off's 3 PM for same-day shipping.' 准确回应了截止时间问题，符合职场寄送场景。第一个选项错误否定服务日，第三个夸大服务范围，第四个推卸责任，均不符合专业回应标准。"
+      }
+    },
+    {
+      "id": "workplace_053_sub_4_pq_3",
+      "subSceneId": "workplace_053_sub_4",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I'm sending this package internationally. Do you offer tracking and insurance?",
+        "speakerTextCn": "我要寄一个国际包裹，你们提供追踪和保险服务吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "We only ship domestically, sorry.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Yes, we offer full tracking and optional insurance for $10.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Just write your name on the box and go.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "International shipping is free.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案提供具体服务信息（追踪+保险+价格），符合专业回应。第一个选项错误否认国际服务，第三个轻率不专业，第四个虚假承诺免费，均不符合实际业务场景。"
+      }
+    },
+    {
+      "id": "workplace_053_sub_4_pq_4",
+      "subSceneId": "workplace_053_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "workplace_053_sub_4_qa_1",
+        "template": "We can do FedEx Priority, ___ $45.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "for",
+            "options": [
+              "for",
+              "at",
+              "with",
+              "by"
+            ]
+          }
+        ],
+        "hint": "表示价格时的固定搭配",
+        "knowledgePoint": "价格表达固定搭配（for + 金额）"
+      }
+    },
+    {
+      "id": "workplace_053_sub_4_pq_5",
+      "subSceneId": "workplace_053_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "workplace_053_sub_4_qa_2",
+        "template": "Cut-off's ___ PM for same-day shipping.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "3",
+            "options": [
+              "3",
+              "5",
+              "6",
+              "8"
+            ]
+          }
+        ],
+        "hint": "常见快递公司当天寄件截止时间",
+        "knowledgePoint": "场景高频时间表达（cut-off time）"
+      }
+    },
+    {
+      "id": "workplace_053_sub_4_pq_6",
+      "subSceneId": "workplace_053_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could you please ___ the box and label ready before 3 PM?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "have",
+            "options": [
+              "have",
+              "get",
+              "make",
+              "bring"
+            ]
+          }
+        ],
+        "hint": "表达‘准备好’的标准职场用语",
+        "knowledgePoint": "have + 宾语 + 形容词（准备就绪的地道表达）"
+      }
+    },
+    {
+      "id": "workplace_053_sub_4_pq_7",
+      "subSceneId": "workplace_053_sub_4",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "workplace_053_sub_4_qa_1",
+        "speakerText": "Can you ship this overnight to Boston? It's fragile.",
+        "speakerTextCn": "能帮我加急寄到波士顿吗？易碎品。",
+        "expectedAnswers": [
+          "We can do FedEx Priority for $45. Do you have the box and label ready?",
+          "Sure, we'll use overnight shipping with extra padding — it's $45.",
+          "I'll arrange FedEx Priority and add fragile handling. The cost is $45."
+        ],
+        "evaluationCriteria": [
+          "是否回应了加急和易碎需求",
+          "是否使用了场景关键词（FedEx Priority, fragile, box, label）",
+          "表达是否自然、符合职场口语习惯"
+        ]
+      }
+    },
+    {
+      "id": "workplace_053_sub_4_pq_8",
+      "subSceneId": "workplace_053_sub_4",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "workplace_053_sub_4_qa_2",
+        "speakerText": "I need to send this to a client tomorrow — any cut-off time?",
+        "speakerTextCn": "我明天要寄给客户，最晚几点能寄？",
+        "expectedAnswers": [
+          "The cut-off is 3 PM for same-day shipping. If you miss it, I can hold it and send first thing tomorrow.",
+          "We close at 3 PM — after that, packages go out the next day.",
+          "You're just in time! If you bring it by 3 PM, we'll ship it today."
+        ],
+        "evaluationCriteria": [
+          "是否准确提供截止时间或替代方案",
+          "是否使用场景关键词（cut-off, same-day shipping, hold, send tomorrow）",
+          "是否体现服务意识和主动解决方案"
+        ]
+      }
+    },
+    {
+      "id": "workplace_053_sub_4_pq_9",
+      "subSceneId": "workplace_053_sub_4",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'm sending this package to Germany. Do you handle international shipments?",
+        "speakerTextCn": "我要寄一个包裹到德国，你们处理国际快递吗？",
+        "expectedAnswers": [
+          "Yes, we ship worldwide. We recommend DHL Express — it takes 3–5 days and includes tracking.",
+          "Absolutely. We offer DHL and UPS for international. Would you like insurance too?",
+          "Yes, we handle international. The cost depends on weight — I can check for you."
+        ],
+        "evaluationCriteria": [
+          "是否确认支持国际寄送",
+          "是否提及国际快递品牌（DHL/UPS）或关键服务（tracking, insurance）",
+          "是否自然引导下一步行动或提供选项"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_010_sub_2",
+  "subSceneName": "核对衣物",
+  "generatedAt": "2026-03-02T14:36:43.241Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_010_sub_2_pq_1",
+      "subSceneId": "daily_010_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_010_sub_2_qa_1",
+        "speakerText": "You've got 3 shirts, 2 pants, and 1 towel, right?",
+        "speakerTextCn": "您有3件衬衫、2条裤子和1条毛巾，对吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yep, that's all.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I need another towel.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you give me a discount?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'll take the pants only.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Yep, that's all.' 是对核对数量的直接确认，符合场景语境。其他选项要么是提出新要求（如多要毛巾、要折扣），要么是改变购买意愿，都不符合核对确认的对话功能。"
+      }
+    },
+    {
+      "id": "daily_010_sub_2_pq_2",
+      "subSceneId": "daily_010_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_010_sub_2_qa_2",
+        "speakerText": "Let me double-check... Oh, here it is! Sorry for the mix-up.",
+        "speakerTextCn": "我再核对一下…哦，在这呢！抱歉搞错了。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "No problem, thanks for checking.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Why did you make a mistake?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't care where it is.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Give me everything again.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'No problem, thanks for checking.' 体现了礼貌和感激，符合服务场景中的回应规范。其他选项语气生硬或指责对方，不符合英语服务交流中的礼貌原则。"
+      }
+    },
+    {
+      "id": "daily_010_sub_2_pq_3",
+      "subSceneId": "daily_010_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I'm checking your order: 4 T-shirts, 1 hoodie, and 2 socks.",
+        "speakerTextCn": "我正在核对您的订单：4件T恤、1件连帽衫和2双袜子。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Actually, I ordered 3 socks, not 2.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I like the hoodie a lot.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I pay with PayPal?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have more colors?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案指出数量错误，是核对衣物场景的核心应对方式。其他选项偏离了核对任务，涉及支付方式或商品颜色，属于无关回应。"
+      }
+    },
+    {
+      "id": "daily_010_sub_2_pq_4",
+      "subSceneId": "daily_010_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_010_sub_2_qa_1",
+        "template": "You've got 3 shirts, 2 pants, and 1 towel, right? ___ that's all.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Yep",
+            "options": [
+              "Yep",
+              "Yes",
+              "No",
+              "Okay"
+            ]
+          }
+        ],
+        "hint": "口语中常用简短回应确认数量",
+        "knowledgePoint": "口语确认表达（Yep, Yeah）"
+      }
+    },
+    {
+      "id": "daily_010_sub_2_pq_5",
+      "subSceneId": "daily_010_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_010_sub_2_qa_2",
+        "template": "Sorry for the mix-up. ___ problem, thanks for checking.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "No",
+            "options": [
+              "No",
+              "It's",
+              "Any",
+              "Not"
+            ]
+          }
+        ],
+        "hint": "回应对方道歉时的标准礼貌表达",
+        "knowledgePoint": "礼貌回应道歉的固定搭配（No problem）"
+      }
+    },
+    {
+      "id": "daily_010_sub_2_pq_6",
+      "subSceneId": "daily_010_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Let me ___-check your order to make sure everything is correct.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "double",
+            "options": [
+              "double",
+              "quick",
+              "re",
+              "final"
+            ]
+          }
+        ],
+        "hint": "店员核对时常用的动词短语",
+        "knowledgePoint": "核对动作的固定搭配（double-check）"
+      }
+    },
+    {
+      "id": "daily_010_sub_2_pq_7",
+      "subSceneId": "daily_010_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_010_sub_2_qa_1",
+        "speakerText": "You've got 3 shirts, 2 pants, and 1 towel, right?",
+        "speakerTextCn": "您有3件衬衫、2条裤子和1条毛巾，对吗？",
+        "expectedAnswers": [
+          "Yep, that's all.",
+          "Wait, I'm missing one shirt.",
+          "Yes, perfect. Thanks!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确回应了数量核对（确认或指出错误）",
+          "语言准确性：语法和用词是否正确，如使用 'missing' 或 'perfect' 正确",
+          "表达自然度：是否使用了口语化表达（如 'Yep'）而非生硬结构",
+          "关键词覆盖：是否包含场景关键词如 'shirt', 'pants', 'towel' 或 'missing'"
+        ]
+      }
+    },
+    {
+      "id": "daily_010_sub_2_pq_8",
+      "subSceneId": "daily_010_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_010_sub_2_qa_2",
+        "speakerText": "Let me double-check... Oh, here it is! Sorry for the mix-up.",
+        "speakerTextCn": "我再核对一下…哦，在这呢！抱歉搞错了。",
+        "expectedAnswers": [
+          "No problem, thanks for checking.",
+          "It's okay, I appreciate it.",
+          "Thanks for sorting it out!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否礼貌回应了对方的道歉和补救行为",
+          "语言准确性：是否使用了正确结构如 'I appreciate it' 或 'thanks for...' ",
+          "表达自然度：是否避免了生硬或不礼貌回应（如 'Just give it to me'）",
+          "关键词覆盖：是否包含 'checking', 'mix-up', 'thanks', 'appreciate' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_010_sub_2_pq_9",
+      "subSceneId": "daily_010_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'm verifying your order: 2 jackets, 3 sweaters, and 1 scarf. Does that match?",
+        "speakerTextCn": "我正在核对您的订单：2件夹克、3件毛衣和1条围巾。与您订单一致吗？",
+        "expectedAnswers": [
+          "Yes, that's correct.",
+          "Actually, I ordered 4 sweaters, not 3.",
+          "Perfect! Thank you for double-checking."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰确认或纠正了数量",
+          "语言准确性：是否使用了正确动词（order, verify）和量词（pieces, pairs）",
+          "表达自然度：是否使用了自然口语表达，避免机械重复",
+          "关键词覆盖：是否使用了场景关键词如 'verify', 'order', 'sweater', 'scarf'"
+        ]
+      }
+    }
+  ]
+}

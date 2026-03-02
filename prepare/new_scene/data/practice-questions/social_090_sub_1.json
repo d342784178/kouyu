@@ -1,0 +1,257 @@
+{
+  "subSceneId": "social_090_sub_1",
+  "subSceneName": "连接测试",
+  "generatedAt": "2026-03-02T14:46:27.402Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "social_090_sub_1_pq_1",
+      "subSceneId": "social_090_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "social_090_sub_1_qa_1",
+        "speakerText": "Hey, can you hear me okay? The audio's a bit crackly.",
+        "speakerTextCn": "嘿，你能听清吗？声音有点沙沙的。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I can't hear you at all. Please hang up and call again.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Yeah, I can hear you, but it's a little fuzzy. Try turning down your mic gain.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "The sound is perfect! You should turn up your volume.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'm not sure. Maybe you should change your microphone brand.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确回应了音频问题并提供了具体解决方案（调低麦克风增益），符合场景中的专业沟通习惯。选项1过于极端，选项3与问题矛盾，选项4建议更换设备不切实际，属于无效建议。"
+      }
+    },
+    {
+      "id": "social_090_sub_1_pq_2",
+      "subSceneId": "social_090_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "social_090_sub_1_qa_2",
+        "speakerText": "Your video's frozen—can you check your camera?",
+        "speakerTextCn": "你的视频卡住了，能检查下摄像头吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I don't know how to use a camera.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Oops, sorry! My camera's off—I'll turn it on now.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Maybe your screen is broken.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'll restart my computer in five minutes.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接承认问题并立即采取行动，符合高效沟通原则。选项1推卸责任，选项3转移问题到屏幕，选项4拖延处理，都不符合及时排查的场景要求。"
+      }
+    },
+    {
+      "id": "social_090_sub_1_pq_3",
+      "subSceneId": "social_090_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I'm experiencing lag during the call—my video keeps buffering.",
+        "speakerTextCn": "我在通话中遇到卡顿，视频一直在缓冲。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "That's normal. Just wait it out.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Try switching to a wired connection or closing unused apps.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "You should buy a new camera.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I can't help you with that.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案提供两个实用解决方案（切换有线连接、关闭应用），符合技术问题处理逻辑。选项1消极应对，选项3错误归因于摄像头，选项4拒绝协助，均不符合积极解决问题的场景目标。"
+      }
+    },
+    {
+      "id": "social_090_sub_1_pq_4",
+      "subSceneId": "social_090_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "social_090_sub_1_qa_1",
+        "template": "I can hear you, but it's a little ___—try turning down your mic gain.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "fuzzy",
+            "options": [
+              "fuzzy",
+              "loud",
+              "clear",
+              "quiet"
+            ]
+          }
+        ],
+        "hint": "描述音频不清晰的常用词",
+        "knowledgePoint": "描述音频质量问题的高频词汇"
+      }
+    },
+    {
+      "id": "social_090_sub_1_pq_5",
+      "subSceneId": "social_090_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "social_090_sub_1_qa_2",
+        "template": "My camera's on, but maybe my ___ is low. Let me close some tabs.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "bandwidth",
+            "options": [
+              "bandwidth",
+              "brightness",
+              "battery",
+              "background"
+            ]
+          }
+        ],
+        "hint": "影响视频流畅度的网络关键指标",
+        "knowledgePoint": "网络性能相关核心术语"
+      }
+    },
+    {
+      "id": "social_090_sub_1_pq_6",
+      "subSceneId": "social_090_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Let me ___ to mobile data—this Wi-Fi is too slow.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "switch",
+            "options": [
+              "switch",
+              "change",
+              "turn",
+              "move"
+            ]
+          }
+        ],
+        "hint": "表示切换网络连接的动词搭配",
+        "knowledgePoint": "网络切换的惯用动词搭配"
+      }
+    },
+    {
+      "id": "social_090_sub_1_pq_7",
+      "subSceneId": "social_090_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "social_090_sub_1_qa_1",
+        "speakerText": "Hey, can you hear me okay? The audio's a bit crackly.",
+        "speakerTextCn": "嘿，你能听清吗？声音有点沙沙的。",
+        "expectedAnswers": [
+          "I can hear you, but it’s a bit fuzzy. Can you lower your mic gain?",
+          "The audio is a little unclear—maybe try turning down your input volume?",
+          "I'm hearing you, but there's some background noise. Could you check your mic settings?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否识别并回应了音频问题",
+          "语言准确性：语法正确，用词恰当（如fuzzy, mic gain）",
+          "表达自然度：符合日常口语习惯，不生硬",
+          "关键词覆盖：使用了audio/fuzzy/mic gain等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "social_090_sub_1_pq_8",
+      "subSceneId": "social_090_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "social_090_sub_1_qa_2",
+        "speakerText": "Your video's frozen—can you check your camera?",
+        "speakerTextCn": "你的视频卡住了，能检查下摄像头吗？",
+        "expectedAnswers": [
+          "Sorry! My camera was off—I just turned it on.",
+          "It's on, but my internet's slow. I'm closing some tabs to free up bandwidth.",
+          "I'll restart my camera app right away."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否主动排查并回应视频问题",
+          "语言准确性：使用了camera/bandwidth/turn on等正确术语",
+          "表达自然度：语气礼貌，有行动导向",
+          "关键词覆盖：包含camera, frozen, bandwidth, turn on等核心词"
+        ]
+      }
+    },
+    {
+      "id": "social_090_sub_1_pq_9",
+      "subSceneId": "social_090_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "The call keeps dropping—what should I do?",
+        "speakerTextCn": "通话总是断线，我该怎么办？",
+        "expectedAnswers": [
+          "Try restarting your router—it often fixes connection drops.",
+          "Switch to a stronger Wi-Fi network or use mobile data instead.",
+          "Make sure no other devices are using a lot of bandwidth right now."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否提供可行的解决方案",
+          "语言准确性：使用了router, bandwidth, switch, mobile data等术语",
+          "表达自然度：语句流畅，符合技术支持对话风格",
+          "关键词覆盖：包含connection, drop, bandwidth, switch等场景关键词"
+        ]
+      }
+    }
+  ]
+}

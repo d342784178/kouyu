@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_072_sub_3",
+  "subSceneName": "确认车辆信息",
+  "generatedAt": "2026-03-02T15:16:53.607Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_072_sub_3_pq_1",
+      "subSceneId": "travel_072_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_072_sub_3_qa_1",
+        "speakerText": "Your taxi is a black Honda, plate number ABC-123. The driver’s name is Tom.",
+        "speakerTextCn": "您的出租车是黑色本田，车牌ABC-123，司机叫汤姆。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Thanks! I’ll look for a black Honda with ABC-123.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Okay, I’ll take a red Toyota instead.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you change the driver? I don’t like Tom.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much is the fare to downtown?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是对车辆和司机信息的确认性回应，符合场景需求。干扰项2是改变车辆类型，与信息不符；干扰项3是要求换司机，不礼貌且无关；干扰项4是询问费用，偏离了核对信息的主题。"
+      }
+    },
+    {
+      "id": "travel_072_sub_3_pq_2",
+      "subSceneId": "travel_072_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "The car is a silver Toyota, license plate XYZ-789, and the driver is Lisa.",
+        "speakerTextCn": "车是银色丰田，车牌XYZ-789，司机是丽莎。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Got it. Is Lisa the one wearing a blue cap?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I need to cancel the ride.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you drive me to the airport now?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "The fare is too high.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案通过细节提问确认司机特征，是自然的核对行为。干扰项2是取消订单，与核对信息无关；干扰项3是催促出发，未回应信息确认；干扰项4是抱怨价格，偏离主题。"
+      }
+    },
+    {
+      "id": "travel_072_sub_3_pq_3",
+      "subSceneId": "travel_072_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Your ride is a white SUV with plate number DEF-456. The driver’s name is Mike.",
+        "speakerTextCn": "您的车是一辆白色SUV，车牌DEF-456，司机叫迈克。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Thanks! I’ll check for a white SUV with DEF-456 and look for Mike.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don’t like SUVs. Can I get a sedan?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is Mike your best driver?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What time will we arrive?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案完整复述并确认了车辆和司机信息，符合场景要求。干扰项2是要求换车型，不恰当；干扰项3是评价司机，无关；干扰项4是询问到达时间，未回应信息核对。"
+      }
+    },
+    {
+      "id": "travel_072_sub_3_pq_4",
+      "subSceneId": "travel_072_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_072_sub_3_qa_1",
+        "template": "I’ll look for a ___ Honda with plate number ABC-123.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "black",
+            "options": [
+              "black",
+              "red",
+              "blue",
+              "silver"
+            ]
+          }
+        ],
+        "hint": "根据对话中描述的车辆颜色填空",
+        "knowledgePoint": "车辆颜色描述（场景高频词汇）"
+      }
+    },
+    {
+      "id": "travel_072_sub_3_pq_5",
+      "subSceneId": "travel_072_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could you please confirm the driver’s ___ is Tom?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "name",
+            "options": [
+              "name",
+              "number",
+              "license",
+              "car"
+            ]
+          }
+        ],
+        "hint": "询问司机身份时的常用词",
+        "knowledgePoint": "核心名词搭配（driver’s name）"
+      }
+    },
+    {
+      "id": "travel_072_sub_3_pq_6",
+      "subSceneId": "travel_072_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Is the car ___ the entrance?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "near",
+            "options": [
+              "near",
+              "far",
+              "behind",
+              "next"
+            ]
+          }
+        ],
+        "hint": "询问车辆位置时的常用介词短语",
+        "knowledgePoint": "位置表达（near + 地点）"
+      }
+    },
+    {
+      "id": "travel_072_sub_3_pq_7",
+      "subSceneId": "travel_072_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_072_sub_3_qa_1",
+        "speakerText": "Your taxi is a black Honda, plate number ABC-123. The driver’s name is Tom.",
+        "speakerTextCn": "您的出租车是黑色本田，车牌ABC-123，司机叫汤姆。",
+        "expectedAnswers": [
+          "Thanks! I’ll find the black Honda with ABC-123.",
+          "Got it. So the driver is Tom, right?",
+          "Just to confirm — it’s a black Honda, plate ABC-123, driver Tom? Thanks!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确确认了车辆和司机信息",
+          "语言准确性：语法正确，无拼写或搭配错误",
+          "表达自然度：使用了符合英语口语习惯的表达，如 'right?' 或 'just to confirm'",
+          "关键词覆盖：是否包含 'black Honda', 'plate', 'driver', 'Tom' 等关键信息"
+        ]
+      }
+    },
+    {
+      "id": "travel_072_sub_3_pq_8",
+      "subSceneId": "travel_072_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Your ride is a silver Toyota, license plate XYZ-789, and the driver is Lisa.",
+        "speakerTextCn": "您的车是银色丰田，车牌XYZ-789，司机是丽莎。",
+        "expectedAnswers": [
+          "Okay, I’ll look for the silver Toyota with XYZ-789. Is Lisa the one with glasses?",
+          "Thanks! Just to make sure — silver Toyota, XYZ-789, driver Lisa?",
+          "Got it. I’ll check near the entrance — is Lisa wearing a uniform?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确复述并确认车辆与司机信息",
+          "语言准确性：使用正确的名词短语和疑问结构",
+          "表达自然度：加入合理细节（如眼镜、制服）使回应更真实",
+          "关键词覆盖：是否包含 'silver Toyota', 'license plate', 'driver', 'Lisa'"
+        ]
+      }
+    },
+    {
+      "id": "travel_072_sub_3_pq_9",
+      "subSceneId": "travel_072_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "The car waiting for you is a white SUV with plate DEF-456. The driver’s name is Mike.",
+        "speakerTextCn": "为您等待的车是一辆白色SUV，车牌DEF-456，司机叫迈克。",
+        "expectedAnswers": [
+          "Thanks! I’ll spot the white SUV with DEF-456 and find Mike.",
+          "Just confirming — white SUV, DEF-456, driver Mike? Perfect.",
+          "Is Mike outside the terminal? I’m coming from Gate B."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰确认车辆和司机信息",
+          "语言准确性：使用正确冠词、介词和名词搭配",
+          "表达自然度：语气礼貌，使用 'just confirming' 等地道表达",
+          "关键词覆盖：是否包含 'white SUV', 'plate', 'driver', 'Mike'"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_027_sub_1",
+  "subSceneName": "打招呼询问",
+  "generatedAt": "2026-03-02T14:41:30.891Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_027_sub_1_pq_1",
+      "subSceneId": "daily_027_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_027_sub_1_qa_1",
+        "speakerText": "Hey there! How's it going? Can I help you find something today?",
+        "speakerTextCn": "嗨！最近怎么样？今天需要帮忙找什么吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hi, I'm looking for a cordless drill. Any suggestions?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I would like to purchase a drill, please.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you sell drills? I'm not sure which one.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you show me the prices of all tools?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了自然口语表达 'I'm looking for' 和 'Any suggestions?'，符合场景中非正式但清晰的沟通风格。选项2过于正式（'I would like to purchase'），不符合口语缩写要求；选项3语气模糊，未明确需求；选项4偏离主题，询问价格而非寻求推荐。"
+      }
+    },
+    {
+      "id": "daily_027_sub_1_pq_2",
+      "subSceneId": "daily_027_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_027_sub_1_qa_2",
+        "speakerText": "Sure thing! We've got a few models — are you DIYing or doing professional work?",
+        "speakerTextCn": "当然！我们有几款，你是自己用还是专业施工？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'm fixing my kitchen cabinets — just home use.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I use it sometimes.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Which one is the cheapest?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I need a drill because my phone broke.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案具体说明了使用场景（fixing kitchen cabinets）并明确是家用，符合‘别笼统说用’的要求。选项2过于模糊，未回应使用性质；选项3转向价格，偏离问题意图；选项4完全无关，逻辑荒谬。"
+      }
+    },
+    {
+      "id": "daily_027_sub_1_pq_3",
+      "subSceneId": "daily_027_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Hi! Welcome to HomeFix. What are you working on today?",
+        "speakerTextCn": "嗨！欢迎来到HomeFix。今天在做什么项目呢？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I need a hammer, please.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "I'm hanging pictures — could you recommend a good drill?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have sales today?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'm not sure. What do you have?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案自然回应了对方的开放式问题，并明确需求（挂画）+ 请求推荐（drill），符合场景中‘说明购买意图’的核心目标。选项1是错误商品；选项3偏离主题；选项4虽真实但缺乏主动性，不符合‘主动表达需求’的口语训练目标。"
+      }
+    },
+    {
+      "id": "daily_027_sub_1_pq_4",
+      "subSceneId": "daily_027_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_027_sub_1_qa_1",
+        "template": "Hi! I'm looking for ___ cordless drill.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a",
+            "options": [
+              "a",
+              "the",
+              "an",
+              "some"
+            ]
+          }
+        ],
+        "hint": "泛指一件物品时用不定冠词",
+        "knowledgePoint": "冠词用法（a/an 表泛指）"
+      }
+    },
+    {
+      "id": "daily_027_sub_1_pq_5",
+      "subSceneId": "daily_027_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_027_sub_1_qa_2",
+        "template": "I'm just doing ___ projects — fixing shelves and stuff.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "home",
+            "options": [
+              "home",
+              "work",
+              "office",
+              "commercial"
+            ]
+          }
+        ],
+        "hint": "与 'fixing shelves and stuff' 对应的使用场景",
+        "knowledgePoint": "场景高频词汇（home use）"
+      }
+    },
+    {
+      "id": "daily_027_sub_1_pq_6",
+      "subSceneId": "daily_027_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could you recommend ___? I need something durable for heavy use.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a model",
+            "options": [
+              "a model",
+              "a price",
+              "a store",
+              "a brand"
+            ]
+          }
+        ],
+        "hint": "在询问推荐时，常用表达",
+        "knowledgePoint": "场景核心句型（request recommendation）"
+      }
+    },
+    {
+      "id": "daily_027_sub_1_pq_7",
+      "subSceneId": "daily_027_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_027_sub_1_qa_1",
+        "speakerText": "Hey there! How's it going? Can I help you find something today?",
+        "speakerTextCn": "嗨！最近怎么样？今天需要帮忙找什么吗？",
+        "expectedAnswers": [
+          "Hi! I need a cordless drill.",
+          "Hey! I'm looking for a power drill — any good ones in stock?",
+          "Hello! I want to buy an electric drill for my workshop."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确表达需要购买电钻",
+          "语言准确性：语法正确，无明显错误",
+          "表达自然度：使用口语缩写（如'I'm'、'any'），避免过于正式",
+          "关键词覆盖：使用 'cordless drill' 或 'power drill' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_027_sub_1_pq_8",
+      "subSceneId": "daily_027_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_027_sub_1_qa_2",
+        "speakerText": "Sure thing! We've got a few models — are you DIYing or doing professional work?",
+        "speakerTextCn": "当然！我们有几款，你是自己用还是专业施工？",
+        "expectedAnswers": [
+          "Just for home stuff — like hanging shelves.",
+          "I'm a carpenter, so I need a heavy-duty one.",
+          "Home use. I'm fixing up my garage."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确区分 DIY 或专业用途",
+          "语言准确性：语法正确，使用恰当词汇（如 'heavy-duty'）",
+          "表达自然度：使用口语化表达（如 'stuff', 'fixing up'）",
+          "关键词覆盖：使用 'DIY', 'professional', 'heavy-duty', 'home use' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_027_sub_1_pq_9",
+      "subSceneId": "daily_027_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Welcome to ToolStop! What are you working on today?",
+        "speakerTextCn": "欢迎来到ToolStop！今天在做什么项目呢？",
+        "expectedAnswers": [
+          "I'm installing a new cabinet — need a drill that's easy to handle.",
+          "Just a small home repair — maybe a drill with good battery life?",
+          "I'm building a fence, so I need something powerful and reliable."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰说明使用场景和需求",
+          "语言准确性：句子结构完整，用词恰当",
+          "表达自然度：符合日常对话节奏，使用自然口语表达",
+          "关键词覆盖：使用 'home repair', 'battery life', 'powerful', 'reliable' 等相关词汇"
+        ]
+      }
+    }
+  ]
+}

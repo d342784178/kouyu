@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_013_sub_1",
+  "subSceneName": "打招呼咨询",
+  "generatedAt": "2026-03-02T14:38:10.086Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_013_sub_1_pq_1",
+      "subSceneId": "daily_013_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_013_sub_1_qa_1",
+        "speakerText": "Hi there! Can you help me with borrowing books?",
+        "speakerTextCn": "嗨！你能帮我一下借书的事吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Sure! I'd love to help. What do you need to know?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don't know. Ask someone else.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Books are over there.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "You have to pay first.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了礼貌且积极的回应，符合服务场景的沟通礼仪。干扰项中，'I don't know...' 显得不友好，'Books are over there.' 没有回应帮助请求，'You have to pay first.' 与借书流程无关且提前引入付费概念，不符合初始咨询语境。"
+      }
+    },
+    {
+      "id": "daily_013_sub_1_pq_2",
+      "subSceneId": "daily_013_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_013_sub_1_qa_2",
+        "speakerText": "I'm new here. How many books can I borrow?",
+        "speakerTextCn": "我是新手，我能借几本书？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "You can borrow up to 5 books at a time. You can renew them later.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Five books. That's all.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "It depends on your membership.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "You can't borrow any until you register.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案不仅提供了数量（5本），还补充了可续借信息，使回答更实用完整。选项2缺少续借信息，不够全面；选项3和4与常见图书馆政策不符，且未直接回答问题，属于误导性回应。"
+      }
+    },
+    {
+      "id": "daily_013_sub_1_pq_3",
+      "subSceneId": "daily_013_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Excuse me, I'd like to know how to register for a library card.",
+        "speakerTextCn": "不好意思，我想知道怎么注册借书证。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Just go to the front desk and show your ID.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "You need to buy a card first.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I'm not sure. Try the website.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "You can't get one unless you live here.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接、清晰地给出了操作步骤，符合服务人员的职责。选项2错误地暗示需付费办卡（图书馆卡通常免费）；选项3推卸责任，不专业；选项4带有地域歧视，不符合公共服务原则。"
+      }
+    },
+    {
+      "id": "daily_013_sub_1_pq_4",
+      "subSceneId": "daily_013_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_013_sub_1_qa_1",
+        "template": "Hi! Can you help me with ___ books?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "borrowing",
+            "options": [
+              "borrowing",
+              "buying",
+              "reading",
+              "returning"
+            ]
+          }
+        ],
+        "hint": "这是询问借书流程的关键词",
+        "knowledgePoint": "动词搭配：borrowing books（借书）"
+      }
+    },
+    {
+      "id": "daily_013_sub_1_pq_5",
+      "subSceneId": "daily_013_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_013_sub_1_qa_2",
+        "template": "You can borrow up to ___ books at a time.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "five",
+            "options": [
+              "five",
+              "ten",
+              "three",
+              "one"
+            ]
+          }
+        ],
+        "hint": "这是大多数图书馆的标准借阅数量",
+        "knowledgePoint": "场景核心数字表达：借阅上限"
+      }
+    },
+    {
+      "id": "daily_013_sub_1_pq_6",
+      "subSceneId": "daily_013_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could you please tell me how to ___ a library card?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "apply for",
+            "options": [
+              "apply for",
+              "ask for",
+              "pay for",
+              "look for"
+            ]
+          }
+        ],
+        "hint": "办理借书证的固定搭配",
+        "knowledgePoint": "固定表达：apply for a library card（申请借书证）"
+      }
+    },
+    {
+      "id": "daily_013_sub_1_pq_7",
+      "subSceneId": "daily_013_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_013_sub_1_qa_1",
+        "speakerText": "Hi there! Can you help me with borrowing books?",
+        "speakerTextCn": "嗨！你能帮我一下借书的事吗？",
+        "expectedAnswers": [
+          "Of course! How can I assist you?",
+          "Sure! I'd be happy to help. What would you like to know?",
+          "Absolutely! I'll be glad to guide you through the process."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确表示愿意提供帮助，而非拒绝或回避",
+          "语言准确性：使用正确的礼貌用语和语法结构（如 I'd be happy to）",
+          "表达自然度：语气友好，符合服务场景的口语习惯",
+          "关键词覆盖：使用了 assist/help/guide 等服务类关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_013_sub_1_pq_8",
+      "subSceneId": "daily_013_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_013_sub_1_qa_2",
+        "speakerText": "I'm new here. How many books can I borrow?",
+        "speakerTextCn": "我是新手，我能借几本书？",
+        "expectedAnswers": [
+          "You can borrow up to five books at once. You can also renew them if you need more time.",
+          "The limit is five books per person, but renewal is allowed once per item.",
+          "Five books total — and don’t worry, you can extend the due date online."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确回答数量并补充续借信息",
+          "语言准确性：使用 up to, renew, extend 等正确术语",
+          "表达自然度：口语化但专业，避免生硬或命令式语气",
+          "关键词覆盖：包含 borrow, limit, renew, book 等核心词汇"
+        ]
+      }
+    },
+    {
+      "id": "daily_013_sub_1_pq_9",
+      "subSceneId": "daily_013_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'd like to know if I can borrow e-books too.",
+        "speakerTextCn": "我想知道我能不能借电子书。",
+        "expectedAnswers": [
+          "Yes, absolutely! We offer e-books through our library app. Just download it and log in with your card.",
+          "Of course! You can borrow digital titles using the same account as physical books.",
+          "Yes, e-books are available. You'll need to sign up for our digital service first, but it's free."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确确认电子书可用性并提供基本操作指引",
+          "语言准确性：使用 e-books, digital titles, download, log in 等准确术语",
+          "表达自然度：语句流畅，符合真实服务对话节奏",
+          "关键词覆盖：包含 e-book, borrow, app, digital, log in 等关键词"
+        ]
+      }
+    }
+  ]
+}

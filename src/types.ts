@@ -200,6 +200,8 @@ export interface BlankItem {
   index: number
   /** 正确答案（用于前端对比） */
   answer: string
+  /** 备选答案（4 个选项，包含正确答案 + 3 个干扰项） */
+  options?: string[]
 }
 
 /**

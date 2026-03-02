@@ -1,0 +1,254 @@
+{
+  "subSceneId": "travel_072_sub_2",
+  "subSceneName": "确认支付方式",
+  "generatedAt": "2026-03-02T15:11:12.025Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_072_sub_2_pq_1",
+      "subSceneId": "travel_072_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_072_sub_2_qa_1",
+        "speakerText": "The fare will be around $15. Do you want to pay by card or cash?",
+        "speakerTextCn": "车费大约15美元，您想刷卡还是付现金？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll pay by card, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I need to change my destination.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you drive faster?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much is the tip?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'I'll pay by card, please.'直接回应了付款方式的问题。其他选项分别涉及更改目的地、催促司机和询问小费，均与付款方式无关，属于语境错误。"
+      }
+    },
+    {
+      "id": "travel_072_sub_2_pq_2",
+      "subSceneId": "travel_072_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Your total is $22. We accept credit cards, cash, and mobile payments. How would you like to pay?",
+        "speakerTextCn": "您的总费用是22美元，我们接受信用卡、现金和移动支付。您想怎么支付？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll pay with my phone, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you take me to the airport?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't have any change.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "The ride was too slow.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'I'll pay with my phone, please.'是对多种支付方式提问的恰当回应。其他选项涉及更改目的地、抱怨车程和抱怨速度，与支付方式无关，属于无关回应。"
+      }
+    },
+    {
+      "id": "travel_072_sub_2_pq_3",
+      "subSceneId": "travel_072_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "The fare is $18. Do you have enough cash, or should I swipe your card?",
+        "speakerTextCn": "车费是18美元，你有足够现金，还是我帮你刷卡？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Could you swipe my card, please?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'd like to cancel the ride.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is there a restroom nearby?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you play some music?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'Could you swipe my card, please?'礼貌地请求刷卡，符合语境。其他选项涉及取消行程、询问洗手间和要求播放音乐，均与支付无关，属于干扰项。"
+      }
+    },
+    {
+      "id": "travel_072_sub_2_pq_4",
+      "subSceneId": "travel_072_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_072_sub_2_qa_1",
+        "template": "I'd like to pay ___ card, please.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "by",
+            "options": [
+              "by",
+              "with",
+              "in",
+              "on"
+            ]
+          }
+        ],
+        "hint": "表示支付��式时，常用搭配是 pay by card/cash",
+        "knowledgePoint": "动词搭配（pay by + 支付方式）"
+      }
+    },
+    {
+      "id": "travel_072_sub_2_pq_5",
+      "subSceneId": "travel_072_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Do you accept ___ Pay? I'd prefer to use that.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Apple",
+            "options": [
+              "Apple",
+              "Google",
+              "Samsung",
+              "Microsoft"
+            ]
+          }
+        ],
+        "hint": "这是常见的移动支付方式，与信用卡和现金并列",
+        "knowledgePoint": "场景高频词汇（移动支付方式）"
+      }
+    },
+    {
+      "id": "travel_072_sub_2_pq_6",
+      "subSceneId": "travel_072_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Cash is ___ — I don't need change.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "fine",
+            "options": [
+              "fine",
+              "good",
+              "okay",
+              "nice"
+            ]
+          }
+        ],
+        "hint": "口语中表示‘可以、没问题’的常用词",
+        "knowledgePoint": "固定表达（Cash is fine.）"
+      }
+    },
+    {
+      "id": "travel_072_sub_2_pq_7",
+      "subSceneId": "travel_072_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_072_sub_2_qa_1",
+        "speakerText": "The fare will be around $15. Do you want to pay by card or cash?",
+        "speakerTextCn": "车费大约15美元，您想刷卡还是付现金？",
+        "expectedAnswers": [
+          "I'll pay by card, please.",
+          "Cash is fine, thanks.",
+          "Do you accept Apple Pay? I'd prefer that if possible."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回应了付款方式选择",
+          "语言准确性：语法正确，无明显错误",
+          "表达自然度：使用了符合英语口语习惯的表达"
+        ]
+      }
+    },
+    {
+      "id": "travel_072_sub_2_pq_8",
+      "subSceneId": "travel_072_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Your total is $24. We accept credit cards, cash, Google Pay, and Apple Pay. How would you like to pay?",
+        "speakerTextCn": "您的总费用是24美元，我们接受信用卡、现金、谷歌支付和苹果支付。您想怎么支付？",
+        "expectedAnswers": [
+          "I'll use Apple Pay, please.",
+          "Can I pay with my debit card?",
+          "I have cash, but do you have change for a $50 bill?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰说明所选支付方式或提出相关问题",
+          "语言准确性：使用了正确的支付方式术语和句型",
+          "表达自然度：语气礼貌，符合真实对话情境"
+        ]
+      }
+    },
+    {
+      "id": "travel_072_sub_2_pq_9",
+      "subSceneId": "travel_072_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "The fare is $17.50. Do you have the exact amount in cash, or should I process your card?",
+        "speakerTextCn": "车费是17.50美元，你有正好金额的现金，还是我帮你刷卡？",
+        "expectedAnswers": [
+          "I'll swipe my card — I don't have exact change.",
+          "I have cash, but I need $2.50 back.",
+          "Could you split the payment? I'll pay $10 in cash and the rest by card."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确回应了关于现金精确性或支付方式的问题",
+          "语言准确性：正确使用了split payment、exact change等实用表达",
+          "表达自然度：语调自然，符合实际乘车场景中的沟通习惯"
+        ]
+      }
+    }
+  ]
+}

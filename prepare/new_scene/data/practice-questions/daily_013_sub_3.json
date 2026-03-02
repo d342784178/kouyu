@@ -1,0 +1,254 @@
+{
+  "subSceneId": "daily_013_sub_3",
+  "subSceneName": "办理续借",
+  "generatedAt": "2026-03-02T14:37:35.133Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_013_sub_3_pq_1",
+      "subSceneId": "daily_013_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_013_sub_3_qa_1",
+        "speakerText": "Can I renew my books online?",
+        "speakerTextCn": "我能在线续借吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, you can renew them at the front desk only.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Yep! Just log in to your account and click 'Renew'.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "No, you need to call the library and wait for a staff member.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Only if you pay a fee first.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案提供了清晰的操作步骤（登录账户→点击续借），符合场景中‘必须包含具体操作步骤’的要求。干扰项1错误地限制了续借只能在前台办理；干扰项3夸大了流程复杂性；干扰项4添加了不存在的付费条件。"
+      }
+    },
+    {
+      "id": "daily_013_sub_3_pq_2",
+      "subSceneId": "daily_013_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_013_sub_3_qa_2",
+        "speakerText": "What if the system says 'Cannot renew'?",
+        "speakerTextCn": "如果系统显示‘无法续借’怎么办？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "The system is broken. Try again later.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Someone else requested it. You gotta return it.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "You need to upgrade your library membership.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "It means you've read too many books this month.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确解释了‘无法续借’的真正原因——他人预约（hold placed）。干扰项1错误归因于系统故障；干扰项3虚构了会员升级要求；干扰项4荒谬地将续借失败与阅读量挂钩。"
+      }
+    },
+    {
+      "id": "daily_013_sub_3_pq_3",
+      "subSceneId": "daily_013_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I tried to renew my book, but it didn't work. What should I do?",
+        "speakerTextCn": "我尝试续借图书但失败了，我该怎么办？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Check if there's a hold on the book. If so, you must return it by the due date.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Just email the librarian and ask for a special extension.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Delete your account and create a new one.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Buy the book online instead.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案结合了系统提示和用户责任，符合图书馆政策。干扰项2暗示非正式流程，不具普遍性；干扰项3和4完全脱离图书馆续借机制，属于误导性建议。"
+      }
+    },
+    {
+      "id": "daily_013_sub_3_pq_4",
+      "subSceneId": "daily_013_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_013_sub_3_qa_1",
+        "template": "To renew your books, you need to ___ in to your library account and click 'Renew'.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "log",
+            "options": [
+              "log",
+              "sign",
+              "enter",
+              "go"
+            ]
+          }
+        ],
+        "hint": "这是登录账户的固定搭配",
+        "knowledgePoint": "动词搭配（log in to an account）"
+      }
+    },
+    {
+      "id": "daily_013_sub_3_pq_5",
+      "subSceneId": "daily_013_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_013_sub_3_qa_2",
+        "template": "If you see 'Cannot renew', it means another patron has placed a ___ on the book.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "hold",
+            "options": [
+              "hold",
+              "book",
+              "request",
+              "note"
+            ]
+          }
+        ],
+        "hint": "图书馆术语，表示他人预约了这本书",
+        "knowledgePoint": "场景核心词汇（hold = 预约）"
+      }
+    },
+    {
+      "id": "daily_013_sub_3_pq_6",
+      "subSceneId": "daily_013_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "You can renew your books online ___ you haven't reached your renewal limit.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "as long as",
+            "options": [
+              "as long as",
+              "even if",
+              "because",
+              "unless"
+            ]
+          }
+        ],
+        "hint": "表示‘只要…就…’的条件表达",
+        "knowledgePoint": "条件表达（as long as）"
+      }
+    },
+    {
+      "id": "daily_013_sub_3_pq_7",
+      "subSceneId": "daily_013_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_013_sub_3_qa_1",
+        "speakerText": "Can I renew my books online?",
+        "speakerTextCn": "我能在线续借吗？",
+        "expectedAnswers": [
+          "Yes, just log in to your account and click Renew.",
+          "Sure! Go to the library website, sign in, and select the books you want to renew.",
+          "Absolutely, through the library portal — but make sure no one else has placed a hold on them."
+        ],
+        "evaluationCriteria": [
+          "是否明确说明了在线续借的操作路径（如登录、点击按钮）",
+          "是否使用了场景关键词（renew, account, library portal, hold）",
+          "表达是否自然流畅，符合日常口语习惯"
+        ]
+      }
+    },
+    {
+      "id": "daily_013_sub_3_pq_8",
+      "subSceneId": "daily_013_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_013_sub_3_qa_2",
+        "speakerText": "What if the system says 'Cannot renew'?",
+        "speakerTextCn": "如果系统显示‘无法续借’怎么办？",
+        "expectedAnswers": [
+          "It means someone else has reserved the book — you'll need to return it by the due date.",
+          "Oh no, that’s because there’s a hold on it. You can’t renew, so return it on time to avoid fines.",
+          "The system blocks renewal if another patron has placed a hold. Unfortunately, you have to return it."
+        ],
+        "evaluationCriteria": [
+          "是否准确解释了‘无法续借’的真正原因（有人预约）",
+          "是否包含后果说明（需归还、可能罚款）",
+          "语言是否简洁清晰，避免冗余或错误信息"
+        ]
+      }
+    },
+    {
+      "id": "daily_013_sub_3_pq_9",
+      "subSceneId": "daily_013_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'm not sure if my book can be renewed. How can I check?",
+        "speakerTextCn": "我不确定我的书能不能续借，该怎么查？",
+        "expectedAnswers": [
+          "Log in to your library account online — it will show you which books are eligible for renewal.",
+          "Check the due date on the app or website; if it says 'Renewable', you can do it.",
+          "Go to the library’s website, view your checked-out items, and look for a 'Renew' button next to each book."
+        ],
+        "evaluationCriteria": [
+          "是否提供了清晰的查询方法（登录账户、查看状态、查找按钮）",
+          "是否使用了场景相关词汇（renewable, due date, checked-out items）",
+          "回答是否结构完整、逻辑清晰，便于用户执行"
+        ]
+      }
+    }
+  ]
+}

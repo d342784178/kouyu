@@ -1,0 +1,254 @@
+{
+  "subSceneId": "daily_028_sub_4",
+  "subSceneName": "付款和道别",
+  "generatedAt": "2026-03-02T14:42:16.815Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_028_sub_4_pq_1",
+      "subSceneId": "daily_028_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_028_sub_4_qa_1",
+        "speakerText": "Cash or card?",
+        "speakerTextCn": "现金还是刷卡？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll pay with my phone.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much is it?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I get a receipt?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you accept Apple Pay?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'I'll pay with my phone.'是直接回应'Cash or card?'的合理支付方式。其他选项：'How much is it?'是询问价格，与支付方式无关；'Can I get a receipt?'是附加请求，非直接回应；'Do you accept Apple Pay?'是提前询问，不符合对方已提出选择的语境。"
+      }
+    },
+    {
+      "id": "daily_028_sub_4_pq_2",
+      "subSceneId": "daily_028_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_028_sub_4_qa_2",
+        "speakerText": "Thanks so much! Have a great day!",
+        "speakerTextCn": "非常感谢！祝你今天愉快！",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "You too! Bye!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'm fine, thanks.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "That's okay.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'll come back tomorrow.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'You too! Bye!'是自然回应祝福的表达，'You too'直接回应对方的祝福。'I'm fine, thanks.'用于回应'How are you?'，不适用；'That's okay.'用于道歉回应；'I'll come back tomorrow.'虽礼貌但未回应祝福，结构不完整。"
+      }
+    },
+    {
+      "id": "daily_028_sub_4_pq_3",
+      "subSceneId": "daily_028_sub_4",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Your total is $45. How would you like to pay?",
+        "speakerTextCn": "总计45美元，您想怎么支付？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll use my credit card, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you give me a discount?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I need more time.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Where is the restroom?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'I'll use my credit card, please.'直接、礼貌地回应支付方式提问。其他选项均偏离主题：'Can you give me a discount?'是议价，不合场景；'I need more time.'表达拖延，不礼貌；'Where is the restroom?'完全无关。"
+      }
+    },
+    {
+      "id": "daily_028_sub_4_pq_4",
+      "subSceneId": "daily_028_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_028_sub_4_qa_1",
+        "template": "I'll pay with my ___.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "phone",
+            "options": [
+              "phone",
+              "hand",
+              "book",
+              "bag"
+            ]
+          }
+        ],
+        "hint": "现代支付方式，常用于移动支付",
+        "knowledgePoint": "支付方式��达（pay with + 工具）"
+      }
+    },
+    {
+      "id": "daily_028_sub_4_pq_5",
+      "subSceneId": "daily_028_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_028_sub_4_qa_2",
+        "template": "Thank you, ___ you next time!",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "see",
+            "options": [
+              "see",
+              "meet",
+              "call",
+              "find"
+            ]
+          }
+        ],
+        "hint": "告别时常用短语，表示期待再次见面",
+        "knowledgePoint": "固定表达：see you next time"
+      }
+    },
+    {
+      "id": "daily_028_sub_4_pq_6",
+      "subSceneId": "daily_028_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Cash or ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "card",
+            "options": [
+              "card",
+              "check",
+              "note",
+              "coin"
+            ]
+          }
+        ],
+        "hint": "收银员最常问的两种支付方式之一",
+        "knowledgePoint": "支付方式核心词汇（cash vs. card）"
+      }
+    },
+    {
+      "id": "daily_028_sub_4_pq_7",
+      "subSceneId": "daily_028_sub_4",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_028_sub_4_qa_2",
+        "speakerText": "Thanks so much! Have a great day!",
+        "speakerTextCn": "非常感谢！祝你今天愉快！",
+        "expectedAnswers": [
+          "You too! Bye!",
+          "Thank you, you too!",
+          "Thanks! Have a wonderful day as well!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否正确回应了对方的祝福",
+          "语言准确性：语法和用词是否正确，如使用'You too'而非'I'm fine'",
+          "表达自然度：是否符合日常口语习惯，避免生硬或翻译腔"
+        ]
+      }
+    },
+    {
+      "id": "daily_028_sub_4_pq_8",
+      "subSceneId": "daily_028_sub_4",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Your payment has been processed. Is there anything else I can help you with?",
+        "speakerTextCn": "您的付款已处理完毕，还有什么我可以帮您的吗？",
+        "expectedAnswers": [
+          "No, that's all. Thank you, goodbye!",
+          "No thanks, have a nice day!",
+          "Everything's fine. See you next time!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确结束交易并礼貌告别",
+          "语言准确性：是否使用正确动词搭配（e.g., 'that's all', 'see you next time'）",
+          "关键词覆盖：是否包含付款完成后的关键词（goodbye, thank you, next time）"
+        ]
+      }
+    },
+    {
+      "id": "daily_028_sub_4_pq_9",
+      "subSceneId": "daily_028_sub_4",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'll take the receipt, please.",
+        "speakerTextCn": "请给我收据。",
+        "expectedAnswers": [
+          "Sure, here you go. Have a great day!",
+          "Of course! Thanks for shopping with us.",
+          "Here it is. Hope to see you again!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否在提供收据后自然回应并道别",
+          "语言准确性：是否使用恰当的礼貌表达（e.g., 'here you go', 'thanks for...')",
+          "表达自然度：是否避免机械重复，体现真实服务场景对话"
+        ]
+      }
+    }
+  ]
+}

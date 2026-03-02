@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_063_sub_4",
+  "subSceneName": "确认到账与道别",
+  "generatedAt": "2026-03-02T15:05:22.697Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_063_sub_4_pq_1",
+      "subSceneId": "travel_063_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_063_sub_4_qa_1",
+        "speakerText": "Your refund is processed. You'll get a receipt.",
+        "speakerTextCn": "您的退税已处理，这是收据。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Thanks so much! Have a great day!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'll call you if there's a problem.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you send it to my email?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How long will it take to arrive?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是表达感谢并礼貌道别，符合退款确认后的语境。选项2是针对问题的回应，不适用于收据已给出的场景；选项3是请求额外服务，与对方陈述不符；选项4询问时间，但对方已说明‘已处理’，无需再问。"
+      }
+    },
+    {
+      "id": "travel_063_sub_4_pq_2",
+      "subSceneId": "travel_063_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_063_sub_4_qa_2",
+        "speakerText": "If you have any issues, call this number.",
+        "speakerTextCn": "如有问题，请拨打这个电话。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Got it, I'll save it right away.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Thanks, I'll remember it.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I just email you?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I don't think I'll need it.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确确认并承诺保存号码，符合‘别只说谢谢，确认联系方式’的使用说明。选项2虽礼貌但未体现‘行动确认’，不够充分；选项3试图改变沟通方式，不合要求；选项4否定帮助渠道，显得不合作。"
+      }
+    },
+    {
+      "id": "travel_063_sub_4_pq_3",
+      "subSceneId": "travel_063_sub_4",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Your refund of $245 has been credited to your account.",
+        "speakerTextCn": "您的245美元退款已存入账户。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Perfect! I'll keep the confirmation email for my records.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you refund more? I need $300.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I'm not sure if this is correct.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Thanks. Bye.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案既确认信息又表明保留凭证，体现专业和谨慎。选项2提出额外要求，不合语境；选项3表达怀疑，语气不礼貌；选项4虽礼貌但过于简略，未体现对关键信息的确认。"
+      }
+    },
+    {
+      "id": "travel_063_sub_4_pq_4",
+      "subSceneId": "travel_063_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_063_sub_4_qa_1",
+        "template": "Thanks so much! I'll ___ the receipt for future reference.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "keep",
+            "options": [
+              "keep",
+              "throw",
+              "send",
+              "copy"
+            ]
+          }
+        ],
+        "hint": "收据需要保留以备争议时使用",
+        "knowledgePoint": "动词搭配：keep a receipt（保留收据）"
+      }
+    },
+    {
+      "id": "travel_063_sub_4_pq_5",
+      "subSceneId": "travel_063_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_063_sub_4_qa_2",
+        "template": "Got it — I'll ___ this number in my phone right away.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "save",
+            "options": [
+              "save",
+              "call",
+              "forget",
+              "share"
+            ]
+          }
+        ],
+        "hint": "确认联系方式时的正确动作",
+        "knowledgePoint": "动词搭配：save a number（保存号码）"
+      }
+    },
+    {
+      "id": "travel_063_sub_4_pq_6",
+      "subSceneId": "travel_063_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "The refund is complete. ___ me know if anything doesn't look right.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Let",
+            "options": [
+              "Let",
+              "Make",
+              "Give",
+              "Tell"
+            ]
+          }
+        ],
+        "hint": "邀请对方反馈的标准表达",
+        "knowledgePoint": "固定表达：Let me know（让我知道）"
+      }
+    },
+    {
+      "id": "travel_063_sub_4_pq_7",
+      "subSceneId": "travel_063_sub_4",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_063_sub_4_qa_1",
+        "speakerText": "Your refund is processed. You'll get a receipt.",
+        "speakerTextCn": "您的退税已处理，这是收据。",
+        "expectedAnswers": [
+          "Thanks so much! I'll keep this for my records.",
+          "Great, thanks! I'll make sure to save the receipt.",
+          "Appreciate it! I'll check it against my bank statement."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：回应了收据信息并表达感谢",
+          "语言准确性：语法正确，用词恰当",
+          "表达自然度：符合英语口语习惯，语气礼貌",
+          "关键词覆盖：使用了 'receipt' 或 'keep/save' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_063_sub_4_pq_8",
+      "subSceneId": "travel_063_sub_4",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_063_sub_4_qa_2",
+        "speakerText": "If you have any issues, call this number.",
+        "speakerTextCn": "如有问题，请拨打这个电话。",
+        "expectedAnswers": [
+          "Got it, I'll save it in my contacts right away.",
+          "Thanks — I've already added it to my phone.",
+          "I'll write it down so I don't lose it."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确确认并承诺保存号码，而非仅说谢谢",
+          "语言准确性：动词使用正确（save, add, write down）",
+          "表达自然度：符合日常英语口语习惯",
+          "关键词覆盖：使用了 'save', 'number', 'phone', 'contact' 等关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_063_sub_4_pq_9",
+      "subSceneId": "travel_063_sub_4",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Your refund of $189 has been successfully credited to your account.",
+        "speakerTextCn": "您的189美元退款已成功存入账户。",
+        "expectedAnswers": [
+          "Perfect, thank you! I'll check my account later and reach out if there's a discrepancy.",
+          "Thanks! I'll keep the confirmation email just in case.",
+          "That's great news — I appreciate your help!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：确认退款完成并表达感谢，体现主动性",
+          "语言准确性：使用恰当的时态和词汇（credited, discrepancy, confirmation）",
+          "表达自然度：语气真诚、符合商务/服务场景的礼貌风格",
+          "关键词覆盖：使用了 'refund', 'credited', 'confirmation', 'discrepancy' 等核心词汇"
+        ]
+      }
+    }
+  ]
+}

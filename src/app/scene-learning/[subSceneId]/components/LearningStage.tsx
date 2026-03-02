@@ -510,8 +510,11 @@ export default function LearningStage({ qaPairs, subSceneId, failedQaIds = [], o
         <div className="mt-8 flex justify-center">
           <button
             type="button"
-            onClick={onProceed}
-            className="px-8 py-3 rounded-full bg-[#4F7CF0] text-white text-sm font-semibold shadow-md hover:bg-[#3D6ADE] transition-colors flex items-center gap-2"
+            onClick={(e) => {
+              e.stopPropagation();
+              onProceed();
+            }}
+            className="px-8 py-3 rounded-full bg-[#4F7CF0] text-white text-sm font-semibold shadow-md hover:bg-[#3D6ADE] transition-colors flex items-center gap-2 active:scale-95 active:shadow-sm"
           >
             <span>进入练习</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

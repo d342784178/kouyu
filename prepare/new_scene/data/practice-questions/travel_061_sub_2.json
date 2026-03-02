@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_061_sub_2",
+  "subSceneName": "说明需求",
+  "generatedAt": "2026-03-02T15:05:23.691Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_061_sub_2_pq_1",
+      "subSceneId": "travel_061_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_061_sub_2_qa_1",
+        "speakerText": "Sure! How many people and what time?",
+        "speakerTextCn": "好的！几位？几点？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I need a table for four at 7:30 PM, and I'd prefer a window seat if possible.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I want a table for four at 7:30 PM, and give me a window seat.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "There are four people, and we're coming at 7:30, no preference.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you book a table? I don't know how many people yet.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了礼貌表达 'I'd prefer... if possible'，符合场景中强调的礼貌请求原则。选项2语气生硬，缺少礼貌用语；选项3虽然信息正确，但表达过于简略，不符合主动说明需求的语境；选项4未回答问题，偏离了回应要求。"
+      }
+    },
+    {
+      "id": "travel_061_sub_2_pq_2",
+      "subSceneId": "travel_061_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I'm calling to reserve a table. Can you help?",
+        "speakerTextCn": "我打电话来预订餐桌，能帮忙吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Of course! How many guests and what time?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Sure, do you have a credit card?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "We're fully booked tonight.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What kind of food do you like?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确回应了预订需求，询问人数和时间，符合本场景核心功能。选项2询问信用卡，属于支付环节，与当前阶段无关；选项3直接拒绝，未提供帮助；选项4询问口味，偏离了‘说明需求’的焦点。"
+      }
+    },
+    {
+      "id": "travel_061_sub_2_pq_3",
+      "subSceneId": "travel_061_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "We'd like to book a private room for a birthday party.",
+        "speakerTextCn": "我们想预订一个私人房间办生日派对。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How many people will be attending, and what time would you like to arrive?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you want cake or ice cream?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "We have a discount for large groups.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you come tomorrow instead?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案精准询问人数和时间，是回应特殊需求的标准流程。选项2聚焦食物选择，属于后续细节；选项3提供优惠，但未收集必要信息；选项4更改时间，属于推脱而非回应需求。"
+      }
+    },
+    {
+      "id": "travel_061_sub_2_pq_4",
+      "subSceneId": "travel_061_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_061_sub_2_qa_1",
+        "template": "We're ___ people, and we'd like to come at 8 PM.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "six",
+            "options": [
+              "six",
+              "seven",
+              "eight",
+              "nine"
+            ]
+          }
+        ],
+        "hint": "用数字表达人数，常见于预订场景",
+        "knowledgePoint": "数字表达人数（场景高频词汇）"
+      }
+    },
+    {
+      "id": "travel_061_sub_2_pq_5",
+      "subSceneId": "travel_061_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_061_sub_2_qa_1",
+        "template": "Could you please arrange a ___ table if possible?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "window",
+            "options": [
+              "window",
+              "corner",
+              "large",
+              "round"
+            ]
+          }
+        ],
+        "hint": "表达特殊要求时常用词汇，体现礼貌请求",
+        "knowledgePoint": "特殊要求表达（window table 固定搭配）"
+      }
+    },
+    {
+      "id": "travel_061_sub_2_pq_6",
+      "subSceneId": "travel_061_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "We'd love to ___ a table for four at 7:30 PM.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "book",
+            "options": [
+              "book",
+              "find",
+              "look",
+              "get"
+            ]
+          }
+        ],
+        "hint": "预订服务时的核心动词",
+        "knowledgePoint": "动词搭配（book a table 固定表达）"
+      }
+    },
+    {
+      "id": "travel_061_sub_2_pq_7",
+      "subSceneId": "travel_061_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_061_sub_2_qa_1",
+        "speakerText": "Sure! How many people and what time?",
+        "speakerTextCn": "好的！几位？几点？",
+        "expectedAnswers": [
+          "Three people at 7 PM, and a quiet table would be great.",
+          "We're four people, coming at 8:30 PM. If possible, we'd prefer a seat away from the kitchen.",
+          "Five guests, 7:45. Any table is fine, thanks!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确回应人数和时间",
+          "语言准确性：语法正确，时间表达规范（如 7:30 PM）",
+          "表达自然度：使用了礼貌表达如 'if possible', 'would be great'",
+          "关键词覆盖：包含人数、时间、特殊要求"
+        ]
+      }
+    },
+    {
+      "id": "travel_061_sub_2_pq_8",
+      "subSceneId": "travel_061_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "We're planning a small gathering. Can you help us reserve a space?",
+        "speakerTextCn": "我们计划举办一个小聚会，能帮忙预订场地吗？",
+        "expectedAnswers": [
+          "Sure! How many people, and what time would you like?",
+          "Of course! We need to know the number of guests and your preferred time.",
+          "Absolutely! Could you tell me how many people are coming and when you'd like to arrive?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确询问人数和时间以推进预订",
+          "语言准确性：使用正确句型如 'how many people' 和 'what time'",
+          "表达自然度：语气友好，使用 'could you', 'would you' 等礼貌结构",
+          "关键词覆盖：包含 'people', 'time', 'reserve' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_061_sub_2_pq_9",
+      "subSceneId": "travel_061_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "We need a table for six, but we also have a guest who uses a wheelchair.",
+        "speakerTextCn": "我们需要一张六人桌，但我们有一位使用轮椅的客人。",
+        "expectedAnswers": [
+          "We need a table for six, and we require wheelchair-accessible seating.",
+          "Six people, and please make sure the seating is accessible for someone in a wheelchair.",
+          "We're six guests — could you arrange a table that accommodates a wheelchair, please?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰说明人数和特殊需求（无障碍设施）",
+          "语言准确性：使用准确词汇如 'wheelchair-accessible', 'accommodate'",
+          "表达自然度：礼貌请求结构完整，符合服务场景语境",
+          "关键词覆盖：包含 'number of people', 'special requirement', 'accessible'"
+        ]
+      }
+    }
+  ]
+}

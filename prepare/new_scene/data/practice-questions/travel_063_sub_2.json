@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_063_sub_2",
+  "subSceneName": "核对商品",
+  "generatedAt": "2026-03-02T15:05:08.523Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_063_sub_2_pq_1",
+      "subSceneId": "travel_063_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_063_sub_2_qa_1",
+        "speakerText": "Can you show me the perfume you bought?",
+        "speakerTextCn": "能给我看看您买的香水吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Here it is — still sealed.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don't remember buying it.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "You should check the receipt instead.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'll buy another one later.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Here it is — still sealed.' 是对出示商品请求的直接且符合场景的回应，表明商品未拆封，便于核对。其他选项要么否认购买（不合逻辑），要么推卸责任或转移话题，不符合核对商品的协作语境。"
+      }
+    },
+    {
+      "id": "travel_063_sub_2_pq_2",
+      "subSceneId": "travel_063_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_063_sub_2_qa_2",
+        "speakerText": "Is this the only item you're claiming?",
+        "speakerTextCn": "您就退这一件吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "No, I've got three more in this bag.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I think I bought five items total.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I return this tomorrow?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'm not sure what you mean.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确列出其他商品位置，是完整、准确的回应。选项2虽提及数量，但未说明物品位置，信息不完整；选项3和4回避问题，不符合核对流程要求。"
+      }
+    },
+    {
+      "id": "travel_063_sub_2_pq_3",
+      "subSceneId": "travel_063_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Could you please confirm the item on the receipt matches what you're returning?",
+        "speakerTextCn": "您能确认一下收据上的商品与您要退回的是否一致吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, they match perfectly.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don't have a receipt.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Maybe I bought the wrong size.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I exchange it instead?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接确认一致性，符合核对流程。选项1是积极、合作的回应。其他选项要么否认凭证存在，要么偏离主题（如换货），或表达模糊，无法完成核对任务。"
+      }
+    },
+    {
+      "id": "travel_063_sub_2_pq_4",
+      "subSceneId": "travel_063_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_063_sub_2_qa_1",
+        "template": "Of course, here it is — still ___.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "sealed",
+            "options": [
+              "sealed",
+              "open",
+              "broken",
+              "dirty"
+            ]
+          }
+        ],
+        "hint": "表示商品未拆封的关键词，有助于顺利通过核对",
+        "knowledgePoint": "固定搭配（sealed product）"
+      }
+    },
+    {
+      "id": "travel_063_sub_2_pq_5",
+      "subSceneId": "travel_063_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_063_sub_2_qa_2",
+        "template": "No, I've got three more ___ this bag.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "in",
+            "options": [
+              "in",
+              "on",
+              "at",
+              "for"
+            ]
+          }
+        ],
+        "hint": "表示物品所在位置的常用介词",
+        "knowledgePoint": "介词用法（in the bag）"
+      }
+    },
+    {
+      "id": "travel_063_sub_2_pq_6",
+      "subSceneId": "travel_063_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'm returning ___ items: a perfume, a watch, and a jacket.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "three",
+            "options": [
+              "three",
+              "many",
+              "some",
+              "all"
+            ]
+          }
+        ],
+        "hint": "明确数量有助于快速核对，避免遗漏",
+        "knowledgePoint": "数字表达（明确数量）"
+      }
+    },
+    {
+      "id": "travel_063_sub_2_pq_7",
+      "subSceneId": "travel_063_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_063_sub_2_qa_1",
+        "speakerText": "Can you show me the perfume you bought?",
+        "speakerTextCn": "能给我看看您买的香水吗？",
+        "expectedAnswers": [
+          "Of course, here it is — still sealed.",
+          "Sure, I haven't opened it yet.",
+          "I've got it in my suitcase; let me get it for you."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确出示了商品",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合日常口语习惯",
+          "关键词覆盖：是否使用了 'sealed', 'show', 'bought' 等关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_063_sub_2_pq_8",
+      "subSceneId": "travel_063_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_063_sub_2_qa_2",
+        "speakerText": "Is this the only item you're claiming?",
+        "speakerTextCn": "您就退这一件吗？",
+        "expectedAnswers": [
+          "No, I also have a watch and a scarf in my bag.",
+          "Yes, just this one — I double-checked.",
+          "Wait, I forgot my sunglasses — can I add them too?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否完整列出所有退货商品或明确确认唯一性",
+          "语言准确性：是否使用了正确动词和介词（e.g., 'in my bag', 'have'）",
+          "表达自然度：是否使用了口语化表达（如 'Wait, I forgot...'）",
+          "关键词覆盖：是否使用了 'claiming', 'item', 'bag' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_063_sub_2_pq_9",
+      "subSceneId": "travel_063_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Please confirm the quantity and condition of the items you're returning.",
+        "speakerTextCn": "请确认您要退回的商品数量和状态。",
+        "expectedAnswers": [
+          "I'm returning three items: the perfume is sealed, the watch is unused, and the jacket has a small tag still on.",
+          "There are three things here — all in new condition, no damage.",
+          "Let me check... one perfume (sealed), one watch (box intact), and one jacket (tag still attached)."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否同时说明了数量和状态",
+          "语言准确性：是否使用了恰当的形容词（sealed, unused, intact）和结构",
+          "表达自然度：是否使用了口语化列举方式（e.g., 'Let me check...'）",
+          "关键词覆盖：是否使用了 'quantity', 'condition', 'returning', 'sealed', 'unused' 等核心词汇"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_074_sub_3",
+  "subSceneName": "指定座位偏好",
+  "generatedAt": "2026-03-02T15:12:51.138Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_074_sub_3_pq_1",
+      "subSceneId": "travel_074_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_074_sub_3_qa_1",
+        "speakerText": "Window or aisle?",
+        "speakerTextCn": "靠窗还是靠过道？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'd like a middle seat.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Window seat, please. I love the view.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I have a first-class seat?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I prefer the front row.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Window seat, please. I love the view.' 完全符合对话中建议的回应方式，既明确选择又添加自然理由。干扰项中，'middle seat' 与问题无关（问题只提供两个选项），'first-class' 是舱位而非座位类型，'front row' 是排数而非靠窗/靠过道偏好，均偏离核心语境。"
+      }
+    },
+    {
+      "id": "travel_074_sub_3_pq_2",
+      "subSceneId": "travel_074_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Would you prefer a window or aisle seat for your flight?",
+        "speakerTextCn": "您希望选靠窗还是靠过道的座位？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I don't care, just give me any seat.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Aisle, please. I need to stretch my legs often.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I sit next to the bathroom?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I want a seat with a table.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Aisle, please. I need to stretch my legs often.' 使用了场景核心句型并给出合理理由，符合自然表达。干扰项中，'I don't care' 虽语法正确但缺乏礼貌和主动性；'next to the bathroom' 和 'with a table' 偏离了 'window/aisle' 的核心选择范围，属于无关需求。"
+      }
+    },
+    {
+      "id": "travel_074_sub_3_pq_3",
+      "subSceneId": "travel_074_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "We can assign you a window or aisle seat. Which would you like?",
+        "speakerTextCn": "我们可以为您安排靠窗或靠过道的座位，您更喜欢哪个？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Window, thanks. I like to watch the clouds.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I want the seat near the emergency exit.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I change it later?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I prefer the back of the plane.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Window, thanks. I like to watch the clouds.' 是简洁自然的回应，符合场景中‘单词+理由’的推荐模式。干扰项均未回应窗口/过道选择，而是转向其他座位属性（紧急出口、后排），属于偏离主题的表达。"
+      }
+    },
+    {
+      "id": "travel_074_sub_3_pq_4",
+      "subSceneId": "travel_074_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_074_sub_3_qa_1",
+        "template": "I'd like ___ window seat, please. I love the view.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a",
+            "options": [
+              "a",
+              "the",
+              "an",
+              "no word"
+            ]
+          }
+        ],
+        "hint": "表示泛指一个靠窗座位时，需用不定冠词",
+        "knowledgePoint": "冠词用法（a window seat 泛指）"
+      }
+    },
+    {
+      "id": "travel_074_sub_3_pq_5",
+      "subSceneId": "travel_074_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could you give me ___ aisle seat? I need to get up easily.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "an",
+            "options": [
+              "an",
+              "a",
+              "the",
+              "no word"
+            ]
+          }
+        ],
+        "hint": "aisle 以元音音素开头，需用 'an'",
+        "knowledgePoint": "冠词用法（an aisle seat，元音开头）"
+      }
+    },
+    {
+      "id": "travel_074_sub_3_pq_6",
+      "subSceneId": "travel_074_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'd prefer ___ because I get motion sickness easily.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "an aisle seat",
+            "options": [
+              "an aisle seat",
+              "a window seat",
+              "a middle seat",
+              "a front seat"
+            ]
+          }
+        ],
+        "hint": "晕机时通常选择靠过道，方便起身或走动",
+        "knowledgePoint": "场景核心表达（aisle seat 与晕机的合理搭配）"
+      }
+    },
+    {
+      "id": "travel_074_sub_3_pq_7",
+      "subSceneId": "travel_074_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_074_sub_3_qa_1",
+        "speakerText": "Window or aisle?",
+        "speakerTextCn": "靠窗还是靠过道？",
+        "expectedAnswers": [
+          "Window, please. I like to see the scenery.",
+          "I'd prefer an aisle seat because I need to move around during the flight.",
+          "Aisle, thanks — I’m a bit claustrophobic."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回应了 window 或 aisle 的选择",
+          "语言准确性：语法正确，冠词和冠词搭配无误",
+          "表达自然度：使用了符合口语习惯的表达，如 'please', 'thanks', 'because' 连接理由",
+          "关键词覆盖：使用了 'window seat' 或 'aisle seat' 核心词汇"
+        ]
+      }
+    },
+    {
+      "id": "travel_074_sub_3_pq_8",
+      "subSceneId": "travel_074_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "We're assigning seats now. Do you have a preference?",
+        "speakerTextCn": "我们现在分配座位，您有偏好吗？",
+        "expectedAnswers": [
+          "I'd like a window seat, if possible. I enjoy watching the sunset.",
+          "Could I get an aisle seat? I might need to get up a few times.",
+          "Actually, I'm fine with either, but if I can choose, I'd go for the window."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰表达座位偏好或灵活态度",
+          "语言准确性：使用了 'I'd like', 'Could I get', 'if possible' 等礼貌结构",
+          "表达自然度：语调自然，理由合理，符合真实对话节奏",
+          "关键词覆盖：正确使用 'window seat', 'aisle seat'，避免无关词汇"
+        ]
+      }
+    },
+    {
+      "id": "travel_074_sub_3_pq_9",
+      "subSceneId": "travel_074_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Your seat is confirmed. Window or aisle?",
+        "speakerTextCn": "您的座位已确认，靠窗还是靠过道？",
+        "expectedAnswers": [
+          "Window, please. I always like to take photos out the window.",
+          "Aisle, thanks — I’m traveling with a small child and need to walk around.",
+          "I’d prefer window, but aisle works too if window’s not available."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确选择并给出合理原因，或表达灵活态度",
+          "语言准确性：使用了正确的冠词和动词搭配（e.g., 'I'd prefer', 'I need to')",
+          "表达自然度：语气礼貌，理由真实可信，符合旅行者常见心理",
+          "关键词覆盖：包含 'window seat' 或 'aisle seat'，无混淆表达"
+        ]
+      }
+    }
+  ]
+}

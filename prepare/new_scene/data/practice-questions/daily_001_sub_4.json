@@ -1,0 +1,267 @@
+{
+  "subSceneId": "daily_001_sub_4",
+  "subSceneName": "请求结账",
+  "generatedAt": "2026-03-02T14:38:17.271Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_001_sub_4_pq_1",
+      "subSceneId": "daily_001_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_001_sub_4_qa_1",
+        "speakerText": "How was everything?",
+        "speakerTextCn": "饭菜还合口味吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "It was terrible, I want to complain.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "It was delicious, thanks! Can I get the check?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't know, I didn't eat much.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I have the bill now?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案结合了礼貌赞美（It was delicious, thanks!）和请求结账（Can I get the check?），符合场景中的使用说明。选项1语气负面，不适合餐厅场景；选项3没有回应问题；选项4虽然意思正确，但缺少礼貌铺垫，不符合‘先夸再提结账’的推荐策略。"
+      }
+    },
+    {
+      "id": "daily_001_sub_4_pq_2",
+      "subSceneId": "daily_001_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_001_sub_4_qa_2",
+        "speakerText": "Can I get the bill, please?",
+        "speakerTextCn": "可以结账吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I don't have money.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Sure, I'll bring it right away.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Why do you need it?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "The food was bad.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是服务员对结账请求的标准回应，礼貌且专业。选项1和4是负面回应，不符合服务场景；选项3是反问，显得不礼貌且不专业。"
+      }
+    },
+    {
+      "id": "daily_001_sub_4_pq_3",
+      "subSceneId": "daily_001_sub_4",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I'd like to settle the bill, please.",
+        "speakerTextCn": "我想结账，请。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Okay, here's your receipt.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Of course! Would you like to pay together or separately?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I'm not your server.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I have a discount?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是服务员对结账请求的自然回应，包含确认和进一步询问付款方式（split the bill），符合真实服务场景。选项1虽然相关，但未回应请求，直接给收据不合流程；选项3是错误角色回应；选项4是额外要求，与当前请求无关。"
+      }
+    },
+    {
+      "id": "daily_001_sub_4_pq_4",
+      "subSceneId": "daily_001_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_001_sub_4_qa_1",
+        "template": "It was amazing! Can I get the ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "check",
+            "options": [
+              "check",
+              "menu",
+              "bill",
+              "tip"
+            ]
+          }
+        ],
+        "hint": "美式英语中常用这个词表示账单",
+        "knowledgePoint": "场景高频词汇（check vs. bill）"
+      }
+    },
+    {
+      "id": "daily_001_sub_4_pq_5",
+      "subSceneId": "daily_001_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_001_sub_4_qa_2",
+        "template": "Can I ___ the bill, please?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "get",
+            "options": [
+              "get",
+              "take",
+              "have",
+              "see"
+            ]
+          }
+        ],
+        "hint": "最常用、最自然的表达方式",
+        "knowledgePoint": "场景核心句型（Can I get...?）"
+      }
+    },
+    {
+      "id": "daily_001_sub_4_pq_6",
+      "subSceneId": "daily_001_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could you please bring me the ___? I'll pay with ___.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "check",
+            "options": [
+              "check",
+              "bill",
+              "menu",
+              "plate"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "card",
+            "options": [
+              "card",
+              "cash",
+              "phone",
+              "check"
+            ]
+          }
+        ],
+        "hint": "结账时常见的两步表达：先要账单，再说明支付方式",
+        "knowledgePoint": "场景惯用搭配（bring the check + pay with card）"
+      }
+    },
+    {
+      "id": "daily_001_sub_4_pq_7",
+      "subSceneId": "daily_001_sub_4",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_001_sub_4_qa_1",
+        "speakerText": "How was everything?",
+        "speakerTextCn": "饭菜还合口味吗？",
+        "expectedAnswers": [
+          "It was delicious, thanks! Can I get the check?",
+          "Everything was great—I'd like to settle the bill now.",
+          "The food was awesome! Could you bring the bill, please?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否在赞美后自然提出结账请求",
+          "语言准确性：语法正确，用词恰当（如使用 check/bill）",
+          "表达自然度：是否符合英语口语节奏，避免生硬直译",
+          "关键词覆盖：是否包含至少一个场景关键词（check/bill/settle）"
+        ]
+      }
+    },
+    {
+      "id": "daily_001_sub_4_pq_8",
+      "subSceneId": "daily_001_sub_4",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_001_sub_4_qa_2",
+        "speakerText": "Can I get the bill, please?",
+        "speakerTextCn": "可以结账吗？",
+        "expectedAnswers": [
+          "Sure, I'll bring it right away.",
+          "Of course! Will you be paying together or separately?",
+          "Absolutely! Do you prefer card or cash?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰回应结账请求并提供下一步信息",
+          "语言准确性：使用正确动词（bring, pay, split）和句型",
+          "表达自然度：语气礼貌，符合服务员角色，避免机械重复",
+          "关键词覆盖：是否包含至少一个服务场景关键词（split, card, cash, bring）"
+        ]
+      }
+    },
+    {
+      "id": "daily_001_sub_4_pq_9",
+      "subSceneId": "daily_001_sub_4",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'm ready to pay now.",
+        "speakerTextCn": "我现在准备结账。",
+        "expectedAnswers": [
+          "Great! I'll bring the check. How would you like to pay?",
+          "Of course! Would you like one bill or separate ones?",
+          "Sure thing! We accept card, cash, or mobile payment."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确回应结账意图并引导下一步",
+          "语言准确性：使用恰当的动词短语（bring the check, pay with）",
+          "表达自然度：语气友好、专业，符合真实餐厅对话",
+          "关键词覆盖：是否包含至少两个场景关键词（check, pay, separate, card, cash）"
+        ]
+      }
+    }
+  ]
+}

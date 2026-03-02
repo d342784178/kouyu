@@ -1,0 +1,254 @@
+{
+  "subSceneId": "travel_057_sub_4",
+  "subSceneName": "登机指引",
+  "generatedAt": "2026-03-02T14:59:38.924Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_057_sub_4_pq_1",
+      "subSceneId": "travel_057_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_057_sub_4_qa_1",
+        "speakerText": "Boarding starts in 5 minutes — please wait near the gate.",
+        "speakerTextCn": "5分钟后开始登机，请在登机口附近等候。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll go to the restroom now.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Okay, I'll wait here.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I board early?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Where is the gate?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Okay, I'll wait here.' 是对登机提示的恰当简短回应，表示理解和配合。其他选项均不符合语境：'I'll go to the restroom' 忽略指示，'Can I board early?' 是无礼追问，'Where is the gate?' 表明未听清关键信息，均不符合 'must_speak' 场景要求。"
+      }
+    },
+    {
+      "id": "travel_057_sub_4_pq_2",
+      "subSceneId": "travel_057_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_057_sub_4_qa_2",
+        "speakerText": "We'll call priority passengers first — you're in group 3.",
+        "speakerTextCn": "优先乘客先登机，你是第3组。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I don't know what group I'm in.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Group 3? Got it!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I switch to group 1?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How many people are in group 3?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Group 3? Got it!' 是确认信息的标准回应，简洁且符合礼貌规范。其他选项均不合适：'I don't know...' 表示没听清，不符合场景要求；'Can I switch...' 是不合理请求；'How many people...' 属于无关追问，违背 'must_speak' 中避免追问的原则。"
+      }
+    },
+    {
+      "id": "travel_057_sub_4_pq_3",
+      "subSceneId": "travel_057_sub_4",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Please have your boarding pass and ID ready when your group is called.",
+        "speakerTextCn": "当您的组别被呼叫时，请准备好登机牌和身份证。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll get them ready now.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I use my phone instead?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "What if I lose my boarding pass?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Is group 3 next?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'I'll get them ready now.' 表示积极准备，符合指令要求。其他选项均为无效或干扰性回应：'Can I use my phone...' 提出替代方案，不符合规定；'What if I lose...' 是提前假设问题，不合时宜；'Is group 3 next?' 属于无关追问，违背场景简洁回应原则。"
+      }
+    },
+    {
+      "id": "travel_057_sub_4_pq_4",
+      "subSceneId": "travel_057_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_057_sub_4_qa_1",
+        "template": "Boarding starts in 5 minutes — please wait ___ the gate.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "near",
+            "options": [
+              "near",
+              "next",
+              "at",
+              "by"
+            ]
+          }
+        ],
+        "hint": "表示‘在……附近’的常用介词",
+        "knowledgePoint": "介词用法（near 表示靠近但不直接在门口）"
+      }
+    },
+    {
+      "id": "travel_057_sub_4_pq_5",
+      "subSceneId": "travel_057_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_057_sub_4_qa_2",
+        "template": "We'll call priority passengers first — you're in group ___.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "3",
+            "options": [
+              "3",
+              "three",
+              "third",
+              "3rd"
+            ]
+          }
+        ],
+        "hint": "登机组别通常用数字表示，而非序数词",
+        "knowledgePoint": "场景高频词汇（登机组别表达）"
+      }
+    },
+    {
+      "id": "travel_057_sub_4_pq_6",
+      "subSceneId": "travel_057_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Please have your ___ and ID ready when your group is called.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "boarding pass",
+            "options": [
+              "boarding pass",
+              "ticket",
+              "passport",
+              "luggage tag"
+            ]
+          }
+        ],
+        "hint": "登机时必须出示的纸质或电子凭证",
+        "knowledgePoint": "场景核心词汇（boarding pass 登机牌）"
+      }
+    },
+    {
+      "id": "travel_057_sub_4_pq_7",
+      "subSceneId": "travel_057_sub_4",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_057_sub_4_qa_1",
+        "speakerText": "Boarding starts in 5 minutes — please wait near the gate.",
+        "speakerTextCn": "5分钟后开始登机，请在登机口附近等候。",
+        "expectedAnswers": [
+          "Okay, I'll wait here.",
+          "Got it, thanks!",
+          "Understood — I'll stay right here."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确表示会等待，不提问或离开",
+          "语言准确性：语法正确，无拼写或结构错误",
+          "表达自然度：使用口语化、简洁的回应，符合机场场景习惯"
+        ]
+      }
+    },
+    {
+      "id": "travel_057_sub_4_pq_8",
+      "subSceneId": "travel_057_sub_4",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_057_sub_4_qa_2",
+        "speakerText": "We'll call priority passengers first — you're in group 3.",
+        "speakerTextCn": "优先乘客先登机，你是第3组。",
+        "expectedAnswers": [
+          "Group 3? Got it!",
+          "Okay, I'll wait for group 3.",
+          "Thanks — I'll keep an eye out for group 3."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：确认组别，表明会等待呼叫",
+          "语言准确性：正确使用数字和组别表达",
+          "表达自然度：使用自然口语表达，避免机械重复或过度追问"
+        ]
+      }
+    },
+    {
+      "id": "travel_057_sub_4_pq_9",
+      "subSceneId": "travel_057_sub_4",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Please make sure your carry-on fits under the seat or in the overhead bin.",
+        "speakerTextCn": "请确保您的随身行李能放入座椅下方或头顶行李架。",
+        "expectedAnswers": [
+          "Got it, I'll check my bag.",
+          "Okay, I'll put it in the bin.",
+          "Thanks — I'll make sure it fits."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：表明理解并会执行检查行李的要求",
+          "语言准确性：使用正确动词搭配（put in, make sure）",
+          "表达自然度：语气礼貌、简洁，符合机场工作人员与乘客的日常交流风格"
+        ]
+      }
+    }
+  ]
+}

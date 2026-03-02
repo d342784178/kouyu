@@ -1,0 +1,254 @@
+{
+  "subSceneId": "daily_007_sub_2",
+  "subSceneName": "预约意图",
+  "generatedAt": "2026-03-02T14:35:26.451Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_007_sub_2_pq_1",
+      "subSceneId": "daily_007_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_007_sub_2_qa_1",
+        "speakerText": "I'd like to book a haircut for this week.",
+        "speakerTextCn": "我想预约这周的理发。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I want to get a haircut now.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Could I schedule a haircut for this week?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you cut hair this week?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I need to pay for a haircut.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Could I schedule a haircut for this week?' 是礼貌且符合预约场景的表达，与 'I'd like to book...' 功能相同。选项1 'I want to...' 语气太直接，不够礼貌；选项3 问的是理发店是否营业，而非预约意图；选项4 与付款相关，偏离预约主题。"
+      }
+    },
+    {
+      "id": "daily_007_sub_2_pq_2",
+      "subSceneId": "daily_007_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I'm calling to arrange a haircut appointment.",
+        "speakerTextCn": "我打电话是想安排一个理发预约。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can you cut my hair today?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "I'd like to make an appointment for a haircut.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "How much do you charge for a haircut?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I need a new hairstyle.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'I'd like to make an appointment for a haircut.' 与原句 'I'm calling to arrange...' 同义，都是礼貌表达预约意图的标准方式。选项1 是直接请求，非预约语境；选项3 询问价格，与预约意图无关；选项4 表达需求，但未提及预约动作。"
+      }
+    },
+    {
+      "id": "daily_007_sub_2_pq_3",
+      "subSceneId": "daily_007_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I need to get my hair trimmed soon.",
+        "speakerTextCn": "我需要尽快剪一下头发。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'd like to book a trim for next Tuesday.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I think my hair is too long.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I pay now?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you offer hair dye?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'I'd like to book a trim for next Tuesday.' 是对 'need to get my hair trimmed soon' 的自然回应，明确表达了预约意图和具体时间。其他选项均未回应预约请求：选项2 是陈述事实，选项3 和 4 与支付或服务类型相关，偏离核心意图。"
+      }
+    },
+    {
+      "id": "daily_007_sub_2_pq_4",
+      "subSceneId": "daily_007_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_007_sub_2_qa_1",
+        "template": "I'd like ___ book a haircut for this week.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "with",
+              "at"
+            ]
+          }
+        ],
+        "hint": "表达预约意图的礼貌句型",
+        "knowledgePoint": "would like to do（预约场景核心句型）"
+      }
+    },
+    {
+      "id": "daily_007_sub_2_pq_5",
+      "subSceneId": "daily_007_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could you help me ___ an appointment for a trim?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "schedule",
+            "options": [
+              "schedule",
+              "pay",
+              "find",
+              "buy"
+            ]
+          }
+        ],
+        "hint": "预约服务时常用的动词",
+        "knowledgePoint": "动词搭配（schedule an appointment）"
+      }
+    },
+    {
+      "id": "daily_007_sub_2_pq_6",
+      "subSceneId": "daily_007_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'd like to ___ a haircut for next Thursday.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "book",
+            "options": [
+              "book",
+              "make",
+              "cut",
+              "get"
+            ]
+          }
+        ],
+        "hint": "预约理发服务的常用动词",
+        "knowledgePoint": "固定搭配（book a haircut）"
+      }
+    },
+    {
+      "id": "daily_007_sub_2_pq_7",
+      "subSceneId": "daily_007_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_007_sub_2_qa_1",
+        "speakerText": "I'd like to book a haircut for this week.",
+        "speakerTextCn": "我想预约这周的理发。",
+        "expectedAnswers": [
+          "Sure! What day and time works best for you?",
+          "Of course! Do you prefer morning or afternoon?",
+          "I'd be happy to help. Could you tell me your name and preferred time?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确回应了预约请求并询问具体时间",
+          "语言准确性：语法正确，使用了恰当的预约词汇如 'book', 'preferred time'",
+          "表达自然度：语气礼貌，符合服务场景的口语习惯"
+        ]
+      }
+    },
+    {
+      "id": "daily_007_sub_2_pq_8",
+      "subSceneId": "daily_007_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I need a trim soon — can you help me book something?",
+        "speakerTextCn": "我需要尽快剪一下头发，你能帮我预约吗？",
+        "expectedAnswers": [
+          "Absolutely! When would you like to come in?",
+          "Of course! We have openings on Tuesday or Thursday. Which suits you?",
+          "Sure thing! Just let me know your name and preferred day."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰回应了预约请求并提供可选时间",
+          "语言准确性：使用了 'book', 'preferred day', 'openings' 等场景关键词",
+          "表达自然度：语气友好、流畅，符合真实服务对话节奏"
+        ]
+      }
+    },
+    {
+      "id": "daily_007_sub_2_pq_9",
+      "subSceneId": "daily_007_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'm thinking of getting my hair cut next week. Do you have availability?",
+        "speakerTextCn": "我打算下周剪头发，你们有空位吗？",
+        "expectedAnswers": [
+          "We do! We have slots on Monday, Wednesday, and Friday. Which day works for you?",
+          "Yes, we're open next week. Could I get your name and preferred time?",
+          "Definitely! Just tell me when you're free and I'll book it for you."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确回应了询问并提供具体预约选项",
+          "语言准确性：使用了 'availability', 'slots', 'preferred time' 等正确表达",
+          "表达自然度：语调自然，符合服务人员主动提供选择的沟通风格"
+        ]
+      }
+    }
+  ]
+}

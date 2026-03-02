@@ -1,0 +1,260 @@
+{
+  "subSceneId": "daily_023_sub_4",
+  "subSceneName": "支付道别",
+  "generatedAt": "2026-03-02T14:42:46.803Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_023_sub_4_pq_1",
+      "subSceneId": "daily_023_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_023_sub_4_qa_1",
+        "speakerText": "That'll be $15. Cash or card?",
+        "speakerTextCn": "一共15美元，现金还是刷卡？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll pay with PayPal.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Card, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I get a discount?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I need more time.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Card, please.' 是对支付方式提问的直接、礼貌回应。干扰项 'I'll pay with PayPal.' 虽语法正确，但场景中未提及PayPal，不符合常见支付选项；'Can I get a discount?' 和 'I need more time.' 与支付方式无关，属于偏离主题的回应。"
+      }
+    },
+    {
+      "id": "daily_023_sub_4_pq_2",
+      "subSceneId": "daily_023_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_023_sub_4_qa_2",
+        "speakerText": "Thanks! Your photos are ready in 10 minutes.",
+        "speakerTextCn": "谢谢！10分钟后取照片。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll come back tomorrow.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Great, thanks for your help!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "How much is the fee?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I take more pictures?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Great, thanks for your help!' 是对服务结束的自然、礼貌道别回应。干扰项 'I'll come back tomorrow.' 与 '10分钟后取照片' 矛盾；'How much is the fee?' 已在上一轮支付中确认；'Can I take more pictures?' 属于扩展请求，不符合当前道别语境。"
+      }
+    },
+    {
+      "id": "daily_023_sub_4_pq_3",
+      "subSceneId": "daily_023_sub_4",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Your payment is complete. Have a great day!",
+        "speakerTextCn": "您的付款已完成，祝您今天愉快！",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Same to you!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'm not sure.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I get a receipt?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I need to leave now.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Same to you!' 是对祝福语 'Have a great day!' 的自然回应，符合英语日常道别习惯。干扰项 'I'm not sure.' 语义模糊；'Can I get a receipt?' 是支付前的请求，不符合当前语境；'I need to leave now.' 虽合理，但不如 'Same to you!' 礼貌自然，且未回应对方的祝福。"
+      }
+    },
+    {
+      "id": "daily_023_sub_4_pq_4",
+      "subSceneId": "daily_023_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_023_sub_4_qa_1",
+        "template": "That'll be $15. Cash or ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "card",
+            "options": [
+              "card",
+              "cash",
+              "check",
+              "bank"
+            ]
+          }
+        ],
+        "hint": "支付方式的常见选项，与cash并列",
+        "knowledgePoint": "支付方式核心词汇（cash/card）"
+      }
+    },
+    {
+      "id": "daily_023_sub_4_pq_5",
+      "subSceneId": "daily_023_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_023_sub_4_qa_2",
+        "template": "Your photos are ready in 10 minutes. ___ you!",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Thanks",
+            "options": [
+              "Thanks",
+              "Goodbye",
+              "See",
+              "Hello"
+            ]
+          }
+        ],
+        "hint": "对方表达感谢时，最自然的回应之一",
+        "knowledgePoint": "服务结束时的感谢回应（Thanks）"
+      }
+    },
+    {
+      "id": "daily_023_sub_4_pq_6",
+      "subSceneId": "daily_023_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'll pick them up later. ___ you later!",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "See",
+            "options": [
+              "See",
+              "Look",
+              "Call",
+              "Meet"
+            ]
+          }
+        ],
+        "hint": "告别时的常用短语，表示‘待会儿见’",
+        "knowledgePoint": "道别固定表达（See you later）"
+      }
+    },
+    {
+      "id": "daily_023_sub_4_pq_7",
+      "subSceneId": "daily_023_sub_4",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_023_sub_4_qa_1",
+        "speakerText": "That'll be $15. Cash or card?",
+        "speakerTextCn": "一共15美元，现金还是刷卡？",
+        "expectedAnswers": [
+          "Card.",
+          "Card, please.",
+          "I'll pay with card.",
+          "I only have cash, so I'll pay in cash."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回应了支付方式",
+          "语言准确性：语法正确，无明显错误",
+          "表达自然度：符合日常口语习惯",
+          "关键词覆盖：使用了card或cash"
+        ]
+      }
+    },
+    {
+      "id": "daily_023_sub_4_pq_8",
+      "subSceneId": "daily_023_sub_4",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_023_sub_4_qa_2",
+        "speakerText": "Thanks! Your photos are ready in 10 minutes.",
+        "speakerTextCn": "谢谢！10分钟后取照片。",
+        "expectedAnswers": [
+          "Great, thanks for your help!",
+          "See you later!",
+          "Okay, I'll be back in 10 minutes.",
+          "Thank you so much, I appreciate it!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：礼貌回应服务结束并表达道别或感谢",
+          "语言准确性：语法和用词正确",
+          "表达自然度：符合英语母语者道别习惯",
+          "关键词覆盖：使用了thanks、see you later、great等自然表达"
+        ]
+      }
+    },
+    {
+      "id": "daily_023_sub_4_pq_9",
+      "subSceneId": "daily_023_sub_4",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Your payment is confirmed. Enjoy your photos!",
+        "speakerTextCn": "您的付款已确认，祝您喜欢这些照片！",
+        "expectedAnswers": [
+          "Thank you! I will!",
+          "Thanks, have a nice day too!",
+          "Appreciate it! See you next time.",
+          "That's great, thank you!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：回应祝福并表达感谢或积极态度",
+          "语言准确性：语法和时态使用正确",
+          "表达自然度：符合英语日常道别场景的语调与节奏",
+          "关键词覆盖：使用了thank you、appreciate、see you等礼貌表达"
+        ]
+      }
+    }
+  ]
+}

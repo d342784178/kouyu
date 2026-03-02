@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_058_sub_1",
+  "subSceneName": "问候与确认",
+  "generatedAt": "2026-03-02T14:57:33.743Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_058_sub_1_pq_1",
+      "subSceneId": "travel_058_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_058_sub_1_qa_1",
+        "speakerText": "Hi there! Can I get your last name for the reservation?",
+        "speakerTextCn": "您好！能告诉我您的姓氏以便核对预订吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "My name is John Wang.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Sure, it's Wang.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't remember my reservation.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you spell it for me?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Sure, it's Wang.' 是简洁直接回应姓氏的标准方式。选项1虽然正确但包含了全名，不符合问题只问姓氏的要求；选项3表示无法提供信息，不符合服务场景；选项4是请求对方拼写，但问题不是询问拼写而是直接索取姓氏。"
+      }
+    },
+    {
+      "id": "travel_058_sub_1_pq_2",
+      "subSceneId": "travel_058_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_058_sub_1_qa_2",
+        "speakerText": "You've got a compact car reserved under John Wang. Is that right?",
+        "speakerTextCn": "您预订的是约翰·王的紧凑型车，对吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, that's correct.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Actually, my first name is Jian, not John.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't care what name is on it.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I upgrade to an SUV?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Actually, my first name is Jian, not John.' 是在信息错误时礼貌纠正的恰当回应。选项1虽然语法正确，但未纠正错误信息，可能导致取错车；选项3态度消极，不符合服务礼仪；选项4是额外请求，未回应核心问题。"
+      }
+    },
+    {
+      "id": "travel_058_sub_1_pq_3",
+      "subSceneId": "travel_058_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Welcome to our rental counter. I see you have a reservation. Could you confirm your last name?",
+        "speakerTextCn": "欢迎来到我们的租车柜台。我看到您有预订，请确认一下您的姓氏好吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'm not sure. I didn't book it.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Of course, it's Chen.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have my file?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I pay now?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Of course, it's Chen.' 是礼貌且直接回应姓氏确认的标准表达。选项1否认预订，不符合情境；选项3是反问，未提供所需信息；选项4提前进入付款环节，未完成身份确认流程。"
+      }
+    },
+    {
+      "id": "travel_058_sub_1_pq_4",
+      "subSceneId": "travel_058_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_058_sub_1_qa_1",
+        "template": "Hi there! Can I get your ___ name for the reservation?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "last",
+            "options": [
+              "last",
+              "first",
+              "full",
+              "given"
+            ]
+          }
+        ],
+        "hint": "租车柜台通常先确认姓氏，用于查找预订记录",
+        "knowledgePoint": "场景高频词汇（last name）"
+      }
+    },
+    {
+      "id": "travel_058_sub_1_pq_5",
+      "subSceneId": "travel_058_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_058_sub_1_qa_2",
+        "template": "You've got a compact car reserved under ___ Wang. Is that right?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "John",
+            "options": [
+              "John",
+              "Jian",
+              "Wang",
+              "Mike"
+            ]
+          }
+        ],
+        "hint": "这是系统显示的预订名，可能与实际不符，需核对",
+        "knowledgePoint": "场景核心句型（reserved under...）"
+      }
+    },
+    {
+      "id": "travel_058_sub_1_pq_6",
+      "subSceneId": "travel_058_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Actually, my first name is ___ , not John. Could you check again?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Jian",
+            "options": [
+              "Jian",
+              "John",
+              "Wang",
+              "Mike"
+            ]
+          }
+        ],
+        "hint": "当预订名与实际不符时，用 'Actually' 开头礼貌纠正",
+        "knowledgePoint": "场景功能表达（纠正信息）"
+      }
+    },
+    {
+      "id": "travel_058_sub_1_pq_7",
+      "subSceneId": "travel_058_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_058_sub_1_qa_1",
+        "speakerText": "Hi there! Can I get your last name for the reservation?",
+        "speakerTextCn": "您好！能告诉我您的姓氏以便核对预订吗？",
+        "expectedAnswers": [
+          "Sure, it's Li.",
+          "My last name is Li.",
+          "Li. Got it?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确提供姓氏，完成身份核对",
+          "语言准确性：语法正确，无拼写或结构错误",
+          "表达自然度：符合口语习惯，简洁直接",
+          "关键词覆盖：使用 'last name' 或 'it's' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_058_sub_1_pq_8",
+      "subSceneId": "travel_058_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_058_sub_1_qa_2",
+        "speakerText": "You've got a compact car reserved under John Wang. Is that right?",
+        "speakerTextCn": "您预订的是约翰·王的紧凑型车，对吗？",
+        "expectedAnswers": [
+          "Yep, that's me.",
+          "Actually, my first name is Jian, not John.",
+          "Yeah, correct — but my first name is Jian."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：正确确认或纠正预订信息，避免取错车",
+          "语言准确性：使用 'Actually' 或 'not' 正确表达纠正",
+          "表达自然度：使用口语化表达如 'Yep', 'Yeah' 符合真实场景",
+          "关键词覆盖：使用 'first name', 'reserved under', 'John' 等关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_058_sub_1_pq_9",
+      "subSceneId": "travel_058_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I see your reservation is for a compact car. Is that still correct?",
+        "speakerTextCn": "我看到您的预订是紧凑型车，还是这个吗？",
+        "expectedAnswers": [
+          "Yes, that's fine.",
+          "Actually, I'd like to upgrade to a mid-size if possible.",
+          "Yes, compact is perfect for me."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰回应是否维持原预订或提出变更",
+          "语言准确性：使用 'Yes', 'Actually', 'if possible' 等恰当表达",
+          "表达自然度：语气礼貌，符合服务场景中的协商语境",
+          "关键词覆盖：使用 'reservation', 'compact car', 'upgrade' 等关键词"
+        ]
+      }
+    }
+  ]
+}

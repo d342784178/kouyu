@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_058_sub_5",
+  "subSceneName": "道别与提醒",
+  "generatedAt": "2026-03-02T14:55:17.518Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_058_sub_5_pq_1",
+      "subSceneId": "travel_058_sub_5",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_058_sub_5_qa_1",
+        "speakerText": "Here’s your rental agreement and the 24/7 roadside assistance number.",
+        "speakerTextCn": "这是您的租赁合同和24小时道路救援电话。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Thanks! Can I save this number in my phone?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I’ll return it tomorrow if I don’t need it.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you email me a copy instead?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I don’t need this—I have my own insurance.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案回应了获取救援电话的积极态度，并表达了保存号码的意图，符合场景中'务必保存救援电话'的要求。干扰项中，第二个误以为合同可退回，第三个要求邮件替代，不符合现场即时确认的需求，第四个拒绝援助服务，违背安全原则。"
+      }
+    },
+    {
+      "id": "travel_058_sub_5_pq_2",
+      "subSceneId": "travel_058_sub_5",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_058_sub_5_qa_2",
+        "speakerText": "If you have any issues, just call this number—no need to come back to the counter.",
+        "speakerTextCn": "如果出问题，直接打这个电话，不用回柜台。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Perfect! I’ll keep it handy.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I get a refund if I don’t use it?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have a mobile app for support?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I’ll call you if I’m lost.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案表达了对远程支援的接受和准备，符合'确认远程支援是否全国通用'的意图。干扰项中，第二个询问退款，与服务使用无关；第三个转向App，虽合理但非对话焦点；第四个说'call you'模糊不清，未使用指定号码。"
+      }
+    },
+    {
+      "id": "travel_058_sub_5_pq_3",
+      "subSceneId": "travel_058_sub_5",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Before you leave, just double-check: do you have the emergency contact and your car’s location tracker enabled?",
+        "speakerTextCn": "在您离开前，请再次确认：您有紧急联系人信息和车辆定位功能已开启吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, I’ve saved the number and turned on the tracker. Thanks for reminding me!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I’ll check when I get to my hotel.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I don’t think I need that—I’m a good driver.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you send me a text with the details?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案完整回应了双重确认要求，使用了场景关键词（emergency contact, tracker）并表达感谢。干扰项中，第二个推迟行动，违背'最后确认'的紧迫性；第三个轻视安全措施，不符合教学重点；第四个要求再次发送，未体现主动确认。"
+      }
+    },
+    {
+      "id": "travel_058_sub_5_pq_4",
+      "subSceneId": "travel_058_sub_5",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_058_sub_5_qa_1",
+        "template": "Thanks! Can I ___ this number in my phone?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "save",
+            "options": [
+              "save",
+              "write",
+              "call",
+              "delete"
+            ]
+          }
+        ],
+        "hint": "用于保存联系方式的常用动词",
+        "knowledgePoint": "动词搭配：save a number（保存号码）"
+      }
+    },
+    {
+      "id": "travel_058_sub_5_pq_5",
+      "subSceneId": "travel_058_sub_5",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_058_sub_5_qa_2",
+        "template": "I’ll keep it ___—I won’t need to go back to the counter.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "handy",
+            "options": [
+              "handy",
+              "close",
+              "near",
+              "ready"
+            ]
+          }
+        ],
+        "hint": "表示'随时可取用'的地道表达",
+        "knowledgePoint": "固定搭配：keep it handy（随时带着）"
+      }
+    },
+    {
+      "id": "travel_058_sub_5_pq_6",
+      "subSceneId": "travel_058_sub_5",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Is this number valid ___ the country, or only in this city?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "across",
+            "options": [
+              "across",
+              "through",
+              "in",
+              "between"
+            ]
+          }
+        ],
+        "hint": "表示'全国范围内'的介词搭配",
+        "knowledgePoint": "介词用法：across the country（全国范围内）"
+      }
+    },
+    {
+      "id": "travel_058_sub_5_pq_7",
+      "subSceneId": "travel_058_sub_5",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_058_sub_5_qa_1",
+        "speakerText": "Here’s your rental agreement and the 24/7 roadside assistance number.",
+        "speakerTextCn": "这是您的租赁合同和24小时道路救援电话。",
+        "expectedAnswers": [
+          "Thanks! I’ll save it right away.",
+          "Great, thanks! Can I take a photo of it too?",
+          "Appreciate it—I’ll make sure this is saved in my contacts and set as a speed dial."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表示会保存号码",
+          "语言准确性：语法和词汇使用是否正确",
+          "表达自然度：是否符合日常口语习惯",
+          "关键词覆盖：是否使用了 'save', 'number', 'roadside assistance' 等关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_058_sub_5_pq_8",
+      "subSceneId": "travel_058_sub_5",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_058_sub_5_qa_2",
+        "speakerText": "If you have any issues, just call this number—no need to come back to the counter.",
+        "speakerTextCn": "如果出问题，直接打这个电话，不用回柜台。",
+        "expectedAnswers": [
+          "Perfect! I’ll keep it in my wallet just in case.",
+          "Thanks! What if I’m abroad? Is it still free to call?",
+          "Got it—so I can call anytime, even at 3 a.m.?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否确认远程支援的可用性",
+          "语言准确性：是否正确使用了 'call', 'anytime', 'abroad' 等表达",
+          "表达自然度：是否使用了自然的口语语气（如 'just in case', 'even at 3 a.m.'）",
+          "关键词覆盖：是否提及 'call', 'number', 'no need to return' 等核心表达"
+        ]
+      }
+    },
+    {
+      "id": "travel_058_sub_5_pq_9",
+      "subSceneId": "travel_058_sub_5",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "One last thing—please confirm you have the emergency contact saved and your car’s GPS tracker turned on.",
+        "speakerTextCn": "最后一件事——请确认您已保存紧急联系人并开启了车辆GPS定位功能。",
+        "expectedAnswers": [
+          "Yes, I’ve saved the number and turned on the tracker. I feel much safer now.",
+          "I just did—I double-checked both. Thanks for reminding me!",
+          "I’ve got it covered: the emergency contact is in my phone, and the GPS is active. Appreciate your help!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确确认两项安全措施已完成",
+          "语言准确性：是否正确使用了 'saved', 'turned on', 'GPS tracker' 等术语",
+          "表达自然度：是否自然流畅，有适当的情感表达（如 'feel safer', 'appreciate'）",
+          "关键词覆盖：是否包含 'emergency contact', 'GPS tracker', 'confirmed' 等关键短语"
+        ]
+      }
+    }
+  ]
+}

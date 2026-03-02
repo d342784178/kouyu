@@ -1,0 +1,254 @@
+{
+  "subSceneId": "social_092_sub_2",
+  "subSceneName": "询问垃圾处理",
+  "generatedAt": "2026-03-02T14:48:17.066Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "social_092_sub_2_pq_1",
+      "subSceneId": "social_092_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "social_092_sub_2_qa_1",
+        "speakerText": "Hey, do you know when trash day is around here?",
+        "speakerTextCn": "嘿，你知道这儿的垃圾日是哪天吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "It's every Monday morning.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "It's Thursday nights—put bins out by 7 p.m. Don't forget to rinse them!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't know, but I think it's free.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "You should call the police for trash info.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确回应了垃圾日时间及注意事项（周四晚、7点前、冲洗），是完整且实用的回应。其他选项要么时间错误，要么无关（如联系警察），或语义不完整（如只说'free'）。"
+      }
+    },
+    {
+      "id": "social_092_sub_2_pq_2",
+      "subSceneId": "social_092_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "social_092_sub_2_qa_2",
+        "speakerText": "Oh, and do they recycle plastics here?",
+        "speakerTextCn": "对了，这儿回收塑料吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, plastic goes in the green bin.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Yep, blue bin next to the main trash—just sort it!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't care about recycling.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Plastic is not allowed in this neighborhood.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确指出塑料回收使用蓝色垃圾桶，并提醒分类，符合对话语境。绿色桶通常用于厨余，与题干不符；其他选项要么态度消极，要么信息错误。"
+      }
+    },
+    {
+      "id": "social_092_sub_2_pq_3",
+      "subSceneId": "social_092_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I'm new here. Could you tell me where to put cardboard boxes?",
+        "speakerTextCn": "我是新来的，你能告诉我纸板箱该扔在哪里吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Just throw it in the bathroom.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Cardboard goes in the recycling bin—usually brown or labeled 'Paper'.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "You should burn it in your backyard.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Ask the mailman tomorrow.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案提供准确的纸板回收信息（通常为棕色或标注'Paper'的垃圾桶），符合环保规范。其他选项要么荒谬（如扔进浴室、焚烧），要么推诿责任（找邮递员），不符合社区规范。"
+      }
+    },
+    {
+      "id": "social_092_sub_2_pq_4",
+      "subSceneId": "social_092_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "social_092_sub_2_qa_1",
+        "template": "Trash day is Thursday—put your bins out by ___ p.m.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "7",
+            "options": [
+              "7",
+              "5",
+              "9",
+              "12"
+            ]
+          }
+        ],
+        "hint": "常见垃圾投放截止时间",
+        "knowledgePoint": "时间表达与垃圾规则搭配"
+      }
+    },
+    {
+      "id": "social_092_sub_2_pq_5",
+      "subSceneId": "social_092_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "social_092_sub_2_qa_2",
+        "template": "Plastics go in the ___ bin next to the main trash.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "blue",
+            "options": [
+              "blue",
+              "red",
+              "green",
+              "black"
+            ]
+          }
+        ],
+        "hint": "回收塑料的专用垃圾桶颜色",
+        "knowledgePoint": "垃圾分类颜色标识（常见搭配）"
+      }
+    },
+    {
+      "id": "social_092_sub_2_pq_6",
+      "subSceneId": "social_092_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Don't forget to ___ your bins before putting them out.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "rinse",
+            "options": [
+              "rinse",
+              "paint",
+              "move",
+              "lock"
+            ]
+          }
+        ],
+        "hint": "保持垃圾桶清洁的必要步骤",
+        "knowledgePoint": "动词搭配：rinse bins（清洁垃圾桶）"
+      }
+    },
+    {
+      "id": "social_092_sub_2_pq_7",
+      "subSceneId": "social_092_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "social_092_sub_2_qa_1",
+        "speakerText": "Hey, do you know when trash day is around here?",
+        "speakerTextCn": "嘿，你知道这儿的垃圾日是哪天吗？",
+        "expectedAnswers": [
+          "It's on Thursday nights—put the bins out by 7 p.m. and rinse them first.",
+          "Thursday, but I'm not 100% sure. Let me check with the manager.",
+          "Thursday evening. Just make sure the lids are closed."
+        ],
+        "evaluationCriteria": [
+          "是否准确回答了垃圾日时间",
+          "是否包含关键细节（如时间、冲洗、盖子）",
+          "语言是否自然、符合口语习惯"
+        ]
+      }
+    },
+    {
+      "id": "social_092_sub_2_pq_8",
+      "subSceneId": "social_092_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "social_092_sub_2_qa_2",
+        "speakerText": "Oh, and do they recycle plastics here?",
+        "speakerTextCn": "对了，这儿回收塑料吗？",
+        "expectedAnswers": [
+          "Yes, we use the blue bin next to the main trash—just rinse and sort it.",
+          "I think so, but I don’t recycle myself. You should ask the front desk.",
+          "Plastic recycling? Yeah, blue bin. Just make sure it’s clean."
+        ],
+        "evaluationCriteria": [
+          "是否明确回答是否回收塑料",
+          "是否提及正确的垃圾桶颜色或分类要求",
+          "表达是否自然，避免生硬或语法错误"
+        ]
+      }
+    },
+    {
+      "id": "social_092_sub_2_pq_9",
+      "subSceneId": "social_092_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'm new here. What should I do with glass bottles?",
+        "speakerTextCn": "我是新来的，玻璃瓶该怎么处理？",
+        "expectedAnswers": [
+          "Glass goes in the clear bin—usually next to the recycling area. Don't mix it with other trash.",
+          "I'm not sure, but I think there's a special container for glass near the parking lot.",
+          "You need to wrap them in newspaper and put them in the green bin with other recyclables."
+        ],
+        "evaluationCriteria": [
+          "是否提供清晰的处理方式或准确位置",
+          "是否使用场景关键词（glass, bin, recycling）",
+          "表达是否礼貌、自然，符合邻里交流语境"
+        ]
+      }
+    }
+  ]
+}

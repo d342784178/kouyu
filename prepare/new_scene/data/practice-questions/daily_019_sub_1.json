@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_019_sub_1",
+  "subSceneName": "进店问候",
+  "generatedAt": "2026-03-02T14:39:43.572Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_019_sub_1_pq_1",
+      "subSceneId": "daily_019_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_019_sub_1_qa_1",
+        "speakerText": "Hi there! How can I help you today?",
+        "speakerTextCn": "嗨！今天需要帮您什么忙吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'm just looking around, thanks.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I want to buy a car.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you give me your manager?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much is the shop open?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'I'm just looking around, thanks.' 是礼貌且符合进店场景的回应，表示顾客没有明确购买意图。其他选项语境不符：'buy a car' 与花店无关，'give me your manager' 显得不礼貌，'How much is the shop open?' 语法错误且非自然表达。"
+      }
+    },
+    {
+      "id": "daily_019_sub_1_pq_2",
+      "subSceneId": "daily_019_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_019_sub_1_qa_2",
+        "speakerText": "We've got fresh blooms in today—perfect for gifts!",
+        "speakerTextCn": "今天刚到新鲜花束，特别适合送礼！",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "That sounds lovely! Do you have any with yellow roses?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don't like flowers.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you give me a discount?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What time do you close?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'That sounds lovely! Do you have any with yellow roses?' 表达了积极回应并进一步提出偏好，符合场景中引导推荐的策略。其他选项：'I don't like flowers' 直接否定对话基础，'Can you give me a discount?' 过早谈价格，'What time do you close?' 与花束推荐无关，均偏离核心互动目标。"
+      }
+    },
+    {
+      "id": "daily_019_sub_1_pq_3",
+      "subSceneId": "daily_019_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Welcome to Blossom Garden! How can I assist you today?",
+        "speakerTextCn": "欢迎来到花之园！今天能为您做些什么？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I need to send a gift—something colorful and fragrant.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Where is the bathroom?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is this store open on Sundays?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'm here to complain about last week's order.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'I need to send a gift—something colorful and fragrant.' 精准回应了店员的问候，并清晰表达了购买目的，符合进店问候场景。其他选项涉及无关需求（卫生间、营业时间、投诉），不符合初次进店的自然互动语境。"
+      }
+    },
+    {
+      "id": "daily_019_sub_1_pq_4",
+      "subSceneId": "daily_019_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_019_sub_1_qa_1",
+        "template": "Hi! I'm looking for ___ flowers for my mom's birthday.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "some",
+            "options": [
+              "some",
+              "any",
+              "many",
+              "much"
+            ]
+          }
+        ],
+        "hint": "表达不确定数量的可数名词时，常用 'some' 表示礼貌请求",
+        "knowledgePoint": "不定量词搭配（some + 可数名词复数）"
+      }
+    },
+    {
+      "id": "daily_019_sub_1_pq_5",
+      "subSceneId": "daily_019_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_019_sub_1_qa_2",
+        "template": "That's great! I need something ___ and cheerful.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "bright",
+            "options": [
+              "bright",
+              "dark",
+              "quiet",
+              "expensive"
+            ]
+          }
+        ],
+        "hint": "描述花束时，常用 'bright' 表达颜色鲜艳、心情愉悦",
+        "knowledgePoint": "描述花束的形容词搭配（bright + cheerful）"
+      }
+    },
+    {
+      "id": "daily_019_sub_1_pq_6",
+      "subSceneId": "daily_019_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could you show me your ___? I'm looking for a gift.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "bestsellers",
+            "options": [
+              "bestsellers",
+              "prices",
+              "employees",
+              "catalogs"
+            ]
+          }
+        ],
+        "hint": "当想了解最受欢迎的商品时，常用 'bestsellers' 一词",
+        "knowledgePoint": "购物场景核心词汇（bestsellers）"
+      }
+    },
+    {
+      "id": "daily_019_sub_1_pq_7",
+      "subSceneId": "daily_019_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_019_sub_1_qa_1",
+        "speakerText": "Hi there! How can I help you today?",
+        "speakerTextCn": "嗨！今天需要帮您什么忙吗？",
+        "expectedAnswers": [
+          "Hi! I'd like to buy some flowers for my mom.",
+          "Hey, I'm looking for birthday flowers—maybe something pink?",
+          "Just browsing for now, but thanks for asking!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确表达购物意图或礼貌拒绝",
+          "语言准确性：语法正确，用词恰当，无明显错误",
+          "表达自然度：符合日常口语习惯，语气友好",
+          "关键词覆盖：使用场景关键词如 'flowers', 'birthday', 'buy', 'browsing'"
+        ]
+      }
+    },
+    {
+      "id": "daily_019_sub_1_pq_8",
+      "subSceneId": "daily_019_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_019_sub_1_qa_2",
+        "speakerText": "We've got fresh blooms in today—perfect for gifts!",
+        "speakerTextCn": "今天刚到新鲜花束，特别适合送礼！",
+        "expectedAnswers": [
+          "Oh, that's perfect! I need something bright with roses.",
+          "Cool! What's your most popular arrangement?",
+          "Hmm, I'm not sure yet—do you have any tulips in stock?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：积极回应并引导店员推荐或表达偏好",
+          "语言准确性：使用恰当的形容词和疑问句结构",
+          "表达自然度：语气自然，符合真实对话节奏",
+          "关键词覆盖：使用 'fresh blooms', 'gifts', 'popular', 'arrangement', 'tulips' 等场景词"
+        ]
+      }
+    },
+    {
+      "id": "daily_019_sub_1_pq_9",
+      "subSceneId": "daily_019_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Welcome to Petal & Leaf! Can I help you find something special?",
+        "speakerTextCn": "欢迎来到花叶坊！我能帮您找点特别的吗？",
+        "expectedAnswers": [
+          "Yes, I'm looking for a bouquet to celebrate my anniversary—something elegant and not too loud.",
+          "Actually, I'm just curious—what flowers are in season right now?",
+          "I'm not sure yet, but I'd love to see your most beautiful arrangement."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰表达需求、探索兴趣或礼貌犹豫",
+          "语言准确性：使用复合句和恰当修饰语（如 'elegant', 'not too loud'）",
+          "表达自然度：语气真诚，符合进店探索型顾客的语调",
+          "关键词覆盖：使用 'bouquet', 'celebrate', 'season', 'arrangement', 'elegant' 等高级场景词"
+        ]
+      }
+    }
+  ]
+}

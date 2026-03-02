@@ -1,0 +1,257 @@
+{
+  "subSceneId": "study_abroad_099_sub_1",
+  "subSceneName": "初次咨询",
+  "generatedAt": "2026-03-02T14:49:49.804Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "study_abroad_099_sub_1_pq_1",
+      "subSceneId": "study_abroad_099_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "study_abroad_099_sub_1_qa_1",
+        "speakerText": "Hi, I'm new here and I'd like to apply for on-campus housing. What options do you have?",
+        "speakerTextCn": "你好，我是新生，想申请校内宿舍，有什么房型？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I want a single room with a private bathroom, if possible.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I need a room near the cafeteria.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you give me a discount?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "When does the semester start?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接回应了对方关于房型的问题，并表达了具体偏好，符合'主动提出偏好，提高申请成功率'的使用说明。其他选项偏离主题：B关注位置而非房型，C询问折扣（不相关），D询问开学时间（无关信息）。"
+      }
+    },
+    {
+      "id": "study_abroad_099_sub_1_pq_2",
+      "subSceneId": "study_abroad_099_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "study_abroad_099_sub_1_qa_2",
+        "speakerText": "We've got singles, doubles, and suites. Singles are most popular right now.",
+        "speakerTextCn": "我们有单人间、双人间和套房，目前单人间最抢手。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I get on the waitlist for a single? I'm happy to pay extra.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don't care about the room type, just give me anything.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Are suites cheaper than singles?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I bring my pet?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案体现了'根据情况灵活调整需求'的策略，主动请求候补并愿意加价，是积极应对短缺的合理回应。B虽然态度随和但缺乏主动性，C和D与当前情境无关（价格和宠物未被提及）。"
+      }
+    },
+    {
+      "id": "study_abroad_099_sub_1_pq_3",
+      "subSceneId": "study_abroad_099_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I'm interested in on-campus housing. Could you tell me about the room types and availability?",
+        "speakerTextCn": "我对校内住宿感兴趣，能告诉我有哪些房型和 Availability 吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'd like a double room, but I'm open to a single if it's available.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I need a room with a pool.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much is the rent for off-campus apartments?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get a room for my whole family?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案清晰表达了偏好（双人间）但保持灵活性（愿意接受单人间），符合初次咨询的礼貌与策略性表达。B要求泳池（校内宿舍通常无），C转向校外住宿（偏离主题），D要求全家入住（不符合学生宿舍性质）。"
+      }
+    },
+    {
+      "id": "study_abroad_099_sub_1_pq_4",
+      "subSceneId": "study_abroad_099_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "study_abroad_099_sub_1_qa_1",
+        "template": "I'd like ___ book a single room with a private bathroom.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "with",
+              "at"
+            ]
+          }
+        ],
+        "hint": "表达意愿时常用结构",
+        "knowledgePoint": "would like to do（预约场景核心句型）"
+      }
+    },
+    {
+      "id": "study_abroad_099_sub_1_pq_5",
+      "subSceneId": "study_abroad_099_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "study_abroad_099_sub_1_qa_2",
+        "template": "Can I get on the ___ for a single room? I'm happy to pay extra.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "waitlist",
+            "options": [
+              "waitlist",
+              "waiting room",
+              "list",
+              "queue"
+            ]
+          }
+        ],
+        "hint": "申请紧缺资源时的常用术语",
+        "knowledgePoint": "waitlist（宿舍申请高频词汇）"
+      }
+    },
+    {
+      "id": "study_abroad_099_sub_1_pq_6",
+      "subSceneId": "study_abroad_099_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'm fine with ___ a room, as long as it's clean and safe.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "sharing",
+            "options": [
+              "sharing",
+              "sharing out",
+              "share",
+              "shared"
+            ]
+          }
+        ],
+        "hint": "表达愿意合住的常用动词",
+        "knowledgePoint": "sharing a room（合住场景惯用搭配）"
+      }
+    },
+    {
+      "id": "study_abroad_099_sub_1_pq_7",
+      "subSceneId": "study_abroad_099_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "study_abroad_099_sub_1_qa_1",
+        "speakerText": "Hi, I'm new here and I'd like to apply for on-campus housing. What options do you have?",
+        "speakerTextCn": "你好，我是新生，想申请校内宿舍，有什么房型？",
+        "expectedAnswers": [
+          "I'd like a single room, if possible.",
+          "I'm open to a double room if singles are full.",
+          "Could you tell me what's available? I'm flexible."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问房型选项",
+          "语言准确性：语法和词汇使用是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了 'single room', 'double room', 'available' 等关键词"
+        ]
+      }
+    },
+    {
+      "id": "study_abroad_099_sub_1_pq_8",
+      "subSceneId": "study_abroad_099_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "study_abroad_099_sub_1_qa_2",
+        "speakerText": "We've got singles, doubles, and suites. Singles are most popular right now.",
+        "speakerTextCn": "我们有单人间、双人间和套房，目前单人间最抢手。",
+        "expectedAnswers": [
+          "Can I join the waitlist for a single? I'm willing to pay extra.",
+          "A double room works for me—please put me on the list.",
+          "How long is the wait for a single? I might consider a double if it's too long."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否根据信息做出合理回应",
+          "语言准确性：是否正确使用 'waitlist', 'put me on the list', 'consider' 等表达",
+          "表达自然度：语气是否礼貌且灵活",
+          "关键词覆盖：是否使用了 'waitlist', 'double room', 'available' 等关键词"
+        ]
+      }
+    },
+    {
+      "id": "study_abroad_099_sub_1_pq_9",
+      "subSceneId": "study_abroad_099_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'm looking for on-campus housing. What kind of rooms do you have?",
+        "speakerTextCn": "我在找校内住宿，你们有哪些房型？",
+        "expectedAnswers": [
+          "I'm interested in a single room with a private bathroom.",
+          "I'd prefer a double room to save costs, but I'm open to other options.",
+          "Could you tell me which room types are still available? I'm flexible."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达住宿需求和偏好",
+          "语言准确性：是否正确使用 'prefer', 'open to', 'flexible' 等表达",
+          "表达自然度：是否避免生硬或命令式语气",
+          "关键词覆盖：是否使用了 'single room', 'double room', 'available', 'flexible' 等场景关键词"
+        ]
+      }
+    }
+  ]
+}

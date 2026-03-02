@@ -1,0 +1,257 @@
+{
+  "subSceneId": "workplace_053_sub_3",
+  "subSceneName": "确认签字",
+  "generatedAt": "2026-03-02T15:19:30.845Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "workplace_053_sub_3_pq_1",
+      "subSceneId": "workplace_053_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "workplace_053_sub_3_qa_1",
+        "speakerText": "Need your signature for this one.",
+        "speakerTextCn": "这个需要你签个名。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Sure, I'll send it back tomorrow.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "No problem, here you go.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't know who this is for.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you deliver it to my office?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'No problem, here you go.' 是对签名请求的直接、礼貌回应。其他选项要么回避签名（如 'send it back'），要么无关（如询问配送地址），或表达不确定（'I don't know who this is for.'），不符合签收场景的即时回应要求。"
+      }
+    },
+    {
+      "id": "workplace_053_sub_3_pq_2",
+      "subSceneId": "workplace_053_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "workplace_053_sub_3_qa_2",
+        "speakerText": "You gotta sign here, initials and full name.",
+        "speakerTextCn": "这儿签名，写姓和全名。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll sign with a pencil.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Got it, J.M. and Jane Miller.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I use my company stamp?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I need to check the contents first.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Got it, J.M. and Jane Miller.' 准确回应了签名要求（首字母+全名）。选项1使用铅笔不符合正式签收规范；选项3用公司印章在多数场合不被接受；选项4是延迟签收，未直接回应签名要求。"
+      }
+    },
+    {
+      "id": "workplace_053_sub_3_pq_3",
+      "subSceneId": "workplace_053_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "This is a certified package — we need your signature to confirm delivery.",
+        "speakerTextCn": "这是认证包裹，我们需要您的签名确认送达。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I skip the signature since I'm in a hurry?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "I understand — I’ll sign right away.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Is this from Amazon?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you leave it at the door?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'I understand — I’ll sign right away.' 表现出对流程的理解和配合。选项1试图规避流程，不符合认证包裹的强制签收要求；选项3和4与签名要求无关，属于转移话题。"
+      }
+    },
+    {
+      "id": "workplace_053_sub_3_pq_4",
+      "subSceneId": "workplace_053_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "workplace_053_sub_3_qa_1",
+        "template": "Can I sign ___ instead?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "digitally",
+            "options": [
+              "digitally",
+              "electronically",
+              "by phone",
+              "with ink"
+            ]
+          }
+        ],
+        "hint": "询问是否可以用电子方式签名的常用表达",
+        "knowledgePoint": "固定表达：sign digitally（电子签名）"
+      }
+    },
+    {
+      "id": "workplace_053_sub_3_pq_5",
+      "subSceneId": "workplace_053_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "workplace_053_sub_3_qa_2",
+        "template": "You need to sign here with your ___ and full name.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "initials",
+            "options": [
+              "initials",
+              "nickname",
+              "phone number",
+              "email"
+            ]
+          }
+        ],
+        "hint": "签名时通常要求写姓氏首字母",
+        "knowledgePoint": "场景核心词汇：initials（首字母缩写）"
+      }
+    },
+    {
+      "id": "workplace_053_sub_3_pq_6",
+      "subSceneId": "workplace_053_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Is this ___ mail? I need to know before I sign.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "registered",
+            "options": [
+              "registered",
+              "express",
+              "personal",
+              "bulk"
+            ]
+          }
+        ],
+        "hint": "签收前确认快递类型的关键词",
+        "knowledgePoint": "场景功能表达：registered mail（挂号信）"
+      }
+    },
+    {
+      "id": "workplace_053_sub_3_pq_7",
+      "subSceneId": "workplace_053_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "workplace_053_sub_3_qa_1",
+        "speakerText": "Need your signature for this one.",
+        "speakerTextCn": "这个需要你签个名。",
+        "expectedAnswers": [
+          "No problem, here you go.",
+          "Can I sign digitally instead?",
+          "Wait, is this registered mail? I want to make sure it's not something official."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确回应了签名请求或提出合理替代方案",
+          "语言准确性：语法正确，用词恰当，无明显错误",
+          "表达自然度：符合职场口语习惯，语气礼貌或合理质疑",
+          "关键词覆盖：使用了 'signature', 'digitally', 'registered mail' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "workplace_053_sub_3_pq_8",
+      "subSceneId": "workplace_053_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "workplace_053_sub_3_qa_2",
+        "speakerText": "You gotta sign here, initials and full name.",
+        "speakerTextCn": "这儿签名，写姓和全名。",
+        "expectedAnswers": [
+          "Got it, J.M. and Jane Miller.",
+          "Can I just write my first name? My last name is on my badge.",
+          "I'll sign now, but can you confirm this is for the HR department?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确回应签名要求或请求澄清",
+          "语言准确性：正确使用 initials 和 full name 等术语",
+          "表达自然度：语气自然，符合职场沟通习惯，不生硬",
+          "关键词覆盖：使用了 'initials', 'full name', 'sign' 等核心词汇"
+        ]
+      }
+    },
+    {
+      "id": "workplace_053_sub_3_pq_9",
+      "subSceneId": "workplace_053_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "We need your signature to release this package — it’s insured.",
+        "speakerTextCn": "我们需要您的签名才能发放这个包裹，它是有保险的。",
+        "expectedAnswers": [
+          "Understood. I'll sign right away.",
+          "Can I see the tracking number first? I want to confirm the contents.",
+          "I'll sign, but can you tell me what's inside? I'm not expecting anything insured."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否正确回应签名要求，或合理要求信息确认",
+          "语言准确性：语法正确，使用 'insured', 'release', 'signature' 等准确词汇",
+          "表达自然度：语气礼貌、专业，符合职场签收场景",
+          "关键词覆盖：使用了 'signature', 'insured', 'release' 等关键术语"
+        ]
+      }
+    }
+  ]
+}

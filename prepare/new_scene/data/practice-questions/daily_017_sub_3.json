@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_017_sub_3",
+  "subSceneName": "指定重量与挑选",
+  "generatedAt": "2026-03-02T14:40:26.418Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_017_sub_3_pq_1",
+      "subSceneId": "daily_017_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_017_sub_3_qa_1",
+        "speakerText": "Can I get two pounds of grapes, please?",
+        "speakerTextCn": "能给我称两磅葡萄吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Sure thing! Red or green?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'm sorry, we don't sell grapes.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much do you want to pay?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you want them washed?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Sure thing! Red or green?' 是对称重要求的自然、礼貌回应，符合购物场景的口语习惯。选项2直接拒绝服务，不符合语境；选项3询问价格，但顾客未问价格；选项4询问清洗，虽合理但不是对重量请求的直接回应。"
+      }
+    },
+    {
+      "id": "daily_017_sub_3_pq_2",
+      "subSceneId": "daily_017_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_017_sub_3_qa_2",
+        "speakerText": "I'll take these apples — but can you pick the juiciest ones?",
+        "speakerTextCn": "我要这些苹果，但能挑最汁多的吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Absolutely! These are the sweetest in stock.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don't know which ones are juicy.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "You should buy oranges instead.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How many apples do you need?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Absolutely! These are the sweetest in stock.' 体现了积极服务态度，且用 'sweetest in stock' 合理回应了 'juiciest' 的需求（甜度与多汁常关联）。选项2消极推脱，不符合服务场景；选项3转移话题；选项4重复询问数量，未回应挑选请求。"
+      }
+    },
+    {
+      "id": "daily_017_sub_3_pq_3",
+      "subSceneId": "daily_017_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Could I have three pounds of strawberries, please?",
+        "speakerTextCn": "能给我三磅草莓吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Of course! Are they for a pie or just eating fresh?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Three pounds? That's expensive.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I'll bring you a banana instead.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have a membership card?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案通过提问用途（pie or fresh）体现贴心服务，符合场景中主动提供选择的礼貌表达。选项2评论价格，不专业；选项3强行换货，不合逻辑；选项4询问会员卡，与称重请求无关。"
+      }
+    },
+    {
+      "id": "daily_017_sub_3_pq_4",
+      "subSceneId": "daily_017_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_017_sub_3_qa_1",
+        "template": "Can I get ___ pounds of grapes, please?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "two",
+            "options": [
+              "two",
+              "to",
+              "too",
+              "tow"
+            ]
+          }
+        ],
+        "hint": "表示重量的数字表达",
+        "knowledgePoint": "数字+量词搭配（如 two pounds）"
+      }
+    },
+    {
+      "id": "daily_017_sub_3_pq_5",
+      "subSceneId": "daily_017_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_017_sub_3_qa_2",
+        "template": "Could you please ___ the juiciest ones for me?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "pick",
+            "options": [
+              "pick",
+              "take",
+              "buy",
+              "get"
+            ]
+          }
+        ],
+        "hint": "挑选水果的常用动词",
+        "knowledgePoint": "动词搭配（pick + 最佳水果）"
+      }
+    },
+    {
+      "id": "daily_017_sub_3_pq_6",
+      "subSceneId": "daily_017_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'd like ___ kilos of oranges — can you hand-pick the freshest?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "two",
+            "options": [
+              "two",
+              "to",
+              "too",
+              "tow"
+            ]
+          }
+        ],
+        "hint": "表达重量的常用数字",
+        "knowledgePoint": "数字+量词搭配（如 two kilos）"
+      }
+    },
+    {
+      "id": "daily_017_sub_3_pq_7",
+      "subSceneId": "daily_017_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_017_sub_3_qa_1",
+        "speakerText": "Can I get two pounds of grapes, please?",
+        "speakerTextCn": "能给我称两磅葡萄吗？",
+        "expectedAnswers": [
+          "Sure thing! Red or green?",
+          "Of course — I'll grab a bunch for you.",
+          "Two pounds? Got it. I'll pick the ripest ones."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回应称重要求并提供选择",
+          "语言准确性：使用正确量词和口语表达（如 'Sure thing'）",
+          "表达自然度：语气友好，符合日常购物语境",
+          "关键词覆盖：包含 'pounds', 'grapes', 'red/green' 等场景词"
+        ]
+      }
+    },
+    {
+      "id": "daily_017_sub_3_pq_8",
+      "subSceneId": "daily_017_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_017_sub_3_qa_2",
+        "speakerText": "I'll take these apples — but can you pick the juiciest ones?",
+        "speakerTextCn": "我要这些苹果，但能挑最汁多的吗？",
+        "expectedAnswers": [
+          "Absolutely! These are the sweetest in stock.",
+          "Sure, I'll hand-pick the best for you.",
+          "Of course — I'll choose the ones with the deepest color; they're the juiciest."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：积极回应挑选请求并提供质量保证",
+          "语言准确性：使用 'hand-pick', 'sweetest in stock' 等恰当表达",
+          "表达自然度：语气热情，符合优质服务场景",
+          "关键词覆盖：包含 'juiciest', 'pick', 'best', 'sweetest' 等核心词"
+        ]
+      }
+    },
+    {
+      "id": "daily_017_sub_3_pq_9",
+      "subSceneId": "daily_017_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'd like one pound of mangoes — can you make sure they're ripe but not too soft?",
+        "speakerTextCn": "我想买一磅芒果，能确保它们熟了但不过软吗？",
+        "expectedAnswers": [
+          "Of course! I'll pick the ones that are just right — golden yellow with a slight give.",
+          "Absolutely — I know exactly which ones are perfect for eating now.",
+          "Sure thing! I'll avoid the ones with dark spots; these here are ideal."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确理解并回应对成熟度的特殊要求",
+          "语言准确性：使用 'ripe', 'soft', 'golden yellow', 'slight give' 等描述性词汇",
+          "表达自然度：语气专业且亲切，体现水果挑选经验",
+          "关键词覆盖：包含 'pound', 'mangoes', 'ripe', 'not too soft', 'pick' 等场景关键词"
+        ]
+      }
+    }
+  ]
+}

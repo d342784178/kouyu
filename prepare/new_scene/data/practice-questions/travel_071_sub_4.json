@@ -1,0 +1,267 @@
+{
+  "subSceneId": "travel_071_sub_4",
+  "subSceneName": "索取发票",
+  "generatedAt": "2026-03-02T15:10:46.892Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_071_sub_4_pq_1",
+      "subSceneId": "travel_071_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_071_sub_4_qa_1",
+        "speakerText": "Could I get a receipt for my expenses?",
+        "speakerTextCn": "能给我一张报销用的收据吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Give me a receipt.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Could I get a receipt for my expenses?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I need a receipt now.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have a receipt?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了礼貌请求句型 'Could I get...'，这是该场景中最得体的表达方式。选项1和3语气生硬，不符合礼貌索要的语境；选项4虽语法正确，但属于一般性询问，未明确说明用途（用于报销），不如正确答案精准。"
+      }
+    },
+    {
+      "id": "travel_071_sub_4_pq_2",
+      "subSceneId": "travel_071_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_071_sub_4_qa_2",
+        "speakerText": "Can you put my company name on it? It's ABC Corp.",
+        "speakerTextCn": "能写上我公司名字吗？是ABC公司。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "My company is ABC Corp.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you put ABC Corp. on the receipt?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I want my company name written.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you know my company name?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接提供公司名称，符合使用说明中'直接说公司名，别用My company is...'的要求。选项1违反了场景指导原则，显得冗余；选项3语气生硬且不完整；选项4是疑问句，未提供必要信息，无法促成动作。"
+      }
+    },
+    {
+      "id": "travel_071_sub_4_pq_3",
+      "subSceneId": "travel_071_sub_4",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I just paid for my hotel stay. Could I have a receipt for accounting purposes?",
+        "speakerTextCn": "我刚支付了酒店费用，能给我一张用于财务报销的收据吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Sure, I'll email it to you.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don't have any receipts left.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Why do you need it?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Receipt? Fine, take it.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是积极回应并提供解决方案，符合服务场景的礼貌与效率原则。选项2直接拒绝，缺乏服务意识；选项3质疑对方需求，显得不专业；选项4语气冷漠，不符合职场礼仪。"
+      }
+    },
+    {
+      "id": "travel_071_sub_4_pq_4",
+      "subSceneId": "travel_071_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_071_sub_4_qa_1",
+        "template": "Could I get ___ receipt for my expenses?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a",
+            "options": [
+              "a",
+              "the",
+              "an",
+              "some"
+            ]
+          }
+        ],
+        "hint": "表示泛指的一张收据，用不定冠词",
+        "knowledgePoint": "冠词用法（a receipt 表示泛指）"
+      }
+    },
+    {
+      "id": "travel_071_sub_4_pq_5",
+      "subSceneId": "travel_071_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_071_sub_4_qa_2",
+        "template": "Could you please put ___ name on it? It's ABC Corp.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "my company",
+            "options": [
+              "my company",
+              "the company",
+              "our company",
+              "company"
+            ]
+          }
+        ],
+        "hint": "表达'我的公司名字'，用完整短语更自然",
+        "knowledgePoint": "所有格表达（my company name）"
+      }
+    },
+    {
+      "id": "travel_071_sub_4_pq_6",
+      "subSceneId": "travel_071_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'd like ___ receipt for reimbursement. Could you ___ it to me by email?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a",
+            "options": [
+              "a",
+              "the",
+              "an",
+              "some"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "send",
+            "options": [
+              "send",
+              "give",
+              "take",
+              "bring"
+            ]
+          }
+        ],
+        "hint": "第一空：泛指一张收据；第二空：电子方式交付收据的常用动词",
+        "knowledgePoint": "动词搭配（send by email）与冠词用法"
+      }
+    },
+    {
+      "id": "travel_071_sub_4_pq_7",
+      "subSceneId": "travel_071_sub_4",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_071_sub_4_qa_1",
+        "speakerText": "Could I get a receipt for my expenses?",
+        "speakerTextCn": "能给我一张报销用的收据吗？",
+        "expectedAnswers": [
+          "Of course! I'll email it to you.",
+          "Sure thing — would you prefer a printed copy or an email?",
+          "Absolutely, I'll generate one right away."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回应了索要收据的请求",
+          "语言准确性：语法正确，无拼写或时态错误",
+          "表达自然度：使用符合服务场景的礼貌表达",
+          "关键词覆盖：包含 receipt, email/print 等核心词汇"
+        ]
+      }
+    },
+    {
+      "id": "travel_071_sub_4_pq_8",
+      "subSceneId": "travel_071_sub_4",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_071_sub_4_qa_2",
+        "speakerText": "Can you put my company name on it? It's ABC Corp.",
+        "speakerTextCn": "能写上我公司名字吗？是ABC公司。",
+        "expectedAnswers": [
+          "No problem, I'll add ABC Corp. right away.",
+          "Got it — ABC Corp. will be on the receipt.",
+          "Sure, I'll make sure ABC Corp. is clearly printed."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确理解并确认公司名称的添加要求",
+          "语言准确性：正确使用动词短语如 'add', 'put on', 'make sure'",
+          "表达自然度：语气友好，符合职场沟通习惯",
+          "关键词覆盖：明确包含公司名称 'ABC Corp.' 且未使用 'My company is...' 结构"
+        ]
+      }
+    },
+    {
+      "id": "travel_071_sub_4_pq_9",
+      "subSceneId": "travel_071_sub_4",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I paid for the dinner with my corporate card. Could you include the tax ID on the receipt?",
+        "speakerTextCn": "我用公司卡支付了晚餐，能在收据上加上税号吗？",
+        "expectedAnswers": [
+          "Of course, I'll add your tax ID right away.",
+          "No issue — I'll update the receipt with your tax ID and email it.",
+          "Sure thing. Please confirm the tax ID so I can enter it correctly."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：完整回应了添加税号的特殊要求",
+          "语言准确性：使用恰当的动词如 'add', 'update', 'enter'，语法正确",
+          "表达自然度：语气专业且主动提供解决方案",
+          "关键词覆盖：包含 tax ID, receipt, email 等场景关键词"
+        ]
+      }
+    }
+  ]
+}

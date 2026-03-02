@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_014_sub_1",
+  "subSceneName": "问候与开场",
+  "generatedAt": "2026-03-02T14:43:28.091Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_014_sub_1_pq_1",
+      "subSceneId": "daily_014_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_014_sub_1_qa_1",
+        "speakerText": "Hi there! What're you gonna watch today?",
+        "speakerTextCn": "嗨！今天想看哪部电影？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I want to see the new Spider-Man.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "I'd like to see the new Spider-Man, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Spider-Man is good, I guess.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you tell me what's playing?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了 'I'd like to...' 这一礼貌且符合场景的标准表达方式。选项1虽然意思正确，但缺少礼貌词 'please'，语气较生硬；选项3表达犹豫，不符合明确需求的语境；选项4是询问信息而非表达需求，未回应对方的问题。"
+      }
+    },
+    {
+      "id": "daily_014_sub_1_pq_2",
+      "subSceneId": "daily_014_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_014_sub_1_qa_2",
+        "speakerText": "Awesome! We've got showtimes at 5, 7:30, and 9:45.",
+        "speakerTextCn": "太棒了！有5点、7点半和9点45的场次。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll take the 9:45 one.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I get the 7:30 one?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Is 7:30 too late?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I need to book the 7:30.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了 'Can I get...' 这一礼貌请求句型，符合场景要求。选项1虽然语义正确，但语气过于直接，缺乏礼貌；选项3是疑问句，未表达明确请求；选项4语法错误，'book' 是及物动词，不能直接接时间，应为 'book the 7:30 show'。"
+      }
+    },
+    {
+      "id": "daily_014_sub_1_pq_3",
+      "subSceneId": "daily_014_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Good afternoon! How can I help you today?",
+        "speakerTextCn": "下午好！今天有什么可以帮您的吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'm just looking around.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "I'd like to buy a ticket for the 6 p.m. showing of Inception, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "What time is it?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you give me a discount?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了 'I'd like to...' 表达明确需求，并包含完整信息（票、时间、电影名）和礼貌词 'please'，符合问候开场场景。选项1是拒绝服务的回应，不适合主动寻求帮助的情境；选项3与服务无关；选项4过早提出折扣请求，不符合开场阶段的自然流程。"
+      }
+    },
+    {
+      "id": "daily_014_sub_1_pq_4",
+      "subSceneId": "daily_014_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_014_sub_1_qa_1",
+        "template": "I'd like ___ see the new Spider-Man, please.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "at",
+              "with"
+            ]
+          }
+        ],
+        "hint": "表达意愿时的固定搭配",
+        "knowledgePoint": "would like to do（预约场景核心句型）"
+      }
+    },
+    {
+      "id": "daily_014_sub_1_pq_5",
+      "subSceneId": "daily_014_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_014_sub_1_qa_2",
+        "template": "Can I get ___ 7:30 one?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "the",
+            "options": [
+              "the",
+              "a",
+              "an",
+              "this"
+            ]
+          }
+        ],
+        "hint": "特指上文提到的某个具体场次",
+        "knowledgePoint": "定冠词 the 用于特指（已提及的场次）"
+      }
+    },
+    {
+      "id": "daily_014_sub_1_pq_6",
+      "subSceneId": "daily_014_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Hi! What ___ you gonna watch today?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "are",
+            "options": [
+              "are",
+              "is",
+              "do",
+              "have"
+            ]
+          }
+        ],
+        "hint": "口语中 'What are you going to...' 的缩略形式",
+        "knowledgePoint": "口语缩略形式：What're you gonna = What are you going to"
+      }
+    },
+    {
+      "id": "daily_014_sub_1_pq_7",
+      "subSceneId": "daily_014_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_014_sub_1_qa_1",
+        "speakerText": "Hi there! What're you gonna watch today?",
+        "speakerTextCn": "嗨！今天想看哪部电影？",
+        "expectedAnswers": [
+          "I'd like to see the new Spider-Man, please.",
+          "I want to watch Spider-Man if there's a show soon.",
+          "Spider-Man, please — any time after 6?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表达了想看的电影",
+          "语言准确性：语法和用词是否正确，是否使用了 'I'd like to' 或类似礼貌表达",
+          "表达自然度：是否符合日常口语习惯，是否使用了缩略形式或自然语调",
+          "关键词覆盖：是否包含电影名（如 Spider-Man）和请求词（如 please）"
+        ]
+      }
+    },
+    {
+      "id": "daily_014_sub_1_pq_8",
+      "subSceneId": "daily_014_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_014_sub_1_qa_2",
+        "speakerText": "Awesome! We've got showtimes at 5, 7:30, and 9:45.",
+        "speakerTextCn": "太棒了！有5点、7点半和9点45的场次。",
+        "expectedAnswers": [
+          "Can I get the 7:30 one?",
+          "I'll take the 7:30, please — is it in 3D?",
+          "7:30 works for me. Do you have any IMAX?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确选择了场次并提出附加需求（如3D/IMAX）",
+          "语言准确性：是否正确使用 'Can I get...' 或 'I'll take...' 等请求句型",
+          "表达自然度：是否自然衔接上文，语调是否符合口语节奏",
+          "关键词覆盖：是否包含时间（7:30）和影院相关词（3D/IMAX）"
+        ]
+      }
+    },
+    {
+      "id": "daily_014_sub_1_pq_9",
+      "subSceneId": "daily_014_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Good evening! How can I help you?",
+        "speakerTextCn": "晚上好！有什么可以帮您的吗？",
+        "expectedAnswers": [
+          "I'd like to buy a ticket for the 8 p.m. showing of The Marvels, please.",
+          "Could I get a seat for The Marvels at 8, please? I'd prefer the middle row.",
+          "Hi! I'm looking for The Marvels — what times do you have?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达购票需求和电影名称",
+          "语言准确性：是否使用恰当的句型（I'd like to / Could I get）和礼貌用语",
+          "表达自然度：是否使用自然口语表达，避免生硬翻译腔",
+          "关键词覆盖：是否包含电影名、时间、购票意图（ticket / show / seeing）"
+        ]
+      }
+    }
+  ]
+}

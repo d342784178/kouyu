@@ -1,0 +1,257 @@
+{
+  "subSceneId": "study_abroad_098_sub_2",
+  "subSceneName": "借阅规则",
+  "generatedAt": "2026-03-02T14:52:58.842Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "study_abroad_098_sub_2_pq_1",
+      "subSceneId": "study_abroad_098_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "study_abroad_098_sub_2_qa_1",
+        "speakerText": "How many books can I check out at once, and how long can I keep 'em?",
+        "speakerTextCn": "我一次能借几本书？能借多久？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "You can borrow up to 10 books for 4 weeks.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "You can borrow unlimited books, but only for 1 week.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "You need to return all books within 24 hours.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "You can only borrow 3 books, and no renewals are allowed.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案符合图书馆常规借阅规则，使用口语化表达 'up to' 和 'for 4 weeks'。干扰项1夸大了借阅数量，干扰项2和3的期限过短且不符合常见图书馆政策，过于极端，不符合实际场景。"
+      }
+    },
+    {
+      "id": "study_abroad_098_sub_2_pq_2",
+      "subSceneId": "study_abroad_098_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Can I renew my books if I need more time?",
+        "speakerTextCn": "如果我需要更多时间，我可以续借吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "No, once you check out a book, it's final.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Yes, you can renew them once, as long as no one else is waiting.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "You can renew forever, no limits at all.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Renewals are only allowed for e-books, not physical books.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案合理反映了图书馆常见的续借政策（可续一次，且无他人预约）。干扰项1完全否定续借，不符合常规；干扰项3过于宽松，不现实；干扰项4错误地限制了续借对象，而续借通常适用于所有类型图书。"
+      }
+    },
+    {
+      "id": "study_abroad_098_sub_2_pq_3",
+      "subSceneId": "study_abroad_098_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "What happens if I return a book late?",
+        "speakerTextCn": "如果我迟还书会怎样？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "You'll be banned from borrowing for a year.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "You'll have to pay a small fine per day until it's returned.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "The library will send your name to the police.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "You can just keep it — no consequences.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案符合大多数图书馆的延迟归还处理方式：按天收取小额罚款。干扰项1和3夸大后果，不符合常规政策；干扰项4完全忽视规则，不现实。"
+      }
+    },
+    {
+      "id": "study_abroad_098_sub_2_pq_4",
+      "subSceneId": "study_abroad_098_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "study_abroad_098_sub_2_qa_1",
+        "template": "You can borrow up to ___ books for 4 weeks.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "10",
+            "options": [
+              "5",
+              "10",
+              "15",
+              "20"
+            ]
+          }
+        ],
+        "hint": "这是图书馆常见的最大借阅数量，口语中常直接说数字。",
+        "knowledgePoint": "场景高频词汇（借阅数量）"
+      }
+    },
+    {
+      "id": "study_abroad_098_sub_2_pq_5",
+      "subSceneId": "study_abroad_098_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "If you need more time, you can ___ your books once.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "renew",
+            "options": [
+              "return",
+              "renew",
+              "exchange",
+              "cancel"
+            ]
+          }
+        ],
+        "hint": "表示‘续借’的动词，是借阅规则中的核心动作。",
+        "knowledgePoint": "场景核心动词搭配（renew books）"
+      }
+    },
+    {
+      "id": "study_abroad_098_sub_2_pq_6",
+      "subSceneId": "study_abroad_098_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "The ___ for each book is four weeks, but you can extend it.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "loan period",
+            "options": [
+              "due date",
+              "loan period",
+              "borrowing fee",
+              "reading time"
+            ]
+          }
+        ],
+        "hint": "指‘借阅期限’，是描述借书时间长度的标准表达。",
+        "knowledgePoint": "场景核心名词搭配（loan period）"
+      }
+    },
+    {
+      "id": "study_abroad_098_sub_2_pq_7",
+      "subSceneId": "study_abroad_098_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "study_abroad_098_sub_2_qa_1",
+        "speakerText": "How many books can I check out at once, and how long can I keep 'em?",
+        "speakerTextCn": "我一次能借几本书？能借多久？",
+        "expectedAnswers": [
+          "You can borrow up to 10 books for four weeks, and you can renew them if no one else needs them.",
+          "Ten books, four weeks — easy! Renewals are allowed.",
+          "You're allowed 10 books total, with a 28-day loan period. Just bring them back on time!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确回答了借阅数量和期限两个问题",
+          "语言准确性：语法正确，使用了场景关键词如 'borrow', 'renew', 'loan period'",
+          "表达自然度：使用了口语缩略形式（如 'four weeks' 而非 'twenty-eight days'）或自然语气",
+          "关键词覆盖：至少包含 'books', 'weeks/days', 'renew' 中的两个"
+        ]
+      }
+    },
+    {
+      "id": "study_abroad_098_sub_2_pq_8",
+      "subSceneId": "study_abroad_098_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Can I renew my books if I need more time?",
+        "speakerTextCn": "如果我需要更多时间，我可以续借吗？",
+        "expectedAnswers": [
+          "Yes, you can renew them once, as long as no one else has requested them.",
+          "Sure! Renewals are allowed — just come in before the due date.",
+          "You can extend the loan for another week, but only one time."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回答是否可以续借，并说明条件",
+          "语言准确性：正确使用 'renew', 'extend', 'due date' 等关键词",
+          "表达自然度：使用了口语化表达（如 'Sure!', 'just come in'）",
+          "关键词覆盖：至少包含 'renew' 或 'extend' 和 'due date' 或 'requested'"
+        ]
+      }
+    },
+    {
+      "id": "study_abroad_098_sub_2_pq_9",
+      "subSceneId": "study_abroad_098_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "What if I lose a book? Do I have to pay for it?",
+        "speakerTextCn": "如果我弄丢了书，我需要赔钱吗？",
+        "expectedAnswers": [
+          "Yes, you'll need to pay the replacement cost — usually the price of the book.",
+          "Unfortunately, yes. You have to cover the cost of replacing it.",
+          "If it's lost, you'll be charged the full price. But if you find it later, you can get a refund."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确说明是否需要赔偿及赔偿方式",
+          "语言准确性：使用了 'replacement cost', 'charged', 'cover the cost' 等正确表达",
+          "表达自然度：语气自然，符合图书馆工作人员的回应方式",
+          "关键词覆盖：至少包含 'pay', 'replace', 'cost' 中的两个"
+        ]
+      }
+    }
+  ]
+}

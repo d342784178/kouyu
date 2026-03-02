@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_070_sub_3",
+  "subSceneName": "查询空位",
+  "generatedAt": "2026-03-02T15:09:49.520Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_070_sub_3_pq_1",
+      "subSceneId": "travel_070_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_070_sub_3_qa_1",
+        "speakerText": "We have openings on the 15th at 10 a.m. or the 16th at 3 p.m.",
+        "speakerTextCn": "15号上午10点或16号下午3点有空位。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'd prefer the 16th at 3 p.m. because I'm free in the afternoon.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I have the 14th at 9 a.m. instead?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Both times are fine, but I need to check my calendar.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I don't need a slot, thanks.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案表达了明确偏好，符合'优先表达明确偏好'的使用说明。选项2直接要求更早时间，但未先确认现有选项是否可接受，不符合优先表达偏好原则。选项3态度模糊，未明确选择。选项4完全拒绝服务，与场景目的不符。"
+      }
+    },
+    {
+      "id": "travel_070_sub_3_pq_2",
+      "subSceneId": "travel_070_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "We have availability on the 20th at 11 a.m. or the 21st at 9 a.m.",
+        "speakerTextCn": "20号上午11点或21号上午9点有空位。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "The 21st at 9 a.m. is perfect—I need to finish before my meeting.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is the 19th available? I really need it earlier.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I'm not sure—I'll call you back later.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I book both slots just in case?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案清晰表达了偏好并说明理由，符合场景要求。选项2跳过现有选项直接要求更早时间，未先确认偏好。选项3拖延决策，不符合主动沟通原则。选项4要求双预约，不符合实际服务流程。"
+      }
+    },
+    {
+      "id": "travel_070_sub_3_pq_3",
+      "subSceneId": "travel_070_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "We can schedule you for the 22nd at 2 p.m. or the 23rd at 11 a.m.",
+        "speakerTextCn": "我们可以在22号下午2点或23号上午11点为您安排。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "22nd at 2 p.m. works for me—I have another appointment later.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Why can't you give me a slot on the 24th?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I guess either one is okay.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I change it later if I need to?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确接受一个选项并给出合理理由。选项2语气生硬，要求未提供的日期，不符合礼貌协商原则。选项3表达模糊，缺乏主动性。选项4提前询问变更，偏离当前确认空位的对话重点。"
+      }
+    },
+    {
+      "id": "travel_070_sub_3_pq_4",
+      "subSceneId": "travel_070_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_070_sub_3_qa_1",
+        "template": "I'd like ___ book the 15th at 10 a.m. if possible.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "with",
+              "at"
+            ]
+          }
+        ],
+        "hint": "表达意愿时的固定搭配",
+        "knowledgePoint": "would like to do（预约场景核心句型）"
+      }
+    },
+    {
+      "id": "travel_070_sub_3_pq_5",
+      "subSceneId": "travel_070_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "The 16th at 3 p.m. is fine, but is there anything ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "earlier",
+            "options": [
+              "earlier",
+              "later",
+              "faster",
+              "quicker"
+            ]
+          }
+        ],
+        "hint": "当想确认是否有更早的时间时使用的词",
+        "knowledgePoint": "比较级表达偏好（earlier/later）"
+      }
+    },
+    {
+      "id": "travel_070_sub_3_pq_6",
+      "subSceneId": "travel_070_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I need to be there ___ noon, so the morning slot works best.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "before",
+            "options": [
+              "before",
+              "after",
+              "at",
+              "by"
+            ]
+          }
+        ],
+        "hint": "表示在某个时间点之前完成动作的介词",
+        "knowledgePoint": "时间表达介词（before vs by）"
+      }
+    },
+    {
+      "id": "travel_070_sub_3_pq_7",
+      "subSceneId": "travel_070_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_070_sub_3_qa_1",
+        "speakerText": "We have openings on the 15th at 10 a.m. or the 16th at 3 p.m.",
+        "speakerTextCn": "15号上午10点或16号下午3点有空位。",
+        "expectedAnswers": [
+          "I'll take the 15th at 10 a.m.—I need to be there before noon.",
+          "The 15th at 10 works for me, but if there's an earlier option, I'd prefer that.",
+          "Could I get the 15th at 10? I have a meeting at noon, so that timing is ideal."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确表达了对某一时间的偏好或请求",
+          "语言准确性：语法正确，使用了恰当的时态和表达（如I'll take, I need to be there）",
+          "表达自然度：符合日常英语口语习惯，语调自然",
+          "关键词覆盖：使用了场景关键词如 '15th', '10 a.m.', 'before noon'"
+        ]
+      }
+    },
+    {
+      "id": "travel_070_sub_3_pq_8",
+      "subSceneId": "travel_070_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "We have availability on the 20th at 11 a.m. or the 21st at 9 a.m.",
+        "speakerTextCn": "20号上午11点或21号上午9点有空位。",
+        "expectedAnswers": [
+          "I'd prefer the 21st at 9 a.m. because I have a flight at 1 p.m.",
+          "The 20th at 11 is fine, but is there any slot before 10 a.m.?",
+          "21st at 9 works perfectly—I can get there by 8:30."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰表达了偏好或询问替代方案",
+          "语言准确性：使用了正确句型（I'd prefer, is there any slot）和时间表达",
+          "表达自然度：语气礼貌、符合服务对话语境",
+          "关键词覆盖：使用了 '20th', '21st', '9 a.m.', '11 a.m.', 'slot' 等关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_070_sub_3_pq_9",
+      "subSceneId": "travel_070_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "We can schedule you for the 22nd at 2 p.m. or the 23rd at 11 a.m.",
+        "speakerTextCn": "我们可以在22号下午2点或23号上午11点为您安排。",
+        "expectedAnswers": [
+          "I'll go with the 23rd at 11 a.m.—I'm free then and it gives me more time.",
+          "The 22nd at 2 p.m. is okay, but could we do it earlier on the 23rd?",
+          "Either works, but I'd lean toward the 23rd since I'm less busy in the morning."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确选择或合理询问替代方案",
+          "语言准确性：使用了恰当的表达如 I'll go with, I'd lean toward",
+          "表达自然度：语气自然，有逻辑地解释偏好",
+          "关键词覆盖：使用了日期、时间、更早/更晚等场景关键词"
+        ]
+      }
+    }
+  ]
+}

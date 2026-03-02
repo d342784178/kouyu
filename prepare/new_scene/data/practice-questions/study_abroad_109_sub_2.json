@@ -1,0 +1,257 @@
+{
+  "subSceneId": "study_abroad_109_sub_2",
+  "subSceneName": "询问流程",
+  "generatedAt": "2026-03-02T15:06:27.961Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "study_abroad_109_sub_2_pq_1",
+      "subSceneId": "study_abroad_109_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "study_abroad_109_sub_2_qa_1",
+        "speakerText": "How do I get it processed? Do I need a form?",
+        "speakerTextCn": "怎么申请？需要填表吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Just tell me how many copies and if you need them sealed.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "You should call the registrar's office.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I'll email you the form later.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "You need to pay a fee first.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 'Just tell me how many copies and if you need them sealed.'，因为它直接回应了对方关于流程的疑问，并用简洁方式引导对方提供必要信息，符合场景中‘无需填表’的高效回应模式。其他选项虽然语法正确，但要么转移责任（call the office），要么假设必须填表或付费，与原对话中‘no form needed’矛盾。"
+      }
+    },
+    {
+      "id": "study_abroad_109_sub_2_pq_2",
+      "subSceneId": "study_abroad_109_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I need an official transcript for my university application. What should I do?",
+        "speakerTextCn": "我需要一份官方成绩单用于大学申请，我该怎么做？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Just let me know how many copies you need and whether you want them sealed.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Go to the library and print it yourself.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "You have to wait until next semester.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Send me your student ID and I'll send it to you.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了场景核心表达 'Just let me know...'，这是一种直接、高效且礼貌的流程引导方式，符合官方办事人员的典型回应。其他选项要么不现实（自己打印），要么不专业（等待下学期），要么信息不完整（仅要学号），无法完成正式流程。"
+      }
+    },
+    {
+      "id": "study_abroad_109_sub_2_pq_3",
+      "subSceneId": "study_abroad_109_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Can I request a transcript without visiting the office?",
+        "speakerTextCn": "我可以在不去办公室的情况下申请成绩单吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, just tell me your student ID, how many copies, and if you need them sealed.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "No, you must come in person with a photo ID.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "You can email the dean and ask nicely.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Check the website for the application form.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案延续了‘Just tell me...’的高效沟通模式，明确指出所需信息（学号、份数、是否密封），符合现代学校远程办理流程。选项B过于绝对，与许多学校支持在线申请的事实不符；C不专业；D虽然合理，但未直接回应‘是否可以不去办公室’的核心问题，缺乏行动引导。"
+      }
+    },
+    {
+      "id": "study_abroad_109_sub_2_pq_4",
+      "subSceneId": "study_abroad_109_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "study_abroad_109_sub_2_qa_1",
+        "template": "Just tell me how many copies and if you need them ___.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "sealed",
+            "options": [
+              "sealed",
+              "closed",
+              "packed",
+              "wrapped"
+            ]
+          }
+        ],
+        "hint": "成绩单申请中，官方文件常需加盖印章或密封以确保真实性",
+        "knowledgePoint": "场景核心词汇：sealed transcript（密封成绩单）"
+      }
+    },
+    {
+      "id": "study_abroad_109_sub_2_pq_5",
+      "subSceneId": "study_abroad_109_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'd like to request an official transcript. Could you please tell me what information you need? Just ___ me your student ID, the number of copies, and whether you want them sealed.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "tell",
+            "options": [
+              "tell",
+              "ask",
+              "send",
+              "give"
+            ]
+          }
+        ],
+        "hint": "这是官方人员引导对方提供信息的常用句型，与 'Just tell me...' 完全一致",
+        "knowledgePoint": "固定表达：Just tell me...（引导对方提供必要信息）"
+      }
+    },
+    {
+      "id": "study_abroad_109_sub_2_pq_6",
+      "subSceneId": "study_abroad_109_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "No form is needed — just ___ me how many copies you want and if you need them stamped.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "tell",
+            "options": [
+              "tell",
+              "show",
+              "hand",
+              "send"
+            ]
+          }
+        ],
+        "hint": "这是简化流程、提高效率的典型回应，关键词是 'tell me' + 信息点",
+        "knowledgePoint": "动词搭配：tell sb. + 信息（信息传递的核心动词）"
+      }
+    },
+    {
+      "id": "study_abroad_109_sub_2_pq_7",
+      "subSceneId": "study_abroad_109_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "study_abroad_109_sub_2_qa_1",
+        "speakerText": "How do I get it processed? Do I need a form?",
+        "speakerTextCn": "怎么申请？需要填表吗？",
+        "expectedAnswers": [
+          "Just tell me how many copies you need and whether you want them sealed.",
+          "No form required — just let me know the number of copies and if they need to be officially sealed.",
+          "You don't need to fill out anything. Just give me your student ID, how many copies, and whether you need them sealed with the official stamp."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确告知无需填表并引导对方提供必要信息",
+          "语言准确性：语法正确，使用了 'sealed', 'copies', 'student ID' 等关键词",
+          "表达自然度：符合英语口语习惯，语气礼貌且高效",
+          "关键词覆盖：至少包含 'copies', 'sealed', 和 'tell me/let me know' 结构"
+        ]
+      }
+    },
+    {
+      "id": "study_abroad_109_sub_2_pq_8",
+      "subSceneId": "study_abroad_109_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I need to send my transcript to a university abroad. What’s the process?",
+        "speakerTextCn": "我需要把成绩单寄到国外大学，流程是什么？",
+        "expectedAnswers": [
+          "Just tell me how many copies you need and if they should be sealed and sent by courier.",
+          "No paperwork needed — just confirm the number of copies, whether they need to be sealed, and the mailing address.",
+          "I can help you with that. Please provide your student ID, the number of transcripts, whether they need to be sealed with the university stamp, and the recipient’s address."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰说明流程无需填表，直接收集必要信息",
+          "语言准确性：使用了 'sealed', 'copies', 'student ID', 'recipient's address' 等场景词汇",
+          "表达自然度：语气专业、简洁，符合行政人员沟通风格",
+          "关键词覆盖：必须包含 'tell me/let me know' 和至少两个关键信息点（copies, sealed, ID, address）"
+        ]
+      }
+    },
+    {
+      "id": "study_abroad_109_sub_2_pq_9",
+      "subSceneId": "study_abroad_109_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Can I get my transcript emailed? Do I need to fill out a form?",
+        "speakerTextCn": "我可以把成绩单电子版发给我吗？需要填表吗？",
+        "expectedAnswers": [
+          "No form needed — just tell me your email address, how many copies, and if you want them sealed as PDFs.",
+          "You don't need a form. Just confirm your student ID, the number of electronic copies, and whether they should be digitally sealed.",
+          "Electronic copies are available. Just provide your email, the number of transcripts, and specify if they need to be sealed with an official digital signature."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确说明无需填表并引导提供电子版所需信息",
+          "语言准确性：正确使用 'electronic copies', 'sealed as PDF', 'digital signature' 等专业表达",
+          "表达自然度：语气专业、清晰，符合现代高校数字化服务语境",
+          "关键词覆盖：必须包含 'tell me/let me know', 'copies', 'sealed', 'email' 或 'electronic'"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_064_sub_4",
+  "subSceneName": "询问安全性",
+  "generatedAt": "2026-03-02T15:05:52.917Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_064_sub_4_pq_1",
+      "subSceneId": "travel_064_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_064_sub_4_qa_1",
+        "speakerText": "Our storage room is under 24-hour camera surveillance and locked at night.",
+        "speakerTextCn": "我们的寄存室有24小时监控，夜间上锁。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "That's reassuring. Are the bags checked before storage?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much does it cost to store my luggage?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I leave my suitcase here for a week?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have Wi-Fi in the lobby?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案回应了对方关于安全措施的陈述，表达了安心并进一步询问检查流程，符合‘询问安全性’场景的核心目的。其他选项分别询问价格、寄存时长和Wi-Fi，与安全主题无关。"
+      }
+    },
+    {
+      "id": "travel_064_sub_4_pq_2",
+      "subSceneId": "travel_064_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "We use security tags on all luggage and have staff on duty every hour.",
+        "speakerTextCn": "我们为所有行李使用安全标签，并每小时有工作人员巡逻。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "That sounds secure. Is there a backup system if the cameras fail?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I pay with a credit card?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "What time do you close?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you offer free snacks?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案进一步追问了安全系统的可靠性，体现了对安全措施的深度关注，符合场景目标。其他选项与安全无关，属于无关服务询问。"
+      }
+    },
+    {
+      "id": "travel_064_sub_4_pq_3",
+      "subSceneId": "travel_064_sub_4",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "All stored items are scanned and logged in our system.",
+        "speakerTextCn": "所有寄存物品都会被扫描并录入我们的系统。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is there any insurance coverage if something goes missing?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I get a receipt for this?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How many items can I store at once?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have a loyalty program?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案询问保险保障，是安全性话题中关键的补充问题，体现顾客对风险的担忧。其他选项虽合理，但偏离了安全核心，属于服务流程或优惠问题。"
+      }
+    },
+    {
+      "id": "travel_064_sub_4_pq_4",
+      "subSceneId": "travel_064_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_064_sub_4_qa_1",
+        "template": "Is there insurance if something gets ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "lost",
+            "options": [
+              "lost",
+              "found",
+              "opened",
+              "cleaned"
+            ]
+          }
+        ],
+        "hint": "顾客担心行李丢失时的保障措施",
+        "knowledgePoint": "固定表达：insurance if something gets lost"
+      }
+    },
+    {
+      "id": "travel_064_sub_4_pq_5",
+      "subSceneId": "travel_064_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Are the bags ___ before they're stored?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "checked",
+            "options": [
+              "checked",
+              "washed",
+              "weighed",
+              "tagged"
+            ]
+          }
+        ],
+        "hint": "安全流程中常见的前置检查动作",
+        "knowledgePoint": "动词搭配：check bags before storage"
+      }
+    },
+    {
+      "id": "travel_064_sub_4_pq_6",
+      "subSceneId": "travel_064_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "The storage area is under ___-hour camera surveillance.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "24",
+            "options": [
+              "24",
+              "12",
+              "8",
+              "48"
+            ]
+          }
+        ],
+        "hint": "安全监控的标准表述，表示全天候监控",
+        "knowledgePoint": "场景高频词汇：24-hour surveillance"
+      }
+    },
+    {
+      "id": "travel_064_sub_4_pq_7",
+      "subSceneId": "travel_064_sub_4",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_064_sub_4_qa_1",
+        "speakerText": "Our storage room is under 24-hour camera surveillance and locked at night.",
+        "speakerTextCn": "我们的寄存室有24小时监控，夜间上锁。",
+        "expectedAnswers": [
+          "That's reassuring. Are the bags checked before storage?",
+          "Good to know. Do you have insurance for lost items?",
+          "That sounds secure. Is there any staff monitoring the cameras in real time?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否针对安全措施提出合理追问",
+          "语言准确性：语法和词汇使用是否正确",
+          "表达自然度：是否符合英语母语者日常表达习惯",
+          "关键词覆盖：是否使用了如 insurance, checked, surveillance 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_064_sub_4_pq_8",
+      "subSceneId": "travel_064_sub_4",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "We use security tags on all luggage and have staff on duty every hour.",
+        "speakerTextCn": "我们为所有行李使用安全标签，并每小时有工作人员巡逻。",
+        "expectedAnswers": [
+          "That’s good. Is there a backup system if the tags get damaged?",
+          "I’m glad to hear that. What happens if someone tries to take a bag without the tag?",
+          "Thanks for the info. Are the tags linked to your system so I can track my bag?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否针对安全机制提出有深度的跟进问题",
+          "语言准确性：是否正确使用被动语态、条件句等结构",
+          "表达自然度：是否避免机械套用，体现真实对话节奏",
+          "关键词覆盖：是否使用了 security tags, staff on duty, backup system 等关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_064_sub_4_pq_9",
+      "subSceneId": "travel_064_sub_4",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "All stored items are scanned and logged in our system.",
+        "speakerTextCn": "所有寄存物品都会被扫描并录入我们的系统。",
+        "expectedAnswers": [
+          "That’s reassuring. Can I get a copy of the log for my records?",
+          "Good. Is the system secure from hacking or data loss?",
+          "So if I lose my receipt, can you still find my bag using the scan record?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否关注数据安全与信息可追溯性",
+          "语言准确性：是否正确使用条件句、被动语态和专业词汇",
+          "表达自然度：是否自然衔接前文，避免生硬提问",
+          "关键词覆盖：是否使用了 scanned, logged, system, record, secure 等关键词"
+        ]
+      }
+    }
+  ]
+}

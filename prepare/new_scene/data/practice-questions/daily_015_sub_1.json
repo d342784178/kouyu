@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_015_sub_1",
+  "subSceneName": "报取餐名",
+  "generatedAt": "2026-03-02T14:38:38.342Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_015_sub_1_pq_1",
+      "subSceneId": "daily_015_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_015_sub_1_qa_1",
+        "speakerText": "Hi, I'm here to pick up an order.",
+        "speakerTextCn": "你好，我来取餐。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'm Alex, order #1234.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I want to eat here.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I pay with card?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "The food is too spicy.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接回应了取餐需求，提供姓名和订单号，符合场景核心表达。其他选项分别涉及就餐方式、支付方式和食物口味，与取餐时的身份确认无关。"
+      }
+    },
+    {
+      "id": "daily_015_sub_1_pq_2",
+      "subSceneId": "daily_015_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Hi, I'm picking up a food order.",
+        "speakerTextCn": "你好，我来取餐。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "My name is Jamie, and the order number is 5678.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I ordered the burger last night.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is the restaurant open?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get a receipt?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案清晰提供姓名和订单号，是取餐场景的标准回应。其他选项涉及订餐时间、营业时间或索要收据，均未回应取餐身份确认的核心需求。"
+      }
+    },
+    {
+      "id": "daily_015_sub_1_pq_3",
+      "subSceneId": "daily_015_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Hi, I'm here for a pickup.",
+        "speakerTextCn": "你好，我来取餐。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Linda, order #9101.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'd like to cancel my order.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I have extra napkins?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "The order is for delivery.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案简洁报出姓名和订单号，符合高效取餐的口语习惯。其他选项涉及取消订单、索要纸巾或说明配送方式，与当前取餐场景无关。"
+      }
+    },
+    {
+      "id": "daily_015_sub_1_pq_4",
+      "subSceneId": "daily_015_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_015_sub_1_qa_1",
+        "template": "I'm ___ with order number 1234, please.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Alex",
+            "options": [
+              "Alex",
+              "here",
+              "there",
+              "ready"
+            ]
+          }
+        ],
+        "hint": "报取餐人姓名的固定表达",
+        "knowledgePoint": "人名 + with order number（取餐场景核心句型）"
+      }
+    },
+    {
+      "id": "daily_015_sub_1_pq_5",
+      "subSceneId": "daily_015_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Hi, I'm here to pick up an order. ___ is Taylor, order #4567.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Name",
+            "options": [
+              "Name",
+              "Number",
+              "Order",
+              "Time"
+            ]
+          }
+        ],
+        "hint": "口语中常用省略结构，直接报姓名",
+        "knowledgePoint": "Name + [姓名]（简洁取餐表达）"
+      }
+    },
+    {
+      "id": "daily_015_sub_1_pq_6",
+      "subSceneId": "daily_015_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "___, order #8899.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Mike",
+            "options": [
+              "Mike",
+              "Please",
+              "Thank you",
+              "Sorry"
+            ]
+          }
+        ],
+        "hint": "最简洁的取餐回应方式，只说名字和订单号",
+        "knowledgePoint": "姓名+订单号（高频简洁表达）"
+      }
+    },
+    {
+      "id": "daily_015_sub_1_pq_7",
+      "subSceneId": "daily_015_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_015_sub_1_qa_1",
+        "speakerText": "Hi, I'm here to pick up an order.",
+        "speakerTextCn": "你好，我来取餐。",
+        "expectedAnswers": [
+          "I'm Sam, order #1122.",
+          "My name is Sam with order number 1122, please.",
+          "Sam, 1122."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确报出姓名和订单号",
+          "语言准确性：语法正确，无明显错误",
+          "表达自然度：符合口语习惯，不生硬",
+          "关键词覆盖：是否包含 'name' 和 'order number' 相关表达"
+        ]
+      }
+    },
+    {
+      "id": "daily_015_sub_1_pq_8",
+      "subSceneId": "daily_015_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Hi, I'm picking up a food order.",
+        "speakerTextCn": "你好，我来取餐。",
+        "expectedAnswers": [
+          "It's Rachel, order #3344.",
+          "I'm Rachel, and my order number is 3344.",
+          "Rachel, 3344."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰提供取餐人姓名和订单号",
+          "语言准确性：使用正确的人称和数字表达",
+          "表达自然度：语调自然，符合日常取餐节奏",
+          "关键词覆盖：是否包含姓名和订单号关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_015_sub_1_pq_9",
+      "subSceneId": "daily_015_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Hi, I'm here for a pickup.",
+        "speakerTextCn": "你好，我来取餐。",
+        "expectedAnswers": [
+          "Name's Jordan, order #5566.",
+          "Jordan with order 5566, please.",
+          "Jordan, 5566."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确回应取餐身份信息",
+          "语言准确性：使用正确语法结构，如 'Name's' 等口语形式",
+          "表达自然度：简洁流畅，符合快餐店快速取餐场景",
+          "关键词覆盖：是否包含姓名和订单号"
+        ]
+      }
+    }
+  ]
+}

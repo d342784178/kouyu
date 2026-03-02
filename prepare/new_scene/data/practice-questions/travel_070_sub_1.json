@@ -1,0 +1,254 @@
+{
+  "subSceneId": "travel_070_sub_1",
+  "subSceneName": "开场致意",
+  "generatedAt": "2026-03-02T15:14:24.158Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_070_sub_1_pq_1",
+      "subSceneId": "travel_070_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_070_sub_1_qa_1",
+        "speakerText": "Hi, this is Lisa Chen calling about my flight.",
+        "speakerTextCn": "您好，我是Lisa Chen，想咨询我的航班。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'm calling to reschedule my flight because of a family emergency.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I want to know if you have any discounts for next month.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you send me the airport map?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'm not sure when my flight is, can you check?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接回应了来电目的（改签航班）并给出合理理由，符合场景要求。其他选项虽然语法正确，但偏离了‘说明来电目的’的核心功能：选项2是询问折扣，选项3是索要地图，选项4是确认航班时间，均未体现主动提出需求或说明原因。"
+      }
+    },
+    {
+      "id": "travel_070_sub_1_pq_2",
+      "subSceneId": "travel_070_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Hello, this is Mark Johnson. I'm calling about my reservation.",
+        "speakerTextCn": "您好，我是Mark Johnson，我打电话是关于我的预订。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'd like to cancel my booking because my plans changed.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you offer free Wi-Fi on flights?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you tell me what time it is?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I love your airline, you're the best!",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确表达了来电目的（取消预订）并附带简要原因，符合开场致意的简洁原则。选项2是询问服务细节，选项3是无关时间问题，选项4是表达赞美，均未履行‘说明来电目的’的功能，属于干扰性但语法正确的错误选项。"
+      }
+    },
+    {
+      "id": "travel_070_sub_1_pq_3",
+      "subSceneId": "travel_070_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Hi, this is Anna from Toronto. I'm calling regarding my upcoming trip.",
+        "speakerTextCn": "您好，我是来自多伦多的Anna，我打电话是关于我即将出行的行程。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I need to update my seat preference to window, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "What's the weather like in Toronto today?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I get a free upgrade?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I think your website is slow.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案清晰表达了具体请求（更改座位偏好），符合‘说明来电目的’的场景要求。选项2是无关天气询问，选项3是直接索要升级但未说明理由，选项4是投诉系统，均不符合礼貌开场并明确目的的规范。"
+      }
+    },
+    {
+      "id": "travel_070_sub_1_pq_4",
+      "subSceneId": "travel_070_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_070_sub_1_qa_1",
+        "template": "Hi, this is ___ calling about my flight.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Sarah Lee",
+            "options": [
+              "Sarah Lee",
+              "my name",
+              "the passenger",
+              "a customer"
+            ]
+          }
+        ],
+        "hint": "开场时应直接说出自己的姓名，这是礼貌且清晰的表达方式。",
+        "knowledgePoint": "自我介绍固定表达（I'm calling as [Name]）"
+      }
+    },
+    {
+      "id": "travel_070_sub_1_pq_5",
+      "subSceneId": "travel_070_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'm calling to ___ my flight because of a sudden change.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "reschedule",
+            "options": [
+              "reschedule",
+              "book",
+              "cancel",
+              "check"
+            ]
+          }
+        ],
+        "hint": "当需要调整航班时间时，常用动词是哪个？",
+        "knowledgePoint": "航班调整核心动词搭配（reschedule a flight）"
+      }
+    },
+    {
+      "id": "travel_070_sub_1_pq_6",
+      "subSceneId": "travel_070_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could you help me ___ my booking? My plans have changed.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "modify",
+            "options": [
+              "modify",
+              "find",
+              "pay for",
+              "delete"
+            ]
+          }
+        ],
+        "hint": "在客服场景中，表达‘更改预订’的正式动词是什么？",
+        "knowledgePoint": "正式场合中‘修改预订’的动词搭配（modify/adjust a booking）"
+      }
+    },
+    {
+      "id": "travel_070_sub_1_pq_7",
+      "subSceneId": "travel_070_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_070_sub_1_qa_1",
+        "speakerText": "Hi, this is Lisa Chen calling about my flight.",
+        "speakerTextCn": "您好，我是Lisa Chen，想咨询我的航班。",
+        "expectedAnswers": [
+          "I'm calling to reschedule my flight due to an emergency.",
+          "Could you help me change my flight? Something urgent came up.",
+          "I need to adjust my flight plans — there's been a family emergency."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表达了改签航班的需求",
+          "语言准确性：语法和用词是否正确，是否使用了恰当的表达如 'due to' 或 'because of'",
+          "表达自然度：是否符合英语母语者在紧急情况下的口语习惯，避免生硬或冗长"
+        ]
+      }
+    },
+    {
+      "id": "travel_070_sub_1_pq_8",
+      "subSceneId": "travel_070_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Hello, this is Mark Johnson. I'm calling about my reservation.",
+        "speakerTextCn": "您好，我是Mark Johnson，我打电话是关于我的预订。",
+        "expectedAnswers": [
+          "I'd like to cancel my booking because my trip has been postponed.",
+          "Can you assist me with changing my departure date? Something unexpected happened.",
+          "I need to update my reservation — I can't make it on the original date."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰说明了对预订的修改需求（取消、更改日期等）",
+          "语言准确性：是否使用了正确的动词搭配如 'cancel a booking' 或 'update a reservation'",
+          "表达自然度：是否使用了口语化但礼貌的表达，如 'something unexpected happened'，而非机械句式"
+        ]
+      }
+    },
+    {
+      "id": "travel_070_sub_1_pq_9",
+      "subSceneId": "travel_070_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Hi, this is Anna from Toronto. I'm calling regarding my upcoming trip.",
+        "speakerTextCn": "您好，我是来自多伦多的Anna，我打电话是关于我即将出行的行程。",
+        "expectedAnswers": [
+          "I'd like to request a window seat for my flight.",
+          "Could you help me upgrade to business class? I'm traveling for an important meeting.",
+          "I need to add a special meal request — I'm vegetarian."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确提出了一个具体的、可操作的服务请求",
+          "语言准确性：是否使用了恰当的礼貌句型如 'I'd like to...' 或 'Could you help me...'",
+          "表达自然度：是否结合了合理理由（如饮食需求、商务会议），使请求更可信和自然"
+        ]
+      }
+    }
+  ]
+}

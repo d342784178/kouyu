@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_024_sub_4",
+  "subSceneName": "确认价格",
+  "generatedAt": "2026-03-02T14:40:52.391Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_024_sub_4_pq_1",
+      "subSceneId": "daily_024_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_024_sub_4_qa_1",
+        "speakerText": "How much will this cost?",
+        "speakerTextCn": "这些要多少钱？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is it $15 per shirt? I’ve got five of them.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I need a discount, please.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I pay with credit card?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "When will it be ready?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接回应了价格询问，通过确认单价和数量来自然过渡到总价，符合场景需求。其他选项分别涉及折扣、支付方式和取件时间，虽然相关但未直接回答‘cost’的问题。"
+      }
+    },
+    {
+      "id": "daily_024_sub_4_pq_2",
+      "subSceneId": "daily_024_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "What’s the total for these clothes?",
+        "speakerTextCn": "这些衣服总共多少钱？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I’ll need to check the price list.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "That’ll be $75 in total, including the rush fee.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "We also offer free delivery.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I have a receipt?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接给出了总价并包含附加费用信息，符合确认价格的语境。其他选项或回避问题（A），或提供无关服务（C、D），均未直接回应价格询问。"
+      }
+    },
+    {
+      "id": "daily_024_sub_4_pq_3",
+      "subSceneId": "daily_024_sub_4",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "How much do you charge for dry cleaning a suit?",
+        "speakerTextCn": "干洗一套西装多少钱？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "It’s $25 per suit. Would you like to add the express service?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I’m sorry, we don’t clean suits.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "The store closes at 8 PM.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have a loyalty card?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确回答了单价并主动提供附加服务，符合价格确认场景的自然延伸。其他选项或拒绝服务（B），或提供无关信息（C、D），均未有效回应价格问题。"
+      }
+    },
+    {
+      "id": "daily_024_sub_4_pq_4",
+      "subSceneId": "daily_024_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_024_sub_4_qa_1",
+        "template": "Can you give me a ______? I want to pay now.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "total",
+            "options": [
+              "total",
+              "price",
+              "cost",
+              "amount"
+            ]
+          }
+        ],
+        "hint": "询问总价时的固定表达，常用于准备付款时",
+        "knowledgePoint": "固定表达：give me a total（询问总价）"
+      }
+    },
+    {
+      "id": "daily_024_sub_4_pq_5",
+      "subSceneId": "daily_024_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Is it $12 ______ shirt? I have six of them.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "per",
+            "options": [
+              "per",
+              "for",
+              "each",
+              "with"
+            ]
+          }
+        ],
+        "hint": "表示‘每件’的介词，用于单价计算",
+        "knowledgePoint": "介词用法：per（表示单位价格）"
+      }
+    },
+    {
+      "id": "daily_024_sub_4_pq_6",
+      "subSceneId": "daily_024_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could you ______ me the final price? I’m ready to pay.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "tell",
+            "options": [
+              "tell",
+              "say",
+              "speak",
+              "give"
+            ]
+          }
+        ],
+        "hint": "礼貌请求告知价格的常用动词",
+        "knowledgePoint": "动词搭配：tell me the price（告知价格）"
+      }
+    },
+    {
+      "id": "daily_024_sub_4_pq_7",
+      "subSceneId": "daily_024_sub_4",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_024_sub_4_qa_1",
+        "speakerText": "How much will this cost?",
+        "speakerTextCn": "这些要多少钱？",
+        "expectedAnswers": [
+          "Is it $15 per shirt? I have four of them.",
+          "Could you tell me the total? I’d like to pay now.",
+          "I have three blouses and two suits — what’s the full amount?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问或确认总价",
+          "语言准确性：语法和用词是否正确，如使用 'per' 或 'total'",
+          "表达自然度：是否符合日常口语习惯，语气是否礼貌",
+          "关键词覆盖：是否使用 'per', 'total', 'amount', 'cost' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_024_sub_4_pq_8",
+      "subSceneId": "daily_024_sub_4",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "What’s the price for dry cleaning these items?",
+        "speakerTextCn": "这些衣服干洗多少钱？",
+        "expectedAnswers": [
+          "It’s $10 per blouse and $25 per suit. That’s $85 in total.",
+          "Let me calculate that for you — the total will be $92, including the express fee.",
+          "We charge $12 for shirts, $18 for pants, and $30 for jackets. How many do you have?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰提供单价和/或总价",
+          "语言准确性：是否正确使用 'per', 'total', 'charge' 等词汇",
+          "表达自然度：是否自然衔接单价与总数，语气是否专业友好",
+          "关键词覆盖：是否使用 'price', 'per', 'total', 'charge', 'express fee' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_024_sub_4_pq_9",
+      "subSceneId": "daily_024_sub_4",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I’d like to get these dry cleaned. Can you give me a quote?",
+        "speakerTextCn": "我想干洗这些衣服，能给我个报价吗？",
+        "expectedAnswers": [
+          "Sure! That’s $14 per shirt and $35 per coat. With five shirts and two coats, it’s $140 total.",
+          "The base rate is $12 per item, but if you pay now, I can give you a 10% discount.",
+          "I’ll need to check the tags — some items may need special care. Let me give you an exact quote in two minutes."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否完整回应报价请求，提供单价或总价",
+          "语言准确性：是否正确使用 'quote', 'per', 'total', 'discount' 等词汇",
+          "表达自然度：是否自然使用口语化表达如 'Let me check' 或 'I can give you'",
+          "关键词覆盖：是否使用 'quote', 'per', 'total', 'discount', 'special care' 等场景关键词"
+        ]
+      }
+    }
+  ]
+}

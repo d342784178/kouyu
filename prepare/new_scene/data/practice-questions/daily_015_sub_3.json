@@ -1,0 +1,254 @@
+{
+  "subSceneId": "daily_015_sub_3",
+  "subSceneName": "确认打包方式",
+  "generatedAt": "2026-03-02T14:38:07.443Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_015_sub_3_pq_1",
+      "subSceneId": "daily_015_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_015_sub_3_qa_1",
+        "speakerText": "You want that to go, or eat in?",
+        "speakerTextCn": "要外带还是在这吃？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll take it to go, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'd like to pay by card.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I have extra sauce?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "The food is too hot.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'I'll take it to go, please.' 直接回应了对方关于用餐方式的提问，符合场景核心表达。其他选项分别涉及支付方式、附加调料和食物温度，与 'to go or eat in' 的语境无关。"
+      }
+    },
+    {
+      "id": "daily_015_sub_3_pq_2",
+      "subSceneId": "daily_015_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Are you having this here or taking it with you?",
+        "speakerTextCn": "您是在这里吃还是外带？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll eat here, thanks.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Could you wrap it up?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I need a fork, please.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much is the tax?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'I'll eat here, thanks.' 准确回应了用餐方式的询问。'Could you wrap it up?' 虽然暗示外带，但不是标准回应；'I need a fork' 和 'How much is the tax?' 与问题无关，属于干扰项。"
+      }
+    },
+    {
+      "id": "daily_015_sub_3_pq_3",
+      "subSceneId": "daily_015_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Dine-in or takeaway?",
+        "speakerTextCn": "堂食还是外带？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Takeaway, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'm ready to order.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I get a discount?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "The menu looks good.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Takeaway, please.' 是场景中认可的简洁回应。其他选项涉及点餐、折扣和菜单评价，均未回应用餐方式的核心问题，属于语境无关干扰项。"
+      }
+    },
+    {
+      "id": "daily_015_sub_3_pq_4",
+      "subSceneId": "daily_015_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_015_sub_3_qa_1",
+        "template": "I'd like to ___ this to go, please.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "have",
+            "options": [
+              "have",
+              "get",
+              "make",
+              "take"
+            ]
+          }
+        ],
+        "hint": "表达‘想要外带’的常用搭配",
+        "knowledgePoint": "would like to have...（点餐场景核心句型）"
+      }
+    },
+    {
+      "id": "daily_015_sub_3_pq_5",
+      "subSceneId": "daily_015_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could I ___ a napkin with that?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "get",
+            "options": [
+              "get",
+              "take",
+              "bring",
+              "carry"
+            ]
+          }
+        ],
+        "hint": "请求附加物品时的常用动词",
+        "knowledgePoint": "get + 物品（请求附加服务的惯用搭配）"
+      }
+    },
+    {
+      "id": "daily_015_sub_3_pq_6",
+      "subSceneId": "daily_015_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'm eating ___ today.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "in",
+            "options": [
+              "in",
+              "out",
+              "on",
+              "up"
+            ]
+          }
+        ],
+        "hint": "与 'dine-in' 对应的表达",
+        "knowledgePoint": "eat in（堂食的固定搭配）"
+      }
+    },
+    {
+      "id": "daily_015_sub_3_pq_7",
+      "subSceneId": "daily_015_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_015_sub_3_qa_1",
+        "speakerText": "You want that to go, or eat in?",
+        "speakerTextCn": "要外带还是在这吃？",
+        "expectedAnswers": [
+          "To go, please.",
+          "I'll eat here, thanks.",
+          "Takeaway, and could I get a fork as well?"
+        ],
+        "evaluationCriteria": [
+          "是否明确回应了用餐方式（to go / eat in）",
+          "语法和用词是否准确",
+          "是否自然使用了场景关键词（to go, eat in, takeaway）"
+        ]
+      }
+    },
+    {
+      "id": "daily_015_sub_3_pq_8",
+      "subSceneId": "daily_015_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Are you having this here or taking it with you?",
+        "speakerTextCn": "您是在这里吃还是外带？",
+        "expectedAnswers": [
+          "I'll take it with me.",
+          "Dine-in, please. Could I also get a straw?",
+          "Takeaway — and a napkin, if possible."
+        ],
+        "evaluationCriteria": [
+          "是否清晰表达用餐方式",
+          "是否使用了恰当的礼貌表达（please, could I...）",
+          "是否自然结合了附加请求（如纸巾、吸管）"
+        ]
+      }
+    },
+    {
+      "id": "daily_015_sub_3_pq_9",
+      "subSceneId": "daily_015_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Dine-in or takeaway?",
+        "speakerTextCn": "堂食还是外带？",
+        "expectedAnswers": [
+          "Takeaway.",
+          "I'll eat here.",
+          "Takeaway, please. I'm in a hurry."
+        ],
+        "evaluationCriteria": [
+          "是否准确使用场景关键词（dine-in, takeaway）",
+          "回应是否简洁有效",
+          "是否体现口语自然度（如添加理由 'I'm in a hurry'）"
+        ]
+      }
+    }
+  ]
+}

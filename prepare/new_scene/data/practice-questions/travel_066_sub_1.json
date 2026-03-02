@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_066_sub_1",
+  "subSceneName": "打招呼请求兑换",
+  "generatedAt": "2026-03-02T15:06:32.254Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_066_sub_1_pq_1",
+      "subSceneId": "travel_066_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_066_sub_1_qa_1",
+        "speakerText": "Hi there! Can I exchange some USD for euros?",
+        "speakerTextCn": "嗨！我能把美元换成欧元吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I want to exchange USD for euros.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Could I exchange some USD for euros?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Exchange USD for euros, please.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you exchange USD to euros?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用 'Could I...' 是更礼貌的请求句型，符合场景中 'Can I...' 的礼貌风格。选项1使用 'I want' 显得生硬，不符合礼貌请求原则；选项3是命令式表达，缺乏礼貌；选项4是疑问句但结构不自然，通常用于询问服务是否提供，而非提出个人请求。"
+      }
+    },
+    {
+      "id": "travel_066_sub_1_pq_2",
+      "subSceneId": "travel_066_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Hello, I'd like to change some pounds into yen. Is that possible?",
+        "speakerTextCn": "您好，我想把一些英镑换成日元，可以吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I need to change pounds to yen now.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I swap pounds for yen?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Could I convert some pounds into yen?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_4",
+            "text": "You change pounds to yen?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Could I convert...' 是礼貌且地道的请求表达，'convert' 是兑换货币的正式动词。选项1 'I need' 显得急迫且不礼貌；选项2 'swap' 虽意思接近，但口语中较少用于货币兑换；选项4是错误的疑问句结构，不符合英语语法规则。"
+      }
+    },
+    {
+      "id": "travel_066_sub_1_pq_3",
+      "subSceneId": "travel_066_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Good afternoon. May I exchange Canadian dollars for Australian dollars?",
+        "speakerTextCn": "下午好，我可以把加元换成澳元吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I want to trade CAD for AUD.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you exchange CAD for AUD for me?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Exchange CAD to AUD, please.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you accept CAD for AUD?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Can you exchange... for me?' 是礼貌请求的常见变体，把请求对象从自己转向对方，更显礼貌和自然。选项1 'I want' 不礼貌；选项3是命令式，缺乏礼貌；选项4询问的是服务是否接受，而非提出兑换请求，语义不符。"
+      }
+    },
+    {
+      "id": "travel_066_sub_1_pq_4",
+      "subSceneId": "travel_066_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_066_sub_1_qa_1",
+        "template": "Hi there! Can I ___ some USD for euros?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "exchange",
+            "options": [
+              "exchange",
+              "change",
+              "swap",
+              "trade"
+            ]
+          }
+        ],
+        "hint": "在兑换点最常用、最正式的动词",
+        "knowledgePoint": "货币兑换核心动词（exchange）"
+      }
+    },
+    {
+      "id": "travel_066_sub_1_pq_5",
+      "subSceneId": "travel_066_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could I ___ some Japanese yen for British pounds?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "exchange",
+            "options": [
+              "exchange",
+              "get",
+              "buy",
+              "take"
+            ]
+          }
+        ],
+        "hint": "礼貌请求兑换时的标准动词",
+        "knowledgePoint": "货币兑换核心动词（exchange）"
+      }
+    },
+    {
+      "id": "travel_066_sub_1_pq_6",
+      "subSceneId": "travel_066_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Hello, I'd like to ___ some euros into Chinese yuan.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "exchange",
+            "options": [
+              "exchange",
+              "convert",
+              "swap",
+              "change"
+            ]
+          }
+        ],
+        "hint": "表达‘把一种货币换成另一种’的常用搭配",
+        "knowledgePoint": "would like to do（礼貌请求句型）"
+      }
+    },
+    {
+      "id": "travel_066_sub_1_pq_7",
+      "subSceneId": "travel_066_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_066_sub_1_qa_1",
+        "speakerText": "Hi there! Can I exchange some USD for euros?",
+        "speakerTextCn": "嗨！我能把美元换成欧元吗？",
+        "expectedAnswers": [
+          "Sure! How much would you like to exchange?",
+          "Of course! USD to EUR, got it.",
+          "Absolutely! Do you have a specific amount in mind?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确回应了兑换请求，没有拒绝或误解",
+          "语言准确性：语法正确，使用了恰当的动词和表达",
+          "表达自然度：语气友好，符合服务场景的口语习惯",
+          "关键词覆盖：使用了 'exchange', 'USD', 'euros' 或相关术语"
+        ]
+      }
+    },
+    {
+      "id": "travel_066_sub_1_pq_8",
+      "subSceneId": "travel_066_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Good morning. Could I exchange some Canadian dollars for Japanese yen?",
+        "speakerTextCn": "早上好，我可以把加元换成日元吗？",
+        "expectedAnswers": [
+          "Of course! How much CAD would you like to exchange?",
+          "Sure thing! We can do that. Do you have your passport ready?",
+          "Absolutely! Just let me know the amount and I'll help you right away."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确接受请求并引导下一步信息提供",
+          "语言准确性：使用了正确的动词（exchange）、介词（for）和礼貌表达",
+          "表达自然度：语气热情、专业，符合服务人员语调",
+          "关键词覆盖：使用了 'exchange', 'Canadian dollars', 'Japanese yen' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_066_sub_1_pq_9",
+      "subSceneId": "travel_066_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Hi, I'd like to change some euros into US dollars. Is that possible?",
+        "speakerTextCn": "嗨，我想把一些欧元换成美元，可以吗？",
+        "expectedAnswers": [
+          "Yes, definitely. What amount are you looking to exchange?",
+          "Of course! We handle EUR to USD exchanges all the time.",
+          "Sure! Just tell me how much you’d like to convert and I’ll give you the current rate."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：积极回应请求并引导对方提供金额信息",
+          "语言准确性：使用了正确的动词（change/convert）、介词（into）和礼貌结构",
+          "表达自然度：表达流畅，符合真实兑换点对话节奏",
+          "关键词覆盖：使用了 'exchange', 'euros', 'US dollars', 'convert' 等核心词汇"
+        ]
+      }
+    }
+  ]
+}

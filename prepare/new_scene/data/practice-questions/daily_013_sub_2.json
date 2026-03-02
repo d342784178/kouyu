@@ -1,0 +1,254 @@
+{
+  "subSceneId": "daily_013_sub_2",
+  "subSceneName": "确认借期",
+  "generatedAt": "2026-03-02T14:47:12.192Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_013_sub_2_pq_1",
+      "subSceneId": "daily_013_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_013_sub_2_qa_1",
+        "speakerText": "How long can I keep the books?",
+        "speakerTextCn": "书能借多久？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "You can keep them forever.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "You've got 2 weeks. After that, you'll get fined.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "It depends on the book's popularity.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "You can return them anytime without penalty.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案包含借期和逾期后果，符合图书馆规则。选项1错误地暗示无限期借阅；选项3虽然部分合理，但未明确期限和罚款，不符合标准回应要求；选项4完全错误，忽略了罚款机制。"
+      }
+    },
+    {
+      "id": "daily_013_sub_2_pq_2",
+      "subSceneId": "daily_013_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_013_sub_2_qa_2",
+        "speakerText": "What if I can't return them on time?",
+        "speakerTextCn": "如果还不了怎么办？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "You can keep them as long as you want.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "You can renew them online if no one's waiting.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Just pay extra and keep them longer.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "The library will send someone to collect them.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案强调续借的条件：无人预约。选项1错误地允许无限期借阅；选项3误导用户以为只需付费即可延长，不符合图书馆政策；选项4虚构了强制回收机制，不符合现实流程。"
+      }
+    },
+    {
+      "id": "daily_013_sub_2_pq_3",
+      "subSceneId": "daily_013_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Can I renew my books more than once?",
+        "speakerTextCn": "我可以续借多次吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, as many times as you like.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Only once, unless someone else has requested the book.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "No, renewals are not allowed at all.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "You need to pay a fee for each renewal.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确反映了续借限制：通常仅允许一次，除非有他人预约。选项1错误地允许无限续借；选项3完全否定续借，不符合常见政策；选项4引入了付费机制，与标准规则不符。"
+      }
+    },
+    {
+      "id": "daily_013_sub_2_pq_4",
+      "subSceneId": "daily_013_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_013_sub_2_qa_1",
+        "template": "The standard loan period is ___ days.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "14",
+            "options": [
+              "14",
+              "7",
+              "30",
+              "21"
+            ]
+          }
+        ],
+        "hint": "标准借期通常为两周，换算成天数",
+        "knowledgePoint": "数字与时间单位的对应表达"
+      }
+    },
+    {
+      "id": "daily_013_sub_2_pq_5",
+      "subSceneId": "daily_013_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_013_sub_2_qa_1",
+        "template": "Late returns cost ___ per day.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "$1",
+            "options": [
+              "$1",
+              "$5",
+              "$10",
+              "free"
+            ]
+          }
+        ],
+        "hint": "逾期罚款的常见金额表达",
+        "knowledgePoint": "罚款金额的固定表达方式"
+      }
+    },
+    {
+      "id": "daily_013_sub_2_pq_6",
+      "subSceneId": "daily_013_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_013_sub_2_qa_2",
+        "template": "You can renew them online if no one's ___.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "waiting",
+            "options": [
+              "waiting",
+              "reading",
+              "borrowing",
+              "looking"
+            ]
+          }
+        ],
+        "hint": "续借的关键条件：是否有他人预约",
+        "knowledgePoint": "续借条件的核心动词搭配（no one's waiting）"
+      }
+    },
+    {
+      "id": "daily_013_sub_2_pq_7",
+      "subSceneId": "daily_013_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_013_sub_2_qa_1",
+        "speakerText": "How long can I keep the books?",
+        "speakerTextCn": "书能借多久？",
+        "expectedAnswers": [
+          "You've got two weeks. After that, you'll be fined $1 per day.",
+          "The loan period is 14 days. Late returns cost one dollar daily.",
+          "Two weeks, and if you're late, there's a daily fine."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确说明借期和逾期后果",
+          "语言准确性：使用正确时态和单位（如days, $1）",
+          "表达自然度：符合口语习惯，避免机械背诵"
+        ]
+      }
+    },
+    {
+      "id": "daily_013_sub_2_pq_8",
+      "subSceneId": "daily_013_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_013_sub_2_qa_2",
+        "speakerText": "What if I can't return them on time?",
+        "speakerTextCn": "如果还不了怎么办？",
+        "expectedAnswers": [
+          "You can renew them online if no one else has requested the book.",
+          "Renewal is allowed once, but only if there's no waiting list.",
+          "Try to renew it online — you can do it once unless someone else needs it."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确说明续借条件和限制",
+          "语言准确性：正确使用条件句（if）和被动结构（has requested）",
+          "表达自然度：使用口语化表达如'Try to...'或'do it once'，避免生硬"
+        ]
+      }
+    },
+    {
+      "id": "daily_013_sub_2_pq_9",
+      "subSceneId": "daily_013_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Can I renew my book twice?",
+        "speakerTextCn": "我能续借两次吗？",
+        "expectedAnswers": [
+          "No, only once — unless someone else has reserved it.",
+          "You're allowed one renewal only. If someone else wants it, you can't renew again.",
+          "Sorry, only one renewal is permitted. After that, you need to return it."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确否定二次续借并说明例外情况",
+          "语言准确性：正确使用'only one renewal'和条件结构",
+          "表达自然度：语气礼貌，符合图书馆工作人员的沟通风格"
+        ]
+      }
+    }
+  ]
+}

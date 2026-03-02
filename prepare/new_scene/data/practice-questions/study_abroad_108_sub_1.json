@@ -1,0 +1,257 @@
+{
+  "subSceneId": "study_abroad_108_sub_1",
+  "subSceneName": "预约咨询",
+  "generatedAt": "2026-03-02T14:54:10.095Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "study_abroad_108_sub_1_pq_1",
+      "subSceneId": "study_abroad_108_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "study_abroad_108_sub_1_qa_1",
+        "speakerText": "Hi, I'm calling to book a slot for my graduation checklist meeting.",
+        "speakerTextCn": "你好，我想预约一个毕业清单面谈的时间。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I reschedule my flight for next week?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Could I make an appointment for my graduation meeting?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I need to submit my thesis by Friday.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have any open slots for a party?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Could I make an appointment for my graduation meeting?' 是对预约场景的恰当表达，与原句语义一致。其他选项分别涉及航班、论文截止日和派对，与预约学术顾问无关，属于语境错误。"
+      }
+    },
+    {
+      "id": "study_abroad_108_sub_1_pq_2",
+      "subSceneId": "study_abroad_108_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "study_abroad_108_sub_1_qa_2",
+        "speakerText": "You'll need to bring your transcript and thesis outline.",
+        "speakerTextCn": "你得带上成绩单和论文提纲。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Should I bring my ID card and passport?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you mean the draft version or the final proposal?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I already sent you my grades last month.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I just email them instead?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Do you mean the draft version or the final proposal?' 体现了对材料版本的合理确认，符合原对话中追问细节的策略。其他选项要么偏离材料要求（如身份证），要么是单方面陈述而非确认，不符合‘明确要求’的沟通目标。"
+      }
+    },
+    {
+      "id": "study_abroad_108_sub_1_pq_3",
+      "subSceneId": "study_abroad_108_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I'm trying to schedule my graduation review. Do you have availability next week?",
+        "speakerTextCn": "我想预约毕业审核，下周有空位吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'm not sure, maybe ask the dean.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "How about Tuesday at 2 PM or Thursday at 11 AM?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "You should finish your thesis first.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "We don't do reviews on Fridays.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案提供两个具体可选时间，符合预约场景中‘提供选项提高效率’的策略。选项1推诿责任，选项3偏离问题，选项4虽为事实但未提供替代方案，不符合积极回应原则。"
+      }
+    },
+    {
+      "id": "study_abroad_108_sub_1_pq_4",
+      "subSceneId": "study_abroad_108_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "study_abroad_108_sub_1_qa_1",
+        "template": "I'd like ___ book a slot for my graduation checklist meeting.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "with",
+              "at"
+            ]
+          }
+        ],
+        "hint": "预约服务时的常用句型",
+        "knowledgePoint": "would like to do（预约场景核心句型）"
+      }
+    },
+    {
+      "id": "study_abroad_108_sub_1_pq_5",
+      "subSceneId": "study_abroad_108_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "study_abroad_108_sub_1_qa_2",
+        "template": "Could you please confirm if I need the ___ draft or the final version?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "proposal",
+            "options": [
+              "proposal",
+              "paper",
+              "summary",
+              "report"
+            ]
+          }
+        ],
+        "hint": "论文提纲的正式说法",
+        "knowledgePoint": "学术材料术语（proposal vs. final draft）"
+      }
+    },
+    {
+      "id": "study_abroad_108_sub_1_pq_6",
+      "subSceneId": "study_abroad_108_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Anytime next week ___ for me.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "works",
+            "options": [
+              "works",
+              "is",
+              "does",
+              "goes"
+            ]
+          }
+        ],
+        "hint": "表达‘任何时间都行’的地道说法",
+        "knowledgePoint": "固定表达（Anytime ___ works）"
+      }
+    },
+    {
+      "id": "study_abroad_108_sub_1_pq_7",
+      "subSceneId": "study_abroad_108_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "study_abroad_108_sub_1_qa_1",
+        "speakerText": "Hi, I'm calling to book a slot for my graduation checklist meeting.",
+        "speakerTextCn": "你好，我想预约一个毕业清单面谈的时间。",
+        "expectedAnswers": [
+          "Sure, how about Wednesday at 3 PM?",
+          "Could we do Thursday instead? I have a class at that time.",
+          "I'm flexible next week—any day works for me."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确回应了预约请求并提供可选时间",
+          "语言准确性：语法正确，使用恰当的预约表达（book a slot, how about, any day works）",
+          "表达自然度：符合英语口语习惯，无中式表达",
+          "关键词覆盖：使用了 graduation checklist meeting, time, next week 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "study_abroad_108_sub_1_pq_8",
+      "subSceneId": "study_abroad_108_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "study_abroad_108_sub_1_qa_2",
+        "speakerText": "You'll need to bring your transcript and thesis outline.",
+        "speakerTextCn": "你得带上成绩单和论文提纲。",
+        "expectedAnswers": [
+          "Got it—I'll print them out tonight.",
+          "Wait, do you mean the proposal or the final draft?",
+          "Thanks, I'll check the student portal to confirm what's required."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否正确回应材料要求并尝试澄清或确认",
+          "语言准确性：使用正确动词搭配（bring, print out, check the portal）",
+          "表达自然度：使用口语化表达如 'Got it', 'Wait...' 符合真实对话",
+          "关键词覆盖：使用了 transcript, thesis outline, proposal, final draft, portal 等核心词汇"
+        ]
+      }
+    },
+    {
+      "id": "study_abroad_108_sub_1_pq_9",
+      "subSceneId": "study_abroad_108_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'm preparing for my graduation review. When would be a good time to meet?",
+        "speakerTextCn": "我正在准备毕业审核，什么时候方便面谈？",
+        "expectedAnswers": [
+          "How about Monday at 10 AM? I have an opening then.",
+          "I'm available Tuesday or Thursday afternoons—let me know what suits you.",
+          "You can book a slot through the online system; I have availability next week."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否提供明确时间选项或引导对方自助预约",
+          "语言准确性：使用恰当的预约句型（how about, I'm available, book a slot）",
+          "表达自然度：语气礼貌，符合学术顾问身份，无生硬翻译",
+          "关键词覆盖：使用了 graduation review, meet, availability, slot, next week 等场景关键词"
+        ]
+      }
+    }
+  ]
+}

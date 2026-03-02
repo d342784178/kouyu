@@ -1,0 +1,267 @@
+{
+  "subSceneId": "study_abroad_107_sub_2",
+  "subSceneName": "核对信息",
+  "generatedAt": "2026-03-02T14:53:47.100Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "study_abroad_107_sub_2_pq_1",
+      "subSceneId": "study_abroad_107_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "study_abroad_107_sub_2_qa_1",
+        "speakerText": "Hmm, your address says '123 Maple St'—but your passport says '125'.",
+        "speakerTextCn": "嗯，你的地址写的是枫树街123号，但护照写的是125号。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I live at 123. It's correct.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Oh no! That's a typo—I live at 125. Can you fix it?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't care which number it is.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "You should change your passport instead.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了礼貌承认错误并请求修正的表达，符合核对信息场景的沟通礼仪。选项1错误地坚持错误信息；选项3态度冷漠，不专业；选项4推卸责任，不符合服务场景的协作原则。"
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_2_pq_2",
+      "subSceneId": "study_abroad_107_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "study_abroad_107_sub_2_qa_2",
+        "speakerText": "Your major's listed as 'Biology'—did you mean 'Biochemistry'?",
+        "speakerTextCn": "你的专业写的是生物学，你是想写生物化学吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'm not sure. Maybe it's Biology.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Actually, I switched to Biochem last week. Please update it!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Why are you checking my major? It's none of your business.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Biochemistry is too hard, so I changed back to Biology.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案清晰说明变更事实并礼貌请求更新，符合场景要求。选项1态度模糊，未明确回应；选项3语气粗鲁，不适用于正式场合；选项4虽为真实情况，但表达消极且未请求修正，不符合服务流程。"
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_2_pq_3",
+      "subSceneId": "study_abroad_107_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I see your last name is spelled 'Chen' here, but your email signature says 'Chan'. Which one is correct?",
+        "speakerTextCn": "我看到你的姓氏这里拼写为 'Chen'，但你的邮件签名是 'Chan'。哪个是正确的？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "It doesn't matter. Both are fine.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Oh, I made a mistake—I use 'Chen' officially. Please correct it.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't remember. Can you decide for me?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Chan is my nickname. I prefer that one.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确指出正确拼写并请求修正，体现专业性。选项1回避责任，不解决问题；选项3推卸决定权，不符合个人责任原则；选项4虽真实，但未说明官方记录应使用哪个，未完成核对任务。"
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_2_pq_4",
+      "subSceneId": "study_abroad_107_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "study_abroad_107_sub_2_qa_1",
+        "template": "Oh no! That's a ___—I live at 125. Can you fix it?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "typo",
+            "options": [
+              "typo",
+              "mistake",
+              "error",
+              "fault"
+            ]
+          }
+        ],
+        "hint": "用于指代书面或系统录入的拼写错误，是核对信息场景中的高频词",
+        "knowledgePoint": "高频词汇：typo（打字错误）"
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_2_pq_5",
+      "subSceneId": "study_abroad_107_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "study_abroad_107_sub_2_qa_2",
+        "template": "Actually, I ___ to Biochem last week. Please update it!",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "switched",
+            "options": [
+              "switched",
+              "changed",
+              "moved",
+              "turned"
+            ]
+          }
+        ],
+        "hint": "用于描述专业、职位或计划的正式变更",
+        "knowledgePoint": "动词搭配：switch to（切换至）"
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_2_pq_6",
+      "subSceneId": "study_abroad_107_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "You're right, it's ___. Thanks for ___ that!",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "125",
+            "options": [
+              "125",
+              "123",
+              "Maple St",
+              "Chen"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "catching",
+            "options": [
+              "catching",
+              "finding",
+              "noticing",
+              "seeing"
+            ]
+          }
+        ],
+        "hint": "表达感谢对方发现错误的固定搭配",
+        "knowledgePoint": "固定表达：thanks for catching that（感谢你发现）"
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_2_pq_7",
+      "subSceneId": "study_abroad_107_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "study_abroad_107_sub_2_qa_1",
+        "speakerText": "Hmm, your address says '123 Maple St'—but your passport says '125'.",
+        "speakerTextCn": "嗯，你的地址写的是枫树街123号，但护照写的是125号。",
+        "expectedAnswers": [
+          "Oh no! That's a typo—I live at 125. Can you fix it?",
+          "You're right, it's 125. Thanks for catching that!",
+          "Oops, my bad. 125 is correct. Could you please update the record?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确承认错误并请求更新信息",
+          "语言准确性：语法正确，用词恰当，无严重错误",
+          "表达自然度：符合英语口语习惯，语气礼貌得体",
+          "关键词覆盖：使用了 typo / correct / update / catch 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_2_pq_8",
+      "subSceneId": "study_abroad_107_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "study_abroad_107_sub_2_qa_2",
+        "speakerText": "Your major's listed as 'Biology'—did you mean 'Biochemistry'?",
+        "speakerTextCn": "你的专业写的是生物学，你是想写生物化学吗？",
+        "expectedAnswers": [
+          "Actually, I switched to Biochem last week. Please update it!",
+          "Yes, I changed it—thanks for checking!",
+          "I'm sorry, I forgot to update it. Biochemistry is correct. Could you revise it?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰说明专业变更并请求修正",
+          "语言准确性：正确使用 switch / change / update 等动词",
+          "表达自然度：语气礼貌，符合学术或行政沟通语境",
+          "关键词覆盖：使用了 switched / change / update / Biochem 等关键词"
+        ]
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_2_pq_9",
+      "subSceneId": "study_abroad_107_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I notice your phone number here is +1 (555) 123-4567, but your application form says +1 (555) 765-4321. Which one should we use?",
+        "speakerTextCn": "我注意到这里你的电话号码是 +1 (555) 123-4567，但申请表上写的是 +1 (555) 765-4321。我们应该用哪一个？",
+        "expectedAnswers": [
+          "The correct one is +1 (555) 765-4321. I must have typed it wrong earlier. Please update it.",
+          "You're right—I updated my number last month. Please use 765-4321.",
+          "Oops, my mistake. 765-4321 is correct. Sorry for the confusion!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确指出正确信息并请求系统更新",
+          "语言准确性：数字表达正确，动词使用恰当（update / correct / typed）",
+          "表达自然度：语气自然，包含道歉或感谢，符合服务场景",
+          "关键词覆盖：使用了 correct / update / mistake / typed 等核心词汇"
+        ]
+      }
+    }
+  ]
+}

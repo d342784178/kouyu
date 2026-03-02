@@ -1,0 +1,254 @@
+{
+  "subSceneId": "daily_008_sub_2",
+  "subSceneName": "说明目的地",
+  "generatedAt": "2026-03-02T14:36:54.348Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_008_sub_2_pq_1",
+      "subSceneId": "daily_008_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_008_sub_2_qa_1",
+        "speakerText": "I need to send this to Tokyo, Japan.",
+        "speakerTextCn": "我要寄到日本东京。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Got it. Is it a box or an envelope?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much does it weigh?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have a return address?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Would you like insurance?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案回应了地址信息并自然过渡到包裹类型，这是物流场景中确认关键信息的标准流程。其他选项虽然相关，但未直接回应目的地信息，属于提前跳转到其他环节。"
+      }
+    },
+    {
+      "id": "daily_008_sub_2_pq_2",
+      "subSceneId": "daily_008_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_008_sub_2_qa_2",
+        "speakerText": "Do you need the full address?",
+        "speakerTextCn": "你需要完整地址吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Please give me the full address to be safe.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don’t know the address.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you deliver it tomorrow?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Is the recipient at home?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是积极回应并明确要求完整信息，符合谨慎处理国际寄送的规范。其他选项要么拒绝提供信息（错误态度），要么完全偏离地址确认的主题。"
+      }
+    },
+    {
+      "id": "daily_008_sub_2_pq_3",
+      "subSceneId": "daily_008_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I'm sending this to 15 Oak Street, London, UK.",
+        "speakerTextCn": "我要把这件寄到英国伦敦橡树街15号。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Great. Could you confirm the postal code?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "That’s far away. I hope you’re ready to pay extra.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you want me to wrap it again?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Who is the receiver?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案聚焦于确认邮编——国际寄送中关键但常被忽略的信息。其他选项要么表达主观判断（干扰专业性），要么询问无关信息，未体现核心服务流程。"
+      }
+    },
+    {
+      "id": "daily_008_sub_2_pq_4",
+      "subSceneId": "daily_008_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_008_sub_2_qa_1",
+        "template": "I need to send this to ___ , Japan.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Tokyo",
+            "options": [
+              "Tokyo",
+              "Osaka",
+              "Kyoto",
+              "Nagoya"
+            ]
+          }
+        ],
+        "hint": "这是对话中提到的日本首都城市名",
+        "knowledgePoint": "国家与城市搭配（国际寄送核心信息）"
+      }
+    },
+    {
+      "id": "daily_008_sub_2_pq_5",
+      "subSceneId": "daily_008_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_008_sub_2_qa_2",
+        "template": "Could you please give me the ___ code and street name?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "postal",
+            "options": [
+              "postal",
+              "phone",
+              "door",
+              "building"
+            ]
+          }
+        ],
+        "hint": "国际快递中确认地址时最常要求的两个信息之一",
+        "knowledgePoint": "邮政相关词汇搭配（postal code）"
+      }
+    },
+    {
+      "id": "daily_008_sub_2_pq_6",
+      "subSceneId": "daily_008_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "For international shipping, we need the full ___ including city, state, and postal code.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "address",
+            "options": [
+              "address",
+              "number",
+              "package",
+              "recipient"
+            ]
+          }
+        ],
+        "hint": "这是寄送国际包裹时必须提供的核心信息",
+        "knowledgePoint": "核心术语：address（完整地址）"
+      }
+    },
+    {
+      "id": "daily_008_sub_2_pq_7",
+      "subSceneId": "daily_008_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_008_sub_2_qa_1",
+        "speakerText": "I need to send this to Tokyo, Japan.",
+        "speakerTextCn": "我要寄到日本东京。",
+        "expectedAnswers": [
+          "Got it. Is it a box or an envelope?",
+          "Tokyo, Japan? Okay, we’ll process that as an international shipment.",
+          "Japan? That’s overseas — do you need express delivery?"
+        ],
+        "evaluationCriteria": [
+          "是否准确回应了目的地信息并确认下一步操作",
+          "是否使用了场景关键词如 'international', 'box/envelope'",
+          "表达是否自然流畅，符合服务场景语调"
+        ]
+      }
+    },
+    {
+      "id": "daily_008_sub_2_pq_8",
+      "subSceneId": "daily_008_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_008_sub_2_qa_2",
+        "speakerText": "Do you need the full address?",
+        "speakerTextCn": "你需要完整地址吗？",
+        "expectedAnswers": [
+          "Yes, please give me the full address to avoid delivery issues.",
+          "Just the zip code and street name is fine, thanks.",
+          "For international shipping, we do need the full address including apartment number."
+        ],
+        "evaluationCriteria": [
+          "是否明确表达了信息需求程度（完整/简化）",
+          "是否使用了场景核心表达如 'full address', 'zip code'",
+          "语言是否准确，无语法错误，符合服务行业用语习惯"
+        ]
+      }
+    },
+    {
+      "id": "daily_008_sub_2_pq_9",
+      "subSceneId": "daily_008_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'm sending this to 23 Cherry Lane, Sydney, Australia.",
+        "speakerTextCn": "我要把这件寄到澳大利亚悉尼樱桃街23号。",
+        "expectedAnswers": [
+          "Thanks. Could you confirm the postal code for Sydney?",
+          "Got it. Is this a parcel or a letter?",
+          "Australia? That’s international. Would you like to add tracking or insurance?"
+        ],
+        "evaluationCriteria": [
+          "是否正确识别国家并触发国际件流程",
+          "是否使用了关键术语如 'postal code', 'parcel/letter'",
+          "回应是否自然、有服务意识，推动流程向前"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_074_sub_1",
+  "subSceneName": "问候与意图",
+  "generatedAt": "2026-03-02T15:12:04.358Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_074_sub_1_pq_1",
+      "subSceneId": "travel_074_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_074_sub_1_qa_1",
+        "speakerText": "Hi there! Can I help you?",
+        "speakerTextCn": "您好！需要帮忙吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I want a ticket to Beijing.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "I'd like to buy a train ticket to Beijing, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Give me a ticket to Beijing.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you give me a ticket to Beijing?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用 'I'd like to...' 表达礼貌请求，符合服务场景的社交礼仪。选项1 'I want...' 虽语法正确，但语气生硬；选项3 'Give me...' 是命令式，不礼貌；选项4 虽礼貌但属于间接请求，不如选项2直接表达购买意图且更符合标准回应。"
+      }
+    },
+    {
+      "id": "travel_074_sub_1_pq_2",
+      "subSceneId": "travel_074_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Good morning! How can I assist you today?",
+        "speakerTextCn": "早上好！今天有什么可以帮您的吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I need two tickets to Shanghai.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Could I get a round-trip ticket to Shanghai, please?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Shanghai ticket, now.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I want to go to Shanghai.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用 'Could I get...' 的礼貌请求结构，符合购票场景的正式语境。选项1 虽语义正确，但缺乏礼貌词；选项3 语气粗鲁，像命令；选项4 表达的是意愿而非购票请求，未完成沟通目标。"
+      }
+    },
+    {
+      "id": "travel_074_sub_1_pq_3",
+      "subSceneId": "travel_074_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Hello! What can I do for you?",
+        "speakerTextCn": "您好！有什么可以帮您的？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'd like to purchase a one-way ticket to Guangzhou.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Guangzhou. Ticket. Now.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have tickets to Guangzhou?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'm going to Guangzhou.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用 'I'd like to purchase...' 完整、礼貌地表达购票意图。选项2 是碎片化表达，缺乏语法结构；选项3 是询问信息而非表达需求；选项4 仅陈述计划，未提出服务请求。"
+      }
+    },
+    {
+      "id": "travel_074_sub_1_pq_4",
+      "subSceneId": "travel_074_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_074_sub_1_qa_1",
+        "template": "I'd like ___ buy a train ticket to Beijing, please.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "with",
+              "at"
+            ]
+          }
+        ],
+        "hint": "表达礼貌请求的固定结构",
+        "knowledgePoint": "would like to do（预约/购票场景核心句型）"
+      }
+    },
+    {
+      "id": "travel_074_sub_1_pq_5",
+      "subSceneId": "travel_074_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could I ___ a round-trip ticket to London?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "get",
+            "options": [
+              "get",
+              "take",
+              "have",
+              "make"
+            ]
+          }
+        ],
+        "hint": "在售票处请求服务时常用的动词",
+        "knowledgePoint": "购票场景高频动词搭配（get a ticket）"
+      }
+    },
+    {
+      "id": "travel_074_sub_1_pq_6",
+      "subSceneId": "travel_074_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'd like to ___ a one-way ticket to Shanghai.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "purchase",
+            "options": [
+              "purchase",
+              "sell",
+              "book",
+              "pay"
+            ]
+          }
+        ],
+        "hint": "比 'buy' 更正式的购票动词",
+        "knowledgePoint": "购票场景中的正式词汇替换（purchase vs buy）"
+      }
+    },
+    {
+      "id": "travel_074_sub_1_pq_7",
+      "subSceneId": "travel_074_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_074_sub_1_qa_1",
+        "speakerText": "Hi there! Can I help you?",
+        "speakerTextCn": "您好！需要帮忙吗？",
+        "expectedAnswers": [
+          "I'd like to buy a ticket to Beijing, please.",
+          "Could I get a train ticket to Beijing?",
+          "I need a one-way ticket to Beijing, if possible."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确表达购票需求及目的地",
+          "语言准确性：语法正确，无严重错误",
+          "表达自然度：使用礼貌用语，符合服务场景习惯",
+          "关键词覆盖：包含 'ticket', 'Beijing', 和至少一个礼貌表达如 'please' 或 'could I'"
+        ]
+      }
+    },
+    {
+      "id": "travel_074_sub_1_pq_8",
+      "subSceneId": "travel_074_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Good morning! How can I assist you today?",
+        "speakerTextCn": "早上好！今天有什么可以帮您的吗？",
+        "expectedAnswers": [
+          "I'd like to purchase a round-trip ticket to Hangzhou.",
+          "Could I book a ticket to Hangzhou for tomorrow?",
+          "I need a single ticket to Hangzhou, please."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰说明购票类型（单程/往返）和目的地",
+          "语言准确性：使用恰当动词（purchase/book/need）和结构",
+          "表达自然度：语调自然，符合日常对话节奏",
+          "关键词覆盖：包含 'ticket', 'Hangzhou', 以及礼貌表达或时间信息"
+        ]
+      }
+    },
+    {
+      "id": "travel_074_sub_1_pq_9",
+      "subSceneId": "travel_074_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Hello! What can I do for you?",
+        "speakerTextCn": "您好！有什么可以帮您的？",
+        "expectedAnswers": [
+          "I'd like to buy a ticket to Guangzhou, please.",
+          "Could you help me get a one-way ticket to Guangzhou?",
+          "I'm looking to purchase a train ticket to Guangzhou."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确表达购票需求及目的地",
+          "语言准确性：使用完整句式，无语法错误",
+          "表达自然度：语气礼貌，符合服务场景交际规范",
+          "关键词覆盖：包含 'ticket', 'Guangzhou', 以及至少一个礼貌表达或正式动词"
+        ]
+      }
+    }
+  ]
+}

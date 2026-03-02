@@ -1,0 +1,254 @@
+{
+  "subSceneId": "daily_029_sub_3",
+  "subSceneName": "支付方式",
+  "generatedAt": "2026-03-02T14:42:29.713Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_029_sub_3_pq_1",
+      "subSceneId": "daily_029_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_029_sub_3_qa_1",
+        "speakerText": "I'll take this one. Can I pay with card?",
+        "speakerTextCn": "我就要这个了，能刷卡吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Sure! Tap or insert—it's got NFC.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'm sorry, we don't sell this item.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you pay in cryptocurrency?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "We only accept checks.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了场景中推荐的回应方式，准确回应了刷卡请求并提到NFC支持。干扰项1与支付无关，干扰项2提出不常见的支付方式，干扰项3使用过时的支付方式，均不符合现代零售场景。"
+      }
+    },
+    {
+      "id": "daily_029_sub_3_pq_2",
+      "subSceneId": "daily_029_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_029_sub_3_qa_2",
+        "speakerText": "Do you accept Apple Pay?",
+        "speakerTextCn": "你们支持苹果支付吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yep! Just hold your phone near the reader.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "We only take cash, no digital payments.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you pay with Bitcoin?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Sorry, not yet—we're upgrading.",
+            "isCorrect": true
+          }
+        ],
+        "explanation": "本题有两个正确答案，因为场景中提供了两种合理回应：支持和不支持。选项1是积极回应，选项4是礼貌拒绝，均符合真实语境。选项2过于绝对且未提供替代方案，选项3转移话题，不符合询问Apple Pay的意图。"
+      }
+    },
+    {
+      "id": "daily_029_sub_3_pq_3",
+      "subSceneId": "daily_029_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I'd like to pay with Google Pay. Is that okay?",
+        "speakerTextCn": "我想用谷歌支付，可以吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Of course! Just tap your phone on the terminal.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don't know how to use that.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "We accept credit cards only.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you pay with a check instead?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确回应了Google Pay的请求，并使用了正确的动作动词'tap'，符合移动支付场景。干扰项1是个人无能为力的回应，不符合服务人员角色；干扰项2和3排除了新型支付方式，缺乏灵活性，不符合现代消费习惯。"
+      }
+    },
+    {
+      "id": "daily_029_sub_3_pq_4",
+      "subSceneId": "daily_029_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_029_sub_3_qa_1",
+        "template": "Can I pay with card? — Sure! Just ___ it.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "swipe",
+            "options": [
+              "swipe",
+              "press",
+              "pull",
+              "push"
+            ]
+          }
+        ],
+        "hint": "支付时常用的动词，指用卡片在读卡器上划过",
+        "knowledgePoint": "支付动词搭配（swipe a card）"
+      }
+    },
+    {
+      "id": "daily_029_sub_3_pq_5",
+      "subSceneId": "daily_029_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_029_sub_3_qa_2",
+        "template": "Do you accept Apple Pay? — Yep! Just hold your phone near the ___.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "reader",
+            "options": [
+              "reader",
+              "screen",
+              "button",
+              "camera"
+            ]
+          }
+        ],
+        "hint": "手机支付时需要靠近的设备",
+        "knowledgePoint": "支付设备术语（NFC reader）"
+      }
+    },
+    {
+      "id": "daily_029_sub_3_pq_6",
+      "subSceneId": "daily_029_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'd like to ___ this with my phone.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "pay",
+            "options": [
+              "pay",
+              "buy",
+              "send",
+              "transfer"
+            ]
+          }
+        ],
+        "hint": "完成交易的核心动词，与支付方式搭配",
+        "knowledgePoint": "支付场景核心动词（pay with...）"
+      }
+    },
+    {
+      "id": "daily_029_sub_3_pq_7",
+      "subSceneId": "daily_029_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_029_sub_3_qa_1",
+        "speakerText": "I'll take this one. Can I pay with card?",
+        "speakerTextCn": "我就要这个了，能刷卡吗？",
+        "expectedAnswers": [
+          "Sure! Just tap or insert your card.",
+          "Of course! We accept both card and cash.",
+          "Yeah, swipe it on the reader — it's contactless."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：正确回应了刷卡请求，未拒绝或转移话题",
+          "语言准确性：使用了正确的支付动词（tap/insert/swipe）和术语（card/contactless）",
+          "表达自然度：语调自然，符合日常口语节奏，无生硬翻译痕迹"
+        ]
+      }
+    },
+    {
+      "id": "daily_029_sub_3_pq_8",
+      "subSceneId": "daily_029_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_029_sub_3_qa_2",
+        "speakerText": "Do you accept Apple Pay?",
+        "speakerTextCn": "你们支持苹果支付吗？",
+        "expectedAnswers": [
+          "Yes! Just hold your phone near the reader.",
+          "Sorry, we don’t support Apple Pay yet, but we’re working on it.",
+          "We do! It’s quick and secure — go ahead."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰回应是否支持Apple Pay，不回避问题",
+          "语言准确性：使用了正确术语（Apple Pay, reader）和恰当动词（hold, go ahead）",
+          "表达自然度：语气礼貌、符合服务场景，使用口语化表达如'go ahead'或'working on it'"
+        ]
+      }
+    },
+    {
+      "id": "daily_029_sub_3_pq_9",
+      "subSceneId": "daily_029_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'm paying with Google Pay. Is that fine?",
+        "speakerTextCn": "我用谷歌支付，可以吗？",
+        "expectedAnswers": [
+          "Absolutely! Just tap your phone on the terminal.",
+          "Yes, we accept Google Pay — no problem at all.",
+          "Great! Make sure your phone is unlocked and close to the reader."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确接受或确认对方的支付方式，未产生误解",
+          "语言准确性：使用了正确的支付方式名称（Google Pay）和动作动词（tap, close to）",
+          "表达自然度：语句流畅，符合真实收银场景，有适当补充说明提升服务感"
+        ]
+      }
+    }
+  ]
+}

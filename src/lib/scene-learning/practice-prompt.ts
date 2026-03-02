@@ -166,12 +166,42 @@ export function buildPracticePrompt(
 
 ### 2. 填空题（fill_blank）
 - 设计 2-3 道填空题
-- 可以从对话的标准回应中选取，也可以根据场景主题创作新的句子
-- 挖空关键词汇（名词、动词、形容词、介词等）
-- 每个句子挖 1-2 个空
-- 空格用 \`___\` 表示
-- 提示要能帮助用户回忆，但不直接给出答案
-- 知识点要准确标注（如：情态动词、介词搭配、固定短语等）
+- **核心原则**：题目必须帮助用户掌握该场景的核心对话表达
+
+**考察内容**（必须与场景紧密相关）：
+1. 场景高频词汇（如出租车场景：book, pick up, destination, fare）
+2. 场景核心句型（如预约场景：I'd like to..., Could you...）
+3. 场景功能表达（如打招呼、确认信息、结束对话）
+4. 场景惯用搭配（如 check in, pick up, look for）
+
+**禁止**：
+- 挖空具体信息（地址、人名、数字、时间）
+- 考察与场景无关的语法点
+
+**每个空格生成 4 个选项**：
+- 1 个正确答案
+- 3 个干扰项（常见错误或语境不符的选项）
+
+**输出格式**：
+\`\`\`json
+{
+  "type": "fill_blank",
+  "qaId": "QA_Pair ID或null",
+  "template": "I'd like ___ book a taxi.",
+  "blanks": [{"index": 0, "answer": "to", "options": ["to", "for", "with", "at"]}],
+  "hint": "预约服务时的常用句型",
+  "knowledgePoint": "would like to do（预约场景核心句型）"
+}
+\`\`\`
+
+**好的示例**：
+- \`I'd like ___ book a taxi.\` → \`to\`（考察 would like to do，预约场景核心句型）
+- \`Could you please pick me ___ at the hotel entrance?\` → \`up\`（考察 pick up，出租车场景核心短语）
+- \`What's the ___ to the city center?\` → \`fare\`（考察 fare，出租车场景核心词汇）
+
+**不好的示例**：
+- \`I need a taxi to ___ please.\` → \`123 Main Street\`（具体地址，无意义）
+- \`The taxi will arrive in ___ minutes.\` → \`10\`（具体数字，无意义）
 
 ### 3. 问答题（speaking）
 - 设计 2-3 道问答题

@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_010_sub_1",
+  "subSceneName": "问候取衣",
+  "generatedAt": "2026-03-02T14:39:36.895Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_010_sub_1_pq_1",
+      "subSceneId": "daily_010_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_010_sub_1_qa_1",
+        "speakerText": "Hi there! How can I help you today?",
+        "speakerTextCn": "您好！今天有什么可以帮您的？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'm looking for a new dress.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "I'm here to pick up my laundry.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you fix my shirt?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I want to buy a laundry detergent.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'I'm here to pick up my laundry.'直接回应了店员的问候并说明了取衣目的。其他选项分别涉及买新衣服、修补衣物和购买洗涤剂，均与取衣场景无关。"
+      }
+    },
+    {
+      "id": "daily_010_sub_1_pq_2",
+      "subSceneId": "daily_010_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_010_sub_1_qa_2",
+        "speakerText": "Sure! Do you have your receipt?",
+        "speakerTextCn": "好的，您有取衣单吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I don't know where I put it.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Yes, here it is.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I pay with a credit card?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much is the total?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'Yes, here it is.'是礼貌且直接回应票据询问的标准表达。其他选项要么是模糊否认（opt_1），要么是无关的付款或价格问题（opt_3, opt_4），不符合当前语境。"
+      }
+    },
+    {
+      "id": "daily_010_sub_1_pq_3",
+      "subSceneId": "daily_010_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Welcome back! Are you here to collect your order?",
+        "speakerTextCn": "欢迎回来！您是来取订单的吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I need to wash my jeans.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Yes, I have the receipt right here.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "What time do you close?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you give me a discount?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'Yes, I have the receipt right here.'准确回应了取衣请求并出示票据，符合场景核心行为。其他选项涉及洗衣需求、关门时间或折扣，均非取衣流程中的标准回应。"
+      }
+    },
+    {
+      "id": "daily_010_sub_1_pq_4",
+      "subSceneId": "daily_010_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_010_sub_1_qa_1",
+        "template": "I'm here to ___ up my laundry.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "pick",
+            "options": [
+              "pick",
+              "take",
+              "get",
+              "bring"
+            ]
+          }
+        ],
+        "hint": "取衣服的固定搭配是 pick up",
+        "knowledgePoint": "动词搭配（pick up）"
+      }
+    },
+    {
+      "id": "daily_010_sub_1_pq_5",
+      "subSceneId": "daily_010_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_010_sub_1_qa_2",
+        "template": "Sure! Do you have your ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "receipt",
+            "options": [
+              "receipt",
+              "ticket",
+              "invoice",
+              "bill"
+            ]
+          }
+        ],
+        "hint": "取衣时需要出示的单据",
+        "knowledgePoint": "场景核心词汇（receipt）"
+      }
+    },
+    {
+      "id": "daily_010_sub_1_pq_6",
+      "subSceneId": "daily_010_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Sorry, I lost it. Can you ___ it up?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "look",
+            "options": [
+              "look",
+              "find",
+              "check",
+              "search"
+            ]
+          }
+        ],
+        "hint": "店员用这个短语在系统中查找订单",
+        "knowledgePoint": "固定表达（look up）"
+      }
+    },
+    {
+      "id": "daily_010_sub_1_pq_7",
+      "subSceneId": "daily_010_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_010_sub_1_qa_1",
+        "speakerText": "Hi there! How can I help you today?",
+        "speakerTextCn": "您好！今天有什么可以帮您的？",
+        "expectedAnswers": [
+          "I'm here to pick up my laundry.",
+          "I've got a receipt for pickup.",
+          "Could I get my clothes, please?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表达取衣目的",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合日常口语习惯",
+          "关键词覆盖：是否使用了 laundry / receipt / pick up 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_010_sub_1_pq_8",
+      "subSceneId": "daily_010_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_010_sub_1_qa_2",
+        "speakerText": "Sure! Do you have your receipt?",
+        "speakerTextCn": "好的，您有取衣单吗？",
+        "expectedAnswers": [
+          "Yeah, here it is.",
+          "I've got it right here.",
+          "Sorry, I lost it. Can you look it up?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确回应票据问题（有/无）",
+          "语言准确性：使用正确动词和代词（have/it）",
+          "表达自然度：是否使用口语化表达（Yeah, right here）",
+          "关键词覆盖：是否使用 receipt / look up 等核心词汇"
+        ]
+      }
+    },
+    {
+      "id": "daily_010_sub_1_pq_9",
+      "subSceneId": "daily_010_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Welcome! Are you here to collect your cleaned clothes?",
+        "speakerTextCn": "欢迎！您是来取清洗好的衣服吗？",
+        "expectedAnswers": [
+          "Yes, I'm here to pick them up.",
+          "I have the receipt — here you go.",
+          "Actually, I lost the receipt, but my name is John Smith. Can you check under that?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰回应取衣意图",
+          "语言准确性：使用正确代词（them）和礼貌表达",
+          "表达自然度：是否自然衔接信息（如递票据、提供姓名）",
+          "关键词覆盖：是否使用 pick up / receipt / look up / name 等场景关键词"
+        ]
+      }
+    }
+  ]
+}

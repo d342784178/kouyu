@@ -1,0 +1,254 @@
+{
+  "subSceneId": "daily_010_sub_3",
+  "subSceneName": "支付费用",
+  "generatedAt": "2026-03-02T14:36:19.926Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_010_sub_3_pq_1",
+      "subSceneId": "daily_010_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_010_sub_3_qa_1",
+        "speakerText": "Your total is $22. Cash or card?",
+        "speakerTextCn": "总共22美元，现金还是刷卡？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Card, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'll take it.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much is it?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get a discount?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Card, please.' 直接回应了支付方式的选择，符合语境。'I'll take it.' 用于接受物品而非支付方式；'How much is it?' 重复询问金额，不合时宜；'Can I get a discount?' 是讨价还价，与店员已给出总价的语境冲突。"
+      }
+    },
+    {
+      "id": "daily_010_sub_3_pq_2",
+      "subSceneId": "daily_010_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_010_sub_3_qa_2",
+        "speakerText": "Here's your receipt and your clothes.",
+        "speakerTextCn": "这是您的收据和衣服。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Thanks so much!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'll be back tomorrow.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is this all?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I have a bag?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Thanks so much!' 是对服务结束时的礼貌回应。其他选项均与接收物品无关：'I'll be back tomorrow.' 是未来计划；'Is this all?' 表示怀疑；'Can I have a bag?' 是额外请求，不符合当前语境。"
+      }
+    },
+    {
+      "id": "daily_010_sub_3_pq_3",
+      "subSceneId": "daily_010_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "The total comes to $45. Do you want to pay by credit card or mobile payment?",
+        "speakerTextCn": "总计45美元，您想用信用卡还是移动支付？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll use PayPal, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don't like this store.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I pay next week?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What time do you close?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'I'll use PayPal, please.' 是对支付方式的明确回应，符合语境。其他选项均偏离主题：'I don't like this store.' 是主观评价；'Can I pay next week?' 要求延期支付，不合理；'What time do you close?' 与支付无关。"
+      }
+    },
+    {
+      "id": "daily_010_sub_3_pq_4",
+      "subSceneId": "daily_010_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_010_sub_3_qa_1",
+        "template": "Your total is $25. Cash or ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "card",
+            "options": [
+              "card",
+              "cash",
+              "check",
+              "bill"
+            ]
+          }
+        ],
+        "hint": "店员常问的两种支付方式之一，与 'cash' 对应",
+        "knowledgePoint": "支付方式核心词汇（cash or card）"
+      }
+    },
+    {
+      "id": "daily_010_sub_3_pq_5",
+      "subSceneId": "daily_010_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_010_sub_3_qa_2",
+        "template": "Here's your receipt and your items. ___ so much!",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Thanks",
+            "options": [
+              "Thanks",
+              "Thank",
+              "Thanking",
+              "Thank you very"
+            ]
+          }
+        ],
+        "hint": "表达感谢的最常用简短句型",
+        "knowledgePoint": "支付后礼貌回应固定表达（Thanks so much!）"
+      }
+    },
+    {
+      "id": "daily_010_sub_3_pq_6",
+      "subSceneId": "daily_010_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'd like to pay ___ Apple Pay. Do you accept it?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "with",
+            "options": [
+              "with",
+              "by",
+              "using",
+              "for"
+            ]
+          }
+        ],
+        "hint": "表达使用某种支付方式时的正确介词搭配",
+        "knowledgePoint": "支付方式搭配介词（pay with）"
+      }
+    },
+    {
+      "id": "daily_010_sub_3_pq_7",
+      "subSceneId": "daily_010_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_010_sub_3_qa_1",
+        "speakerText": "Your total is $38. Cash or card?",
+        "speakerTextCn": "总计38美元，现金还是刷卡？",
+        "expectedAnswers": [
+          "Card, please.",
+          "I'll pay with cash.",
+          "Do you take Apple Pay or Google Pay?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回应支付方式选择",
+          "语言准确性：语法和词汇使用正确",
+          "表达自然度：符合日常口语习惯，语气礼貌"
+        ]
+      }
+    },
+    {
+      "id": "daily_010_sub_3_pq_8",
+      "subSceneId": "daily_010_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_010_sub_3_qa_2",
+        "speakerText": "Here's your receipt and your purchase.",
+        "speakerTextCn": "这是您的收据和购买的商品。",
+        "expectedAnswers": [
+          "Thanks so much!",
+          "Appreciate it!",
+          "Got it, thank you!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：表达感谢，确认收到物品",
+          "语言准确性：使用正确句型，无语法错误",
+          "表达自然度：语气真诚，符合服务结束场景"
+        ]
+      }
+    },
+    {
+      "id": "daily_010_sub_3_pq_9",
+      "subSceneId": "daily_010_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Your bill is $67.50. Would you like to pay by card or digital wallet?",
+        "speakerTextCn": "您的账单是67.50美元，您想用银行卡还是数字钱包支付？",
+        "expectedAnswers": [
+          "I'll pay with my debit card.",
+          "Can I use Venmo? I don't have cash on me.",
+          "I'll split it — half cash, half card."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰说明支付方式，回应问题",
+          "语言准确性：使用正确动词搭配（pay with）和表达",
+          "表达自然度：包含合理细节（如分方式支付），符合真实对话"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_008_sub_1",
+  "subSceneName": "打招呼咨询",
+  "generatedAt": "2026-03-02T14:35:31.387Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_008_sub_1_pq_1",
+      "subSceneId": "daily_008_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_008_sub_1_qa_1",
+        "speakerText": "Hi there! Can you help me send a package?",
+        "speakerTextCn": "嗨！你能帮我寄个包裹吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Of course! Where are you sending it?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Sorry, I can't help you with that.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I'm busy right now, go to the next counter.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much is the package worth?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 'Of course! Where are you sending it?'，这是对问候和请求帮助的自然、礼貌回应。选项2和3态度消极，不符合服务场景；选项4虽相关，但属于后续问题，不是对开场白的直接回应。"
+      }
+    },
+    {
+      "id": "daily_008_sub_1_pq_2",
+      "subSceneId": "daily_008_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Hello, I'd like to mail something. Can you assist me?",
+        "speakerTextCn": "你好，我想寄点东西，你能帮我吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Sure! What's the destination?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you have a credit card?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't know, ask someone else.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you wait a minute?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Sure! What's the destination?' 是对寄快递请求的典型积极回应，直接引导提供关键信息。选项2过早涉及支付，选项3态度冷漠，选项4虽礼貌但未回应核心需求，不符合服务场景的高效沟通原则。"
+      }
+    },
+    {
+      "id": "daily_008_sub_1_pq_3",
+      "subSceneId": "daily_008_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Hi, I need to send a parcel overseas. Do you handle international shipping?",
+        "speakerTextCn": "嗨，我需要寄一个国际包裹，你们处理国际快递吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, we do! Just give me the recipient's address and we'll take care of it.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'm not sure, maybe try FedEx.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have a receipt?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "We only send packages within the country.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案肯定了服务并引导提供必要信息，符合专业服务回应。选项2推卸责任，选项3提前询问收据不合逻辑，选项4直接否认服务，均不符合积极服务态度。"
+      }
+    },
+    {
+      "id": "daily_008_sub_1_pq_4",
+      "subSceneId": "daily_008_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_008_sub_1_qa_1",
+        "template": "Can you help me ___ a package?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "send",
+            "options": [
+              "send",
+              "take",
+              "carry",
+              "bring"
+            ]
+          }
+        ],
+        "hint": "寄快递时最常用的动词",
+        "knowledgePoint": "动词搭配（send a package）"
+      }
+    },
+    {
+      "id": "daily_008_sub_1_pq_5",
+      "subSceneId": "daily_008_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Sure thing! Just tell me the ___.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "destination",
+            "options": [
+              "destination",
+              "price",
+              "weight",
+              "time"
+            ]
+          }
+        ],
+        "hint": "寄快递时工作人员最常问的信息",
+        "knowledgePoint": "场景核心词汇（destination）"
+      }
+    },
+    {
+      "id": "daily_008_sub_1_pq_6",
+      "subSceneId": "daily_008_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Of course! Where are you ___ it?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "sending",
+            "options": [
+              "sending",
+              "giving",
+              "delivering",
+              "posting"
+            ]
+          }
+        ],
+        "hint": "询问寄送目的地的常用现在进行时结构",
+        "knowledgePoint": "动词时态与搭配（send → sending）"
+      }
+    },
+    {
+      "id": "daily_008_sub_1_pq_7",
+      "subSceneId": "daily_008_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_008_sub_1_qa_1",
+        "speakerText": "Hi there! Can you help me send a package?",
+        "speakerTextCn": "嗨！你能帮我寄个包裹吗？",
+        "expectedAnswers": [
+          "Of course! Where are you sending it?",
+          "Sure thing! Just tell me the destination.",
+          "Absolutely! Could you please provide the recipient's address and the country?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表示愿意提供帮助并引导对方提供必要信息",
+          "语言准确性：语法正确，动词和介词使用恰当",
+          "表达自然度：是否符合英语口语习惯，避免生硬翻译",
+          "关键词覆盖：是否使用了 'send', 'package', 'destination', 'where' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_008_sub_1_pq_8",
+      "subSceneId": "daily_008_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Hello, I'd like to mail something international. Can you help?",
+        "speakerTextCn": "你好，我想寄一个国际包裹，你能帮忙吗？",
+        "expectedAnswers": [
+          "Of course! I can help with that. What's the address and country?",
+          "Absolutely! We handle international shipping. Please give me the recipient's details.",
+          "Sure! Just let me know where you're sending it and I'll check the rates for you."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰回应请求并主动引导提供关键信息（地址、国家）",
+          "语言准确性：使用恰当的动词（handle, send, provide）和结构（What's..., Could you...）",
+          "表达自然度：语气友好、语速自然，符合服务场景的沟通风格",
+          "关键词覆盖：是否包含 'international', 'mail', 'address', 'country', 'help' 等核心词汇"
+        ]
+      }
+    },
+    {
+      "id": "daily_008_sub_1_pq_9",
+      "subSceneId": "daily_008_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Hi, I need to send a parcel. Do you offer express delivery?",
+        "speakerTextCn": "嗨，我需要寄一个包裹，你们有特快服务吗？",
+        "expectedAnswers": [
+          "Yes, we do! We have express and standard options. Where are you sending it?",
+          "Absolutely! Express delivery is available. Could you tell me the destination?",
+          "Of course! Express service is available — just give me the address and I'll confirm the delivery time."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否确认服务可用性并引导提供目的地信息",
+          "语言准确性：正确使用 'express delivery', 'available', 'destination' 等术语",
+          "表达自然度：语句流畅，符合真实服务场景中的应答节奏",
+          "关键词覆盖：是否包含 'parcel', 'express delivery', 'send', 'destination' 等关键表达"
+        ]
+      }
+    }
+  ]
+}

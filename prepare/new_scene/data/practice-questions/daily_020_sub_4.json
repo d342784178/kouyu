@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_020_sub_4",
+  "subSceneName": "价格与取货",
+  "generatedAt": "2026-03-02T14:40:07.751Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_020_sub_4_pq_1",
+      "subSceneId": "daily_020_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_020_sub_4_qa_1",
+        "speakerText": "So your total's $249 with the blue light and anti-glare coatings.",
+        "speakerTextCn": "加上防蓝光和抗反射，总共249美元。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Sounds good — I'll take it!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "That's too cheap, can you add more features?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I'll pay with cryptocurrency.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get a discount if I buy two pairs?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Sounds good — I'll take it!' 是对价格确认后的自然积极回应。选项2语义矛盾（价格高却说太便宜），选项3与支付方式无关，选项4虽合理但属于扩展提议，不符合当前语境中直接接受价格的回应。"
+      }
+    },
+    {
+      "id": "daily_020_sub_4_pq_2",
+      "subSceneId": "daily_020_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_020_sub_4_qa_2",
+        "speakerText": "They'll be ready in 5 to 7 business days — can you pick them up next Thursday?",
+        "speakerTextCn": "5到7个工作日后做好，下周四来取可以吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Thursday's perfect — I'll be here!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you deliver them to my house?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I'll send someone else to pick them up.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I don't need them anymore.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Thursday's perfect — I'll be here!' 是对取货时间确认的积极承诺，符合场景要求。选项2是请求送货，偏离取货场景；选项3虽合理但未主动承诺；选项4直接取消订单，不符合对话语境。"
+      }
+    },
+    {
+      "id": "daily_020_sub_4_pq_3",
+      "subSceneId": "daily_020_sub_4",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "The total comes to $275 including the premium frame and scratch-resistant coating. Is that okay?",
+        "speakerTextCn": "包括高级镜框和防刮涂层，总共275美元。可以吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I pay half now and the rest next week?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I think I'll just buy the glasses online.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Why is it so expensive?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'd prefer cash only.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案提出分期付款，是价格较高时礼貌询问的合理回应，符合使用说明。选项2是放弃购买，偏离对话意图；选项3语气生硬，不礼貌；选项4仅说明支付方式，未回应价格确认。"
+      }
+    },
+    {
+      "id": "daily_020_sub_4_pq_4",
+      "subSceneId": "daily_020_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_020_sub_4_qa_1",
+        "template": "So your total's $249 with the blue light and anti-glare ___.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "coatings",
+            "options": [
+              "coatings",
+              "costs",
+              "prices",
+              "features"
+            ]
+          }
+        ],
+        "hint": "这是镜片附加功能的常用术语，通常与 'anti-glare' 或 'blue light' 搭配使用。",
+        "knowledgePoint": "场景高频词汇（镜片涂层术语）"
+      }
+    },
+    {
+      "id": "daily_020_sub_4_pq_5",
+      "subSceneId": "daily_020_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_020_sub_4_qa_2",
+        "template": "They'll be ready in 5 to 7 business days — can you pick them ___ next Thursday?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "up",
+            "options": [
+              "up",
+              "on",
+              "at",
+              "for"
+            ]
+          }
+        ],
+        "hint": "这是一个固定搭配，表示‘取货’或‘接人’。",
+        "knowledgePoint": "动词搭配（pick up 表示取货）"
+      }
+    },
+    {
+      "id": "daily_020_sub_4_pq_6",
+      "subSceneId": "daily_020_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'd like to ___ the glasses on Friday morning.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "pick up",
+            "options": [
+              "pick up",
+              "take away",
+              "collect",
+              "get"
+            ]
+          }
+        ],
+        "hint": "在眼镜店或服务场所，表达‘取货’最地道的说法。",
+        "knowledgePoint": "场景核心句型（取货的惯用表达）"
+      }
+    },
+    {
+      "id": "daily_020_sub_4_pq_7",
+      "subSceneId": "daily_020_sub_4",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_020_sub_4_qa_1",
+        "speakerText": "So your total's $249 with the blue light and anti-glare coatings.",
+        "speakerTextCn": "加上防蓝光和抗反射，总共249美元。",
+        "expectedAnswers": [
+          "Sounds good — I'll take it!",
+          "That's a bit over my budget — do you have any discounts or payment plans?",
+          "Could I pay a deposit now and the rest later?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确回应价格确认（接受/协商/推迟）",
+          "语言准确性：语法和用词是否正确，是否使用场景词汇（如 'coatings', 'payment plans'）",
+          "表达自然度：语气是否礼貌、符合口语习惯",
+          "关键词覆盖：是否包含 'total', 'coatings', 'pay', 'deposit' 等关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_020_sub_4_pq_8",
+      "subSceneId": "daily_020_sub_4",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_020_sub_4_qa_2",
+        "speakerText": "They'll be ready in 5 to 7 business days — can you pick them up next Thursday?",
+        "speakerTextCn": "5到7个工作日后做好，下周四来取可以吗？",
+        "expectedAnswers": [
+          "Thursday's perfect — I'll be here!",
+          "I'm traveling on Friday, so could I pick them up on Wednesday instead?",
+          "I'll call you the day before to confirm I'm coming."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确确认或协商取货时间",
+          "语言准确性：是否正确使用 'pick up', 'business days', 'next Thursday' 等表达",
+          "表达自然度：是否使用口语化但得体的回应方式",
+          "关键词覆盖：是否包含 'pick up', 'ready', 'Thursday', 'call' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_020_sub_4_pq_9",
+      "subSceneId": "daily_020_sub_4",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Your order is ready! The total is $210. We can have them ready for pickup tomorrow, or you can wait until Monday.",
+        "speakerTextCn": "您的订单已准备好！总共210美元。我们明天就可以取货，或者您可以等到周一。",
+        "expectedAnswers": [
+          "I'll pick them up tomorrow — thanks!",
+          "Could I pick them up on Monday instead? I'm busy tomorrow.",
+          "Is there a discount if I pick them up on Monday?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确选择取货时间或提出合理请求",
+          "语言准确性：是否使用正确的时间表达和动词搭配（pick up）",
+          "表达自然度：语气是否礼貌、符合真实对话节奏",
+          "关键词覆盖：是否包含 'pickup', 'total', 'tomorrow', 'Monday' 等关键词"
+        ]
+      }
+    }
+  ]
+}

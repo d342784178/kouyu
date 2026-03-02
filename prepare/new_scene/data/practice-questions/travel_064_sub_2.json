@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_064_sub_2",
+  "subSceneName": "询问收费",
+  "generatedAt": "2026-03-02T15:06:11.008Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_064_sub_2_pq_1",
+      "subSceneId": "travel_064_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_064_sub_2_qa_1",
+        "speakerText": "It's $5 per bag for up to 24 hours.",
+        "speakerTextCn": "每件行李24小时内收费5美元。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I pay by credit card?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "That's affordable. I'll leave two bags.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have Wi-Fi here?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How late are you open?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案回应了价格信息并表达了决定寄存，符合对话语境。其他选项与价格确认无关，属于无关提问。"
+      }
+    },
+    {
+      "id": "travel_064_sub_2_pq_2",
+      "subSceneId": "travel_064_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_064_sub_2_qa_2",
+        "speakerText": "We charge by the day, not by the hour.",
+        "speakerTextCn": "我们按天收费，不是按小时。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is there a discount for long-term storage?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "So if I leave it for 12 hours, it's still $5?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I get a receipt?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Where is the exit?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是对计费方式的合理确认，体现对'按天收费'的理解。其他选项与计费方式澄清无关，属于无关问题。"
+      }
+    },
+    {
+      "id": "travel_064_sub_2_pq_3",
+      "subSceneId": "travel_064_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "The first 24 hours are free, then $3 per additional day.",
+        "speakerTextCn": "前24小时免费，之后每天3美元。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll leave my bag for 30 hours then.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "So I won't be charged if I pick it up within a day?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I store my suitcase in the corner?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you offer luggage wrapping?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确理解了'前24小时免费'的含义，体现了对计费规则的正确回应。其他选项或误解规则，或与收费无关。"
+      }
+    },
+    {
+      "id": "travel_064_sub_2_pq_4",
+      "subSceneId": "travel_064_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_064_sub_2_qa_1",
+        "template": "It's $5 per bag for up to ___ hours.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "24",
+            "options": [
+              "24",
+              "12",
+              "48",
+              "72"
+            ]
+          }
+        ],
+        "hint": "这是标准计费周期，常见于行李寄存服务",
+        "knowledgePoint": "场景高频词汇（计费周期）"
+      }
+    },
+    {
+      "id": "travel_064_sub_2_pq_5",
+      "subSceneId": "travel_064_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_064_sub_2_qa_2",
+        "template": "We charge by the ___ , not by the hour.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "day",
+            "options": [
+              "day",
+              "hour",
+              "week",
+              "minute"
+            ]
+          }
+        ],
+        "hint": "这是澄清计费单位的关键表达",
+        "knowledgePoint": "场景核心句型（计费方式表达）"
+      }
+    },
+    {
+      "id": "travel_064_sub_2_pq_6",
+      "subSceneId": "travel_064_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Is there a ___ for leaving luggage longer than a week?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "discount",
+            "options": [
+              "discount",
+              "bonus",
+              "fee",
+              "charge"
+            ]
+          }
+        ],
+        "hint": "询问长期寄存优惠时的常用词",
+        "knowledgePoint": "场景惯用搭配（discount for long-term）"
+      }
+    },
+    {
+      "id": "travel_064_sub_2_pq_7",
+      "subSceneId": "travel_064_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_064_sub_2_qa_1",
+        "speakerText": "It's $5 per bag for up to 24 hours.",
+        "speakerTextCn": "每件行李24小时内收费5美元。",
+        "expectedAnswers": [
+          "That's reasonable. I'll leave one bag.",
+          "I'd like to store two bags then.",
+          "Could you tell me if there's a discount for three bags?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确回应了价格并表达了寄存意愿或进一步询问",
+          "语言准确性：语法和用词正确，无严重错误",
+          "表达自然度：符合日常口语习惯，不生硬",
+          "关键词覆盖：使用了 'bag', 'store', 'discount' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_064_sub_2_pq_8",
+      "subSceneId": "travel_064_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_064_sub_2_qa_2",
+        "speakerText": "We charge by the day, not by the hour.",
+        "speakerTextCn": "我们按天收费，不是按小时。",
+        "expectedAnswers": [
+          "So even if I pick it up after 18 hours, I still pay $5?",
+          "Perfect, I'm staying for 2 days, so that's $10 total.",
+          "Got it, thanks for clarifying."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确确认了计费方式，避免误解",
+          "语言准确性：使用了正确的时态和表达（如 'pick it up', 'pay $5'）",
+          "表达自然度：语气自然，符合真实对话节奏",
+          "关键词覆盖：使用了 'day', 'hour', 'charge', 'pick up' 等核心词"
+        ]
+      }
+    },
+    {
+      "id": "travel_064_sub_2_pq_9",
+      "subSceneId": "travel_064_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "The first 24 hours are free, then $3 per additional day.",
+        "speakerTextCn": "前24小时免费，之后每天3美元。",
+        "expectedAnswers": [
+          "That's great! I'll pick it up in 20 hours then.",
+          "So if I leave it for 36 hours, it'll be $3?",
+          "Can I pay in advance for a week?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否正确理解并回应了阶梯计费规则",
+          "语言准确性：使用了 'additional day', 'pick up', 'pay in advance' 等恰当表达",
+          "表达自然度：语调自然，符合顾客咨询服务的语境",
+          "关键词覆盖：使用了 'free', 'additional day', 'pay', 'pick up' 等关键词"
+        ]
+      }
+    }
+  ]
+}

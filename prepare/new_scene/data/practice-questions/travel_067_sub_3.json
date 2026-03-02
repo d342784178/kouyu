@@ -1,0 +1,254 @@
+{
+  "subSceneId": "travel_067_sub_3",
+  "subSceneName": "既往病史处理",
+  "generatedAt": "2026-03-02T15:14:24.521Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_067_sub_3_pq_1",
+      "subSceneId": "travel_067_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_067_sub_3_qa_1",
+        "speakerText": "I've got high blood pressure — will that affect my coverage?",
+        "speakerTextCn": "我有高血压，这会影响保险吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Just ignore it — most insurers don’t check medical records.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "It might, but we can add a pre-existing condition waiver if you're stable.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "You should lie about it to get cheaper premiums.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "That’s great! You automatically get double coverage.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 'It might, but we can add a pre-existing condition waiver if you're stable.'，因为它准确回应了病史对保险的影响，并提供合法解决方案。选项1和3鼓励隐瞒病史，违反诚信原则且可能导致拒赔；选项4完全错误，慢性病不会自动提升保障。"
+      }
+    },
+    {
+      "id": "travel_067_sub_3_pq_2",
+      "subSceneId": "travel_067_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I’ve been diabetic for 10 years. Can I still get travel insurance?",
+        "speakerTextCn": "我患有糖尿病已10年，还能买旅行保险吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "No, diabetics are always excluded from coverage.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "It depends on your control and medication — we can assess your case.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Just buy the cheapest plan and hope nothing happens.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "You need to cancel your trip if you have any chronic illness.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案强调根据病情控制和用药情况评估，符合保险行业对慢性病的处理原则。选项1过于绝对，不符合实际；选项3是危险建议；选项4错误地将慢性病与旅行取消挂钩。"
+      }
+    },
+    {
+      "id": "travel_067_sub_3_pq_3",
+      "subSceneId": "travel_067_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I have asthma and use an inhaler regularly. Will this be a problem?",
+        "speakerTextCn": "我有哮喘，定期使用吸入器，这会有问题吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Asthma is always covered without extra steps.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Declare your condition — we’ll check if it’s well-managed before approving.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Don’t mention it unless you have an attack during the trip.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "You need to stop using your inhaler to qualify for insurance.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案强调主动申报并评估病情管理状况，这是合规处理慢性病的关键。选项1错��地认为哮喘自动覆盖；选项3鼓励隐瞒，违反诚信；选项4荒谬且危险。"
+      }
+    },
+    {
+      "id": "travel_067_sub_3_pq_4",
+      "subSceneId": "travel_067_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_067_sub_3_qa_1",
+        "template": "I've got high blood pressure — I should ______ it when applying for insurance.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "declare",
+            "options": [
+              "declare",
+              "hide",
+              "ignore",
+              "change"
+            ]
+          }
+        ],
+        "hint": "主动披露病史以避免理赔纠纷",
+        "knowledgePoint": "场景核心动词搭配（declare a condition）"
+      }
+    },
+    {
+      "id": "travel_067_sub_3_pq_5",
+      "subSceneId": "travel_067_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "If your condition is ______, we can add a pre-existing condition waiver.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "stable",
+            "options": [
+              "stable",
+              "active",
+              "worsening",
+              "recent"
+            ]
+          }
+        ],
+        "hint": "保险公司评估慢性病是否可承保的关键标准",
+        "knowledgePoint": "慢性病承保条件的核心形容词（stable）"
+      }
+    },
+    {
+      "id": "travel_067_sub_3_pq_6",
+      "subSceneId": "travel_067_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Always ______ your medical history accurately to avoid claim denials.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "disclose",
+            "options": [
+              "disclose",
+              "suppress",
+              "minimize",
+              "forget"
+            ]
+          }
+        ],
+        "hint": "保险申请中必须完成的动作，与 'declare' 同义",
+        "knowledgePoint": "保险场景高频动词（disclose/declare）"
+      }
+    },
+    {
+      "id": "travel_067_sub_3_pq_7",
+      "subSceneId": "travel_067_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_067_sub_3_qa_1",
+        "speakerText": "I've got high blood pressure — will that affect my coverage?",
+        "speakerTextCn": "我有高血压，这会影响保险吗？",
+        "expectedAnswers": [
+          "I have high blood pressure, but it’s under control with medication. Can I still get coverage?",
+          "I’ve been diagnosed with hypertension for five years — is there a way to include it in the policy?",
+          "I’m worried my condition might lead to a denial. What do I need to do to qualify?"
+        ],
+        "evaluationCriteria": [
+          "是否明确说明了慢性病名称和当前状态（如是否控制良好）",
+          "是否使用了场景关键词如 'pre-existing condition', 'coverage', 'declare' 或 'waiver'",
+          "表达是否自然、礼貌，符合英语口语习惯，避免生硬或命令式语气"
+        ]
+      }
+    },
+    {
+      "id": "travel_067_sub_3_pq_8",
+      "subSceneId": "travel_067_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I have asthma and take medication daily. Can I buy travel insurance?",
+        "speakerTextCn": "我有哮喘，每天服药，能买旅行保险吗？",
+        "expectedAnswers": [
+          "I’ve had asthma since childhood and use an inhaler regularly — is that covered under your policy?",
+          "My asthma is well-managed, and I haven’t had an attack in over a year. Would that qualify for a waiver?",
+          "Could you tell me what documentation I need to prove my condition is stable?"
+        ],
+        "evaluationCriteria": [
+          "是否清晰说明了疾病类型、用药情况和病情稳定性",
+          "是否主动询问解决方案（如 waiver、documentation、assessment）",
+          "语言是否流畅，使用了恰当的连接词和专业词汇，避免简单重复 'I have asthma'"
+        ]
+      }
+    },
+    {
+      "id": "travel_067_sub_3_pq_9",
+      "subSceneId": "travel_067_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I was recently diagnosed with diabetes. Should I wait before buying insurance?",
+        "speakerTextCn": "我最近被诊断出糖尿病，我应该等一等再买保险吗？",
+        "expectedAnswers": [
+          "No, it’s better to apply now and disclose the diagnosis — delays might cause coverage gaps.",
+          "I’d recommend declaring it immediately so they can assess whether I’m eligible for coverage with a loading or exclusion.",
+          "I’m concerned about being denied — what’s the process for applying with a new diagnosis?"
+        ],
+        "evaluationCriteria": [
+          "是否正确回应了 '是否应等待' 的疑问，给出专业建议",
+          "是否使用了 'disclose', 'assess', 'loading', 'exclusion' 等专业术语",
+          "是否表现出对保险流程的理解，语气理性、有信息量，而非情绪化或犹豫"
+        ]
+      }
+    }
+  ]
+}

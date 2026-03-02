@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_072_sub_1",
+  "subSceneName": "预约出租车",
+  "generatedAt": "2026-03-02T15:11:12.592Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_072_sub_1_pq_1",
+      "subSceneId": "travel_072_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_072_sub_1_qa_1",
+        "speakerText": "Hi, this is CityTaxi. How can I help you?",
+        "speakerTextCn": "您好，这里是城市出租车，有什么可以帮您？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I need a taxi to 123 Main Street, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I want to book a flight to New York.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you tell me the weather today?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much does a taxi cost in this city?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是直接回应预约需求，符合场景。干扰项分别涉及航班、天气和一般出租车价格，与当前预约场景无关。"
+      }
+    },
+    {
+      "id": "travel_072_sub_1_pq_2",
+      "subSceneId": "travel_072_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_072_sub_1_qa_2",
+        "speakerText": "Sure! What's your exact pickup time?",
+        "speakerTextCn": "好的！您的上车时间是？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can you come in 10 minutes?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I like the color of your car.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Where is the nearest gas station?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I need to pay in cash.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是合理询问接车时间。干扰项涉及车辆颜色、加油站和付款方式，均与确认时间无关，属于语境偏离。"
+      }
+    },
+    {
+      "id": "travel_072_sub_1_pq_3",
+      "subSceneId": "travel_072_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I'm waiting at the corner of 5th Avenue and Oak Street. Can you send a taxi?",
+        "speakerTextCn": "我正在第五大道和橡树街的拐角处等候，能派一辆出租车来吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Of course! I'll dispatch a cab to that location. What time?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Sorry, we don't serve that area.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Why are you waiting there?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you want to buy a map?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是专业回应并继续询问时间，符合预约流程。干扰项中，B是拒绝服务（无依据），C和D是无关或不礼貌的追问，不符合服务场景。"
+      }
+    },
+    {
+      "id": "travel_072_sub_1_pq_4",
+      "subSceneId": "travel_072_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_072_sub_1_qa_1",
+        "template": "I'd like ___ book a taxi to 123 Main Street.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "with",
+              "at"
+            ]
+          }
+        ],
+        "hint": "预约服务时的常用句型",
+        "knowledgePoint": "would like to do（预约场景核心句型）"
+      }
+    },
+    {
+      "id": "travel_072_sub_1_pq_5",
+      "subSceneId": "travel_072_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_072_sub_1_qa_2",
+        "template": "Could you please pick me ___ at the hotel entrance?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "up",
+            "options": [
+              "up",
+              "on",
+              "off",
+              "out"
+            ]
+          }
+        ],
+        "hint": "表示‘接人’的固定搭配",
+        "knowledgePoint": "pick up（出租车场景核心短语）"
+      }
+    },
+    {
+      "id": "travel_072_sub_1_pq_6",
+      "subSceneId": "travel_072_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "What's the ___ to downtown? I need to know the fare before I confirm.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "fare",
+            "options": [
+              "fare",
+              "price",
+              "cost",
+              "fee"
+            ]
+          }
+        ],
+        "hint": "出租车服务中表示‘车费’的标准词汇",
+        "knowledgePoint": "fare（出租车场景核心词汇）"
+      }
+    },
+    {
+      "id": "travel_072_sub_1_pq_7",
+      "subSceneId": "travel_072_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_072_sub_1_qa_1",
+        "speakerText": "Hi, this is CityTaxi. How can I help you?",
+        "speakerTextCn": "您好，这里是城市出租车，有什么可以帮您？",
+        "expectedAnswers": [
+          "I need a taxi to 123 Main Street, please.",
+          "Could you send a cab to 123 Main Street?",
+          "I'd like to book a taxi for 123 Main Street as soon as possible."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确表达了预约出租车和目的地",
+          "语言准确性：语法正确，无重大错误",
+          "表达自然度：使用了礼貌和场景常用表达",
+          "关键词覆盖：包含 'taxi', 'to', 和具体地址"
+        ]
+      }
+    },
+    {
+      "id": "travel_072_sub_1_pq_8",
+      "subSceneId": "travel_072_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_072_sub_1_qa_2",
+        "speakerText": "Sure! What's your exact pickup time?",
+        "speakerTextCn": "好的！您的上车时间是？",
+        "expectedAnswers": [
+          "Can you come in 10 minutes?",
+          "I'm ready right now, please.",
+          "How soon can you get here? I'm waiting outside."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回应了时间需求或询问接车时间",
+          "语言准确性：使用了正确的时间表达和句型结构",
+          "表达自然度：符合电话预约的口语习惯",
+          "关键词覆盖：包含 'come', 'in', 'minutes', 'now', 或 'soon'"
+        ]
+      }
+    },
+    {
+      "id": "travel_072_sub_1_pq_9",
+      "subSceneId": "travel_072_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'm at the airport terminal, and I need a taxi to the downtown hotel. Can you help?",
+        "speakerTextCn": "我在机场航站楼，需要一辆出租车去市中心的酒店，能帮忙吗？",
+        "expectedAnswers": [
+          "Of course! Could you tell me your hotel name and the exact terminal?",
+          "I'll send a taxi right away. What's your flight number so I can track your arrival?",
+          "Sure, we can pick you up. Please confirm if you're at Terminal A or B."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确回应了需求并进一步确认关键信息",
+          "语言准确性：使用了完整、语法正确的句子",
+          "表达自然度：语气礼貌、专业，符合服务场景",
+          "关键词覆盖：包含 'airport', 'taxi', 'downtown', 'hotel', 'terminal'"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_068_sub_2",
+  "subSceneName": "行程确认",
+  "generatedAt": "2026-03-02T15:14:13.587Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_068_sub_2_pq_1",
+      "subSceneId": "travel_068_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_068_sub_2_qa_1",
+        "speakerText": "We'll hit the museum at 10, then lunch at 12:30, and the market closes at 4, so we gotta be back by 3:30.",
+        "speakerTextCn": "我们10点到博物馆，12点半吃午饭，市场4点关门，所以得3点半前回来。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do we have time to visit the park after the market?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Wait, does that mean we only got 1.5 hours at the market?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Can we change the museum to tomorrow?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much does the museum ticket cost?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是追问时间安排的细节，符合原对话中‘追问细节确保不遗漏重要信息’的要求。选项1偏离主题，选项3是改变计划而非确认，选项4虽合理但未在原对话标准回应中出现，且不直接回应时间安排。"
+      }
+    },
+    {
+      "id": "travel_068_sub_2_pq_2",
+      "subSceneId": "travel_068_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_068_sub_2_qa_2",
+        "speakerText": "We're running a bit late, so we might skip the gift shop to make the train.",
+        "speakerTextCn": "我们有点晚了，可能得跳过礼品店赶火车。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'd rather stay longer at the gift shop.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "No problem—I'd rather not miss the train!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Should we take a taxi instead?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "The train leaves at 5, right?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是积极接受调整，符合‘根据需求灵活提出请求或接受调整’的使用说明。选项1表达反对，与语境冲突；选项3是替代方案，未回应对方提议；选项4是确认信息，但未体现态度或回应。"
+      }
+    },
+    {
+      "id": "travel_068_sub_2_pq_3",
+      "subSceneId": "travel_068_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Our hotel check-out is at 11, and the airport shuttle leaves at 12:30. We have about an hour to pack and get there.",
+        "speakerTextCn": "我们退房时间是11点，机场班车12点半发车，我们有一个小时打包并赶到那里。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can we leave our luggage at the hotel after check-out?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is the shuttle free for tourists?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Why are we checking out so early?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Let’s skip packing and just buy clothes at the airport.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是合理追问行李安排，符合行程确认中‘确认细节’的核心目的。选项2虽相关但属���额外信息，非紧急确认；选项3质疑计划，语气不合作；选项4荒谬，不符合现实逻辑。"
+      }
+    },
+    {
+      "id": "travel_068_sub_2_pq_4",
+      "subSceneId": "travel_068_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_068_sub_2_qa_1",
+        "template": "We'll hit the museum at 10, then lunch at 12:30, and the market closes at 4, so we gotta be back by ___.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "3:30",
+            "options": [
+              "3:00",
+              "3:30",
+              "4:00",
+              "4:30"
+            ]
+          }
+        ],
+        "hint": "市场4点关门，需提前半小时返回以确保不误事。",
+        "knowledgePoint": "时间表达与逻辑推理（行程安排中的缓冲时间）"
+      }
+    },
+    {
+      "id": "travel_068_sub_2_pq_5",
+      "subSceneId": "travel_068_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_068_sub_2_qa_2",
+        "template": "We're running a bit late, so we might ___ the gift shop to make the train.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "skip",
+            "options": [
+              "visit",
+              "skip",
+              "book",
+              "wait for"
+            ]
+          }
+        ],
+        "hint": "因为时间紧张，需要‘跳过’某个环节以赶上交通工具。",
+        "knowledgePoint": "动词搭配（skip + 地点/活动，表示省略行程）"
+      }
+    },
+    {
+      "id": "travel_068_sub_2_pq_6",
+      "subSceneId": "travel_068_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'd like to ___ if we can stop for 5 minutes at the souvenir stand.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "check",
+            "options": [
+              "check",
+              "ask",
+              "see",
+              "find"
+            ]
+          }
+        ],
+        "hint": "礼貌提出请求时常用 'I'd like to check if...' 结构。",
+        "knowledgePoint": "固定表达（I'd like to check if... 用于委婉请求）"
+      }
+    },
+    {
+      "id": "travel_068_sub_2_pq_7",
+      "subSceneId": "travel_068_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_068_sub_2_qa_1",
+        "speakerText": "We'll hit the museum at 10, then lunch at 12:30, and the market closes at 4, so we gotta be back by 3:30.",
+        "speakerTextCn": "我们10点到博物馆，12点半吃午饭，市场4点关门，所以得3点半前回来。",
+        "expectedAnswers": [
+          "Wait, does that mean we only have 1.5 hours at the market?",
+          "Could you confirm the exact closing time of the market?",
+          "Is the museum entry included in the tour package?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确追问了时间安排或关键细节",
+          "语言准确性：语法和时态使用是否正确",
+          "表达自然度：是否使用了符合英语口语习惯的表达方式",
+          "关键词覆盖：是否使用了如 'market', 'time', 'included' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_068_sub_2_pq_8",
+      "subSceneId": "travel_068_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_068_sub_2_qa_2",
+        "speakerText": "We're running a bit late, so we might skip the gift shop to make the train.",
+        "speakerTextCn": "我们有点晚了，可能得跳过礼品店赶火车。",
+        "expectedAnswers": [
+          "No problem—I'd rather not miss the train!",
+          "Can we stop for just 5 minutes? I really need a small souvenir.",
+          "Okay, train first. Maybe we can come back another day?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表达了接受、请求或妥协的态度",
+          "语言准确性：是否正确使用了 'I'd rather', 'at least', 'maybe' 等表达",
+          "表达自然度：是否符合日常对话的语调和节奏",
+          "关键词覆盖：是否使用了 'train', 'skip', 'souvenir', 'stop' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_068_sub_2_pq_9",
+      "subSceneId": "travel_068_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "We're scheduled to leave the hotel at 8:30 for the day trip. Breakfast is served until 9, but we need to be on the bus by 8:30.",
+        "speakerTextCn": "我们计划8:30离开酒店开始一日游，早餐供应到9点，但我们必须8:30上车。",
+        "expectedAnswers": [
+          "Can I grab breakfast quickly and still make it on time?",
+          "Is there a quick breakfast option near the lobby?",
+          "I'll be ready by 8:20—can we leave a little early to avoid rush?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达了对时间安排的关切或请求调整",
+          "语言准确性：是否正确使用了条件句、请求句型和时间表达",
+          "表达自然度：是否使用了口语化但得体的表达方式",
+          "关键词覆盖：是否使用了 'breakfast', 'on the bus', 'leave', 'time' 等核心词汇"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "subSceneId": "workplace_054_sub_4",
+  "subSceneName": "签字确认",
+  "generatedAt": "2026-03-02T15:19:36.759Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "workplace_054_sub_4_pq_1",
+      "subSceneId": "workplace_054_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "workplace_054_sub_4_qa_1",
+        "speakerText": "Just sign here, and I'll hand you the stuff.",
+        "speakerTextCn": "在这儿签个字，我就把东西给你。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll sign it right away.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I take it home and sign later?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't need this document.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Could you sign for me instead?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'I'll sign it right away.'是对请求的直接积极回应，符合职场高效流程。干扰项中，'Can I take it home...'拖延流程，'I don't need this...'否定需求，'Could you sign for me...'推卸责任，均不符合职场签字确认的规范情境。"
+      }
+    },
+    {
+      "id": "workplace_054_sub_4_pq_2",
+      "subSceneId": "workplace_054_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Could you please confirm your signature on this form before we process your request?",
+        "speakerTextCn": "在处理您的申请前，您能确认一下这份表格上的签名吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Sure, I'll sign it now.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I forgot my pen, can I use yours?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I think I already signed it last week.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Why do I need to sign again?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'Sure, I'll sign it now.'直接回应确认请求，体现合作态度。干扰项中，'I forgot my pen'转移焦点，'I already signed'否认当前需求，'Why do I need to...'表达不满，均不符合职场礼貌与效率原则。"
+      }
+    },
+    {
+      "id": "workplace_054_sub_4_pq_3",
+      "subSceneId": "workplace_054_sub_4",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Please sign here to acknowledge receipt of your equipment.",
+        "speakerTextCn": "请在此签名以确认收到您的设备。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Signed. Thank you.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is this mandatory?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I'll send you a scanned copy later.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I just nod instead?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'Signed. Thank you.'简洁专业，符合签字确认场景的惯用表达。干扰项中，'Is this mandatory?'质疑流程，'I'll send a scanned copy'延迟执行，'Can I just nod?'非正式且无效，均不符合正式文书确认要求。"
+      }
+    },
+    {
+      "id": "workplace_054_sub_4_pq_4",
+      "subSceneId": "workplace_054_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "workplace_054_sub_4_qa_1",
+        "template": "Just sign ___ here, and I'll hand you the stuff.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "here",
+            "options": [
+              "here",
+              "there",
+              "now",
+              "soon"
+            ]
+          }
+        ],
+        "hint": "指明签名的具体位置，是签字确认场景的核心表达",
+        "knowledgePoint": "地点副词here在指令中的使用"
+      }
+    },
+    {
+      "id": "workplace_054_sub_4_pq_5",
+      "subSceneId": "workplace_054_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'd like to ___ the form before submitting it.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "sign",
+            "options": [
+              "sign",
+              "read",
+              "print",
+              "copy"
+            ]
+          }
+        ],
+        "hint": "完成流程前的关键动作，与'签字确认'场景直接相关",
+        "knowledgePoint": "动词sign与表格/文件的固定搭配"
+      }
+    },
+    {
+      "id": "workplace_054_sub_4_pq_6",
+      "subSceneId": "workplace_054_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Once you've ___ the document, your request will be processed.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "signed",
+            "options": [
+              "signed",
+              "signed up",
+              "signed in",
+              "signed off"
+            ]
+          }
+        ],
+        "hint": "完成签字后的状态，是流程推进的前提",
+        "knowledgePoint": "过去分词signed作完成状态的动词形式"
+      }
+    },
+    {
+      "id": "workplace_054_sub_4_pq_7",
+      "subSceneId": "workplace_054_sub_4",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "workplace_054_sub_4_qa_1",
+        "speakerText": "Just sign here, and I'll hand you the stuff.",
+        "speakerTextCn": "在这儿签个字，我就把东西给你。",
+        "expectedAnswers": [
+          "Sure thing, here you go.",
+          "Okay, signed. Thanks!",
+          "Signing now — I'll hand it back in a second."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表示已接受并执行签字动作",
+          "语言准确性：语法正确，用词符合职场语境",
+          "表达自然度：语气礼貌、简洁，符合高效流程要求",
+          "关键词覆盖：使用了sign, here, hand等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "workplace_054_sub_4_pq_8",
+      "subSceneId": "workplace_054_sub_4",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Please sign this form to confirm your acceptance of the policy.",
+        "speakerTextCn": "请签署这份表格以确认您接受该政策。",
+        "expectedAnswers": [
+          "I'll sign it right away.",
+          "Got it — signed and ready.",
+          "Just a moment, I'm signing now."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表明将立即签署或已完成签署",
+          "语言准确性：动词使用正确，时态与语境匹配",
+          "表达自然度：符合职场日常沟通的简洁与礼貌风格",
+          "关键词覆盖：使用了sign, confirm, form, policy等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "workplace_054_sub_4_pq_9",
+      "subSceneId": "workplace_054_sub_4",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "We need your signature to finalize your equipment checkout.",
+        "speakerTextCn": "我们需要您的签名来完成设备领取流程。",
+        "expectedAnswers": [
+          "No problem, I'll sign here.",
+          "Signed! Let me know if you need anything else.",
+          "Alright, I've signed — thanks for your help."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确回应签名要求并推动流程完成",
+          "语言准确性：动词和介词搭配准确，无语法错误",
+          "表达自然度：语气积极、专业，体现合作态度",
+          "关键词覆盖：使用了signature, finalize, equipment, checkout等核心词汇"
+        ]
+      }
+    }
+  ]
+}

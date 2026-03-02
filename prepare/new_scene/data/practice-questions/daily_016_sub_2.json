@@ -1,0 +1,254 @@
+{
+  "subSceneId": "daily_016_sub_2",
+  "subSceneName": "确认价格",
+  "generatedAt": "2026-03-02T14:41:21.380Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_016_sub_2_pq_1",
+      "subSceneId": "daily_016_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_016_sub_2_qa_1",
+        "speakerText": "How much is the juice and the sandwich?",
+        "speakerTextCn": "橙汁和三明治多少钱？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "The juice is $2.50 and the sandwich is $4, so $6.50 total.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I think it's around seven dollars.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Would you like to add fries to that?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I don't know the price, you should ask the manager.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接给出了清晰的价格分解和总价，符合场景中‘直接问总价’的要求。选项2是模糊估算，不符合确认价格的精确性；选项3是推销附加品，偏离问题；选项4是推卸责任，不符合服务场景。"
+      }
+    },
+    {
+      "id": "daily_016_sub_2_pq_2",
+      "subSceneId": "daily_016_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_016_sub_2_qa_2",
+        "speakerText": "So that's $6.50?",
+        "speakerTextCn": "所以是6块5吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yeah, that's right.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Maybe, I'm not sure.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I get you a coffee too?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "The total is $7, actually.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是对确认性问题的明确肯定，符合‘重复确认金额’的使用说明。选项2表示不确定，会引发更多疑问；选项3是无关推销；选项4否定了顾客的计算，造成混淆。"
+      }
+    },
+    {
+      "id": "daily_016_sub_2_pq_3",
+      "subSceneId": "daily_016_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "What's the total for the coffee and the muffin?",
+        "speakerTextCn": "咖啡和松饼总共多少钱？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Coffee is $3, muffin is $2.25. That's $5.25 altogether.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'm not working today, you should come back tomorrow.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "The coffee is the best here, you should try it!",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "It's five bucks, give or take.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案清晰列出单项价格并给出精确总价，符合确认价格场景的核心要求。选项2完全无关；选项3是推销而非回答；选项4使用模糊表达‘give or take’，不符合价格确认的精确性原则。"
+      }
+    },
+    {
+      "id": "daily_016_sub_2_pq_4",
+      "subSceneId": "daily_016_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_016_sub_2_qa_1",
+        "template": "The juice is $2.50, sandwich's $4. So ___ total.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "$6.50",
+            "options": [
+              "$6.50",
+              "6.50",
+              "six fifty",
+              "$6.5"
+            ]
+          }
+        ],
+        "hint": "总价表达需包含货币符号和两位小数",
+        "knowledgePoint": "价格总和表达（含货币符号）"
+      }
+    },
+    {
+      "id": "daily_016_sub_2_pq_5",
+      "subSceneId": "daily_016_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_016_sub_2_qa_2",
+        "template": "So that's ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "$6.50",
+            "options": [
+              "$6.50",
+              "six dollars fifty",
+              "6.5",
+              "$6.5"
+            ]
+          }
+        ],
+        "hint": "确认金额时使用标准货币格式",
+        "knowledgePoint": "金额确认的规范表达"
+      }
+    },
+    {
+      "id": "daily_016_sub_2_pq_6",
+      "subSceneId": "daily_016_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "The book is $12, the pen is $3. So ___ total.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "$15",
+            "options": [
+              "$15",
+              "15 dollars",
+              "fifteen",
+              "$15.00"
+            ]
+          }
+        ],
+        "hint": "计算后直接说出总价，使用货币符号",
+        "knowledgePoint": "价格相加与总金额表达"
+      }
+    },
+    {
+      "id": "daily_016_sub_2_pq_7",
+      "subSceneId": "daily_016_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_016_sub_2_qa_1",
+        "speakerText": "How much is the juice and the sandwich?",
+        "speakerTextCn": "橙汁和三明治多少钱？",
+        "expectedAnswers": [
+          "The juice is $2.50 and the sandwich is $4. That's $6.50 total.",
+          "Juice: $2.50, sandwich: $4. Six fifty, please.",
+          "Two fifty for the juice, four for the sandwich — so six fifty altogether."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回答了单品价格并给出总价",
+          "语言准确性：使用正确货币格式和语法结构",
+          "表达自然度：符合口语习惯，避免冗长或模糊表达"
+        ]
+      }
+    },
+    {
+      "id": "daily_016_sub_2_pq_8",
+      "subSceneId": "daily_016_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_016_sub_2_qa_2",
+        "speakerText": "So that's $6.50?",
+        "speakerTextCn": "所以是6块5吗？",
+        "expectedAnswers": [
+          "Yeah, that's right.",
+          "Yep, you got it.",
+          "Exactly. That's the total."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确确认金额无误，消除顾客疑虑",
+          "语言准确性：使用恰当的口语确认词，无语法错误",
+          "表达自然度：简洁、自然，符合日常服务对话习惯"
+        ]
+      }
+    },
+    {
+      "id": "daily_016_sub_2_pq_9",
+      "subSceneId": "daily_016_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "What's the total for the coffee and the muffin?",
+        "speakerTextCn": "咖啡和松饼总共多少钱？",
+        "expectedAnswers": [
+          "Coffee is $3, muffin is $2.25. That comes to $5.25.",
+          "Three dollars and twenty-five cents for the muffin, plus three for the coffee — five twenty-five total.",
+          "Five twenty-five, please."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰列出单项价格并准确计算总价",
+          "语言准确性：正确使用货币表达和连接词（plus, comes to）",
+          "表达自然度：语速自然，符合真实点餐场景的流畅回应"
+        ]
+      }
+    }
+  ]
+}

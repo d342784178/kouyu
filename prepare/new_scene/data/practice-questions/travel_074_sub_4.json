@@ -1,0 +1,254 @@
+{
+  "subSceneId": "travel_074_sub_4",
+  "subSceneName": "支付与确认",
+  "generatedAt": "2026-03-02T15:13:29.700Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_074_sub_4_pq_1",
+      "subSceneId": "travel_074_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_074_sub_4_qa_1",
+        "speakerText": "That'll be 560 yuan. Cash or card?",
+        "speakerTextCn": "一共560元，现金还是刷卡？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Card, please. I'll tap it.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'll pay with Apple Pay.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I pay next week?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much is the fee?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Card, please. I'll tap it.' 是标准回应，使用了场景中的生动表达 'I'll tap it'。选项2虽然语法正确，但未直接回应 'Cash or card?' 的二选一问题；选项3和4完全偏离了支付确认的语境。"
+      }
+    },
+    {
+      "id": "travel_074_sub_4_pq_2",
+      "subSceneId": "travel_074_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_074_sub_4_qa_2",
+        "speakerText": "Here's your ticket and receipt. Your train leaves from Platform 7 at 2:15.",
+        "speakerTextCn": "这是您的票和收据，7号站台2:15发车。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Thanks! I'll head to Platform 7.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'll take the 3:00 train instead.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Where is the restroom?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get a refund?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Thanks! I'll head to Platform 7.' 正确确认了关键信息（站台）并表达了感谢。其他选项要么忽略信息，要么提出无关请求，不符合确认信息的语用目的。"
+      }
+    },
+    {
+      "id": "travel_074_sub_4_pq_3",
+      "subSceneId": "travel_074_sub_4",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Your total is $85. How would you like to pay?",
+        "speakerTextCn": "您的总额是85美元，您想怎么支付？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll pay by credit card. I'll swipe it.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don't have money right now.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "What time does the train leave?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I pay in euros?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了 'I'll swipe it'，与 'I'll tap it' 同属支付动作的生动表达，符合场景要求。选项1是合理回应，选项2拒绝支付，选项3和4与支付方式无关，属于语境偏离。"
+      }
+    },
+    {
+      "id": "travel_074_sub_4_pq_4",
+      "subSceneId": "travel_074_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_074_sub_4_qa_1",
+        "template": "That'll be 560 yuan. Cash or card? — Card, please. I'll ___ it.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "tap",
+            "options": [
+              "tap",
+              "hit",
+              "press",
+              "click"
+            ]
+          }
+        ],
+        "hint": "支付时用卡片轻触终端的常用动词",
+        "knowledgePoint": "动词搭配（tap a card）"
+      }
+    },
+    {
+      "id": "travel_074_sub_4_pq_5",
+      "subSceneId": "travel_074_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_074_sub_4_qa_2",
+        "template": "Here's your ticket and receipt. Your train leaves from Platform 7 at 2:15. — Got it. Thanks ___!",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a lot",
+            "options": [
+              "a lot",
+              "very much",
+              "so much",
+              "too much"
+            ]
+          }
+        ],
+        "hint": "表达强烈感谢的常用口语短语",
+        "knowledgePoint": "固定表达（thanks a lot）"
+      }
+    },
+    {
+      "id": "travel_074_sub_4_pq_6",
+      "subSceneId": "travel_074_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Your flight departs at 10:30 from Gate B5. — ___ it. I'll go to Gate B5 now.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Got",
+            "options": [
+              "Got",
+              "Understood",
+              "Known",
+              "Remembered"
+            ]
+          }
+        ],
+        "hint": "口语中表示‘明白了’的简洁表达",
+        "knowledgePoint": "功能表达（Got it. 表示确认）"
+      }
+    },
+    {
+      "id": "travel_074_sub_4_pq_7",
+      "subSceneId": "travel_074_sub_4",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_074_sub_4_qa_1",
+        "speakerText": "That'll be 560 yuan. Cash or card?",
+        "speakerTextCn": "一共560元，现金还是刷卡？",
+        "expectedAnswers": [
+          "Card, please. I'll tap it.",
+          "I'll pay with card.",
+          "Cash. Here you go."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确选择支付方式（现金或刷卡）",
+          "语言准确性：语法正确，无明显错误",
+          "表达自然度：使用了场景中建议的生动表达如 'I'll tap it' 或 'Here you go'"
+        ]
+      }
+    },
+    {
+      "id": "travel_074_sub_4_pq_8",
+      "subSceneId": "travel_074_sub_4",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_074_sub_4_qa_2",
+        "speakerText": "Here's your ticket and receipt. Your train leaves from Platform 7 at 2:15.",
+        "speakerTextCn": "这是您的票和收据，7号站台2:15发车。",
+        "expectedAnswers": [
+          "Thanks! I'll head to Platform 7.",
+          "Platform 7 at 2:15 — got it, thank you!",
+          "Got it. I'll be there on time."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：确认了站台和发车时间信息",
+          "语言准确性：使用正确时态和表达，无语法错误",
+          "关键词覆盖：包含 'Platform X' 或 'time' 等关键信息，体现重复确认"
+        ]
+      }
+    },
+    {
+      "id": "travel_074_sub_4_pq_9",
+      "subSceneId": "travel_074_sub_4",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Your booking is confirmed. The total is $120. How would you like to pay?",
+        "speakerTextCn": "您的预订已确认，总额为120美元，您想如何支付？",
+        "expectedAnswers": [
+          "I'll pay by card. I'll just tap it.",
+          "Cash, please. Here you go.",
+          "Could I use my phone to pay? I'll use Apple Pay."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰选择支付方式并回应问题",
+          "语言准确性：语法和词汇使用正确",
+          "表达自然度：使用了符合场景的口语表达（如 'tap it', 'Here you go', 'use my phone to pay'）"
+        ]
+      }
+    }
+  ]
+}

@@ -200,7 +200,7 @@ function ChoiceQuestion({ question, onNext }: ChoiceQuestionProps) {
 }
 
 // ============================================================
-// 子组件：填空题 FillBlankQuestion
+// 子组件：填空题 FillBlankQuestion（选词填空形式）
 // ============================================================
 
 interface FillBlankQuestionProps {
@@ -209,16 +209,25 @@ interface FillBlankQuestionProps {
 }
 
 function FillBlankQuestion({ question, onNext }: FillBlankQuestionProps) {
-  // 每个空格对应一个输入值
-  const [answers, setAnswers] = useState<string[]>(
-    question.blanks.map(() => '')
+  // 每个空格对应一个选中的答案
+  const [selectedAnswers, setSelectedAnswers] = useState<(string | null)[]>(
+    question.blanks.map(() => null)
   )
   const [hasSubmitted, setHasSubmitted] = useState(false)
   const [results, setResults] = useState<boolean[]>([])
-  const [errorMsg, setErrorMsg] = useState('')
-  const inputRefs = useRef<(HTMLInputElement | null)[]>([])
 
-  /** 将模板按 ___ 分割，渲染含输入框的句子 */
+  // 检查是否有选项可用
+  const hasOptions = question.blanks.every(blank => blank.options && blank.options.length > 0)
+
+  /** 处理选项点击 */
+  const handleOptionClick = (blankIndex: number, option: string) => {
+    if (hasSubmitted) return
+    const next = [...selectedAnswers]
+    next[blankIndex] = option
+    setSelectedAnswers(next)
+  }
+
+  /** 将模板按 ___ 分割，渲染含选项按钮的句子 */
   const renderTemplate = () => {
     const parts = question.template.split('___')
     return parts.map((part, i) => (
@@ -226,29 +235,22 @@ function FillBlankQuestion({ question, onNext }: FillBlankQuestionProps) {
         <span className="text-gray-800">{part}</span>
         {i < question.blanks.length && (
           <span className="inline-flex items-center mx-1">
-            <input
-              ref={(el) => { inputRefs.current[i] = el }}
-              type="text"
-              value={answers[i]}
-              onChange={(e) => {
-                if (hasSubmitted) return
-                const next = [...answers]
-                next[i] = e.target.value
-                setAnswers(next)
-                setErrorMsg('')
-              }}
-              disabled={hasSubmitted}
-              placeholder="___"
-              className={`
-                inline-block w-24 border-b-2 bg-transparent text-center text-sm font-medium outline-none px-1 py-0.5 transition-colors
-                ${hasSubmitted
-                  ? results[i]
-                    ? 'border-green-400 text-green-700'
-                    : 'border-red-400 text-red-700'
-                  : 'border-[#4F7CF0] text-gray-900 focus:border-[#3D6ADE]'
-                }
-              `}
-            />
+            {/* 已选择的答案或空格占位 */}
+            {hasSubmitted ? (
+              <span className={`
+                inline-block px-2 py-0.5 rounded text-sm font-medium
+                ${results[i] ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}
+              `}>
+                {selectedAnswers[i] || '___'}
+              </span>
+            ) : (
+              <span className={`
+                inline-block px-2 py-0.5 rounded text-sm font-medium min-w-[60px] text-center
+                ${selectedAnswers[i] ? 'bg-[#EEF2FF] text-[#4F7CF0] border border-[#C7D4FA]' : 'bg-gray-100 text-gray-400 border border-gray-200'}
+              `}>
+                {selectedAnswers[i] || '___'}
+              </span>
+            )}
             {/* 答题后显示正确答案（答错时） */}
             {hasSubmitted && !results[i] && (
               <span className="ml-1 text-xs text-green-600 font-medium">
@@ -261,27 +263,69 @@ function FillBlankQuestion({ question, onNext }: FillBlankQuestionProps) {
     ))
   }
 
+  /** 渲染选项按钮 */
+  const renderOptions = (blankIndex: number) => {
+    const blank = question.blanks[blankIndex]
+    if (!blank.options) return null
+
+    return (
+      <div className="flex flex-wrap gap-2 mt-3">
+        {blank.options.map((option, optIndex) => {
+          const isSelected = selectedAnswers[blankIndex] === option
+          const isCorrect = option === blank.answer
+
+          let buttonStyle = 'bg-white border-gray-200 text-gray-700 hover:border-[#4F7CF0] hover:bg-[#F0F4FF]'
+
+          if (hasSubmitted) {
+            if (isCorrect) {
+              buttonStyle = 'bg-green-50 border-green-400 text-green-700'
+            } else if (isSelected && !isCorrect) {
+              buttonStyle = 'bg-red-50 border-red-400 text-red-700'
+            } else {
+              buttonStyle = 'bg-gray-50 border-gray-200 text-gray-400'
+            }
+          } else if (isSelected) {
+            buttonStyle = 'bg-[#EEF2FF] border-[#4F7CF0] text-[#4F7CF0]'
+          }
+
+          return (
+            <button
+              key={optIndex}
+              type="button"
+              onClick={() => handleOptionClick(blankIndex, option)}
+              disabled={hasSubmitted}
+              className={`px-3 py-1.5 rounded-lg border text-sm font-medium transition-all ${buttonStyle}`}
+            >
+              {option}
+            </button>
+          )
+        })}
+      </div>
+    )
+  }
+
   const handleSubmit = () => {
-    // 空白答案拦截
-    const hasEmpty = answers.some((a) => !validateFillBlankAnswer(a))
+    // 检查是否所有空格都已选择
+    const hasEmpty = selectedAnswers.some(a => !a)
     if (hasEmpty) {
-      setErrorMsg('请填写所有空格后再提交')
       return
     }
 
-    // 前端对比答案（忽略大小写和首尾空格）
+    // 对比答案
     const newResults = question.blanks.map((blank, i) =>
-      compareAnswer(answers[i], blank.answer)
+      selectedAnswers[i] === blank.answer
     )
     setResults(newResults)
     setHasSubmitted(true)
   }
 
+  const allSelected = selectedAnswers.every(a => a !== null)
+
   return (
     <div className="flex flex-col h-full px-4 pt-4 pb-6">
       {/* 题目说明 */}
-      <p className="text-xs text-gray-400 mb-2">补全对话，填写空格中的内容</p>
-      
+      <p className="text-xs text-gray-400 mb-2">选词填空：选择正确的单词完成句子</p>
+
       {/* 知识点标签 */}
       {question.knowledgePoint && (
         <div className="mb-3">
@@ -290,7 +334,7 @@ function FillBlankQuestion({ question, onNext }: FillBlankQuestionProps) {
           </span>
         </div>
       )}
-      
+
       {/* 提示 */}
       {question.hint && (
         <div className="mb-3 p-2.5 rounded-lg bg-amber-50 border border-amber-200">
@@ -298,24 +342,22 @@ function FillBlankQuestion({ question, onNext }: FillBlankQuestionProps) {
         </div>
       )}
 
-      {/* 含输入框的句子模板 */}
+      {/* 句子模板 */}
       <div className="bg-white rounded-card shadow-card border border-gray-100 p-4 mb-4 text-base leading-loose">
         {renderTemplate()}
       </div>
 
-      {/* 错误提示 */}
-      <AnimatePresence>
-        {errorMsg && (
-          <motion.p
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            className="text-xs text-red-500 mb-3"
-          >
-            {errorMsg}
-          </motion.p>
-        )}
-      </AnimatePresence>
+      {/* 选项区域（每个空格的选项） */}
+      {hasOptions && (
+        <div className="space-y-3 mb-4">
+          {question.blanks.map((blank, index) => (
+            <div key={index} className="bg-gray-50 rounded-lg p-3">
+              <p className="text-xs text-gray-500 mb-2">空格 {index + 1}：</p>
+              {renderOptions(index)}
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* 答题结果反馈 */}
       <AnimatePresence>
@@ -336,13 +378,14 @@ function FillBlankQuestion({ question, onNext }: FillBlankQuestionProps) {
         )}
       </AnimatePresence>
 
-      {/* 底部固定操作区（键盘弹出时随键盘上移） */}
+      {/* 底部固定操作区 */}
       <div className="mt-auto">
         {!hasSubmitted ? (
           <button
             type="button"
             onClick={handleSubmit}
-            className="w-full py-3.5 rounded-card bg-[#4F7CF0] text-white text-sm font-semibold shadow-md hover:bg-[#3D6ADE] transition-colors"
+            disabled={!allSelected}
+            className="w-full py-3.5 rounded-card bg-[#4F7CF0] text-white text-sm font-semibold shadow-md hover:bg-[#3D6ADE] transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
           >
             提交答案
           </button>

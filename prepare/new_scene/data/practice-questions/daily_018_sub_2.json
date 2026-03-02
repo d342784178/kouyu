@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_018_sub_2",
+  "subSceneName": "询问种类",
+  "generatedAt": "2026-03-02T14:39:21.094Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_018_sub_2_pq_1",
+      "subSceneId": "daily_018_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_018_sub_2_qa_1",
+        "speakerText": "We've got sourdough, whole wheat, and croissants fresh today.",
+        "speakerTextCn": "今天我们有酸面包、全麦和牛角包，都是新鲜的。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll take a croissant, please.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Oh cool! Can I try a slice of the sourdough?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "How much is the bread?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have coffee too?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案回应了对方提供的面包种类，并礼貌请求试吃，符合场景中的建议回应。选项1虽然合理，但未体现对‘新鲜’信息的积极回应；选项3和4与询问种类无关，属于偏离主题。"
+      }
+    },
+    {
+      "id": "daily_018_sub_2_pq_2",
+      "subSceneId": "daily_018_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_018_sub_2_qa_2",
+        "speakerText": "The croissants are sold out, but we still have baguettes.",
+        "speakerTextCn": "牛角包卖完了，但还有法棍。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "That's too bad. I'll go elsewhere.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "No problem, I'll take two baguettes then.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I get a discount on the baguettes?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What time do you close?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案体现了灵活调整选择并明确购买意向，符合使用说明。选项1过于消极，不符合积极应对的语境；选项3引入折扣，偏离核心任务；选项4与面包种类无关。"
+      }
+    },
+    {
+      "id": "daily_018_sub_2_pq_3",
+      "subSceneId": "daily_018_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "We have rye, multigrain, and brioche today. Would you like to sample any?",
+        "speakerTextCn": "今天我们有黑麦、杂粮和布里欧修面包，您想尝一下吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I don't like bread.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Yes, I'd love to try the rye.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I pay with a credit card?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have gluten-free options?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案积极回应了试吃邀请，符合场景中礼貌请求试吃的表达方式。选项1否定需求，不符合顾客角色；选项3和4虽合理，但未回应‘试吃’这一关键互动点。"
+      }
+    },
+    {
+      "id": "daily_018_sub_2_pq_4",
+      "subSceneId": "daily_018_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_018_sub_2_qa_1",
+        "template": "I'd like ___ try a slice of the sourdough.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "with",
+              "at"
+            ]
+          }
+        ],
+        "hint": "表达‘想要尝试’的常用句型",
+        "knowledgePoint": "would like to do（预约场景核心句型）"
+      }
+    },
+    {
+      "id": "daily_018_sub_2_pq_5",
+      "subSceneId": "daily_018_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_018_sub_2_qa_2",
+        "template": "The croissants are sold out, but we still have ___.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "baguettes",
+            "options": [
+              "baguettes",
+              "croissants",
+              "breads",
+              "pastries"
+            ]
+          }
+        ],
+        "hint": "根据对话，牛角包卖完后剩下的面包种类",
+        "knowledgePoint": "场景高频词汇（面包类型）"
+      }
+    },
+    {
+      "id": "daily_018_sub_2_pq_6",
+      "subSceneId": "daily_018_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "What ___ do you have today?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "kinds",
+            "options": [
+              "kinds",
+              "types",
+              "colors",
+              "sizes"
+            ]
+          }
+        ],
+        "hint": "询问‘有哪些种类’的标准表达",
+        "knowledgePoint": "场景功能表达（询问种类）"
+      }
+    },
+    {
+      "id": "daily_018_sub_2_pq_7",
+      "subSceneId": "daily_018_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_018_sub_2_qa_1",
+        "speakerText": "We've got sourdough, whole wheat, and croissants fresh today.",
+        "speakerTextCn": "今天我们有酸面包、全麦和牛角包，都是新鲜的。",
+        "expectedAnswers": [
+          "Sourdough, please.",
+          "Oh, that sounds great! Can I try the whole wheat?",
+          "What's the special today? I'm curious."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确回应了面包种类并表达购买或试吃意向",
+          "语言准确性：语法正确，用词恰当，无明显错误",
+          "表达自然度：符合日常口语习惯，语调自然",
+          "关键词覆盖：使用了至少一个场景关键词（如sourdough, whole wheat, croissant, try）"
+        ]
+      }
+    },
+    {
+      "id": "daily_018_sub_2_pq_8",
+      "subSceneId": "daily_018_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_018_sub_2_qa_2",
+        "speakerText": "The croissants are sold out, but we still have baguettes.",
+        "speakerTextCn": "牛角包卖完了，但还有法棍。",
+        "expectedAnswers": [
+          "Okay, baguettes it is.",
+          "Hmm, do you have any rye or multigrain as an alternative?",
+          "No problem—I'll take one baguette and maybe a slice of sourdough too."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否在信息变化后调整选择并表达明确购买或进一步询问意图",
+          "语言准确性：语法和词汇使用正确，无中式英语",
+          "表达自然度：语气自然，符合真实对话节奏",
+          "关键词覆盖：使用了至少一个场景关键词（如baguettes, sold out, alternative, rye）"
+        ]
+      }
+    },
+    {
+      "id": "daily_018_sub_2_pq_9",
+      "subSceneId": "daily_018_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "We have brioche, rye, and focaccia today. Would you like to sample any?",
+        "speakerTextCn": "今天我们有布里欧修、黑麦和佛卡夏面包，您想尝一下吗？",
+        "expectedAnswers": [
+          "Yes, I'd love to try the focaccia.",
+          "Can I taste the rye first? I'm not sure which one I like.",
+          "I'll take the brioche—I've heard it's really buttery."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否积极回应试吃邀请或明确点单",
+          "语言准确性：使用了正确的动词搭配（如try, take, taste）和名词形式",
+          "表达自然度：语句流畅，符合真实顾客与店员的互动方式",
+          "关键词覆盖：使用了至少两个场景关键词（如brioche, rye, focaccia, sample, try）"
+        ]
+      }
+    }
+  ]
+}

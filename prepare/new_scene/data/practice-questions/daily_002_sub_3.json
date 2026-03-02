@@ -1,0 +1,254 @@
+{
+  "subSceneId": "daily_002_sub_3",
+  "subSceneName": "促销询问",
+  "generatedAt": "2026-03-02T14:34:42.917Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_002_sub_3_pq_1",
+      "subSceneId": "daily_002_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_002_sub_3_qa_1",
+        "speakerText": "Is there a special deal on bread today?",
+        "speakerTextCn": "今天面包有促销吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, it's 50% off if you buy two.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "No, but we just restocked it yesterday.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Yes, you can exchange it for milk.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "No, we don't sell bread here.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Yes, it's 50% off if you buy two.' 是对促销问题的合理回应，符合‘买一送半价’的促销逻辑。干扰项2只说明补货，未回应促销；干扰项3混淆了促销与兑换；干扰项4完全错误，与场景矛盾。"
+      }
+    },
+    {
+      "id": "daily_002_sub_3_pq_2",
+      "subSceneId": "daily_002_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_002_sub_3_qa_2",
+        "speakerText": "Do you have any coupons for cereal?",
+        "speakerTextCn": "有麦片的优惠券吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, they're on the shelf next to the cereal.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "No, but you can get a free sample if you ask.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Yes, you need to pay $5 to get one.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "No, we don't sell cereal anymore.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Yes, they're on the shelf next to the cereal.' 符合常见优惠券摆放位置（靠近商品）。干扰项2提供的是免费样品而非优惠券；干扰项3错误，优惠券通常免费；干扰项4与场景矛盾。"
+      }
+    },
+    {
+      "id": "daily_002_sub_3_pq_3",
+      "subSceneId": "daily_002_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Are there any discounts if I buy multiple items?",
+        "speakerTextCn": "如果我买多件商品有折扣吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, we have a 15% off bundle deal for three or more items.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "No, we only offer discounts on expired products.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Yes, but you need to be a celebrity to qualify.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "No, discounts are only available online.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案提供了合理的多件折扣信息（买三件打八五折），符合促销场景。干扰项2荒谬（过期商品不打折）；干扰项3不现实（名人特权）；干扰项4错误，线下也可有折扣。"
+      }
+    },
+    {
+      "id": "daily_002_sub_3_pq_4",
+      "subSceneId": "daily_002_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_002_sub_3_qa_1",
+        "template": "Is there a special deal on ___ today?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "bread",
+            "options": [
+              "bread",
+              "price",
+              "store",
+              "time"
+            ]
+          }
+        ],
+        "hint": "这是询问特定商品促销的常用句型，需填入商品名称",
+        "knowledgePoint": "场景高频词汇（商品名称）"
+      }
+    },
+    {
+      "id": "daily_002_sub_3_pq_5",
+      "subSceneId": "daily_002_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_002_sub_3_qa_2",
+        "template": "They're at the front near the ___ — grab one!",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "checkout",
+            "options": [
+              "checkout",
+              "shelf",
+              "aisle",
+              "door"
+            ]
+          }
+        ],
+        "hint": "优惠券通常放在收银台附近方便顾客取用",
+        "knowledgePoint": "场景核心位置表达（checkout）"
+      }
+    },
+    {
+      "id": "daily_002_sub_3_pq_6",
+      "subSceneId": "daily_002_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "You can get 10% off if you ___ the loyalty app.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "scan",
+            "options": [
+              "scan",
+              "buy",
+              "download",
+              "install"
+            ]
+          }
+        ],
+        "hint": "使用会员App享受折扣的常见动作是扫码",
+        "knowledgePoint": "场景惯用搭配（scan the app）"
+      }
+    },
+    {
+      "id": "daily_002_sub_3_pq_7",
+      "subSceneId": "daily_002_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_002_sub_3_qa_1",
+        "speakerText": "Is there a special deal on bread today?",
+        "speakerTextCn": "今天面包有促销吗？",
+        "expectedAnswers": [
+          "Yes, buy one, get one half off — it's on the end cap.",
+          "There's a 20% discount if you buy three loaves.",
+          "Not today, but I recommend checking the loyalty app — you might get a coupon."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回应是否有促销",
+          "语言准确性：语法正确，无严重错误",
+          "表达自然度：使用了场景关键词如 'buy one, get one half off', 'loyalty app', 'end cap'"
+        ]
+      }
+    },
+    {
+      "id": "daily_002_sub_3_pq_8",
+      "subSceneId": "daily_002_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_002_sub_3_qa_2",
+        "speakerText": "Do you have any coupons for cereal?",
+        "speakerTextCn": "有麦片的优惠券吗？",
+        "expectedAnswers": [
+          "Yes, they're at the front near the checkout — feel free to take one!",
+          "Not today, but we have a buy-3-get-1-free promotion instead.",
+          "You can download them from our website — just search for 'cereal coupons'."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确回应优惠券是否存在或提供替代方案",
+          "语言准确性：使用正确动词如 'download', 'take', 'have'",
+          "表达自然度：使用场景关键词如 'checkout', 'buy-3-get-1-free', 'download'"
+        ]
+      }
+    },
+    {
+      "id": "daily_002_sub_3_pq_9",
+      "subSceneId": "daily_002_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Do you have any ongoing promotions this week?",
+        "speakerTextCn": "这周有什么持续促销活动吗？",
+        "expectedAnswers": [
+          "Yes, we have a weekly sale on dairy products — 20% off all cheese and yogurt.",
+          "There's a flash sale on fruits and vegetables every Friday.",
+          "We don't have fixed promotions, but signing up for our app gives you exclusive weekly deals."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰说明是否有促销及具体内容",
+          "语言准确性：使用恰当时态（现在进行时、一般现在时）和促销术语",
+          "表达自然度：包含场景关键词如 'weekly sale', 'flash sale', 'exclusive deals', 'signing up'"
+        ]
+      }
+    }
+  ]
+}

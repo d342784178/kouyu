@@ -1,0 +1,257 @@
+{
+  "subSceneId": "workplace_049_sub_4",
+  "subSceneName": "确认预算",
+  "generatedAt": "2026-03-02T15:19:05.938Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "workplace_049_sub_4_pq_1",
+      "subSceneId": "workplace_049_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "workplace_049_sub_4_qa_1",
+        "speakerText": "What's the max daily allowance for hotels and meals?",
+        "speakerTextCn": "住宿和餐饮的每日上限是多少？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "It's $150/day — receipts required.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "You can spend as much as you want, just submit the receipts.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "The company doesn't cover meals, only hotels.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Ask your manager for approval before spending.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接回应了每日上限和收据要求，符合公司报销政策。选项2忽略了限额，选项3错误地排除了餐饮，选项4虽合理但未回答具体额度，属于回避问题。"
+      }
+    },
+    {
+      "id": "workplace_049_sub_4_pq_2",
+      "subSceneId": "workplace_049_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "workplace_049_sub_4_qa_2",
+        "speakerText": "I'll need to book a flight too — any preferred airline?",
+        "speakerTextCn": "我还得订机票，有指定航司吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Use Delta — we've got a corporate deal.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Book whatever flight you like — no one checks.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "You must fly with Emirates for international trips.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Call the travel agency and tell them to pick the most expensive.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案指出公司协议航司，符合企业差旅政策。选项2鼓励随意选择，违反报销流程；选项3错误指定非公司合作航司；选项4与节约成本原则相悖。"
+      }
+    },
+    {
+      "id": "workplace_049_sub_4_pq_3",
+      "subSceneId": "workplace_049_sub_4",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I'm planning a three-day trip next month — what’s the policy on incidental expenses like taxis?",
+        "speakerTextCn": "我下个月要出差三天，关于出租车等杂费的报销政策是什么？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Incidentals are covered up to $20 per day with receipts.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "You can claim anything as long as it's related to work.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Taxis are not reimbursed at all — use public transport.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Just put it on your personal card and we'll sort it out later.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确限定了杂费额度和收据要求，符合规范。选项2过于宽松，易导致滥用；选项3完全禁止不合理；选项4违反财务流程，无预批和记录。"
+      }
+    },
+    {
+      "id": "workplace_049_sub_4_pq_4",
+      "subSceneId": "workplace_049_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "workplace_049_sub_4_qa_1",
+        "template": "The daily allowance for hotels and meals is $150 — ______ required.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "receipts",
+            "options": [
+              "receipts",
+              "invoices",
+              "confirmations",
+              "tickets"
+            ]
+          }
+        ],
+        "hint": "报销时必须保留的凭证，用于证明支出",
+        "knowledgePoint": "报销场景核心词汇：receipts（收据）"
+      }
+    },
+    {
+      "id": "workplace_049_sub_4_pq_5",
+      "subSceneId": "workplace_049_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "workplace_049_sub_4_qa_2",
+        "template": "Please ______ Delta Airlines for your flight — we have a corporate agreement.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "use",
+            "options": [
+              "use",
+              "book",
+              "choose",
+              "select"
+            ]
+          }
+        ],
+        "hint": "表达‘使用’公司指定航司的常用动词",
+        "knowledgePoint": "动词搭配：use + 品牌（企业政策表达）"
+      }
+    },
+    {
+      "id": "workplace_049_sub_4_pq_6",
+      "subSceneId": "workplace_049_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Before booking anything, ______ accounting for pre-approval to avoid reimbursement issues.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "email",
+            "options": [
+              "email",
+              "call",
+              "text",
+              "visit"
+            ]
+          }
+        ],
+        "hint": "提前获得批准的标准流程，通常通过书面形式",
+        "knowledgePoint": "报销流程核心表达：email for pre-approval"
+      }
+    },
+    {
+      "id": "workplace_049_sub_4_pq_7",
+      "subSceneId": "workplace_049_sub_4",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "workplace_049_sub_4_qa_1",
+        "speakerText": "What's the max daily allowance for hotels and meals?",
+        "speakerTextCn": "住宿和餐饮的每日上限是多少？",
+        "expectedAnswers": [
+          "It's $150 per day, and you need to keep all receipts.",
+          "The limit is $150/day for both hotel and meals — receipts are mandatory.",
+          "You can spend up to $150 total each day, but make sure to save your receipts for reimbursement."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回答了每日上限金额",
+          "语言准确性：语法正确，使用了正确术语如 'receipts' 和 'daily allowance'",
+          "表达自然度：符合职场口语习惯，不生硬或过于正式",
+          "关键词覆盖：包含 'daily allowance', '$150', 'receipts'"
+        ]
+      }
+    },
+    {
+      "id": "workplace_049_sub_4_pq_8",
+      "subSceneId": "workplace_049_sub_4",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "workplace_049_sub_4_qa_2",
+        "speakerText": "I'll need to book a flight too — any preferred airline?",
+        "speakerTextCn": "我还得订机票，有指定航司吗？",
+        "expectedAnswers": [
+          "Yes, please use Delta — we have a corporate discount with them.",
+          "You should book with Delta because of our company agreement.",
+          "Always check with accounting first, but Delta is the preferred airline for cost savings."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确指出公司指定航司或流程要求",
+          "语言准确性：正确使用 'corporate agreement', 'preferred airline', 'book with' 等表达",
+          "表达自然度：语气专业但不僵硬，符合职场沟通习惯",
+          "关键词覆盖：包含 'Delta', 'corporate', 'book', 'preferred airline'"
+        ]
+      }
+    },
+    {
+      "id": "workplace_049_sub_4_pq_9",
+      "subSceneId": "workplace_049_sub_4",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'm going on a business trip next week. Can you remind me of the reimbursement process?",
+        "speakerTextCn": "我下周要出差，能提醒我一下报销流程吗？",
+        "expectedAnswers": [
+          "Sure! First, book flights with Delta, stay within the $150/day limit for meals and hotels, keep all receipts, and email accounting for pre-approval if needed.",
+          "Just remember: use Delta, don’t exceed $150 per day for expenses, save every receipt, and submit your report through system 3B.",
+          "The key steps are: pre-approve major bookings, stick to the daily cap, collect receipts, and submit within 30 days after the trip."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：完整覆盖预订、限额、收据、预批等关键流程",
+          "语言准确性：使用正确术语如 'daily cap', 'pre-approve', 'receipts', 'reimbursement'",
+          "表达自然度：口语化但结构清晰，有逻辑顺序",
+          "关键词覆盖：包含 'Delta', '$150/day', 'receipts', 'pre-approve', 'reimbursement'"
+        ]
+      }
+    }
+  ]
+}

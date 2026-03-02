@@ -1,0 +1,254 @@
+{
+  "subSceneId": "daily_030_sub_2",
+  "subSceneName": "试穿确认",
+  "generatedAt": "2026-03-02T14:42:39.793Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_030_sub_2_pq_1",
+      "subSceneId": "daily_030_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_030_sub_2_qa_1",
+        "speakerText": "Here you go! Try these on.",
+        "speakerTextCn": "给你！试试这双。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Thanks! They feel a bit tight.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'll take them right away.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have any discounts?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I pay by card?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Thanks! They feel a bit tight.' 是试穿后对舒适度的诚实反馈，符合场景要求。其他选项虽然语法正确，但分别涉及付款、立即购买或折扣，与试穿反馈的语境无关。"
+      }
+    },
+    {
+      "id": "daily_030_sub_2_pq_2",
+      "subSceneId": "daily_030_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_030_sub_2_qa_2",
+        "speakerText": "How do they feel? Too big or small?",
+        "speakerTextCn": "感觉怎么样？太大还是太小？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Perfect! Just right.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "The color is nice.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I like the brand.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much do they cost?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Perfect! Just right.' 直接回应了关于尺码舒适度的问题。其他选项虽然积极，但讨论的是颜色、品牌或价格，偏离了询问舒适度的核心意图。"
+      }
+    },
+    {
+      "id": "daily_030_sub_2_pq_3",
+      "subSceneId": "daily_030_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "These feel a bit snug. Do you have them in a wider fit?",
+        "speakerTextCn": "这双有点紧，你们有宽版的吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Sure, let me get you a size 9.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Sorry, we don't carry wide sizes.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Maybe you should buy a different brand.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I think you look great in them.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Sure, let me get you a size 9.' 是店员对顾客舒适度反馈的合理回应，提供解决方案。选项B虽真实但消极，C和D回避了问题，不符合服务场景的专业性。"
+      }
+    },
+    {
+      "id": "daily_030_sub_2_pq_4",
+      "subSceneId": "daily_030_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_030_sub_2_qa_1",
+        "template": "Thanks! They feel a bit ___.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "tight",
+            "options": [
+              "tight",
+              "loose",
+              "big",
+              "long"
+            ]
+          }
+        ],
+        "hint": "试穿后表达鞋子不合脚的常用词",
+        "knowledgePoint": "描述鞋履舒适度的形容词搭配"
+      }
+    },
+    {
+      "id": "daily_030_sub_2_pq_5",
+      "subSceneId": "daily_030_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_030_sub_2_qa_2",
+        "template": "They're ___! Just right.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "perfect",
+            "options": [
+              "perfect",
+              "nice",
+              "good",
+              "fine"
+            ]
+          }
+        ],
+        "hint": "最自然表达‘刚刚好’的单词",
+        "knowledgePoint": "表达尺码合适的固定表达（just right）"
+      }
+    },
+    {
+      "id": "daily_030_sub_2_pq_6",
+      "subSceneId": "daily_030_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could I try a ___ size? These feel too tight.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "larger",
+            "options": [
+              "larger",
+              "bigger",
+              "more",
+              "higher"
+            ]
+          }
+        ],
+        "hint": "请求换大一码时的正确形容词比较级",
+        "knowledgePoint": "描述尺码变化的比较级用法（larger/smaller）"
+      }
+    },
+    {
+      "id": "daily_030_sub_2_pq_7",
+      "subSceneId": "daily_030_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_030_sub_2_qa_2",
+        "speakerText": "How do they feel? Too big or small?",
+        "speakerTextCn": "感觉怎么样？太大还是太小？",
+        "expectedAnswers": [
+          "They're a little loose. Could I try a size 8?",
+          "Perfect! They fit just right.",
+          "Too tight — do you have a wider width?"
+        ],
+        "evaluationCriteria": [
+          "是否准确回应尺码舒适度问题",
+          "是否使用场景关键词（tight, loose, just right, size）",
+          "表达是否自然流畅，符合口语习惯"
+        ]
+      }
+    },
+    {
+      "id": "daily_030_sub_2_pq_8",
+      "subSceneId": "daily_030_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'm not sure if this size works. What do you think?",
+        "speakerTextCn": "我不确定这个码数合不合适，你怎么看？",
+        "expectedAnswers": [
+          "They seem a bit snug. Maybe try the next size up?",
+          "They look great on you, but if they pinch, let's go bigger.",
+          "I'd say go one size larger — these look tight around the toes."
+        ],
+        "evaluationCriteria": [
+          "是否提供有帮助的建议而非简单同意或否定",
+          "是否使用舒适度描述词（snug, pinch, tight, larger）",
+          "语气是否礼貌专业，符合服务场景"
+        ]
+      }
+    },
+    {
+      "id": "daily_030_sub_2_pq_9",
+      "subSceneId": "daily_030_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_030_sub_2_qa_1",
+        "speakerText": "Here you go! Try these on.",
+        "speakerTextCn": "给你！试试这双。",
+        "expectedAnswers": [
+          "Thanks! I'll give them a try.",
+          "Okay, let me see how they feel.",
+          "Are you sure this is the right size? I usually wear a 9."
+        ],
+        "evaluationCriteria": [
+          "是否礼貌回应店员的递送动作",
+          "是否表达试穿意愿或合理质疑尺码",
+          "是否使用自然口语表达（I'll give them a try / let me see）"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_070_sub_5",
+  "subSceneName": "道别确认",
+  "generatedAt": "2026-03-02T15:10:26.897Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_070_sub_5_pq_1",
+      "subSceneId": "travel_070_sub_5",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_070_sub_5_qa_1",
+        "speakerText": "Your new flight is confirmed for the 15th at 10 a.m. You'll get an email shortly.",
+        "speakerTextCn": "您的新航班已确认，15号上午10点，稍后会发邮件。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Great! Can you send me the receipt now?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Thank you so much — you’ve saved me!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I don’t think this time works for me.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you change it again? I need a later flight.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Thank you so much — you’ve saved me!' 是对服务成功完成的自然、礼貌的感谢回应，符合道别确认场景。其他选项要么提出新请求（opt_1, opt_4），要么否定确认（opt_3），不符合语境。"
+      }
+    },
+    {
+      "id": "travel_070_sub_5_pq_2",
+      "subSceneId": "travel_070_sub_5",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Your reservation has been successfully updated. The boarding pass will be emailed to you.",
+        "speakerTextCn": "您的预订已成功更新，登机牌将通过邮件发送。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Okay, I’ll call you back if there’s a problem.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Thanks for your help. Have a great day!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Why didn’t you confirm it earlier?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you upgrade my seat now?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Thanks for your help. Have a great day!' 是礼貌、自然的结束语，符合道别确认场景。opt_1 和 opt_4 引入新请求，opt_3 表达抱怨，均不符合积极结束对话的语境。"
+      }
+    },
+    {
+      "id": "travel_070_sub_5_pq_3",
+      "subSceneId": "travel_070_sub_5",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "All changes are processed. You’re all set for your trip.",
+        "speakerTextCn": "所有变更已处理完毕，您的行程已安排妥当。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I guess that’s fine.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Perfect! Thanks a lot. Goodbye!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Do I need to check in online?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you confirm my baggage allowance?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Perfect! Thanks a lot. Goodbye!' 表达了满意、感谢和礼貌道别，是道别确认场景的典型回应。opt_1 语气消极，opt_3 和 opt_4 提出新问题，打断对话结束流程。"
+      }
+    },
+    {
+      "id": "travel_070_sub_5_pq_4",
+      "subSceneId": "travel_070_sub_5",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_070_sub_5_qa_1",
+        "template": "Thank you so much — you’ve ___ me!",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "saved",
+            "options": [
+              "saved",
+              "helped",
+              "called",
+              "found"
+            ]
+          }
+        ],
+        "hint": "这是对话中表达强烈感激的经典表达，强调对方解决了紧急问题。",
+        "knowledgePoint": "固定表达：save someone（救了某人，比喻解决了困境）"
+      }
+    },
+    {
+      "id": "travel_070_sub_5_pq_5",
+      "subSceneId": "travel_070_sub_5",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Appreciate it. ___ .",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Bye",
+            "options": [
+              "Bye",
+              "Hello",
+              "Wait",
+              "Sorry"
+            ]
+          }
+        ],
+        "hint": "在正式道别时，常与 'Appreciate it.' 连用，简洁礼貌。",
+        "knowledgePoint": "日常道别高频搭配：Appreciate it. Bye."
+      }
+    },
+    {
+      "id": "travel_070_sub_5_pq_6",
+      "subSceneId": "travel_070_sub_5",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Confirmed? ___ it. Thanks.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Got",
+            "options": [
+              "Got",
+              "Took",
+              "Made",
+              "Saw"
+            ]
+          }
+        ],
+        "hint": "口语中常用 'Got it' 表示‘明白了/收到了’，常用于确认信息后快速回应。",
+        "knowledgePoint": "口语确认表达：Got it（收到，明白了）"
+      }
+    },
+    {
+      "id": "travel_070_sub_5_pq_7",
+      "subSceneId": "travel_070_sub_5",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_070_sub_5_qa_1",
+        "speakerText": "Your new flight is confirmed for the 15th at 10 a.m. You'll get an email shortly.",
+        "speakerTextCn": "您的新航班已确认，15号上午10点，稍后会发邮件。",
+        "expectedAnswers": [
+          "Thank you so much! I really appreciate it.",
+          "Got it, thanks a lot. Bye!",
+          "That’s perfect — thank you for your help. Have a nice day!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表达感谢并确认信息已接收",
+          "语言准确性：语法正确，无明显错误",
+          "表达自然度：符合口语习惯，语气礼貌且不拖沓",
+          "关键词覆盖：使用了 thank / appreciate / got it / bye 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_070_sub_5_pq_8",
+      "subSceneId": "travel_070_sub_5",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "All changes have been successfully processed. Your updated itinerary is now confirmed.",
+        "speakerTextCn": "所有变更已成功处理，您的更新行程已确认。",
+        "expectedAnswers": [
+          "Great! Thanks for your help. Bye!",
+          "Appreciate it. I’ll check my email soon.",
+          "Perfect — thank you so much. Have a good one!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达感谢并结束对话，未提出新问题",
+          "语言准确性：用词和结构符合口语规范",
+          "表达自然度：语调自然，符合真实对话节奏",
+          "关键词覆盖：使用了 appreciate / thank / bye / perfect / great 等道别关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_070_sub_5_pq_9",
+      "subSceneId": "travel_070_sub_5",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Your ticket has been reissued. You’re all set for your trip.",
+        "speakerTextCn": "您的机票已重开，您的行程已安排妥当。",
+        "expectedAnswers": [
+          "Thank you! That’s a relief.",
+          "Confirmed! Thanks a bunch. See you on the plane!",
+          "Awesome — I really appreciate your help. Goodbye!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否传达感激之情并自然结束通话",
+          "语言准确性：语法正确，用词恰当",
+          "表达自然度：语气真诚、口语化，符合服务结束场景",
+          "关键词覆盖：使用了 thank / appreciate / confirmed / relief / goodbye 等核心表达"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,260 @@
+{
+  "subSceneId": "travel_057_sub_3",
+  "subSceneName": "登机口确认",
+  "generatedAt": "2026-03-02T14:55:24.704Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_057_sub_3_pq_1",
+      "subSceneId": "travel_057_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_057_sub_3_qa_1",
+        "speakerText": "You're boarding from Gate B12, flight 234 to Tokyo.",
+        "speakerTextCn": "您从B12登机口登机，航班234飞东京。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Thanks! B12, got it.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'll check in at Gate B12.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I change my gate to B12?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Is B12 the baggage claim?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Thanks! B12, got it.' 是对登机口信息的自然确认回应，符合复述关键信息的场景要求。干扰项1 'I'll check in at Gate B12.' 错误地将登机口与值机柜台混淆；干扰项2 'Can I change my gate to B12?' 暗示用户想更改登机口，但对话中是告知而非请求；干扰项3 'Is B12 the baggage claim?' 完全误解了登机口的功能。"
+      }
+    },
+    {
+      "id": "travel_057_sub_3_pq_2",
+      "subSceneId": "travel_057_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Your flight to Seoul is departing from Gate C7. Please have your boarding pass ready.",
+        "speakerTextCn": "您飞往首尔的航班从C7登机口起飞，请准备好登机牌。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "C7? Got it, thanks!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I need to go to the restroom first.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I board from Gate C8 instead?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much is the fare to Seoul?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'C7? Got it, thanks!' 是对登机口信息的标准确认回应，语气自然且包含复述与感谢。干扰项1与场景无关，是个人需求；干扰项2试图更改登机口，不符合告知语境；干扰项3混淆了登机口与机票价格，属于完全无关的提问。"
+      }
+    },
+    {
+      "id": "travel_057_sub_3_pq_3",
+      "subSceneId": "travel_057_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Flight AA101 to London is now boarding at Gate D3.",
+        "speakerTextCn": "飞往伦敦的AA101航班现在从D3登机口开始登机。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is D3 the correct gate for AA101?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'd like to book a seat on that flight.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "When does the flight arrive in London?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get a snack at Gate D3?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Is D3 the correct gate for AA101?' 是对关键信息的合理确认，符合场景中‘复述确认’的要求。干扰项1是预订行为，发生在登机前阶段；干扰项2询问到达时间，与当前确认登机口无关；干扰项3询问零食，属于无关细节。"
+      }
+    },
+    {
+      "id": "travel_057_sub_3_pq_4",
+      "subSceneId": "travel_057_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_057_sub_3_qa_1",
+        "template": "You're boarding from Gate ___ , flight 234 to Tokyo.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "B12",
+            "options": [
+              "B12",
+              "B10",
+              "C12",
+              "D3"
+            ]
+          }
+        ],
+        "hint": "登机口通常由字母加数字组成，如A5、B12等。",
+        "knowledgePoint": "登机口标准格式（字母+数字）"
+      }
+    },
+    {
+      "id": "travel_057_sub_3_pq_5",
+      "subSceneId": "travel_057_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could you please confirm the ___ for my flight to Paris?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "gate",
+            "options": [
+              "gate",
+              "terminal",
+              "platform",
+              "counter"
+            ]
+          }
+        ],
+        "hint": "在机场询问登机位置时，最常用的词是这个。",
+        "knowledgePoint": "登机口相关核心词汇（gate）"
+      }
+    },
+    {
+      "id": "travel_057_sub_3_pq_6",
+      "subSceneId": "travel_057_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I'm at Gate C5 — is this ___ for flight AA205?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "correct",
+            "options": [
+              "correct",
+              "right",
+              "open",
+              "available"
+            ]
+          }
+        ],
+        "hint": "用于确认信息是否准确的常用形容词。",
+        "knowledgePoint": "确认信息的固定搭配（is this correct?）"
+      }
+    },
+    {
+      "id": "travel_057_sub_3_pq_7",
+      "subSceneId": "travel_057_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_057_sub_3_qa_1",
+        "speakerText": "You're boarding from Gate B12, flight 234 to Tokyo.",
+        "speakerTextCn": "您从B12登机口登机，航班234飞东京。",
+        "expectedAnswers": [
+          "Thanks! B12, got it.",
+          "B12? Perfect, I'm right here.",
+          "Is that the right gate? Just want to double-check.",
+          "Got it — Gate B12 for flight 234 to Tokyo, thanks!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确确认了登机口和航班信息",
+          "语言准确性：语法和用词是否正确，无明显错误",
+          "表达自然度：是否符合机场口语习惯，语气礼貌自然",
+          "关键词覆盖：是否包含 gate、flight、destination 等关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_057_sub_3_pq_8",
+      "subSceneId": "travel_057_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Your flight to Seoul is departing from Gate C7.",
+        "speakerTextCn": "您飞往首尔的航班从C7登机口起飞。",
+        "expectedAnswers": [
+          "C7? Got it, thanks!",
+          "Is C7 the correct gate? I just want to make sure.",
+          "Thanks! I'll head to C7 right away.",
+          "C7 for Seoul — perfect, I'm on my way!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰确认或复述登机口信息",
+          "语言准确性：使用了正确的动词和介词结构",
+          "表达自然度：符合机场工作人员与旅客间的日常对话节奏",
+          "关键词覆盖：是否包含 gate、flight、destination 或相关动词如 depart"
+        ]
+      }
+    },
+    {
+      "id": "travel_057_sub_3_pq_9",
+      "subSceneId": "travel_057_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Flight AA101 to London is now boarding at Gate D3.",
+        "speakerTextCn": "飞往伦敦的AA101航班现在从D3登机口开始登机。",
+        "expectedAnswers": [
+          "D3? Got it — thanks!",
+          "Is D3 the gate for AA101? Just confirming.",
+          "Thanks! I'm heading to D3 now.",
+          "So I board at D3 for London? Perfect!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确回应并确认登机口和航班号",
+          "语言准确性：句子结构完整，无严重语法错误",
+          "表达自然度：语气自然，符合口语习惯，有适当停顿和语调",
+          "关键词覆盖：是否包含 gate、flight、board、destination 等场景关键词"
+        ]
+      }
+    }
+  ]
+}

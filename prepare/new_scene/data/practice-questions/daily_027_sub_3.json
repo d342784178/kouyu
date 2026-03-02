@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_027_sub_3",
+  "subSceneName": "确认库存与价格",
+  "generatedAt": "2026-03-02T14:42:20.798Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_027_sub_3_pq_1",
+      "subSceneId": "daily_027_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_027_sub_3_qa_1",
+        "speakerText": "We’ve got one left in stock — it’s $129.",
+        "speakerTextCn": "只剩一台了，129美元。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can you knock off $20? I’m not sure if I want it.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you knock off $10? I’ll take it right now.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Is this the cheapest price you have? I’ll come back tomorrow.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I’ll take two, please.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了 'knock off'（打折）和 'I’ll take it right now'（立即购买）来增强说服力，符合场景中‘提价时带理由更易成功’的策略。选项1语气犹豫，削弱了购买意愿；选项3拖延决策，不利于促成交易；选项4与‘只剩一台’矛盾。"
+      }
+    },
+    {
+      "id": "daily_027_sub_3_pq_2",
+      "subSceneId": "daily_027_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_027_sub_3_qa_2",
+        "speakerText": "I can do $119 if you grab it today — no warranty extension though.",
+        "speakerTextCn": "今天买的话119，但不延保。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I’ll think about it and call you tomorrow.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Deal! I’ll take it. What’s the warranty?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you lower it to $99 and include warranty extension?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "That’s too expensive. I’ll look elsewhere.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案立即接受报价并主动确认保修细节，符合‘接受折扣时立即确认，避免犹豫’的策略。选项1拖延决策，选项3要求额外优惠但卖家已明确拒绝延保，选项4直接放弃，未尝试协商。"
+      }
+    },
+    {
+      "id": "daily_027_sub_3_pq_3",
+      "subSceneId": "daily_027_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "We have the model you’re looking for, but it’s $150.",
+        "speakerTextCn": "我们有您要的型号，但价格是150美元。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can you give me a discount? I’m a student.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don’t like the color. Do you have another one?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I’ll buy it for $100.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How about if I pay in cash?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案合理提出折扣请求，并给出理由（学生身份），符合场景中‘确认库存后询问折扣’的沟通逻辑。选项2转移话题，未回应价格；选项3压价过低，缺乏协商语气；选项4未直接请求折扣，而是提出付款方式，偏离核心需求。"
+      }
+    },
+    {
+      "id": "daily_027_sub_3_pq_4",
+      "subSceneId": "daily_027_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_027_sub_3_qa_1",
+        "template": "Can you ___ off $10? I’ll take it right now.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "knock",
+            "options": [
+              "knock",
+              "take",
+              "cut",
+              "drop"
+            ]
+          }
+        ],
+        "hint": "这是请求折扣的常用动词短语，常用于口语谈判",
+        "knowledgePoint": "固定搭配（knock off 表示打折）"
+      }
+    },
+    {
+      "id": "daily_027_sub_3_pq_5",
+      "subSceneId": "daily_027_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_027_sub_3_qa_2",
+        "template": "I can do $119 if you ___ it today.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "grab",
+            "options": [
+              "grab",
+              "buy",
+              "get",
+              "take"
+            ]
+          }
+        ],
+        "hint": "口语中表示‘立即买下’的生动动词",
+        "knowledgePoint": "场景高频动词（grab 表示快速购买）"
+      }
+    },
+    {
+      "id": "daily_027_sub_3_pq_6",
+      "subSceneId": "daily_027_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Is that the ___ price? I saw it online for less.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "best",
+            "options": [
+              "best",
+              "lowest",
+              "final",
+              "highest"
+            ]
+          }
+        ],
+        "hint": "询问价格是否具有竞争力时的常用表达",
+        "knowledgePoint": "固定表达（the best price 表示最低价）"
+      }
+    },
+    {
+      "id": "daily_027_sub_3_pq_7",
+      "subSceneId": "daily_027_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_027_sub_3_qa_1",
+        "speakerText": "We’ve got one left in stock — it’s $129.",
+        "speakerTextCn": "只剩一台了，129美元。",
+        "expectedAnswers": [
+          "Can you knock off $10? I’ll take it right now.",
+          "Is that the best price? I saw it online for $115.",
+          "Okay, I’ll take it."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表达购买意愿或请求折扣",
+          "语言准确性：语法和词汇使用是否正确",
+          "表达自然度：是否符合英语口语习惯，语气是否得体",
+          "关键词覆盖：是否使用了 'knock off', 'best price', 'take it' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_027_sub_3_pq_8",
+      "subSceneId": "daily_027_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_027_sub_3_qa_2",
+        "speakerText": "I can do $119 if you grab it today — no warranty extension though.",
+        "speakerTextCn": "今天买的话119，但不延保。",
+        "expectedAnswers": [
+          "Deal! I’ll take it. What’s the warranty?",
+          "Hmm... can you throw in extra batteries?",
+          "No thanks, I need warranty coverage."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确接受、协商或拒绝",
+          "语言准确性：是否正确使用 'deal', 'throw in', 'warranty' 等表达",
+          "表达自然度：语气是否自然，是否符合谈判语境",
+          "关键词覆盖：是否使用了 'deal', 'throw in', 'warranty' 等核心词汇"
+        ]
+      }
+    },
+    {
+      "id": "daily_027_sub_3_pq_9",
+      "subSceneId": "daily_027_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "The item is in stock, and it’s $145.",
+        "speakerTextCn": "这件商品有货，价格是145美元。",
+        "expectedAnswers": [
+          "Can you give me a better price? I’m paying with cash.",
+          "Is there any discount if I buy it today?",
+          "I’ll take it — but can you include free shipping?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否合理请求折扣或附加优惠",
+          "语言准确性：语法和用词是否正确，是否使用恰当的谈判表达",
+          "表达自然度：是否符合真实购物谈判的语气和节奏",
+          "关键词覆盖：是否使用了 'discount', 'better price', 'take it', 'include' 等场景关键词"
+        ]
+      }
+    }
+  ]
+}

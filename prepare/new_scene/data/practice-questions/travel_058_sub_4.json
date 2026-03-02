@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_058_sub_4",
+  "subSceneName": "取车与还车",
+  "generatedAt": "2026-03-02T14:55:55.746Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_058_sub_4_pq_1",
+      "subSceneId": "travel_058_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_058_sub_4_qa_1",
+        "speakerText": "Your car’s in lot C, level 2—just follow the signs.",
+        "speakerTextCn": "您的车在C区二层，跟着指示牌走就行。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Thanks! Can I get a shuttle to lot C?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I borrow a map of the parking lot?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I’ll take the car now, thanks.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Is there a discount for returning early?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案询问接驳车，是取车时常见的合理补充问题。选项2虽合理但非直接回应地点信息；选项3未确认信息且语气生硬；选项4与取车无关，属于还车流程问题。"
+      }
+    },
+    {
+      "id": "travel_058_sub_4_pq_2",
+      "subSceneId": "travel_058_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_058_sub_4_qa_2",
+        "speakerText": "You’ve got to return it with a full tank, and we’ll check for damage.",
+        "speakerTextCn": "还车时油箱必须加满，我们会检查车况。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What’s the penalty if I don’t fill it up?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I return it with half a tank?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you offer fuel service at the counter?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I pay extra to skip the damage check?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接询问未加满油的处罚，是回应油量要求的标准方式。选项2是试探性提问，不符合礼貌询问规范；选项3虽相关但属于延伸问题，非核心回应；选项4试图规避责任，不符合实际流程。"
+      }
+    },
+    {
+      "id": "travel_058_sub_4_pq_3",
+      "subSceneId": "travel_058_sub_4",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "The return drop-off is at the main counter on the ground floor.",
+        "speakerTextCn": "还车点在一层的主服务台。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is there a time limit for returning the car?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I leave the keys in the car?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is the parking free after return?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get a receipt by email?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案询问还车时间限制，是还车流程中必须确认的关键信息。选项2可能违反安全规范；选项3与还车流程无关；选项4是附加服务，非核心确认点。"
+      }
+    },
+    {
+      "id": "travel_058_sub_4_pq_4",
+      "subSceneId": "travel_058_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_058_sub_4_qa_1",
+        "template": "I need to know where to pick up the car—could you tell me the ___ and level?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "lot",
+            "options": [
+              "lot",
+              "area",
+              "floor",
+              "zone"
+            ]
+          }
+        ],
+        "hint": "取车时通常用 'lot' 指代停车区域，如 'lot C'",
+        "knowledgePoint": "场景高频词汇（停车区域）"
+      }
+    },
+    {
+      "id": "travel_058_sub_4_pq_5",
+      "subSceneId": "travel_058_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_058_sub_4_qa_2",
+        "template": "I’ll make sure to return the car with a ___ tank.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "full",
+            "options": [
+              "full",
+              "half",
+              "clean",
+              "empty"
+            ]
+          }
+        ],
+        "hint": "还车时油量要求是常见条款，必须加满",
+        "knowledgePoint": "场景核心句型（油量要求表达）"
+      }
+    },
+    {
+      "id": "travel_058_sub_4_pq_6",
+      "subSceneId": "travel_058_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could you please ___ me the damage check procedure?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "explain",
+            "options": [
+              "explain",
+              "show",
+              "tell",
+              "give"
+            ]
+          }
+        ],
+        "hint": "礼貌请求信息时常用 'could you explain...?'",
+        "knowledgePoint": "固定表达（礼貌请求说明）"
+      }
+    },
+    {
+      "id": "travel_058_sub_4_pq_7",
+      "subSceneId": "travel_058_sub_4",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_058_sub_4_qa_1",
+        "speakerText": "Your car’s in lot C, level 2—just follow the signs.",
+        "speakerTextCn": "您的车在C区二层，跟着指示牌走就行。",
+        "expectedAnswers": [
+          "Got it. What time do I need to return it?",
+          "C2, got it. Is there a shuttle available?",
+          "Thanks! I’ll head there now."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否确认了取车地点并询问了还车时间或辅助服务",
+          "语言准确性：语法正确，用词符合口语习惯",
+          "表达自然度：语气礼貌，符合真实对话节奏",
+          "关键词覆盖：使用了 'lot', 'level', 'shuttle', 'return' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_058_sub_4_pq_8",
+      "subSceneId": "travel_058_sub_4",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_058_sub_4_qa_2",
+        "speakerText": "You’ve got to return it with a full tank, and we’ll check for damage.",
+        "speakerTextCn": "还车时油箱必须加满，我们会检查车况。",
+        "expectedAnswers": [
+          "Okay, I’ll fill up before returning. What’s the damage check process?",
+          "What’s the charge if I don’t fill the tank?",
+          "No problem. Should I wait for the inspection or can I leave the keys?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确回应油量要求并询问了费用或检查流程",
+          "语言准确性：使用了 'fill up', 'charge', 'inspection' 等正确搭配",
+          "表达自然度：语气自然，有逻辑地延伸问题",
+          "关键词覆盖：使用了 'full tank', 'damage check', 'return' 等核心词汇"
+        ]
+      }
+    },
+    {
+      "id": "travel_058_sub_4_pq_9",
+      "subSceneId": "travel_058_sub_4",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "The return drop-off is at the main counter on the ground floor.",
+        "speakerTextCn": "还车点在一层的主服务台。",
+        "expectedAnswers": [
+          "Got it. Is there a time cutoff for returns?",
+          "Will I get a receipt right away, or do I need to request one?",
+          "Thanks. Do I need to return the keys in person?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否确认了还车位置并追问了关键流程（时间、收据、钥匙）",
+          "语言准确性：使用了 'time cutoff', 'receipt', 'in person' 等恰当表达",
+          "表达自然度：问题连贯，符合租车场景真实对话逻辑",
+          "关键词覆盖：使用了 'return', 'drop-off', 'counter', 'keys' 等场景关键词"
+        ]
+      }
+    }
+  ]
+}

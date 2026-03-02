@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_016_sub_3",
+  "subSceneName": "支付方式",
+  "generatedAt": "2026-03-02T14:38:23.335Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_016_sub_3_pq_1",
+      "subSceneId": "daily_016_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_016_sub_3_qa_1",
+        "speakerText": "You good with card or cash?",
+        "speakerTextCn": "刷卡还是现金？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll pay with Apple Pay.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I need a receipt.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much is the total?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I use a check?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'I'll pay with Apple Pay.' 是对支付方式提问的直接回应，符合语境。干扰项 'I need a receipt.' 是后续需求，不是回答支付方式；'How much is the total?' 是确认金额，与问题无关；'Can I use a check?' 虽语法正确，但在日常小额消费中极少使用，不符合常见语境。"
+      }
+    },
+    {
+      "id": "daily_016_sub_3_pq_2",
+      "subSceneId": "daily_016_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_016_sub_3_qa_2",
+        "speakerText": "Here's your change, $3.50.",
+        "speakerTextCn": "找你3块5。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Thanks! Have a good one.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I get a receipt?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I think you gave me too much.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you accept PayPal?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Thanks! Have a good one.' 是对找零的标准礼貌回应，体现沟通温度。干扰项 'Can I get a receipt?' 是额外请求，不回应感谢；'I think you gave me too much.' 是质疑，语气不礼貌；'Do you accept PayPal?' 与当前交易无关，属于话题偏移。"
+      }
+    },
+    {
+      "id": "daily_016_sub_3_pq_3",
+      "subSceneId": "daily_016_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Would you like to pay by credit card or digital wallet?",
+        "speakerTextCn": "您想用信用卡还是数字钱包支付？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll use Google Pay, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don't have any money.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you give me a discount?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "The item is too expensive.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'I'll use Google Pay, please.' 直接回应支付方式选择，礼貌且符合语境。干扰项均未回应问题：'I don't have any money.' 是消极陈述；'Can you give me a discount?' 是议价；'The item is too expensive.' 是抱怨，均非有效支付回应。"
+      }
+    },
+    {
+      "id": "daily_016_sub_3_pq_4",
+      "subSceneId": "daily_016_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_016_sub_3_qa_1",
+        "template": "I'd like to pay with ___ please.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "card",
+            "options": [
+              "card",
+              "cash",
+              "check",
+              "coin"
+            ]
+          }
+        ],
+        "hint": "最常用的支付方式之一，与 'cash' 并列",
+        "knowledgePoint": "支付方式高频词汇"
+      }
+    },
+    {
+      "id": "daily_016_sub_3_pq_5",
+      "subSceneId": "daily_016_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_016_sub_3_qa_1",
+        "template": "Can I use ___ Pay? It's faster.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Apple",
+            "options": [
+              "Apple",
+              "Google",
+              "Samsung",
+              "Microsoft"
+            ]
+          }
+        ],
+        "hint": "苹果公司推出的移动支付方式",
+        "knowledgePoint": "数字支付品牌名称搭配"
+      }
+    },
+    {
+      "id": "daily_016_sub_3_pq_6",
+      "subSceneId": "daily_016_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_016_sub_3_qa_2",
+        "template": "___! Have a nice day.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Thanks",
+            "options": [
+              "Thanks",
+              "Okay",
+              "Sure",
+              "No problem"
+            ]
+          }
+        ],
+        "hint": "收到找零后最自然的感谢表达",
+        "knowledgePoint": "交易结束时的礼貌回应"
+      }
+    },
+    {
+      "id": "daily_016_sub_3_pq_7",
+      "subSceneId": "daily_016_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_016_sub_3_qa_1",
+        "speakerText": "You good with card or cash?",
+        "speakerTextCn": "刷卡还是现金？",
+        "expectedAnswers": [
+          "Card, please.",
+          "I'll pay with Apple Pay.",
+          "Cash, here's a twenty."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回应了支付方式选择",
+          "语言准确性：语法正确，无明显错误",
+          "表达自然度：使用了场景高频表达如 'card', 'cash', 'Apple Pay'",
+          "关键词覆盖：至少使用一个支付方式关键词（card/cash/digital wallet）"
+        ]
+      }
+    },
+    {
+      "id": "daily_016_sub_3_pq_8",
+      "subSceneId": "daily_016_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_016_sub_3_qa_2",
+        "speakerText": "Here's your change, $4.25.",
+        "speakerTextCn": "找你4块25。",
+        "expectedAnswers": [
+          "Thanks! Have a good one.",
+          "Appreciate it!",
+          "Cool, thanks!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：正确回应了找零并表达感谢",
+          "语言准确性：使用了恰当的感谢表达，无语法错误",
+          "表达自然度：符合英语母语者日常口语习惯",
+          "关键词覆盖：使用了 'thanks', 'appreciate', 或类似礼貌回应"
+        ]
+      }
+    },
+    {
+      "id": "daily_016_sub_3_pq_9",
+      "subSceneId": "daily_016_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "We accept all major cards and mobile payments. How would you like to pay?",
+        "speakerTextCn": "我们接受所有主要银行卡和移动支付，您想怎么支付？",
+        "expectedAnswers": [
+          "I'll use my debit card.",
+          "Can I pay with Venmo?",
+          "Cash, please — here's a fifty."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰选择并说明支付方式",
+          "语言准确性：使用了正确的动词搭配（pay with / use）和表达",
+          "表达自然度：语调自然，符合真实交易场景",
+          "关键词覆盖：使用了至少一个支付方式关键词（card, cash, Venmo, Apple Pay 等）"
+        ]
+      }
+    }
+  ]
+}

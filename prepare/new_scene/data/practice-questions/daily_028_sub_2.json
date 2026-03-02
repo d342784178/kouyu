@@ -1,0 +1,254 @@
+{
+  "subSceneId": "daily_028_sub_2",
+  "subSceneName": "询问商品位置",
+  "generatedAt": "2026-03-02T14:42:10.507Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_028_sub_2_pq_1",
+      "subSceneId": "daily_028_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_028_sub_2_qa_1",
+        "speakerText": "Do you have those spiral notebooks in blue?",
+        "speakerTextCn": "你们有蓝色的活页笔记本吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, they're on the third shelf.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don't know who bought them.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "They cost $5 each.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Would you like to pay by card?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案回应了库存位置，符合询问商品位置的语境。干扰项分别涉及无关的购买者、价格和支付方式，均未回答‘在哪里’的核心问题。"
+      }
+    },
+    {
+      "id": "daily_028_sub_2_pq_2",
+      "subSceneId": "daily_028_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_028_sub_2_qa_2",
+        "speakerText": "And where are the pens?",
+        "speakerTextCn": "笔在哪儿？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "They're right next to the notebooks, on the left.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I think they're nice pens.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "We sell them in packs of 10.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I help you with anything else?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接回答了位置问题。干扰项分别评价笔的质量、说明销售包装和转移话题，均未回应'where'的核心询问。"
+      }
+    },
+    {
+      "id": "daily_028_sub_2_pq_3",
+      "subSceneId": "daily_028_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Excuse me, do you have any mechanical pencils in stock?",
+        "speakerTextCn": "不好意思，你们有机械铅笔吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Let me check for you.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I love using mechanical pencils.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "They're on sale this week.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How many do you need?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是礼貌回应库存查询的常用表达。干扰项是个人偏好、促销信息和数量询问，均未针对‘是否有货’进行有效回应。"
+      }
+    },
+    {
+      "id": "daily_028_sub_2_pq_4",
+      "subSceneId": "daily_028_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_028_sub_2_qa_1",
+        "template": "Do you have those spiral notebooks in blue? Yeah, they're on the ___ shelf.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "second",
+            "options": [
+              "second",
+              "third",
+              "first",
+              "fourth"
+            ]
+          }
+        ],
+        "hint": "回答商品位置时常用序数词表示货架层",
+        "knowledgePoint": "序数词表示货架层级（场景核心表达）"
+      }
+    },
+    {
+      "id": "daily_028_sub_2_pq_5",
+      "subSceneId": "daily_028_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_028_sub_2_qa_2",
+        "template": "And where are the pens? Right next to the notebooks, ___ the left.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "on",
+            "options": [
+              "on",
+              "in",
+              "at",
+              "by"
+            ]
+          }
+        ],
+        "hint": "表示‘在……左边’的固定搭配",
+        "knowledgePoint": "介词搭配（on the left/right）"
+      }
+    },
+    {
+      "id": "daily_028_sub_2_pq_6",
+      "subSceneId": "daily_028_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Sorry, we're out of black pens. Would you like ___ color?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "another",
+            "options": [
+              "another",
+              "other",
+              "the other",
+              "different"
+            ]
+          }
+        ],
+        "hint": "当商品缺货时，推荐替代选项的常用表达",
+        "knowledgePoint": "替代建议表达（would you like another...?）"
+      }
+    },
+    {
+      "id": "daily_028_sub_2_pq_7",
+      "subSceneId": "daily_028_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_028_sub_2_qa_1",
+        "speakerText": "Do you have those spiral notebooks in blue?",
+        "speakerTextCn": "你们有蓝色的活页笔记本吗？",
+        "expectedAnswers": [
+          "Yeah, they're on the second shelf.",
+          "Let me check for you — I'll be right back.",
+          "Sorry, we're out of blue ones, but we have black or green."
+        ],
+        "evaluationCriteria": [
+          "是否准确回应了库存状态（有/无/待查）",
+          "是否使用了场景关键词如 'spiral notebooks', 'blue', 'shelf'",
+          "表达是否自然、符合日常口语习惯"
+        ]
+      }
+    },
+    {
+      "id": "daily_028_sub_2_pq_8",
+      "subSceneId": "daily_028_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_028_sub_2_qa_2",
+        "speakerText": "And where are the pens?",
+        "speakerTextCn": "笔在哪儿？",
+        "expectedAnswers": [
+          "Right next to the notebooks, on the left.",
+          "Down the aisle, second rack on the right.",
+          "Over there — you can't miss them."
+        ],
+        "evaluationCriteria": [
+          "是否清晰指明了具体位置",
+          "是否使用了方向词如 'next to', 'down the aisle', 'on the left/right'",
+          "表达是否简洁自然，符合真实对话节奏"
+        ]
+      }
+    },
+    {
+      "id": "daily_028_sub_2_pq_9",
+      "subSceneId": "daily_028_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Hi, I'm looking for a notebook and some pens. Can you help me?",
+        "speakerTextCn": "你好，我在找一本笔记本和一些笔，你能帮我吗？",
+        "expectedAnswers": [
+          "Sure! Notebooks are on the second shelf, and pens are right next to them.",
+          "Of course! Let me show you — notebooks are over there, and pens are on the left rack.",
+          "Absolutely! We have notebooks on the second shelf, and the pens are just down the aisle."
+        ],
+        "evaluationCriteria": [
+          "是否完整回应了两种商品的位置",
+          "是否使用了至少两个场景核心表达（如 'on the shelf', 'next to', 'down the aisle'）",
+          "语气是否礼貌友好，符合服务场景"
+        ]
+      }
+    }
+  ]
+}

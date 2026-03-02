@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_005_sub_3",
+  "subSceneName": "回答病史",
+  "generatedAt": "2026-03-02T14:35:01.132Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_005_sub_3_pq_1",
+      "subSceneId": "daily_005_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_005_sub_3_qa_1",
+        "speakerText": "Do you smoke or drink much?",
+        "speakerTextCn": "你抽烟或喝酒多吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I smoke two packs a day and drink whiskey daily.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "I used to smoke, but I quit last year. I drink wine once a week.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't know what you mean by much.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I only eat healthy food and never sleep.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了 'used to' 表示过去习惯，'once a week' 表示适度饮酒，符合医生询问病史的语境。选项1过于极端，不符合常规健康披露；选项3回避问题，不礼貌；选项4与问题无关。"
+      }
+    },
+    {
+      "id": "daily_005_sub_3_pq_2",
+      "subSceneId": "daily_005_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_005_sub_3_qa_2",
+        "speakerText": "Any allergies or chronic conditions?",
+        "speakerTextCn": "有过敏或慢性病吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I have a headache every Monday.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Yeah, penicillin makes me break out. Otherwise, I'm good.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I like chocolate and coffee.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I don't remember my last doctor visit.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了口语化表达 'makes me break out' 准确描述过敏反应，符合医疗对话习惯。选项1是偶发症状，不是慢性病；选项3与过敏无关；选项4回避问题，不提供有效信息。"
+      }
+    },
+    {
+      "id": "daily_005_sub_3_pq_3",
+      "subSceneId": "daily_005_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Do you have any history of high blood pressure or diabetes?",
+        "speakerTextCn": "你有高血压或糖尿病的病史吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I eat a lot of sugar, so maybe.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "I was diagnosed with high blood pressure five years ago, but it's under control now.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "My mom has diabetes, but I'm fine.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I don't know what those words mean.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确陈述了病史、诊断时间和当前控制情况，是完整且专业的回应。选项1是猜测，不准确；选项3提到家族史，但未说明自身状况；选项4拒绝沟通，不符合医疗场景。"
+      }
+    },
+    {
+      "id": "daily_005_sub_3_pq_4",
+      "subSceneId": "daily_005_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_005_sub_3_qa_1",
+        "template": "I ______ to smoke, but I quit last year.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "used",
+            "options": [
+              "used",
+              "have",
+              "like",
+              "try"
+            ]
+          }
+        ],
+        "hint": "表达过去习惯但已停止的常用结构",
+        "knowledgePoint": "used to do（过去习惯表达）"
+      }
+    },
+    {
+      "id": "daily_005_sub_3_pq_5",
+      "subSceneId": "daily_005_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_005_sub_3_qa_2",
+        "template": "I'm allergic to ______.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "penicillin",
+            "options": [
+              "penicillin",
+              "coffee",
+              "exercise",
+              "sunlight"
+            ]
+          }
+        ],
+        "hint": "常见的药物过敏原，对话中提到的关键词汇",
+        "knowledgePoint": "常见过敏原词汇（医疗场景高频词）"
+      }
+    },
+    {
+      "id": "daily_005_sub_3_pq_6",
+      "subSceneId": "daily_005_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I ______ drink alcohol — just once in a while.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "rarely",
+            "options": [
+              "rarely",
+              "always",
+              "never",
+              "usually"
+            ]
+          }
+        ],
+        "hint": "表示‘很少’喝酒的副词，语气礼貌且准确",
+        "knowledgePoint": "频率副词在健康陈述中的使用（rarely）"
+      }
+    },
+    {
+      "id": "daily_005_sub_3_pq_7",
+      "subSceneId": "daily_005_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_005_sub_3_qa_1",
+        "speakerText": "Do you smoke or drink much?",
+        "speakerTextCn": "你抽烟或喝酒多吗？",
+        "expectedAnswers": [
+          "I don't smoke. I have a glass of wine on weekends.",
+          "I used to smoke, but I quit two years ago. I rarely drink — maybe once a month.",
+          "Nah, I'm not a smoker. I only have a beer when I'm out with friends."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回答了是否吸烟和饮酒",
+          "语言准确性：语法正确，使用了恰当的时态和频率副词",
+          "表达自然度：使用了口语化表达如 'Nah' 或 'a glass of wine'，符合日常对话习惯",
+          "关键词覆盖：包含 'smoke', 'drink', 'quit', 'weekends/monthly' 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_005_sub_3_pq_8",
+      "subSceneId": "daily_005_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_005_sub_3_qa_2",
+        "speakerText": "Any allergies or chronic conditions?",
+        "speakerTextCn": "有过敏或慢性病吗？",
+        "expectedAnswers": [
+          "I'm allergic to peanuts. No chronic conditions.",
+          "Yes, I get rashes from penicillin — that's it.",
+          "I have asthma since childhood, but it's well-managed with medication."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰说明过敏原或慢性病情况",
+          "语言准确性：使用了正确术语如 'allergic to', 'chronic conditions', 'well-managed'",
+          "表达自然度：使用了口语化结构如 'that's it' 或 'I get rashes from'，不生硬",
+          "关键词覆盖：包含 'allergic', 'penicillin', 'asthma', 'chronic' 等核心医疗词汇"
+        ]
+      }
+    },
+    {
+      "id": "daily_005_sub_3_pq_9",
+      "subSceneId": "daily_005_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "How about your diet and exercise habits?",
+        "speakerTextCn": "你的饮食和运动习惯怎么样？",
+        "expectedAnswers": [
+          "I try to eat vegetables every day and walk 30 minutes after dinner.",
+          "I don't exercise much, but I'm trying to start. I eat too much junk food, honestly.",
+          "I go to the gym three times a week and avoid sugary drinks."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：完整回应饮食和运动两个方面",
+          "语言准确性：使用了正确动词搭配如 'eat vegetables', 'go to the gym', 'avoid sugary drinks'",
+          "表达自然度：使用了口语表达如 'I'm trying to', 'honestly', 'not much'，符合真实对话风格",
+          "关键词覆盖：包含 'diet', 'exercise', 'vegetables', 'gym', 'junk food', 'sugary drinks' 等健康关键词"
+        ]
+      }
+    }
+  ]
+}

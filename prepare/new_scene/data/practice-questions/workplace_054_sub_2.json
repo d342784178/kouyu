@@ -1,0 +1,257 @@
+{
+  "subSceneId": "workplace_054_sub_2",
+  "subSceneName": "申领物品",
+  "generatedAt": "2026-03-02T15:19:32.212Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "workplace_054_sub_2_pq_1",
+      "subSceneId": "workplace_054_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "workplace_054_sub_2_qa_1",
+        "speakerText": "I'd like to grab some pens, notepads, and tape.",
+        "speakerTextCn": "我想领些笔、便签和胶带。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Sure, how many of each?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you want me to order them online?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you return those later?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'll bring them to your desk tomorrow.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Sure, how many of each?' 是对申领物品请求的标准回应，用于确认数量。其他选项虽然语法正确，但不符合场景：B 是建议网购，C 是关于归还，D 是承诺送货，均未回应核心需求——明确数量。"
+      }
+    },
+    {
+      "id": "workplace_054_sub_2_pq_2",
+      "subSceneId": "workplace_054_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I need some printer paper and staplers.",
+        "speakerTextCn": "我需要一些打印纸和订书机。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How many reams and how many staplers?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Should I get you a coffee while I'm at it?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "We don't have staplers anymore.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you sign the form first?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'How many reams and how many staplers?' 是专业、自然的确认数量方式，使用了场景关键词 'reams'（纸张单位）和 'staplers'。B 是无关闲聊，C 是消极回应，D 是流程要求，均未在申领场景中优先回应需求。"
+      }
+    },
+    {
+      "id": "workplace_054_sub_2_pq_3",
+      "subSceneId": "workplace_054_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I'd like to pick up some markers and sticky notes.",
+        "speakerTextCn": "我想领取一些马克笔和便利贴。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Okay, how many boxes of each?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Why do you need so many?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I'll email you the inventory list.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Are those for the meeting room?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'How many boxes of each?' 使用了场景高频表达 'of each'，并匹配物品单位（便利贴常用 box）。B 带有质疑语气，不专业；C 和 D 虽相关但未解决核心问题——确认数量，不符合 'must_speak' 的高效沟通要求。"
+      }
+    },
+    {
+      "id": "workplace_054_sub_2_pq_4",
+      "subSceneId": "workplace_054_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "workplace_054_sub_2_qa_1",
+        "template": "I'd like ___ book some notepads and pens.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "with",
+              "at"
+            ]
+          }
+        ],
+        "hint": "表达‘想要做某事’的固定句型",
+        "knowledgePoint": "would like to do（预约场景核心句型）"
+      }
+    },
+    {
+      "id": "workplace_054_sub_2_pq_5",
+      "subSceneId": "workplace_054_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "workplace_054_sub_2_qa_1",
+        "template": "I need 5 pens, 10 pads, and 2 ___ of tape.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "rolls",
+            "options": [
+              "rolls",
+              "pieces",
+              "sheets",
+              "boxes"
+            ]
+          }
+        ],
+        "hint": "胶带的常用量词",
+        "knowledgePoint": "物品量词搭配（胶带用 rolls）"
+      }
+    },
+    {
+      "id": "workplace_054_sub_2_pq_6",
+      "subSceneId": "workplace_054_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Just the ___: 3 pens and 5 pads.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "basics",
+            "options": [
+              "basics",
+              "essentials",
+              "items",
+              "supplies"
+            ]
+          }
+        ],
+        "hint": "口语中表示‘只要基础的’常用表达",
+        "knowledgePoint": "场景惯用表达（just the basics）"
+      }
+    },
+    {
+      "id": "workplace_054_sub_2_pq_7",
+      "subSceneId": "workplace_054_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "workplace_054_sub_2_qa_1",
+        "speakerText": "I'd like to grab some pens, notepads, and tape.",
+        "speakerTextCn": "我想领些笔、便签和胶带。",
+        "expectedAnswers": [
+          "Sure, how many of each?",
+          "Okay, let me know the quantities.",
+          "Got it. How many pens, pads, and rolls of tape?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确回应并询问数量，避免后续重复确认",
+          "语言准确性：语法正确，使用场景词汇如 'how many of each' 或 'quantities'",
+          "表达自然度：语气礼貌、简洁，符合职场口语习惯",
+          "关键词覆盖：包含 'how many', 'each', 或 'quantities' 等关键表达"
+        ]
+      }
+    },
+    {
+      "id": "workplace_054_sub_2_pq_8",
+      "subSceneId": "workplace_054_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I need some printer paper and staplers.",
+        "speakerTextCn": "我需要一些打印纸和订书机。",
+        "expectedAnswers": [
+          "How many reams and how many staplers?",
+          "Do you need standard white paper or colored?",
+          "I'll get you 5 reams and 2 staplers — is that enough?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确询问数量或提供合理选项，推动流程完成",
+          "语言准确性：使用正确量词（reams）和物品名称，无语法错误",
+          "表达自然度：语气专业且不生硬，符合职场沟通习惯",
+          "关键词覆盖：包含 'reams', 'staplers', 'quantities', 或 'how many'"
+        ]
+      }
+    },
+    {
+      "id": "workplace_054_sub_2_pq_9",
+      "subSceneId": "workplace_054_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Can I get some markers and sticky notes?",
+        "speakerTextCn": "我可以领一些马克笔和便利贴吗？",
+        "expectedAnswers": [
+          "Of course! How many boxes of sticky notes and how many markers?",
+          "Sure — do you need fine-tip or broad-tip markers?",
+          "I'll prepare 4 markers and 3 boxes of sticky notes for you."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：积极回应并主动询问数量或类型，减少来回沟通",
+          "语言准确性：使用正确量词（boxes）和物品名称，句式完整",
+          "表达自然度：语气友好、高效，符合办公场景口语风格",
+          "关键词覆盖：包含 'how many', 'boxes', 'markers', 'sticky notes'"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_067_sub_2",
+  "subSceneName": "询问必要性",
+  "generatedAt": "2026-03-02T15:08:47.367Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_067_sub_2_pq_1",
+      "subSceneId": "travel_067_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_067_sub_2_qa_1",
+        "speakerText": "Do I really need travel insurance? I mean, it's just a short trip to Japan.",
+        "speakerTextCn": "我真的需要买旅游保险吗？只是去日本短途旅行。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Absolutely! Even short trips can have unexpected issues like flight delays or lost luggage.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "No, you don't need it—Japan is very safe and hospitals are free.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "It's mandatory by law, so you must buy it.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I don't know, maybe ask the airline.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案用具体理由（航班延误、行李丢失）增强说服力，符合使用说明。干扰项1错误地声称日本医院免费（实际不免费）；干扰项2夸大法律强制要求；干扰项4回避问题，缺乏专业建议。"
+      }
+    },
+    {
+      "id": "travel_067_sub_2_pq_2",
+      "subSceneId": "travel_067_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_067_sub_2_qa_2",
+        "speakerText": "What does the basic plan cover?",
+        "speakerTextCn": "基础计划都保什么？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "It covers medical emergencies, trip cancellations, and lost baggage — all the big stuff.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "It includes free meals, hotel upgrades, and guided tours.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Only flight delays and visa fees are covered.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Everything—medical, legal, and even pet care.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案简洁明确地列出核心保障（医疗、取消、行李），符合使用说明。干扰项1添加了不属于基础计划的餐饮和导游；干扰项2缩小范围且包含错误内容（签证费通常不保）；干扰项4夸大范围，不符合现实。"
+      }
+    },
+    {
+      "id": "travel_067_sub_2_pq_3",
+      "subSceneId": "travel_067_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Is travel insurance worth it if I'm only staying for three days?",
+        "speakerTextCn": "如果我只待三天，买旅游保险值得吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, even short trips can involve medical emergencies or sudden itinerary changes.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "No, three days is too short—insurance won't kick in before you leave.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Only if you're carrying expensive electronics.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Ask your friend who went last year—they know better.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案强调意外风险与时长无关，符合场景核心逻辑。干扰项1错误暗示保险有等待期；干扰项2��保障范围局限在贵重物品，忽略医疗和行程变更；干扰项4推卸责任，非专业回应。"
+      }
+    },
+    {
+      "id": "travel_067_sub_2_pq_4",
+      "subSceneId": "travel_067_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_067_sub_2_qa_1",
+        "template": "I'd like to know if I ___ need travel insurance for a short trip.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "really",
+            "options": [
+              "really",
+              "must",
+              "should",
+              "have to"
+            ]
+          }
+        ],
+        "hint": "原对话中旅客用这个词表达怀疑，回应者用它加强语气",
+        "knowledgePoint": "口语中加强语气的副词使用（really）"
+      }
+    },
+    {
+      "id": "travel_067_sub_2_pq_5",
+      "subSceneId": "travel_067_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_067_sub_2_qa_2",
+        "template": "The basic plan covers medical emergencies, trip cancellations, and ___ baggage.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "lost",
+            "options": [
+              "lost",
+              "missing",
+              "delayed",
+              "stolen"
+            ]
+          }
+        ],
+        "hint": "这是保险条款中的固定搭配，指‘行李丢失’",
+        "knowledgePoint": "保险场景核心搭配（lost baggage）"
+      }
+    },
+    {
+      "id": "travel_067_sub_2_pq_6",
+      "subSceneId": "travel_067_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "It's optional, but ___ recommended.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "highly",
+            "options": [
+              "highly",
+              "very",
+              "really",
+              "extremely"
+            ]
+          }
+        ],
+        "hint": "这是专业建议中常用的程度副词，比 'very' 更正式",
+        "knowledgePoint": "正式建议中的高频搭配（highly recommended）"
+      }
+    },
+    {
+      "id": "travel_067_sub_2_pq_7",
+      "subSceneId": "travel_067_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_067_sub_2_qa_1",
+        "speakerText": "Do I really need travel insurance? I mean, it's just a short trip to Japan.",
+        "speakerTextCn": "我真的需要买旅游保险吗？只是去日本短途旅行。",
+        "expectedAnswers": [
+          "Absolutely! Even short trips can have unexpected issues like flight delays or lost luggage.",
+          "It's not required, but I'd still get it—medical costs abroad can be really high.",
+          "You might be fine without it, but insurance gives you peace of mind for emergencies."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否回应了对方的疑虑并提供合理建议",
+          "语言准确性：语法正确，用词恰当，无中式英语",
+          "表达自然度：使用口语化表达，如 'I'd still get it' 或 'peace of mind'",
+          "关键词覆盖：是否包含 'flight delays', 'lost luggage', 'medical emergencies' 等核心词"
+        ]
+      }
+    },
+    {
+      "id": "travel_067_sub_2_pq_8",
+      "subSceneId": "travel_067_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_067_sub_2_qa_2",
+        "speakerText": "What does the basic plan cover?",
+        "speakerTextCn": "基础计划都保什么？",
+        "expectedAnswers": [
+          "It covers medical emergencies, trip cancellations, and lost baggage — all the big stuff.",
+          "Mainly medical help and if you have to cancel your trip. Baggage loss too, usually.",
+          "You're covered for hospital visits, flight delays, and if your luggage doesn't arrive."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰列出核心保障内容，不遗漏关键项目",
+          "语言准确性：正确使用名词短语和动词搭配，如 'trip cancellations', 'lost baggage'",
+          "表达自然度：使用口语缩略表达如 'all the big stuff' 或 'usually' 增强真实感",
+          "关键词覆盖：是否包含 'medical emergencies', 'trip cancellations', 'lost baggage' 中至少两个"
+        ]
+      }
+    },
+    {
+      "id": "travel_067_sub_2_pq_9",
+      "subSceneId": "travel_067_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'm on a tight budget. Can I skip travel insurance?",
+        "speakerTextCn": "我预算很紧，我能不买旅游保险吗？",
+        "expectedAnswers": [
+          "I understand budget concerns, but even basic insurance is cheap compared to a medical emergency abroad.",
+          "You could skip it if you're confident, but I'd at least get coverage for medical and flights.",
+          "It's optional, but think of it as a small cost for big protection—better safe than sorry."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否承认预算限制，同时提供理性建议而非简单否定",
+          "语言准确性：使用恰当的条件句和比较结构，如 'compared to', 'at least'",
+          "表达自然度：使用习语如 'better safe than sorry' 和口语化表达增强亲和力",
+          "关键词覆盖：是否包含 'budget', 'medical emergency', 'coverage', 'optional' 等场景关键词"
+        ]
+      }
+    }
+  ]
+}

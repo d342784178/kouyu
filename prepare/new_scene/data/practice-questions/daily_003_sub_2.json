@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_003_sub_2",
+  "subSceneName": "确认口味",
+  "generatedAt": "2026-03-02T14:38:06.179Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_003_sub_2_pq_1",
+      "subSceneId": "daily_003_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_003_sub_2_qa_1",
+        "speakerText": "Want that with whole milk or oat?",
+        "speakerTextCn": "要全脂奶还是燕麦奶？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I prefer soy milk.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "It's too hot today.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I get a muffin instead?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'll pay with cash.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'I prefer soy milk.'是对奶类选择的直接回应，符合场景需求。其他选项与问题无关：'It's too hot today.'是天气评论，'Can I get a muffin instead?'是更换商品，'I'll pay with cash.'是支付方式，均未回应奶类选择问题。"
+      }
+    },
+    {
+      "id": "daily_003_sub_2_pq_2",
+      "subSceneId": "daily_003_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_003_sub_2_qa_2",
+        "speakerText": "How many sugars?",
+        "speakerTextCn": "要几勺糖？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "None, I like it black.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'll take it to go.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "The coffee is delicious.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get a discount?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'None, I like it black.'是表达无糖咖啡的标准说法，符合场景核心表达。其他选项均未回应糖量问题：'I'll take it to go.'是关于外带，'The coffee is delicious.'是评价口味，'Can I get a discount?'是询问价格，均不相关。"
+      }
+    },
+    {
+      "id": "daily_003_sub_2_pq_3",
+      "subSceneId": "daily_003_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Would you like your coffee light, medium, or dark roast?",
+        "speakerTextCn": "您想要浅焙、中焙还是深焙的咖啡？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Medium roast, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'll have a latte.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "It's 3 o'clock.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have free Wi-Fi?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'Medium roast, please.'直接回应了咖啡烘焙程度的问题，符合确认口味的场景。其他选项均偏离主题：'I'll have a latte.'是选择饮品类型，'It's 3 o'clock.'是时间陈述，'Do you have free Wi-Fi?'是服务询问，均非对烘焙程度的回应。"
+      }
+    },
+    {
+      "id": "daily_003_sub_2_pq_4",
+      "subSceneId": "daily_003_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_003_sub_2_qa_1",
+        "template": "I'd like ___ milk, please.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "oat",
+            "options": [
+              "oat",
+              "water",
+              "tea",
+              "sugar"
+            ]
+          }
+        ],
+        "hint": "常见植物奶选项：燕麦、杏仁、豆奶",
+        "knowledgePoint": "奶类名称（场景高频词汇）"
+      }
+    },
+    {
+      "id": "daily_003_sub_2_pq_5",
+      "subSceneId": "daily_003_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_003_sub_2_qa_2",
+        "template": "___ sugars, thanks.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "None",
+            "options": [
+              "None",
+              "No",
+              "Not",
+              "Zero"
+            ]
+          }
+        ],
+        "hint": "表达‘不要糖’的标准说法",
+        "knowledgePoint": "表达无糖的惯用搭配（None + black）"
+      }
+    },
+    {
+      "id": "daily_003_sub_2_pq_6",
+      "subSceneId": "daily_003_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Can I get a ___ of syrup with that?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "splash",
+            "options": [
+              "splash",
+              "cup",
+              "bottle",
+              "glass"
+            ]
+          }
+        ],
+        "hint": "少量糖浆的常用表达",
+        "knowledgePoint": "少量添加物的惯用词（a splash of）"
+      }
+    },
+    {
+      "id": "daily_003_sub_2_pq_7",
+      "subSceneId": "daily_003_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_003_sub_2_qa_1",
+        "speakerText": "Want that with whole milk or oat?",
+        "speakerTextCn": "要全脂奶还是燕麦奶？",
+        "expectedAnswers": [
+          "Oat milk, please.",
+          "I'll take almond milk if you have it.",
+          "Regular milk is fine, thanks."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回应奶类选择，未偏离主题",
+          "语言准确性：语法正确，使用恰当词汇（如oat milk, almond milk）",
+          "表达自然度：使用礼貌用语（please, thanks），符合口语习惯",
+          "关键词覆盖：使用了场景核心词（milk类型）"
+        ]
+      }
+    },
+    {
+      "id": "daily_003_sub_2_pq_8",
+      "subSceneId": "daily_003_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_003_sub_2_qa_2",
+        "speakerText": "How many sugars?",
+        "speakerTextCn": "要几勺糖？",
+        "expectedAnswers": [
+          "One, please.",
+          "None, I like it black.",
+          "Two sugars, and a dash of vanilla syrup."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确回应糖量要求，包括无糖或添加糖浆的变体",
+          "语言准确性：使用正确数词和表达（none, black, dash of syrup）",
+          "表达自然度：语调自然，符合咖啡店日常对话节奏",
+          "关键词覆盖：使用了sugars, black, syrup等核心词汇"
+        ]
+      }
+    },
+    {
+      "id": "daily_003_sub_2_pq_9",
+      "subSceneId": "daily_003_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Do you prefer your coffee strong or mild?",
+        "speakerTextCn": "您喜欢浓一点还是淡一点的咖啡？",
+        "expectedAnswers": [
+          "I like it strong, please.",
+          "Mild is better for me — I don't want it too bitter.",
+          "Medium strength, and maybe a little extra shot if you can."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰表达咖啡浓度偏好，回应问题核心",
+          "语言准确性：使用正确形容词（strong, mild, medium）和表达",
+          "表达自然度：语气自然，符合口语交流习惯，使用适度修饰",
+          "关键词覆盖：使用了strong, mild, strength, shot等场景关键词"
+        ]
+      }
+    }
+  ]
+}

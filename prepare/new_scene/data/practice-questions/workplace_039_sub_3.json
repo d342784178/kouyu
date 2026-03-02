@@ -1,0 +1,257 @@
+{
+  "subSceneId": "workplace_039_sub_3",
+  "subSceneName": "条款协商",
+  "generatedAt": "2026-03-02T15:17:31.879Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "workplace_039_sub_3_pq_1",
+      "subSceneId": "workplace_039_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "workplace_039_sub_3_qa_1",
+        "speakerText": "We usually pay 50% upfront — but this time, we’d prefer 30% with the rest after delivery.",
+        "speakerTextCn": "我们通常付50%预付款，这次希望能改成30%+交货后付尾款。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "We can accept 30% upfront, but the remaining balance must be paid within 15 days after delivery.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "We can accept 20% upfront and pay the rest in monthly installments.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "We can’t change our policy — it’s always 50% upfront, no exceptions.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How about we pay 40% upfront and you deliver everything in one shipment?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案体现了‘对等条件’原则：接受对方降低预付款比例，但附加明确的付款期限，符合使用说明。选项2的付款方式（月付）与场景不符，选项3完全拒绝协商，选项4是对方的提议而非回应，未体现对等条件。"
+      }
+    },
+    {
+      "id": "workplace_039_sub_3_pq_2",
+      "subSceneId": "workplace_039_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "workplace_039_sub_3_qa_2",
+        "speakerText": "Our warehouse can only handle 2,000 units per week — can you split the shipment?",
+        "speakerTextCn": "我们的仓库每周最多处理2000件，能分批交货吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, we can ship 2,000 units per week for five weeks with no additional cost.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "We’ll try to split it, but we can’t guarantee the schedule.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "No, we can’t split shipments — it’s against our logistics policy.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Sure, we’ll split it, but you need to pay 10% extra for handling.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案清晰表达了无附加成本的解决方案，符合标准回应中的积极协商模式。选项2模糊不清，不符合‘明确表达底线’的要求；选项3直接拒绝，缺乏协商；选项4的加价比例（10%）与原文的5%不符，属于错误数据。"
+      }
+    },
+    {
+      "id": "workplace_039_sub_3_pq_3",
+      "subSceneId": "workplace_039_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "We need to finalize the payment terms by Friday. Can you meet us halfway on the upfront percentage?",
+        "speakerTextCn": "我们需要在周五前敲定付款条款。你们能在预付款比例上做个折中吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How about 40% upfront and net-15 after delivery? That balances both our cash flow needs.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "We’ll think about it and get back to you next week.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "We can only do 50% — no negotiation possible.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Why don’t you just pay everything upfront and we’ll deliver faster?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案提出具体折中方案（40%+net-15），体现协商技巧和对等条件，符合场景核心要求。选项2拖延决策，不符合‘周五前必须确定’的紧迫性；选项3拒绝协商，缺乏灵活性；选项4转移责任，未回应对方的折中请求。"
+      }
+    },
+    {
+      "id": "workplace_039_sub_3_pq_4",
+      "subSceneId": "workplace_039_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "workplace_039_sub_3_qa_1",
+        "template": "We can do 30% upfront if you agree to a ___-day payment window after delivery.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "15",
+            "options": [
+              "15",
+              "30",
+              "7",
+              "45"
+            ]
+          }
+        ],
+        "hint": "这是标准付款条件，与交货后结清相关",
+        "knowledgePoint": "数字搭配（付款周期常用表达）"
+      }
+    },
+    {
+      "id": "workplace_039_sub_3_pq_5",
+      "subSceneId": "workplace_039_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "workplace_039_sub_3_qa_2",
+        "template": "We’d need a ___% surcharge for split shipments — it messes with our logistics.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "5",
+            "options": [
+              "5",
+              "10",
+              "15",
+              "20"
+            ]
+          }
+        ],
+        "hint": "这是原文中提到的附加费用比例",
+        "knowledgePoint": "百分比表达（附加成本的典型数值）"
+      }
+    },
+    {
+      "id": "workplace_039_sub_3_pq_6",
+      "subSceneId": "workplace_039_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "How about ___% upfront and net-10 after shipment? We need some cash flow.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "35",
+            "options": [
+              "35",
+              "25",
+              "45",
+              "50"
+            ]
+          }
+        ],
+        "hint": "这是提出折中方案时常用的预付款比例",
+        "knowledgePoint": "协商中常用预付款比例表达"
+      }
+    },
+    {
+      "id": "workplace_039_sub_3_pq_7",
+      "subSceneId": "workplace_039_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "workplace_039_sub_3_qa_1",
+        "speakerText": "We usually pay 50% upfront — but this time, we’d prefer 30% with the rest after delivery.",
+        "speakerTextCn": "我们通常付50%预付款，这次希望能改成30%+交货后付尾款。",
+        "expectedAnswers": [
+          "We can accept 30% upfront, but the remaining 70% must be paid within 15 days after delivery.",
+          "How about 35% upfront and net-10 after shipment? That helps our cash flow.",
+          "We can't go below 50% — that’s our policy, but we can shorten the delivery time to make it fair."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否回应了对方的请求并提出对等条件",
+          "语言准确性：语法、时态、数字表达是否正确",
+          "表达自然度：是否使用了场景高频表达如 'net-10', 'upfront', 'after delivery'",
+          "关键词覆盖：是否包含 'upfront', 'after delivery', 'payment window' 等核心术语"
+        ]
+      }
+    },
+    {
+      "id": "workplace_039_sub_3_pq_8",
+      "subSceneId": "workplace_039_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "workplace_039_sub_3_qa_2",
+        "speakerText": "Our warehouse can only handle 2,000 units per week — can you split the shipment?",
+        "speakerTextCn": "我们的仓库每周最多处理2000件，能分批交货吗？",
+        "expectedAnswers": [
+          "Yes, we can ship 2,000 units per week for five weeks with no extra charge.",
+          "We can split the shipment, but it will require a 5% surcharge due to increased logistics complexity.",
+          "We’ll arrange split shipments — we understand your warehouse limits, and we won’t charge extra."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确回应分批交货的可行性",
+          "语言准确性：单位表达（2,000 units）、百分比、术语使用是否正确",
+          "表达自然度：是否使用了 'surcharge', 'logistics', 'split shipment' 等专业表达",
+          "清晰度：是否明确说明了是否收费或附加条件"
+        ]
+      }
+    },
+    {
+      "id": "workplace_039_sub_3_pq_9",
+      "subSceneId": "workplace_039_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "We need to finalize the payment and delivery terms by Friday. Can you offer a compromise on both the upfront payment and shipping schedule?",
+        "speakerTextCn": "我们需要在周五前敲定付款和交货条款。你们能在预付款和交货安排上做个折中吗？",
+        "expectedAnswers": [
+          "Let’s do 35% upfront and ship in two batches of 5,000 units each over three weeks — no surcharge.",
+          "We can lower the upfront to 40% if you accept weekly shipments of 3,000 units for four weeks.",
+          "How about 30% upfront and delivery in four weekly batches? We’ll absorb the extra logistics cost to close this deal."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否同时回应付款和交货两个议题并提出折中方案",
+          "语言准确性：使用了 'upfront', 'batch', 'weekly shipments', 'surcharge', 'absorb cost' 等专业表达",
+          "表达自然度：语调自然，符合商务协商语境，无中式英语",
+          "策略性：是否体现双赢思维，如 'absorb cost to close this deal'"
+        ]
+      }
+    }
+  ]
+}

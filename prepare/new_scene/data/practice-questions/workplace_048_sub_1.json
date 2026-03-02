@@ -1,0 +1,254 @@
+{
+  "subSceneId": "workplace_048_sub_1",
+  "subSceneName": "问候与开场",
+  "generatedAt": "2026-03-02T15:18:49.411Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "workplace_048_sub_1_pq_1",
+      "subSceneId": "workplace_048_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "workplace_048_sub_1_qa_1",
+        "speakerText": "Hi Sarah, hope you're doing well!",
+        "speakerTextCn": "嗨，莎拉，希望你最近不错！",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'm good, thanks! I've got a few questions about expense reimbursement.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'm fine, but I need to talk to the HR manager.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Great! Let's go for lunch.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Not bad. Can you send me the payroll report?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接回应了问候并自然过渡到报销咨询，符合场景目的。选项2转向HR，偏离主题；选项3建议吃午饭，不专业；选项4问工资单，与报销无关。"
+      }
+    },
+    {
+      "id": "workplace_048_sub_1_pq_2",
+      "subSceneId": "workplace_048_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Good morning, Mr. Thompson. How are you today?",
+        "speakerTextCn": "早上好，汤普森先生，今天怎么样？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'm great, thanks! I'm preparing my expense reports for this quarter.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'm okay. Do you have time for a meeting later?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Fine, but I'm busy with taxes.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Not too bad. Did you see the new office layout?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案礼貌回应问候并自然引出报销主题。选项2虽礼貌但未提及报销，偏离场景目标；选项3语气消极且未明确意图；选项4转向办公室布局，无关话题。"
+      }
+    },
+    {
+      "id": "workplace_048_sub_1_pq_3",
+      "subSceneId": "workplace_048_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Hey Lisa, how’s it going?",
+        "speakerTextCn": "嘿，丽莎，最近怎么样？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Pretty good! Could you help me with submitting my travel expenses?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Not bad. I need to update my contact info.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Awesome! Let’s grab coffee after work.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Doing well. When’s the next team meeting?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用轻松语气并明确报销需求，符合职场非正式问候场景。选项2涉及个人信息更新，无关；选项3建议喝咖啡，属于社交回应；选项4询问会议，偏离报销主题。"
+      }
+    },
+    {
+      "id": "workplace_048_sub_1_pq_4",
+      "subSceneId": "workplace_048_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "workplace_048_sub_1_qa_1",
+        "template": "I'm good, thanks! I've got a few questions about ___ reimbursement.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "expense",
+            "options": [
+              "expense",
+              "payment",
+              "salary",
+              "bonus"
+            ]
+          }
+        ],
+        "hint": "与报销相关的核心名词",
+        "knowledgePoint": "场景高频词汇（expense reimbursement）"
+      }
+    },
+    {
+      "id": "workplace_048_sub_1_pq_5",
+      "subSceneId": "workplace_048_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could you please help me ___ my trip expenses?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "with",
+            "options": [
+              "with",
+              "for",
+              "on",
+              "about"
+            ]
+          }
+        ],
+        "hint": "表达‘帮助某人做某事’的固定搭配",
+        "knowledgePoint": "动词搭配（help sb with sth）"
+      }
+    },
+    {
+      "id": "workplace_048_sub_1_pq_6",
+      "subSceneId": "workplace_048_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I need to ___ my receipts before the deadline.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "submit",
+            "options": [
+              "submit",
+              "send",
+              "give",
+              "hand"
+            ]
+          }
+        ],
+        "hint": "报销流程中的关键动作",
+        "knowledgePoint": "场景核心动词（submit receipts）"
+      }
+    },
+    {
+      "id": "workplace_048_sub_1_pq_7",
+      "subSceneId": "workplace_048_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "workplace_048_sub_1_qa_1",
+        "speakerText": "Hi Sarah, hope you're doing well!",
+        "speakerTextCn": "嗨，莎拉，希望你最近不错！",
+        "expectedAnswers": [
+          "I'm good, thanks! I've got a few questions about expense reimbursement.",
+          "Doing great! Could you help me with my trip expenses?",
+          "Not bad—just wanted to check in about submitting my receipts this week."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确提出报销咨询",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合职场轻松但专业的语气"
+        ]
+      }
+    },
+    {
+      "id": "workplace_048_sub_1_pq_8",
+      "subSceneId": "workplace_048_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Good morning, Mr. Chen. How are you today?",
+        "speakerTextCn": "早上好，陈先生，今天怎么样？",
+        "expectedAnswers": [
+          "I'm well, thank you. I’m preparing my quarterly expense reports and have a couple of questions.",
+          "Pretty good! I need to get my travel claims processed before Friday.",
+          "Fine, thanks. Could you advise on the policy for meal reimbursements?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否自然引入报销主题",
+          "语言准确性：使用了正确的动词和名词搭配",
+          "表达自然度：语气礼貌、符合职场语境，避免过于随意或生硬"
+        ]
+      }
+    },
+    {
+      "id": "workplace_048_sub_1_pq_9",
+      "subSceneId": "workplace_048_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Hey Alex, how’s it going?",
+        "speakerTextCn": "嘿，亚历克斯，最近怎么样？",
+        "expectedAnswers": [
+          "Not bad! I’ve got some receipts to submit for my client trip last month.",
+          "Pretty good—could you point me to the right form for expense claims?",
+          "Doing okay. I’m a bit confused about the deadline for submitting travel expenses."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达报销需求",
+          "语言准确性：使用了正确的动词和名词（submit, receipts, expense claims）",
+          "表达自然度：语气轻松但专业，符合同事间非正式但工作相关的对话"
+        ]
+      }
+    }
+  ]
+}

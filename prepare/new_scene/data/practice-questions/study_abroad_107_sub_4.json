@@ -1,0 +1,257 @@
+{
+  "subSceneId": "study_abroad_107_sub_4",
+  "subSceneName": "确认缴费",
+  "generatedAt": "2026-03-02T14:53:50.726Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "study_abroad_107_sub_4_pq_1",
+      "subSceneId": "study_abroad_107_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "study_abroad_107_sub_4_qa_1",
+        "speakerText": "Your tuition's paid in full, but your housing fee is still pending.",
+        "speakerTextCn": "学费已付清，但住宿费还没交。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll pay it online tonight.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I get a discount instead?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I already paid everything last week.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "When is the next semester starting?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'I'll pay it online tonight.'是针对欠费情况的合理回应，符合使用说明中'立即询问支付方式'的要求。选项2询问折扣，与缴费义务无关；选项3否认欠费，与事实矛盾；选项4转移话题，未回应核心问题。"
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_4_pq_2",
+      "subSceneId": "study_abroad_107_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "study_abroad_107_sub_4_qa_2",
+        "speakerText": "You’ve got a $200 refund due—want it sent to your bank or as a check?",
+        "speakerTextCn": "你有200美元退款，要打到银行卡还是寄支票？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Bank transfer, please—I don't have a local address yet.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I use it to pay for next term’s tuition?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I think there’s been a mistake—I didn’t overpay.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How long will it take to arrive?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'Bank transfer, please—I don't have a local address yet.'是标准回应之一，符合场景中'根据自身情况选择退款方式'的要求。选项2提出用途变更，属于额外请求，非标准回应；选项3质疑退款合理性，虽可接受但非首选；选项4询问时间，未直接回应选择要求。"
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_4_pq_3",
+      "subSceneId": "study_abroad_107_sub_4",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I see your account shows a $50 balance due for the lab fee. Would you like to settle it now?",
+        "speakerTextCn": "我看到你的账户还欠50美元的实验费，现在要支付吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, I'll pay it by credit card right away.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you waive the fee since I'm an international student?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I didn't know there was a lab fee.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "When is the next class meeting?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'Yes, I'll pay it by credit card right away.'直接回应支付请求，符合确认缴费场景的核心行为。选项2请求减免，属非标准请求；选项3表达惊讶��未解决问题；选项4完全跑题，未回应缴费请求。"
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_4_pq_4",
+      "subSceneId": "study_abroad_107_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "study_abroad_107_sub_4_qa_1",
+        "template": "I thought I paid it—can you check ___ again?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "again",
+            "options": [
+              "again",
+              "over",
+              "up",
+              "out"
+            ]
+          }
+        ],
+        "hint": "当你怀疑自己已缴费但系统显示未付时，常用此句型请求重新核查",
+        "knowledgePoint": "固定表达：check again（重新核查）"
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_4_pq_5",
+      "subSceneId": "study_abroad_107_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "study_abroad_107_sub_4_qa_2",
+        "template": "Bank transfer, please—I don't have a local ___ yet.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "address",
+            "options": [
+              "address",
+              "number",
+              "account",
+              "payment"
+            ]
+          }
+        ],
+        "hint": "选择银行转账时，常因没有本地地址而无法接收支票",
+        "knowledgePoint": "场景核心词汇：address（地址）"
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_4_pq_6",
+      "subSceneId": "study_abroad_107_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could you tell me my current ___ balance?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "account",
+            "options": [
+              "account",
+              "payment",
+              "fee",
+              "refund"
+            ]
+          }
+        ],
+        "hint": "在确认缴费时，询问当前账户余额是常见表达",
+        "knowledgePoint": "固定搭配：account balance（账户余额）"
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_4_pq_7",
+      "subSceneId": "study_abroad_107_sub_4",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "study_abroad_107_sub_4_qa_1",
+        "speakerText": "Your tuition's paid in full, but your housing fee is still pending.",
+        "speakerTextCn": "学费已付清，但住宿费还没交。",
+        "expectedAnswers": [
+          "Oh no! How do I pay it now?",
+          "I'll pay it online tonight.",
+          "I thought I already paid it—could you double-check the system?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确回应欠费问题并提出解决方案或请求核查",
+          "语言准确性：语法正确，用词恰当，无明显错误",
+          "表达自然度：符合英语口语习惯，语气自然，不生硬",
+          "关键词覆盖：使用了pay, fee, online, check等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_4_pq_8",
+      "subSceneId": "study_abroad_107_sub_4",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "study_abroad_107_sub_4_qa_2",
+        "speakerText": "You’ve got a $200 refund due—want it sent to your bank or as a check?",
+        "speakerTextCn": "你有200美元退款，要打到银行卡还是寄支票？",
+        "expectedAnswers": [
+          "Bank transfer, please—I don't have a local address yet.",
+          "Check’s fine—I'll pick it up next week.",
+          "Wait, refund? I didn’t overpay—could you explain why?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确选择退款方式或合理质疑退款原因",
+          "语言准确性：语法正确，使用了bank transfer, check, pick up等正确表达",
+          "表达自然度：语气自然，符合真实对话场景",
+          "关键词覆盖：使用了refund, bank, check, address等核心词汇"
+        ]
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_4_pq_9",
+      "subSceneId": "study_abroad_107_sub_4",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Your account shows a $75 balance for the student activity fee. Would you like to pay it now?",
+        "speakerTextCn": "你的账户显示有75美元的学生活动费未付，现在要支付吗？",
+        "expectedAnswers": [
+          "Yes, I'll pay it with my debit card right now.",
+          "Can I pay it next week? I'm waiting for my scholarship to come through.",
+          "I didn't realize there was a fee—could you send me the payment link?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确回应是否支付，或提出合理延迟/澄清请求",
+          "语言准确性：语法和词汇使用正确，无中式英语",
+          "表达自然度：语气礼貌、符合日常校园沟通习惯",
+          "关键词覆盖：使用了balance, pay, fee, payment link, debit card等场景关键词"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "subSceneId": "study_abroad_100_sub_2",
+  "subSceneName": "询问先修课",
+  "generatedAt": "2026-03-02T14:53:46.598Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "study_abroad_100_sub_2_pq_1",
+      "subSceneId": "study_abroad_100_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "study_abroad_100_sub_2_qa_1",
+        "speakerText": "Have you taken Intro to Psychology before? It's a prereq for Psych 301.",
+        "speakerTextCn": "你上过心理学导论吗？这是心理学301的先修课。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I don't know if it's required, but I'll check the syllabus.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "No, I haven't — can I still enroll if I take it this term?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I love psychology, so I don't need any prerequisites.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you tell me what time the class starts?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案回应了先修课问题并询问补修可能性，符合场景需求。选项1虽然合理但未直接回答问题；选项3错误地否认了先修课要求；选项4完全偏离主题，询问上课时间。"
+      }
+    },
+    {
+      "id": "study_abroad_100_sub_2_pq_2",
+      "subSceneId": "study_abroad_100_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I'm planning to take Advanced Calculus next semester. Do you know if there's a prerequisite?",
+        "speakerTextCn": "我计划下学期选高级微积分，你知道有先修课要求吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What's the tuition fee for that course?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Yes, you need to have passed Calculus I and II.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I think the professor is really strict.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can we switch to a different class?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接回答了先修课要求，符合询问场景。选项1询问学费，无关；选项3评价教授，不回应问题；选项4建议换课，未解答先修课疑问。"
+      }
+    },
+    {
+      "id": "study_abroad_100_sub_2_pq_3",
+      "subSceneId": "study_abroad_100_sub_2",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I want to register for Organic Chemistry. What do I need to have completed first?",
+        "speakerTextCn": "我想注册有机化学，我需要先完成什么课程？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "You should bring your student ID to the office.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "You must have finished General Chemistry with a C or higher.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "The lab sessions are on Tuesdays and Thursdays.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I heard the textbook is really expensive.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确指出先修课要求，精准回应问题。选项1与注册流程相关但非先修课；选项3是课程时间，无关；选项4是教材价格，完全偏离主题。"
+      }
+    },
+    {
+      "id": "study_abroad_100_sub_2_pq_4",
+      "subSceneId": "study_abroad_100_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "study_abroad_100_sub_2_qa_1",
+        "template": "I haven't taken the ___ yet, but can I enroll if I take it this term?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "prereq",
+            "options": [
+              "prereq",
+              "course",
+              "credit",
+              "exam"
+            ]
+          }
+        ],
+        "hint": "这是指‘先修课’的缩写，常用于大学选课语境",
+        "knowledgePoint": "场景核心词汇：prereq（prerequisite的缩写）"
+      }
+    },
+    {
+      "id": "study_abroad_100_sub_2_pq_5",
+      "subSceneId": "study_abroad_100_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could you please tell me what the ___ is for this course?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "prerequisite",
+            "options": [
+              "prerequisite",
+              "schedule",
+              "fee",
+              "location"
+            ]
+          }
+        ],
+        "hint": "询问先修课时的正式表达，常用于书面或正式对话",
+        "knowledgePoint": "核心句型：What's the prerequisite for...?（询问先修课的标准表达）"
+      }
+    },
+    {
+      "id": "study_abroad_100_sub_2_pq_6",
+      "subSceneId": "study_abroad_100_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "I took ___ last semester, so I'm eligible to enroll.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "it",
+            "options": [
+              "it",
+              "them",
+              "that",
+              "this"
+            ]
+          }
+        ],
+        "hint": "指代前文提到的先修课程，避免重复",
+        "knowledgePoint": "代词指代用法：it 指代单数课程（prerequisite）"
+      }
+    },
+    {
+      "id": "study_abroad_100_sub_2_pq_7",
+      "subSceneId": "study_abroad_100_sub_2",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "study_abroad_100_sub_2_qa_1",
+        "speakerText": "Have you taken Intro to Psychology before? It's a prereq for Psych 301.",
+        "speakerTextCn": "你上过心理学导论吗？这是心理学301的先修课。",
+        "expectedAnswers": [
+          "No, I haven't. Can I take it this term and still enroll in Psych 301?",
+          "I completed it last year, so I meet the requirement.",
+          "Actually, I'm not sure — could you remind me what the prerequisite is?"
+        ],
+        "evaluationCriteria": [
+          "是否准确回应先修课问题（是否上过、是否可补修）",
+          "是否使用场景关键词如 'prereq', 'enroll', 'take it'",
+          "表达是否自然，符合口语习惯，无明显语法错误"
+        ]
+      }
+    },
+    {
+      "id": "study_abroad_100_sub_2_pq_8",
+      "subSceneId": "study_abroad_100_sub_2",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'm interested in signing up for Data Structures. Do I need to take any other course first?",
+        "speakerTextCn": "我想报名数据结构课，我需要先修其他课程吗？",
+        "expectedAnswers": [
+          "Yes, you need to have passed Introduction to Programming.",
+          "I haven't taken it yet, but I'm planning to this semester — is that okay?",
+          "Could you tell me what the prerequisites are? I want to make sure I'm ready."
+        ],
+        "evaluationCriteria": [
+          "是否明确回答或询问先修课要求",
+          "是否使用 'prerequisite', 'enroll', 'take' 等关键词",
+          "语言是否流畅、符合真实对话节奏，避免机械背诵"
+        ]
+      }
+    },
+    {
+      "id": "study_abroad_100_sub_2_pq_9",
+      "subSceneId": "study_abroad_100_sub_2",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I want to register for Advanced Biology. What’s the requirement before I can enroll?",
+        "speakerTextCn": "我想注册高级生物学，我注册前需要满足什么条件？",
+        "expectedAnswers": [
+          "You need to have finished Basic Biology and Chemistry.",
+          "I haven't taken the prerequisite, but I'm hoping to take it concurrently.",
+          "Wait, what's the prerequisite again? I forgot."
+        ],
+        "evaluationCriteria": [
+          "是否正确理解并回应先修课询问",
+          "是否使用 'prerequisite', 'enroll', 'take' 等核心表达",
+          "表达是否自然，是否包含适当口语化语气（如 'Wait, what...'）"
+        ]
+      }
+    }
+  ]
+}

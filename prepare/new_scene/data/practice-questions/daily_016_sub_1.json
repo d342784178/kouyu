@@ -1,0 +1,254 @@
+{
+  "subSceneId": "daily_016_sub_1",
+  "subSceneName": "打招呼询问",
+  "generatedAt": "2026-03-02T14:38:17.921Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_016_sub_1_pq_1",
+      "subSceneId": "daily_016_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_016_sub_1_qa_1",
+        "speakerText": "Hey, you got any orange juice?",
+        "speakerTextCn": "嘿，你们有橙汁吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Yes, it's on the shelf.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Yeah, we do. It's in the fridge.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't know, ask the manager.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "No, we don't sell drinks.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Yeah, we do. It's in the fridge.' 是对话中给出的标准回应，自然、简洁且符合口语习惯。选项1中 'on the shelf' 与橙汁通常冷藏的常识不符；选项3回避问题，不够礼貌和专业；选项4完全否定饮料销售，与场景矛盾。"
+      }
+    },
+    {
+      "id": "daily_016_sub_1_pq_2",
+      "subSceneId": "daily_016_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_016_sub_1_qa_2",
+        "speakerText": "And do you have the chicken sandwich?",
+        "speakerTextCn": "那鸡肉三明治有吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I think so, but I'm not sure.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Yep, right next to the salads.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you want ketchup with it?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "We only serve coffee here.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Yep, right next to the salads.' 是标准回应，直接确认库存并提供位置信息。选项1表达不确定，不符合服务场景中应提供的明确信息；选项3转移话题，未回应库存问题；选项4完全错误，与场景无关。"
+      }
+    },
+    {
+      "id": "daily_016_sub_1_pq_3",
+      "subSceneId": "daily_016_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "Hi, do you have any fresh bread today?",
+        "speakerTextCn": "你好，今天有新鲜面包吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "We're closed on Sundays.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Yes, it's by the bakery counter.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "How much do you want?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I love bread too!",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Yes, it's by the bakery counter.' 直接回应了库存和位置，符合打招呼询问场景的核心需求。选项1与问题无关（时间信息）；选项3提前询问数量，属于过早推进对话；选项4是情感回应，未解决顾客实际问题。"
+      }
+    },
+    {
+      "id": "daily_016_sub_1_pq_4",
+      "subSceneId": "daily_016_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_016_sub_1_qa_1",
+        "template": "Hey, you got any ___ juice?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "orange",
+            "options": [
+              "orange",
+              "apple",
+              "water",
+              "coffee"
+            ]
+          }
+        ],
+        "hint": "��是对话中提到的具体商品，注意水果汁类常用 '___ juice' 结构",
+        "knowledgePoint": "商���名称+juice（高频商品搭配）"
+      }
+    },
+    {
+      "id": "daily_016_sub_1_pq_5",
+      "subSceneId": "daily_016_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_016_sub_1_qa_2",
+        "template": "And do you have the ___ sandwich?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "chicken",
+            "options": [
+              "chicken",
+              "beef",
+              "fish",
+              "veggie"
+            ]
+          }
+        ],
+        "hint": "这是对话中提到的三明治类型，注意常见三明治口味的表达",
+        "knowledgePoint": "食品类型+sandwich（场景核心词汇搭配）"
+      }
+    },
+    {
+      "id": "daily_016_sub_1_pq_6",
+      "subSceneId": "daily_016_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Do you have ___ in stock?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "any",
+            "options": [
+              "any",
+              "some",
+              "a",
+              "the"
+            ]
+          }
+        ],
+        "hint": "询问商品有无时，疑问句中常用 'any' 指代不可数或复数商品",
+        "knowledgePoint": "any 在疑问句中表示‘任何/一些’（核心语法结构）"
+      }
+    },
+    {
+      "id": "daily_016_sub_1_pq_7",
+      "subSceneId": "daily_016_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_016_sub_1_qa_1",
+        "speakerText": "Hey, you got any orange juice?",
+        "speakerTextCn": "嘿，你们有橙汁吗？",
+        "expectedAnswers": [
+          "Yeah, we do. It's in the fridge.",
+          "We've got it right over there by the drinks.",
+          "Sorry, we're out of orange juice today."
+        ],
+        "evaluationCriteria": [
+          "是否明确回应了是否有货（是/否）",
+          "是否使用了场景关键词如 'got any', 'in the fridge', 'out of'",
+          "表达是否自然、符合口语习惯，避免机械背诵"
+        ]
+      }
+    },
+    {
+      "id": "daily_016_sub_1_pq_8",
+      "subSceneId": "daily_016_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_016_sub_1_qa_2",
+        "speakerText": "And do you have the chicken sandwich?",
+        "speakerTextCn": "那鸡肉三明治有吗？",
+        "expectedAnswers": [
+          "Yep, right next to the salads.",
+          "Not today, sorry—we just ran out.",
+          "We have it, but it's on the special menu today."
+        ],
+        "evaluationCriteria": [
+          "是否清晰说明商品是否存在",
+          "是否使用了场景高频回应词如 'Yep', 'right next to', 'ran out'",
+          "语气是否礼貌且自然，避免生硬或冗长"
+        ]
+      }
+    },
+    {
+      "id": "daily_016_sub_1_pq_9",
+      "subSceneId": "daily_016_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Hi, do you have any fresh bread today?",
+        "speakerTextCn": "你好，今天有新鲜面包吗？",
+        "expectedAnswers": [
+          "Yes, we do! It's fresh from the oven just now.",
+          "Sorry, we sold out by noon.",
+          "We have sourdough and whole wheat—both fresh today."
+        ],
+        "evaluationCriteria": [
+          "是否准确回应库存状态（有/无）",
+          "是否使用了场景关键词如 'fresh', 'in stock', 'sold out'",
+          "是否提供了额外有用信息（如种类、位置），体现服务意识"
+        ]
+      }
+    }
+  ]
+}

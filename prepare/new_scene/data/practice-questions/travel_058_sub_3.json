@@ -1,0 +1,257 @@
+{
+  "subSceneId": "travel_058_sub_3",
+  "subSceneName": "车辆升级",
+  "generatedAt": "2026-03-02T14:55:49.693Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_058_sub_3_pq_1",
+      "subSceneId": "travel_058_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_058_sub_3_qa_1",
+        "speakerText": "We’ve got a free upgrade to an SUV if you’re interested.",
+        "speakerTextCn": "我们有免费升级到SUV的选项，有兴趣吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "That’s great! I’ll take the SUV.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you give me a discount on the SUV?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I’d prefer a motorcycle instead.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much does the upgrade cost?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接接受免费升级，符合场景中‘果断接受但先问清差异’的建议。干扰项2错误地假设免费升级需要折扣；干扰项3完全偏离车型类别；干扰项4虽合理，但不适合免费升级场景，因为价格已明确为零。"
+      }
+    },
+    {
+      "id": "travel_058_sub_3_pq_2",
+      "subSceneId": "travel_058_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_058_sub_3_qa_2",
+        "speakerText": "If you want a luxury sedan, it’s $30 extra per day.",
+        "speakerTextCn": "如果您想要豪华轿车，每天加30美元。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I’ll upgrade to the luxury sedan for the whole trip.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I upgrade for just one day?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Why is it so expensive? That’s ridiculous!",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have a free upgrade option?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案体现了‘权衡使用天数和实际需求’的建议，提出灵活方案。干扰项1虽合理但未体现权衡；干扰项3语气不礼貌，不符合服务场景；干扰项4混淆了免费与付费升级情境。"
+      }
+    },
+    {
+      "id": "travel_058_sub_3_pq_3",
+      "subSceneId": "travel_058_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "We can upgrade you to a minivan at no extra cost — it seats seven people.",
+        "speakerTextCn": "我们可以免费为您升级到七座MPV。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Sounds good! I’ll take it.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I pay extra to get a sports car instead?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I don’t care about seating capacity.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Is the minivan faster than the compact?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接接受免费升级，符合场景核心策略。干扰项2试图用付费换取完全无关车型；干扰项3忽略关键信息（七座）；干扰项4问性能，但升级重点是空间而非速度。"
+      }
+    },
+    {
+      "id": "travel_058_sub_3_pq_4",
+      "subSceneId": "travel_058_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_058_sub_3_qa_1",
+        "template": "We’ve got a free upgrade to an SUV if you’re interested. — Really? That’s awesome—I’ll take ___!",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "it",
+            "options": [
+              "it",
+              "this",
+              "that",
+              "one"
+            ]
+          }
+        ],
+        "hint": "指代前文提到的免费升级选项",
+        "knowledgePoint": "代词指代（it 指代前面提到的单数事物）"
+      }
+    },
+    {
+      "id": "travel_058_sub_3_pq_5",
+      "subSceneId": "travel_058_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "travel_058_sub_3_qa_2",
+        "template": "If you want a luxury sedan, it’s $30 extra per day. — Can I upgrade for just ___ day?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "one",
+            "options": [
+              "one",
+              "a",
+              "the",
+              "some"
+            ]
+          }
+        ],
+        "hint": "询问仅升级一天时的常用表达",
+        "knowledgePoint": "数量词搭配（one day 表示单日）"
+      }
+    },
+    {
+      "id": "travel_058_sub_3_pq_6",
+      "subSceneId": "travel_058_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "The SUV is free, but the luxury model costs $30 ___ day.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "per",
+            "options": [
+              "per",
+              "for",
+              "in",
+              "on"
+            ]
+          }
+        ],
+        "hint": "表示‘每’单位时间的固定搭配",
+        "knowledgePoint": "介词搭配（per 表示单位时间费用）"
+      }
+    },
+    {
+      "id": "travel_058_sub_3_pq_7",
+      "subSceneId": "travel_058_sub_3",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_058_sub_3_qa_1",
+        "speakerText": "We’ve got a free upgrade to an SUV if you’re interested.",
+        "speakerTextCn": "我们有免费升级到SUV的选项，有兴趣吗？",
+        "expectedAnswers": [
+          "Really? That’s awesome—I’ll take it!",
+          "Is the SUV actually more spacious, or just taller?",
+          "Thanks, but I’m fine with the compact car."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回应是否接受升级",
+          "语言准确性：语法正确，用词恰当",
+          "表达自然度：符合日常口语习惯",
+          "关键词覆盖：使用了 upgrade, SUV, free, compact 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_058_sub_3_pq_8",
+      "subSceneId": "travel_058_sub_3",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_058_sub_3_qa_2",
+        "speakerText": "If you want a luxury sedan, it’s $30 extra per day.",
+        "speakerTextCn": "如果您想要豪华轿车，每天加30美元。",
+        "expectedAnswers": [
+          "Hmm, I’ll stick with the SUV. Thanks though!",
+          "Can I upgrade for just one day? I only need it for the airport transfer.",
+          "No thanks, that’s too pricey for my budget."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰表达是否接受付费升级及原因",
+          "语言准确性：使用了 upgrade, extra, per day 等正确表达",
+          "表达自然度：语气礼貌，符合服务场景对话习惯",
+          "关键词覆盖：包含 luxury sedan, $30, upgrade, day 等核心词汇"
+        ]
+      }
+    },
+    {
+      "id": "travel_058_sub_3_pq_9",
+      "subSceneId": "travel_058_sub_3",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "We can upgrade you to a minivan at no extra cost — it seats seven people.",
+        "speakerTextCn": "我们可以免费为您升级到七座MPV。",
+        "expectedAnswers": [
+          "That’s perfect! I’m traveling with my family, so the extra space is great.",
+          "Is the minivan easier to drive than the SUV?",
+          "Thanks, but I don’t need seven seats—compact is fine."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：合理回应免费升级提议，表达需求或拒绝理由",
+          "语言准确性：语法和词汇使用正确",
+          "表达自然度：语调自然，符合真实对话节奏",
+          "关键词覆盖：使用了 upgrade, minivan, free, seats, compact 等关键词"
+        ]
+      }
+    }
+  ]
+}

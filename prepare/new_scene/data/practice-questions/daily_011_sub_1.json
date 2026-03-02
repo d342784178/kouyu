@@ -1,0 +1,257 @@
+{
+  "subSceneId": "daily_011_sub_1",
+  "subSceneName": "问候与需求",
+  "generatedAt": "2026-03-02T14:36:45.217Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_011_sub_1_pq_1",
+      "subSceneId": "daily_011_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_011_sub_1_qa_1",
+        "speakerText": "Hi there, I need something for a bad cough.",
+        "speakerTextCn": "嗨，我需要治严重咳嗽的药。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do you have a prescription?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Sure, I can help with that. How long have you had it?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I'm sorry, we don't sell medicine.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "You should go to the hospital.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是回应顾客需求并进一步询问症状，这是药剂师专业且符合场景的回应。其他选项要么拒绝服务，要么建议去医院，不符合药店日常服务语境。"
+      }
+    },
+    {
+      "id": "daily_011_sub_1_pq_2",
+      "subSceneId": "daily_011_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "daily_011_sub_1_qa_2",
+        "speakerText": "I've had this cough for three days, and it's worse at night.",
+        "speakerTextCn": "我咳嗽三天了，晚上更严重。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "That’s too bad. Have you tried sleeping with the window open?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Yeah, mine's been like that too. Do you have a fever?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Why don't you just drink more water?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I think you need surgery.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案延续了对话的专业性和同理心，通过分享个人经验并询问发烧情况来进一步评估症状。其他选项要么建议无效方法，要么过度夸张，不符合药店场景的合理回应。"
+      }
+    },
+    {
+      "id": "daily_011_sub_1_pq_3",
+      "subSceneId": "daily_011_sub_1",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I've been feeling really tired and have a runny nose too.",
+        "speakerTextCn": "我感觉很累，还有流鼻涕。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Maybe you need a new phone.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "That sounds like a cold. Would you like a decongestant or an antihistamine?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "You should stop talking so much.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'm not allowed to give advice.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了场景关键词（decongestant, antihistamine）并针对多症状提供专业选择，符合药剂师角色。其他选项荒谬或拒绝服务，不符合场景需求。"
+      }
+    },
+    {
+      "id": "daily_011_sub_1_pq_4",
+      "subSceneId": "daily_011_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_011_sub_1_qa_1",
+        "template": "I'd like ___ something for a sore throat.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to get",
+            "options": [
+              "to get",
+              "to buy",
+              "for getting",
+              "to have"
+            ]
+          }
+        ],
+        "hint": "表达需求时常用句型，与 'I need...' 同义但更礼貌",
+        "knowledgePoint": "would like to do（表达需求的礼貌句型）"
+      }
+    },
+    {
+      "id": "daily_011_sub_1_pq_5",
+      "subSceneId": "daily_011_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "type": "fill_blank",
+        "qaId": "daily_011_sub_1_qa_2",
+        "template": "It's worse ___ night and I can't sleep well.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "at",
+            "options": [
+              "at",
+              "in",
+              "on",
+              "during"
+            ]
+          }
+        ],
+        "hint": "表示‘在晚上’的固定搭配",
+        "knowledgePoint": "介词搭配（at night）"
+      }
+    },
+    {
+      "id": "daily_011_sub_1_pq_6",
+      "subSceneId": "daily_011_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "type": "fill_blank",
+        "qaId": null,
+        "template": "Could you recommend ___ for a dry cough?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "something",
+            "options": [
+              "something",
+              "anything",
+              "everything",
+              "nothing"
+            ]
+          }
+        ],
+        "hint": "在请求建议时，用 'something' 表达模糊但礼貌的需求",
+        "knowledgePoint": "请求建议的常用表达（something for...）"
+      }
+    },
+    {
+      "id": "daily_011_sub_1_pq_7",
+      "subSceneId": "daily_011_sub_1",
+      "type": "speaking",
+      "order": 7,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_011_sub_1_qa_1",
+        "speakerText": "Hi there, I need something for a bad cough.",
+        "speakerTextCn": "嗨，我需要治严重咳嗽的药。",
+        "expectedAnswers": [
+          "I've had it for a few days, mostly during the day.",
+          "It's been bothering me for over a week, especially when I lie down.",
+          "I've been coughing non-stop, and it's making me feel dizzy."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确描述咳嗽症状",
+          "语言准确性：语法正确，无明显错误",
+          "表达自然度：使用口语化表达，符合真实对话习惯",
+          "关键词覆盖：使用了 'cough', 'days/week', 'worse when...' 等关键表达"
+        ]
+      }
+    },
+    {
+      "id": "daily_011_sub_1_pq_8",
+      "subSceneId": "daily_011_sub_1",
+      "type": "speaking",
+      "order": 8,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_011_sub_1_qa_2",
+        "speakerText": "I've had this cough for three days, and it's worse at night.",
+        "speakerTextCn": "我咳嗽三天了，晚上更严重。",
+        "expectedAnswers": [
+          "I don't have a fever, but I feel a bit achy.",
+          "No fever, but I've been clearing my throat a lot.",
+          "I'm not running a temperature, but I'm also congested."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：补充关键症状（如发烧、喉咙不适、鼻塞）",
+          "语言准确性：使用正确时态和词汇（fever, congested, clearing throat）",
+          "表达自然度：使用口语缩略形式（I'm not, I've been）",
+          "关键词覆盖：使用了 'fever', 'congested', 'clearing throat' 等专业词汇"
+        ]
+      }
+    },
+    {
+      "id": "daily_011_sub_1_pq_9",
+      "subSceneId": "daily_011_sub_1",
+      "type": "speaking",
+      "order": 9,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'm feeling under the weather with a cough and runny nose.",
+        "speakerTextCn": "我感觉不太舒服，有咳嗽和流鼻涕。",
+        "expectedAnswers": [
+          "I think it's a cold. I'd recommend a cold medicine with antihistamine and cough suppressant.",
+          "You might have allergies. Would you like a non-drowsy antihistamine?",
+          "Try drinking warm tea with honey and use a humidifier at night."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：针对症状提供合理建议或解决方案",
+          "语言准确性：使用正确医学术语（antihistamine, suppressant, humidifier）",
+          "表达自然度：语气友好，符合药剂师专业形象",
+          "关键词覆盖：使用了 'cough', 'runny nose', 'cold', 'antihistamine', 'humidifier' 等关键词"
+        ]
+      }
+    }
+  ]
+}
