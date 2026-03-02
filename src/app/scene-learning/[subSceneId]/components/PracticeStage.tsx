@@ -180,7 +180,7 @@ function ChoiceQuestion({ question, onNext }: ChoiceQuestionProps) {
           >
             {/* 答案解析 */}
             {question.explanation && (
-              <div className="mb-4 p-3 rounded-card bg-blue-50 border border-blue-200">
+              <div className="mb-6 p-3 rounded-card bg-blue-50 border border-blue-200">
                 <p className="text-xs text-blue-600 font-medium mb-1">答案解析</p>
                 <p className="text-sm text-gray-700 leading-relaxed">{question.explanation}</p>
               </div>
@@ -188,7 +188,7 @@ function ChoiceQuestion({ question, onNext }: ChoiceQuestionProps) {
             <button
               type="button"
               onClick={onNext}
-              className="w-full py-3.5 rounded-card bg-[#4F7CF0] text-white text-sm font-semibold shadow-md hover:bg-[#3D6ADE] transition-colors"
+              className="w-full py-3.5 rounded-card bg-[#4F7CF0] text-white text-sm font-semibold shadow-md hover:bg-[#3D6ADE] transition-colors mt-3"
             >
               下一题
             </button>
@@ -725,7 +725,7 @@ function SpeakingQuestion({ question, onNext }: SpeakingQuestionProps) {
           <button
             type="button"
             onClick={onNext}
-            className="w-full py-3.5 rounded-card bg-[#4F7CF0] text-white text-sm font-semibold shadow-md hover:bg-[#3D6ADE] transition-colors"
+            className="w-full py-3.5 rounded-card bg-[#4F7CF0] text-white text-sm font-semibold shadow-md hover:bg-[#3D6ADE] transition-colors mt-4"
           >
             下一题
           </button>
@@ -736,7 +736,7 @@ function SpeakingQuestion({ question, onNext }: SpeakingQuestionProps) {
           <button
             type="button"
             onClick={onNext}
-            className="w-full py-2.5 rounded-card bg-gray-100 text-gray-500 text-sm hover:bg-gray-200 transition-colors"
+            className="w-full py-2.5 rounded-card bg-gray-100 text-gray-500 text-sm hover:bg-gray-200 transition-colors mt-4"
           >
             跳过此题
           </button>
