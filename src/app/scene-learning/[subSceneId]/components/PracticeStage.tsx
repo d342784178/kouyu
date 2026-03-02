@@ -168,7 +168,7 @@ function ChoiceQuestion({ question, onNext }: ChoiceQuestionProps) {
         ))}
       </div>
 
-      {/* 答题后显示"下一题"按钮 */}
+      {/* 答题后显示解析和"下一题"按钮 */}
       <AnimatePresence>
         {hasAnswered && (
           <motion.div
@@ -178,6 +178,13 @@ function ChoiceQuestion({ question, onNext }: ChoiceQuestionProps) {
             transition={{ duration: 0.25 }}
             className="mt-5"
           >
+            {/* 答案解析 */}
+            {question.explanation && (
+              <div className="mb-4 p-3 rounded-card bg-blue-50 border border-blue-200">
+                <p className="text-xs text-blue-600 font-medium mb-1">答案解析</p>
+                <p className="text-sm text-gray-700 leading-relaxed">{question.explanation}</p>
+              </div>
+            )}
             <button
               type="button"
               onClick={onNext}
@@ -273,7 +280,23 @@ function FillBlankQuestion({ question, onNext }: FillBlankQuestionProps) {
   return (
     <div className="flex flex-col h-full px-4 pt-4 pb-6">
       {/* 题目说明 */}
-      <p className="text-xs text-gray-400 mb-4">补全对话，填写空格中的内容</p>
+      <p className="text-xs text-gray-400 mb-2">补全对话，填写空格中的内容</p>
+      
+      {/* 知识点标签 */}
+      {question.knowledgePoint && (
+        <div className="mb-3">
+          <span className="inline-block px-2.5 py-1 rounded-full bg-purple-50 text-purple-600 text-xs font-medium border border-purple-200">
+            {question.knowledgePoint}
+          </span>
+        </div>
+      )}
+      
+      {/* 提示 */}
+      {question.hint && (
+        <div className="mb-3 p-2.5 rounded-lg bg-amber-50 border border-amber-200">
+          <p className="text-xs text-amber-700">💡 提示：{question.hint}</p>
+        </div>
+      )}
 
       {/* 含输入框的句子模板 */}
       <div className="bg-white rounded-card shadow-card border border-gray-100 p-4 mb-4 text-base leading-loose">
@@ -583,6 +606,35 @@ function SpeakingQuestion({ question, onNext }: SpeakingQuestionProps) {
                   <p className="text-xs text-gray-600 leading-relaxed">{evaluationResult.feedback}</p>
                 </div>
               </div>
+              
+              {/* 参考答案 */}
+              {question.expectedAnswers && question.expectedAnswers.length > 0 && (
+                <div className="mt-3 pt-3 border-t border-gray-200">
+                  <p className="text-xs text-gray-500 font-medium mb-1.5">参考答案：</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {question.expectedAnswers.map((ans, i) => (
+                      <span key={i} className="inline-block px-2 py-1 bg-white rounded text-xs text-gray-700 border border-gray-200">
+                        {ans}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              {/* 评分标准 */}
+              {question.evaluationCriteria && question.evaluationCriteria.length > 0 && (
+                <div className="mt-3 pt-3 border-t border-gray-200">
+                  <p className="text-xs text-gray-500 font-medium mb-1.5">评分标准：</p>
+                  <ul className="text-xs text-gray-600 space-y-1">
+                    {question.evaluationCriteria.map((criteria, i) => (
+                      <li key={i} className="flex items-start gap-1.5">
+                        <span className="text-gray-400">•</span>
+                        <span>{criteria}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </motion.div>
           )}
         </AnimatePresence>

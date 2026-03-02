@@ -97,8 +97,22 @@ export const qaPairs = pgTable('qa_pairs', {
 })
 
 
+// 子场景练习题表（新增）
+export const subScenePracticeQuestions = pgTable('sub_scene_practice_questions', {
+  id: text('id').primaryKey(),                                    // 格式: {subSceneId}_pq_{n}
+  subSceneId: text('sub_scene_id').notNull().references(() => subScenes.id),
+  type: text('type').notNull(),                                   // 题目类型（choice/fill_blank/speaking）
+  order: integer('order').notNull(),                              // 题目顺序
+  content: jsonb('content').notNull(),                            // 题目内容
+  createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
+  updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`),
+})
+
+
 // 导出新增类型
 export type SubScene = typeof subScenes.$inferSelect
 export type NewSubScene = typeof subScenes.$inferInsert
 export type QAPair = typeof qaPairs.$inferSelect
 export type NewQAPair = typeof qaPairs.$inferInsert
+export type SubScenePracticeQuestion = typeof subScenePracticeQuestions.$inferSelect
+export type NewSubScenePracticeQuestion = typeof subScenePracticeQuestions.$inferInsert

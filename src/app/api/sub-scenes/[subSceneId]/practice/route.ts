@@ -1,14 +1,13 @@
 import { NextResponse } from 'next/server'
-import { getQAPairsBySubSceneId } from '@/lib/db/sub-scenes'
-import { generatePracticeQuestions } from '@/lib/scene-learning/practice'
+import { getPracticeQuestionsBySubSceneId } from '@/lib/db/sub-scenes'
+import type { PracticeQuestion } from '@/types'
 
-// 禁用 Next.js 数据缓存
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
 /**
  * GET /api/sub-scenes/[subSceneId]/practice
- * 动态生成子场景练习题（选择题 → 填空题 → 问答题）
+ * 从数据库获取子场景练习题（选择题 → 填空题 → 问答题）
  */
 export async function GET(
   _request: Request,
@@ -17,11 +16,9 @@ export async function GET(
   const { subSceneId } = params
 
   try {
-    // 获取该子场景下所有问答对
-    const qaPairs = await getQAPairsBySubSceneId(subSceneId)
+    const dbQuestions = await getPracticeQuestionsBySubSceneId(subSceneId)
 
-    // 根据问答对生成练习题
-    const questions = generatePracticeQuestions(qaPairs)
+    const questions = dbQuestions.map(q => q.content as PracticeQuestion)
 
     return NextResponse.json(
       { questions },
@@ -35,7 +32,7 @@ export async function GET(
       }
     )
   } catch (error) {
-    console.error(`[GET /api/sub-scenes/${subSceneId}/practice] 生成练习题失败:`, error)
+    console.error(`[GET /api/sub-scenes/${subSceneId}/practice] 获取练习题失败:`, error)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
   }
 }

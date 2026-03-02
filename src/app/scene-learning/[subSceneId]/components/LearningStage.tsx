@@ -186,10 +186,12 @@ function QAPairCard({
       className="bg-white rounded-card shadow-card border border-gray-100"
     >
       {/* 折叠头部（点击展开/收起） */}
-      <button
-        type="button"
+      <div
+        role="button"
+        tabIndex={0}
         onClick={onToggleExpand}
-        className="w-full text-left p-4"
+        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onToggleExpand() }}
+        className="w-full text-left p-4 cursor-pointer"
         aria-expanded={isExpanded}
       >
         <div className="flex items-start gap-3">
@@ -232,7 +234,7 @@ function QAPairCard({
             </svg>
           </motion.div>
         </div>
-      </button>
+      </div>
 
       {/* 展开内容 */}
       <AnimatePresence>

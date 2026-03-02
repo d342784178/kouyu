@@ -206,9 +206,9 @@ export interface BlankItem {
  * 练习题联合类型（选择题 / 填空题 / 问答题）
  */
 export type PracticeQuestion =
-  | { type: 'choice'; qaId: string; audioUrl: string; speakerText: string; speakerTextCn: string; options: ChoiceOption[] }
-  | { type: 'fill_blank'; qaId: string; template: string; blanks: BlankItem[] }
-  | { type: 'speaking'; qaId: string; speakerText: string; speakerTextCn: string; expectedAnswer?: string }
+  | { type: 'choice'; qaId: string; audioUrl: string; speakerText: string; speakerTextCn: string; options: ChoiceOption[]; explanation?: string }
+  | { type: 'fill_blank'; qaId: string; template: string; blanks: BlankItem[]; hint?: string; knowledgePoint?: string }
+  | { type: 'speaking'; qaId: string; speakerText: string; speakerTextCn: string; expectedAnswer?: string; expectedAnswers?: string[]; evaluationCriteria?: string[] }
 
 /**
  * AI 模拟对话 API 请求体
