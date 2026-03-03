@@ -5,7 +5,16 @@
  * node generate_scenes_110.js
  * 
  * 数据格式说明：
- * dialogue 字段为扁平数组格式，每条对话包含 round_number 字段
+ * 生成的数据符合 src/lib/db/schema.ts 中 scenes 表的结构：
+ * - id: 场景ID (格式: {category}_{序号})
+ * - name: 场景名称
+ * - category: 分类 (日常/职场/旅行/社交/留学)
+ * - description: 场景描述
+ * - difficulty: 难度 (初级/中级/高级)
+ * - duration: 预计时长 (分钟)
+ * - tags: 标签数组
+ * - dialogue: 对话内容数组
+ * - createdAt/updatedAt: 时间戳
  */
 
 const fs = require('fs');
@@ -325,7 +334,7 @@ async function generateScene(template, index) {
 请严格按照以下JSON格式输出（确保完整不截断，使用双引号）：
 
 {
-  "scene_name": "场景名称（中文）",
+  "name": "场景名称（中文）",
   "description": "场景描述，说明适用场景和学习目标（50-100字）",
   "tags": ["标签1", "标签2", "标签3"],
   "dialogue": [
@@ -412,7 +421,8 @@ async function generateScene(template, index) {
     }
   ],
   "category": "${template.category === 'daily' ? '日常' : template.category === 'workplace' ? '职场' : template.category === 'travel' ? '旅行' : template.category === 'social' ? '社交' : '留学'}",
-  "difficulty": "${template.difficulty}"
+  "difficulty": "${template.difficulty}",
+  "duration": 10
 }
 
 注意：
@@ -434,13 +444,12 @@ async function generateScene(template, index) {
 
     const sceneData = parseJSON(result.content);
 
-    // 添加元数据
+    // 添加符合 schema 的元数据
     sceneData.id = sceneId;
-    sceneData.vocabulary = [];
 
     const roundCount = sceneData.dialogue?.length || 0;
     const contentCount = sceneData.dialogue?.reduce((sum, r) => sum + (r.content?.length || 0), 0) || 0;
-    console.log(`✓ [${index}/${CONFIG.SCENE_COUNT}] ${sceneId} - ${sceneData.scene_name} (${roundCount}轮, ${contentCount}条对话)`);
+    console.log(`✓ [${index}/${CONFIG.SCENE_COUNT}] ${sceneId} - ${sceneData.name} (${roundCount}轮, ${contentCount}条对话)`);
     return { success: true, data: sceneData, index };
 
   } catch (error) {
@@ -458,7 +467,7 @@ async function main() {
   console.log(`并发数: ${CONFIG.CONCURRENCY}`);
   console.log(`Max Tokens: ${CONFIG.MAX_TOKENS}`);
   console.log(`NVIDIA API Key: ${CONFIG.NVIDIA_API_KEY ? '已设置' : '未设置'}`);
-  console.log('数据格式: 扁平数组 (dialogue: [...])');
+  console.log('数据格式: 符合 scenes 表 schema 结构');
   console.log('');
 
   if (!CONFIG.NVIDIA_API_KEY) {
@@ -499,9 +508,17 @@ async function main() {
   // 按 id 排序
   results.sort((a, b) => a.id.localeCompare(b.id));
 
+  // 为每个场景添加 createdAt 和 updatedAt
+  const now = new Date().toISOString();
+  const finalResults = results.map(scene => ({
+    ...scene,
+    createdAt: now,
+    updatedAt: now
+  }));
+
   // 保存最终文件
-  const finalFile = path.join(CONFIG.OUTPUT_DIR, 'scenes_110_generated.json');
-  fs.writeFileSync(finalFile, JSON.stringify(results, null, 2), 'utf-8');
+  const finalFile = path.join(CONFIG.OUTPUT_DIR, 'scenes_generated.json');
+  fs.writeFileSync(finalFile, JSON.stringify(finalResults, null, 2), 'utf-8');
 
   // 如果有失败的，保存失败列表
   if (failedTasks.length > 0) {
@@ -518,7 +535,7 @@ async function main() {
   console.log(`失败: ${failedTasks.length} 个场景`);
   console.log(`耗时: ${duration} 分钟`);
   console.log(`数据文件: ${finalFile}`);
-  console.log(`数据格式: 扁平数组 (dialogue: [...])`);
+  console.log(`数据格式: 符合 scenes 表 schema 结构`);
   if (failedTasks.length > 0) {
     console.log(`失败记录: ${path.join(CONFIG.OUTPUT_DIR, 'scenes_failed.json')}`);
   }
