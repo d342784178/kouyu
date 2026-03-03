@@ -184,7 +184,7 @@ export async function callLLM(
 
     // 构建 API URL
     const baseUrl = config.baseUrl || 'https://api.openai.com/v1'
-    const apiUrl = `${baseUrl}/chat/completions`
+    const apiUrl = baseUrl.endsWith('/chat/completions') ? baseUrl : `${baseUrl}/chat/completions`
 
     console.log('[LLM] 请求 URL:', apiUrl)
     console.log('[LLM] 请求消息:', messages)
@@ -281,7 +281,7 @@ export async function callLLMStream(
 
     // 构建 API URL
     const baseUrl = config.baseUrl || 'https://api.openai.com/v1'
-    const apiUrl = `${baseUrl}/chat/completions`
+    const apiUrl = baseUrl.endsWith('/chat/completions') ? baseUrl : `${baseUrl}/chat/completions`
 
     const response = await fetch(apiUrl, {
       method: 'POST',

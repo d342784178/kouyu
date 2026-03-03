@@ -189,13 +189,11 @@ function AIPracticeBtn({
       onClick={() => onClick(sceneId)}
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3, delay: 0.15 }}
+      transition={{ duration: 0.3, delay: 0.1 }}
       whileTap={{ scale: 0.97 }}
-      className="w-full py-4 rounded-card font-semibold text-base shadow-md transition-all active:shadow-sm border-2"
+      className="w-full py-4 rounded-card font-semibold text-base text-white shadow-md transition-all active:shadow-sm"
       style={{
-        background: 'linear-gradient(135deg, #EEF2FF, #E0E7FF)',
-        borderColor: '#4F7CF0',
-        color: '#1E40AF',
+        background: 'linear-gradient(135deg, #4F7CF0, #6366F1)',
       }}
     >
       <span className="flex items-center justify-center gap-2">
@@ -381,24 +379,8 @@ export default function SceneOverviewPage({
               <ContentPreparing />
             ) : (
               <>
-                {/* 开始学习按钮 */}
-                <div className="mb-3">
-                  <StartLearningBtn
-                    subScenes={subScenes}
-                    onClick={handleNavigateToSubScene}
-                  />
-                </div>
-
-                {/* 自主AI练习按钮 */}
-                <div className="mb-5">
-                  <AIPracticeBtn
-                    sceneId={sceneId}
-                    onClick={handleNavigateToAIPractice}
-                  />
-                </div>
-
                 {/* 子场景卡片列表 */}
-                <div className="space-y-3">
+                <div className="space-y-3 mb-5">
                   <h3 className="text-sm font-medium text-gray-500 mb-2">全部子场景</h3>
                   {subScenes.map((subScene, index) => (
                     <SubSceneCard
@@ -408,6 +390,14 @@ export default function SceneOverviewPage({
                       onClick={() => handleNavigateToSubScene(subScene.id)}
                     />
                   ))}
+                </div>
+
+                {/* 自主AI练习按钮 */}
+                <div className="mb-3">
+                  <AIPracticeBtn
+                    sceneId={sceneId}
+                    onClick={handleNavigateToAIPractice}
+                  />
                 </div>
               </>
             )}
