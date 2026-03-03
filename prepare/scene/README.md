@@ -6,25 +6,40 @@
 prepare/scene/
 ├── data/
 │   ├── scenes_final.json            # 最终场景数据（已导入数据库）
-│   ├── scenes_100_with_audio.json   # 带音频URL的场景数据
-│   ├── scene_tests.json             # 生成的测试题数据
-│   ├── scene_tests_progress.json    # 生成进度跟踪（断点续传）
-│   ├── scene_tests_failed.json      # 失败记录
-│   └── audio/                       # 本地音频文件（已上传到COS，可删除）
-│       ├── dialogues/               # 对话音频
-│       ├── vocabulary/              # 词汇音频
-│       └── dialogue_audio_map.json  # 音频映射文件
+│   └── practice-questions/          # 子场景练习题数据
+│       └── {scene_id}_sub_{n}_{type}.json
 ├── scripts/
 │   ├── scene-manager.ts             # 场景管理脚本（主要）
-│   ├── generate-scene-tests.ts      # 测试数据生成脚本
-│   ├── generate_scenes_100.js       # 生成100个场景数据
-│   └── generate_scene_audio.py      # 生成音频文件
+│   ├── generate_scenes_110.js       # 生成110个场景数据
+│   ├── generate-sub-scenes.js       # 生成子场景数据
+│   ├── generate-practice-questions.js # 生成练习题数据
+│   ├── import-sub-scenes.ts         # 导入子场景到数据库
+│   └── import-practice-questions.js # 导入练习题到数据库
 └── README.md
 ```
 
 ## 脚本说明
 
-### scene-manager.ts（主要脚本）
+### 1. 场景生成脚本
+
+#### generate_scenes_110.js
+
+使用 NVIDIA GLM4.7 API 生成 110 个场景数据。
+
+**使用方法**:
+```bash
+node prepare/scene/scripts/generate_scenes_110.js
+```
+
+**输出**: `data/scenes_generated.json`
+
+**数据格式**: 符合 `scenes` 表 schema 结构
+
+---
+
+### 2. 场景管理脚本
+
+#### scene-manager.ts
 
 场景数据管理脚本，提供以下命令：
 
@@ -36,243 +51,169 @@ prepare/scene/
 | `update-db` | 更新数据库中的音频URL |
 | `verify` | 验证数据库中的音频URL |
 
-### generate-scene-tests.ts（测试数据生成）
+**使用方法**:
+```bash
+npx ts-node prepare/scene/scripts/scene-manager.ts test
+npx ts-node prepare/scene/scripts/scene-manager.ts reset
+```
 
-自动生成场景测试数据，支持三种题型：
+---
 
-| 题型 | 数量 | 说明 |
-|------|------|------|
-| 选择题 (choice) | 3道 | 考察"如何回答"的理解 |
-| 问答题 (qa) | 2道 | 考察多种回答方式 |
-| 开放式对话 (open_dialogue) | 1道 | 角色扮演练习 |
+### 3. 子场景生成脚本
+
+#### generate-sub-scenes.js
+
+从 `scenes_final.json` 读取场景列表，调用 NVIDIA Qwen3 API 生成子场景和问答对数据。
 
 **使用方法**:
 ```bash
-# 生成测试数据
-npx ts-node prepare/scene/scripts/generate-scene-tests.ts generate
+# 生成所有场景（断点续传）
+node prepare/scene/scripts/generate-sub-scenes.js
 
-# 导入数据库
-npx ts-node prepare/scene/scripts/generate-scene-tests.ts import
+# 强制重新生成
+node prepare/scene/scripts/generate-sub-scenes.js --force
 
-# 生成并导入
-npx ts-node prepare/scene/scripts/generate-scene-tests.ts generate-and-import
+# 只生成指定场景
+node prepare/scene/scripts/generate-sub-scenes.js --scene daily_001
+
+# 预览生成结果
+node prepare/scene/scripts/generate-sub-scenes.js --dry-run
 ```
 
-**特性**:
-- 支持断点续传（通过 `scene_tests_progress.json` 跟踪进度）
-- 实时写入文件（避免内存溢出）
-- 并发控制（默认10个并发）
-- 失败记录保存到 `scene_tests_failed.json`
+**输出**: `data/sub-scenes/{scene_id}.json`
 
-**配置参数**:
-```typescript
-const CONFIG = {
-  NVIDIA_API_KEY: process.env.NVIDIA_API_KEY || '',
-  NVIDIA_API_URL: 'https://integrate.api.nvidia.com/v1/chat/completions',
-  NVIDIA_MODEL: 'z-ai/glm4.7',
-  CONCURRENCY: 10,           // 并发数
-  MAX_TOKENS: 100000,        // 最大token数
-  TEMPERATURE: 0.7,          // 温度参数
-  DATA_DIR: path.resolve(process.cwd(), 'prepare/scene/data'),
-  OUTPUT_FILE: path.resolve(process.cwd(), 'prepare/scene/data/scene_tests.json'),
-};
+---
+
+### 4. 练习题生成脚本
+
+#### generate-practice-questions.js
+
+为子场景生成练习题（选择题、填空题、口语题）。
+
+**使用方法**:
+```bash
+node prepare/scene/scripts/generate-practice-questions.js
 ```
 
-### 其他脚本
+**输出**: `data/practice-questions/{sub_scene_id}_{type}.json`
 
-| 文件 | 说明 |
-|------|------|
-| `generate_scenes_100.js` | 使用GLM API生成100个场景数据 |
-| `generate_scene_audio.py` | 使用edge-tts生成音频文件 |
-| `backup_audio.py` | 备份历史音频文件 |
+---
 
-## 使用方法
+### 5. 数据导入脚本
 
-### 1. 生成场景数据
+#### import-sub-scenes.ts
+
+将子场景数据导入数据库（sub_scenes 和 qa_pairs 表）。
 
 ```bash
-node prepare/scene/scripts/generate_scenes_100.js
+npx ts-node prepare/scene/scripts/import-sub-scenes.ts
 ```
 
-### 2. 生成音频文件
+#### import-practice-questions.js
+
+将练习题数据导入数据库（sub_scene_practice_questions 表）。
 
 ```bash
-python prepare/scene/scripts/generate_scene_audio.py
+node prepare/scene/scripts/import-practice-questions.js
 ```
 
-### 3. 生成测试数据
-
-```bash
-# 生成测试数据
-npx ts-node prepare/scene/scripts/generate-scene-tests.ts generate
-
-# 导入数据库
-npx ts-node prepare/scene/scripts/generate-scene-tests.ts import
-
-# 或一步完成
-npx ts-node prepare/scene/scripts/generate-scene-tests.ts generate-and-import
-```
-
-### 4. 场景管理
-
-```bash
-# 测试音频URL
-npx ts-node prepare/scene/scripts/scene-manager.ts test
-
-# 更新JSON文件中的音频URL
-npx ts-node prepare/scene/scripts/scene-manager.ts update-audio
-
-# 重置数据库场景数据
-npx ts-node prepare/scene/scripts/scene-manager.ts reset
-
-# 更新数据库中的音频URL
-npx ts-node prepare/scene/scripts/scene-manager.ts update-db
-
-# 验证数据库中的音频URL
-npx ts-node prepare/scene/scripts/scene-manager.ts verify
-```
-
-## 音频URL格式
-
-音频URL使用 `COS:/` 协议前缀，由 `buildAudioUrl` 函数解析为完整URL：
-
-- 对话音频: `COS:/scene/dialogues/{scene_id}_round{n}_speaker{x}.mp3`
-- 词汇音频: `COS:/scene/vocabulary/{scene_id}_vocab{n}_word.mp3`
-- 词汇例句: `COS:/scene/vocabulary/{scene_id}_vocab{n}_example.mp3`
-
-完整URL示例:
-```
-https://kouyu-scene-1300762139.cos.ap-guangzhou.myqcloud.com/scene/dialogues/daily_001_round1_speaker1.mp3
-```
+---
 
 ## 数据格式
 
-### 场景结构
+### 场景结构 (scenes 表)
 
 ```json
 {
-  "scene_id": "daily_001",
-  "scene_name": "餐厅点餐",
-  "category": "daily",
-  "difficulty": "beginner",
-  "description": "学习在餐厅点餐的基本用语",
-  "tags": ["restaurant", "ordering", "food"],
-  "dialogue": {
-    "rounds": [
-      {
-        "round_number": 1,
-        "content": [
-          {
-            "index": 1,
-            "speaker": "speaker1",
-            "speaker_name": "Customer",
-            "text": "英文对话",
-            "translation": "中文翻译",
-            "is_key_qa": true,
-            "audio_url": "COS:/scene/dialogues/daily_001_round1_speaker1.mp3"
-          }
-        ],
-        "analysis": {
-          "analysis_detail": "分析详情",
-          "standard_answer": {
-            "text": "标准回答",
-            "translation": "翻译",
-            "scenario": "使用场景",
-            "formality": "neutral"
-          },
-          "alternative_answers": [
-            {
-              "text": "备选回答",
-              "translation": "翻译",
-              "scenario": "使用场景",
-              "formality": "casual"
-            }
-          ],
-          "usage_notes": "使用说明"
-        }
-      }
-    ]
-  },
-  "vocabulary": [
-    {
-      "vocab_id": "daily_001_vocab_01",
-      "type": "word",
-      "content": "单词",
-      "phonetic": "/音标/",
-      "translation": "翻译",
-      "example_sentence": "例句",
-      "example_translation": "例句翻译",
-      "difficulty": "easy",
-      "round_number": 1,
-      "word_audio_url": "COS:/scene/vocabulary/daily_001_vocab1_word.mp3",
-      "example_audio_url": "COS:/scene/vocabulary/daily_001_vocab1_example.mp3"
-    }
-  ]
+  "id": "daily_001",
+  "name": "餐厅点餐",
+  "category": "日常",
+  "description": "场景描述...",
+  "difficulty": "初级",
+  "duration": 10,
+  "tags": ["点餐", "餐厅服务"],
+  "createdAt": "2026-03-03T...",
+  "updatedAt": "2026-03-03T..."
 }
 ```
 
-### 测试题结构
+### 子场景结构 (sub_scenes 表)
+
+```json
+{
+  "id": "daily_001_sub_1",
+  "sceneId": "daily_001",
+  "name": "入座点餐",
+  "description": "进入餐厅后与服务员的初始交流",
+  "order": 1,
+  "estimatedMinutes": 5
+}
+```
+
+### 问答对结构 (qa_pairs 表)
+
+```json
+{
+  "id": "daily_001_sub_1_qa_1",
+  "subSceneId": "daily_001_sub_1",
+  "speakerText": "Hi there! Table for one?",
+  "speakerTextCn": "您好！一位吗？",
+  "responses": [
+    { "text": "Yeah, just me, thanks.", "text_cn": "对，就我一个，谢谢。" }
+  ],
+  "usageNote": "服务员问候时的回应",
+  "qaType": "must_speak",
+  "order": 1
+}
+```
+
+### 练习题结构 (sub_scene_practice_questions 表)
 
 **选择题 (choice)**:
 ```json
 {
-  "id": "daily_001_choice_01",
-  "sceneId": "daily_001",
+  "id": "daily_001_sub_1_pq_1",
+  "subSceneId": "daily_001_sub_1",
   "type": "choice",
   "order": 1,
   "content": {
-    "question": "场景描述和问题（中文）",
-    "options": ["选项A英文", "选项B英文", "选项C英文", "选项D英文"],
-    "correct_answer": 0,
-    "analysis": "解析说明（中文）"
+    "question": "问题",
+    "options": ["选项A", "选项B", "选项C", "选项D"],
+    "correctAnswer": 0
   }
 }
 ```
 
-**问答题 (qa)**:
+**填空题 (fill_blank)**:
 ```json
 {
-  "id": "daily_001_qa_01",
-  "sceneId": "daily_001",
-  "type": "qa",
-  "order": 4,
+  "id": "daily_001_sub_1_pq_2",
+  "subSceneId": "daily_001_sub_1",
+  "type": "fill_blank",
+  "order": 2,
   "content": {
-    "question": "场景描述和需要回答的问题（中文）",
-    "reference_answers": [
-      {
-        "text": "参考答案英文",
-        "style": "neutral",
-        "description": "说明（中文）"
-      }
-    ],
-    "analysis": "解析说明（中文）"
+    "sentence": "Please fill in the ____.",
+    "answer": "blank",
+    "hints": ["提示"]
   }
 }
 ```
 
-**开放式对话 (open_dialogue)**:
+**口语题 (speaking)**:
 ```json
 {
-  "id": "daily_001_open_01",
-  "sceneId": "daily_001",
-  "type": "open_dialogue",
-  "order": 6,
+  "id": "daily_001_sub_1_pq_3",
+  "subSceneId": "daily_001_sub_1",
+  "type": "speaking",
+  "order": 3,
   "content": {
-    "topic": "对话主题",
-    "description": "对话描述",
-    "roles": [
-      {
-        "name": "角色名",
-        "description": "角色描述",
-        "is_user": true
-      }
-    ],
-    "scenario_context": "对话背景（中文）",
-    "suggested_opening": "开场白（英文）",
-    "analysis": "要点分析（中文）"
+    "prompt": "请用英语回答以下问题",
+    "referenceAnswer": "参考答案"
   }
 }
 ```
+
+---
 
 ## 数据库表结构
 
@@ -282,59 +223,114 @@ CREATE TABLE scenes (
   id TEXT PRIMARY KEY,
   name TEXT NOT NULL,
   category TEXT NOT NULL,
-  description TEXT,
-  difficulty TEXT,
+  description TEXT NOT NULL,
+  difficulty TEXT NOT NULL,
+  duration INTEGER DEFAULT 10,
   tags JSONB,
-  dialogue JSONB,
-  vocabulary JSONB,
   created_at TIMESTAMP DEFAULT NOW(),
   updated_at TIMESTAMP DEFAULT NOW()
 );
 ```
 
-### scene_tests 表
+### sub_scenes 表
 ```sql
-CREATE TABLE scene_tests (
+CREATE TABLE sub_scenes (
   id TEXT PRIMARY KEY,
-  scene_id TEXT REFERENCES scenes(id),
-  type TEXT NOT NULL,
-  "order" INTEGER,
-  content JSONB,
+  scene_id TEXT NOT NULL REFERENCES scenes(id),
+  name TEXT NOT NULL,
+  description TEXT NOT NULL,
+  order INTEGER NOT NULL,
+  estimated_minutes INTEGER DEFAULT 5,
   created_at TIMESTAMP DEFAULT NOW(),
   updated_at TIMESTAMP DEFAULT NOW()
 );
 ```
 
-## 场景分类（100个）
+### qa_pairs 表
+```sql
+CREATE TABLE qa_pairs (
+  id TEXT PRIMARY KEY,
+  sub_scene_id TEXT NOT NULL REFERENCES sub_scenes(id),
+  speaker_text TEXT NOT NULL,
+  speaker_text_cn TEXT NOT NULL,
+  responses JSONB NOT NULL,
+  usage_note TEXT,
+  audio_url TEXT,
+  qa_type TEXT NOT NULL,
+  order INTEGER NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+```
 
-| 类别 | 数量 | 说明 |
-|------|------|------|
-| daily | 30 | 日常场景 |
-| workplace | 25 | 职场场景 |
-| study_abroad | 20 | 留学场景 |
-| travel | 15 | 旅行场景 |
-| social | 10 | 社交场景 |
+### sub_scene_practice_questions 表
+```sql
+CREATE TABLE sub_scene_practice_questions (
+  id TEXT PRIMARY KEY,
+  sub_scene_id TEXT NOT NULL REFERENCES sub_scenes(id),
+  type TEXT NOT NULL,
+  order INTEGER NOT NULL,
+  content JSONB NOT NULL,
+  created_at TIMESTAMP DEFAULT NOW(),
+  updated_at TIMESTAMP DEFAULT NOW()
+);
+```
 
-## 难度分布
+---
 
-| 难度 | 数量 | 对话轮数 |
-|------|------|----------|
-| beginner | 30 | 3轮 |
-| intermediate | 35 | 4轮 |
-| advanced | 35 | 5轮 |
+## 场景分类统计
+
+| 分类 | ID前缀 | 数量 |
+|------|--------|------|
+| 日常 | `daily_` | 28 |
+| 职场 | `workplace_` | 25 |
+| 留学 | `study_abroad_` | 15 |
+| 旅行 | `travel_` | 20 |
+| 社交 | `social_` | 19 |
+| **总计** | - | **107** |
+
+---
+
+## 用户角色定位规则
+
+生成数据时遵循以下角色定位原则：
+
+| 原则 | 说明 |
+|------|------|
+| **用户角色** | 用户（学习者）应扮演"消费者"、"使用者"、"顾客"、"求职者"、"学生"等角色 |
+| **用户定位** | 用户应该是"接受服务"或"提出需求"的一方 |
+| **speakerText** | 应该是服务提供者说的话（如服务员、店员、医生、面试官等） |
+| **responses** | 应该是用户作为消费者/使用者的回应 |
+
+---
 
 ## 环境变量
 
 需要在 `.env.local` 中配置：
 
-- `GLM_API_KEY` - GLM API密钥（用于生成场景数据）
-- `NVIDIA_API_KEY` - NVIDIA API密钥（用于生成测试数据）
-- `DATABASE_URL` - 数据库连接字符串（用于数据库操作）
+| 变量名 | 说明 |
+|--------|------|
+| `NVIDIA_API_KEY` | NVIDIA API密钥（用于生成数据） |
+| `DATABASE_URL` | 数据库连接字符串（用于导入数据） |
+
+---
+
+## 音频URL格式
+
+音频URL使用 `COS:/` 协议前缀，由 `buildAudioUrl` 函数解析为完整URL：
+
+- 对话音频: `COS:/scene/dialogues/{scene_id}_round{n}_{speaker}.mp3`
+
+完整URL示例:
+```
+https://kouyu-scene-1300762139.cos.ap-guangzhou.myqcloud.com/scene/dialogues/daily_001_round1_speaker1.mp3
+```
+
+---
 
 ## 注意事项
 
-1. **API Key**: 确保设置了 `GLM_API_KEY` 和 `NVIDIA_API_KEY` 环境变量
-2. **并发控制**: 默认10个并发，可根据API限制调整
+1. **API Key**: 确保设置了 `NVIDIA_API_KEY` 环境变量
+2. **并发控制**: 默认30个并发，可根据API限制调整
 3. **断点续传**: 生成过程中断可重新运行，会自动跳过已完成的场景
-4. **失败处理**: 失败的场景会记录到 `scene_tests_failed.json`
-5. **音频URL**: 使用 `COS:/` 前缀表示腾讯云COS存储
+4. **数据格式**: 所有生成的数据需符合 `src/lib/db/schema.ts` 中定义的表结构
