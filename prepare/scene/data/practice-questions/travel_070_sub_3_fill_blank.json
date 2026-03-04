@@ -2,7 +2,7 @@
   "subSceneId": "travel_070_sub_3",
   "subSceneName": "查询空位",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T15:09:49.520Z",
+  "generatedAt": "2026-03-03T14:31:11.915Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_070_sub_3_qa_1",
-        "template": "I'd like ___ book the 15th at 10 a.m. if possible.",
+        "situation": "顾客想预约服务，客服提供两个可用时间段，顾客希望选择其中一个但想确认是否可以调整到更早的时间。",
+        "speakerText": "We have slots available at 2 p.m. or 4 p.m. today.",
+        "speakerTextCn": "我们今天有两个可用时段，下午2点或4点。",
+        "responseTemplate": "The 2 p.m. slot works for me, but ___?",
         "blanks": [
           {
             "index": 0,
-            "answer": "to",
+            "answer": "is there an earlier option",
             "options": [
-              "to",
-              "for",
-              "with",
-              "at"
+              "is there an earlier option",
+              "can you make it earlier",
+              "do you have any morning time",
+              "could I change to morning"
             ]
           }
         ],
-        "hint": "表达意愿时的固定搭配",
-        "knowledgePoint": "would like to do（预约场景核心句型）"
+        "hint": "表达偏好后，礼貌询问是否有更早的选择",
+        "knowledgePoint": "表达偏好并礼貌询问替代方案"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "The 16th at 3 p.m. is fine, but is there anything ___?",
+        "situation": "乘客想预订航班，客服告知两个可选日期，乘客倾向于其中一个但想确认是否还有其他相近日期可选。",
+        "speakerText": "You can book for next Tuesday or Thursday.",
+        "speakerTextCn": "您可以选择下周二或周四预订。",
+        "responseTemplate": "Tuesday sounds good, but ___?",
         "blanks": [
           {
             "index": 0,
-            "answer": "earlier",
+            "answer": "do you have anything on Monday",
             "options": [
-              "earlier",
-              "later",
-              "faster",
-              "quicker"
+              "do you have anything on Monday",
+              "can I have Wednesday instead",
+              "is Monday available too",
+              "what about next week"
             ]
           }
         ],
-        "hint": "当想确认是否有更早的时间时使用的词",
-        "knowledgePoint": "比较级表达偏好（earlier/later）"
+        "hint": "先接受推荐选项，再温和询问是否有更接近偏好的替代",
+        "knowledgePoint": "优先接受建议并试探性询问其他可能性"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "I need to be there ___ noon, so the morning slot works best.",
+        "situation": "客户想预约美容护理，美容师提供两个时间段，客户对其中一个满意但想确认是否可以提前一点。",
+        "speakerText": "We have openings at 11 a.m. or 1 p.m. tomorrow.",
+        "speakerTextCn": "我们明天有两个空位，上午11点或下午1点。",
+        "responseTemplate": "11 a.m. is perfect, ___?",
         "blanks": [
           {
             "index": 0,
-            "answer": "before",
+            "answer": "could we do it a bit earlier",
             "options": [
-              "before",
-              "after",
-              "at",
-              "by"
+              "could we do it a bit earlier",
+              "is 10 a.m. possible",
+              "what if I come at 9",
+              "can you move it to 10"
             ]
           }
         ],
-        "hint": "表示在某个时间点之前完成动作的介词",
-        "knowledgePoint": "时间表达介词（before vs by）"
+        "hint": "表达满意后，用委婉语气询问是否可微调时间",
+        "knowledgePoint": "在满意基础上请求轻微调整时间"
       }
     }
   ]

@@ -2,7 +2,7 @@
   "subSceneId": "daily_003_sub_1",
   "subSceneName": "打招呼点单",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:42:21.861Z",
+  "generatedAt": "2026-03-03T14:23:03.355Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_003_sub_1_qa_1",
-        "template": "I'd like ___ a latte, please.",
+        "situation": "你在咖啡店排队轮到你时，店员微笑着打招呼并询问你的需求。",
+        "speakerText": "Hi! Welcome in. What would you like to order today?",
+        "speakerTextCn": "嗨！欢迎光临。今天想点些什么？",
+        "responseTemplate": "I'd like ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "to",
+            "answer": "a flat white, please",
             "options": [
-              "to",
-              "for",
-              "with",
-              "at"
+              "a flat white, please",
+              "I want a flat white",
+              "give me a flat white",
+              "flat white for me"
             ]
           }
         ],
-        "hint": "表达‘想要’点单时的标准句型",
-        "knowledgePoint": "would like to do（预约场景核心句型）"
+        "hint": "表达礼貌的点单请求，常用 I'd like + 名词 + please",
+        "knowledgePoint": "礼貌点单表达"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_003_sub_1_qa_2",
-        "template": "Sounds good! I'll ___ that.",
+        "situation": "店员向你推荐新品，你听起来很感兴趣，决定尝试。",
+        "speakerText": "We just launched a matcha almond milk latte — it's been flying off the shelf!",
+        "speakerTextCn": "我们刚推出了抹茶杏仁奶拿铁，卖得特别快！",
+        "responseTemplate": "___ I'll give it a try.",
         "blanks": [
           {
             "index": 0,
-            "answer": "try",
+            "answer": "Sounds great!",
             "options": [
-              "try",
-              "take",
-              "get",
-              "buy"
+              "Sounds great!",
+              "That's expensive!",
+              "I don't like matcha",
+              "Why is it so popular?"
             ]
           }
         ],
-        "hint": "对推荐饮品表示接受时的常用动词",
-        "knowledgePoint": "I'll try that（表达尝试推荐品的惯用搭配）"
+        "hint": "表达对推荐的积极回应，常用 Sounds great!/Sounds good! 引出后续决定",
+        "knowledgePoint": "积极回应推荐"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Could you tell me what's ___ today?",
+        "situation": "你不确定该选什么，店员主动询问是否需要建议。",
+        "speakerText": "If you're not sure, I can suggest something popular.",
+        "speakerTextCn": "如果你不确定，我可以推荐一款受欢迎的饮品。",
+        "responseTemplate": "___ What do you recommend?",
         "blanks": [
           {
             "index": 0,
-            "answer": "special",
+            "answer": "That would be helpful,",
             "options": [
-              "special",
-              "expensive",
-              "popular",
-              "new"
+              "That would be helpful,",
+              "I don't need help,",
+              "No thanks, I know what I want,",
+              "Can you make it cheaper?"
             ]
           }
         ],
-        "hint": "询问今日推荐或特色饮品的常用词",
-        "knowledgePoint": "what's special today（点单场景高频表达）"
+        "hint": "礼貌接受建议时，常用 That would be helpful, 引出询问推荐",
+        "knowledgePoint": "礼貌请求推荐"
       }
     }
   ]

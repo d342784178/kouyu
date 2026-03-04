@@ -2,7 +2,7 @@
   "subSceneId": "daily_030_sub_3",
   "subSceneName": "询问价格",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:42:46.019Z",
+  "generatedAt": "2026-03-03T14:19:23.192Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_030_sub_3_qa_1",
-        "speakerText": "These are $89. We've got a 20% off sale this week.",
-        "speakerTextCn": "这双89美元，这周打八折。",
+        "situation": "你在服装店看中一件衬衫，店员告诉你原价是65美元，但今天有15%的折扣。",
+        "speakerText": "This shirt is $65, but we're offering 15% off today.",
+        "speakerTextCn": "这件衬衫65美元，但今天有15%的折扣。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Wow, so it's $71.20? I'll take 'em!",
+            "text": "So it's $55.25? I'll take it.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "That's too expensive. I'll come back next week.",
+            "text": "Do you have any pants on sale too?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can you deliver them to my house?",
+            "text": "I don't like this color.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Do you accept credit cards?",
+            "text": "Can you give me 30% off instead?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是对折扣价格的准确回应，且表达了购买意愿。干扰项分别涉及推迟购买、送货服务和支付方式，均未回应价格信息或折扣反应，不符合对话核心意图。"
+        "explanation": "正确答案准确计算了15%折扣后的价格（65 × 0.85 = 55.25）并做出购买决定，符合高频回应模式。干扰项1答非所问（转向裤子），干扰项2表达主观偏好而非回应价格，干扰项3要求过度折扣，不符合礼貌且不现实的消费情境。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "This jacket is $120, but we're offering 30% off today.",
-        "speakerTextCn": "这件夹克120美元，今天打七折。",
+        "situation": "你在超市想买一箱牛奶，店员告诉你原价是12美元，但会员今天可以享受20%优惠。",
+        "speakerText": "The milk is $12 normally, but as a member, you get 20% off today.",
+        "speakerTextCn": "牛奶原价12美元，但作为会员今天可以享受20%折扣。",
         "options": [
           {
             "id": "opt_1",
-            "text": "So it's $84? I'll take it!",
+            "text": "That’s $9.60? Perfect, I’ll grab two cartons.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Can I pay in installments?",
+            "text": "Is this milk organic?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Is this made of real leather?",
+            "text": "I think I’ll come back tomorrow.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "How long has this been in stock?",
+            "text": "Can I pay with cash only?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确计算了30%折扣后的价格（120×0.7=84）并立即决定购买，符合场景要求。其他选项询问支付方式、材质或库存，偏离了‘确认价格并回应折扣’的核心任务。"
+        "explanation": "正确答案正确心算出20%折扣后价格（12 × 0.8 = 9.6）并自然表达购买意愿，是典型高频回应。干扰项1转移话题到产品属性，干扰项2拖延决策但未回应价格，干扰项3询问支付方式与折扣无关，均未完成核心交际任务——确认价格后决策。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "The shoes are $150, but we have a buy-one-get-one-half-off deal.",
-        "speakerTextCn": "这双鞋150美元，现在是买一送一半价。",
+        "situation": "你在书店看到一本标价30美元的书，店员说今天是会员日，所有书打25%折。",
+        "speakerText": "This book is $30, but on Member Day, everything is 25% off.",
+        "speakerTextCn": "这本书30美元，但会员日所有商品打七五折。",
         "options": [
           {
             "id": "opt_1",
-            "text": "So if I buy two, it's $225 total? I'll take both!",
+            "text": "So it’s $22.50? I’ll take it.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Do you have them in size 9?",
+            "text": "Do you have this in paperback?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can I get a gift wrap?",
+            "text": "I’m not sure if I need this book.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I think I'll wait for the end-of-season sale.",
+            "text": "Can I get free shipping if I buy it?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确理解了‘买一送一半价’的含义（150 + 75 = 225），并做出购买决定。其他选项询问尺码、礼品包装或等待促销，未回应价格计算，偏离主题。"
+        "explanation": "正确答案准确计算出25%折扣后价格（30 × 0.75 = 22.5）并果断决定��买，符合‘听懂折扣→心算→回应’的核心模式。干扰项1询问版本（与价格无关），干扰项2表达犹豫但未回应折扣，干扰项3提出额外服务请求，偏离核心任务——确认价格后做决定。"
       }
     }
   ]

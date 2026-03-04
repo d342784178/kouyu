@@ -2,7 +2,7 @@
   "subSceneId": "daily_008_sub_2",
   "subSceneName": "说明目的地",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:36:54.348Z",
+  "generatedAt": "2026-03-03T14:23:19.385Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_008_sub_2_qa_1",
-        "template": "I need to send this to ___ , Japan.",
+        "situation": "顾客在快递柜台说明包裹寄送目的地，店员需要确认国家以判断是否为国际件",
+        "speakerText": "I'm sending this to Berlin, Germany.",
+        "speakerTextCn": "我要把这个寄到德国柏林。",
+        "responseTemplate": "___? That's overseas.",
         "blanks": [
           {
             "index": 0,
-            "answer": "Tokyo",
+            "answer": "Germany",
             "options": [
-              "Tokyo",
-              "Osaka",
-              "Kyoto",
-              "Nagoya"
+              "Berlin",
+              "Germany",
+              "The city",
+              "Over there"
             ]
           }
         ],
-        "hint": "这是对话中提到的日本首都城市名",
-        "knowledgePoint": "国家与城市搭配（国际寄送核心信息）"
+        "hint": "店员需要确认国家名，而不是城市名，因为国际件的运费取决于国家",
+        "knowledgePoint": "识别并回应目的地国家"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_008_sub_2_qa_2",
-        "template": "Could you please give me the ___ code and street name?",
+        "situation": "顾客在填写寄送单时，店员询问是否需要提供完整地址，顾客表示只需城市和国家",
+        "speakerText": "You don't need the street number, just the city and country.",
+        "speakerTextCn": "你不需要街道号码，只要城市和国家就行。",
+        "responseTemplate": "Got it. Just the ___ and country will do.",
         "blanks": [
           {
             "index": 0,
-            "answer": "postal",
+            "answer": "city",
             "options": [
-              "postal",
-              "phone",
-              "door",
+              "city",
+              "zip code",
+              "name",
               "building"
             ]
           }
         ],
-        "hint": "国际快递中确认地址时最常要求的两个信息之一",
-        "knowledgePoint": "邮政相关词汇搭配（postal code）"
+        "hint": "顾客明确说只需要城市和国家，所以空格应填与'country'并列的核心地理信息",
+        "knowledgePoint": "使用并列结构表达地址信息层级"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "For international shipping, we need the full ___ including city, state, and postal code.",
+        "situation": "顾客在电话中告知包裹目的地，店员为确认信息重复关键内容",
+        "speakerText": "Please send it to Vancouver, Canada.",
+        "speakerTextCn": "请把它寄到加拿大温哥华。",
+        "responseTemplate": "So you'd like it sent to ___?",
         "blanks": [
           {
             "index": 0,
-            "answer": "address",
+            "answer": "Canada",
             "options": [
-              "address",
-              "number",
-              "package",
-              "recipient"
+              "Canada",
+              "Vancouver",
+              "the west coast",
+              "a city"
             ]
           }
         ],
-        "hint": "这是寄送国际包裹时必须提供的核心信息",
-        "knowledgePoint": "核心术语：address（完整地址）"
+        "hint": "店员在确认时应聚焦国家，因为这是决定运输方式和费用的关键信息",
+        "knowledgePoint": "复述确认时选择最核心的国家信息"
       }
     }
   ]

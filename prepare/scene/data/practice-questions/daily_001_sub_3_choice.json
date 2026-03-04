@@ -2,7 +2,7 @@
   "subSceneId": "daily_001_sub_3",
   "subSceneName": "点餐确认",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:35:04.662Z",
+  "generatedAt": "2026-03-03T14:15:07.550Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_001_sub_3_qa_1",
-        "speakerText": "So you'd like the salmon with rice and steamed broccoli?",
-        "speakerTextCn": "您要点三文鱼配米饭和西兰花，对吗？",
+        "situation": "顾客点完主菜后，服务员复述订单以确认内容，避免出错。",
+        "speakerText": "So you ordered the chicken pasta with garlic bread and a side salad, correct?",
+        "speakerTextCn": "您点的是鸡肉意大利面配蒜香面包和一份沙拉，对吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, please. No changes.",
+            "text": "Yes, that's right. No changes, please.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I'll take a glass of water, thanks.",
+            "text": "I actually want to add a dessert.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Could I get lemonade?",
+            "text": "Is the pasta spicy?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "No thanks, I'm good.",
+            "text": "Can I get the bill now?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Yes, please. No changes.' 是对餐品确认的直接回应。其他选项是针对饮料问题的回应，与餐品确认无关，属于语境错配。"
+        "explanation": "正确答案是直接确认订单无误，符合服务员复述确认的交际目的。干扰项2是提出修改，但问题并未询问是否要改；干扰项3是询问细节，偏离确认任务；干扰项4是提前要账，与当前确认环节无关。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_001_sub_3_qa_2",
-        "speakerText": "Would you like a drink with that?",
-        "speakerTextCn": "需要配饮料吗？",
+        "situation": "服务员在确认主菜后，询问是否需要饮品搭配，这是点餐流程中的标准环节。",
+        "speakerText": "Would you like anything to drink with your meal?",
+        "speakerTextCn": "您需要搭配饮品吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll take a glass of water, thanks.",
+            "text": "I'll have a sparkling water, please.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Yep, that's right!",
+            "text": "How long will the food take?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Actually, can I swap rice for mashed potatoes?",
+            "text": "No, I don't like drinks.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Yes, please. No changes.",
+            "text": "Can I get a refund if I don't like it?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'I'll take a glass of water, thanks.' 是对饮料询问的自然回应。其他选项是针对主餐确认的回应，不适用于饮料场景，属于话题错位。"
+        "explanation": "正确答案使用'I'll have...'自然回应饮品请求，是高频地道表达。干扰项1是询问上菜时间，答非所问；干扰项2表达生硬且不礼貌；干扰项4涉及退款，完全偏离当前语境。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "Just to confirm, you ordered the chicken pasta, a side salad, and no bread?",
-        "speakerTextCn": "我确认一下，您点的是鸡肉意大利面、一份配菜沙拉，不加面包，对吗？",
+        "situation": "服务员确认完主菜和饮品后，询问是否需要甜点，顾客原本没打算点，但听到推荐后想加一个。",
+        "speakerText": "We also have a delicious chocolate cake today. Would you like to try it?",
+        "speakerTextCn": "我们今天有美味的巧克力蛋糕，要来一份吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "That's correct. Could I add garlic bread instead?",
+            "text": "Actually, yes — I'll take a slice of that, please.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I'd love some tea, please.",
+            "text": "I'm not hungry anymore.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "No, I'd like to change my main to steak.",
+            "text": "Is the cake homemade?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Thanks, I'm all set.",
+            "text": "Can I pay separately for the cake?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案包含确认（That's correct）和礼貌修改请求（Could I add...），符合点餐确认场景的核心表达。选项2是饮料回应，选项3是更换主菜但未确认原订单，选项4虽礼貌但未回应具体订单内容，不够完整。"
+        "explanation": "正确答案使用'Actually, yes'自然转折，表达改变主意，符合真实对话逻辑。干扰项1是拒绝但未提供替代，语气生硬；干扰项3是询问细节，未回应是否点单；干扰项4提前考虑付款方式，不合时宜。"
       }
     }
   ]

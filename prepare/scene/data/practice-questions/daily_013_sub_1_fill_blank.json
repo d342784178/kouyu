@@ -2,7 +2,7 @@
   "subSceneId": "daily_013_sub_1",
   "subSceneName": "打招呼咨询",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:38:10.086Z",
+  "generatedAt": "2026-03-03T14:23:41.892Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_013_sub_1_qa_1",
-        "template": "Hi! Can you help me with ___ books?",
+        "situation": "你第一次来到图书馆，想礼貌地询问借书流程，向柜台的管理员开口",
+        "speakerText": "Excuse me, could you please tell me how to borrow books here?",
+        "speakerTextCn": "不好意思，您能告诉我这里怎么借书吗？",
+        "responseTemplate": "Of course! I'd be happy to help. ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "borrowing",
+            "answer": "What would you like to know?",
             "options": [
-              "borrowing",
-              "buying",
-              "reading",
-              "returning"
+              "What do you want?",
+              "Tell me what you need.",
+              "How much do you want to borrow?",
+              "What would you like to know?"
             ]
           }
         ],
-        "hint": "这是询问借书流程的关键词",
-        "knowledgePoint": "动词搭配：borrowing books（借书）"
+        "hint": "回应时应先表示乐意帮助，再用礼貌方式引导对方提出具体问题",
+        "knowledgePoint": "礼貌回应与引导性提问"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_013_sub_1_qa_2",
-        "template": "You can borrow up to ___ books at a time.",
+        "situation": "你刚办完借书卡，想确认自己能借多少本书以及是否可以续借",
+        "speakerText": "I just got my library card. Can you tell me about the borrowing limits?",
+        "speakerTextCn": "我刚办了借书卡，能告诉我借书的限制吗？",
+        "responseTemplate": "Certainly! You can borrow up to ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "five",
+            "answer": "a certain number of books and renew them if needed",
             "options": [
-              "five",
-              "ten",
-              "three",
-              "one"
+              "five books and that's it",
+              "a certain number of books and renew them if needed",
+              "as many as you want without limits",
+              "only one book at a time"
             ]
           }
         ],
-        "hint": "这是大多数图书馆的标准借阅数量",
-        "knowledgePoint": "场景核心数字表达：借阅上限"
+        "hint": "回答应包含可借数量和续借可能性，避免绝对化或模糊表达",
+        "knowledgePoint": "借阅规则的完整表达"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Could you please tell me how to ___ a library card?",
+        "situation": "你不确定是否需要身份证才能借书，想礼貌地向管理员确认",
+        "speakerText": "I'm not sure about the requirements. Do I need anything special to start borrowing?",
+        "speakerTextCn": "我不太清楚要求，开始借书时需要什么特别的东西吗？",
+        "responseTemplate": "Good question! You'll just need your ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "apply for",
+            "answer": "library card and you're all set",
             "options": [
-              "apply for",
-              "ask for",
-              "pay for",
-              "look for"
+              "ID card and a payment",
+              "library card and you're all set",
+              "membership fee and a photo",
+              "password and your student number"
             ]
           }
         ],
-        "hint": "办理借书证的固定搭配",
-        "knowledgePoint": "固定表达：apply for a library card（申请借书证）"
+        "hint": "回答应明确所需物品，同时用轻松语气消除对方焦虑",
+        "knowledgePoint": "流程所需材料的清晰说明"
       }
     }
   ]

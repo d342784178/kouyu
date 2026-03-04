@@ -2,7 +2,7 @@
   "subSceneId": "travel_059_sub_4",
   "subSceneName": "支付与确认",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T15:04:55.626Z",
+  "generatedAt": "2026-03-03T14:30:18.442Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_059_sub_4_qa_1",
-        "template": "I'd like to pay ___ card, please.",
+        "situation": "游客在景点售票处选好门票后，想用移动支付完成付款，并确认支付成功",
+        "speakerText": "I'd like to pay with my phone. Can you help me with that?",
+        "speakerTextCn": "我想用手机支付，你能帮我一下吗？",
+        "responseTemplate": "Of course! Just scan the ___ and you're all set.",
         "blanks": [
           {
             "index": 0,
-            "answer": "by",
+            "answer": "QR code",
             "options": [
-              "by",
-              "with",
-              "on",
-              "in"
+              "QR code",
+              "ticket number",
+              "credit card",
+              "booking ID"
             ]
           }
         ],
-        "hint": "支付方式的固定搭配",
-        "knowledgePoint": "固定表达：pay by card"
+        "hint": "这是移动支付时最常见的操作，通常需要扫描一个图形码",
+        "knowledgePoint": "支付方式相关表达"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_059_sub_4_qa_2",
-        "template": "Your tickets are ___ for today only.",
+        "situation": "游客完成支付后，担心票务信息出错，希望工作人员确认门票是否已生效",
+        "speakerText": "I just paid. Can you check if my tickets are active?",
+        "speakerTextCn": "我刚付完款，能确认一下我的票是否已生效吗？",
+        "responseTemplate": "Absolutely! They're confirmed and ready to use. Just show ___ at the entrance.",
         "blanks": [
           {
             "index": 0,
-            "answer": "valid",
+            "answer": "your phone",
             "options": [
-              "valid",
-              "useful",
-              "open",
-              "active"
+              "your phone",
+              "your passport",
+              "the receipt",
+              "your name"
             ]
           }
         ],
-        "hint": "票务确认中的关键形容词",
-        "knowledgePoint": "票务有效性表达：be valid for"
+        "hint": "在数字票务场景中，通常用手机展示电子票，而不是纸质凭证",
+        "knowledgePoint": "票务状态确认表达"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Here's your ___ — please keep it for entry.",
+        "situation": "游客用现金付款后，想确认是否收到正确金额，并确保没有遗漏任何东西",
+        "speakerText": "Here's the cash. Did you get the right amount?",
+        "speakerTextCn": "这是现金，你收到正确的金额了吗？",
+        "responseTemplate": "Yes, perfect! Here's your ___ and welcome aboard!",
         "blanks": [
           {
             "index": 0,
-            "answer": "receipt",
+            "answer": "change",
             "options": [
-              "receipt",
+              "change",
               "ticket",
-              "invoice",
-              "bill"
+              "receipt",
+              "map"
             ]
           }
         ],
-        "hint": "支付后工作人员通常会提供的凭证",
-        "knowledgePoint": "支付凭证词汇：receipt（收据）"
+        "hint": "现金支付后，工作人员通常会找零并提供凭证",
+        "knowledgePoint": "支付后确认流程表达"
       }
     }
   ]

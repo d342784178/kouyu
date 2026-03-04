@@ -1,8 +1,8 @@
 {
   "subSceneId": "daily_002_sub_3",
-  "subSceneName": "促销询问",
+  "subSceneName": "询问促销活动",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:34:42.917Z",
+  "generatedAt": "2026-03-03T14:15:00.191Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_002_sub_3_qa_1",
-        "speakerText": "Is there a special deal on bread today?",
-        "speakerTextCn": "今天面包有促销吗？",
+        "situation": "你在超市想买牛奶，想知道现在是否有折扣或赠品活动。",
+        "speakerText": "Is there any promotion on milk this week?",
+        "speakerTextCn": "这周牛奶有促销活动吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, it's 50% off if you buy two.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "No, but we just restocked it yesterday.",
+            "text": "I'm looking for eggs, not milk.",
             "isCorrect": false
           },
           {
+            "id": "opt_2",
+            "text": "Yes, buy two get one free — right next to the dairy section.",
+            "isCorrect": true
+          },
+          {
             "id": "opt_3",
-            "text": "Yes, you can exchange it for milk.",
+            "text": "The milk is expired tomorrow.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "No, we don't sell bread here.",
+            "text": "I don't know where the milk is.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Yes, it's 50% off if you buy two.' 是对促销问题的合理回应，符合‘买一送半价’的促销逻辑。干扰项2只说明补货，未回应促销；干扰项3混淆了促销与兑换；干扰项4完全错误，与场景矛盾。"
+        "explanation": "正确答案直接回应了促销信息，提供了具体的优惠方式和位置，符合日常对话习惯。干扰项1答非所问（提到鸡蛋），干扰项3是无关的保质期信息，干扰项4完全回避问题。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_002_sub_3_qa_2",
-        "speakerText": "Do you have any coupons for cereal?",
-        "speakerTextCn": "有麦片的优惠券吗？",
+        "situation": "你在便利店想买咖啡，想确认是否有会员优惠或赠品。",
+        "speakerText": "Do you give any discounts if I use your app?",
+        "speakerTextCn": "如果我用你们的App，会有折扣吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, they're on the shelf next to the cereal.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "No, but you can get a free sample if you ask.",
+            "text": "We don't sell coffee here.",
             "isCorrect": false
           },
           {
+            "id": "opt_2",
+            "text": "Yes, you get 15% off and a free pastry on your next visit.",
+            "isCorrect": true
+          },
+          {
             "id": "opt_3",
-            "text": "Yes, you need to pay $5 to get one.",
+            "text": "The coffee machine is broken.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "No, we don't sell cereal anymore.",
+            "text": "Can I pay with cash?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Yes, they're on the shelf next to the cereal.' 符合常见优惠券摆放位置（靠近商品）。干扰项2提供的是免费样品而非优惠券；干扰项3错误，优惠券通常免费；干扰项4与场景矛盾。"
+        "explanation": "正确答案准确回应了App优惠的具体内容，自然且完整。干扰项1否认商品存在，干扰项3是设备故障，干扰项4转移话题到支付方式，均未回应核心问题。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "Are there any discounts if I buy multiple items?",
-        "speakerTextCn": "如果我买多件商品有折扣吗？",
+        "situation": "你在超市想买洗发水，想知道是否有买赠活动或优惠券。",
+        "speakerText": "Are there any free samples or coupons for shampoo?",
+        "speakerTextCn": "有洗发水的免费样品或优惠券吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, we have a 15% off bundle deal for three or more items.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "No, we only offer discounts on expired products.",
+            "text": "I think the shampoo is on sale in aisle 5.",
             "isCorrect": false
           },
           {
+            "id": "opt_2",
+            "text": "Yes, there are coupons at the entrance, and we're giving free travel-sized bottles with every two bottles bought.",
+            "isCorrect": true
+          },
+          {
             "id": "opt_3",
-            "text": "Yes, but you need to be a celebrity to qualify.",
+            "text": "I prefer conditioner over shampoo.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "No, discounts are only available online.",
+            "text": "You need to be a member to buy shampoo.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案提供了合理的多件折扣信息（买三件打八五折），符合促销场景。干扰项2荒谬（过期商品不打折）；干扰项3不现实（名人特权）；干扰项4错误，线下也可有折扣。"
+        "explanation": "正确答案完整回应了两个问题：优惠券位置和买赠活动，符合自然对话。干扰项1只提到打折但未回应优惠券或样品，干扰项3是个人偏好，干扰项4错误制造购买门槛，均不准确或不完整。"
       }
     }
   ]

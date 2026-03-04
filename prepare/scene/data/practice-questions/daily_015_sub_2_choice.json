@@ -2,7 +2,7 @@
   "subSceneId": "daily_015_sub_2",
   "subSceneName": "核对订单",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:41:08.267Z",
+  "generatedAt": "2026-03-03T14:16:57.767Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_015_sub_2_qa_1",
-        "speakerText": "One cheeseburger, fries, and a Coke, right?",
-        "speakerTextCn": "一个芝士汉堡、薯条和可乐，对吧？",
+        "situation": "你在快餐店点餐后，店员正在核对你的订单内容，确认你点的是什么。",
+        "speakerText": "So that's one chicken sandwich, onion rings, and a lemonade, correct?",
+        "speakerTextCn": "所以是一个鸡肉三明治、洋葱圈和柠檬水，对吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, that's correct.",
+            "text": "Actually, I asked for a Coke, not lemonade.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I want a pizza instead.",
+            "text": "I'm not sure, I think I ordered fries.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can I get a refund?",
+            "text": "That sounds delicious!",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I didn't order anything.",
+            "text": "Can I add a dessert?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Yes, that's correct.' 是对订单确认的恰当回应。其他选项均与场景无关：'I want a pizza instead.' 是更改订单而非确认；'Can I get a refund?' 是投诉或取消；'I didn't order anything.' 与对话前提矛盾。"
+        "explanation": "正确答案是直接纠正错误项（lemonade → Coke），符合核对订单时发现错误立即纠正的核心任务。干扰项1是表达不确定，答非所问；干扰项2是赞美，完全偏离核对任务；干扰项3是额外请求，不属于确认环节。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_015_sub_2_qa_2",
-        "speakerText": "No problem, I'll fix that right away.",
-        "speakerTextCn": "没问题，我马上改。",
+        "situation": "店员发现你点的饮料有误并立即改正，现在向你确认修改是否正确。",
+        "speakerText": "I changed your drink to Coke as you requested. Is everything else okay now?",
+        "speakerTextCn": "我已经把你的饮料改成了可乐，其他部分都对了吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Thanks, I appreciate it!",
+            "text": "Yes, perfect! Thanks for fixing it.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Why did you make a mistake?",
+            "text": "I actually wanted a sprite, not Coke.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "I'll pay extra for the correction.",
+            "text": "How long will it take?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Just cancel the whole order.",
+            "text": "Do you have any coupons?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Thanks, I appreciate it!' 是对服务人员主动纠错的礼貌回应。其他选项均不合适：'Why did you make a mistake?' 是指责，不符合礼貌原则；'I'll pay extra' 与服务免费纠正的语境冲突；'Cancel the whole order' 过度反应，不符合场景需求。"
+        "explanation": "正确答案是表达感谢并确认无误，符合服务修正后的标准回应。干扰项1是再次更改订单，不合时宜；干扰项2是询问等待时间，与确认无关；干扰项3是询问优惠券，完全偏离主题。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "So that's two chicken sandwiches, a side salad, and two iced teas?",
-        "speakerTextCn": "所以是两个鸡肉三明治、一份沙拉和两杯冰茶，对吗？",
+        "situation": "店员在核对你的外卖订单时，重复了一遍你点的食物，你确认没有问题。",
+        "speakerText": "One veggie burger, no cheese, with ketchup and pickles, and a side of sweet potato fries?",
+        "speakerTextCn": "一个素食汉堡，不要奶酪，加番茄酱和酸黄瓜，再配一份红薯薯条，对吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Actually, I ordered one iced tea, not two.",
+            "text": "Yep, that's exactly right.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I don't like chicken.",
+            "text": "I think I also wanted a salad.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can I add dessert?",
+            "text": "Is the fries crispy?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I changed my mind, give me sushi.",
+            "text": "Can I pay now?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Actually, I ordered one iced tea, not two.' 是在核对订单时纠正错误的标准表达，符合场景核心要求。其他选项要么否定整个订单（'I don't like chicken'），要么提出新需求（'add dessert'、'give me sushi'），而非纠正已有错误。"
+        "explanation": "正确答案是简洁确认订单无误，是核对环节最自然的回应。干扰项1是试图添加新内容，属于订单修改而���确认；干扰项2是询问食物状态，偏离核对任务；干扰项3是提前付款，不合流程。"
       }
     }
   ]

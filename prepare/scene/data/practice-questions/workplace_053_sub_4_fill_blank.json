@@ -2,7 +2,7 @@
   "subSceneId": "workplace_053_sub_4",
   "subSceneName": "寄送需求",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T15:19:33.231Z",
+  "generatedAt": "2026-03-03T14:34:13.267Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "workplace_053_sub_4_qa_1",
-        "template": "We can do FedEx Priority, ___ $45.",
+        "situation": "员工需要寄送一份重要合同，要求确保对方当天收到，但不确定快递公司是否支持当日送达。",
+        "speakerText": "I need this delivered to the client today — what's the latest I can drop it off?",
+        "speakerTextCn": "我需要今天把这份文件送到客户手上，最晚什么时候能寄出？",
+        "responseTemplate": "The ___ is 4 PM for same-day delivery.",
         "blanks": [
           {
             "index": 0,
-            "answer": "for",
+            "answer": "cut-off time",
             "options": [
-              "for",
-              "at",
-              "with",
-              "by"
+              "delivery deadline",
+              "shipping hour",
+              "drop-off limit",
+              "cut-off time"
             ]
           }
         ],
-        "hint": "表示价格时的固定搭配",
-        "knowledgePoint": "价格表达固定搭配（for + 金额）"
+        "hint": "询问快递服务的最后受理时间时，常用这个表达",
+        "knowledgePoint": "询问快递服务截止时间的核心表达"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "workplace_053_sub_4_qa_2",
-        "template": "Cut-off's ___ PM for same-day shipping.",
+        "situation": "员工要寄一个贵重物品，担心运输过程中损坏，想确认快递公司是否提供特殊保护服务。",
+        "speakerText": "This item is very valuable — can you make sure it's handled with care?",
+        "speakerTextCn": "这个物品很贵重，你们能确保小心处理吗？",
+        "responseTemplate": "We can mark it as ___ and add extra padding.",
         "blanks": [
           {
             "index": 0,
-            "answer": "3",
+            "answer": "fragile",
             "options": [
-              "3",
-              "5",
-              "6",
-              "8"
+              "urgent",
+              "priority",
+              "fragile",
+              "expensive"
             ]
           }
         ],
-        "hint": "常见快递公司当天寄件截止时间",
-        "knowledgePoint": "场景高频时间表达（cut-off time）"
+        "hint": "当物品易碎或贵重时，常用这个词提醒快递员注意保护",
+        "knowledgePoint": "标识易碎/贵重物品的核心词汇"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Could you please ___ the box and label ready before 3 PM?",
+        "situation": "员工准备寄出一个包裹，但不确定是否已准备好所有材料，想确认是否需要额外准备。",
+        "speakerText": "I've packed the item, but I'm not sure if everything's ready for shipping.",
+        "speakerTextCn": "我已经把物品打包好了，但不确定是否所有材料都准备齐全了。",
+        "responseTemplate": "Do you have the ___ and the return address on it?",
         "blanks": [
           {
             "index": 0,
-            "answer": "have",
+            "answer": "shipping label",
             "options": [
-              "have",
-              "get",
-              "make",
-              "bring"
+              "packing tape",
+              "shipping label",
+              "insurance form",
+              "tracking code"
             ]
           }
         ],
-        "hint": "表达‘准备好’的标准职场用语",
-        "knowledgePoint": "have + 宾语 + 形容词（准备就绪的地道表达）"
+        "hint": "寄快递时，必须贴上的关键单据是什么？",
+        "knowledgePoint": "寄快递必需的文件名称"
       }
     }
   ]

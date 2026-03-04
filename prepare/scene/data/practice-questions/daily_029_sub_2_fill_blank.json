@@ -2,7 +2,7 @@
   "subSceneId": "daily_029_sub_2",
   "subSceneName": "询价确认",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:42:22.519Z",
+  "generatedAt": "2026-03-03T14:25:49.756Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_029_sub_2_qa_1",
-        "template": "It's ___ bucks, roughly.",
+        "situation": "一位家长在玩具店想为孩子买一个学习玩具，看到一个标价较高的产品，想确认是否有更实惠的选择。",
+        "speakerText": "I like this one, but it's a little beyond what I planned to spend. Do you have something similar but more affordable?",
+        "speakerTextCn": "我喜欢这个，但有点超出了我的预算。你们有类似但更便宜一点的吗？",
+        "responseTemplate": "How about this model? It's ___ but has the same educational features.",
         "blanks": [
           {
             "index": 0,
-            "answer": "twenty-five",
+            "answer": "much cheaper",
             "options": [
-              "twenty-five",
-              "twenty five",
-              "25",
-              "twentyfive"
+              "much cheaper",
+              "very expensive",
+              "the same price",
+              "a bit higher"
             ]
           }
         ],
-        "hint": "口语中常用 'buck' 代替 'dollar'，数字通常用英文单词表达",
-        "knowledgePoint": "口语中用 'buck' 表达美元的惯用搭配"
+        "hint": "当预算超支时，常用 'much cheaper' 表达价格更低但功能相似的替代品",
+        "knowledgePoint": "价格比较表达（cheaper）"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_029_sub_2_qa_2",
-        "template": "How about this one? It's $15 and still ___ fun.",
+        "situation": "家长在书店询问一本英语学习绘本的价格后，想确认是否在自己的可接受范围内。",
+        "speakerText": "That sounds nice. Could you tell me the price? I'm trying to stay within a certain range.",
+        "speakerTextCn": "听起来不错。能告诉我价格吗？我希望能控制在一定范围内。",
+        "responseTemplate": "It's ___ — well within most parents' budgets.",
         "blanks": [
           {
             "index": 0,
-            "answer": "super",
+            "answer": "quite reasonable",
             "options": [
-              "super",
-              "very",
-              "quite",
-              "really"
+              "quite reasonable",
+              "extremely high",
+              "free of charge",
+              "not available"
             ]
           }
         ],
-        "hint": "在口语中强调‘虽然便宜但依然好’时常用 super 表达积极评价",
-        "knowledgePoint": "口语中用 'super' 强调性价比的高频修饰词"
+        "hint": "当确认价格符合预算时，常用 'quite reasonable' 表达价格合理、可接受",
+        "knowledgePoint": "价格合理性表达（reasonable）"
       }
     },
     {
@@ -62,32 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "That's a bit over my ___. Do you have anything ___?",
+        "situation": "家长在电子产品柜台看到一个儿童英语学习平板，想知道是否有折扣或优惠活动。",
+        "speakerText": "I'm interested, but I need to check if this fits my budget. Is there any current promotion?",
+        "speakerTextCn": "我有兴趣，但需要确认是否符合我的预算。现在有促销活动吗？",
+        "responseTemplate": "Yes, we're running a special offer — it's ___ today.",
         "blanks": [
           {
             "index": 0,
-            "answer": "budget",
+            "answer": "on sale",
             "options": [
-              "budget",
-              "price",
-              "cost",
-              "money"
-            ]
-          },
-          {
-            "index": 1,
-            "answer": "cheaper",
-            "options": [
-              "cheaper",
-              "less",
-              "lower",
-              "inexpensive"
+              "on sale",
+              "out of stock",
+              "free to take",
+              "doubled in price"
             ]
           }
         ],
-        "hint": "表达‘超出预算’和‘更便宜’是询价确认场景的核心表达",
-        "knowledgePoint": "固定搭配 'over my budget' 和比较级 'cheaper' 的正确使用"
+        "hint": "当有促销时，常用 'on sale' 表示打折或优惠销售",
+        "knowledgePoint": "促销表达（on sale）"
       }
     }
   ]

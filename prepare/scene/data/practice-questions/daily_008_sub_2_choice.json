@@ -2,7 +2,7 @@
   "subSceneId": "daily_008_sub_2",
   "subSceneName": "说明目的地",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:36:54.348Z",
+  "generatedAt": "2026-03-03T14:16:06.559Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_008_sub_2_qa_1",
-        "speakerText": "I need to send this to Tokyo, Japan.",
-        "speakerTextCn": "我要寄到日本东京。",
+        "situation": "顾客在快递柜台填写寄送信息，告诉工作人员包裹要寄到一个城市和国家，但未提供完整地址。",
+        "speakerText": "I need to send this to Seoul, South Korea.",
+        "speakerTextCn": "我要把这个寄到韩国首尔。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Got it. Is it a box or an envelope?",
+            "text": "Seoul? Got it. Do you have the exact street address and postal code?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "How much does it weigh?",
+            "text": "Oh, South Korea? That’s far away!",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Do you have a return address?",
+            "text": "I can’t send anything to Seoul, it’s too risky.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Would you like insurance?",
+            "text": "Do you want me to send it to Tokyo instead?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案回应了地址信息并自然过渡到包裹类型，这是物流场景中确认关键信息的标准流程。其他选项虽然相关，但未直接回应目的地信息，属于提前跳转到其他环节。"
+        "explanation": "正确答案准确确认了目的地并进一步询问完整地址，这是快递服务中确保准确投递的标准流程。干扰项1是情绪化反应，与业务需求无关；干扰项2是错误拒绝服务；干扰项3是答非所问，误解了对方的陈述为请求变更地址。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_008_sub_2_qa_2",
-        "speakerText": "Do you need the full address?",
-        "speakerTextCn": "你需要完整地址吗？",
+        "situation": "顾客在在线下单时填写收件信息，系统提示需要确认国家和城市，顾客输入了'Berlin, Germany'。",
+        "speakerText": "The delivery address is Berlin, Germany.",
+        "speakerTextCn": "收件地址是德国柏林。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Please give me the full address to be safe.",
+            "text": "Berlin, Germany — confirmed. Could you please verify the apartment number and postal code?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I don’t know the address.",
+            "text": "Germany? I hope it’s not too expensive to ship there.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can you deliver it tomorrow?",
+            "text": "We don’t deliver to Berlin anymore.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Is the recipient at home?",
+            "text": "Is Berlin the pickup location or the delivery location?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是积极回应并明确要求完整信息，符合谨慎处理国际寄送的规范。其他选项要么拒绝提供信息（错误态度），要么完全偏离地址确认的主题。"
+        "explanation": "正确答案清晰确认信息并进一步要求补充关键细节（门牌号和邮编），符合国际快递的标准操作流程。干扰项1是无关评论；干扰项2是错误告知无法配送；干扰项3是误解了地址的用途，混淆了寄送与取件概念。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "I'm sending this to 15 Oak Street, London, UK.",
-        "speakerTextCn": "我要把这件寄到英国伦敦橡树街15号。",
+        "situation": "顾客在电话中向客服说明包裹寄送目的地，只说了城市和国家，客服需要确认是否需要完整地址。",
+        "speakerText": "I’m sending this to Vancouver, Canada.",
+        "speakerTextCn": "我要把这个寄到加拿大温哥华。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Great. Could you confirm the postal code?",
+            "text": "Vancouver, Canada — noted. For accurate delivery, could you please provide the full street address and postal code?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "That’s far away. I hope you’re ready to pay extra.",
+            "text": "Canada? I love that country!",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Do you want me to wrap it again?",
+            "text": "You only need the city name — we don’t need the street.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Who is the receiver?",
+            "text": "Are you sure you don’t mean Victoria instead?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案聚焦于确认邮编——国际寄送中关键但常被忽略的信息。其他选项要么表达主观判断（干扰专业性），要么询问无关信息，未体现核心服务流程。"
+        "explanation": "正确答案确认信息并自然引导客户提供完整地址，是专业且高效的服务表达。干扰项1是情感性回应，不解决实际需求；干扰项2错误地降低信息要求，可能导致投递失败；干扰项3是质疑客户陈述，属于理解偏差。"
       }
     }
   ]

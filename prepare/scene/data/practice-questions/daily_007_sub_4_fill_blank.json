@@ -2,7 +2,7 @@
   "subSceneId": "daily_007_sub_4",
   "subSceneName": "提供信息",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:42:14.041Z",
+  "generatedAt": "2026-03-03T14:25:26.048Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,34 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_007_sub_4_qa_1",
-        "template": "Could I get your name and phone number, please? — Sure, it's ___ Chen, 555-0192.",
+        "situation": "你在酒店前台办理入住，前台工作人员需要你的姓名和联系电话以便登记。",
+        "speakerText": "Could I have your name and a contact number, please?",
+        "speakerTextCn": "能告诉我您的姓名和联系方式吗？",
+        "responseTemplate": "___, ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "Lisa",
+            "answer": "I'm Sarah Wong",
             "options": [
-              "Lisa",
-              "Linda",
-              "Lily",
-              "Lucy"
+              "I'm Sarah Wong",
+              "My name is Sarah Wong's",
+              "Sarah Wong is me",
+              "Call me Sarah Wong"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "you can reach me at",
+            "options": [
+              "you can reach me at",
+              "my number is",
+              "I have",
+              "call to"
             ]
           }
         ],
-        "hint": "这是对话中给出的姓名，注意姓氏前用名。",
-        "knowledgePoint": "提供姓名时的表达习惯（名 + 姓）"
+        "hint": "先报姓名，再用礼貌表达引出联系方式",
+        "knowledgePoint": "提供姓名和联系方式的标准表达结构"
       }
     },
     {
@@ -37,42 +49,34 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "My name is Tom Brown. You can call me at ___-___-___.",
+        "situation": "你正在申请一家咖啡店的兼职工作，面试官需要你的姓名和电话以便后续联系。",
+        "speakerText": "To follow up, I'll need your full name and a phone number.",
+        "speakerTextCn": "为了后续联系，我需要您的全名和电话号码。",
+        "responseTemplate": "___, ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "555",
+            "answer": "My name is James Li",
             "options": [
-              "555",
-              "505",
-              "666",
-              "777"
+              "My name is James Li",
+              "James Li is my name",
+              "I am called James Li",
+              "James Li call me"
             ]
           },
           {
             "index": 1,
-            "answer": "019",
+            "answer": "I'm available at",
             "options": [
-              "019",
-              "091",
-              "109",
-              "910"
-            ]
-          },
-          {
-            "index": 2,
-            "answer": "2",
-            "options": [
-              "2",
-              "22",
-              "12",
-              "20"
+              "I'm available at",
+              "I have",
+              "you can find me",
+              "my phone is"
             ]
           }
         ],
-        "hint": "电话号码通常按三部分念：区号-中间三位-最后一位或两位，注意数字顺序。",
-        "knowledgePoint": "电话号码的分段表达习惯"
+        "hint": "用正式语气报姓名，用表示可联系的短语引出电话",
+        "knowledgePoint": "在正式场合提供联系方式的礼貌表达"
       }
     },
     {
@@ -82,52 +86,34 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "I'm ___ and my number is ___-___-___.",
+        "situation": "你在健身房注册会员，前台要求你提供姓名和紧急联系人电话。",
+        "speakerText": "We need your name and an emergency contact number for our records.",
+        "speakerTextCn": "我们需要您的姓名和紧急联系人电话用于存档。",
+        "responseTemplate": "___, ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "Emma Wilson",
+            "answer": "I'm Amanda Park",
             "options": [
-              "Emma Wilson",
-              "Wilson Emma",
-              "Emma",
-              "Ms. Wilson"
+              "I'm Amanda Park",
+              "Amanda Park is my name",
+              "My name Amanda Park",
+              "Call me Amanda Park"
             ]
           },
           {
             "index": 1,
-            "answer": "444",
+            "answer": "my emergency contact is",
             "options": [
-              "444",
-              "44",
-              "4",
-              "4444"
-            ]
-          },
-          {
-            "index": 2,
-            "answer": "123",
-            "options": [
-              "123",
-              "321",
-              "132",
-              "213"
-            ]
-          },
-          {
-            "index": 3,
-            "answer": "5",
-            "options": [
-              "5",
-              "05",
-              "55",
-              "50"
+              "my emergency contact is",
+              "I have an emergency number",
+              "the emergency number is",
+              "contact emergency"
             ]
           }
         ],
-        "hint": "完整表���姓名（名+姓）并逐字念电话号码，注意数字分组。",
-        "knowledgePoint": "提供完整姓名和电话号码的标准结构"
+        "hint": "先报自己的姓名，再说明紧急联系人信息的表达方式",
+        "knowledgePoint": "在特定场景下提供个人信息的结构化表达"
       }
     }
   ]

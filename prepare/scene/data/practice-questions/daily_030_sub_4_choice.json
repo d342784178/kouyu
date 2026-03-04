@@ -2,7 +2,7 @@
   "subSceneId": "daily_030_sub_4",
   "subSceneName": "付款方式",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:42:53.124Z",
+  "generatedAt": "2026-03-03T14:19:25.625Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_030_sub_4_qa_1",
-        "speakerText": "How would you like to pay? Cash, card, or Apple Pay?",
-        "speakerTextCn": "您想怎么付？现金、刷卡还是苹果支付？",
+        "situation": "你在便利店结账，收银员询问支付方式，你习惯使用手机支付但不确定商店是否支持。",
+        "speakerText": "How would you like to pay today?",
+        "speakerTextCn": "今天您想怎么付款？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll use Apple Pay — it's faster.",
+            "text": "I'll pay with my phone — do you accept Alipay?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I need to change some money first.",
+            "text": "I don't have cash, so card only.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can I pay with Bitcoin?",
+            "text": "Can I pay later?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I don't have any money.",
+            "text": "I'm not sure, what do you recommend?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是 'I'll use Apple Pay — it's faster.'，因为它直接回应了支付方式的选择，语气自然且符合日常对话。选项2是计划行为，未直接回答问题；选项3提出不常见的支付方式，语境不符；选项4消极且不礼貌，不适合交易场景。"
+        "explanation": "正确答案直接表明使用手机支付并询问是否支持Alipay，符合高频场景中清晰、主动确认支付方式的表达。干扰项1错误地假设只能刷卡，忽略了手机支付的意图；干扰项2提出分期付款，不符合便利店即时交易情境；干扰项3将选择权完全推给对方，显得犹豫不决，不够自然。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_030_sub_4_qa_2",
-        "speakerText": "All set! Thanks for shopping with us.",
-        "speakerTextCn": "搞定啦！谢谢光临。",
+        "situation": "你在咖啡店点完单后，店员问你支付方式，你只想用信用卡，不想用现金或移动支付。",
+        "speakerText": "Are you paying with cash, card, or digital wallet?",
+        "speakerTextCn": "您是用现金、卡片还是数字钱包支付？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Thanks! Have a great day!",
+            "text": "Card, please. I don't have my phone charged.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Can I get a receipt?",
+            "text": "I'll use Apple Pay if that's okay.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "I'll be back tomorrow.",
+            "text": "Can I pay with my friend's card?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Why is the tax so high?",
+            "text": "I think I'll just skip paying now.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是 'Thanks! Have a great day!'，这是对服务人员致谢的标准礼貌回应。选项2是交易前的请求，不适合结束对话；选项3虽积极但偏离回应重点；选项4抱怨性质，破坏友好氛围。"
+        "explanation": "正确答案明确选择信用卡并给出合理理由（手机没电），自然且符合日常表达习惯。干扰项1误选了Apple Pay，与题干意图相反；干扰项3提出用他人卡片，不符合常规支付规范；干扰项4拒绝付款，完全违背交易情境，属于严重理解偏差。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "We accept credit cards, Apple Pay, and Google Pay. What’s your preference?",
-        "speakerTextCn": "我们接受信用卡、苹果支付和谷歌支付，您倾向哪种？",
+        "situation": "你在超市结账时，收银员问你支付方式，你习惯用微信支付，但不确定国外超市是否支持，想礼貌确认。",
+        "speakerText": "How would you like to pay?",
+        "speakerTextCn": "您想怎么付款？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I’ll go with Google Pay — it’s linked to my bank account.",
+            "text": "Do you accept WeChat Pay? I'd prefer that if possible.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I don’t like any of these options.",
+            "text": "I'll pay in cash — it's easier.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can I pay in euros?",
+            "text": "What payment methods do you have?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Do you have a discount?",
+            "text": "I don't know — you choose.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是 'I’ll go with Google Pay — it’s linked to my bank account.'，因为它明确选择了提供的支付方式并补充了合理理由。选项2否定所有选项，不合作；选项3提出不支持的货币；选项4转移话题到折扣，偏离支付方式询问。"
+        "explanation": "正确答案礼貌地询问是否支持微信支付，并表达偏好，既主动又得体，符合跨文化支付场景的高频表达。干扰项1直接选现金，未体现原意图；干扰项3反问对方支付方式，虽语法正确但属于推卸选择责任，不够自然；干扰项4完全放弃主导权，显得不自信，不符合日常交流习惯。"
       }
     }
   ]

@@ -2,7 +2,7 @@
   "subSceneId": "daily_001_sub_1",
   "subSceneName": "入座问候",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:34:25.610Z",
+  "generatedAt": "2026-03-03T14:15:08.241Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_001_sub_1_qa_1",
-        "speakerText": "Hi there! Table for one?",
-        "speakerTextCn": "您好！一位吗？",
+        "situation": "你走进一家餐厅，服务员微笑着迎上来，手中拿着菜单，准备引导你入座。",
+        "speakerText": "Welcome! How many in your party?",
+        "speakerTextCn": "欢迎光临！请问几位？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, just me, thanks.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "I want a table for two.",
+            "text": "I'd like a table near the kitchen, please.",
             "isCorrect": false
           },
           {
+            "id": "opt_2",
+            "text": "Just two, thanks.",
+            "isCorrect": true
+          },
+          {
             "id": "opt_3",
-            "text": "Do you have any vegetarian options?",
+            "text": "Can I see the dessert menu first?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can I see the menu now?",
+            "text": "I'm not sure yet, can you recommend something?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是对服务员询问人数的直接回应，简洁自然。其他选项要么回应了错误的问题（如点餐或菜单），要么没有直接回答'Table for one?'的问题。"
+        "explanation": "正确答案 'Just two, thanks.' 是对 'How many in your party?' 的自然、简洁回应，符合入座问候场景的核心任务——确认人数。干扰项1是提出座位偏好（属于后续问题），干扰项3是询问甜点菜单（偏离当前问题），干扰项4是请求推荐菜品（未回答人数问题），均答非所问。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "Welcome! How many in your party?",
-        "speakerTextCn": "欢迎！你们几位？",
+        "situation": "服务员带你到座位前，微笑着问你偏好哪种座位，餐厅有靠窗位、卡座和普通餐桌可选。",
+        "speakerText": "Would you like a table by the window, a cozy booth, or a regular table?",
+        "speakerTextCn": "您想要靠窗的座位、舒适的卡座，还是普通餐桌？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Three, please.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "I'd like a steak, please.",
+            "text": "I'm not hungry yet, can we wait?",
             "isCorrect": false
           },
           {
+            "id": "opt_2",
+            "text": "A booth, please. It’s quieter there.",
+            "isCorrect": true
+          },
+          {
             "id": "opt_3",
-            "text": "Is there a balcony seat?",
+            "text": "Do you have any vegetarian options?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Could you bring me water?",
+            "text": "I'll have a Coke, please.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了关于人数的问题。其他选项是点餐或特殊要求，与当前询问人数的语境不符，属于答非所问。"
+        "explanation": "正确答案 'A booth, please. It’s quieter there.' 是对座位偏好的恰当回应，表达清晰且礼貌。干扰项1是推迟点餐（与座位无关），干扰项3是询问菜品（偏离座位选择），干扰项4是点饮料（属于后续流程），均未回应核心问题。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "Good evening! Are you here alone?",
-        "speakerTextCn": "晚上好！您是一位吗？",
+        "situation": "服务员为你摆好餐具，递上菜单，并礼貌询问是否需要先点饮品。",
+        "speakerText": "I'll leave the menus with you. Can I bring you anything to drink while you decide?",
+        "speakerTextCn": "我把菜单放在您这儿。在您决定之前，需要先来点喝的吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "No, I'm with two friends.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "The menu looks great!",
+            "text": "I think I’ll have the salmon.",
             "isCorrect": false
           },
           {
+            "id": "opt_2",
+            "text": "Just sparkling water for now, thanks.",
+            "isCorrect": true
+          },
+          {
             "id": "opt_3",
-            "text": "I need a high chair.",
+            "text": "How long will it take to get the food?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can I sit by the window?",
+            "text": "Can I get the check now?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确回答了是否独自一人的问题。其他选项涉及菜单、特殊需求或座位偏好，均未回应核心问题，属于语境错位。"
+        "explanation": "正确答案 'Just sparkling water for now, thanks.' 是对递菜单后询问饮品的自然回应，符合高频交际模式。干扰项1是点主菜（时间过早），干扰项3是询问上菜时间（无关当前问题），干扰项4是索要账单（完全提前），均不符合对话流程。"
       }
     }
   ]

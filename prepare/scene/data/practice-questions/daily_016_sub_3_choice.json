@@ -2,7 +2,7 @@
   "subSceneId": "daily_016_sub_3",
   "subSceneName": "支付方式",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:38:23.335Z",
+  "generatedAt": "2026-03-03T14:17:37.436Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_016_sub_3_qa_1",
-        "speakerText": "You good with card or cash?",
-        "speakerTextCn": "刷卡还是现金？",
+        "situation": "你在便利店结账，收银员问你使用哪种支付方式，你想用手机支付。",
+        "speakerText": "How would you like to pay?",
+        "speakerTextCn": "你打算怎么付款？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll pay with Apple Pay.",
+            "text": "I'll use my phone. It's Apple Pay.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I need a receipt.",
+            "text": "I need a receipt, please.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "How much is the total?",
+            "text": "Can I pay later?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can I use a check?",
+            "text": "I don't have cash.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'I'll pay with Apple Pay.' 是对支付方式提问的直接回应，符合语境。干扰项 'I need a receipt.' 是后续需求，不是回答支付方式；'How much is the total?' 是确认金额，与问题无关；'Can I use a check?' 虽语法正确，但在日常小额消费中极少使用，不符合常见语境。"
+        "explanation": "正确答案直接回应支付方式，表达自然且完整。干扰项1是请求收据，答非所问；干扰项2是要求延期付款，不符合现实情境；干扰项3只说没现金，未说明实际支付方式，表达不完整。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_016_sub_3_qa_2",
-        "speakerText": "Here's your change, $3.50.",
-        "speakerTextCn": "找你3块5。",
+        "situation": "你在咖啡店点单后，店员递给你账单并说‘Your total is $8.75’，你想用信用卡支付。",
+        "speakerText": "Your total is $8.75.",
+        "speakerTextCn": "你的账单是8.75美元。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Thanks! Have a good one.",
+            "text": "I'll swipe my card.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Can I get a receipt?",
+            "text": "Do you have any discounts?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "I think you gave me too much.",
+            "text": "I'll pay with cash next time.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Do you accept PayPal?",
+            "text": "That's too expensive.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Thanks! Have a good one.' 是对找零的标准礼貌回应，体现沟通温度。干扰项 'Can I get a receipt?' 是额外请求，不回应感谢；'I think you gave me too much.' 是质疑，语气不礼貌；'Do you accept PayPal?' 与当前交易无关，属于话题偏移。"
+        "explanation": "正确答案直接表明支付方式，符合日常对话习惯。干扰项1是询问优惠，偏离支付主题；干扰项2是谈论下次付款，与当前交易无关；干扰项3是抱怨价格，表达不礼貌且不相关。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "Would you like to pay by credit card or digital wallet?",
-        "speakerTextCn": "您想用信用卡还是数字钱包支付？",
+        "situation": "你在超市结账，收银员问你‘Card or cash?’，你只有零钱，想用10美元纸币支付。",
+        "speakerText": "Card or cash?",
+        "speakerTextCn": "刷卡还是现金？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll use Google Pay, please.",
+            "text": "Cash. Here's a ten.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I don't have any money.",
+            "text": "I don't have a card.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can you give me a discount?",
+            "text": "Can I pay with my watch?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "The item is too expensive.",
+            "text": "Thanks for the change!",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'I'll use Google Pay, please.' 直接回应支付方式选择，礼貌且符合语境。干扰项均未回应问题：'I don't have any money.' 是消极陈述；'Can you give me a discount?' 是议价；'The item is too expensive.' 是抱怨，均非有效支付回应。"
+        "explanation": "正确答案直接回应支付方式并说明具体金额，符合示例中的自然表达。干扰项1只说没卡，未说明实际支付方式；干扰项2是询问非主流支付方式，不符合常见情境；干扰项3是感谢找零，但发生在付款前，时机错误。"
       }
     }
   ]

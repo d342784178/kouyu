@@ -2,7 +2,7 @@
   "subSceneId": "daily_030_sub_1",
   "subSceneName": "进店问候",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:44:40.738Z",
+  "generatedAt": "2026-03-03T14:25:57.789Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_030_sub_1_qa_1",
-        "template": "I'm looking for ___ running shoes.",
+        "situation": "你走进一家服装店，店员微笑着向你打招呼，询问你需要什么帮助。",
+        "speakerText": "Hi! Welcome in! How can I help you today?",
+        "speakerTextCn": "嗨！欢迎光临！今天需要什么帮助吗？",
+        "responseTemplate": "I'm just ___ for a new jacket.",
         "blanks": [
           {
             "index": 0,
-            "answer": "some",
+            "answer": "looking",
             "options": [
-              "some",
-              "any",
-              "a",
-              "the"
+              "looking",
+              "searching",
+              "finding",
+              "wanting"
             ]
           }
         ],
-        "hint": "表达‘一些’时，不可数或复数名词前常用此词",
-        "knowledgePoint": "不定量词搭配（some用于肯定句）"
+        "hint": "表达‘在找’某物时，常用 'I'm looking for...' 结构",
+        "knowledgePoint": "日常需求表达：I'm looking for..."
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_030_sub_1_qa_2",
-        "template": "I'm a size ___ , please.",
+        "situation": "你在书店门口被店员热情招呼，你其实只是想随便看看，没有明确目标。",
+        "speakerText": "Hello! Are you looking for anything in particular?",
+        "speakerTextCn": "你好！有什么特别想找的吗？",
+        "responseTemplate": "Oh, just ___ really.",
         "blanks": [
           {
             "index": 0,
-            "answer": "9",
+            "answer": "browsing",
             "options": [
-              "9",
-              "nine",
-              "the nine",
-              "size nine"
+              "browsing",
+              "shopping",
+              "buying",
+              "reading"
             ]
           }
         ],
-        "hint": "回答尺码时，直接用数字+单位，避免重复‘size’",
-        "knowledgePoint": "尺码表达习惯（数字+单位，省略size）"
+        "hint": "当没有明确购买意图时，用 'just browsing' 表达随意看看",
+        "knowledgePoint": "非购买意图表达：just browsing"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Hi there! How can I ___ you today?",
+        "situation": "你进入一家咖啡店，店员热情问候，你想点一杯热饮但还没决定选什么。",
+        "speakerText": "Good morning! What can I get for you?",
+        "speakerTextCn": "早上好！想点点什么？",
+        "responseTemplate": "I'm not sure yet — I'll ___ in a minute.",
         "blanks": [
           {
             "index": 0,
-            "answer": "help",
+            "answer": "decide",
             "options": [
-              "help",
-              "assist",
-              "serve",
-              "do"
+              "decide",
+              "choose",
+              "pick",
+              "make"
             ]
           }
         ],
-        "hint": "店员常用问候句型中的核心动词",
-        "knowledgePoint": "服务场景固定搭配（help you / assist you）"
+        "hint": "表达‘稍后决定’时，常用 'I'll decide in a minute' 表示需要一点时间考虑",
+        "knowledgePoint": "延迟决定表达：I'll decide in a minute"
       }
     }
   ]

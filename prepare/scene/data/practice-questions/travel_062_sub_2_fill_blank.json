@@ -2,7 +2,7 @@
   "subSceneId": "travel_062_sub_2",
   "subSceneName": "询问推荐与距离",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:58:24.237Z",
+  "generatedAt": "2026-03-03T14:30:41.022Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_062_sub_2_qa_1",
-        "template": "Can I walk to the Old Town? — Yes, it's only ___ on foot.",
+        "situation": "游客在酒店前台询问附近博物馆是否值得参观，并想知道是否可以步行到达",
+        "speakerText": "Is the city museum worth a visit? Can I walk there?",
+        "speakerTextCn": "城市博物馆值得去吗？我能走过去吗？",
+        "responseTemplate": "___ — it's just around the corner.",
         "blanks": [
           {
             "index": 0,
-            "answer": "15 mins",
+            "answer": "Absolutely!",
             "options": [
-              "15 mins",
-              "15 km",
-              "15 hours",
-              "15 dollars"
+              "Absolutely!",
+              "Maybe so.",
+              "I don't know.",
+              "It's okay."
             ]
           }
         ],
-        "hint": "回答步行距离时常用的时间单位",
-        "knowledgePoint": "距离表达（时间单位 + on foot）"
+        "hint": "当强烈推荐某地时，常用这个表达来肯定回答 'Is it worth it?'",
+        "knowledgePoint": "表达推荐与肯定评价"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_062_sub_2_qa_2",
-        "template": "Is the mountain view worth the trip? — ___! It's the best sunset in the city.",
+        "situation": "游客在景点咨询处问及海滨步道是否适合散步，并想知道需要多久才能到达",
+        "speakerText": "Is the seaside promenade worth checking out? How do I get there?",
+        "speakerTextCn": "海滨步道值得去看看吗？我该怎么去？",
+        "responseTemplate": "Definitely! You can ___ — it's very close.",
         "blanks": [
           {
             "index": 0,
-            "answer": "Absolutely",
+            "answer": "walk",
             "options": [
-              "Absolutely",
-              "Maybe",
-              "Not really",
-              "I guess"
+              "walk",
+              "drive",
+              "fly",
+              "swim"
             ]
           }
         ],
-        "hint": "强烈肯定推荐时的高频词",
-        "knowledgePoint": "表达强烈推荐的固定副词（Absolutely / Definitely）"
+        "hint": "当距离很近且适合步行时，用这个动词回应 'How do I get there?'",
+        "knowledgePoint": "表达交通方式的可行性"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "How do I get to the museum? — You can take ___ 15, or walk if you prefer.",
+        "situation": "游客向当地居民询问一个网红咖啡馆是否值得一去，并想知道是否需要乘坐公共交通",
+        "speakerText": "Is the Blue Cup Café worth the trip? Should I take a bus?",
+        "speakerTextCn": "Blue Cup咖啡馆值得专程去吗？我该坐公交吗？",
+        "responseTemplate": "It's amazing, but you ___ — it’s a 20-minute walk.",
         "blanks": [
           {
             "index": 0,
-            "answer": "bus",
+            "answer": "don't need to",
             "options": [
-              "bus",
-              "train",
-              "bike",
-              "boat"
+              "don't need to",
+              "must to",
+              "should to",
+              "have to"
             ]
           }
         ],
-        "hint": "城市内短途交通最常用的公共交通方式",
-        "knowledgePoint": "公共交通工具的常用表达（take + bus/train）"
+        "hint": "当建议不需要乘坐交通工具时，使用这个否定结构来表达 '不必坐车'",
+        "knowledgePoint": "表达无需使用特定交通方式"
       }
     }
   ]

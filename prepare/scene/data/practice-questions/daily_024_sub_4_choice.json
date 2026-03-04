@@ -2,7 +2,7 @@
   "subSceneId": "daily_024_sub_4",
   "subSceneName": "确认价格",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:40:52.391Z",
+  "generatedAt": "2026-03-03T14:18:10.707Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_024_sub_4_qa_1",
-        "speakerText": "How much will this cost?",
-        "speakerTextCn": "这些要多少钱？",
+        "situation": "顾客带着三件衬衫和一条裤子去干洗店，想确认总费用以便当场付款。",
+        "speakerText": "How much will it be for these items?",
+        "speakerTextCn": "这些东西总共要多少钱？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Is it $15 per shirt? I’ve got five of them.",
+            "text": "Is it $10 per shirt and $20 for the pants? I’ll pay now.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I need a discount, please.",
+            "text": "Do you offer discounts for students?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can I pay with credit card?",
+            "text": "I need this done by tomorrow.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "When will it be ready?",
+            "text": "The shirts are dirty, so it should be cheaper.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了价格询问，通过确认单价和数量来自然过渡到总价，符合场景需求。其他选项分别涉及折扣、支付方式和取件时间，虽然相关但未直接回答‘cost’的问题。"
+        "explanation": "正确答案直接回应了对方关于总费用的询问，并自然衔接付款意图，符合高频对话模式。干扰项1是答非所问（询问折扣），干扰项2是提出时间要求而非价格确认，干扰项3是错误地假设污渍影响价格，均偏离核心交际任务。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "What’s the total for these clothes?",
-        "speakerTextCn": "这些衣服总共多少钱？",
+        "situation": "顾客拿着一叠衣物走向柜台，想知道整体价格，准备用现金支付。",
+        "speakerText": "Can you tell me the total for everything here?",
+        "speakerTextCn": "这些物品总共多少钱？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I’ll need to check the price list.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "That’ll be $75 in total, including the rush fee.",
+            "text": "Sure, that comes to $47 total. I can take cash.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "I think the jacket should be $25, but I'm not sure.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "We also offer free delivery.",
+            "text": "Do you have a loyalty card?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can I have a receipt?",
+            "text": "Can I leave the clothes and pick them up later?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接给出了总价并包含附加费用信息，符合确认价格的语境。其他选项或回避问题（A），或提供无关服务（C、D），均未直接回应价格询问。"
+        "explanation": "正确答案直接提供总价并主动确认支付方式，符合顾客意图。干扰项1是猜测价格而非确认总额，干扰项2是推销会员卡，干扰项3是询问取件时间，均未回应‘总费用’的核心问题。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "How much do you charge for dry cleaning a suit?",
-        "speakerTextCn": "干洗一套西装多少钱？",
+        "situation": "顾客指着一件大衣和两件毛衣，想确认是否能按套餐价计算，以便决定是否现在付款。",
+        "speakerText": "Do you have a deal for multiple items? I’d like to pay now.",
+        "speakerTextCn": "多件衣物有优惠吗？我想现在付款。",
         "options": [
           {
             "id": "opt_1",
-            "text": "It’s $25 per suit. Would you like to add the express service?",
+            "text": "Yes, three items are $35 total. I can ring that up for you.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I’m sorry, we don’t clean suits.",
+            "text": "The coat is expensive because it's wool.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "The store closes at 8 PM.",
+            "text": "We don’t do deals, but you can come back tomorrow.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Do you have a loyalty card?",
+            "text": "I'll need to check the stain on the sweater first.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确回答了单价并主动提供附加服务，符合价格确认场景的自然延伸。其他选项或拒绝服务（B），或提供无关信息（C、D），均未有效回应价格问题。"
+        "explanation": "正确答案直接回应了套餐价询问，并给出明确总价和付款动作，贴合顾客的决策意图。干扰项1是解释定价理由，未回应优惠问题；干扰项2是否认优惠并转移时间，偏离需求；干扰项3是拖延处理，未提供价格信息，均未能完成‘确认价格以付款’的核心任务。"
       }
     }
   ]

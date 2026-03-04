@@ -2,7 +2,7 @@
   "subSceneId": "travel_056_sub_3",
   "subSceneName": "出示证件与押金",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:53:47.352Z",
+  "generatedAt": "2026-03-03T14:29:34.457Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,34 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_056_sub_3_qa_1",
-        "template": "Could I see your ______, please? And we'll need a $50 deposit for incidentals.",
+        "situation": "在酒店前台办理入住，前台工作人员要求查看护照并收取押金",
+        "speakerText": "Could I see your passport, please? We also need a deposit for room incidentals.",
+        "speakerTextCn": "能出示一下您的护照吗？我们还需要一笔押金用于房间杂费。",
+        "responseTemplate": "Sure, here's my ______. I'll pay the deposit with ______.",
         "blanks": [
           {
             "index": 0,
             "answer": "passport",
             "options": [
+              "ID",
               "passport",
               "license",
-              "visa",
-              "reservation"
+              "booking"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "my card",
+            "options": [
+              "cash",
+              "my card",
+              "the bill",
+              "the front desk"
             ]
           }
         ],
-        "hint": "酒店前台要求出示的官方身份证明文件",
-        "knowledgePoint": "场景高频词汇（护照）"
+        "hint": "递证件用 'here's my...', 支付方式通常说 'with my card' 或 'in cash'",
+        "knowledgePoint": "出示证件与支付方式的常用表达"
       }
     },
     {
@@ -37,22 +49,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "I'll pay the deposit ______ my credit card.",
+        "situation": "入住时酒店员工告知需支付押金，询问支付方式",
+        "speakerText": "The deposit is required before we give you the key. How would you like to pay it?",
+        "speakerTextCn": "在给您钥匙前需要支付押金，您想怎么支付？",
+        "responseTemplate": "I'll pay it with ______. Here you go.",
         "blanks": [
           {
             "index": 0,
-            "answer": "with",
+            "answer": "my credit card",
             "options": [
-              "with",
-              "by",
-              "on",
-              "for"
+              "my credit card",
+              "the manager",
+              "the room number",
+              "my phone"
             ]
           }
         ],
-        "hint": "表示支付方式的常用介词搭配",
-        "knowledgePoint": "动词搭配（pay with）"
+        "hint": "支付押金时，常用 'with my credit card' 或 'in cash'，避免使用不相关的名词",
+        "knowledgePoint": "选择付款方式的自然表达"
       }
     },
     {
@@ -62,22 +76,34 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Here's my ______. Card only, please.",
+        "situation": "前台确认押金信息后，你准备递出护照并确认支付方式",
+        "speakerText": "Just to confirm, we'll hold a deposit while you're staying.",
+        "speakerTextCn": "确认一下，入住期间我们会保留一笔押金。",
+        "responseTemplate": "Understood. Here's my ______. I'll settle the deposit via ______.",
         "blanks": [
           {
             "index": 0,
             "answer": "passport",
             "options": [
               "passport",
-              "bill",
               "key",
-              "ticket"
+              "reservation",
+              "receipt"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "card",
+            "options": [
+              "card",
+              "cash",
+              "check",
+              "bank transfer"
             ]
           }
         ],
-        "hint": "递交给前台用于身份验证的文件",
-        "knowledgePoint": "场景核心表达（递证件）"
+        "hint": "递证件用 'here's my passport'，支付方式简洁表达为 'via card' 或 'by card'",
+        "knowledgePoint": "证件递送与支付渠道的标准化表达"
       }
     }
   ]

@@ -2,7 +2,7 @@
   "subSceneId": "daily_008_sub_1",
   "subSceneName": "打招呼咨询",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:35:31.387Z",
+  "generatedAt": "2026-03-03T14:15:40.828Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_008_sub_1_qa_1",
-        "speakerText": "Hi there! Can you help me send a package?",
-        "speakerTextCn": "嗨！你能帮我寄个包裹吗？",
+        "situation": "顾客走进快递网点，向柜台工作人员打招呼并询问能否帮忙寄一个包裹到国外",
+        "speakerText": "Hi, could you help me send a package overseas?",
+        "speakerTextCn": "嗨，你能帮我寄一个包裹到国外吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Of course! Where are you sending it?",
+            "text": "Of course! What’s the destination country and weight?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Sorry, I can't help you with that.",
+            "text": "I’m sorry, I don’t work here.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "I'm busy right now, go to the next counter.",
+            "text": "Yes, we sell stamps.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "How much is the package worth?",
+            "text": "Do you need a coffee while you wait?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是 'Of course! Where are you sending it?'，这是对问候和请求帮助的自然、礼貌回应。选项2和3态度消极，不符合服务场景；选项4虽相关，但属于后续问题，不是对开场白的直接回应。"
+        "explanation": "正确答案准确回应了询问，并自然追问关键信息（目的地和重量），符合服务场景的高效沟通原则。干扰项1是答非所问，否认自己是工作人员；干扰项2是理解偏差，将寄快递误解为买邮票；干扰项3是表达不当，提供无关服务，偏离核心需求。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "Hello, I'd like to mail something. Can you assist me?",
-        "speakerTextCn": "你好，我想寄点东西，你能帮我吗？",
+        "situation": "顾客在快递店门口挥手示意，走向柜台时说：'Good morning! I’d like to send a box to Canada. Can you help me with that?'",
+        "speakerText": "Good morning! I’d like to send a box to Canada. Can you help me with that?",
+        "speakerTextCn": "早上好！我想寄一个箱子到加拿大，你能帮我吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Sure! What's the destination?",
+            "text": "Absolutely! Let me check the rates and required documents.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Do you have a credit card?",
+            "text": "Canada? I don’t know where that is.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "I don't know, ask someone else.",
+            "text": "Sure, do you want to buy a snack?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can you wait a minute?",
+            "text": "I’m busy right now, come back later.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Sure! What's the destination?' 是对寄快递请求的典型积极回应，直接引导提供关键信息。选项2过早涉及支付，选项3态度冷漠，选项4虽礼貌但未回应核心需求，不符合服务场景的高效沟通原则。"
+        "explanation": "正确答案积极回应并主动提供下一步服务信息（费用和文件），是专业且自然的回应。干扰项1是理解偏差，假装不知道国家位置，不合常理；干扰项2是答非所问，转移话题到零食；干扰项3是表达不当，态度冷漠且不专业，不符合服务场景。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "Hi, I need to send a parcel overseas. Do you handle international shipping?",
-        "speakerTextCn": "嗨，我需要寄一个国际包裹，你们处理国际快递吗？",
+        "situation": "顾客在快递柜台前微笑打招呼，然后说：'Hi there! I need to ship a package. Do you handle international shipping?'",
+        "speakerText": "Hi there! I need to ship a package. Do you handle international shipping?",
+        "speakerTextCn": "嗨！我要寄一个包裹，你们做国际快递吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, we do! Just give me the recipient's address and we'll take care of it.",
+            "text": "Yes, we do! Just give me the address and I’ll get everything ready.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I'm not sure, maybe try FedEx.",
+            "text": "I’m not sure, you should call their customer service.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Do you have a receipt?",
+            "text": "Do you have a loyalty card?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "We only send packages within the country.",
+            "text": "We only deliver locally.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案肯定了服务并引导提供必要信息，符合专业服务回应。选项2推卸责任，选项3提前询问收据不合逻辑，选项4直接否认服务，均不符合积极服务态度。"
+        "explanation": "正确答案直接确认服务范围并立即推进流程，符合高频服务场景的高效回应模式。干扰项1是理解偏差，推诿给客户热线，不符合工作人员职责；干扰项2是答非所问，询问会员卡无关信息；干扰项3是表达不当，直接否认服务，与事实冲突且缺乏礼貌。"
       }
     }
   ]

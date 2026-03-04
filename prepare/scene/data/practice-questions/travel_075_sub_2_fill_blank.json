@@ -1,8 +1,8 @@
 {
   "subSceneId": "travel_075_sub_2",
-  "subSceneName": "行李规定",
+  "subSceneName": "询问班次时间",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T15:15:25.258Z",
+  "generatedAt": "2026-03-03T14:31:35.371Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_075_sub_2_qa_1",
-        "template": "I'd like to know if I can bring two ___ instead of one suitcase.",
+        "situation": "乘客在车站询问下一班火车的发车时间及是否准时",
+        "speakerText": "Could you tell me when the next train leaves?",
+        "speakerTextCn": "您能告诉我下一班火车什么时候发车吗？",
+        "responseTemplate": "It departs at ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "backpacks",
+            "answer": "the next departure",
             "options": [
-              "backpacks",
-              "suitcases",
-              "boxes",
-              "bottles"
+              "the next departure",
+              "the train time",
+              "what time it starts",
+              "the schedule time"
             ]
           }
         ],
-        "hint": "在行李政策中，乘客常询问能否用其他类型的包替代标准行李",
-        "knowledgePoint": "行李类型词汇搭配（backpacks vs. suitcases）"
+        "hint": "表达‘发车时间’时，常用 'the next departure' 或 'the train leaves' 结构",
+        "knowledgePoint": "询问和表达交通工具发车时间的常用表达"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_075_sub_2_qa_2",
-        "template": "The weight limit for the large suitcase is ___ kg.",
+        "situation": "乘客担心班次是否准时，向工作人员确认准点情况",
+        "speakerText": "Is this train usually on time?",
+        "speakerTextCn": "这趟车通常准点吗？",
+        "responseTemplate": "Yes, it's ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "20",
+            "answer": "generally punctual",
             "options": [
-              "20",
-              "25",
-              "15",
-              "30"
+              "generally punctual",
+              "always right",
+              "on schedule always",
+              "never late"
             ]
           }
         ],
-        "hint": "这是标准托运行李的常见重量上限",
-        "knowledgePoint": "行李重量数字记忆（核心政策信息）"
+        "hint": "描述交通工具准点时，常用 'generally punctual' 或 'usually on time' 表达",
+        "knowledgePoint": "表达交通工具准点性的标准说法"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Extra bags cost $10 ___.",
+        "situation": "乘客想确认是否有延误，向工作人员核实班次状态",
+        "speakerText": "Has there been any delay for this service?",
+        "speakerTextCn": "这趟车有延误吗？",
+        "responseTemplate": "No, it's ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "each",
+            "answer": "running on schedule",
             "options": [
-              "each",
-              "every",
-              "per day",
-              "in total"
+              "running on schedule",
+              "going as planned",
+              "not late yet",
+              "on the time"
             ]
           }
         ],
-        "hint": "表达‘每件’费用的固定搭配",
-        "knowledgePoint": "固定表达：each 表示单位计价"
+        "hint": "表达‘按时刻表运行’时，标准说法是 'running on schedule'",
+        "knowledgePoint": "描述班次正常运行的地道表达"
       }
     }
   ]

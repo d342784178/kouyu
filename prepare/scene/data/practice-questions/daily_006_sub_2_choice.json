@@ -2,7 +2,7 @@
   "subSceneId": "daily_006_sub_2",
   "subSceneName": "账户类型选择",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:35:04.590Z",
+  "generatedAt": "2026-03-03T14:15:53.526Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_006_sub_2_qa_1",
-        "speakerText": "We've got basic savings with 0.5% interest, or a premium one with higher returns but a $500 minimum deposit.",
-        "speakerTextCn": "我们有利率0.5%的基础储蓄，或高收益的高级账户，需存500美元起。",
+        "situation": "银行柜员向一位新客户介绍两种账户：普通储蓄账户无月费但利率低，高级账户有月费但提供免费支票本和ATM取款免手续费。客户决定选择普通账户。",
+        "speakerText": "We have a standard savings account with no monthly fee but lower interest, or a premium account with a $10 monthly fee that includes free checks and no ATM fees.",
+        "speakerTextCn": "我们有无月费但利率较低的标准储蓄账户，或每月10美元月费的高级账户，包含免费支票本和免ATM手续费。",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll go with the premium one—I can deposit $400.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "I'll go with the basic one for now.",
+            "text": "I'll go with the standard one—I don't need extra features right now.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Can I open both accounts at the same time?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Can I have a checking account instead?",
+            "text": "How much interest do I get if I deposit $10,000?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I don't need an account right now.",
+            "text": "The premium one sounds better, but I'm not sure I can afford it.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案'I'll go with the basic one for now.'使用了场景核心表达'I'll go with'来明确选择，且符合基础账户无最低存款要求的条件。选项1错误，因为高级账户要求$500起存，$400不满足条件；选项3转向了无关账户类型；选项4完全拒绝服务，不符合对话情境。"
+        "explanation": "正确答案使用'I'll go with'明确表达选择，符合场景中客户已决定选择基础账户的语境。干扰项1是询问是否可开两个账户，偏离了选择意图；干扰项2是询问利率细节，属于答非所问；干扰项3虽提及高级账户但未做出明确选择，表达犹豫而非决定，不符合高频回应模式。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_006_sub_2_qa_1",
-        "speakerText": "The premium account offers 2.1% interest and includes free wire transfers.",
-        "speakerTextCn": "高级账户提供2.1%的利率，并包含免费电汇服务。",
+        "situation": "客户正在比较两个账户：一个免费但每月限5次免费取款，另一个每月收费但无限次取款。客户经常使用ATM，因此倾向于选择收费账户。",
+        "speakerText": "The basic account lets you withdraw five times a month for free, and after that, $2 per withdrawal. The upgraded one is $8 a month but unlimited free withdrawals.",
+        "speakerTextCn": "基础账户每月前五次取款免费，之后每次2美元。升级账户每月8美元，但取款次数不限。",
         "options": [
           {
             "id": "opt_1",
-            "text": "I think I'll take the basic one—I don't need extra features.",
+            "text": "I'll take the upgraded one—I use ATMs a lot.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I'll go with the premium one—I only have $300.",
+            "text": "Is the $8 fee charged per withdrawal?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can you lower the interest rate?",
+            "text": "Can I change to the upgraded plan later?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I prefer a credit card instead.",
+            "text": "Basic is fine—I’ll just use the bank’s branch.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案表达了合理选择基础账户的理由（不需要额外功能），符合语境。选项2错误，因为高级账户要求最低$500存款，$300不足；选项3和4完全偏离账户选择主题，属于无关请求。"
+        "explanation": "正确答案清晰表达了选择升级账户并给出合理理由，符合高频回应模式。干扰项1是误解收费方式，属于理解偏差；干扰项2是询问未来变更可能性，偏离当前决策；干扰项3是选择基础账户，与客户实际需求（频繁使用ATM）矛盾，属于逻辑不符。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": "daily_006_sub_2_qa_2",
-        "speakerText": "You'll need to sign here and initial the terms.",
-        "speakerTextCn": "您需要在这里签名并签署条款。",
+        "situation": "柜员推荐一个高收益账户，但要求最低存款1000美元。客户目前只有800美元，想先开基础账户，等存款够了再升级。",
+        "speakerText": "Our high-yield savings account offers 3% interest but requires a $1,000 minimum deposit. Our regular savings account has 0.8% interest with no minimum.",
+        "speakerTextCn": "我们的高收益储蓄账户利率为3%，但要求最低存款1000美元。普通储蓄账户利率0.8%，无最低存款要求。",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll sign it tomorrow.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Got it—I'll sign right away.",
+            "text": "I'll start with the regular one for now—I'll upgrade when I have more saved.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Can I deposit $1,000 next week and get the high-yield rate?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Why do I need to sign?",
+            "text": "Is the 3% interest guaranteed for life?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can I use a stamp instead?",
+            "text": "I think I need the high-yield one—I'll borrow $200.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案'Got it—I'll sign right away.'使用了场景要求的回应方式（Got it）并立即承诺执行，符合操作指令的礼貌回应规范。选项1拖延执行，不符合即时操作要求；选项3质疑指令，显得不合作；选项4提出不合理替代方案，不符合银行流程。"
+        "explanation": "正确答案使用'I'll start with... I'll upgrade when...'清晰表达了分阶段决策，自然且符合真实对话逻辑。干扰项1是假设未来存款后可回溯享受利率，属于理解偏差；干扰项2是询问利率稳定性，无关当前选择；干扰项3提出借款凑款，不符合实际金融建议，表达不当且不自然。"
       }
     }
   ]

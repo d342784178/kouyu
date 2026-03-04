@@ -2,7 +2,7 @@
   "subSceneId": "daily_005_sub_2",
   "subSceneName": "描述症状",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:34:41.332Z",
+  "generatedAt": "2026-03-03T14:15:15.495Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_005_sub_2_qa_1",
+        "situation": "你去看医生，医生问你最近哪里不舒服，你连续三天感到喉咙痛且吞咽困难，但没有发烧。",
         "speakerText": "So, what's been going on?",
         "speakerTextCn": "那你最近哪儿不舒服？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I went to the gym yesterday.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "I've had a sore throat and a fever for three days.",
+            "text": "I've had a sore throat for three days, and it hurts when I swallow. No fever, though.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "I think I caught a cold last week, and I feel tired.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "The weather is really cold today.",
+            "text": "My throat is fine, but my nose is runny.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I need to buy some medicine.",
+            "text": "I don't know, maybe stress?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了'have had + 症状 + 时间'的结构，符合向医生描述症状的规范表达。其他选项要么与症状无关（如天气、去健身房），要么是建议而非描述（如买药），无法直接回应医生的问题。"
+        "explanation": "正确答案准确描述了症状（喉咙痛+吞咽困难）、持续时间（三天）并明确排除了发烧，符合问答对中'具体时间+身体部位+补充信息'的自然表达模式。干扰项1是答非所问（只提疲劳），干扰项2完全错误描述症状（说喉咙没事），干扰项3回避具体症状，用模糊的'压力'搪塞，不符合医生问诊的沟通要求。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_005_sub_2_qa_2",
-        "speakerText": "Any fever or nausea?",
-        "speakerTextCn": "有发烧或恶心吗？",
+        "situation": "医生问你是否有头晕或恶心，你没有头晕，但最近吃饭后经常感到想吐，想强调这个症状。",
+        "speakerText": "Any dizziness or nausea?",
+        "speakerTextCn": "有头晕或恶心吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I don't know, maybe I should see a dentist.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "No fever, but I feel a bit dizzy.",
+            "text": "No dizziness, but I've been feeling nauseous after meals.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "I feel dizzy sometimes, and I throw up a lot.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I ate too much last night.",
+            "text": "I'm not sure. Maybe I ate something bad.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Yes, I have a headache.",
+            "text": "Nausea? I don't think so.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了'No... but...'结构，准确回应了医生关于发烧和恶心的两个问题，并补充了相关症状（头晕），符合自然口语表达。选项1和3与问题无关，选项4虽然描述了症状，但未回应'fever or nausea'的具体询问。"
+        "explanation": "正确答案使用'No... but...'结构，清晰否定一项、肯定另一项，语气自然且符合问答对中的表达习惯。干扰项1错误地声称有头晕（与情境矛盾），干扰项2用模糊推测回避直接回答，干扰项4用否定疑问句弱化表达，显得犹豫不决，不符合医疗沟通中明确陈述的要求。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "How long have you been feeling this way?",
-        "speakerTextCn": "你这种感觉持续多久了？",
+        "situation": "你向医生描述自己连续两天晚上失眠，白天精神很差，但没有头痛或胃痛。",
+        "speakerText": "What else are you experiencing?",
+        "speakerTextCn": "还有其他什么症状吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I think it's because I slept wrong.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "It started yesterday afternoon and got worse today.",
+            "text": "I haven't slept well for two nights—I'm exhausted during the day. No headache or stomach issues.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "I'm just stressed out, that's all.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I don't like hospitals.",
+            "text": "I get headaches sometimes, but not now.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can you give me a prescription?",
+            "text": "Sleep? I don't remember the last time I slept.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确说明了症状的起始时间和变化趋势，符合医生询问病程的意图。其他选项要么是主观猜测（选项1），要么是情绪表达（选项3）或请求（选项4），都不是对时间问题的直接回应。"
+        "explanation": "正确答案明确说明症状（失眠+白天疲惫）、持续时间（两晚），并主动排除无关症状（无头痛或胃痛），完全符合核心交际任务。干扰项1过于笼统（只说压力），缺乏具体信息；干扰项2转移焦点到头痛（与情境不符）；干扰项3使用夸张表达（'不记得上次睡觉'），虽生动但不专业，不适合医疗语境。"
       }
     }
   ]

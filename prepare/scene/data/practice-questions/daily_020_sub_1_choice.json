@@ -2,7 +2,7 @@
   "subSceneId": "daily_020_sub_1",
   "subSceneName": "进店问候",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:40:06.639Z",
+  "generatedAt": "2026-03-03T14:17:18.722Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_020_sub_1_qa_1",
+        "situation": "顾客走进眼镜店，店员微笑迎接并询问需求，顾客想更换眼镜框架但不需要重新验光。",
         "speakerText": "Hi there! How can I help you today?",
         "speakerTextCn": "您好！今天有什么可以帮您的？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I want to buy a coffee.",
+            "text": "I need to get my eyes tested, do you have an optometrist here?",
             "isCorrect": false
           },
           {
             "id": "opt_2",
-            "text": "I need a new pair of glasses, my prescription's expired.",
+            "text": "I'm looking for new frames — I already have my prescription.",
             "isCorrect": true
           },
           {
             "id": "opt_3",
-            "text": "Can you tell me the time?",
+            "text": "Do you sell contact lenses?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I'm looking for the restroom.",
+            "text": "I'm just browsing, thanks.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案回应了眼镜店场景中的需求，符合语境。其他选项分别涉及咖啡、问时间、找洗手间，与眼镜店服务无关，属于语境错误。"
+        "explanation": "正确答案准确回应了店员的询问，表达了明确需求（换镜框）并说明已有验光单，符合口语自然表达。干扰项1答非所问（提出验光需求）；干扰项3偏离主题（询问隐形眼镜）；干扰项4虽礼貌但未回应问题，不符合该场景中主动表达需求的交际任务。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_020_sub_1_qa_2",
-        "speakerText": "Got it! Do you have your current prescription with you?",
-        "speakerTextCn": "好的！您带了旧验光单吗？",
+        "situation": "顾客走进药店，店员主动问候，顾客想买隐形眼镜护理液，但不确定哪种适合自己的镜片。",
+        "speakerText": "Hi! How can I help you today?",
+        "speakerTextCn": "您好！今天有什么可以帮您的？",
         "options": [
           {
             "id": "opt_1",
-            "text": "No, I lost it last week. Can you help me schedule an eye exam?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Yes, I have my driver's license.",
+            "text": "I need some eye drops for dry eyes.",
             "isCorrect": false
           },
           {
+            "id": "opt_2",
+            "text": "I need contact lens solution — can you help me pick the right one?",
+            "isCorrect": true
+          },
+          {
             "id": "opt_3",
-            "text": "I don't know what you're talking about.",
+            "text": "Do you have any discounts today?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can you fix my phone instead?",
+            "text": "I'm not sure, maybe later.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案合理回应了未带验光单的情况，并提出预约检查的请求，符合服务场景。其他选项要么答非所问（驾照），要么完全无关（修手机），或态度不礼貌，不符合顾客与店员的礼貌互动规范。"
+        "explanation": "正确答案直接回应问题，清晰表达需求（护理液）并主动寻求帮助，符合高频真实对话模式。干扰项1误解需求（误答眼药水）；干扰项3提前问折扣，未先明确需求，不合逻辑；干扰项4表达犹豫，缺乏主动性，不符合店员期待的明确回应。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "Welcome to VisionCare! What brings you in today?",
-        "speakerTextCn": "欢迎光临VisionCare！今天有什么可以帮您？",
+        "situation": "顾客走进咖啡店，店员热情打招呼，顾客想点一杯热拿铁，但不确定店里的糖浆选择。",
+        "speakerText": "Hey! What can I get for you today?",
+        "speakerTextCn": "嘿！今天想喝点什么？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'd like to get my eyes checked and pick out some new frames.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How much is a sandwich here?",
+            "text": "I'll have a latte, and I'm not sure about the syrup options.",
             "isCorrect": false
           },
           {
+            "id": "opt_2",
+            "text": "I'd like a hot latte — do you have vanilla or caramel syrup?",
+            "isCorrect": true
+          },
+          {
             "id": "opt_3",
-            "text": "Do you sell books?",
+            "text": "Can I get a muffin instead?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I'm just browsing, thanks.",
+            "text": "Just water, please.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案自然表达了验光和选镜框的需求，符合眼镜店场景。选项2和3涉及无关商品（三明治、书），选项4虽然礼貌但过于模糊，不符合主动表达需求的口语练习目标。"
+        "explanation": "正确答案使用自然口语表达（I'd like...）明确点单，并主动询问细节，符合服务场景中高效沟通的惯例。干扰项1表达模糊，未完成点单；干扰项3完全偏离主题；干扰项4与常见消费行为不符，缺乏合理性。"
       }
     }
   ]

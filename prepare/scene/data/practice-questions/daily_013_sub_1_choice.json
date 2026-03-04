@@ -2,7 +2,7 @@
   "subSceneId": "daily_013_sub_1",
   "subSceneName": "打招呼咨询",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:38:10.086Z",
+  "generatedAt": "2026-03-03T14:16:53.803Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_013_sub_1_qa_1",
-        "speakerText": "Hi there! Can you help me with borrowing books?",
-        "speakerTextCn": "嗨！你能帮我一下借书的事吗？",
+        "situation": "你第一次去图书馆，想礼貌地询问借书流程，向柜台管理员打招呼并寻求帮助。",
+        "speakerText": "Hi, I'm new here. Could you tell me how to borrow books?",
+        "speakerTextCn": "嗨，我是新来的。你能告诉我怎么借书吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Sure! I'd love to help. What do you need to know?",
+            "text": "Sure! I'd be happy to help. First, you'll need a library card.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I don't know. Ask someone else.",
+            "text": "Just go to the self-checkout machine.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Books are over there.",
+            "text": "I don't know. Ask someone else.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "You have to pay first.",
+            "text": "You can borrow books if you pay first.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了礼貌且积极的回应，符合服务场景的沟通礼仪。干扰项中，'I don't know...' 显得不友好，'Books are over there.' 没有回应帮助请求，'You have to pay first.' 与借书流程无关且提前引入付费概念，不符合初始咨询语境。"
+        "explanation": "正确答案使用了礼貌回应结构（Sure! I'd be happy to help）并提供下一步信息，符合打招呼咨询场景的核心交际任务。干扰项1忽略了礼貌开场，直接给出操作建议；干扰项2态度冷漠且不专业；干扰项3提供错误信息，图书馆通常无需付费即可借书。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_013_sub_1_qa_2",
-        "speakerText": "I'm new here. How many books can I borrow?",
-        "speakerTextCn": "我是新手，我能借几本书？",
+        "situation": "你在图书馆咨询台问完借书流程后，接着想知道一次最多能借几本书，以及是否可以续借。",
+        "speakerText": "How many books can I borrow at once? Can I renew them?",
+        "speakerTextCn": "我一次能借几本书？可以续借吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "You can borrow up to 5 books at a time. You can renew them later.",
+            "text": "You can borrow up to 5 books, and yes, you can renew them online if no one else is waiting.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Five books. That's all.",
+            "text": "Five books. That's it.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "It depends on your membership.",
+            "text": "It depends on your membership type.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "You can't borrow any until you register.",
+            "text": "I'm not sure. Check the website.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案不仅提供了数量（5本），还补充了可续借信息，使回答更实用完整。选项2缺少续借信息，不够全面；选项3和4与常见图书馆政策不符，且未直接回答问题，属于误导性回应。"
+        "explanation": "正确答案完整回答了数量和续借方式，符合高频实用回应模式。干扰项1仅回答数量，忽略续借信息，回答不完整；干扰项2虽提及数量但语气生硬且未提供续借信息；干扰项3推卸责任，不符合管理员应提供明确指导的角色。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "Excuse me, I'd like to know how to register for a library card.",
-        "speakerTextCn": "不好意思，我想知道怎么注册借书证。",
+        "situation": "你刚办完借书卡，想确认是否需要带证件才能借书，于是礼貌地向工作人员提问。",
+        "speakerText": "Do I need to show my ID every time I borrow a book?",
+        "speakerTextCn": "每次借书时我都需要出示身份证吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Just go to the front desk and show your ID.",
+            "text": "Only the first time. After that, your library card is enough.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "You need to buy a card first.",
+            "text": "Yes, always. No exceptions.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "I'm not sure. Try the website.",
+            "text": "I think so. You should ask the manager.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "You can't get one unless you live here.",
+            "text": "Why do you need ID? That's weird.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接、清晰地给出了操作步骤，符合服务人员的职责。选项2错误地暗示需付费办卡（图书馆卡通常免费）；选项3推卸责任，不专业；选项4带有地域歧视，不符合公共服务原则。"
+        "explanation": "正确答案清晰说明了首次需要、之后只需借书卡的流程，信息准确且语气自然。干扰项1过于绝对，不符合大多数图书馆的灵活政策；干扰项2推卸责任，不符合服务人员应提供明确指导的要求；干扰项3带有负面情绪，不符合礼貌咨询场景。"
       }
     }
   ]

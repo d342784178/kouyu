@@ -2,7 +2,7 @@
   "subSceneId": "daily_010_sub_2",
   "subSceneName": "核对衣物",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:36:43.241Z",
+  "generatedAt": "2026-03-03T14:16:23.423Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_010_sub_2_qa_1",
-        "speakerText": "You've got 3 shirts, 2 pants, and 1 towel, right?",
-        "speakerTextCn": "您有3件衬衫、2条裤子和1条毛巾，对吗？",
+        "situation": "在服装店取货时，店员拿着你的订单和打包好的衣物，逐项核对数量。",
+        "speakerText": "I have two jackets, four T-shirts, and one pair of jeans for you. Does that match your order?",
+        "speakerTextCn": "我这里有两件夹克、四件T恤和一条牛仔裤，和您的订单一致吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yep, that's all.",
+            "text": "Yes, that's everything. Thank you!",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I need another towel.",
+            "text": "I need a hat too, can you add one?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can you give me a discount?",
+            "text": "I didn't order jeans, maybe you gave me the wrong one.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I'll take the pants only.",
+            "text": "Just hand them over, I'm in a hurry.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Yep, that's all.' 是对核对数量的直接确认，符合场景语境。其他选项要么是提出新要求（如多要毛巾、要折扣），要么是改变购买意愿，都不符合核对确认的对话功能。"
+        "explanation": "正确答案是A，因为它自然、礼貌地确认了物品齐全，符合核对场景的交际目标。B是提出新需求，答非所问；C是错误指责，语气不恰当；D态度生硬，不符合服务场景的礼貌规范。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_010_sub_2_qa_2",
-        "speakerText": "Let me double-check... Oh, here it is! Sorry for the mix-up.",
-        "speakerTextCn": "我再核对一下…哦，在这呢！抱歉搞错了。",
+        "situation": "店员在核对衣物时发现少了一件衬衫，主动向顾客道歉并解释。",
+        "speakerText": "I'm so sorry, I missed one of your shirts—it's right here. Thanks for your patience.",
+        "speakerTextCn": "非常抱歉，我漏掉了一件您的衬衫，这就给您拿来。谢谢您的耐心。",
         "options": [
           {
             "id": "opt_1",
-            "text": "No problem, thanks for checking.",
+            "text": "No worries, I really appreciate you fixing it.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Why did you make a mistake?",
+            "text": "Why did you make this mistake again?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "I don't care where it is.",
+            "text": "Okay, just give me the shirt and I'll leave.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Give me everything again.",
+            "text": "I don't care, just hurry up.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'No problem, thanks for checking.' 体现了礼貌和感激，符合服务场景中的回应规范。其他选项语气生硬或指责对方，不符合英语服务交流中的礼貌原则。"
+        "explanation": "正确答案是A，它以礼貌和感激的方式回应对方的道歉，符合服务场景中的社交礼仪。B指责对方，语气冲突；C和D态度冷漠，缺乏基本礼貌，不符合高频真实对话。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "I'm checking your order: 4 T-shirts, 1 hoodie, and 2 socks.",
-        "speakerTextCn": "我正在核对您的订单：4件T恤、1件连帽衫和2双袜子。",
+        "situation": "顾客取衣服时，店员说：'You ordered three sweaters, but I only see two in the bag.'",
+        "speakerText": "You ordered three sweaters, but I only see two in the bag.",
+        "speakerTextCn": "您订了三件毛衣，但我只在包里看到两件。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Actually, I ordered 3 socks, not 2.",
+            "text": "Oh, you're right—I must have missed one. Could you check the back room?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I like the hoodie a lot.",
+            "text": "I don't care how many there are, I want my money back.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can I pay with PayPal?",
+            "text": "That's fine, I'll take what you have.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Do you have more colors?",
+            "text": "Are you sure? I'm sure I ordered three.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案指出数量错误，是核对衣物场景的核心应对方式。其他选项偏离了核对任务，涉及支付方式或商品颜色，属于无关回应。"
+        "explanation": "正确答案是A，���承认店员的发现并主动配合解决问题，是成熟、合作的回应。B情绪化且不合理；C放弃权利，不符合常理；D仅质疑但未配合查找，表达不完整。A最符合实际沟通中的理性与礼貌。"
       }
     }
   ]

@@ -2,7 +2,7 @@
   "subSceneId": "daily_005_sub_4",
   "subSceneName": "获取医嘱",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:35:35.976Z",
+  "generatedAt": "2026-03-03T14:15:52.175Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_005_sub_4_qa_1",
-        "speakerText": "You're probably just stressed. Rest up, drink water, and take this painkiller.",
-        "speakerTextCn": "你可能是压力大，多休息、多喝水，吃这个止痛药。",
+        "situation": "医生建议你两周内避免剧烈运动，并开了一种消炎药。你希望确认是否可以正常上班。",
+        "speakerText": "Avoid heavy lifting or intense exercise for two weeks, and take this anti-inflammatory pill once a day after meals.",
+        "speakerTextCn": "两周内避免重体力劳动或剧烈运动，每天饭后吃一次这种消炎药。",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll skip the painkiller then.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Got it. Should I avoid alcohol?",
+            "text": "Got it. Can I still go to work? I have a desk job.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Thanks. Should I stop drinking water?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I don't need rest, I'm fine.",
+            "text": "I’ll take the pill, but I’m not sure about the exercise part.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can you prescribe something stronger?",
+            "text": "Okay, I’ll call you if it gets worse.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Got it. Should I avoid alcohol?' 符合使用 'Got it' 开头的自然回应方式，并进一步询问禁忌事项，符合医嘱场景的合理延伸。干扰项1是拒绝医嘱，不礼貌；干扰项3是直接否定医生建议，不合情境；干扰项4是要求更强药物，属于过度诉求，不符合当前轻症语境。"
+        "explanation": "正确答案使用 'Got it.' 开头，自然承接医嘱，并清晰询问与日常活动相关的核心问题（能否上班），符合高频沟通模式。干扰项1答非所问（问喝水无关内容），干扰项2表达犹豫不明确，干扰项3回应的是复诊情境，与当前医嘱无关。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_005_sub_4_qa_2",
-        "speakerText": "Come back if it gets worse in 48 hours.",
-        "speakerTextCn": "48小时后如果更糟，就回来复诊。",
+        "situation": "医生告诉你感冒会持续3-5天，建议多休息，不要吃辛辣食物，并说如果发烧超过38.5°C就立即回来。",
+        "speakerText": "Your cold should clear up in 3 to 5 days. Rest as much as you can, avoid spicy food, and come back right away if your fever goes above 38.5°C.",
+        "speakerTextCn": "你的感冒会在3到5天内好转，尽量多休息，避免吃辛辣食物，如果发烧超过38.5°C，请立即回来。",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll probably go to the ER tomorrow.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Will do. Thanks so much!",
+            "text": "Will do. I’ll come back if I get a high fever.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Thanks. I’ll eat less rice then.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I'll make an appointment now.",
+            "text": "Understood. Do I need to take the medicine?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "What if it gets better?",
+            "text": "I’ll avoid spicy food. What about alcohol?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Will do. Thanks so much!' 是最地道、最自然的回应，表达承诺并致谢。干扰项1是提前行动，与医嘱不符；干扰项3是主动预约，而医生只说‘如果恶化才回来’；干扰项4是追问未提及的情况，偏离重点。"
+        "explanation": "正确答案使用最地道的 'Will do.' 表达会遵守复诊指示，简洁自然。干扰项1答非所问（聚焦米饭，与医嘱无关），干扰项2虽然理解正确但追问额外信息，偏离核心回应重点（复诊），干扰项3虽有礼貌但未回应关键指令（立即复诊），表达不完整。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "Avoid heavy lifting for the next week and apply ice twice a day.",
-        "speakerTextCn": "未来一周避免重物搬运，每天冷敷两次。",
+        "situation": "医生说你有轻微的胃炎，建议你禁酒、少吃油腻食物，并在一周后复诊。你希望确认是否可以喝温水。",
+        "speakerText": "You have mild gastritis. No alcohol, avoid greasy foods, and come back in a week for a follow-up.",
+        "speakerTextCn": "你有轻微胃炎，禁酒，避免油腻食物，一周后复诊。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Can I still go for a run?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Understood. Should I stop using heat packs?",
+            "text": "Okay, thanks. What about warm water? Is that okay?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "I’ll skip the alcohol. I’ll also stop eating altogether.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I'll lift weights anyway.",
+            "text": "Understood. I’ll make sure to exercise more.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "How many ice packs do I need?",
+            "text": "Thanks. Should I take antibiotics?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Understood. Should I stop using heat packs?' 用 'Understood' 简洁回应，并进一步询问与医嘱相关的替代行为（热敷 vs 冷敷），符合医疗沟通逻辑。干扰项1是询问剧烈运动，与避免重物搬运冲突；干扰项3是公然违背医嘱；干扰项4询问数量，属于无关细节，非核心确认。"
+        "explanation": "正确答案用 'Okay, thanks.' 自然回应，接着提出与医嘱直接相关、合乎常理的补充问题（喝温水是否安全），符合日常医患沟通模式。干扰项1过度解读医嘱（完全禁食），干扰项2答非所问（建议锻炼，与胃炎建议相反），干扰项3擅自添加未提及的药物建议，属于理解偏差。"
       }
     }
   ]

@@ -2,7 +2,7 @@
   "subSceneId": "daily_005_sub_1",
   "subSceneName": "挂号登记",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:35:40.120Z",
+  "generatedAt": "2026-03-03T14:23:02.855Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_005_sub_1_qa_1",
-        "template": "I'd like ___ check in for my appointment.",
+        "situation": "患者到达诊所前台，准备进行挂号登记，主动告知来意和身份",
+        "speakerText": "Hi, I'm here for a checkup. My name is ___",
+        "speakerTextCn": "嗨，我来做一个检查，我的名字是___",
+        "responseTemplate": "Hi, I'm here for a checkup. My name is ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "to",
+            "answer": "Sarah Lin",
             "options": [
-              "to",
-              "for",
-              "with",
-              "at"
+              "Sarah Lin",
+              "I am Sarah Lin",
+              "It's Sarah Lin",
+              "Sarah Lin is my name"
             ]
           }
         ],
-        "hint": "表达‘想要做某事’的固定搭配",
-        "knowledgePoint": "would like to do（挂号场景核心句型）"
+        "hint": "在口语中，直接说名字最自然，无需多余主语或结构",
+        "knowledgePoint": "自我介绍的简洁表达"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Could you please help me ___ this form?",
+        "situation": "患者向接待员说明来意，表明自己有预约但未提具体时间",
+        "speakerText": "I have an appointment today. I'm ___",
+        "speakerTextCn": "我今天有预约，我是___",
+        "responseTemplate": "I have an appointment today. I'm ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "fill out",
+            "answer": "James Park",
             "options": [
-              "fill out",
-              "fill in",
-              "write down",
-              "hand in"
+              "James Park",
+              "the one named James Park",
+              "James Park's patient",
+              "James Park here"
             ]
           }
         ],
-        "hint": "挂号时填写表格的常用动词搭配",
-        "knowledgePoint": "动词搭配（fill out a form）"
+        "hint": "在挂号场景中，直接用姓名表明身份，避免冗余表达",
+        "knowledgePoint": "身份确认的自然表达"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "My appointment is at ___ o'clock.",
+        "situation": "患者主动向接待员说明就诊目的，用于启动登记流程",
+        "speakerText": "I'd like to check in for ___",
+        "speakerTextCn": "我想办理挂号，为了___",
+        "responseTemplate": "I'd like to check in for ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "three",
+            "answer": "a routine physical",
             "options": [
-              "three",
-              "ten",
-              "twelve",
-              "five"
+              "a routine physical",
+              "my doctor",
+              "the appointment",
+              "to see someone"
             ]
           }
         ],
-        "hint": "预约时间的常见表达，参考对话中的3 PM",
-        "knowledgePoint": "时间表达（整点数字）"
+        "hint": "说明就诊类型时，使用具体服务名称，而非模糊指代",
+        "knowledgePoint": "表达就诊目的的常用短语"
       }
     }
   ]

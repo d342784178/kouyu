@@ -2,7 +2,7 @@
   "subSceneId": "daily_016_sub_1",
   "subSceneName": "打招呼询问",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:38:17.921Z",
+  "generatedAt": "2026-03-03T14:23:52.929Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_016_sub_1_qa_1",
-        "template": "Hey, you got any ___ juice?",
+        "situation": "顾客走进便利店，想买一瓶矿泉水，礼貌地询问店员是否有货",
+        "speakerText": "Hi, do you have any bottled water?",
+        "speakerTextCn": "你好，请问你们有瓶装水吗？",
+        "responseTemplate": "___, it's right by the checkout.",
         "blanks": [
           {
             "index": 0,
-            "answer": "orange",
+            "answer": "Yes, we do",
             "options": [
-              "orange",
-              "apple",
-              "water",
-              "coffee"
+              "Yes, we are",
+              "Yes, we have",
+              "No, we don't",
+              "Sure, we got"
             ]
           }
         ],
-        "hint": "��是对话中提到的具体商品，注意水果汁类常用 '___ juice' 结构",
-        "knowledgePoint": "商���名称+juice（高频商品搭配）"
+        "hint": "回答肯定时，用 'Yes, we do' 回应 'Do you have...' 结构，避免直接重复 'have'",
+        "knowledgePoint": "回应 'Do you have...' 的标准口语结构"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_016_sub_1_qa_2",
-        "template": "And do you have the ___ sandwich?",
+        "situation": "顾客在咖啡店想买燕麦奶，用轻松语气询问店员库存情况",
+        "speakerText": "Hey, you got oat milk?",
+        "speakerTextCn": "嘿，你们有燕麦奶吗？",
+        "responseTemplate": "___, we just ran out five minutes ago.",
         "blanks": [
           {
             "index": 0,
-            "answer": "chicken",
+            "answer": "Sorry, we don't",
             "options": [
-              "chicken",
-              "beef",
-              "fish",
-              "veggie"
+              "No, we haven't",
+              "Not really",
+              "We don't have",
+              "Nope, we lost"
             ]
           }
         ],
-        "hint": "这是对话中提到的三明治类型，注意常见三明治口味的表达",
-        "knowledgePoint": "食品类型+sandwich（场景核心词汇搭配）"
+        "hint": "回答否定时，用 'Sorry, we don't' 最自然，避免直译中文的 '没有'",
+        "knowledgePoint": "口语中表达缺货的礼貌否定回应"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Do you have ___ in stock?",
+        "situation": "顾客在超市想买全麦面包，用简单句式询问店员是否供应",
+        "speakerText": "Do you have whole wheat bread?",
+        "speakerTextCn": "你们有全麦面包吗？",
+        "responseTemplate": "___, it's in aisle 3 next to the rice.",
         "blanks": [
           {
             "index": 0,
-            "answer": "any",
+            "answer": "We do",
             "options": [
-              "any",
-              "some",
-              "a",
-              "the"
+              "We have",
+              "Yes, we have",
+              "We got",
+              "It's here"
             ]
           }
         ],
-        "hint": "询问商品有无时，疑问句中常用 'any' 指代不可数或复数商品",
-        "knowledgePoint": "any 在疑问句中表示‘任何/一些’（核心语法结构）"
+        "hint": "在回应 'Do you have...' 时，口语中常用 'We do' 简洁替代 'We have it'",
+        "knowledgePoint": "用 'We do' 简洁回应 'Do you have...' 的高频结构"
       }
     }
   ]

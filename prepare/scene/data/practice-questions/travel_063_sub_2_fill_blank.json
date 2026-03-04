@@ -2,7 +2,7 @@
   "subSceneId": "travel_063_sub_2",
   "subSceneName": "核对商品",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T15:05:08.523Z",
+  "generatedAt": "2026-03-03T14:30:45.424Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_063_sub_2_qa_1",
-        "template": "Of course, here it is — still ___.",
+        "situation": "顾客在退货柜台，工作人员正在核对商品与收据，要求顾客出示商品以确认是否符合退货条件。",
+        "speakerText": "Could you please show me the item you'd like to return?",
+        "speakerTextCn": "您能给我看看您想退的商品吗？",
+        "responseTemplate": "Sure, ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "sealed",
+            "answer": "here it is",
             "options": [
-              "sealed",
-              "open",
-              "broken",
-              "dirty"
+              "here it is",
+              "it's over there",
+              "I bought it yesterday",
+              "it's too expensive"
             ]
           }
         ],
-        "hint": "表示商品未拆封的关键词，有助于顺利通过核对",
-        "knowledgePoint": "固定搭配（sealed product）"
+        "hint": "当对方要求你出示商品时，最自然的回应是直接递出并说 'here it is'",
+        "knowledgePoint": "日常交流中出示物品的常用表达"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_063_sub_2_qa_2",
-        "template": "No, I've got three more ___ this bag.",
+        "situation": "顾客在超市服务台办理换货，店员核对商品与小票，询问是否还有其他商品需要处理。",
+        "speakerText": "Is this the only thing you're exchanging?",
+        "speakerTextCn": "您就只换这一件吗？",
+        "responseTemplate": "No, ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "in",
+            "answer": "I also have this one",
             "options": [
-              "in",
-              "on",
-              "at",
-              "for"
+              "I also have this one",
+              "I don't like the color",
+              "I paid with cash",
+              "it was on sale"
             ]
           }
         ],
-        "hint": "表示物品所在位置的常用介词",
-        "knowledgePoint": "介词用法（in the bag）"
+        "hint": "当被问及是否只有这一件时，若还有其他商品，应明确补充说明",
+        "knowledgePoint": "确认商品数量时的补充表达"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "I'm returning ___ items: a perfume, a watch, and a jacket.",
+        "situation": "顾客在机场免税店办理退税，工作人员核对商品与购物凭证，确认商品是否未使用。",
+        "speakerText": "Has this product been used?",
+        "speakerTextCn": "这件商品用过了吗？",
+        "responseTemplate": "No, ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "three",
+            "answer": "it's still sealed",
             "options": [
-              "three",
-              "many",
-              "some",
-              "all"
+              "it's still sealed",
+              "I tried it once",
+              "it's in the box",
+              "I didn't open it yet"
             ]
           }
         ],
-        "hint": "明确数量有助于快速核对，避免遗漏",
-        "knowledgePoint": "数字表达（明确数量）"
+        "hint": "为顺利通过核对，强调商品未拆封是关键表达",
+        "knowledgePoint": "证明商品未使用的核心表达"
       }
     }
   ]

@@ -2,7 +2,7 @@
   "subSceneId": "daily_005_sub_3",
   "subSceneName": "回答病史",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:35:01.132Z",
+  "generatedAt": "2026-03-03T14:15:15.504Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_005_sub_3_qa_1",
-        "speakerText": "Do you smoke or drink much?",
-        "speakerTextCn": "你抽烟或喝酒多吗？",
+        "situation": "医生在问诊时询问患者是否有长期服用的药物或补充剂，以评估潜在的药物相互作用。",
+        "speakerText": "Are you taking any regular medications or supplements?",
+        "speakerTextCn": "你平时有在服用任何药物或补充剂吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I smoke two packs a day and drink whiskey daily.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "I used to smoke, but I quit last year. I drink wine once a week.",
+            "text": "I take vitamin D every morning and ibuprofen when my back hurts.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "I don't go to the doctor often, so I don't know what I'm taking.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I don't know what you mean by much.",
+            "text": "I only eat healthy food, so I don't need anything.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I only eat healthy food and never sleep.",
+            "text": "My mom says I should take something, but I forgot what it was.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了 'used to' 表示过去习惯，'once a week' 表示适度饮酒，符合医生询问病史的语境。选项1过于极端，不符合常规健康披露；选项3回避问题，不礼貌；选项4与问题无关。"
+        "explanation": "正确答案准确回应了医生关于日常用药的询问，清晰说明了药物名称和使用频率。干扰项1是答非所问，回避了问题；干扰项2误解了问题，把服药和就医频率混淆；干扰项3表达不完整，且用‘eat healthy’回避了药物/补充剂的实质问题。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_005_sub_3_qa_2",
-        "speakerText": "Any allergies or chronic conditions?",
-        "speakerTextCn": "有过敏或慢性病吗？",
+        "situation": "医生询问患者是否有睡眠问题，以排查疲劳或焦虑的潜在原因。",
+        "speakerText": "Do you have trouble sleeping or do you feel rested in the morning?",
+        "speakerTextCn": "你有睡眠困难吗？早上醒来感觉休息好了吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I have a headache every Monday.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Yeah, penicillin makes me break out. Otherwise, I'm good.",
+            "text": "I usually fall asleep fine, but I wake up around 3 a.m. and can't get back to sleep.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "I drink coffee in the afternoon, but I don't think that affects me.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I like chocolate and coffee.",
+            "text": "I sleep a lot — like 10 hours a night.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I don't remember my last doctor visit.",
+            "text": "I’m not sure, I never check the time when I wake up.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了口语化表达 'makes me break out' 准确描述过敏反应，符合医疗对话习惯。选项1是偶发症状，不是慢性病；选项3与过敏无关；选项4回避问题，不提供有效信息。"
+        "explanation": "正确答案直接回应了睡眠问题的具体表现，符合医生询问的意图。干扰项1虽提到咖啡，但未回答睡眠质量，属于答非所问；干扰项2只陈述睡眠时长，未说明是否‘休息好’，信息不完整；干扰项3回避了核心问题，表达模糊，缺乏临床价值。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "Do you have any history of high blood pressure or diabetes?",
-        "speakerTextCn": "你有高血压或糖尿病的病史吗？",
+        "situation": "医生在问诊时询问患者是否有过重大疾病或手术史，以评估整体健康状况。",
+        "speakerText": "Have you ever had any major illnesses or surgeries?",
+        "speakerTextCn": "你曾经得过重病或做过手术吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I eat a lot of sugar, so maybe.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "I was diagnosed with high blood pressure five years ago, but it's under control now.",
+            "text": "I had appendicitis when I was 12 — had my appendix removed. No other major issues.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "I don't get sick often, so probably not.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "My mom has diabetes, but I'm fine.",
+            "text": "I had a cold last winter, but that's it.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I don't know what those words mean.",
+            "text": "My doctor said I’m healthy, so I guess no.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确陈述了病史、诊断时间和当前控制情况，是完整且专业的回应。选项1是猜测，不准确；选项3提到家族史，但未说明自身状况；选项4拒绝沟通，不符合医疗场景。"
+        "explanation": "正确答案清晰、具体地回答了手术史，符合医疗沟通的准确性和完整性要求。干扰项1是模糊推测，缺乏事实依据；干扰项2将普通感冒误认为‘重大疾病’，属于理解偏差；干扰项3依赖第三方评价，未主动提供信息，表达不专业。"
       }
     }
   ]

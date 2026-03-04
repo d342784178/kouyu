@@ -2,7 +2,7 @@
   "subSceneId": "daily_003_sub_3",
   "subSceneName": "询问价格",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:34:35.402Z",
+  "generatedAt": "2026-03-03T14:23:03.104Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_003_sub_3_qa_1",
-        "template": "That'll be $5.20. For here or ___?",
+        "situation": "你在咖啡店点完饮品后，店员告诉你总价，并询问你是想在这里喝还是带走。",
+        "speakerText": "That'll be $8.50. For here or to go?",
+        "speakerTextCn": "一共8块5，这里喝还是带走？",
+        "responseTemplate": "I'd like to ___.",
         "blanks": [
           {
             "index": 0,
-            "answer": "to go",
+            "answer": "sit here",
             "options": [
-              "to go",
-              "to here",
-              "for take",
-              "for out"
+              "take it away",
+              "sit here",
+              "pay now",
+              "get a discount"
             ]
           }
         ],
-        "hint": "询问是否外带的标准表达",
-        "knowledgePoint": "固定搭配：for here or to go"
+        "hint": "当店员问你是否带走时，用 'sit here' 表示在店内消费，用 'to go' 表示打包带走。",
+        "knowledgePoint": "表达消费方式（堂食/外带）"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_003_sub_3_qa_2",
-        "template": "Can I pay ___ Apple Pay?",
+        "situation": "你刚点完餐，收银员告知总价后，你想知道是否可以使用移动支付。",
+        "speakerText": "Your total is $12. How would you like to pay?",
+        "speakerTextCn": "总计12块，你打算怎么支付？",
+        "responseTemplate": "Can I pay with ___?",
         "blanks": [
           {
             "index": 0,
-            "answer": "with",
+            "answer": "Google Pay",
             "options": [
-              "with",
-              "by",
-              "using",
-              "for"
+              "cash only",
+              "Google Pay",
+              "the menu",
+              "a discount"
             ]
           }
         ],
-        "hint": "支付方式的正确介词搭配",
-        "knowledgePoint": "动词搭配：pay with + 支付方式"
+        "hint": "询问支付方式时，常用 'Can I pay with...' 加上支付方式名称，如信用卡、移动支付等。",
+        "knowledgePoint": "询问支付方式"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Could you tell me the ___ for this item?",
+        "situation": "你准备结账时，店员说总价后，你想确认是否包含税费，避免误解。",
+        "speakerText": "That comes to $15.40.",
+        "speakerTextCn": "总共是15块4。",
+        "responseTemplate": "Does that include ___?",
         "blanks": [
           {
             "index": 0,
-            "answer": "price",
+            "answer": "tax",
             "options": [
-              "price",
-              "cost",
-              "fee",
-              "bill"
+              "tax",
+              "tip",
+              "the order",
+              "the cup"
             ]
           }
         ],
-        "hint": "询问价格的最常用词",
-        "knowledgePoint": "场景高频词汇：price（价格）"
+        "hint": "在确认总价时，常需确认是否包含税费，'include tax' 是地道表达。",
+        "knowledgePoint": "确认价格是否含税"
       }
     }
   ]

@@ -1,8 +1,8 @@
 {
   "subSceneId": "daily_002_sub_2",
-  "subSceneName": "确认计量",
+  "subSceneName": "确认计量单位",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:34:36.659Z",
+  "generatedAt": "2026-03-03T14:23:04.356Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_002_sub_2_qa_1",
-        "template": "This yogurt is sold ___ the container — each one is 16 ounces.",
+        "situation": "在超市购买散装大米时，顾客不确定是按袋卖还是按重量卖，向店员确认计价方式。",
+        "speakerText": "Are these rice bags pre-packed, or do you weigh them out?",
+        "speakerTextCn": "这些大米是预包装好的，还是称重卖的？",
+        "responseTemplate": "They're sold ___ — each bag is 5 kilograms.",
         "blanks": [
           {
             "index": 0,
-            "answer": "by",
+            "answer": "by the bag",
             "options": [
-              "by",
-              "in",
-              "for",
-              "with"
+              "by the kilo",
+              "by the bag",
+              "in bulk",
+              "by weight"
             ]
           }
         ],
-        "hint": "表示按某种单位计价时的固定搭配",
-        "knowledgePoint": "固定表达：be sold by the unit（按单位计价）"
+        "hint": "如果商品是固定包装销售，常用 'sold by the [container]' 表达。",
+        "knowledgePoint": "确认商品计价单位：按包装 vs 按重量"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_002_sub_2_qa_2",
-        "template": "These apples are sold ___ weight — you can pick your own.",
+        "situation": "在农贸市场，顾客想买土豆，看到一堆散装土豆，不确定是按斤称还是按袋卖。",
+        "speakerText": "Do you charge by the pound, or are these sold in bags?",
+        "speakerTextCn": "你们是按磅收费，还是这些土豆按袋卖？",
+        "responseTemplate": "We sell them ___ — you can take one or two.",
         "blanks": [
           {
             "index": 0,
-            "answer": "by",
+            "answer": "by the bag",
             "options": [
-              "by",
-              "in",
-              "at",
-              "for"
+              "by the pound",
+              "by the bag",
+              "by the bunch",
+              "by the crate"
             ]
           }
         ],
-        "hint": "表示‘按…计价’的常用介词搭配",
-        "knowledgePoint": "固定表达：be sold by weight（按重量计价）"
+        "hint": "当商品以固定数量包装出售时，用 'sold by the [container]' 表示。",
+        "knowledgePoint": "确认商品计价单位：按包装 vs 按重量"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "The cheese is pre-packaged — each block is ___ 250 grams.",
+        "situation": "在便利店，顾客想买坚果，看到货架上有小袋和大袋两种，想确认是否按袋定价。",
+        "speakerText": "Is the price per bag, or do I need to weigh them?",
+        "speakerTextCn": "价格是按袋算，还是需要称重？",
+        "responseTemplate": "It's all ___ — no weighing needed.",
         "blanks": [
           {
             "index": 0,
-            "answer": "about",
+            "answer": "by the bag",
             "options": [
-              "about",
-              "exactly",
-              "nearly",
-              "almost"
+              "by the ounce",
+              "by the bag",
+              "by the gram",
+              "by the handful"
             ]
           }
         ],
-        "hint": "描述近似重量时常用的模糊表达",
-        "knowledgePoint": "近似重量表达：about / approximately + 数量"
+        "hint": "当所有商品都是预包装且统一价格时，常用 'sold by the bag' 表达。",
+        "knowledgePoint": "确认商品计价单位：按包装 vs 按重量"
       }
     }
   ]

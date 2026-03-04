@@ -2,7 +2,7 @@
   "subSceneId": "daily_008_sub_4",
   "subSceneName": "确认收件信息",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:36:18.434Z",
+  "generatedAt": "2026-03-03T14:23:19.567Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_008_sub_4_qa_1",
-        "template": "I'd like ___ express shipping to Tokyo.",
+        "situation": "快递员在寄送前核对收件服务类型，你确认选择的是加急服务",
+        "speakerText": "So you're going with the express service, not standard shipping?",
+        "speakerTextCn": "所以你要选加急服务，而不是普通邮寄，对吧？",
+        "responseTemplate": "___",
         "blanks": [
           {
             "index": 0,
-            "answer": "to",
+            "answer": "Yep, that’s the one.",
             "options": [
-              "to",
-              "for",
-              "with",
-              "at"
+              "I think so.",
+              "Yes, I want normal.",
+              "No, I change my mind.",
+              "Yep, that’s the one."
             ]
           }
         ],
-        "hint": "表达‘想要做某事’的固定搭配",
-        "knowledgePoint": "would like to do（预约/服务选择核心句型）"
+        "hint": "用简短肯定回答确认选择，口语中常用Yep或Right开头",
+        "knowledgePoint": "确认服务选择的口语表达"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_008_sub_4_qa_2",
-        "template": "Thanks! I’ll ___ the tracking number to the receiver.",
+        "situation": "工作人员给你收据和追踪码，你打算立即通知收件人",
+        "speakerText": "Here’s your receipt and the tracking code.",
+        "speakerTextCn": "这是你的收据和追踪码。",
+        "responseTemplate": "Thanks! I’ll ___ to them right away.",
         "blanks": [
           {
             "index": 0,
-            "answer": "text",
+            "answer": "send the code",
             "options": [
-              "text",
-              "email",
-              "call",
-              "mail"
+              "call the address",
+              "send the code",
+              "pay again",
+              "check the weight"
             ]
           }
         ],
-        "hint": "在确认信息后，最常用的即时传递方式",
-        "knowledgePoint": "场景高频动词搭配（text the number）"
+        "hint": "通知收件人时，最自然的动作是发送追踪码",
+        "knowledgePoint": "回应收据时搭配实际动作的表达"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Could you please ___ the destination one more time?",
+        "situation": "你已确认寄送方式，工作人员最后确认你是否还有其他需求",
+        "speakerText": "Anything else I can help you with today?",
+        "speakerTextCn": "今天还有其他需要帮忙的吗？",
+        "responseTemplate": "No, that’s all. ___!",
         "blanks": [
           {
             "index": 0,
-            "answer": "confirm",
+            "answer": "Thanks so much",
             "options": [
-              "confirm",
-              "change",
-              "check",
-              "find"
+              "I’ll come back",
+              "Thanks so much",
+              "Can you hurry?",
+              "I need more boxes"
             ]
           }
         ],
-        "hint": "在核对信息时常用的礼貌请求动词",
-        "knowledgePoint": "确认信息的惯用表达（confirm the details）"
+        "hint": "结束服务时，礼貌感谢是高频表达，避免添加新请求",
+        "knowledgePoint": "结束对话时的礼貌回应"
       }
     }
   ]

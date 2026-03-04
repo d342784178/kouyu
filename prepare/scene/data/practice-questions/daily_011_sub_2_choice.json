@@ -2,7 +2,7 @@
   "subSceneId": "daily_011_sub_2",
   "subSceneName": "询问药效与用法",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:37:04.969Z",
+  "generatedAt": "2026-03-03T14:16:39.924Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_011_sub_2_qa_1",
-        "speakerText": "This one’s for coughs, right? How often do I take it?",
-        "speakerTextCn": "这个是治咳嗽的吧？一天吃几次？",
+        "situation": "你在药房取药时，药师给你一盒新药，你不确定它是否能缓解头痛以及是否需要饭后服用。",
+        "speakerText": "This is for headaches, isn't it? Should I take it with food?",
+        "speakerTextCn": "这个是治头痛的吧？需要饭后吃吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Take two tablets at once for faster results.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Take one tablet every 8 hours, max 3 a day.",
+            "text": "Yes, take it on an empty stomach, and don't drink alcohol with it.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "I think it helps with fever, but I'm not sure about the timing.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Take it only when you feel like it.",
+            "text": "Just swallow it and you'll feel better.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Take it with alcohol to make it work better.",
+            "text": "I don't know, maybe ask the doctor?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是 'Take one tablet every 8 hours, max 3 a day.'，这是标准用药指导，避免过量。选项1建议一次性吃两片，可能造成药物过量；选项3随意服用不符合医嘱；选项4建议与酒精同服，极其危险，可能引发严重副作用。"
+        "explanation": "正确答案准确回应了两个问题：确认药效（治头痛）和服用方式（空腹服用）并补充安全提示（避免饮酒）。干扰项1误解了药效（说成治发烧），干扰项2表达模糊且未回答关键问题，干扰项3虽积极但缺乏关键信息且不专业。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_011_sub_2_qa_2",
-        "speakerText": "Does it make you sleepy?",
-        "speakerTextCn": "这个会让人犯困吗？",
+        "situation": "你正在服用一种新处方药，朋友问你是否会有嗜睡的副作用，以及是否影响日常工作。",
+        "speakerText": "Will this make you drowsy during the day? Can I still work normally?",
+        "speakerTextCn": "这个会让我白天犯困吗？我还能正常工作吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "No, it’s non-drowsy. You can drive safely.",
+            "text": "It can cause mild drowsiness, so avoid heavy tasks in the first few days.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Yes, it makes you energetic. Take it before work.",
+            "text": "No, it’s completely safe — just take it whenever you remember.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "It doesn’t affect sleep at all, even if you take it during the day.",
+            "text": "I don’t know, I just take it before bed.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "It makes you hungry. Eat more after taking it.",
+            "text": "It’s for allergies, not sleep — so no problem.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是 'No, it’s non-drowsy. You can drive safely.'，符合非嗜睡类药物的说明。选项2错误地将嗜睡描述为‘有活力’，与常识相悖；选项3虽然说‘不影响睡眠’，但未明确是否会导致困倦，表述模糊且不专业；选项4完全无关，属于干扰项。"
+        "explanation": "正确答案准确承认可能的副作用（轻度嗜睡），并提供实用建议（前几日避免重体力任务），符合安全用药原则。干扰项1完全否认副作用，有误导风险；干扰项2仅说明服用时间，未回应核心担忧；干扰项3转移话题，未回答是否影响工作。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "I’ve been taking this for my headache. Is it okay to take it with my other medicine?",
-        "speakerTextCn": "我一直在吃这个治头痛。能和其他药一起吃吗？",
+        "situation": "你从药店拿到止痛药，想确认它是否适合儿童服用，以及一天最多能吃几次。",
+        "speakerText": "Can my 10-year-old take this? And how many times a day?",
+        "speakerTextCn": "我10岁的孩子能吃这个吗？一天最多吃几次？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, mixing medicines is fine — the more, the better.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "It’s best to check with your doctor first — some drugs interact dangerously.",
+            "text": "No, it’s only for adults over 12. For kids, use the children’s formula instead.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Sure, give them two tablets every 6 hours — it works great.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Just take them together — you’ll feel better faster.",
+            "text": "It’s pain relief, so it should be fine ��� just cut the tablet in half.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "No, you should never take any medicine for headaches.",
+            "text": "I’m not sure, but it’s not for coughs, so maybe it’s okay?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是 'It’s best to check with your doctor first — some drugs interact dangerously.'，强调用药安全和专业咨询的重要性。选项1和3鼓励随意混合药物��可能引发严重药物相互作用；选项4完全否定止痛药使用，不符合医学常识。"
+        "explanation": "正确答案明确拒绝儿童使用并提供替代方案，符合药品安全规范。干扰项1擅自建议儿童剂量，有严重安全隐患；干扰项2错误地假设成人剂量可直接用于儿童；干扰项3用无关信息（不是治咳嗽）推断适用性，逻辑错误。"
       }
     }
   ]

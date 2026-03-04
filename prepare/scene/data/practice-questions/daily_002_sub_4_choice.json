@@ -1,8 +1,8 @@
 {
   "subSceneId": "daily_002_sub_4",
-  "subSceneName": "寻找收银台",
+  "subSceneName": "找收银台",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:34:56.078Z",
+  "generatedAt": "2026-03-03T14:15:01.013Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_002_sub_4_qa_1",
-        "speakerText": "Where's the nearest checkout counter?",
-        "speakerTextCn": "最近的收银台在哪里？",
+        "situation": "你在超市购物后，想尽快找到收银台结账，但不确定位置，于是向一位店员询问。",
+        "speakerText": "Could you tell me where the nearest checkout counter is?",
+        "speakerTextCn": "你能告诉我最近的收银台在哪里吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "It's behind the fruit section.",
+            "text": "Sure, it's just ahead by the entrance, next to the water bottles.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "You can find it in the parking lot.",
+            "text": "I'm not sure, but the milk is on aisle 3.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "The cashier is on the second floor.",
+            "text": "Do you have a membership card?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I don't know where the restrooms are.",
+            "text": "The self-checkout is faster if you have fewer items.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'It's behind the fruit section.' 是一个合理的收银台位置描述，符合超市布局。干扰项 'parking lot' 和 'second floor' 与超市常规布局不符；'restrooms' 与问题无关，属于完全跑题。"
+        "explanation": "正确答案直接回应了对方询问的位置信息，符合日常交流习惯。干扰项1是答非所问（回答了牛奶位置），干扰项2是误解意图（询问会员卡与位置无关），干扰项3虽然相关但回答的是效率问题而非位置，偏离了核心问题。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_002_sub_4_qa_2",
-        "speakerText": "Which line is moving fastest right now?",
-        "speakerTextCn": "现在哪条队伍最快？",
+        "situation": "你在大型购物中心购物，手推车里装满商品，想快速找到收银台，于是问路过的工作人员。",
+        "speakerText": "Where can I find a checkout lane nearby?",
+        "speakerTextCn": "附近哪里能找到收银通道？",
         "options": [
           {
             "id": "opt_1",
-            "text": "The self-checkout line — only three people ahead.",
+            "text": "There's one on the second floor, near the escalators to the food court.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "The employee break room — no one is there.",
+            "text": "You should use the self-checkout if you have less than ten items.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "The bakery aisle — they're giving out free samples.",
+            "text": "I'm busy right now, you can ask at the information desk.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "The return counter — it's always the fastest.",
+            "text": "The cashier will take your card at the end of the line.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'The self-checkout line — only three people ahead.' 符合实际结账场景，使用了关键表达 'self-checkout' 和人数描述。干扰项 'employee break room' 和 'bakery aisle' 不是结账通道；'return counter' 虽然存在，但通常不比普通结账通道快，且语境不符。"
+        "explanation": "正确答案明确给出了收银台的具体位置，符合询问意图。干扰项1是建议自助结账，属于答非所问；干扰项2是推脱责任，不提供帮助；干扰项3描述结账流程，未回答位置问题，均偏离核心需求。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "I need to pay quickly — any recommendations?",
-        "speakerTextCn": "我需要快速付款，有什么建议吗？",
+        "situation": "你在便利店结账前发现找不到收银台，于是向正在整理货架的店员礼貌询问。",
+        "speakerText": "Excuse me, where is the checkout counter?",
+        "speakerTextCn": "不好意思，请问收银台在哪里？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Go to the customer service desk — they help with payments.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Use the express lane if you have fewer than 10 items.",
+            "text": "Right behind you, next to the newspaper rack.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "We accept Apple Pay and credit cards.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Wait until the store closes — then everything is free.",
+            "text": "The store closes in 10 minutes.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Ask the manager to pay for you.",
+            "text": "Can I help you find something else?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Use the express lane if you have fewer than 10 items.' 是处理快速结账的典型建议，包含关键表达 'express lane' 和数量限制。干扰项 'customer service desk' 通常不处理常规付款；'everything is free' 是荒谬的；'ask the manager' 不符合现实操作。"
+        "explanation": "���确答案直接、清晰地指出收银台位置，是该情境下最自然的回应。干扰项1是提供支付方式（无关），干扰项2是告知关门时间（无关），干扰项3是试图转移话题，均未回应位置询问，属于典型答非所问。"
       }
     }
   ]

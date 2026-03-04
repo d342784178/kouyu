@@ -2,7 +2,7 @@
   "subSceneId": "daily_016_sub_2",
   "subSceneName": "确认价格",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:41:21.380Z",
+  "generatedAt": "2026-03-03T14:24:01.036Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_016_sub_2_qa_1",
-        "template": "The juice is $2.50, sandwich's $4. So ___ total.",
+        "situation": "顾客在便利店结账时，店员列出所选商品后，顾客想确认总金额是否正确。",
+        "speakerText": "So that's the coffee, the bagel, and the muffin?",
+        "speakerTextCn": "所以是咖啡、贝果和松饼，对吗？",
+        "responseTemplate": "___",
         "blanks": [
           {
             "index": 0,
-            "answer": "$6.50",
+            "answer": "That's right.",
             "options": [
-              "$6.50",
-              "6.50",
-              "six fifty",
-              "$6.5"
+              "I think so.",
+              "It's expensive.",
+              "Can you give me discount?",
+              "That's right."
             ]
           }
         ],
-        "hint": "总价表达需包含货币符号和两位小数",
-        "knowledgePoint": "价格总和表达（含货币符号）"
+        "hint": "当对方列出商品并询问总金额是否正确时，用这个短语确认信息无误。",
+        "knowledgePoint": "确认金额的常用回应表达"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_016_sub_2_qa_2",
-        "template": "So that's ___?",
+        "situation": "顾客在咖啡店点了一杯拿铁和一块蛋糕，店员报出单价后，顾客想直接确认最终总价。",
+        "speakerText": "The latte is $3.75 and the cake is $4.25. ___",
+        "speakerTextCn": "拿铁3.75美元，蛋糕4.25美元。___",
+        "responseTemplate": "___",
         "blanks": [
           {
             "index": 0,
-            "answer": "$6.50",
+            "answer": "So that's eight dollars total?",
             "options": [
-              "$6.50",
-              "six dollars fifty",
-              "6.5",
-              "$6.5"
+              "I want to pay with card.",
+              "So that's eight dollars total?",
+              "Can I get a bigger size?",
+              "I don't need the cake."
             ]
           }
         ],
-        "hint": "确认金额时使用标准货币格式",
-        "knowledgePoint": "金额确认的规范表达"
+        "hint": "当听到分项价格后，用这个句型整合并确认总价，避免重复计算。",
+        "knowledgePoint": "整合分项价格并确认总价的表达结构"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "The book is $12, the pen is $3. So ___ total.",
+        "situation": "顾客在超市结账时，收银员说商品总价，顾客不确定是否听清，想再次确认。",
+        "speakerText": "The total is $12.40.",
+        "speakerTextCn": "总价是12块4。",
+        "responseTemplate": "___",
         "blanks": [
           {
             "index": 0,
-            "answer": "$15",
+            "answer": "Just to confirm, is that $12.40?",
             "options": [
-              "$15",
-              "15 dollars",
-              "fifteen",
-              "$15.00"
+              "Just to confirm, is that $12.40?",
+              "I'll take another one.",
+              "Can you wrap it?",
+              "That's too much."
             ]
           }
         ],
-        "hint": "计算后直接说出总价，使用货币符号",
-        "knowledgePoint": "价格相加与总金额表达"
+        "hint": "当想礼貌地再次确认金额时，用这个结构表达谨慎核实的态度。",
+        "knowledgePoint": "礼貌确认金额的句型结构"
       }
     }
   ]

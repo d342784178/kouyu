@@ -2,7 +2,7 @@
   "subSceneId": "daily_014_sub_2",
   "subSceneName": "询问票价与选项",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:37:52.166Z",
+  "generatedAt": "2026-03-03T14:17:40.108Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_014_sub_2_qa_1",
-        "speakerText": "The 7:30 is $12 for adults, $9 for kids. Want to add popcorn and drink?",
-        "speakerTextCn": "7点半成人12刀，小孩9刀，加爆米花和饮料吗？",
+        "situation": "你在电影院售票处买票，工作人员告诉你不同场次的价格，并询问是否要加餐和座位偏好。",
+        "speakerText": "The 8:15 show is $14 for adults and $10 for children. Would you like to add a large popcorn and drink for $7 more? Also, would you prefer aisle or center seats?",
+        "speakerTextCn": "8点15分的场次，成人14美元，儿童10美元。要不要加一份大份爆米花和饮料，再加7美元？另外，您想要靠过道的座位还是中间的座位？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll take the combo, please. Large popcorn and soda.",
+            "text": "I'll take the combo and aisle seats, please.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Can I get a refund if I don't like the movie?",
+            "text": "I don't like popcorn, so I'll just buy the ticket.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "How much is the ticket for seniors?",
+            "text": "How much is the ticket again?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I'll buy two tickets and leave now.",
+            "text": "Can I have a soda without popcorn?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了是否加套餐的询问，符合对话语境。干扰项1询问退款，与当前问题无关；干扰项2询问老人票价，属于提前询问未提及的信息；干扰项4只提购票但未回应套餐选项，不完整。"
+        "explanation": "正确答案'I'll take the combo and aisle seats, please.'完整回应了两个问题（加餐和座位），并使用了自然礼貌的表达。干扰项2只回应了加餐部分，忽略了座位问题；干扰项3重复询问票价，答非所问；干扰项4虽然合理，但未明确选择座位，表达不完整，不符合该场景下完整回应的要求。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_014_sub_2_qa_2",
-        "speakerText": "Okay, seats in the middle or front? We've got a few left.",
-        "speakerTextCn": "好的，要中间还是前排？还有几个座位。",
+        "situation": "你和朋友一起看电影，售票员确认了票价后，问你们是否要升级为家庭套餐，并询问座位位置。",
+        "speakerText": "We have a family deal: two tickets, large popcorn, and two drinks for $25. Or you can buy separately. And do you want front, middle, or back rows?",
+        "speakerTextCn": "我们有家庭套餐：两张票、一大份爆米花和两杯饮料，共25美元。也可以单独购买。你们想要前排、中排还是后排？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Middle, please. Front's too close.",
+            "text": "We'll take the family deal and middle seats, thanks. Front is too close for my little brother.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I need a wheelchair-accessible seat.",
+            "text": "I think the popcorn is too expensive.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "What time does the movie start?",
+            "text": "Can I get a refund if I don't like the movie?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can I have a chocolate bar?",
+            "text": "Middle, please.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应座位选择并给出合理理由，符合对话要求。干扰项1涉及特殊需求，虽合理但非当前问题焦点；干扰项2重复询问开场时间，属于信息重复；干扰项4转向零食，完全偏离座位话题。"
+        "explanation": "正确答案完整回应了套餐选择和座位偏好，并提供了合理理由，符合自然对话习惯。干扰项1只评价价格，未做选择；干扰项2问退款，完全偏离主题；干扰项4虽选了座位，但未回应套餐问题，回答不完整。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "The 8:15 show is $14 for adults. Would you like to upgrade to premium seating with recliners and free popcorn?",
-        "speakerTextCn": "8点15场成人14美元，要升级到带可躺座椅和免费爆米花的高级座位吗？",
+        "situation": "你独自买票，售票员告知票价后，主动询问是否要加饮料和爆米花，以及是否偏好靠窗座位。",
+        "speakerText": "Adult ticket is $13. Add a medium drink and popcorn for $6? And would you like a window seat? They're the only ones left.",
+        "speakerTextCn": "成人票13美元。加中杯饮料和爆米花只要6美元？您想要靠窗的座位吗？那是仅剩的座位了。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, I'll take the upgrade.",
+            "text": "Yes, I'll take the add-on and the window seat. Thanks!",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Can I pay with Apple Pay?",
+            "text": "I prefer the back row, even if it's not by the window.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Is there a discount for students?",
+            "text": "Is the popcorn buttered?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I'll just take the regular ticket, thanks.",
+            "text": "I don't need anything extra, just the ticket.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接接受升级选项，符合服务场景的回应模式。干扰项1询问支付方式，虽相关但未回应核心问题；干扰项2询问学生优惠，属于提前提问；干扰项4虽合理但未使用升级语境中的关键词，语气较平淡，不如A选项自然。"
+        "explanation": "正确答案'I'll take the add-on and the window seat. Thanks!'清晰接受了两个提议，语气自然礼貌。干扰项1虽选了座位，但拒绝了加餐，与问题中的'add-on'选项不匹配，逻辑不完整；干扰项2询问爆米花口味，属于无关细节；干扰项4虽然合理，但未回应座位问题，不符合完整回应的要求。"
       }
     }
   ]

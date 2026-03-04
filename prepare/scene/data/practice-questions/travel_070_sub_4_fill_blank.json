@@ -2,7 +2,7 @@
   "subSceneId": "travel_070_sub_4",
   "subSceneName": "确认费用",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T15:13:30.685Z",
+  "generatedAt": "2026-03-03T14:31:13.316Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_070_sub_4_qa_1",
-        "template": "I'd like to pay with my card ending in ___.",
+        "situation": "客服告知改签费用后，乘客希望确认能否使用绑定的支付方式完成支付",
+        "speakerText": "There's a change fee, but no additional fare. We can process it on the card you have on file.",
+        "speakerTextCn": "有改签费，但没有额外票价差。我们可以用您登记的卡片处理。",
+        "responseTemplate": "___, just make sure it goes through successfully.",
         "blanks": [
           {
             "index": 0,
-            "answer": "4421",
+            "answer": "That works for me",
             "options": [
-              "4421",
-              "4420",
-              "the card",
-              "my phone"
+              "That works for me",
+              "I don't care",
+              "Can you refund it?",
+              "I'll pay cash"
             ]
           }
         ],
-        "hint": "在确认支付方式时，通常需提供卡号后四位",
-        "knowledgePoint": "支付方式表达（卡号后四位）"
+        "hint": "表达同意并强调处理成功，避免后续纠纷",
+        "knowledgePoint": "确认支付方式的礼貌回应"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_070_sub_4_qa_2",
-        "template": "Can you please confirm the fee will be ___ successfully?",
+        "situation": "客服说明改签费用后，乘客想换一种支付方式，但不确定是否可行",
+        "speakerText": "The fee is applicable, but you can choose another payment method if preferred.",
+        "speakerTextCn": "费用是需要支付的，但如果您偏好，可以选择其他支付方式。",
+        "responseTemplate": "Could I use ___ instead?",
         "blanks": [
           {
             "index": 0,
-            "answer": "processed",
+            "answer": "a different card",
             "options": [
-              "processed",
-              "charged",
-              "paid",
-              "received"
+              "a different card",
+              "my passport",
+              "the airport counter",
+              "my phone number"
             ]
           }
         ],
-        "hint": "客服提到扣款时，乘客常要求确认是否已完成处理",
-        "knowledgePoint": "动词搭配（process a payment）"
+        "hint": "礼貌请求更换支付方式，需使用合理且常见的替代选项",
+        "knowledgePoint": "请求变更支付方式的表达结构"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "I'd prefer to use ___ instead of my credit card.",
+        "situation": "客服确认费用将从默认支付方式扣款，乘客担心扣款失败，希望得到明确保证",
+        "speakerText": "We'll automatically charge the fee to your saved payment method.",
+        "speakerTextCn": "我们将自动从您保存的支付方式中扣款。",
+        "responseTemplate": "I understand, but ___ before you proceed.",
         "blanks": [
           {
             "index": 0,
-            "answer": "PayPal",
+            "answer": "please confirm it will be successful",
             "options": [
-              "PayPal",
-              "cash",
-              "check",
-              "bank transfer"
+              "please confirm it will be successful",
+              "please send me a receipt",
+              "please cancel it",
+              "please wait for my call"
             ]
           }
         ],
-        "hint": "在支付方式中，常见的第三方支付平台",
-        "knowledgePoint": "支付方式词汇（PayPal等数字支付）"
+        "hint": "表达担忧并请求确认操作成功，避免后续争议",
+        "knowledgePoint": "确认支付成功的关键表达"
       }
     }
   ]

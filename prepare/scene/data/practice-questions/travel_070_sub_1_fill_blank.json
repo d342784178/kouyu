@@ -2,7 +2,7 @@
   "subSceneId": "travel_070_sub_1",
   "subSceneName": "开场致意",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T15:14:24.158Z",
+  "generatedAt": "2026-03-03T14:31:28.304Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_070_sub_1_qa_1",
-        "template": "Hi, this is ___ calling about my flight.",
+        "situation": "乘客打电话给航空公司客服，礼貌说明来电目的，希望更改航班日期",
+        "speakerText": "Hi, this is Alex calling. I'd like to ___ my flight to a later date.",
+        "speakerTextCn": "您好，我是Alex。我想把我的航班改到晚一些的日期。",
+        "responseTemplate": "Hi, this is Alex calling. I'd like to ___ my flight to a later date.",
         "blanks": [
           {
             "index": 0,
-            "answer": "Sarah Lee",
+            "answer": "reschedule",
             "options": [
-              "Sarah Lee",
-              "my name",
-              "the passenger",
-              "a customer"
+              "reschedule",
+              "change",
+              "move",
+              "fix"
             ]
           }
         ],
-        "hint": "开场时应直接说出自己的姓名，这是礼貌且清晰的表达方式。",
-        "knowledgePoint": "自我介绍固定表达（I'm calling as [Name]）"
+        "hint": "表达‘改签’时，最正式且常用的动词是哪个？",
+        "knowledgePoint": "功能动词：改签航班的正确表达"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "I'm calling to ___ my flight because of a sudden change.",
+        "situation": "旅客致电客服，礼貌说明自己需要取消预订，因行程有变",
+        "speakerText": "Hello, I'm calling to ___ my reservation because my plans have changed.",
+        "speakerTextCn": "您好，我打电话是想取消我的预订，因为我的计划有变。",
+        "responseTemplate": "Hello, I'm calling to ___ my reservation because my plans have changed.",
         "blanks": [
           {
             "index": 0,
-            "answer": "reschedule",
+            "answer": "cancel",
             "options": [
-              "reschedule",
-              "book",
               "cancel",
-              "check"
+              "delete",
+              "remove",
+              "stop"
             ]
           }
         ],
-        "hint": "当需要调整航班时间时，常用动词是哪个？",
-        "knowledgePoint": "航班调整核心动词搭配（reschedule a flight）"
+        "hint": "在服务场景中，表达‘取消预订’的标准动词是什么？",
+        "knowledgePoint": "功能动词：取消预订的正确表达"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Could you help me ___ my booking? My plans have changed.",
+        "situation": "乘客联系客服，想确认自己的座位是否已预留，语气礼貌且直接",
+        "speakerText": "Good afternoon. I'm calling to ___ if my seat is confirmed on the upcoming flight.",
+        "speakerTextCn": "下午好。我打电话是想确认一下我是否已预订了即将起飞的航班座位。",
+        "responseTemplate": "Good afternoon. I'm calling to ___ if my seat is confirmed on the upcoming flight.",
         "blanks": [
           {
             "index": 0,
-            "answer": "modify",
+            "answer": "check",
             "options": [
-              "modify",
+              "check",
+              "ask",
               "find",
-              "pay for",
-              "delete"
+              "know"
             ]
           }
         ],
-        "hint": "在客服场景中，表达‘更改预订’的正式动词是什么？",
-        "knowledgePoint": "正式场合中‘修改预订’的动词搭配（modify/adjust a booking）"
+        "hint": "在礼貌请求确认信息时，最自然的动词是哪个？",
+        "knowledgePoint": "功能动词：确认信息的常用表达"
       }
     }
   ]

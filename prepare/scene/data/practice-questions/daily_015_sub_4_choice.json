@@ -2,7 +2,7 @@
   "subSceneId": "daily_015_sub_4",
   "subSceneName": "支付与道别",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:38:49.085Z",
+  "generatedAt": "2026-03-03T14:16:53.723Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_015_sub_4_qa_1",
-        "speakerText": "All set! Your total was $8.50.",
-        "speakerTextCn": "好了，总共8.5美元。",
+        "situation": "你在咖啡店结完账后，店员微笑着对你说：'Thanks for your order!'. 你需要礼貌地回应并道别。",
+        "speakerText": "Thanks for your order!",
+        "speakerTextCn": "谢谢你的订单！",
         "options": [
           {
             "id": "opt_1",
-            "text": "Here you go. Have a great day!",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "I'll pay later.",
+            "text": "Here's the money. See you tomorrow!",
             "isCorrect": false
           },
           {
+            "id": "opt_2",
+            "text": "Appreciate it, have a nice day!",
+            "isCorrect": true
+          },
+          {
             "id": "opt_3",
-            "text": "Can I get a receipt?",
+            "text": "I like your coffee.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "The change is too little.",
+            "text": "Bye.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Here you go. Have a great day!' 是支付后自然礼貌的回应，包含付款确认和祝福。干扰项 'I'll pay later' 与场景矛盾（已结账），'Can I get a receipt?' 是支付前的询问，'The change is too little' 是抱怨，不符合礼貌道别语境。"
+        "explanation": "正确答案 'Appreciate it, have a nice day!' 是对服务人员感谢的自然回应，既表达了感谢又礼貌道别，符合高频口语习惯。opt_1 虽然包含道别，但 'Here's the money' 在支付完成后重复提及金额不自然；opt_3 答非所问，未回应感谢；opt_4 虽正确但过于简短，缺乏对服务的礼貌反馈，不够完整自然。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_015_sub_4_qa_2",
-        "speakerText": "Thanks for coming in!",
-        "speakerTextCn": "谢谢光临！",
+        "situation": "你在便利店付完款后，收银员说：'All set! Have a good one!'. 你希望用自然、简洁的方式回应并结束对话。",
+        "speakerText": "All set! Have a good one!",
+        "speakerTextCn": "搞定啦！祝你今天愉快！",
         "options": [
           {
             "id": "opt_1",
-            "text": "Thanks, bye!",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "I need to leave now.",
+            "text": "I paid with my card, right?",
             "isCorrect": false
           },
           {
+            "id": "opt_2",
+            "text": "You too! Thanks!",
+            "isCorrect": true
+          },
+          {
             "id": "opt_3",
-            "text": "Is the service included?",
+            "text": "The change is $1.50, right?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can I have a discount next time?",
+            "text": "Goodbye.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Thanks, bye!' 是最简洁自然的回应，符合日常口语习惯。干扰项 'I need to leave now' 是陈述而非回应，'Is the service included?' 与感谢无关，'Can I have a discount...' 是索取利益，不符合礼貌道别语境。"
+        "explanation": "正确答案 'You too! Thanks!' 是对对方祝福的典型回应，简洁自然，符合日常口语习惯。opt_1 和 opt_3 都是重复确认交易细节，属于答非所问；opt_4 'Goodbye' 虽然正确但过于正式生硬，不如 'You too! Thanks!' 自然亲切。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "That's all for today. Have a wonderful evening!",
-        "speakerTextCn": "今天就这些了，祝你晚上愉快！",
+        "situation": "你在超市结账后，收银员说：'Thank you for shopping with us!'. 你希望表达感谢并礼貌告别，语气友好但不过度正式。",
+        "speakerText": "Thank you for shopping with us!",
+        "speakerTextCn": "感谢您选择我们购物！",
         "options": [
           {
             "id": "opt_1",
-            "text": "You too! See you tomorrow!",
-            "isCorrect": true
+            "text": "I need a receipt, please.",
+            "isCorrect": false
           },
           {
             "id": "opt_2",
-            "text": "I'm not done yet.",
+            "text": "No problem, see you next week!",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can I get a loyalty card?",
-            "isCorrect": false
+            "text": "Thanks, I’ll be back!",
+            "isCorrect": true
           },
           {
             "id": "opt_4",
-            "text": "The bill was wrong.",
+            "text": "Bye.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'You too! See you tomorrow!' 是对祝福的自然回应，包含回礼和未来期待。干扰项 'I'm not done yet' 否认服务结束，'Can I get a loyalty card?' 是额外请求，'The bill was wrong' 是投诉，均不符合礼貌道别语境。"
+        "explanation": "正确答案 'Thanks, I’ll be back!' 表达了感谢并暗示未来再次光顾，语气友好自然，符合超市场景的高频回应模式。opt_1 是额外请求，与对方的道别无关；opt_2 'No problem' 用于回应道歉或麻烦，不适合回应感谢；opt_4 'Bye' 过于简单，缺乏对对方服务的回应，显得冷淡。"
       }
     }
   ]

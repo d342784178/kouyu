@@ -2,7 +2,7 @@
   "subSceneId": "travel_074_sub_1",
   "subSceneName": "问候与意图",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T15:12:04.358Z",
+  "generatedAt": "2026-03-03T14:31:26.335Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_074_sub_1_qa_1",
-        "template": "I'd like ___ buy a train ticket to Beijing, please.",
+        "situation": "在火车站售票处，你走向售票员，准备购买一张前往另一个城市的车票。",
+        "speakerText": "Hi there! Can I help you?",
+        "speakerTextCn": "您好！需要帮忙吗？",
+        "responseTemplate": "I'd like to buy a ticket to ___ please.",
         "blanks": [
           {
             "index": 0,
-            "answer": "to",
+            "answer": "the city center",
             "options": [
-              "to",
-              "for",
-              "with",
-              "at"
+              "the city center",
+              "go to the city center",
+              "I want to go to the city center",
+              "city center ticket"
             ]
           }
         ],
-        "hint": "表达礼貌请求的固定结构",
-        "knowledgePoint": "would like to do（预约/购票场景核心句型）"
+        "hint": "用礼貌表达需求，避免直接说 'I want'，注意结构完整",
+        "knowledgePoint": "礼貌表达购票意图：I'd like to buy a ticket to..."
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Could I ___ a round-trip ticket to London?",
+        "situation": "你在机场柜台前，想为家人购买一张往返机票，售票员主动询问是否需要帮助。",
+        "speakerText": "How can I assist you today?",
+        "speakerTextCn": "今天有什么可以帮您的吗？",
+        "responseTemplate": "I'm looking for a round-trip ticket to ___.",
         "blanks": [
           {
             "index": 0,
-            "answer": "get",
+            "answer": "my hometown",
             "options": [
-              "get",
-              "take",
-              "have",
-              "make"
+              "my hometown",
+              "hometown to",
+              "I want to go to my hometown",
+              "a ticket for my hometown"
             ]
           }
         ],
-        "hint": "在售票处请求服务时常用的动词",
-        "knowledgePoint": "购票场景高频动词搭配（get a ticket）"
+        "hint": "表达寻找票务时常用 'I'm looking for'，后接名词短语，避免使用动词结构",
+        "knowledgePoint": "表达寻找票务：I'm looking for a... ticket to..."
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "I'd like to ___ a one-way ticket to Shanghai.",
+        "situation": "在长途汽车站，你想买一张去邻近城市的单程票，售票员微笑着问你需求。",
+        "speakerText": "Hi! What can I do for you?",
+        "speakerTextCn": "你好！有什么可以帮你的？",
+        "responseTemplate": "Could you get me a one-way ticket to ___?",
         "blanks": [
           {
             "index": 0,
-            "answer": "purchase",
+            "answer": "the next town",
             "options": [
-              "purchase",
-              "sell",
-              "book",
-              "pay"
+              "the next town",
+              "to the next town",
+              "I need a ticket to the next town",
+              "next town ticket"
             ]
           }
         ],
-        "hint": "比 'buy' 更正式的购票动词",
-        "knowledgePoint": "购票场景中的正式词汇替换（purchase vs buy）"
+        "hint": "用 'Could you get me...' 表达请求更委婉，注意介词使用",
+        "knowledgePoint": "委婉请求票务：Could you get me a... ticket to..."
       }
     }
   ]

@@ -2,7 +2,7 @@
   "subSceneId": "daily_007_sub_2",
   "subSceneName": "预约意图",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:35:26.451Z",
+  "generatedAt": "2026-03-03T14:15:47.985Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_007_sub_2_qa_1",
-        "speakerText": "I'd like to book a haircut for this week.",
-        "speakerTextCn": "我想预约这周的理发。",
+        "situation": "你走进一家理发店，想预约下周的理发服务，向店员表达你的意图。",
+        "speakerText": "I'd like to book a haircut for next week.",
+        "speakerTextCn": "我想预约下周的理发。",
         "options": [
           {
             "id": "opt_1",
-            "text": "I want to get a haircut now.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Could I schedule a haircut for this week?",
+            "text": "Sure! Do you have a preferred day or time?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "I need a haircut too.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Do you cut hair this week?",
+            "text": "How much does it cost?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I need to pay for a haircut.",
+            "text": "I'm looking for a new hairstyle.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Could I schedule a haircut for this week?' 是礼貌且符合预约场景的表达，与 'I'd like to book...' 功能相同。选项1 'I want to...' 语气太直接，不够礼貌；选项3 问的是理发店是否营业，而非预约意图；选项4 与付款相关，偏离预约主题。"
+        "explanation": "正确答案是回应预约请求的标准服务用语，用于进一步确认时间安排。干扰项1是答非所问，只是重复自己的需求；干扰项2是询问价格，偏离了预约意图；干扰项3是表达风格偏好，未回应预约请求。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "I'm calling to arrange a haircut appointment.",
-        "speakerTextCn": "我打电话是想安排一个理发预约。",
+        "situation": "你打电话给理发店，想预约一个简单的修剪，但不确定对方是否听清你的需求。",
+        "speakerText": "Hi, I'm calling to book a trim for Thursday afternoon.",
+        "speakerTextCn": "你好，我想预约周四下午的修剪。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Can you cut my hair today?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "I'd like to make an appointment for a haircut.",
+            "text": "Got it. Can I have your name and phone number?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "I prefer short hair, actually.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "How much do you charge for a haircut?",
+            "text": "Do you offer discounts on Thursdays?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I need a new hairstyle.",
+            "text": "That sounds great, I'll come tomorrow.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'I'd like to make an appointment for a haircut.' 与原句 'I'm calling to arrange...' 同义，都是礼貌表达预约意图的标准方式。选项1 是直接请求，非预约语境；选项3 询问价格，与预约意图无关；选项4 表达需求，但未提及预约动作。"
+        "explanation": "正确答案是服务人员在收到预约后自然的下一步回应，用于收集必要信息。干扰项1是补充个人偏好，偏离了预约确认流程；干扰项2是询问优惠，属于无关信息；干扰项3是擅自更改时间，误解了对方意图。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "I need to get my hair trimmed soon.",
-        "speakerTextCn": "我需要尽快剪一下头发。",
+        "situation": "你在理发店前台，想预约一个周末的理发，但不确定该用什么表达更自然。",
+        "speakerText": "Could I schedule a haircut for Saturday?",
+        "speakerTextCn": "我可以预约周六的理发吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'd like to book a trim for next Tuesday.",
+            "text": "Of course! Let me check our availability.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I think my hair is too long.",
+            "text": "I think Saturday is good for me.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can I pay now?",
+            "text": "Do you have any promotions this weekend?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Do you offer hair dye?",
+            "text": "I need to cut my hair, but not now.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'I'd like to book a trim for next Tuesday.' 是对 'need to get my hair trimmed soon' 的自然回应，明确表达了预约意图和具体时间。其他选项均未回应预约请求：选项2 是陈述事实，选项3 和 4 与支付或服务类型相关，偏离核心意图。"
+        "explanation": "正确答案是服务人员对预约请求的标准回应，体现专业性和服务流程。干扰项1是重复自己的意愿，未回应对方；干扰项2是询问促销，属于额外信息；干扰项3是表达延迟需求，与预约意图无关。"
       }
     }
   ]

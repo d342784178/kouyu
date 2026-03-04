@@ -2,7 +2,7 @@
   "subSceneId": "daily_009_sub_3",
   "subSceneName": "支付与索要收据",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:36:39.492Z",
+  "generatedAt": "2026-03-03T14:16:13.670Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_009_sub_3_qa_1",
-        "speakerText": "I'll pay inside with cash. Can I get a receipt?",
-        "speakerTextCn": "我进去用现金付，能给我收据吗？",
+        "situation": "在便利店结账时，顾客选择用信用卡支付，并希望获得电子收据发送到手机邮箱。",
+        "speakerText": "I'll pay with my card. Could you email me the receipt?",
+        "speakerTextCn": "我用信用卡支付，能把收据发到我邮箱吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Sure thing. Here you go!",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "No problem, I'll send it to your email.",
+            "text": "Sure, I'll text it to you instead.",
             "isCorrect": false
           },
           {
+            "id": "opt_2",
+            "text": "Of course. I'll send it to your email right away.",
+            "isCorrect": true
+          },
+          {
             "id": "opt_3",
-            "text": "You don't need one, do you?",
+            "text": "We don't offer receipts for card payments.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Sorry, we don't give receipts.",
+            "text": "Thanks for paying! Have a nice day!",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Sure thing. Here you go!' 是对索要收据的自然回应，符合服务场景。选项2虽然语法正确，但‘发送到邮箱’不符合现金支付的即时场景；选项3是反问，显得不礼貌；选项4直接拒绝，不符合服务行业标准回应。"
+        "explanation": "正确答案准确回应了顾客请求电子收据的意图，并承诺立即处理。干扰项1将‘email’误改为‘text’，偏离请求；干扰项3错误地声称不提供刷卡收据，与事实不符；干扰项4虽礼貌但完全忽略请求，属于答非所问。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_009_sub_3_qa_2",
-        "speakerText": "I'm good with card. No receipt, thanks.",
-        "speakerTextCn": "我刷卡就行，不用收据了，谢谢。",
+        "situation": "在咖啡店付款后，顾客不确定是否需要收据，于是询问店员是否可以提供纸质收据。",
+        "speakerText": "I paid with Apple Pay. Do you give receipts for this?",
+        "speakerTextCn": "我用苹果支付付款了，你们会给收据吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "All set! Have a safe trip!",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Are you sure? You might need it for reimbursement.",
+            "text": "Yes, we only give receipts for cash.",
             "isCorrect": false
           },
           {
+            "id": "opt_2",
+            "text": "Absolutely. Here’s your receipt.",
+            "isCorrect": true
+          },
+          {
             "id": "opt_3",
-            "text": "Okay, I'll print one anyway.",
+            "text": "Why do you need a receipt? Are you filing taxes?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can I have your ID for the transaction?",
+            "text": "I’m sorry, I didn’t catch that.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'All set! Have a safe trip!' 是拒绝收据后的典型道别语，自然且礼貌。选项2虽然合理，但属于过度建议，不符合简洁服务语境；选项3无视顾客意愿；选项4与支付收据无关，属于错误信息索取。"
+        "explanation": "正确答案自然回应了顾客的询问，直接提供收据，符合服务场景。干扰项1错误地限制了收据发放条件；干扰项3过度追问动机，显得不专业；干扰项4假装没听清，回避问题，不符合服务态度。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "I'd like to pay by Apple Pay. Could I get a receipt?",
-        "speakerTextCn": "我想用苹果支付，能给我收据吗？",
+        "situation": "顾客在超市结账时用现金付款，明确表示不需要收据，店员应如何回应以保持礼貌且自然？",
+        "speakerText": "I'm paying with cash. No receipt, please.",
+        "speakerTextCn": "我用现金支付，不用收据了。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Of course. You want it printed or emailed?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Why do you need a receipt? It's digital.",
+            "text": "Okay, I’ll just keep it for you just in case.",
             "isCorrect": false
           },
           {
+            "id": "opt_2",
+            "text": "Got it! Thanks for shopping with us!",
+            "isCorrect": true
+          },
+          {
             "id": "opt_3",
-            "text": "We don't accept Apple Pay.",
+            "text": "Are you sure? You might need it for returns.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Just tap and go, no receipt needed.",
+            "text": "Receipt? We don’t have any left.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Of course. You want it printed or emailed?' 是对电子支付索要收据的恰当回应，提供选项体现服务意识。选项2带有质疑语气，不礼貌；选项3与前提矛盾；选项4直接否定请求，不符合服务标准。"
+        "explanation": "正确答案简洁礼貌，接受顾客请求并表达感谢，符合拒绝收据后的标准回应模式。干扰项1强行保留收据，违背顾客意愿；干扰项3虽出于好意但过度建议，可能引起不适；干扰项4编造借口，不真实且不专业。"
       }
     }
   ]

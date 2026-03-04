@@ -2,7 +2,7 @@
   "subSceneId": "daily_030_sub_2",
   "subSceneName": "试穿确认",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:42:39.793Z",
+  "generatedAt": "2026-03-03T14:25:59.730Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_030_sub_2_qa_1",
-        "template": "Thanks! They feel a bit ___.",
+        "situation": "店员递给你一双新鞋让你试穿，你穿上去后感觉脚趾有点挤压，想表达不太舒服但还没决定是否换码。",
+        "speakerText": "How do they feel?",
+        "speakerTextCn": "感觉怎么样？",
+        "responseTemplate": "They're ___ but I'm not sure if I need a bigger size.",
         "blanks": [
           {
             "index": 0,
-            "answer": "tight",
+            "answer": "comfortable enough",
             "options": [
-              "tight",
-              "loose",
-              "big",
-              "long"
+              "comfortable enough",
+              "too much tight",
+              "very well fit",
+              "perfectly normal"
             ]
           }
         ],
-        "hint": "试穿后表达鞋子不合脚的常用词",
-        "knowledgePoint": "描述鞋履舒适度的形容词搭配"
+        "hint": "表达‘还行但不够完美’时，常用 'comfortable enough' 或 'a bit tight'。",
+        "knowledgePoint": "表达试穿后的舒适度反馈"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_030_sub_2_qa_2",
-        "template": "They're ___! Just right.",
+        "situation": "你试完鞋后，店员问你是否合适，你发现鞋子前掌太窄，脚背有压迫感，想建议换一个更宽的款式。",
+        "speakerText": "Do they fit well?",
+        "speakerTextCn": "合脚吗？",
+        "responseTemplate": "Not quite — they're ___ on the sides. Do you have a wide version?",
         "blanks": [
           {
             "index": 0,
-            "answer": "perfect",
+            "answer": "narrow",
             "options": [
-              "perfect",
-              "nice",
-              "good",
-              "fine"
+              "narrow",
+              "loose",
+              "soft",
+              "heavy"
             ]
           }
         ],
-        "hint": "最自然表达‘刚刚好’的单词",
-        "knowledgePoint": "表达尺码合适的固定表达（just right）"
+        "hint": "描述鞋子某部分太紧、压迫脚时，常用 'narrow' 或 'tight'，尤其针对脚宽或脚背。",
+        "knowledgePoint": "描述鞋子宽度不适的精准表达"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Could I try a ___ size? These feel too tight.",
+        "situation": "你试穿了一双新鞋，走路几步后感觉脚后跟有点滑，但整体舒适，想确认是否正常，同时表达可能购买的意愿。",
+        "speakerText": "What do you think?",
+        "speakerTextCn": "你觉得怎么样？",
+        "responseTemplate": "They're ___ overall, but my heel slips a little. Is this normal?",
         "blanks": [
           {
             "index": 0,
-            "answer": "larger",
+            "answer": "really nice",
             "options": [
-              "larger",
-              "bigger",
-              "more",
-              "higher"
+              "really nice",
+              "too small",
+              "kind of heavy",
+              "a bit cold"
             ]
           }
         ],
-        "hint": "请求换大一码时的正确形容词比较级",
-        "knowledgePoint": "描述尺码变化的比较级用法（larger/smaller）"
+        "hint": "表达整体满意但有小问题时，常用 'really nice' 或 'great' 开头，再补充细节。",
+        "knowledgePoint": "正面评价+轻微问题的复合表达结构"
       }
     }
   ]

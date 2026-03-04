@@ -2,7 +2,7 @@
   "subSceneId": "daily_027_sub_2",
   "subSceneName": "询问功能",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:41:43.842Z",
+  "generatedAt": "2026-03-03T14:18:48.584Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_027_sub_2_qa_1",
-        "speakerText": "This one’s got a 20V battery — lasts about 90 mins on a charge.",
-        "speakerTextCn": "这款是20伏电池，充一次能用90分钟。",
+        "situation": "你在家电卖场看一台无线吸尘器，销售员说它单次充电可使用45分钟，但你家面积大，需要更长续航。",
+        "speakerText": "This model runs for 45 minutes on a full charge.",
+        "speakerTextCn": "这款吸尘器满电后可以使用45分钟。",
         "options": [
           {
             "id": "opt_1",
-            "text": "How much does it cost?",
+            "text": "That’s fine, I’ll just charge it twice.",
             "isCorrect": false
           },
           {
             "id": "opt_2",
-            "text": "Does it come with two batteries? I hate waiting to recharge.",
+            "text": "45 minutes? That’s not enough for my 200-square-meter home — does it have a longer battery option?",
             "isCorrect": true
           },
           {
             "id": "opt_3",
-            "text": "Can you show me the warranty?",
+            "text": "Is it quiet when it runs?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Is it wireless?",
+            "text": "I like the color. Can I get it in blue?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案回应了电池续航的痛点——充电等待时间，符合场景中‘询问功能参数后提出实际需求’的对话逻辑。其他选项与续航无关，属于价格、保修或连接方式的无关提问。"
+        "explanation": "正确答案准确回应了续航时间不足的核心需求，并直接询问是否有更长续航的选项，符合高频真实对话。干扰项1虽听懂但回避问题；干扰项3和4完全答非所问，偏离了续航这一关键参数。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_027_sub_2_qa_2",
-        "speakerText": "It also has a 2-speed setting and a built-in LED light.",
-        "speakerTextCn": "它还有两档调速和内置LED灯。",
+        "situation": "你在五金店看一台电钻，销售员提到它有18V电池和两档速度，你主要用来在混凝土上打孔，想知道功率是否足够。",
+        "speakerText": "It’s an 18V drill with two speed settings.",
+        "speakerTextCn": "这是一台18伏电钻，有两个速度档位。",
         "options": [
           {
             "id": "opt_1",
-            "text": "I don’t care about the speed, but the LED’s a game-changer for dark corners.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What’s the weight of the tool?",
+            "text": "Can I try it out right now?",
             "isCorrect": false
           },
           {
+            "id": "opt_2",
+            "text": "18V sounds good, but is the torque strong enough for concrete?",
+            "isCorrect": true
+          },
+          {
             "id": "opt_3",
-            "text": "Can I return it if I don’t like it?",
+            "text": "Do you have any drills with LED lights?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Does it have a USB port?",
+            "text": "Two speeds? I’m not sure I need that.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了场景关键词‘game-changer’，并针对LED功能表达了真实偏好，符合‘表达偏好时用生动词汇’的使用说明。其他选项与功能描述无关，属于退货政策或接口询问，偏离主题。"
+        "explanation": "正确答案精准抓住用户核心需求——在硬质材料上作业所需的扭矩（功率），是典型的专业级提问方式。干扰项1是无关请求；干扰项3转移焦点到LED灯，与功率无关；干扰项4虽提及功能但未表达实际使用需求，显得主观而非需求导向。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "The motor runs at 1,500 RPM and has a 4-hour runtime on a full charge.",
-        "speakerTextCn": "电机转速为1500转/分钟，满电可运行4小时。",
+        "situation": "你在超市选购电动剃须刀，店员说它续航7天，但你每天使用两次，担心实际使用时间不够。",
+        "speakerText": "This razor lasts up to seven days on a single charge.",
+        "speakerTextCn": "这款剃须刀单次充电可续航7天。",
         "options": [
           {
             "id": "opt_1",
-            "text": "That’s impressive! Does it have an automatic shut-off for safety?",
+            "text": "Wow, seven days? That’s amazing!",
             "isCorrect": false
           },
           {
             "id": "opt_2",
-            "text": "What’s the torque? I’m working with tough materials.",
+            "text": "Seven days? I use mine twice a day — does that mean it’ll last only 3-4 days in real use?",
             "isCorrect": true
           },
           {
             "id": "opt_3",
-            "text": "Can I pay with Apple Pay?",
+            "text": "Does it come with a travel case?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Is the battery removable?",
+            "text": "I prefer foil shavers, not rotary ones.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案聚焦于‘扭矩’这一与功率和使用场景直接相关的关键参数，符合‘根据具体需求提问’的场景逻辑。其他选项涉及支付方式（无关）或电池可拆卸（虽相关但非核心功能参数），而安全自动关机虽合理但非对功率参数的直接追问。"
+        "explanation": "正确答案通过提供个人使用频率，合理质疑厂商宣传的续航数据，是日常消费中非常自然的追问方式。干扰项1只是被动接受信息；干扰项3和4完全偏离续航主题，属于无关提问。"
       }
     }
   ]

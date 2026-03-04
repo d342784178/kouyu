@@ -2,7 +2,7 @@
   "subSceneId": "daily_016_sub_2",
   "subSceneName": "确认价格",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:41:21.380Z",
+  "generatedAt": "2026-03-03T14:17:01.014Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_016_sub_2_qa_1",
-        "speakerText": "How much is the juice and the sandwich?",
-        "speakerTextCn": "橙汁和三明治多少钱？",
+        "situation": "你在咖啡店点了一杯拿铁和一块蓝莓松饼，店员告诉你价格后，你希望确认总金额是否正确。",
+        "speakerText": "So the latte and the blueberry muffin come to $8.75?",
+        "speakerTextCn": "所以拿铁和蓝莓松饼总共是8块75吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "The juice is $2.50 and the sandwich is $4, so $6.50 total.",
+            "text": "Yes, that's correct. Thanks!",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I think it's around seven dollars.",
+            "text": "I think the muffin is cheaper than that.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Would you like to add fries to that?",
+            "text": "Can I get a discount?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I don't know the price, you should ask the manager.",
+            "text": "How much is the latte alone?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接给出了清晰的价格分解和总价，符合场景中‘直接问总价’的要求。选项2是模糊估算，不符合确认价格的精确性；选项3是推销附加品，偏离问题；选项4是推卸责任，不符合服务场景。"
+        "explanation": "正确答案是直接确认金额，符合确认价格场景的核心交际任务。干扰项1是质疑价格，干扰项2是请求折扣，干扰项3是重新询问单项价格，都偏离了确认总价的意图。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_016_sub_2_qa_2",
-        "speakerText": "So that's $6.50?",
-        "speakerTextCn": "所以是6块5吗？",
+        "situation": "你在超市结账时，收银员报出你买的苹果、牛奶和面包的总价为$12.30，你希望简单确认这个金额是否准确。",
+        "speakerText": "That's $12.30 total, right?",
+        "speakerTextCn": "总共是12块30，对吧？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yeah, that's right.",
+            "text": "Exactly. Thanks for checking!",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Maybe, I'm not sure.",
+            "text": "Do you have any coupons for bread?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can I get you a coffee too?",
+            "text": "I'll take another apple instead.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "The total is $7, actually.",
+            "text": "The milk was on sale yesterday.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是对确认性问题的明确肯定，符合‘重复确认金额’的使用说明。选项2表示不确定，会引发更多疑问；选项3是无关推销；选项4否定了顾客的计算，造成混淆。"
+        "explanation": "正确答案是简洁确认，符合高频确认总价的自然回应。干扰项1是询问优惠券，干扰项2是更改商品，干扰项3是提及昨天的促销，均未回应确认请求，属于答非所问。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "What's the total for the coffee and the muffin?",
-        "speakerTextCn": "咖啡和松饼总共多少钱？",
+        "situation": "你在书店买了一本小说和一支笔，店员说小说是$15，笔是$2.50，你希望快速确认总金额并准备付款。",
+        "speakerText": "So that's $17.50 altogether?",
+        "speakerTextCn": "所以总共是17块5吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Coffee is $3, muffin is $2.25. That's $5.25 altogether.",
+            "text": "Yep, that's it.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I'm not working today, you should come back tomorrow.",
+            "text": "Can I pay with my card?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "The coffee is the best here, you should try it!",
+            "text": "Is the novel hardcover?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "It's five bucks, give or take.",
+            "text": "I'll just take the book then.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案清晰列出单项价格并给出精确总价，符合确认价格场景的核心要求。选项2完全无关；选项3是推销而非回答；选项4使用模糊表达‘give or take’，不符合价格确认的精确性原则。"
+        "explanation": "正确答案是口语化确认，自然且符合确认总价的语境。干扰项1是询问支付方式（虽相关但非回应确认），干扰项2是询问书籍版本（无关），干扰项3是取消购买（误解意图），均未完成确认任务。"
       }
     }
   ]

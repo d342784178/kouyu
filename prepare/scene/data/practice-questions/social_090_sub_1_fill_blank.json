@@ -2,7 +2,7 @@
   "subSceneId": "social_090_sub_1",
   "subSceneName": "连接测试",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:46:27.402Z",
+  "generatedAt": "2026-03-03T14:26:54.604Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "social_090_sub_1_qa_1",
-        "template": "I can hear you, but it's a little ___—try turning down your mic gain.",
+        "situation": "你在视频会议中，对方说听不清你的声音，你需要确认问题并提出解决办法",
+        "speakerText": "I can barely hear you—could you check your microphone?",
+        "speakerTextCn": "我几乎听不到你，你能检查一下麦克风吗？",
+        "responseTemplate": "I'm sorry, my mic might be muted. Let me ___ it.",
         "blanks": [
           {
             "index": 0,
-            "answer": "fuzzy",
+            "answer": "unmute",
             "options": [
-              "fuzzy",
-              "loud",
-              "clear",
-              "quiet"
+              "unmute",
+              "turn off",
+              "restart",
+              "clean"
             ]
           }
         ],
-        "hint": "描述音频不清晰的常用词",
-        "knowledgePoint": "描述音频质量问题的高频词汇"
+        "hint": "当声音被静音时，常用动词是 'unmute'，表示取消静音",
+        "knowledgePoint": "表达音频问题与解决方案的核心动词"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "social_090_sub_1_qa_2",
-        "template": "My camera's on, but maybe my ___ is low. Let me close some tabs.",
+        "situation": "你的视频画面卡顿，对方提醒你网络可能有问题，你需要回应并说明正在采取的措施",
+        "speakerText": "Your video is lagging—maybe try switching to a better connection?",
+        "speakerTextCn": "你的视频卡顿了，也许试试换一个更稳定的网络？",
+        "responseTemplate": "You're right—I'll ___ to Wi-Fi from mobile data.",
         "blanks": [
           {
             "index": 0,
-            "answer": "bandwidth",
+            "answer": "switch",
             "options": [
-              "bandwidth",
-              "brightness",
-              "battery",
-              "background"
+              "switch",
+              "change",
+              "turn",
+              "connect"
             ]
           }
         ],
-        "hint": "影响视频流畅度的网络关键指标",
-        "knowledgePoint": "网络性能相关核心术语"
+        "hint": "在切换网络时，最自然的表达是 'switch to'，表示从一种网络切换到另一种",
+        "knowledgePoint": "表达网络切换的常用动词搭配"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Let me ___ to mobile data—this Wi-Fi is too slow.",
+        "situation": "你和同事进行远程协作，对方说你的画面是黑屏，你需要快速检查并回应",
+        "speakerText": "I see a black screen—did your camera turn off?",
+        "speakerTextCn": "我看到的是黑屏，你的摄像头关了吗？",
+        "responseTemplate": "Oh no—I thought it was on. I'll ___ it right away.",
         "blanks": [
           {
             "index": 0,
-            "answer": "switch",
+            "answer": "turn on",
             "options": [
-              "switch",
-              "change",
-              "turn",
-              "move"
+              "turn on",
+              "turn off",
+              "close",
+              "restart"
             ]
           }
         ],
-        "hint": "表示切换网络连接的动词搭配",
-        "knowledgePoint": "网络切换的惯用动词搭配"
+        "hint": "当摄像头关闭时，正确的动作是 'turn on'，表示开启设备",
+        "knowledgePoint": "描述设备状态切换的动词短语"
       }
     }
   ]

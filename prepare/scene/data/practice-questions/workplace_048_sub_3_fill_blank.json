@@ -2,7 +2,7 @@
   "subSceneId": "workplace_048_sub_3",
   "subSceneName": "上传发票与要求",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T15:18:52.748Z",
+  "generatedAt": "2026-03-03T14:33:15.288Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,34 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "workplace_048_sub_3_qa_1",
-        "template": "Please scan your receipts clearly and name files like '___July15.pdf'.",
+        "situation": "An employee is preparing to upload expense receipts and wants to confirm the correct file format and naming convention.",
+        "speakerText": "Should I upload the receipts as photos or scanned files? How should I name them?",
+        "speakerTextCn": "我应该上传照片还是扫描文件？文件名该怎么命名？",
+        "responseTemplate": "Only ___ files are accepted, and please name them like '___'.",
         "blanks": [
           {
             "index": 0,
-            "answer": "Flight_",
+            "answer": "PDF or JPG",
             "options": [
-              "Flight_",
-              "Ticket_",
-              "Receipt_",
-              "Bill_"
+              "PNG or GIF",
+              "PDF or JPG",
+              "Word or Excel",
+              "Email attachments"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "Expense_Type_Date",
+            "options": [
+              "Receipt_1",
+              "Expense_Type_Date",
+              "MyReceipts",
+              "Invoice_001"
             ]
           }
         ],
-        "hint": "文件命名应包含费用类型和日期，便于财务分类",
-        "knowledgePoint": "文件命名规范（场景高频词汇搭配）"
+        "hint": "Think about the standard format for professional expense submissions — file type and clear naming are required.",
+        "knowledgePoint": "文件格式与命名规范表达"
       }
     },
     {
@@ -37,22 +49,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "workplace_048_sub_3_qa_1",
-        "template": "Only PDF or ___ files are accepted—no phone photos.",
+        "situation": "An employee lost one receipt and asks if they can still submit the claim with only some documents.",
+        "speakerText": "I couldn't find one receipt. Can I still submit the rest?",
+        "speakerTextCn": "我找不到一张发票了，还能提交其他的吗？",
+        "responseTemplate": "I'm sorry, but claims require all receipts — ___ is not allowed.",
         "blanks": [
           {
             "index": 0,
-            "answer": "JPG",
+            "answer": "partial submission",
             "options": [
-              "JPG",
-              "PNG",
-              "GIF",
-              "TIFF"
+              "partial submission",
+              "digital copies",
+              "handwritten notes",
+              "email confirmations"
             ]
           }
         ],
-        "hint": "公司允许的两种标准图像格式之一",
-        "knowledgePoint": "支持的文件格式（场景核心词汇）"
+        "hint": "Remember the policy: missing receipts mean the entire claim may be rejected unless an exception applies.",
+        "knowledgePoint": "完整提交要求的表达"
       }
     },
     {
@@ -62,22 +76,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": "workplace_048_sub_3_qa_2",
-        "template": "You can submit a signed statement for losses under ___ dollars.",
+        "situation": "A new employee is unsure whether they need to scan receipts or if clear photos are acceptable.",
+        "speakerText": "Can I just take a picture with my phone and upload it?",
+        "speakerTextCn": "我能不能直接用手机拍张照上传？",
+        "responseTemplate": "No, ___ from your phone camera aren't accepted — please scan them instead.",
         "blanks": [
           {
             "index": 0,
-            "answer": "50",
+            "answer": "photos",
             "options": [
-              "50",
-              "100",
-              "25",
-              "75"
+              "photos",
+              "screenshots",
+              "copies",
+              "prints"
             ]
           }
         ],
-        "hint": "允许用说明代替发票的最高金额限制",
-        "knowledgePoint": "金额阈值（场景关键数字）"
+        "hint": "Recall the rule: blurry or unprofessional images are rejected — scanning ensures clarity.",
+        "knowledgePoint": "禁止使用手机原图的表达"
       }
     }
   ]

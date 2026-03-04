@@ -2,7 +2,7 @@
   "subSceneId": "daily_028_sub_3",
   "subSceneName": "确认价格和购买",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:41:57.859Z",
+  "generatedAt": "2026-03-03T14:25:57.351Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_028_sub_3_qa_1",
-        "template": "How much are these two notebooks and three pens? That'll be ___ total.",
+        "situation": "顾客在结账时确认商品总价后决定购买",
+        "speakerText": "The total comes to $24.99.",
+        "speakerTextCn": "总价是24.99美元。",
+        "responseTemplate": "I'll take ___.",
         "blanks": [
           {
             "index": 0,
-            "answer": "$8.50",
+            "answer": "them",
             "options": [
-              "$8.50",
-              "8.50 dollars",
-              "eight fifty",
-              "$8.5"
+              "it",
+              "them",
+              "this",
+              "those"
             ]
           }
         ],
-        "hint": "回答总价时，标准表达是货币符号 + 数字，注意小数点后两位",
-        "knowledgePoint": "价格表达格式（货币符号 + 数字）"
+        "hint": "当购买多个物品时，用复数代词指代商品",
+        "knowledgePoint": "使用代词指代复数商品的自然表达"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_028_sub_3_qa_2",
-        "template": "Do you want a bag for that? ___, please!",
+        "situation": "收银员询问是否需要购物袋，顾客礼貌接受",
+        "speakerText": "Would you like a bag for your items?",
+        "speakerTextCn": "您需要购物袋吗？",
+        "responseTemplate": "___, please!",
         "blanks": [
           {
             "index": 0,
             "answer": "Yes",
             "options": [
-              "Yes",
-              "Okay",
               "Sure",
-              "Right"
+              "Of course",
+              "Yes",
+              "Okay"
             ]
           }
         ],
-        "hint": "最自然、礼貌地接受服务的表达方式",
-        "knowledgePoint": "接受服务的固定表达（Yes, please!）"
+        "hint": "最自然、最礼貌的接受方式是 'Yes, please!'",
+        "knowledgePoint": "礼貌接受服务的标准表达方式"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "The total is $12. I'll ___ them.",
+        "situation": "顾客听到价格后觉得稍高，想减少购买数量",
+        "speakerText": "That's a bit more than I expected.",
+        "speakerTextCn": "这比我想的要贵一点。",
+        "responseTemplate": "Maybe I'll just get ___.",
         "blanks": [
           {
             "index": 0,
-            "answer": "take",
+            "answer": "one",
             "options": [
-              "take",
-              "buy",
-              "get",
-              "have"
+              "it",
+              "one",
+              "the first",
+              "that"
             ]
           }
         ],
-        "hint": "表达'我要了'的常用动词搭配",
-        "knowledgePoint": "I'll take them（购买决定的固定表达）"
+        "hint": "当决定减少购买数量时，常用 'one' 指代单个商品",
+        "knowledgePoint": "表达调整购买数量的委婉说法"
       }
     }
   ]

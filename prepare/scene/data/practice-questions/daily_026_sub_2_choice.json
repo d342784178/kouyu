@@ -2,7 +2,7 @@
   "subSceneId": "daily_026_sub_2",
   "subSceneName": "询问价格",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:41:28.161Z",
+  "generatedAt": "2026-03-03T14:18:15.146Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_026_sub_2_qa_1",
-        "speakerText": "These tomatoes are $3 a pound. You want 'em?",
-        "speakerTextCn": "这些西红柿三美元一磅，要吗？",
+        "situation": "你在农贸市场想买苹果，摊主说苹果是每磅$4，你认为有点贵，想问问有没有更便宜的选项或能否打折。",
+        "speakerText": "These apples are $4 a pound. Very sweet and fresh!",
+        "speakerTextCn": "这些苹果每磅4美元，非常甜又新鲜！",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll take five pounds at $2 each.",
+            "text": "I'll take five pounds.",
             "isCorrect": false
           },
           {
             "id": "opt_2",
-            "text": "Can you lower it to $2.50? I'll take two pounds.",
+            "text": "That's a bit expensive. Do you have any on sale?",
             "isCorrect": true
           },
           {
             "id": "opt_3",
-            "text": "That's too cheap! I'll buy ten pounds.",
+            "text": "Can you give me a free apple?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I don't like tomatoes. Do you have carrots?",
+            "text": "Why are they so expensive?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了礼貌的请求句型 'Can you lower it to...?'，这是英语中砍价的标准表达。选项1虽然表达了价格期望，但语气生硬且不符合原对话的语境；选项3语气夸张且不现实；选项4完全偏离了话题。"
+        "explanation": "正确答案是B，因为这是在价格偏高时礼貌询问是否有促销或更便宜选项的自然表达，符合砍价场景的交际策略。A是直接接受，未回应价格问题；C是要求赠品，但未先确认价格是否可议，显得突兀；D是质问语气，不符合英语中礼貌协商的语用习惯。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_026_sub_2_qa_2",
-        "speakerText": "The cucumbers are $2 a piece. They're super fresh!",
-        "speakerTextCn": "黄瓜两美元一根，特别新鲜！",
+        "situation": "你想买胡萝卜，摊主说每磅$2.50，你打算买三磅，但希望对方能给个打包价。",
+        "speakerText": "Carrots are $2.50 a pound. Need any?",
+        "speakerTextCn": "胡萝卜每磅2.5美元，要吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll take three, but can I get one free?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "I want three cucumbers and pay $4.",
+            "text": "I'll take three pounds, please.",
             "isCorrect": false
           },
           {
+            "id": "opt_2",
+            "text": "Three pounds, but can you make it $6 for all?",
+            "isCorrect": true
+          },
+          {
             "id": "opt_3",
-            "text": "Why are they so expensive? I'll buy from another stall.",
+            "text": "I don't need carrots.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can you give me a discount if I buy five?",
+            "text": "Are these organic?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案用轻松自然的语气提出赠品请求，符合英语口语中常见的协商方式。选项2语法错误（未说明是否接受原价）且语气生硬；选项3带有抱怨语气，易引起不快；选项4虽合理，但未在原对话情境中出现，且不如'get one free'直接自然。"
+        "explanation": "正确答案是B，因为它在明确购买数量的基础上，自然提出打包价请求，是英语母语者在市场砍价时的典型表达。A虽正确但未尝试议价，缺乏性价比比较的交际意图；C完全回避问题；D偏离主题，询问成分而非价格。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "These apples are $1.50 per pound. The organic ones over there are $3.50.",
-        "speakerTextCn": "这些苹果每磅1.50美元，那边的有机苹果是3.50美元。",
+        "situation": "你比较了两家摊位的土豆，一家卖$3/磅，另一家卖$2.80/磅，你想确认第二家是否能再便宜点再决定买多少。",
+        "speakerText": "Potatoes are $2.80 a pound. I have the best price in the market.",
+        "speakerTextCn": "土豆每磅2.80美元，我这儿是市场最便宜的了。",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll take the organic ones—they're better quality.",
+            "text": "I'll take two pounds.",
             "isCorrect": false
           },
           {
             "id": "opt_2",
-            "text": "Hmm, the regular ones are more affordable. I'll take two pounds.",
+            "text": "That's close to the other stall. Can you do $2.60 for five pounds?",
             "isCorrect": true
           },
           {
             "id": "opt_3",
-            "text": "Are you sure they're not fake? I don't trust non-organic.",
+            "text": "Your potatoes look bad.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can you give me a free apple if I buy ten pounds?",
+            "text": "Do you accept credit cards?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案体现了比较性价比的典型表达，使用了'more affordable'和明确的购买决定，符合场景核心目标。选项1虽合理但未体现比较过程；选项3语气不礼貌且无必要质疑；选项4的赠品请求在此情境中不自然，因为价格差异是品类差异而非促销。"
+        "explanation": "正确答案是B，因为它在承认对方价格接近竞��者的基础上，提出具体的议价请求（数量+价格），是高效且礼貌的比较型砍价表达。A直接购买，未利用价格比较优势；C是攻击性评价，破坏对话氛围；D与价格无关，属于转移话题。"
       }
     }
   ]

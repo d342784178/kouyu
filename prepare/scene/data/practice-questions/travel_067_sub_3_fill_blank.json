@@ -2,7 +2,7 @@
   "subSceneId": "travel_067_sub_3",
   "subSceneName": "既往病史处理",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T15:14:24.521Z",
+  "generatedAt": "2026-03-03T14:31:00.506Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_067_sub_3_qa_1",
-        "template": "I've got high blood pressure — I should ______ it when applying for insurance.",
+        "situation": "旅客在购买旅行保险时，主动告知自己有糖尿病，询问是否会影响保单生效",
+        "speakerText": "I have type 2 diabetes — ___?",
+        "speakerTextCn": "我患有2型糖尿病，这会影响保险吗？",
+        "responseTemplate": "I have type 2 diabetes — ___?",
         "blanks": [
           {
             "index": 0,
-            "answer": "declare",
+            "answer": "will that affect my coverage",
             "options": [
-              "declare",
-              "hide",
-              "ignore",
-              "change"
+              "will that affect my coverage",
+              "can I still get insured",
+              "is it okay if I don't tell",
+              "do I need to pay more"
             ]
           }
         ],
-        "hint": "主动披露病史以避免理赔纠纷",
-        "knowledgePoint": "场景核心动词搭配（declare a condition）"
+        "hint": "询问病史是否影响保险保障时，常用表达是 'will that affect my coverage'。",
+        "knowledgePoint": "主动披露病史并询问影响的常用表达"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "If your condition is ______, we can add a pre-existing condition waiver.",
+        "situation": "旅客向保险顾问说明自己有哮喘病史，想知道是否需要额外申报",
+        "speakerText": "I’ve had asthma since childhood — ___?",
+        "speakerTextCn": "我从小就有哮喘，我需要特别申报吗？",
+        "responseTemplate": "I’ve had asthma since childhood — ___?",
         "blanks": [
           {
             "index": 0,
-            "answer": "stable",
+            "answer": "do I need to declare it",
             "options": [
-              "stable",
-              "active",
-              "worsening",
-              "recent"
+              "do I need to declare it",
+              "can I hide it",
+              "is it covered automatically",
+              "should I avoid traveling"
             ]
           }
         ],
-        "hint": "保险公司评估慢性病是否可承保的关键标准",
-        "knowledgePoint": "慢性病承保条件的核心形容词（stable）"
+        "hint": "询问是否需要主动告知病史时，核心表达是 'do I need to declare it'。",
+        "knowledgePoint": "询问是否需要申报既往病史的正确表达"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Always ______ your medical history accurately to avoid claim denials.",
+        "situation": "旅客担心自己的关节炎会影响保险审批，向顾问确认处理方式",
+        "speakerText": "I’m on medication for arthritis — ___?",
+        "speakerTextCn": "我正在服药治疗关节炎，这会怎样？",
+        "responseTemplate": "I’m on medication for arthritis — ___?",
         "blanks": [
           {
             "index": 0,
-            "answer": "disclose",
+            "answer": "will that be a problem",
             "options": [
-              "disclose",
-              "suppress",
-              "minimize",
-              "forget"
+              "will that be a problem",
+              "can I stop the medicine",
+              "should I cancel the trip",
+              "is it free to add"
             ]
           }
         ],
-        "hint": "保险申请中必须完成的动作，与 'declare' 同义",
-        "knowledgePoint": "保险场景高频动词（disclose/declare）"
+        "hint": "表达病史是否会造成障碍时，常用 'will that be a problem' 来委婉询问风险。",
+        "knowledgePoint": "委婉询问病史是否构成障碍的口语表达"
       }
     }
   ]

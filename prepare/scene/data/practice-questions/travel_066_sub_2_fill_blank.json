@@ -2,7 +2,7 @@
   "subSceneId": "travel_066_sub_2",
   "subSceneName": "询问汇率和手续费",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T15:09:07.992Z",
+  "generatedAt": "2026-03-03T14:30:59.593Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,34 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_066_sub_2_qa_1",
-        "template": "What's the current rate for USD to EUR?",
+        "situation": "你在机场兑换外币，想确认当前汇率和是否收取额外费用",
+        "speakerText": "Could you tell me the current rate for GBP to JPY?",
+        "speakerTextCn": "你能告诉我英镑兑日元的当前汇率吗？",
+        "responseTemplate": "It's ___ , and the fee is ___ .",
         "blanks": [
           {
             "index": 0,
-            "answer": "rate",
+            "answer": "around 185 yen per pound",
             "options": [
-              "rate",
-              "price",
-              "cost",
-              "value"
+              "185 yen for pound",
+              "around 185 yen per pound",
+              "185 yen to pound",
+              "185 yen in pound"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "extra",
+            "options": [
+              "included",
+              "extra",
+              "free",
+              "covered"
             ]
           }
         ],
-        "hint": "询问汇率时的固定搭配",
-        "knowledgePoint": "固定表达：What's the rate for...?"
+        "hint": "用 'around + 数字 + unit + per + currency' 表达汇率，用 'extra' 或 'included' 说明费用结构",
+        "knowledgePoint": "汇率表达与费用结构确认"
       }
     },
     {
@@ -37,22 +49,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_066_sub_2_qa_2",
-        "template": "Is the fee included or ______?",
+        "situation": "你在银行柜台想确认美元兑换人民币时是否包含手续费",
+        "speakerText": "Is the exchange fee included in the rate, or is it charged separately?",
+        "speakerTextCn": "汇率里包含兑换手续费吗，还是另外收取？",
+        "responseTemplate": "The fee is ___ .",
         "blanks": [
           {
             "index": 0,
             "answer": "extra",
             "options": [
               "extra",
-              "free",
               "included",
-              "high"
+              "free",
+              "not needed"
             ]
           }
         ],
-        "hint": "确认费用是否额外的常用对比词",
-        "knowledgePoint": "核心句型：Is it included or extra?"
+        "hint": "用 'extra' 表示额外收费，用 'included' 表示已包含，避免说 'no charge' 或 'free' 在正式兑换场景",
+        "knowledgePoint": "费用结构的准确表达"
       }
     },
     {
@@ -62,32 +76,34 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "I'd like to exchange $300. Could you tell me the ______ and whether there's a ______?",
+        "situation": "你在酒店前台询问欧元兑换本地货币的汇率和附加费用",
+        "speakerText": "What's the rate for EUR to local currency, and is there an additional charge?",
+        "speakerTextCn": "欧元兑本地货币的汇率是多少？有额外收费吗？",
+        "responseTemplate": "The rate is ___ , and there's a ___ fee.",
         "blanks": [
           {
             "index": 0,
-            "answer": "rate",
+            "answer": "about 1.10",
             "options": [
-              "rate",
-              "amount",
-              "time",
-              "place"
+              "about 1.10",
+              "1.10 exactly",
+              "1.10 for each",
+              "1.10 total"
             ]
           },
           {
             "index": 1,
-            "answer": "fee",
+            "answer": "service",
             "options": [
-              "fee",
-              "tax",
-              "charge",
-              "bonus"
+              "service",
+              "exchange",
+              "transaction",
+              "conversion"
             ]
           }
         ],
-        "hint": "询问汇率和手续费的完整表达",
-        "knowledgePoint": "场景高频搭配：rate + fee"
+        "hint": "用 'about + 数字' 表达近似汇率，用 'service fee' 是最常见搭配，避免用 'conversion fee' 等生僻词",
+        "knowledgePoint": "汇率近似表达与常见费用术语"
       }
     }
   ]

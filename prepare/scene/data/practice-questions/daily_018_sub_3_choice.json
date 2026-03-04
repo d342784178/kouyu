@@ -2,7 +2,7 @@
   "subSceneId": "daily_018_sub_3",
   "subSceneName": "确认价格",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:39:03.247Z",
+  "generatedAt": "2026-03-03T14:17:27.854Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_018_sub_3_qa_1",
-        "speakerText": "Each baguette is $3.50, and I'll throw in a butter sample for free.",
-        "speakerTextCn": "每条法棍3.5美元，我还送你一块黄油试吃。",
+        "situation": "在咖啡店点单后，店员告知两杯拿铁每杯4.5美元，加上一块蛋糕6美元，但未明确总价。顾客想确认总金额。",
+        "speakerText": "Two lattes are $4.50 each, and the cake is $6.",
+        "speakerTextCn": "两杯拿铁每杯4.5美元，蛋糕是6美元。",
         "options": [
           {
             "id": "opt_1",
-            "text": "That sounds fair. I'll take one.",
+            "text": "Great, I'll pay with my card.",
             "isCorrect": false
           },
           {
             "id": "opt_2",
-            "text": "Wait, so that's $7 total?",
+            "text": "So that's $15 total, right?",
             "isCorrect": true
           },
           {
             "id": "opt_3",
-            "text": "Can you give me a discount?",
+            "text": "I don't like cake, can I skip it?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I don't like butter.",
+            "text": "The lattes are too expensive.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Wait, so that's $7 total?' 是对总价进行确认的典型表达，符合‘确认价格’场景的核心目的。其他选项：第一个是接受但未确认金额，第三个是要求折扣（不符合语境），第四个是无关评论，均未体现价格确认功能。"
+        "explanation": "正确答案 'So that's $15 total, right?' 是在确认总价时最自然、最常用的表达，符合确认价格的核心交际任务。干扰项1是直接付款，未确认金额；干扰项3是更改订单，偏离了确认总价的目标；干扰项4是抱怨价格，不符合礼貌确认的语境。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "The total for the two shirts and the tie is $45.",
-        "speakerTextCn": "两件衬衫和一条领带总共是45美元。",
+        "situation": "在超市结账时，收银员说一盒鸡蛋3.99美元，一升牛奶2.50美元，但没有报总价。顾客想确认合计金额以免被多收。",
+        "speakerText": "Eggs are $3.99 and the milk is $2.50.",
+        "speakerTextCn": "鸡蛋3.99美元，牛奶2.50美元。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Can I pay with a credit card?",
+            "text": "Can I get a bag for the eggs?",
             "isCorrect": false
           },
           {
             "id": "opt_2",
-            "text": "Just to confirm, that's $45 for everything?",
+            "text": "Does that come to $6.49 altogether?",
             "isCorrect": true
           },
           {
             "id": "opt_3",
-            "text": "I think the tie is too expensive.",
+            "text": "I'll take another carton of milk.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Do you have a sale this week?",
+            "text": "The milk tastes bad.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Just to confirm, that's $45 for everything?' 是礼貌且清晰的价格确认表达，符合场景需求。其他选项均未确认金额：第一个是支付方式，第三个是评价，第四个是询问促销，均偏离‘确认总价’的核心目标。"
+        "explanation": "正确答案 'Does that come to $6.49 altogether?' 是在超市结账场景中确认总价的标准表达，语气礼貌且精准。干扰项1是询问包装，无关总价；干扰项3是增加商品，偏离确认目的；干扰项4是评价商品味道，与价格确认无关。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "The rental fee is $120 per day, but I'll waive the cleaning fee since you're staying a week.",
-        "speakerTextCn": "日租金是120美元，但因为你住一周，我免去清洁费。",
+        "situation": "在花店，店员说一束红玫瑰18美元，一束白百合22美元，但未说明总费用。顾客想确认是否包含包装费。",
+        "speakerText": "The red roses are $18 and the white lilies are $22.",
+        "speakerTextCn": "红玫瑰18美元，白百合22美元。",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll take it. When can I check in?",
+            "text": "I'll take both, please.",
             "isCorrect": false
           },
           {
             "id": "opt_2",
-            "text": "So the total is still $120 for the whole week?",
+            "text": "So that's $40 including the wrapping?",
             "isCorrect": true
           },
           {
             "id": "opt_3",
-            "text": "Can I bring my pet?",
+            "text": "Are the lilies fresh?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "That's too expensive.",
+            "text": "Can I pay later?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'So the total is still $120 for the whole week?' 是对优惠后总价的精准确认，体现对‘免去额外费用’的核实。其他选项：第一个是接受但未确认金额，第三个是无关问题，第四个是抱怨，均未完成价格确认功能。"
+        "explanation": "正确答案 'So that's $40 including the wrapping?' 是在确认总价时同时澄清附加费用（包装）的���型表达，既准确又符合实际沟通需求。干扰项1是直接购买，未确认金额；干扰项3是询问花材新鲜度，与价格无关；干扰项4是请求延期付款，不符合当前语境。"
       }
     }
   ]

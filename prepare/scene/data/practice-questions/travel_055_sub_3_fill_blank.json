@@ -1,8 +1,8 @@
 {
   "subSceneId": "travel_055_sub_3",
-  "subSceneName": "确认方向细节",
+  "subSceneName": "确认方向",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:53:27.472Z",
+  "generatedAt": "2026-03-03T14:29:50.788Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_055_sub_3_qa_1",
-        "template": "It's about ___ minutes walk. Turn left after the post office.",
+        "situation": "你在陌生城市问路，对方告诉你往前走，但你不确定是否该转弯，于是再次确认方向。",
+        "speakerText": "Just keep walking until you see the bank, then ______.",
+        "speakerTextCn": "一直往前走，直到看到银行，然后______。",
+        "responseTemplate": "Do I turn left or right?",
         "blanks": [
           {
             "index": 0,
-            "answer": "five",
+            "answer": "do I turn left or right",
             "options": [
-              "five",
-              "ten",
-              "two",
-              "fifteen"
+              "should I stop and wait",
+              "do I turn left or right",
+              "can I take a taxi",
+              "is it far from here"
             ]
           }
         ],
-        "hint": "描述步行距离的常见表达，通常用 3-7 分钟表示不远",
-        "knowledgePoint": "距离表达（时间+walk）"
+        "hint": "当你需要确认转弯方向时，常用这个结构询问左转还是右转。",
+        "knowledgePoint": "确认方向的询问句型"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "You don't need to turn — just keep ___ straight.",
+        "situation": "你走错了路，对方提醒你该转身，你为了确保理解正确，再次确认动作。",
+        "speakerText": "You need to turn around and go back. So I should ______?",
+        "speakerTextCn": "你需要转身往回走。所以我应该______？",
+        "responseTemplate": "turn around and walk back",
         "blanks": [
           {
             "index": 0,
-            "answer": "going",
+            "answer": "turn around and walk back",
             "options": [
-              "going",
-              "walk",
-              "run",
-              "turn"
+              "turn around and walk back",
+              "wait here for a while",
+              "call someone for help",
+              "find another route"
             ]
           }
         ],
-        "hint": "表示‘一直走’的固定搭配",
-        "knowledgePoint": "固定表达 keep going"
+        "hint": "当被要求返回时，用这个短语确认你理解了正确的动作。",
+        "knowledgePoint": "纠正方向的动词短语"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Turn ___ at the traffic lights, then you'll see the bank on your right.",
+        "situation": "你问路后，对方说‘一直走就行’，你为确认是否需要转弯，礼貌地再次确认。",
+        "speakerText": "You're good, just keep going. So I don't need to ______ at all?",
+        "speakerTextCn": "没问题，一直走就行。所以我根本不需要______？",
+        "responseTemplate": "turn left or right",
         "blanks": [
           {
             "index": 0,
-            "answer": "right",
+            "answer": "turn left or right",
             "options": [
-              "right",
-              "left",
-              "back",
-              "up"
+              "turn left or right",
+              "stop and ask again",
+              "change your shoes",
+              "take a break"
             ]
           }
         ],
-        "hint": "根据语境判断方向，后文提到银行在右边，说明转弯方向",
-        "knowledgePoint": "方向指示词（left/right）"
+        "hint": "当对方说‘不用转弯’时，用这个短语确认是否完全不需要转向。",
+        "knowledgePoint": "确认是否需要转向的否定疑问"
       }
     }
   ]

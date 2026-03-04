@@ -2,7 +2,7 @@
   "subSceneId": "daily_026_sub_4",
   "subSceneName": "结账付款",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:41:25.005Z",
+  "generatedAt": "2026-03-03T14:18:24.768Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_026_sub_4_qa_1",
-        "speakerText": "Total's $11.50. Cash or card?",
-        "speakerTextCn": "总共11.5美元，现金还是刷卡？",
+        "situation": "你在便利店结账，店员告诉你总金额是8.75美元，并问你用现金还是刷卡。你决定用现金支付，给了10美元，并说不用找零了。",
+        "speakerText": "Total's $8.75. Cash or card?",
+        "speakerTextCn": "总共8.75美元，现金还是刷卡？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll pay with Bitcoin.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Cash. Here's $15. Keep the change.",
+            "text": "Cash. Here's $10. Keep the change.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Card, please. I have no cash.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Can I pay next week?",
+            "text": "Cash. Thanks. Here's $8.75.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Do you have a discount?",
+            "text": "I'll pay with Apple Pay.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Cash. Here's $15. Keep the change.' 是对付款方式和找零的自然回应，符合场景中‘大方表达’的使用说明。其他选项均不符合语境：Bitcoin 不是常见支付方式；‘pay next week’ 不现实；‘discount’ 与收银员的问题无关。"
+        "explanation": "正确答案 'Cash. Here's $10. Keep the change.' 是在用现金支付并主动放弃找零时最自然、礼貌的表达。干扰项1是切换支付方式，与情境不符；干扰项2是支付正确金额，但未表达‘不用找零’的意图；干扰项3是使用其他支付方式，与‘现金’决定矛盾。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_026_sub_4_qa_2",
-        "speakerText": "Here's your $3.50 back. Thanks for shopping!",
-        "speakerTextCn": "找你3.5美元，谢谢惠顾！",
+        "situation": "你刚在超市结完账，收银员把3.25美元零钱递给你，并说‘谢谢惠顾！’你希望礼貌回应并表达明天还会再来。",
+        "speakerText": "Here's your $3.25 back. Thanks for shopping!",
+        "speakerTextCn": "找你3.25美元，谢谢惠顾！",
         "options": [
           {
             "id": "opt_1",
-            "text": "I need more change.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Thanks! Have a great day!",
+            "text": "Thanks! See you tomorrow!",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Okay, thanks.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Why so little?",
+            "text": "I need more change, actually.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can I get a receipt?",
+            "text": "You too. Bye.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Thanks! Have a great day!' 是礼貌回应收银员道别时的标准表达，符合使用说明中‘加祝福语更显礼貌’的要求。其他选项均不礼貌或不合语境：质疑找零金额或索要收据，都不是对道别语的合理回应。"
+        "explanation": "正确答案 'Thanks! See you tomorrow!' 是在收到找零后，既表达感谢又主动建立未来联系的自然回应。干扰项1是简单回应，缺乏礼貌延伸；干扰项2是错误理解对方意图，以为找零有误；干扰项3虽礼貌但未回应‘明天再来’的意图，语义不完整。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "That'll be $24.75. How would you like to pay?",
-        "speakerTextCn": "总共24.75美元，您想怎么支付？",
+        "situation": "你在咖啡店付款，店员说总金额是6.50美元，你用一张20美元纸币支付。店员找给你13.50美元，但多给了0.50美元。你发现了但想礼貌地指出。",
+        "speakerText": "Here's your $13.50 back. Have a nice day!",
+        "speakerTextCn": "找你13.50美元，祝你今天愉快！",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll use my phone. Do you take Google Pay?",
+            "text": "Actually, you gave me $0.50 too much. Here you go.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I don't have money today.",
+            "text": "Thanks! Keep it!",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can I pay with checks?",
+            "text": "I think you made a mistake.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I'll take it for free.",
+            "text": "Can I get a refund?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了现代支付方式 'Google Pay'，表达自然且符合当代消费场景。'I don't have money' 不礼貌且不现实；'checks' 在大多数零售店已不被接受；'take it for free' 是无理要求，不符合社交规范。"
+        "explanation": "正确答案 'Actually, you gave me $0.50 too much. Here you go.' 是在发现找零错误时，既礼貌又清晰地纠正错误的标准表达。干扰项1是接受多给的钱，不符合情境中‘想指出错误’的意图；干扰项2表达模糊，可能被误解为不礼貌；干扰项3语气生硬，缺乏解决方案，不符合日常礼貌沟通习惯。"
       }
     }
   ]

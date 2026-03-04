@@ -2,7 +2,7 @@
   "subSceneId": "travel_061_sub_2",
   "subSceneName": "说明需求",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T15:05:23.691Z",
+  "generatedAt": "2026-03-03T14:30:24.597Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,34 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_061_sub_2_qa_1",
-        "template": "We're ___ people, and we'd like to come at 8 PM.",
+        "situation": "你打电话给餐厅预订桌子，服务员询问人数和时间，你需要说明人数、时间以及是否需要特殊安排。",
+        "speakerText": "Sure! How many people and what time?",
+        "speakerTextCn": "好的！几位？几点？",
+        "responseTemplate": "___, ___, and we'd prefer a quiet corner if possible.",
         "blanks": [
           {
             "index": 0,
-            "answer": "six",
+            "answer": "Three people",
             "options": [
-              "six",
-              "seven",
-              "eight",
-              "nine"
+              "Three people",
+              "There are three",
+              "We are three",
+              "A group of three"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "around 7 PM",
+            "options": [
+              "around 7 PM",
+              "at seven o'clock exactly",
+              "seven in the evening",
+              "in the evening"
             ]
           }
         ],
-        "hint": "用数字表达人数，常见于预订场景",
-        "knowledgePoint": "数字表达人数（场景高频词汇）"
+        "hint": "用数字+people表示人数，用around+时间表示大致时间，用'if possible'让请求更礼貌。",
+        "knowledgePoint": "说明人数、时间与礼貌请求"
       }
     },
     {
@@ -37,22 +49,34 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_061_sub_2_qa_1",
-        "template": "Could you please arrange a ___ table if possible?",
+        "situation": "你和朋友计划去咖啡馆，店员问你们的人数和来的时间，你需要说明人数、时间，并提出是否需要靠窗座位。",
+        "speakerText": "How many guests and when will you be arriving?",
+        "speakerTextCn": "几位客人？什么时候到？",
+        "responseTemplate": "___, ___, and we'd love a seat by the window if that's okay.",
         "blanks": [
           {
             "index": 0,
-            "answer": "window",
+            "answer": "Two of us",
             "options": [
-              "window",
-              "corner",
-              "large",
-              "round"
+              "Two of us",
+              "We two",
+              "There is two",
+              "A couple"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "in the afternoon",
+            "options": [
+              "in the afternoon",
+              "afternoon time",
+              "during afternoon",
+              "at afternoon"
             ]
           }
         ],
-        "hint": "表达特殊要求时常用词汇，体现礼貌请求",
-        "knowledgePoint": "特殊要求表达（window table 固定搭配）"
+        "hint": "用'Two of us'或'Four of us'等自然表达人数，用'in the morning/afternoon/evening'表示时间段，用'if that's okay'替代'if possible'保持礼貌。",
+        "knowledgePoint": "说明人数、时间段与礼貌请求"
       }
     },
     {
@@ -62,22 +86,34 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "We'd love to ___ a table for four at 7:30 PM.",
+        "situation": "你为家庭聚会预订酒店包间，前台问人数和时间，你需要说明人数、时间，并提出需要儿童座椅。",
+        "speakerText": "Just to confirm, how many guests and at what time?",
+        "speakerTextCn": "确认一下，几位客人？什么时间？",
+        "responseTemplate": "___, ___, and we'll need high chairs for the kids if you have any.",
         "blanks": [
           {
             "index": 0,
-            "answer": "book",
+            "answer": "Five guests",
             "options": [
-              "book",
-              "find",
-              "look",
-              "get"
+              "Five guests",
+              "Five people",
+              "We five",
+              "A family of five"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "this evening",
+            "options": [
+              "this evening",
+              "evening time",
+              "in evening",
+              "at evening"
             ]
           }
         ],
-        "hint": "预订服务时的核心动词",
-        "knowledgePoint": "动词搭配（book a table 固定表达）"
+        "hint": "用'guests'或'people'表示人数，用'this morning/afternoon/evening'表示具体时段，用'if you have any'礼貌地提出特殊需求。",
+        "knowledgePoint": "说明人数、时段与特殊需求的礼��表达"
       }
     }
   ]

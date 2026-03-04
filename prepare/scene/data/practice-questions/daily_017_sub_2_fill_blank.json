@@ -2,7 +2,7 @@
   "subSceneId": "daily_017_sub_2",
   "subSceneName": "询问价格与种类",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:38:47.514Z",
+  "generatedAt": "2026-03-03T14:25:23.136Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_017_sub_2_qa_1",
-        "template": "How much are these strawberries? They're $5 ___ pound.",
+        "situation": "顾客在水果摊前想了解苹果的种类和价格，准备挑选一些购买",
+        "speakerText": "Do you have different kinds of apples?",
+        "speakerTextCn": "你们有不同种类的苹果吗？",
+        "responseTemplate": "Yes, we have ___.",
         "blanks": [
           {
             "index": 0,
-            "answer": "a",
+            "answer": "red delicious, granny smith, and fuji",
             "options": [
-              "a",
-              "an",
-              "the",
-              "per"
+              "red delicious, granny smith, and fuji",
+              "many colors and sizes",
+              "the best ones in town",
+              "some apples that are cheap"
             ]
           }
         ],
-        "hint": "表示‘每’的常用表达，用于单价",
-        "knowledgePoint": "单价表达：$X a pound/kg"
+        "hint": "回答种类时，列出具体苹果品种最自然",
+        "knowledgePoint": "列举具体商品种类的口语表达"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_017_sub_2_qa_2",
-        "template": "Do you have any ripe mangoes? Yeah, right here — they're ___ and juicy!",
+        "situation": "顾客看到一筐橙子，想确认价格后决定买多少",
+        "speakerText": "How much are these oranges?",
+        "speakerTextCn": "这些橙子多少钱？",
+        "responseTemplate": "They're ___.",
         "blanks": [
           {
             "index": 0,
-            "answer": "sweet",
+            "answer": "$3 a pound",
             "options": [
-              "sweet",
-              "cold",
-              "big",
-              "cheap"
+              "$3 a pound",
+              "very fresh",
+              "on discount",
+              "the sweetest in the store"
             ]
           }
         ],
-        "hint": "描述成熟水果的常见形容词",
-        "knowledgePoint": "水果品质描述：sweet, juicy, ripe"
+        "hint": "回答价格时需包含单位（如 per pound / per kg）",
+        "knowledgePoint": "表达单价的常用结构"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "I'd like to buy some kiwis. What's the ___ per kilogram?",
+        "situation": "顾客想买香蕉，但不确定是否成熟，向摊主确认可选状态",
+        "speakerText": "Do you have bananas that aren't too ripe?",
+        "speakerTextCn": "你们有不太熟的香蕉吗？",
+        "responseTemplate": "Sure, we've got ___.",
         "blanks": [
           {
             "index": 0,
-            "answer": "price",
+            "answer": "some that are still a little green",
             "options": [
-              "price",
-              "cost",
-              "money",
-              "rate"
+              "some that are still a little green",
+              "the cheapest ones",
+              "a lot of them",
+              "yesterday's stock"
             ]
           }
         ],
-        "hint": "询问单价时最常用的名词",
-        "knowledgePoint": "询问价格的核心词汇：price"
+        "hint": "描述水果成熟度时，用 'a little green' 或 'just ripe' 更地道",
+        "knowledgePoint": "描述水果成熟程度的口语表达"
       }
     }
   ]

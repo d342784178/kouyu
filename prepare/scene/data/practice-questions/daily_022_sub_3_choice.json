@@ -2,7 +2,7 @@
   "subSceneId": "daily_022_sub_3",
   "subSceneName": "确认价格与细节",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:41:06.923Z",
+  "generatedAt": "2026-03-03T14:17:46.473Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_022_sub_3_qa_1",
-        "speakerText": "How much is the puppy? Does the price include shots?",
-        "speakerTextCn": "小狗多少钱？价格包含疫苗吗？",
+        "situation": "顾客在家具店看中一张沙发，想确认价格是否包含送货和安装服务。",
+        "speakerText": "How much is this sofa? Does the price include delivery and assembly?",
+        "speakerTextCn": "这张沙发多少钱？价格包含送货和安装吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "It's $800, and all shots and microchip are included.",
+            "text": "It's $650, and yes, delivery and setup are both included.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "It's $800, but you need to buy the shots separately.",
+            "text": "It's $650. Do you want to buy it?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "The puppy is free, but you pay for the food.",
+            "text": "Delivery costs extra, but assembly is free.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I don't know the price, you should ask the manager.",
+            "text": "I'm not sure. You should ask the manager.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确回应了价格和包含服务，符合对话中标准回应。干扰项2虽语法正确，但与标准回应中的'included'矛盾；干扰项3和4完全偏离事实或回避问题，不符合负责任的销售语境。"
+        "explanation": "正确答案直接回应了价格和两项服务是否包含，符合顾客的核心需求。干扰项1答非所问，只催促购买；干扰项2部分正确但未完整回答问题，易造成误解；干扰项3推卸责任，不符合服务场景的专业性。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_022_sub_3_qa_2",
-        "speakerText": "Can I take it home today?",
-        "speakerTextCn": "我能今天带它回家吗？",
+        "situation": "顾客在美容院预约了深层清洁护理，想确认是否包含面部护理和产品使用。",
+        "speakerText": "I'm booked for the deep cleansing. Does this include the facial treatment and the products used?",
+        "speakerTextCn": "我预约了深层清洁，这个服务包含面部护理和使用的护肤品吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Sure! Just sign the paperwork and pay, and you're good to go.",
+            "text": "Yes, the facial and all products are included in the price.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "You can take it tomorrow if you bring a carrier.",
+            "text": "It's a great service! You'll love how your skin feels.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "I'm not sure, maybe next week.",
+            "text": "The facial is extra, but the products are included.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "You need to wait until the puppy is two months old.",
+            "text": "We don't use any products. Just water and towels.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案符合标准回应，明确告知行动步骤。干扰项2虽合理但未使用标准表达，且未确认是否当天可完成；干扰项3和4模糊、消极，不符合积极服务的语境。"
+        "explanation": "正确答案完整、清晰地回应了两个关键点（面部护理和产品），是顾客最需要的信息。干扰项1是典型的赞美式回避，未回答问题；干扰项2部分正确但制造了矛盾（说面部另收费，但顾客原问题中已默认包含）；干扰项3明显错误，与美容护理常识不符。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "Is the delivery fee included in the price?",
-        "speakerTextCn": "配送费包含在价格里吗？",
+        "situation": "顾客在租车公司准备取车，询问租金是否包含保险和无限里程。",
+        "speakerText": "What's the daily rate? Does it include insurance and unlimited mileage?",
+        "speakerTextCn": "每日租金是多少？包含保险和无限里程吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, delivery is free within 20 miles.",
+            "text": "The daily rate is $55, and both insurance and unlimited mileage are included.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I think you need to pay extra for everything.",
+            "text": "You can add insurance for $15 more. Mileage is limited to 100 miles per day.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "We don't deliver, you have to pick it up.",
+            "text": "We have great deals this week! Would you like to upgrade?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "The price is negotiable if you buy two.",
+            "text": "Insurance is required, so you'll need to pay for it separately.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案清晰说明服务包含范围，符合确认价格与细节的主题。干扰项2过于笼统消极；干扰项3虽然真实但未回应'是否包含'的问题；干扰项4转移话题，未解答核心疑问。"
+        "explanation": "正确答案直接完整回答了两个问题，语气专业且清晰，是顾客最期待的回应。干扰项1虽提供信息，但未明确是否包含，反而暗示需额外付费，可能引发误解；干扰项3是销售话术，回避核心问题；干扰项4只回答了保险部分，且表述消极，未回应里程问题，信息不完整。"
       }
     }
   ]

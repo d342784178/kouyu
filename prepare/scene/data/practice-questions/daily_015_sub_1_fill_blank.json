@@ -2,7 +2,7 @@
   "subSceneId": "daily_015_sub_1",
   "subSceneName": "报取餐名",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:38:38.342Z",
+  "generatedAt": "2026-03-03T14:24:00.005Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,34 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_015_sub_1_qa_1",
-        "template": "I'm ___ with order number 1234, please.",
+        "situation": "你到咖啡店取外卖，店员问你是否来取餐，你需要报出姓名和订单号以便核对",
+        "speakerText": "Hi, are you here to pick up an order?",
+        "speakerTextCn": "你好，你是来取餐的吗？",
+        "responseTemplate": "I'm ___ with order ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "Alex",
+            "answer": "Sarah",
             "options": [
-              "Alex",
-              "here",
-              "there",
-              "ready"
+              "Sarah",
+              "the Sarah",
+              "my name Sarah",
+              "Sarah's"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "number",
+            "options": [
+              "number",
+              "code",
+              "ID",
+              "piece"
             ]
           }
         ],
-        "hint": "报取餐人姓名的固定表达",
-        "knowledgePoint": "人名 + with order number（取餐场景核心句型）"
+        "hint": "报名字时直接用名字，订单号前用固定搭配",
+        "knowledgePoint": "标准取餐报名句型结构"
       }
     },
     {
@@ -37,22 +49,34 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Hi, I'm here to pick up an order. ___ is Taylor, order #4567.",
+        "situation": "你在快餐店取餐，店员示意你上前，你主动说明身份和订单信息",
+        "speakerText": "Next please!",
+        "speakerTextCn": "下一个！",
+        "responseTemplate": "___, ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "Name",
+            "answer": "Jason",
             "options": [
-              "Name",
-              "Number",
-              "Order",
-              "Time"
+              "Jason",
+              "My name is Jason",
+              "Jason here",
+              "It's Jason"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "order number",
+            "options": [
+              "order number",
+              "order code",
+              "booking ID",
+              "reservation"
             ]
           }
         ],
-        "hint": "口语中常用省略结构，直接报姓名",
-        "knowledgePoint": "Name + [姓名]（简洁取餐表达）"
+        "hint": "最简洁的报法是名字+订单号，避免多余词汇",
+        "knowledgePoint": "高频口语中的省略表达结构"
       }
     },
     {
@@ -62,22 +86,34 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "___, order #8899.",
+        "situation": "你到面包店取预订单，店员确认你的信息，你需要完整说出姓名和订单编号",
+        "speakerText": "Can I help you with your order?",
+        "speakerTextCn": "需要帮您取订单吗？",
+        "responseTemplate": "I'm ___ for order ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "Mike",
+            "answer": "Emma",
             "options": [
-              "Mike",
-              "Please",
-              "Thank you",
-              "Sorry"
+              "Emma",
+              "Emma's",
+              "I'm Emma's",
+              "the Emma"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "number",
+            "options": [
+              "number",
+              "code",
+              "reference",
+              "title"
             ]
           }
         ],
-        "hint": "最简洁的取餐回应方式，只说名字和订单号",
-        "knowledgePoint": "姓名+订单号（高频简洁表达）"
+        "hint": "用 'I'm [名字] for order [number]' 结构最自然",
+        "knowledgePoint": "取餐场景中的礼貌完整表达"
       }
     }
   ]

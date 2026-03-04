@@ -2,7 +2,7 @@
   "subSceneId": "travel_056_sub_2",
   "subSceneName": "确认预订",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T15:10:33.921Z",
+  "generatedAt": "2026-03-03T14:29:32.117Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_056_sub_2_qa_1",
-        "template": "Yes, that's ______. Thanks!",
+        "situation": "你在酒店前台办理入住，工作人员核对你的预订信息，确认姓名和房型。",
+        "speakerText": "I see a reservation under the name ___? Is that correct?",
+        "speakerTextCn": "我看到一个预订姓名是___？对吗？",
+        "responseTemplate": "Yes, that's ___.",
         "blanks": [
           {
             "index": 0,
-            "answer": "correct",
+            "answer": "my name",
             "options": [
-              "correct",
-              "right",
-              "fine",
-              "okay"
+              "my name",
+              "your name",
+              "the guest",
+              "the reservation"
             ]
           }
         ],
-        "hint": "这是确认信息时最标准的表达之一",
-        "knowledgePoint": "固定表达：that's correct（确认信息）"
+        "hint": "当对方确认你的姓名时，用 'my name' 来指代自己。",
+        "knowledgePoint": "确认个人信息时的正确代词使用"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_056_sub_2_qa_2",
-        "template": "Actually, could I get ______ extra towel?",
+        "situation": "前台工作人员核对你的预订详情，询问房间类型是否正确。",
+        "speakerText": "You booked a ___ room, right?",
+        "speakerTextCn": "你预订的是___房，对吗？",
+        "responseTemplate": "Yes, that's ___.",
         "blanks": [
           {
             "index": 0,
-            "answer": "an",
+            "answer": "double",
             "options": [
-              "an",
-              "a",
-              "the",
-              "some"
+              "double",
+              "big",
+              "expensive",
+              "new"
             ]
           }
         ],
-        "hint": "注意 'towel' 是可数名词，且以元音音素开头",
-        "knowledgePoint": "冠词用法：an + 元音开头的可数名词"
+        "hint": "描述房型时，使用标准术语如 double, twin, standard 等，避免用主观形容词。",
+        "knowledgePoint": "房型描述的准确词汇使用"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "I'd like to ______ my reservation under Lisa Wong.",
+        "situation": "工作人员确认你的预订后，询问你是否有额外需求，你希望要一条额外的毛巾。",
+        "speakerText": "Do you need anything else? Maybe ___?",
+        "speakerTextCn": "您还需要什么吗？比如___？",
+        "responseTemplate": "Actually, could I get ___?",
         "blanks": [
           {
             "index": 0,
-            "answer": "confirm",
+            "answer": "an extra towel",
             "options": [
-              "confirm",
-              "cancel",
-              "change",
-              "book"
+              "an extra towel",
+              "a better room",
+              "free breakfast",
+              "a discount"
             ]
           }
         ],
-        "hint": "这个场景的核心动作是核对预订信息",
-        "knowledgePoint": "动词搭配：confirm a reservation（确认预订）"
+        "hint": "礼貌提出额外需求时，用 'Could I get...' 结构最自然。",
+        "knowledgePoint": "提出附加请求的礼貌表达结构"
       }
     }
   ]

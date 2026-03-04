@@ -2,7 +2,7 @@
   "subSceneId": "daily_010_sub_1",
   "subSceneName": "问候取衣",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:39:36.895Z",
+  "generatedAt": "2026-03-03T14:23:25.757Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_010_sub_1_qa_1",
-        "template": "I'm here to ___ up my laundry.",
+        "situation": "顾客走进洗衣店，店员主动打招呼后询问需求",
+        "speakerText": "Hi there! How can I help you today?",
+        "speakerTextCn": "您好！今天有什么可以帮您的？",
+        "responseTemplate": "I'm here to ___ my laundry.",
         "blanks": [
           {
             "index": 0,
-            "answer": "pick",
+            "answer": "pick up",
             "options": [
-              "pick",
-              "take",
-              "get",
-              "bring"
+              "pick up",
+              "wash",
+              "buy",
+              "fold"
             ]
           }
         ],
-        "hint": "取衣服的固定搭配是 pick up",
-        "knowledgePoint": "动词搭配（pick up）"
+        "hint": "这是取衣场景的核心动词短语，表示‘取回’衣物",
+        "knowledgePoint": "高频服务动词短语"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_010_sub_1_qa_2",
-        "template": "Sure! Do you have your ___?",
+        "situation": "店员确认顾客是否携带取衣单，顾客出示票据",
+        "speakerText": "Do you have your receipt?",
+        "speakerTextCn": "您有取衣单吗？",
+        "responseTemplate": "Yes, ___ right here.",
         "blanks": [
           {
             "index": 0,
-            "answer": "receipt",
+            "answer": "I've got it",
             "options": [
-              "receipt",
-              "ticket",
-              "invoice",
-              "bill"
+              "I've got it",
+              "I lost it",
+              "I need it",
+              "I made it"
             ]
           }
         ],
-        "hint": "取衣时需要出示的单据",
-        "knowledgePoint": "场景核心词汇（receipt）"
+        "hint": "表示‘我这就拿出来’的自然表达，强调物品在身边",
+        "knowledgePoint": "日常回应中的指代表达"
       }
     },
     {
@@ -62,8 +66,10 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Sorry, I lost it. Can you ___ it up?",
+        "situation": "顾客忘记带取衣单，向店员礼貌请求协助查找",
+        "speakerText": "I'm sorry, I can't find my receipt. Can you help me?",
+        "speakerTextCn": "不好意思，我找不到取衣单了，能帮我一下吗？",
+        "responseTemplate": "Could you ___ it up for me?",
         "blanks": [
           {
             "index": 0,
@@ -76,8 +82,8 @@
             ]
           }
         ],
-        "hint": "店员用这个短语在系统中查找订单",
-        "knowledgePoint": "固定表达（look up）"
+        "hint": "在服务场景中，‘look up’是查找记录的标准搭配",
+        "knowledgePoint": "服务场景中的固定搭配"
       }
     }
   ]

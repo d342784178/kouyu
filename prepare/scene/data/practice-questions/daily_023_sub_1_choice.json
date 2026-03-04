@@ -2,7 +2,7 @@
   "subSceneId": "daily_023_sub_1",
   "subSceneName": "问候接待",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:41:12.857Z",
+  "generatedAt": "2026-03-03T14:17:47.707Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,23 +12,23 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_023_sub_1_qa_1",
-        "speakerText": "Hi there! What kind of photo do you need today?",
-        "speakerTextCn": "嗨！今天需要拍哪种照片？",
+        "situation": "顾客走进摄影工作室，摄影师主动打招呼并询问拍摄需求，顾客想拍一张用于求职的正式证件照。",
+        "speakerText": "Hi! Welcome in. What type of photo are you looking for today?",
+        "speakerTextCn": "嗨！欢迎光临。今天您想拍哪种照片？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'd like a passport photo, please.",
+            "text": "I'd like a professional headshot for my job application, please.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I want to buy a camera.",
+            "text": "Do you have any discounts today?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "How much does it cost?",
+            "text": "I'm not sure, maybe a family photo?",
             "isCorrect": false
           },
           {
@@ -37,7 +37,7 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案'I'd like a passport photo, please.'直接回应了对方询问的需求，符合问候接待场景中表达需求的规范。干扰项'I want to buy a camera'是购物行为，与拍照服务无关；'How much does it cost?'是价格询问，应在需求确认后提出；'Can you take my picture later?'是预约请求，不符合即时服务语境。"
+        "explanation": "正确答案使用'I'd like'清晰表达具体需求，符合场景中询问拍摄目的的核心交际任务。干扰项1是答非所问（询问折扣），干扰项2是理解偏差（误以为对方在征求建议），干扰项3是表达不当（拖延需求，不符合即时接待场景）。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_023_sub_1_qa_2",
-        "speakerText": "Got it. Standard size, right? 2x2 inches?",
-        "speakerTextCn": "好的，标准尺寸，2x2英寸对吧？",
+        "situation": "摄影师确认顾客要拍的是标准尺寸证件照，询问是否为2x2英寸，顾客知道本国要求是3.5x4.5厘米。",
+        "speakerText": "Standard size, right? 2x2 inches?",
+        "speakerTextCn": "标准尺寸，对吧？2x2英寸？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, that's perfect.",
+            "text": "Actually, it needs to be 3.5x4.5 cm for my visa.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I don't know what size I need.",
+            "text": "I don't know, whatever is cheaper.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can you make it bigger?",
+            "text": "Yes, that's perfect.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I need a coffee first.",
+            "text": "Can you make it bigger?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案'Yes, that's perfect.'是对尺寸确认的礼貌且自然的回应。干扰项'I don't know...'表示不确定，不符合积极确认语境；'Can you make it bigger?'是修改要求，未先确认；'I need a coffee first.'完全无关，属于荒谬干扰项。"
+        "explanation": "正确答案准确纠正尺寸误解并说明用途，符合确认信息时提供具体数据的交际规范。干扰项1是理解偏差（误以为对方在问价格），干扰项2是答非所问（盲目同意，忽略实际需求），干扰项3是表达不当（未纠正错误信息，可能导致照片不合格）。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "Welcome to our studio! How can I help you today?",
-        "speakerTextCn": "欢迎光临我们的摄影工作室！今天有什么可以帮您的？",
+        "situation": "顾客刚坐下，摄影师问是否需要同时拍摄多套不同背景的照片，顾客希望只拍一张纯白色背景的证件照。",
+        "speakerText": "Would you like to try different backgrounds? We have white, blue, and gray.",
+        "speakerTextCn": "您想试试不同背景吗？我们有白色、蓝色和灰色。",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'd like to book a family portrait session.",
+            "text": "Just white, please. That's what's required for my application.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Do you have free Wi-Fi?",
+            "text": "I like blue better.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "I'm just looking around.",
+            "text": "Can I get all three?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "What time is it?",
+            "text": "I'm not sure, what do you recommend?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案'I'd like to book a family portrait session.'是符合接待场景的明确服务需求表达。干扰项'Do you have free Wi-Fi?'和'What time is it?'是无关问题；'I'm just looking around.'虽合理但属于非主动需求表达，不符合本场景中鼓励主动提出需求的教学目标。"
+        "explanation": "正确答案明确选择并说明理由，符合高频场景中清晰表达单一需求的表达习惯。干扰项1是表达不当（仅表达偏好，未说明是否符合规定），干扰项2是理解偏差（误以为可以多选），干扰项3是答非所问（将选择权交给对方，不符合主动表达需求的要求）。"
       }
     }
   ]

@@ -2,7 +2,7 @@
   "subSceneId": "daily_009_sub_1",
   "subSceneName": "打招呼请求加油",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:37:00.077Z",
+  "generatedAt": "2026-03-03T14:16:05.958Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_009_sub_1_qa_1",
-        "speakerText": "Hey there! Can I get some gas, please?",
-        "speakerTextCn": "嘿，能给我加点油吗？",
+        "situation": "顾客走进加油站，向员工打招呼并说明需要加油，但未说明油品类型，员工需要确认需求",
+        "speakerText": "Hi, can you help me with gas?",
+        "speakerTextCn": "嗨，你能帮我加点油吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Sure! What kind of gas?",
+            "text": "Sure! Regular, mid-grade, or premium?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I'll help you in a minute.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
             "text": "Do you have a membership card?",
             "isCorrect": false
           },
           {
+            "id": "opt_3",
+            "text": "I'm sorry, we're out of fuel.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_4",
-            "text": "The pump is over there.",
+            "text": "How much money do you want to spend?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Sure! What kind of gas?' 是对加油请求的标准口语回应，简洁直接。其他选项虽然语法正确，但要么延迟服务（opt_2），要么询问会员卡（opt_3）或指示位置（opt_4），都没有回应核心问题——确认油品类型。"
+        "explanation": "正确答案直接回应了顾客的加油请求，并自然引导确认油品类型，符合加油站高频对话模式。干扰项1是答非所问（询问会员卡），干扰项2是错误信息（声称没油），干扰项3是误解意图（询问预算而非油品）"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_009_sub_1_qa_2",
-        "speakerText": "I'd like to fill up, please.",
-        "speakerTextCn": "我想加满油，谢谢。",
+        "situation": "顾客刚停好车，走向加油站员工，用轻松语气说想加满油，但未指定油品",
+        "speakerText": "Hey, I need to fill up, please.",
+        "speakerTextCn": "嘿，我想加满油，谢谢。",
         "options": [
           {
             "id": "opt_1",
-            "text": "No problem. Regular or premium?",
+            "text": "Got it. Regular or premium?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Can I see your driver's license?",
+            "text": "Would you like me to check your tires too?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "We're out of diesel today.",
+            "text": "Okay, I'll start filling now.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Would you like a car wash?",
+            "text": "Do you pay with cash or card?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'No problem. Regular or premium?' 是对 'fill up' 请求的自然回应，符合日常加油站对话习惯。其他选项要么询问驾照（opt_2，不相关），要么告知缺货（opt_3，未回应选择需求），或推销附加服务（opt_4），均偏离核心任务——确认油品等级。"
+        "explanation": "正确答案使用口语化缩写 'Got it' 并立即确认油品类型，符合高频对话习惯。干扰项1是提供无关服务（检查轮胎），干扰项2是提前行动未获确认（直接开始加油），干扰项3是过早询问支付方式（应在确认油品后）"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "Hi, I need to refill my tank.",
-        "speakerTextCn": "你好，我需要加满油箱。",
+        "situation": "顾客在加油站排队时对员工微笑并说需要加油，语气礼貌但简洁",
+        "speakerText": "Hi, I'd like some gas.",
+        "speakerTextCn": "嗨，我想加点油。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Sure! What fuel do you need?",
+            "text": "No problem. What grade?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "You should check your oil level.",
+            "text": "We have diesel over there.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "The restroom is around the corner.",
+            "text": "Could you move your car a little?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I can help you with that tomorrow.",
+            "text": "Thanks for coming today!",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Sure! What fuel do you need?' 是对加油请求的直接、礼貌回应，使用了场景核心词汇 'fuel'。其他选项分别涉及机油检查（opt_2）、洗手间位置（opt_3）和推迟服务（opt_4），均与当前语境无关，属于干扰性合理表达。"
+        "explanation": "正确答案用简洁自然的 'No problem' 回应，并用口语化 'What grade?' 确认油品，符合日常服务场景。干扰项1是假设顾客需要柴油（未提及车型），干扰项2是要求移动车辆（与当前请求无关），干扰项3是泛泛致谢（未回应核心需求）"
       }
     }
   ]

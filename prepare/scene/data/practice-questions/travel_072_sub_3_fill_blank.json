@@ -1,8 +1,8 @@
 {
   "subSceneId": "travel_072_sub_3",
-  "subSceneName": "确认车辆信息",
+  "subSceneName": "支付方式确认",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T15:16:53.607Z",
+  "generatedAt": "2026-03-03T14:31:15.276Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_072_sub_3_qa_1",
-        "template": "I’ll look for a ___ Honda with plate number ABC-123.",
+        "situation": "你在便利店结账时，店员询问你打算如何付款。",
+        "speakerText": "How would you like to pay?",
+        "speakerTextCn": "你打算怎么付款？",
+        "responseTemplate": "I'll pay with ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "black",
+            "answer": "cash",
             "options": [
-              "black",
-              "red",
-              "blue",
-              "silver"
+              "cash",
+              "card",
+              "check",
+              "credit"
             ]
           }
         ],
-        "hint": "根据对话中描述的车辆颜色填空",
-        "knowledgePoint": "车辆颜色描述（场景高频词汇）"
+        "hint": "当你说用现金支付时，常用表达是 'pay with cash'",
+        "knowledgePoint": "支付方式的基本表达"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Could you please confirm the driver’s ___ is Tom?",
+        "situation": "你在餐厅结账，服务员问你是否能刷卡，你希望用现金支付。",
+        "speakerText": "Do you accept credit cards?",
+        "speakerTextCn": "你们接受信用卡吗？",
+        "responseTemplate": "I'd prefer to pay with ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "name",
+            "answer": "cash",
             "options": [
-              "name",
-              "number",
-              "license",
-              "car"
+              "cash",
+              "debit",
+              "mobile",
+              "check"
             ]
           }
         ],
-        "hint": "询问司机身份时的常用词",
-        "knowledgePoint": "核心名词搭配（driver’s name）"
+        "hint": "表达偏好支付方式时，常用 'prefer to pay with' 加支付手段",
+        "knowledgePoint": "表达支付偏好"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Is the car ___ the entrance?",
+        "situation": "你在出租车上，司机问你是否能刷卡，但你只有现金。",
+        "speakerText": "Can you pay by card?",
+        "speakerTextCn": "你能刷卡支付吗？",
+        "responseTemplate": "Sorry, I only have ___",
         "blanks": [
           {
             "index": 0,
-            "answer": "near",
+            "answer": "cash",
             "options": [
-              "near",
-              "far",
-              "behind",
-              "next"
+              "cash",
+              "money",
+              "cards",
+              "coins"
             ]
           }
         ],
-        "hint": "询问车辆位置时的常用介词短语",
-        "knowledgePoint": "位置表达（near + 地点）"
+        "hint": "当无法使用其他方式时，常用 'only have cash' 来说明情况",
+        "knowledgePoint": "说明支付限制"
       }
     }
   ]

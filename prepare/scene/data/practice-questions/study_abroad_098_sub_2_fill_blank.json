@@ -2,7 +2,7 @@
   "subSceneId": "study_abroad_098_sub_2",
   "subSceneName": "借阅规则",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:52:58.842Z",
+  "generatedAt": "2026-03-03T14:28:14.805Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,34 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "study_abroad_098_sub_2_qa_1",
-        "template": "You can borrow up to ___ books for 4 weeks.",
+        "situation": "你在图书馆新办了借书卡，想了解基本的借阅政策，于是向工作人员询问。",
+        "speakerText": "I just got my library card. Could you tell me how many books I'm allowed to borrow at a time and how long I can keep them?",
+        "speakerTextCn": "我刚办了图书馆卡，你能告诉我一次能借多少本书，以及能借多久吗？",
+        "responseTemplate": "You can borrow up to ___ for ___.",
         "blanks": [
           {
             "index": 0,
-            "answer": "10",
+            "answer": "a few books",
             "options": [
-              "5",
-              "10",
-              "15",
-              "20"
+              "a few books",
+              "some book",
+              "many book",
+              "the books"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "a few weeks",
+            "options": [
+              "a few weeks",
+              "few week",
+              "some days",
+              "a long time"
             ]
           }
         ],
-        "hint": "这是图书馆常见的最大借阅数量，口语中常直接说数字。",
-        "knowledgePoint": "场景高频词汇（借阅数量）"
+        "hint": "用 'a few books' 表示数量，用 'a few weeks' 表示期限，这是口语中自然的表达方式。",
+        "knowledgePoint": "表达借阅数量和期限的常用口语结构"
       }
     },
     {
@@ -37,22 +49,34 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "If you need more time, you can ___ your books once.",
+        "situation": "你打算借几本小说，但不确定是否可以续借，于是向图书管理员确认规则。",
+        "speakerText": "I'd like to borrow some novels. Is there a limit on the number I can take out, and can I renew them if I need more time?",
+        "speakerTextCn": "我想借几本小说，借书有数量限制吗？如果需要更多时间，可以续借吗？",
+        "responseTemplate": "You can check out up to ___ and ___ if needed.",
         "blanks": [
           {
             "index": 0,
-            "answer": "renew",
+            "answer": "several titles",
             "options": [
-              "return",
-              "renew",
-              "exchange",
-              "cancel"
+              "several titles",
+              "some title",
+              "many title",
+              "the titles"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "renew them",
+            "options": [
+              "renew them",
+              "renew it",
+              "extend it",
+              "keep them longer"
             ]
           }
         ],
-        "hint": "表示‘续借’的动词，是借阅规则中的核心动作。",
-        "knowledgePoint": "场景核心动词搭配（renew books）"
+        "hint": "‘several titles’ 是口语中对‘几本书’的自然说法，‘renew them’ 是表达续借的标准动词搭配。",
+        "knowledgePoint": "表达可续借与书籍数量的自然口语搭配"
       }
     },
     {
@@ -62,22 +86,34 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "The ___ for each book is four weeks, but you can extend it.",
+        "situation": "你第一次来这家图书馆，想快速了解借书的基本规定，礼貌地向工作人员提问。",
+        "speakerText": "Hi, I'm new here. What's the usual policy for borrowing books? Like, how many and for how long?",
+        "speakerTextCn": "嗨，我是新来的。借书的一般规定是什么？比如一次能借多少本，借多久？",
+        "responseTemplate": "Typically, you can take ___ and keep them for ___.",
         "blanks": [
           {
             "index": 0,
-            "answer": "loan period",
+            "answer": "a couple of books",
             "options": [
-              "due date",
-              "loan period",
-              "borrowing fee",
-              "reading time"
+              "a couple of books",
+              "a couple book",
+              "two books",
+              "few books"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "a month",
+            "options": [
+              "a month",
+              "one month",
+              "30 days",
+              "long period"
             ]
           }
         ],
-        "hint": "指‘借阅期限’，是描述借书时间长度的标准表达。",
-        "knowledgePoint": "场景核心名词搭配（loan period）"
+        "hint": "‘a couple of books’ 和 ‘a month’ 是日常对话中自然、非精确但常用的表达方式。",
+        "knowledgePoint": "使用模糊但自然的口语表达描述借阅规则"
       }
     }
   ]

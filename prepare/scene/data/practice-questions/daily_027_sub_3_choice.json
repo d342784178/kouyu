@@ -2,7 +2,7 @@
   "subSceneId": "daily_027_sub_3",
   "subSceneName": "确认库存与价格",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:42:20.798Z",
+  "generatedAt": "2026-03-03T14:18:50.161Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_027_sub_3_qa_1",
-        "speakerText": "We’ve got one left in stock — it’s $129.",
-        "speakerTextCn": "只剩一台了，129美元。",
+        "situation": "你在电子产品商店看中了一款无线耳机，店员告诉你还有现货，但价格是 $159。你打算立即购买，但想试试能否降价。",
+        "speakerText": "We have two pairs left in stock — they’re $159.",
+        "speakerTextCn": "还剩两副，159美元。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Can you knock off $20? I’m not sure if I want it.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Can you knock off $10? I’ll take it right now.",
+            "text": "Can you lower it to $139? I’ll pay cash right now.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Do you have any other colors?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Is this the cheapest price you have? I’ll come back tomorrow.",
+            "text": "I’ll think about it and come back tomorrow.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I’ll take two, please.",
+            "text": "Is this the latest model?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了 'knock off'（打折）和 'I’ll take it right now'（立即购买）来增强说服力，符合场景中‘提价时带理由更易成功’的策略。选项1语气犹豫，削弱了购买意愿；选项3拖延决策，不利于促成交易；选项4与‘只剩一台’矛盾。"
+        "explanation": "正确答案直接回应价格并给出立即购买的动机（现金支付），这是促成降价的常见有效策略。选项2和4是答非所问，只关注颜色或型号，未回应价格；选项3表达犹豫，不利于议价。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_027_sub_3_qa_2",
-        "speakerText": "I can do $119 if you grab it today — no warranty extension though.",
-        "speakerTextCn": "今天买的话119，但不延保。",
+        "situation": "你在服装店看中一件外套，店员说库存只剩一件，标价$89，但如果你今天买，可以给你打九折。你决定接受，但想确认折扣是否包含保修。",
+        "speakerText": "I can give you 10% off if you take it today — no extended warranty included.",
+        "speakerTextCn": "如果你今天买，我可以给你九折，但不包含延保。",
         "options": [
           {
             "id": "opt_1",
-            "text": "I’ll think about it and call you tomorrow.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Deal! I’ll take it. What’s the warranty?",
+            "text": "Great, I’ll take it! How long is the standard warranty?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Can you throw in a free bag with it?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Can you lower it to $99 and include warranty extension?",
+            "text": "I’m not sure — I need to check online first.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "That’s too expensive. I’ll look elsewhere.",
+            "text": "Why isn’t there a warranty? That’s unfair.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案立即接受报价并主动确认保修细节，符合‘接受折扣时立即确认，避免犹豫’的策略。选项1拖延决策，选项3要求额外优惠但卖家已明确拒绝延保，选项4直接放弃，未尝试协商。"
+        "explanation": "正确答案在接受折扣后立即确认保修细节，符合高频交际模式。选项1是典型‘接受+确认’策略。选项2是额外请求，偏离核心信息；选项3犹豫不决，错失机会；选项4情绪化表达，不礼貌且无效。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "We have the model you’re looking for, but it’s $150.",
-        "speakerTextCn": "我们有您要的型号，但价格是150美元。",
+        "situation": "你打算买一台咖啡机，店员说只剩一台，标价$120，但你可以用会员卡享受$10优惠。你想确认是否还有其他折扣可能。",
+        "speakerText": "With your membership, it’s $110 — that’s the lowest price we can do.",
+        "speakerTextCn": "用会员卡是110美元，这是我们能给的最低价了。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Can you give me a discount? I’m a student.",
+            "text": "Okay, I’ll take it. Can I get a free coffee beans pack too?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I don’t like the color. Do you have another one?",
+            "text": "I heard this model is on sale for $95 at another store.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "I’ll buy it for $100.",
+            "text": "Can I pay in installments?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "How about if I pay in cash?",
+            "text": "I’ll just look around some more.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案合理提出折扣请求，并给出理由（学生身份），符合场景中‘确认库存后询问折扣’的沟通逻辑。选项2转移话题，未回应价格；选项3压价过低，缺乏协商语气；选项4未直接请求折扣，而是提出付款方式，偏离核心需求。"
+        "explanation": "正确答案在确认价格后，礼貌地请求附加赠品，是常见且自然的跟进策略。选项2是威胁性比较，易引发对抗；选项3与价格无关，偏离主题；选项4直接放弃，不符合‘确认库存后想买’的语境。"
       }
     }
   ]

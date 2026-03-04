@@ -2,7 +2,7 @@
   "subSceneId": "daily_001_sub_4",
   "subSceneName": "请求结账",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:38:17.271Z",
+  "generatedAt": "2026-03-03T14:15:30.291Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_001_sub_4_qa_1",
-        "speakerText": "How was everything?",
-        "speakerTextCn": "饭菜还合口味吗？",
+        "situation": "你和朋友在餐厅吃完晚餐，服务员走过来问你们是否需要续杯饮料，你想礼貌地表示用餐结束并请求结账。",
+        "speakerText": "Would you like another drink?",
+        "speakerTextCn": "你们还需要再来一杯饮料吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "It was terrible, I want to complain.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "It was delicious, thanks! Can I get the check?",
+            "text": "No, thanks. Can we get the bill, please?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "No, I'm full.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I don't know, I didn't eat much.",
+            "text": "The food was great, but I need to go now.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can I have the bill now?",
+            "text": "Can you bring us coffee?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案结合了礼貌赞美（It was delicious, thanks!）和请求结账（Can I get the check?），符合场景中的使用说明。选项1语气负面，不适合餐厅场景；选项3没有回应问题；选项4虽然意思正确，但缺少礼貌铺垫，不符合‘先夸再提结账’的推荐策略。"
+        "explanation": "正确答案使用了礼貌的‘No, thanks’作为铺垫，再用最常用的表达‘Can we get the bill, please?’提出结账请求，符合‘先肯定再请求’的社交礼仪。干扰项1只表达吃饱了，未提出结账；干扰项2表达了要离开，但未明确请求结账；干扰项3反而要求加咖啡，完全偏离意图。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_001_sub_4_qa_2",
-        "speakerText": "Can I get the bill, please?",
-        "speakerTextCn": "可以结账吗？",
+        "situation": "你独自在咖啡馆结束工作，准备离开，服务员正在收拾邻桌，你希望礼貌地引起注意并请求结账。",
+        "speakerText": "I'm just finishing up here.",
+        "speakerTextCn": "我这边刚吃完。",
         "options": [
           {
             "id": "opt_1",
-            "text": "I don't have money.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Sure, I'll bring it right away.",
+            "text": "Could I get the check when you have a moment?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Is the coffee included?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Why do you need it?",
+            "text": "I'm ready to leave.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "The food was bad.",
+            "text": "Do you accept cash?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是服务员对结账请求的标准回应，礼貌且专业。选项1和4是负面回应，不符合服务场景；选项3是反问，显得不礼貌且不专业。"
+        "explanation": "正确答案使用了委婉请求句式‘Could I get the check when you have a moment?’，既礼貌又符合英语母语者在服务场景中的自然表达。干扰项1询问是否包含咖啡，偏离结账主题；干扰项2只说‘准备离开’，未明确请求结账；干扰项3提前问支付方式，属于顺序错误，应在结账请求之后。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "I'd like to settle the bill, please.",
-        "speakerTextCn": "我想结账，请。",
+        "situation": "你和同事在餐厅吃完午餐，对方刚说‘这顿饭真不错’，你希望自然接话并提出结账。",
+        "speakerText": "That was a really good meal.",
+        "speakerTextCn": "这顿饭真不错。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Okay, here's your receipt.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Of course! Would you like to pay together or separately?",
+            "text": "Agreed! Could we get the bill, please?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Yeah, I'm done.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I'm not your server.",
+            "text": "Let's split it.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can I have a discount?",
+            "text": "I'll pay this time.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是服务员对结账请求的自然回应，包含确认和进一步询问付款方式（split the bill），符合真实服务场景。选项1虽然相关，但未回应请求，直接给收据不合流程；选项3是错误角色回应；选项4是额外要求，与当前请求无关。"
+        "explanation": "正确答案先认同对方的赞美（Agreed!），再用标准请求句式‘Could we get the bill, please?’自然过渡到结账，符合‘先��定再请求’的礼貌结构。干扰项1只表达自己吃完了，未请求结账；干扰项2直接提议AA，属于提前跳过结账请求；干扰项3直接说付款，未先请求账单，语序不合常规。"
       }
     }
   ]

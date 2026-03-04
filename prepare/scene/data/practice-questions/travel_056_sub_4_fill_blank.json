@@ -2,7 +2,7 @@
   "subSceneId": "travel_056_sub_4",
   "subSceneName": "询问设施与早餐",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:53:53.148Z",
+  "generatedAt": "2026-03-03T14:30:04.869Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_056_sub_4_qa_1",
-        "template": "The WiFi is free. The password is on the ___.",
+        "situation": "你在酒店前台办理入住，想确认房间内的网络是否稳定，以及早餐是否包含在房费里。",
+        "speakerText": "Your room includes free WiFi and breakfast.",
+        "speakerTextCn": "您的房间包含免费WiFi和早餐。",
+        "responseTemplate": "Is the WiFi ___ in the room?",
         "blanks": [
           {
             "index": 0,
-            "answer": "card",
+            "answer": "reliable",
             "options": [
-              "card",
-              "phone",
-              "wall",
-              "desk"
+              "strong",
+              "reliable",
+              "fast",
+              "available"
             ]
           }
         ],
-        "hint": "密码通常写在入住时收到的卡片上",
-        "knowledgePoint": "场景高频词汇（WiFi密码的存放位置）"
+        "hint": "当你关心网络是否稳定可用时，常用这个词描述网络质量。",
+        "knowledgePoint": "描述网络质量的常用形容词"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_056_sub_4_qa_1",
-        "template": "Breakfast is served from 7 to 10 in the ___ room.",
+        "situation": "你在酒店询问早餐服务，想知道是否需要提前预订，或者是否可以延迟用餐。",
+        "speakerText": "Breakfast is served daily in the main hall.",
+        "speakerTextCn": "早餐每天在主厅供应。",
+        "responseTemplate": "Do I need to ___ for breakfast?",
         "blanks": [
           {
             "index": 0,
-            "answer": "dining",
+            "answer": "reserve",
             "options": [
-              "dining",
-              "meeting",
-              "lounge",
-              "kitchen"
+              "book",
+              "reserve",
+              "sign up",
+              "notify"
             ]
           }
         ],
-        "hint": "酒店提供早餐的专用区域",
-        "knowledgePoint": "场景核心词汇（dining room）"
+        "hint": "当你想确认是否需要提前安排用餐时，常用这个动词。",
+        "knowledgePoint": "预订服务的常用动词"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_056_sub_4_qa_2",
-        "template": "We have a free ___ to the city center at 6 PM.",
+        "situation": "你刚入住酒店，想确认早餐结束时间，但不想直接问具体钟点，而是想确认是否足够晚，方便你慢慢起床。",
+        "speakerText": "Breakfast is available until late morning.",
+        "speakerTextCn": "早餐供应到上午较晚的时候。",
+        "responseTemplate": "Is it okay if I come ___?",
         "blanks": [
           {
             "index": 0,
-            "answer": "shuttle",
+            "answer": "a bit later",
             "options": [
-              "shuttle",
-              "taxi",
-              "bus",
-              "train"
+              "a bit later",
+              "after 9",
+              "in the afternoon",
+              "at noon"
             ]
           }
         ],
-        "hint": "酒店提供的免费接送服务",
-        "knowledgePoint": "场景核心词汇（shuttle）"
+        "hint": "当你想委婉表达想晚点吃早餐时，常用这个短语。",
+        "knowledgePoint": "委婉表达时间需求的日常短语"
       }
     }
   ]

@@ -2,7 +2,7 @@
   "subSceneId": "daily_016_sub_1",
   "subSceneName": "打招呼询问",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:38:17.921Z",
+  "generatedAt": "2026-03-03T14:16:59.778Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_016_sub_1_qa_1",
-        "speakerText": "Hey, you got any orange juice?",
-        "speakerTextCn": "嘿，你们有橙汁吗？",
+        "situation": "顾客走进便利店，想买牛奶，向店员礼貌询问库存情况",
+        "speakerText": "Hi, do you have any milk?",
+        "speakerTextCn": "你好，你们有牛奶吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, it's on the shelf.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Yeah, we do. It's in the fridge.",
+            "text": "Yeah, it's in the dairy section, next to the eggs.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "I'm looking for a snack, do you have chips?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I don't know, ask the manager.",
+            "text": "Sorry, I don't know where it is.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "No, we don't sell drinks.",
+            "text": "We sell milk, but you need to pay first.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Yeah, we do. It's in the fridge.' 是对话中给出的标准回应，自然、简洁且符合口语习惯。选项1中 'on the shelf' 与橙汁通常冷藏的常识不符；选项3回避问题，不够礼貌和专业；选项4完全否定饮料销售，与场景矛盾。"
+        "explanation": "正确答案准确回应了对方关于牛奶库存的询问，并提供了具体位置，符合日常口语习惯。干扰项1答非所问，转而询问薯片；干扰项2表示不知道位置，缺乏帮助性；干扰项4表达不自然，购物流程逻辑错误。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_016_sub_1_qa_2",
-        "speakerText": "And do you have the chicken sandwich?",
-        "speakerTextCn": "那鸡肉三明治有吗？",
+        "situation": "顾客在咖啡店想买燕麦奶，向店员确认是否有货",
+        "speakerText": "Do you happen to have oat milk?",
+        "speakerTextCn": "你们有燕麦奶吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I think so, but I'm not sure.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Yep, right next to the salads.",
+            "text": "Yes, we do. It's by the coffee syrups.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "I love oat milk, I drink it every day.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Do you want ketchup with it?",
+            "text": "We don't have any drinks today.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "We only serve coffee here.",
+            "text": "Can I get a latte instead?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Yep, right next to the salads.' 是标准回应，直接确认库存并提供位置信息。选项1表达不确定，不符合服务场景中应提供的明确信息；选项3转移话题，未回应库存问题；选项4完全错误，与场景无关。"
+        "explanation": "正确答案直接回应了询问，确认有货并指出位置，自然且完整。干扰项1是自我陈述，未回答问题；干扰项2错误地声称所有饮品都没货，与事实不符；干扰项4是提出替代方案，但未回应原问题，属于答非所问。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "Hi, do you have any fresh bread today?",
-        "speakerTextCn": "你好，今天有新鲜面包吗？",
+        "situation": "顾客在超市水果区问店员是否有新鲜的香蕉",
+        "speakerText": "Hey, you got any fresh bananas?",
+        "speakerTextCn": "嘿，你们有新鲜的香蕉吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "We're closed on Sundays.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Yes, it's by the bakery counter.",
+            "text": "Yep, right over by the apples.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "I think bananas are healthy.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "How much do you want?",
+            "text": "We're closed at 8 PM.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I love bread too!",
+            "text": "How much do they cost?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Yes, it's by the bakery counter.' 直接回应了库存和位置，符合打招呼询问场景的核心需求。选项1与问题无关（时间信息）；选项3提前询问数量，属于过早推进对话；选项4是情感回应，未解决顾客实际问题。"
+        "explanation": "正确答案简洁回应了商品是否存在及位置，符合口语习惯。干扰项1是无关评论，未回答问题；干扰项2提供营业时间，完全跑题；干扰项4提前问价格，属于跳过标准回应流程，不符合自然对话节奏。"
       }
     }
   ]

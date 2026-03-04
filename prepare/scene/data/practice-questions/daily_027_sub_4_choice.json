@@ -2,7 +2,7 @@
   "subSceneId": "daily_027_sub_4",
   "subSceneName": "了解保修",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:41:59.362Z",
+  "generatedAt": "2026-03-03T14:18:46.493Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,32 +12,32 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "qaId": "daily_027_sub_4_qa_1",
-        "speakerText": "Standard warranty is 2 years — covers motor and battery defects.",
-        "speakerTextCn": "标准保修两年，涵盖电机和电池故障。",
+        "situation": "你在电子产品商店购买了一台新耳机，销售员告知标准保修为一年，仅覆盖制造缺陷。你担心日常使用中可能意外损坏，想确认是否包含这种情况。",
+        "speakerText": "The standard warranty is one year and only covers manufacturing defects like faulty wiring or speaker malfunction.",
+        "speakerTextCn": "标准保修一年，仅涵盖制造缺陷，比如线路故障或扬声器失灵。",
         "options": [
           {
             "id": "opt_1",
-            "text": "It covers accidental damage like drops or spills.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "It covers manufacturing defects in the motor and battery only.",
+            "text": "What about if I accidentally drop it and the earcup breaks? Is that covered?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Can I get a refund if it stops working after six months?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "It lasts for 5 years and includes all parts.",
+            "text": "That’s great! I’ll buy two more just in case.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "You can extend it for free within the first year.",
+            "text": "How long does the battery last on a full charge?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确反映了对话中'only manufacturer defects'的限定范围。干扰项1错误地扩大了保修范围至意外损坏；干扰项3夸大了保修年限和覆盖部件；干扰项4与对话中'pay $15'的付费延保矛盾。"
+        "explanation": "正确答案准确追问意外损坏是否在保修范围内，符合场景核心任务——确认保修边界。干扰项1是询问退款，偏离保修范围；干扰项2是无关的购买行为；干扰项3是询问电池续航，完全答非所问。"
       }
     },
     {
@@ -47,32 +47,32 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "qaId": "daily_027_sub_4_qa_2",
-        "speakerText": "Nope — only manufacturer defects. You can buy extended warranty for $15.",
-        "speakerTextCn": "不包，只包出厂缺陷。加15美元可延保。",
+        "situation": "销售员建议你花20美元购买延保服务，覆盖意外损坏。你考虑后决定不购买，但想礼貌地拒绝并说明原因。",
+        "speakerText": "For $20, you can extend your warranty to cover drops, spills, and other accidental damage.",
+        "speakerTextCn": "支付20美元，您可以延长保修期，覆盖摔落、泼溅和其他意外损坏。",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll take the extended warranty — I'm not careful anyway.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "I'd rather not pay extra — I'll handle it carefully.",
+            "text": "Thanks, but I’m pretty careful with my stuff, so I’ll pass.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Can I pay for it later when I get home?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Can I get the extension for $5 instead?",
+            "text": "Do you have any other models with better warranty?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "So the warranty covers water damage too?",
+            "text": "I didn’t know accidental damage was included already.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案符合对话中拒绝延保并给出合理理由的自然表达方式。干扰项1与常理矛盾（不谨慎却买延保）；干扰项3试图议价，但对话未提供议价空间；干扰项4重复误解保修范围，与前文冲突。"
+        "explanation": "正确答案自然拒绝并给出合理理由，符合高频表达习惯。干扰项1是试图延迟付款，误解了对方提议；干扰项2是转向其他产品，偏离主题；干扰项3是错误地认为意外损坏已包含，属于理解偏差。"
       }
     },
     {
@@ -82,32 +82,32 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "qaId": null,
-        "speakerText": "The warranty doesn't cover damage from misuse or unauthorized repairs.",
-        "speakerTextCn": "保修不涵盖因误用或非授权维修造成的损坏。",
+        "situation": "你刚买了一台智能音箱，收到邮件说保修期为18个月，但仅限于软件故障和硬件缺陷。你想确认是否包括因高温导致的损坏。",
+        "speakerText": "Your warranty covers software glitches and hardware defects for 18 months. It doesn’t cover damage from extreme temperatures.",
+        "speakerTextCn": "您的保修涵盖18个月内的软件故障和硬件缺陷，但不包括极端温度造成的损坏。",
         "options": [
           {
             "id": "opt_1",
-            "text": "So if I open the device to fix it myself, it's still covered?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Does that mean using it in the rain voids the warranty?",
+            "text": "So if I leave it in my car on a hot day and it stops working, that’s not covered?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Can I return it if I don’t like the sound quality?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Can I get a refund if I don't use it for a year?",
+            "text": "That’s longer than I expected! Thanks!",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Is the warranty transferable if I sell the product?",
+            "text": "Do you offer a discount if I buy another one?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案正确推断出'误用'可能包含在雨中使用，符合语境逻辑。干扰项1直接违反'非授权维修不保'的条款；干扰项3与保修无关，属于退款问题；干扰项4虽合理，但���话未提及转让条款，属于无关延伸。"
+        "explanation": "正确答案明确确认高温损坏是否被排除，精准回应保修范围的核心疑问。干扰项1是询问退货政策，与保修无关；干扰项2是单纯表达感谢，未确认关键信息；干扰项3是询问促销，完全偏离主题。"
       }
     }
   ]

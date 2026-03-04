@@ -1,8 +1,8 @@
 {
   "subSceneId": "daily_002_sub_3",
-  "subSceneName": "促销询问",
+  "subSceneName": "询问促销活动",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T14:34:42.917Z",
+  "generatedAt": "2026-03-03T14:23:02.680Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_002_sub_3_qa_1",
-        "template": "Is there a special deal on ___ today?",
+        "situation": "顾客在超市想确认某款洗发水是否有优惠活动",
+        "speakerText": "Is there any promotion on this shampoo?",
+        "speakerTextCn": "这款洗发水有促销活动吗？",
+        "responseTemplate": "Yes, we're offering ___ right now.",
         "blanks": [
           {
             "index": 0,
-            "answer": "bread",
+            "answer": "buy one get one free",
             "options": [
-              "bread",
-              "price",
-              "store",
-              "time"
+              "buy one get one free",
+              "it's very expensive",
+              "you need a membership card",
+              "I don't like this brand"
             ]
           }
         ],
-        "hint": "这是询问特定商品促销的常用句型，需填入商品名称",
-        "knowledgePoint": "场景高频词汇（商品名称）"
+        "hint": "表达促销活动常用 'buy one get one free' 或 '20% off' 等结构",
+        "knowledgePoint": "促销活动表达"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "daily_002_sub_3_qa_2",
-        "template": "They're at the front near the ___ — grab one!",
+        "situation": "顾客在便利店询问饮料是否附赠礼品",
+        "speakerText": "Do you give any free gifts with this drink?",
+        "speakerTextCn": "买这款饮料会送赠品吗？",
+        "responseTemplate": "Yes, you get ___ when you buy two.",
         "blanks": [
           {
             "index": 0,
-            "answer": "checkout",
+            "answer": "a free cup",
             "options": [
-              "checkout",
-              "shelf",
-              "aisle",
-              "door"
+              "a free cup",
+              "a discount card",
+              "a receipt",
+              "a customer survey"
             ]
           }
         ],
-        "hint": "优惠券通常放在收银台附近方便顾客取用",
-        "knowledgePoint": "场景核心位置表达（checkout）"
+        "hint": "询问赠品时常用 'get a free [item]' 结构",
+        "knowledgePoint": "赠品表达"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "You can get 10% off if you ___ the loyalty app.",
+        "situation": "顾客想确认是否能用会员积分兑换折扣",
+        "speakerText": "Can I use my loyalty points for a discount on this item?",
+        "speakerTextCn": "我可以用会员积分换这个商品的折扣吗？",
+        "responseTemplate": "Yes, you can apply ___ at checkout.",
         "blanks": [
           {
             "index": 0,
-            "answer": "scan",
+            "answer": "your points",
             "options": [
-              "scan",
-              "buy",
-              "download",
-              "install"
+              "your points",
+              "your receipt",
+              "your coupon",
+              "your name"
             ]
           }
         ],
-        "hint": "使用会员App享受折扣的常见动作是扫码",
-        "knowledgePoint": "场景惯用搭配（scan the app）"
+        "hint": "使用积分兑换折扣时，核心表达是 'apply your points'",
+        "knowledgePoint": "会员积分使用表达"
       }
     }
   ]

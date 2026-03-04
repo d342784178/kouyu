@@ -2,7 +2,7 @@
   "subSceneId": "travel_064_sub_3",
   "subSceneName": "确认取件时间",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T15:07:29.914Z",
+  "generatedAt": "2026-03-03T14:30:45.334Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_064_sub_3_qa_1",
-        "template": "I'd like to pick up my bags ___ tomorrow.",
+        "situation": "旅客在酒店前台寄存行李后，想确认取件时是否需要提前通知或预约",
+        "speakerText": "Your bags will be held here until you're ready to collect them.",
+        "speakerTextCn": "您的行李会在这里保管，直到您准备领取。",
+        "responseTemplate": "Do I need to ___ before coming back?",
         "blanks": [
           {
             "index": 0,
-            "answer": "before midnight",
+            "answer": "notify you",
             "options": [
-              "before midnight",
-              "after noon",
-              "at 8 AM",
-              "by Friday"
+              "notify you",
+              "call you",
+              "book a time",
+              "pay again"
             ]
           }
         ],
-        "hint": "对方提到的取件时间范围",
-        "knowledgePoint": "时间表达（before midnight）"
+        "hint": "询问是否需要提前告知工作人员你将前来取件",
+        "knowledgePoint": "确认取件流程中的必要步骤"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "travel_064_sub_3_qa_2",
-        "template": "To collect my luggage, I need to show my ___ and ID.",
+        "situation": "旅客担心行李寄存时间过长，想确认是否可以延迟取件或延长寄存期限",
+        "speakerText": "We keep luggage for up to seven days at no extra charge.",
+        "speakerTextCn": "我们免费为您保管行李最多七天。",
+        "responseTemplate": "What if I can't pick them up within that time? Can I ___?",
         "blanks": [
           {
             "index": 0,
-            "answer": "receipt",
+            "answer": "extend the storage",
             "options": [
-              "receipt",
-              "ticket",
-              "reservation",
-              "booking"
+              "extend the storage",
+              "renew the receipt",
+              "pay extra",
+              "change the location"
             ]
           }
         ],
-        "hint": "取件时必须出示的纸质凭证",
-        "knowledgePoint": "核心凭证词汇（receipt）"
+        "hint": "询问是否可以延长寄存时间",
+        "knowledgePoint": "询问服务的灵活性或延期选项"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "Could I ___ my bags in the evening?",
+        "situation": "旅客准备取行李，但不确定是否需要携带所有寄存时提供的文件",
+        "speakerText": "To collect your items, please bring the tag and a form of identification.",
+        "speakerTextCn": "领取行李时，请携带行李标签和身份证明。",
+        "responseTemplate": "Is my ___ enough, or do I need the original receipt too?",
         "blanks": [
           {
             "index": 0,
-            "answer": "pick up",
+            "answer": "ID card",
             "options": [
-              "pick up",
-              "check in",
-              "drop off",
-              "pay for"
+              "ID card",
+              "boarding pass",
+              "credit card",
+              "hotel key"
             ]
           }
         ],
-        "hint": "取件的常用动词搭配",
-        "knowledgePoint": "动词搭配（pick up luggage）"
+        "hint": "确认身份证明文件是否足够，避免携带不必要的材料",
+        "knowledgePoint": "确认取件所需凭证的范围"
       }
     }
   ]

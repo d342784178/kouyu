@@ -2,7 +2,7 @@
   "subSceneId": "workplace_039_sub_3",
   "subSceneName": "条款协商",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-02T15:17:31.879Z",
+  "generatedAt": "2026-03-03T14:32:24.328Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "questions": [
     {
@@ -12,22 +12,24 @@
       "order": 1,
       "content": {
         "type": "fill_blank",
-        "qaId": "workplace_039_sub_3_qa_1",
-        "template": "We can do 30% upfront if you agree to a ___-day payment window after delivery.",
+        "situation": "供应商提出降低预付款比例，你希望在不影响现金流的前提下达成协议，需提出一个对等的付款条件。",
+        "speakerText": "We're happy to reduce the upfront payment to 25%, but we need the balance paid within a reasonable time after delivery.",
+        "speakerTextCn": "我们愿意将预付款降至25%，但希望交货后能在合理时间内付清尾款。",
+        "responseTemplate": "We can accept 25% upfront if you agree to pay the remainder within ___ after shipment.",
         "blanks": [
           {
             "index": 0,
-            "answer": "15",
+            "answer": "15 days",
             "options": [
-              "15",
-              "30",
-              "7",
-              "45"
+              "15 days",
+              "before shipment",
+              "as soon as possible",
+              "when you receive the goods"
             ]
           }
         ],
-        "hint": "这是标准付款条件，与交货后结清相关",
-        "knowledgePoint": "数字搭配（付款周期常用表达）"
+        "hint": "表达付款期限时，使用具体但通用的时间范围，避免模糊或不专业的说法。",
+        "knowledgePoint": "提出对等条件的付款期限表达"
       }
     },
     {
@@ -37,22 +39,24 @@
       "order": 2,
       "content": {
         "type": "fill_blank",
-        "qaId": "workplace_039_sub_3_qa_2",
-        "template": "We’d need a ___% surcharge for split shipments — it messes with our logistics.",
+        "situation": "客户要求分批交货以减轻仓储压力，你愿意配合但需额外费用补偿物流复杂性。",
+        "speakerText": "Our storage space is limited — could you deliver in smaller batches over time?",
+        "speakerTextCn": "我们的仓储空间有限，能否分批交货？",
+        "responseTemplate": "We can accommodate split shipments, but we'll need to add ___ to cover the increased logistics cost.",
         "blanks": [
           {
             "index": 0,
-            "answer": "5",
+            "answer": "a 5% surcharge",
             "options": [
-              "5",
-              "10",
-              "15",
-              "20"
+              "a 5% surcharge",
+              "an extra week",
+              "a discount",
+              "more packaging"
             ]
           }
         ],
-        "hint": "这是原文中提到的附加费用比例",
-        "knowledgePoint": "百分比表达（附加成本的典型数值）"
+        "hint": "当提出附加成本时，使用明确的费用术语，避免模糊或不专业的表达。",
+        "knowledgePoint": "表达附加费用的准确用语"
       }
     },
     {
@@ -62,22 +66,24 @@
       "order": 3,
       "content": {
         "type": "fill_blank",
-        "qaId": null,
-        "template": "How about ___% upfront and net-10 after shipment? We need some cash flow.",
+        "situation": "对方坚持高预付款比例，你希望维持原有条款但提供其他补偿方式以促成合作。",
+        "speakerText": "We really need at least 50% upfront — it's non-negotiable for us.",
+        "speakerTextCn": "我们确实需要至少50%的预付款，这是不可商量的。",
+        "responseTemplate": "We can't go below 40%, but we can offer ___ to help with your cash flow.",
         "blanks": [
           {
             "index": 0,
-            "answer": "35",
+            "answer": "faster delivery",
             "options": [
-              "35",
-              "25",
-              "45",
-              "50"
+              "faster delivery",
+              "free shipping",
+              "a lower price",
+              "an extended warranty"
             ]
           }
         ],
-        "hint": "这是提出折中方案时常用的预付款比例",
-        "knowledgePoint": "协商中常用预付款比例表达"
+        "hint": "当无法让步付款比例时，用其他价值补偿替代，保持谈判平衡。",
+        "knowledgePoint": "用非财务条件补偿达成妥协"
       }
     }
   ]
