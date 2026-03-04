@@ -43,7 +43,7 @@ export default function RoleSelectionView({
   const { sceneType, sceneDescription, userRoles, dialogueGoal, suggestedTopics } = questionAnalysis
 
   return (
-    <div className="flex-1 flex flex-col overflow-hidden min-h-0 bg-[#F5F6FA]">
+    <div className="w-full h-full flex flex-col bg-[#F5F6FA]">
       {/* Scene Banner - 渐变头部 - 固定高度，使用 mx-6 规范 */}
       <div className="bg-gradient-to-br from-[#4F7CF0] to-[#7B5FE8] mx-6 mt-0 rounded-2xl shrink-0 overflow-hidden">
         <div className="px-6 pt-4 pb-4">
@@ -66,8 +66,8 @@ export default function RoleSelectionView({
         </div>
       </div>
 
-      {/* 可滚动内容区域 - 使用 mx-6 规范 */}
-      <div className="flex-1 overflow-y-auto px-6 pt-4 pb-2 space-y-4 min-h-0">
+      {/* 内容区域 - 使用 mx-6 规范 */}
+      <div className="px-6 pt-4 pb-24 space-y-4">
         {/* Dialogue Goal - 对话目标 - 白色卡片背景 */}
         <div className="bg-white border border-gray-100 rounded-xl p-4 shadow-sm">
           <div className="flex items-center gap-1.5 mb-1">
@@ -186,10 +186,7 @@ export default function RoleSelectionView({
             </button>
           </div>
         </div>
-      </div>
 
-      {/* 底部固定区域 - 错误提示和按钮 - 白色背景 */}
-      <div className="px-6 pb-6 pt-3 bg-white border-t border-gray-100 shrink-0">
         {/* Error Message - 错误提示 */}
         {error && (
           <div className="text-center text-[#EF4444] text-sm mb-3 px-2 py-2 bg-red-50 rounded-lg border border-red-100">
