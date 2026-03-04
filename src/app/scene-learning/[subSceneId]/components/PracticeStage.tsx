@@ -8,7 +8,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { getAudioUrl } from '@/lib/audioUrl'
+
 import type { PracticeQuestion, ChoiceOption } from '@/types'
 
 // ============================================================
@@ -30,13 +30,7 @@ function validateFillBlankAnswer(answer: string): boolean {
   return answer.trim().length > 0
 }
 
-/** 播放音频（支持 COS:/ 协议） */
-function playAudio(audioUrl: string) {
-  const url = getAudioUrl(audioUrl)
-  if (!url) return
-  const audio = new Audio(url)
-  audio.play().catch(() => {/* 静默失败 */})
-}
+
 
 /** 忽略大小写和首尾空格比较答案 */
 function compareAnswer(userAnswer: string, correctAnswer: string): boolean {
@@ -74,22 +68,6 @@ interface ChoiceQuestionProps {
 function ChoiceQuestion({ question, onNext }: ChoiceQuestionProps) {
   const [selected, setSelected] = useState<string | null>(null)
   const [hasAnswered, setHasAnswered] = useState(false)
-  const audioPlayedRef = useRef(false)
-
-  // 进入题目时自动播放音频
-  useEffect(() => {
-    if (!audioPlayedRef.current && question.audioUrl) {
-      audioPlayedRef.current = true
-      // 延迟 300ms 等待动画完成后播放
-      const timer = setTimeout(() => playAudio(question.audioUrl), 300)
-      return () => clearTimeout(timer)
-    }
-  }, [question.audioUrl])
-
-  // 切换题目时重置音频播放标记
-  useEffect(() => {
-    audioPlayedRef.current = false
-  }, [question.qaId])
 
   const handleSelect = (option: ChoiceOption) => {
     if (hasAnswered) return
@@ -115,21 +93,10 @@ function ChoiceQuestion({ question, onNext }: ChoiceQuestionProps) {
     <div className="flex flex-col h-full px-4 pt-4 pb-6">
       {/* 题目说明 */}
       <div className="mb-5">
-        <p className="text-xs text-gray-400 mb-1">听音频，选择正确的回应方式</p>
-        {/* 播放音频按钮 */}
-        <button
-          type="button"
-          onClick={() => playAudio(question.audioUrl)}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-card bg-[#EEF2FF] border border-[#C7D4FA] text-[#4F7CF0] text-sm font-medium hover:bg-[#E0E8FF] transition-colors"
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <polygon points="5 3 19 12 5 21 5 3" />
-          </svg>
-          再次播放音频
-        </button>
+        <p className="text-xs text-gray-400 mb-1">选择正确的回应方式</p>
       </div>
 
-      {/* 音频文本展示 */}
+      {/* 文本展示 */}
       <div className="bg-white rounded-card shadow-card border border-gray-100 p-4 mb-5">
         <p className="text-xs text-gray-400 mb-1">对方说：</p>
         <p className="text-base font-medium text-gray-900 leading-snug">{question.speakerText}</p>
@@ -229,7 +196,8 @@ function FillBlankQuestion({ question, onNext }: FillBlankQuestionProps) {
 
   /** 将模板按 ___ 分割，渲染含选项按钮的句子 */
   const renderTemplate = () => {
-    const parts = question.template.split('___')
+    const template = question.template || ''
+    const parts = template.split('___')
     return parts.map((part, i) => (
       <span key={i} className="inline">
         <span className="text-gray-800">{part}</span>

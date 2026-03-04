@@ -18,7 +18,23 @@ export async function GET(
   try {
     const dbQuestions = await getPracticeQuestionsBySubSceneId(subSceneId)
 
-    const questions = dbQuestions.map(q => q.content as PracticeQuestion)
+    const questions = dbQuestions.map(q => {
+      const content = q.content as any
+      // 处理填空题字段不匹配问题：responseTemplate -> template
+      if (content.type === 'fill_blank' && content.responseTemplate) {
+        content.template = content.responseTemplate
+        delete content.responseTemplate
+      }
+      return content as PracticeQuestion
+    })
+
+    // 按题型排序：选择题 -> 填空题 -> 问答题
+    const typeOrder: Record<string, number> = {
+      choice: 1,
+      fill_blank: 2,
+      speaking: 3,
+    }
+    questions.sort((a, b) => (typeOrder[a.type] || 99) - (typeOrder[b.type] || 99))
 
     return NextResponse.json(
       { questions },
