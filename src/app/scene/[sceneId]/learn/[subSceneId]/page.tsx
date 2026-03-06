@@ -114,7 +114,7 @@ function SubSceneHeader({ name, currentIndex, totalSubScenes, sceneId }: SubScen
   const router = useRouter()
 
   const handleBack = () => {
-    router.push(`/scene-overview/${sceneId}`)
+    router.push(`/scene/${sceneId}/overview`)
   }
 
   return (

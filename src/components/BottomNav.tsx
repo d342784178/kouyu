@@ -97,7 +97,7 @@ const navItems = [
     icon: BookIcon,
   },
   {
-    path: '/scene-learning',
+    path: '/scene',
     label: '场景学习',
     icon: SceneIcon,
   },

@@ -527,11 +527,11 @@ export default function ChatPage() {
   }
 
   const handleBack = () => {
-    router.push(`/scene-practice/${sceneId}/role-selection`)
+    router.push(`/scene/${sceneId}/practice/role-selection`)
   }
 
   const handleComplete = () => {
-    router.push(`/scene-overview/${sceneId}`)
+    router.push(`/scene/${sceneId}/overview`)
   }
 
   if (isLoading || status === 'loading') {

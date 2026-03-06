@@ -317,17 +317,17 @@ export default function SceneOverviewPage({
 
   // 跳转到指定子场景学习页
   const handleNavigateToSubScene = (subSceneId: string) => {
-    router.push(`/scene-learning/${subSceneId}`)
+    router.push(`/scene/${sceneId}/learn/${subSceneId}`)
   }
 
   // 跳转到自主AI练习页面
-  const handleNavigateToAIPractice = (sceneId: string) => {
-    router.push(`/scene-practice/${sceneId}`)
+  const handleNavigateToAIPractice = (id: string) => {
+    router.push(`/scene/${id}/practice`)
   }
 
-  // 返回上一页
+  // 返回场景列表
   const handleBack = () => {
-    router.back()
+    router.push('/scene')
   }
 
   return (

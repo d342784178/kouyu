@@ -218,8 +218,8 @@ export default function SceneLearningList() {
               const diff = difficultyConfig[scene.difficulty] || { color: '#6B7280', bgColor: '#F3F4F6' }
               return (
                 <motion.div key={scene.id} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3, delay: i * 0.04 }}>
-                  {/* 跳转到 scene-overview 而非 scene-detail */}
-                  <Link href={`/scene-overview/${scene.id}`}>
+                  {/* 跳转到场景大纲页 */}
+                  <Link href={`/scene/${scene.id}/overview`}>
                     <motion.div whileTap={{ scale: 0.98 }} className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-all duration-300">
                       <div className="p-4">
                         <div className="flex items-start gap-4">

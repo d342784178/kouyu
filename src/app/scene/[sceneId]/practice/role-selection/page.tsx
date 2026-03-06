@@ -107,7 +107,7 @@ export default function RoleSelectionPage() {
   }, [sceneId])
 
   const handleBack = () => {
-    router.back()
+    router.push(`/scene/${sceneId}/overview`)
   }
 
   const handleConfirm = () => {
@@ -122,7 +122,7 @@ export default function RoleSelectionPage() {
       voice: voiceEnabled.toString()
     })
 
-    router.push(`/scene-practice/${sceneId}/chat?${params.toString()}`)
+    router.push(`/scene/${sceneId}/practice/chat?${params.toString()}`)
   }
 
   if (isLoading) {

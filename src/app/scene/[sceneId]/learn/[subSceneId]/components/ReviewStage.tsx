@@ -379,7 +379,7 @@ export default function ReviewStage({
   // ---- 完成：触发回调并跳转 ----
   const handleComplete = useCallback(() => {
     onComplete()
-    router.push(`/scene-overview/${sceneId}`)
+    router.push(`/scene/${sceneId}/overview`)
   }, [sceneId, onComplete, router])
 
   return (

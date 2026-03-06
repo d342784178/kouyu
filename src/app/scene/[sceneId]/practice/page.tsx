@@ -11,7 +11,7 @@ export default function ScenePracticePage() {
 
   useEffect(() => {
     if (sceneId) {
-      router.replace(`/scene-practice/${sceneId}/role-selection`)
+      router.replace(`/scene/${sceneId}/practice/role-selection`)
     }
   }, [sceneId, router])
 

@@ -88,7 +88,7 @@ test.describe('场景大纲列表页 (scene-overview)', () => {
 
   test('应正常加载并展示场景信息', async ({ page }) => {
     await mockSubScenesApi(page)
-    await page.goto(`/scene-overview/${MOCK_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/overview`)
 
     // 等待场景名称出现
     await expect(page.getByText('初次见面')).toBeVisible()
@@ -103,7 +103,7 @@ test.describe('场景大纲列表页 (scene-overview)', () => {
 
   test('应展示子场景卡片列表', async ({ page }) => {
     await mockSubScenesApi(page)
-    await page.goto(`/scene-overview/${MOCK_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/overview`)
 
     // 等待列表加载
     await expect(page.getByText('打招呼')).toBeVisible()
@@ -117,28 +117,28 @@ test.describe('场景大纲列表页 (scene-overview)', () => {
 
   test('应展示"按顺序学习"按钮', async ({ page }) => {
     await mockSubScenesApi(page)
-    await page.goto(`/scene-overview/${MOCK_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/overview`)
 
     await expect(page.getByText('按顺序学习')).toBeVisible()
   })
 
   test('点击"按顺序学习"应跳转到第一个子场景', async ({ page }) => {
     await mockSubScenesApi(page)
-    await page.goto(`/scene-overview/${MOCK_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/overview`)
 
     // 拦截导航
-    const navigationPromise = page.waitForURL('**/scene-learning/sub_001')
+    const navigationPromise = page.waitForURL(`**/scene/${MOCK_SCENE_ID}/learn/sub_001`)
     await page.getByText('按顺序学习').click()
     await navigationPromise
   })
 
   test('点击子场景卡片应跳转到对应学习页', async ({ page }) => {
     await mockSubScenesApi(page)
-    await page.goto(`/scene-overview/${MOCK_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/overview`)
 
     await expect(page.getByText('自我介绍')).toBeVisible()
 
-    const navigationPromise = page.waitForURL('**/scene-learning/sub_002')
+    const navigationPromise = page.waitForURL(`**/scene/${MOCK_SCENE_ID}/learn/sub_002`)
     // 点击第二个子场景卡片
     await page.getByText('自我介绍').click()
     await navigationPromise
@@ -150,7 +150,7 @@ test.describe('场景大纲列表页 (scene-overview)', () => {
 
   test('应从 localStorage 读取并展示"已完成"状态', async ({ page }) => {
     // 先设置 localStorage，再 mock API，再导航
-    await page.goto(`/scene-overview/${MOCK_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/overview`)
     await setLocalStorage(page, 'scene-learning-progress-sub_001', {
       status: 'completed',
       currentStage: 4,
@@ -159,7 +159,7 @@ test.describe('场景大纲列表页 (scene-overview)', () => {
     })
 
     await mockSubScenesApi(page)
-    await page.goto(`/scene-overview/${MOCK_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/overview`)
 
     // 等待页面加载完成
     await expect(page.getByText('打招呼')).toBeVisible()
@@ -168,7 +168,7 @@ test.describe('场景大纲列表页 (scene-overview)', () => {
   })
 
   test('应从 localStorage 读取并展示"进行中"状态', async ({ page }) => {
-    await page.goto(`/scene-overview/${MOCK_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/overview`)
     await setLocalStorage(page, 'scene-learning-progress-sub_002', {
       status: 'in_progress',
       currentStage: 2,
@@ -177,7 +177,7 @@ test.describe('场景大纲列表页 (scene-overview)', () => {
     })
 
     await mockSubScenesApi(page)
-    await page.goto(`/scene-overview/${MOCK_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/overview`)
 
     await expect(page.getByText('自我介绍')).toBeVisible()
     await expect(page.getByText('进行中')).toBeVisible()
@@ -185,7 +185,7 @@ test.describe('场景大纲列表页 (scene-overview)', () => {
 
   test('未设置进度时应展示"未开始"状态', async ({ page }) => {
     await mockSubScenesApi(page)
-    await page.goto(`/scene-overview/${MOCK_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/overview`)
 
     await expect(page.getByText('打招呼')).toBeVisible()
     // 所有子场景均为未开始
@@ -194,7 +194,7 @@ test.describe('场景大纲列表页 (scene-overview)', () => {
   })
 
   test('全部完成时"按顺序学习"应变为"重新学习"', async ({ page }) => {
-    await page.goto(`/scene-overview/${MOCK_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/overview`)
     // 设置所有子场景为已完成
     for (const id of ['sub_001', 'sub_002', 'sub_003']) {
       await setLocalStorage(page, `scene-learning-progress-${id}`, {
@@ -206,7 +206,7 @@ test.describe('场景大纲列表页 (scene-overview)', () => {
     }
 
     await mockSubScenesApi(page)
-    await page.goto(`/scene-overview/${MOCK_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/overview`)
 
     await expect(page.getByText('重新学习')).toBeVisible()
   })
@@ -217,21 +217,21 @@ test.describe('场景大纲列表页 (scene-overview)', () => {
 
   test('API 返回 404 时应展示"场景不存在"', async ({ page }) => {
     await mockSubScenesApiError(page, 404)
-    await page.goto(`/scene-overview/${MOCK_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/overview`)
 
     await expect(page.getByText('场景不存在')).toBeVisible()
   })
 
   test('API 返回 500 时应展示"加载失败"', async ({ page }) => {
     await mockSubScenesApiError(page, 500)
-    await page.goto(`/scene-overview/${MOCK_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/overview`)
 
     await expect(page.getByText('加载失败，请重试')).toBeVisible()
   })
 
   test('无子场景时应展示"内容准备中"', async ({ page }) => {
     await mockSubScenesApi(page, MOCK_EMPTY_SUB_SCENES_RESPONSE)
-    await page.goto(`/scene-overview/${MOCK_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/overview`)
 
     await expect(page.getByText('内容准备中')).toBeVisible()
     // 不应展示"按顺序学习"按钮
@@ -242,17 +242,17 @@ test.describe('场景大纲列表页 (scene-overview)', () => {
   // 导航
   // ----------------------------------------------------------
 
-  test('点击返回按钮应返回上一页', async ({ page }) => {
-    // 先访问一个页面，再进入大纲页，确保有历史记录
-    await page.goto('/scene-learning')
+  test('点击返回按钮应返回场景列表页', async ({ page }) => {
+    // 先访问场景列表页，再进入大纲页，确保有历史记录
+    await page.goto('/scene')
     await mockSubScenesApi(page)
-    await page.goto(`/scene-overview/${MOCK_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/overview`)
 
     await expect(page.getByText('场景大纲')).toBeVisible()
 
     // 点击返回按钮
     await page.getByRole('button', { name: '返回' }).click()
-    // 应返回到 scene-learning
-    await expect(page).toHaveURL(/scene-learning/)
+    // 应返回到 scene
+    await expect(page).toHaveURL(/\/scene$/)
   })
 })

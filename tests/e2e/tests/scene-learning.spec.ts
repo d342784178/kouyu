@@ -197,7 +197,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
 
   test('应展示四阶段进度条', async ({ page }) => {
     await mockAllApis(page)
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
 
     // 等待页面加载
     await expect(page.getByText('打招呼')).toBeVisible()
@@ -211,7 +211,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
 
   test('应展示子场景标题和位置信息', async ({ page }) => {
     await mockAllApis(page)
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
 
     await expect(page.getByText('打招呼')).toBeVisible()
     // 位置信息：子场景 1/3
@@ -224,7 +224,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
 
   test('LearningStage 应展示 QA_Pair 卡片列表', async ({ page }) => {
     await mockAllApis(page)
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
 
     // 等待第一阶段内容加载
     await expect(page.getByText('Hello! Nice to meet you.')).toBeVisible()
@@ -233,7 +233,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
 
   test('点击 QA_Pair 卡片应展开显示回应列表', async ({ page }) => {
     await mockAllApis(page)
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
 
     // 点击第一个卡片展开
     await page.getByText('Hello! Nice to meet you.').click()
@@ -245,7 +245,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
 
   test('再次点击已展开卡片应收起', async ({ page }) => {
     await mockAllApis(page)
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
 
     // 展开
     await page.getByText('Hello! Nice to meet you.').click()
@@ -262,7 +262,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
 
   test('PracticeStage 应展示练习题', async ({ page }) => {
     await mockAllApis(page)
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
 
     // 等待第一阶段加载，然后找到"进入练习题"按钮
     // 先标记所有 must_speak 为已练习（通过 localStorage 模拟）
@@ -287,7 +287,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
     await mockAllApis(page)
 
     // 直接通过 localStorage 设置进度为第二阶段
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
     await setLocalStorage(page, `scene-learning-progress-${MOCK_SUB_SCENE_ID}`, {
       status: 'in_progress',
       currentStage: 2,
@@ -324,7 +324,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
     })
 
     // 设置进度为第三阶段
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
     await setLocalStorage(page, `scene-learning-progress-${MOCK_SUB_SCENE_ID}`, {
       status: 'in_progress',
       currentStage: 3,
@@ -351,7 +351,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
       })
     })
 
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
     await setLocalStorage(page, `scene-learning-progress-${MOCK_SUB_SCENE_ID}`, {
       status: 'in_progress',
       currentStage: 3,
@@ -380,7 +380,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
   test('ReviewStage replay 分支：高分时应展示"对话回顾"', async ({ page }) => {
     await mockAllApis(page)
 
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
 
     // 设置进度为第四阶段，高分
     await setLocalStorage(page, `scene-learning-progress-${MOCK_SUB_SCENE_ID}`, {
@@ -410,7 +410,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
     await mockReviewApi(page)
 
     // 通过 localStorage 注入对话历史和分数（模拟从第三阶段进入）
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
     await setLocalStorage(page, `scene-learning-progress-${MOCK_SUB_SCENE_ID}`, {
       status: 'in_progress',
       currentStage: 4,
@@ -431,7 +431,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
     await mockSubSceneDetailApi(page)
     await mockReviewApi(page)
 
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
     await setLocalStorage(page, `scene-learning-progress-${MOCK_SUB_SCENE_ID}`, {
       status: 'in_progress',
       currentStage: 4,
@@ -452,7 +452,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
 
     // 模拟低分场景：直接渲染 ReviewStage 的 retry 分支
     // 通过完整流程：先到第三阶段，AI 对话低分，进入第四阶段
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
 
     // 设置有 failedQaIds 的进度
     await setLocalStorage(page, `scene-learning-progress-${MOCK_SUB_SCENE_ID}`, {
@@ -477,7 +477,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
   test('定向重练：LearningStage 应仅展示未通过的 QA_Pair', async ({ page }) => {
     await mockAllApis(page)
 
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
     // 设置 failedQaIds 只包含 qa_001
     await setLocalStorage(page, `scene-learning-progress-${MOCK_SUB_SCENE_ID}`, {
       status: 'in_progress',
@@ -498,7 +498,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
 
   test('切换阶段时应自动保存进度到 localStorage', async ({ page }) => {
     await mockAllApis(page)
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
 
     // 等待页面加载
     await expect(page.getByText('打招呼')).toBeVisible()
@@ -519,7 +519,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
     await mockAllApis(page)
 
     // 预设第二阶段进度
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
     await setLocalStorage(page, `scene-learning-progress-${MOCK_SUB_SCENE_ID}`, {
       status: 'in_progress',
       currentStage: 2,
@@ -543,7 +543,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
     await mockAllApis(page)
 
     // 设置进度为第四阶段（replay 分支，高分）
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
     await setLocalStorage(page, `scene-learning-progress-${MOCK_SUB_SCENE_ID}`, {
       status: 'in_progress',
       currentStage: 4,
@@ -557,7 +557,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
     // 如果"完成学习"按钮可见，点击并验证跳转
     const completeBtn = page.getByText('完成学习')
     if (await completeBtn.isVisible({ timeout: 3000 })) {
-      const navigationPromise = page.waitForURL(`**/scene-overview/${MOCK_SCENE_ID}`)
+      const navigationPromise = page.waitForURL(`**/scene/${MOCK_SCENE_ID}/overview`)
       await completeBtn.click()
       await navigationPromise
 
@@ -586,7 +586,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
       })
     })
 
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
     await expect(page.getByText('子场景不存在')).toBeVisible()
   })
 
@@ -599,7 +599,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
       })
     })
 
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
     await expect(page.getByText('加载失败，请重试')).toBeVisible()
     await expect(page.getByText('重新加载')).toBeVisible()
   })
@@ -625,7 +625,7 @@ test.describe('子场景学习页 (scene-learning)', () => {
       }
     })
 
-    await page.goto(`/scene-learning/${MOCK_SUB_SCENE_ID}`)
+    await page.goto(`/scene/${MOCK_SCENE_ID}/learn/${MOCK_SUB_SCENE_ID}`)
     await expect(page.getByText('加载失败，请重试')).toBeVisible()
 
     // 点击重新加载
