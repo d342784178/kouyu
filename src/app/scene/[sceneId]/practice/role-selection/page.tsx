@@ -116,6 +116,11 @@ export default function RoleSelectionPage() {
       return
     }
 
+    // 存储 practiceContent 数据到 sessionStorage
+    if (practiceContent) {
+      sessionStorage.setItem(`practiceContent_${sceneId}`, JSON.stringify(practiceContent))
+    }
+
     const params = new URLSearchParams({
       role: selectedRole,
       difficulty: difficultyLevel,

@@ -213,6 +213,26 @@ export default function ChatPage() {
         setIsLoading(true)
         setError(null)
 
+        // 首先尝试从 sessionStorage 读取数据
+        const storedData = sessionStorage.getItem(`practiceContent_${sceneId}`)
+        if (storedData) {
+          try {
+            const data: PracticeContent = JSON.parse(storedData)
+            setPracticeContent(data)
+            
+            // 清除 sessionStorage 中的数据，避免占用存储空间
+            sessionStorage.removeItem(`practiceContent_${sceneId}`)
+            
+            setStatus('initializing')
+            await initializeChat(data)
+            return
+          } catch (parseError) {
+            console.error('解析 sessionStorage 数据失败:', parseError)
+            // 解析失败，继续调用 API
+          }
+        }
+
+        // 如果 sessionStorage 中没有数据，调用 API 获取
         const response = await fetch(`/api/scenes/${sceneId}/practice-content`)
 
         if (!response.ok) {
