@@ -354,19 +354,16 @@ export function useSpeechRecognition({
       return
     }
 
-    if (!recognitionRef.current || isRecording) {
-      console.log('[useSpeechRecognition] 无法启动:', {
-        hasRecognition: !!recognitionRef.current,
-        isRecording
-      })
+    if (!recognitionRef.current) {
+      const msg = '语音识别初始化失败，请刷新页面重试'
+      console.log('[useSpeechRecognition] recognitionRef.current 为空')
+      setError(msg)
+      onErrorRef.current?.(msg)
       return
     }
 
-    const permStatus = await checkPermission()
-    if (permStatus.state === 'denied') {
-      const msg = '麦克风权限被拒绝，请在浏览器设置中允许访问麦克风'
-      setError(msg)
-      onErrorRef.current?.(msg)
+    if (isRecording) {
+      console.log('[useSpeechRecognition] 正在录音中，忽略重复调用')
       return
     }
 

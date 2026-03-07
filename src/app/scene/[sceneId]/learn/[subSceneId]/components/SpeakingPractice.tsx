@@ -183,6 +183,8 @@ export default function SpeakingPractice({
   }, [browserCompatibility, permissionStatus])
 
   const handleStartRecording = useCallback(async () => {
+    console.log('[SpeakingPractice] handleStartRecording 被调用, state:', state, 'browserCompatibility:', browserCompatibility)
+    
     if (!browserCompatibility.isSupported) {
       setState('browser_unsupported')
       setFeedbackMsg(browserCompatibility.unsupportedReason || '浏览器不支持语音识别')
@@ -195,21 +197,22 @@ export default function SpeakingPractice({
       return
     }
 
-    if (permissionStatus.state === 'prompt' || permissionStatus.state === 'unknown') {
-      setState('requesting_permission')
-      setFeedbackMsg('正在请求麦克风权限...')
-      
-      const granted = await requestPermission()
-      if (!granted) {
-        return
-      }
+    if (state === 'recording' || state === 'requesting_permission') {
+      console.log('[SpeakingPractice] 当前状态不允许启动录音:', state)
+      return
     }
 
     setFeedbackMsg('')
     setRecognizedText('')
     setState('idle')
-    await startRecording()
-  }, [browserCompatibility, permissionStatus, requestPermission, startRecording])
+    
+    try {
+      await startRecording()
+    } catch (err) {
+      console.error('[SpeakingPractice] startRecording 异常:', err)
+      setState('idle')
+    }
+  }, [browserCompatibility, permissionStatus, state, startRecording])
 
   const handleSkip = useCallback(() => {
     setState('completed')
@@ -255,7 +258,7 @@ export default function SpeakingPractice({
               key="mic"
               type="button"
               onClick={handleStartRecording}
-              disabled={state === 'recognizing' || state === 'requesting_permission'}
+              disabled={state === 'recognizing' || state === 'requesting_permission' || state === 'browser_unsupported'}
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.9 }}

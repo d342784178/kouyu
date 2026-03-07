@@ -441,12 +441,15 @@ function SpeakingQuestion({ question, onNext }: SpeakingQuestionProps) {
   }, [isRecording, state])
 
   const handleMicClick = useCallback(async () => {
+    console.log('[SpeakingQuestion] handleMicClick 被调用, state:', state, 'browserCompatibility:', browserCompatibility)
+    
     if (state === 'recording') {
       stopRecording()
       return
     }
 
-    if (state === 'done' || state === 'recognizing' || state === 'evaluating' || state === 'evaluated') {
+    if (state === 'done' || state === 'recognizing' || state === 'evaluating' || state === 'evaluated' || state === 'requesting_permission') {
+      console.log('[SpeakingQuestion] 当前状态不允许启动录音:', state)
       return
     }
 
@@ -462,20 +465,16 @@ function SpeakingQuestion({ question, onNext }: SpeakingQuestionProps) {
       return
     }
 
-    if (permissionStatus.state === 'prompt' || permissionStatus.state === 'unknown') {
-      setState('requesting_permission')
-      setErrorMsg('')
-      
-      const granted = await requestPermission()
-      if (!granted) {
-        return
-      }
-    }
-
     setErrorMsg('')
     setState('idle')
-    await startRecording()
-  }, [state, browserCompatibility, permissionStatus, requestPermission, startRecording, stopRecording])
+    
+    try {
+      await startRecording()
+    } catch (err) {
+      console.error('[SpeakingQuestion] startRecording 异常:', err)
+      setState('idle')
+    }
+  }, [state, browserCompatibility, permissionStatus, startRecording, stopRecording])
 
   const handleRetry = useCallback(() => {
     setRecognizedText('')
