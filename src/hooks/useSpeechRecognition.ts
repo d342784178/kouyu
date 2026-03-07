@@ -45,22 +45,29 @@ function detectBrowserCompatibility(): BrowserCompatibility {
   const isSecureContext = window.isSecureContext || location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1'
   const userAgent = navigator.userAgent
   const isQuark = /quark/.test(userAgent.toLowerCase())
+  const isXiaomi = /MiuiBrowser|xiaomi|mi/.test(userAgent.toLowerCase())
 
   let isSupported = false
   let unsupportedReason: string | undefined
 
   if (!isSecureContext) {
-    unsupportedReason = '需要HTTPS环境才能使用麦克风功能'
+    unsupportedReason = '需要 HTTPS 环境才能使用麦克风功能'
   } else if (!hasGetUserMedia) {
-    unsupportedReason = '浏览器不支持麦克风访问，请使用Chrome、Edge或Safari浏览器'
-  } else if (!hasSpeechRecognition) {
-    if (isQuark) {
-      unsupportedReason = '夸克浏览器需要在设置中开启语音识别权限，请前往设置 → 隐私与安全 → 权限管理'
-    } else {
-      unsupportedReason = '浏览器不支持语音识别，请使用Chrome、Edge或Safari浏览器'
-    }
+    unsupportedReason = '浏览器不支持麦克风访问，请使用 Chrome、Edge 或 Safari 浏览器'
   } else {
-    isSupported = true
+    // 有原生 SpeechRecognition API
+    if (hasSpeechRecognition) {
+      isSupported = true
+    } 
+    // 夸克/小米浏览器：虽然没有原生 API，但可以使用 Azure SDK fallback
+    else if (isQuark || isXiaomi) {
+      isSupported = true
+      // 不设置 unsupportedReason，因为实际上是支持的
+    } 
+    // 其他不支持的浏览器
+    else {
+      unsupportedReason = '浏览器不支持语音识别，请使用 Chrome、Edge、Safari 浏览器或夸克/小米浏览器'
+    }
   }
 
   return {
