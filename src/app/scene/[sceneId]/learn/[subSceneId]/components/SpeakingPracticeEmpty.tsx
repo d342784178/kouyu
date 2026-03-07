@@ -194,16 +194,11 @@ export default function SpeakingPracticeEmpty({
     await startRecording()
   }, [startRecording])
 
-  const handleSkip = useCallback(() => {
-    setState('completed')
-    onCompleted?.()
-  }, [onCompleted])
-
-  const handleRetry = useCallback(() => {
-    setState('idle')
+  const handleRetry = useCallback(async () => {
     setFeedbackMsg('')
     setRecognizedText('')
-  }, [])
+    await handleStartRecording()
+  }, [handleStartRecording])
 
   if (isCompleted || state === 'completed') {
     return (
@@ -305,13 +300,6 @@ export default function SpeakingPracticeEmpty({
             className="text-xs px-3 py-1 rounded-full bg-[#EEF2FF] text-[#4F7CF0] font-medium hover:bg-[#E0E7FF] transition-colors"
           >
             重试
-          </button>
-          <button
-            type="button"
-            onClick={handleSkip}
-            className="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-500 font-medium hover:bg-gray-200 transition-colors"
-          >
-            跳过
           </button>
         </div>
       )}

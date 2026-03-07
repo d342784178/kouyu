@@ -227,16 +227,12 @@ export default function SpeakingPractice({
     }
   }, [browserCompatibility, permissionStatus, state, startRecording])
 
-  const handleSkip = useCallback(() => {
-    setState('completed')
-    onCompleted()
-  }, [onCompleted])
-
-  const handleRetry = useCallback(() => {
-    setState('idle')
+  const handleRetry = useCallback(async () => {
     setFeedbackMsg('')
     setRecognizedText('')
-  }, [])
+    setState('idle')
+    await handleStartRecording()
+  }, [handleStartRecording])
 
   if (state === 'completed') {
     return (
@@ -325,11 +321,6 @@ export default function SpeakingPractice({
         {(state === 'failed' || state === 'browser_unsupported') && (
           <button type="button" onClick={handleRetry} className="text-xs px-3 py-1.5 rounded-full bg-[#EEF2FF] text-[#4F7CF0] font-medium">
             重试
-          </button>
-        )}
-        {(state === 'permission_denied' || state === 'browser_unsupported' || state === 'failed') && (
-          <button type="button" onClick={handleSkip} className="text-xs px-3 py-1.5 rounded-full bg-gray-100 text-gray-500 font-medium">
-            跳过开口练习
           </button>
         )}
         {state === 'permission_denied' && (
