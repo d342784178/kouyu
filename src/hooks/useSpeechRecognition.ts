@@ -596,7 +596,7 @@ export function useSpeechRecognition({
           const dataArray = new Uint8Array(analyser.frequencyBinCount)
           let silenceStartTime: number | null = null
           const silenceThreshold = 10 // 音量阈值
-          const silenceDuration = 1500 // 停顿时间（毫秒）
+          const silenceDuration = 800 // 停顿时间（毫秒）
           
           const updateAudioLevel = () => {
             if (!analyserRef.current || !isRecordingRef.current) return
