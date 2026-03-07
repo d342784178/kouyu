@@ -580,23 +580,39 @@ export function useSpeechRecognition({
       mediaRecorder.start(1000) // 每秒收集一次数据
       console.log('[useSpeechRecognition] MediaRecorder 已启动')
 
+      const userAgent = navigator.userAgent
+      const isQuark = /quark/i.test(userAgent)
+      
       // 启动音频电平检测和停顿检测
       const AudioContext = window.AudioContext || (window as any).webkitAudioContext
       if (AudioContext) {
         try {
           const audioContext = new AudioContext()
+          console.log('[useSpeechRecognition] AudioContext 初始状态:', audioContext.state)
+          
+          // 夸克浏览器需要显式 resume AudioContext
+          if (audioContext.state === 'suspended') {
+            console.log('[useSpeechRecognition] AudioContext 处于 suspended 状态，尝试 resume')
+            await audioContext.resume()
+            console.log('[useSpeechRecognition] AudioContext resume 后状态:', audioContext.state)
+          }
+          
           const analyser = audioContext.createAnalyser()
           const microphone = audioContext.createMediaStreamSource(stream)
           microphone.connect(analyser)
           analyser.fftSize = 256
+          analyser.smoothingTimeConstant = 0.8
           
           audioContextRef.current = audioContext
           analyserRef.current = analyser
           
           const dataArray = new Uint8Array(analyser.frequencyBinCount)
           let silenceStartTime: number | null = null
-          const silenceThreshold = 10 // 音量阈值
-          const silenceDuration = 800 // 停顿时间（毫秒）
+          // 夸克浏览器音量检测可能不准确，使用更宽松的阈值和更长的停顿时间
+          const silenceThreshold = isQuark ? 5 : 10 // 音量阈值
+          const silenceDuration = isQuark ? 1500 : 800 // 停顿时间（毫秒）
+          
+          console.log('[useSpeechRecognition] 停顿检测配置:', { isQuark, silenceThreshold, silenceDuration })
           
           const updateAudioLevel = () => {
             if (!analyserRef.current || !isRecordingRef.current) return
@@ -604,6 +620,11 @@ export function useSpeechRecognition({
             const average = dataArray.reduce((a, b) => a + b, 0) / dataArray.length
             const currentLevel = Math.round(average)
             setAudioLevel(currentLevel)
+            
+            // 调试日志（夸克浏览器）
+            if (isQuark && currentLevel > 0) {
+              console.log('[useSpeechRecognition] 夸克浏览器音量:', currentLevel)
+            }
             
             // 停顿检测
             if (currentLevel < silenceThreshold) {
