@@ -3,11 +3,8 @@
 import { useState, useRef, useCallback, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { getAudioUrl } from '@/lib/audioUrl'
+import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
 import type { QAResponse } from '@/types'
-
-// ============================================================
-// 类型定义
-// ============================================================
 
 type PracticeState =
   | 'idle'
@@ -28,10 +25,6 @@ interface SpeakingPracticeProps {
 
 const MAX_FAIL_COUNT = 2
 
-// ============================================================
-// 工具函数：语义匹配
-// ============================================================
-
 function isSemanticMatch(userText: string, responses: QAResponse[]): boolean {
   const normalize = (s: string) =>
     s.toLowerCase().replace(/[^a-z0-9\s]/g, '').trim()
@@ -49,28 +42,31 @@ function isSemanticMatch(userText: string, responses: QAResponse[]): boolean {
   return false
 }
 
-// ============================================================
-// 子组件：录音波形动画
-// ============================================================
-
-function WaveformAnimation() {
+function WaveformAnimation({ audioLevel = 0 }: { audioLevel?: number }) {
+  const threshold = 2
+  const normalizedLevel = audioLevel > threshold ? Math.min((audioLevel - threshold) / 30, 1) : 0
+  
+  console.log('[WaveformAnimation] audioLevel:', audioLevel, 'normalizedLevel:', normalizedLevel)
+  
   return (
     <div className="flex items-center gap-0.5 h-6" aria-hidden="true">
-      {[0, 1, 2, 3, 4].map((i) => (
-        <motion.div
-          key={i}
-          className="w-1 rounded-full bg-white"
-          animate={{ height: ['6px', '20px', '6px'] }}
-          transition={{ duration: 0.8, repeat: Infinity, delay: i * 0.12, ease: 'easeInOut' }}
-        />
-      ))}
+      {[0, 1, 2, 3, 4].map((i) => {
+        const baseHeight = 6
+        const maxHeight = 24
+        const barLevel = normalizedLevel * (1 - Math.abs(i - 2) * 0.15)
+        const targetHeight = baseHeight + (maxHeight - baseHeight) * barLevel
+        
+        return (
+          <div
+            key={i}
+            className="w-1 rounded-full bg-white transition-all duration-100"
+            style={{ height: targetHeight }}
+          />
+        )
+      })}
     </div>
   )
 }
-
-// ============================================================
-// 主组件
-// ============================================================
 
 export default function SpeakingPractice({
   responses,
@@ -82,29 +78,14 @@ export default function SpeakingPractice({
   const [failCount, setFailCount] = useState(0)
   const [recognizedText, setRecognizedText] = useState('')
   const [feedbackMsg, setFeedbackMsg] = useState('')
-  const [isRecording, setIsRecording] = useState(false)
-  // 与 OpenTestDialog 一致：recognition 存在 state 里，只初始化一次
-  const [recognition, setRecognition] = useState<any>(null)
-
-  // refs 用于在回调闭包中访问最新值
-  const hasRecognitionResultRef = useRef<boolean>(false)
-  const recordingTimeoutRef = useRef<NodeJS.Timeout | null>(null)
-  const silenceTimeoutRef = useRef<NodeJS.Timeout | null>(null)
-  const finalTranscriptRef = useRef<string>('')
-  const interimTranscriptRef = useRef<string>('')
   const demoAudioRef = useRef<HTMLAudioElement | null>(null)
 
-  // 用 ref 传递最新的 handleVoiceInput，避免 recognition 回调中的闭包问题
-  const handleVoiceInputRef = useRef<(text: string) => void>(() => {})
-
-  // 外部 isCompleted 变化时同步状态
   useEffect(() => {
     if (isCompleted && state !== 'completed') {
       setState('completed')
     }
   }, [isCompleted, state])
 
-  // ---- 播放示范音频 ----
   const playDemoAudio = useCallback(() => {
     if (!demoAudioUrl) return
     const url = getAudioUrl(demoAudioUrl)
@@ -117,7 +98,6 @@ export default function SpeakingPractice({
     demoAudioRef.current.play().catch(() => {})
   }, [demoAudioUrl])
 
-  // ---- 处理识别结果（通过 ref 传递，避免闭包问题）----
   const handleVoiceInput = useCallback(
     (text: string) => {
       if (!text.trim()) return
@@ -133,7 +113,6 @@ export default function SpeakingPractice({
           onCompleted()
         }, 1200)
       } else {
-        // 用函数式更新获取最新 failCount，避免闭包陷阱
         setFailCount((prev) => {
           const newFailCount = prev + 1
           if (newFailCount >= MAX_FAIL_COUNT) {
@@ -152,217 +131,55 @@ export default function SpeakingPractice({
     [responses, onCompleted, playDemoAudio]
   )
 
-  // 保持 ref 与最新函数同步
-  useEffect(() => {
-    handleVoiceInputRef.current = handleVoiceInput
-  }, [handleVoiceInput])
-
-  // ---- 初始化语音识别（只执行一次，与 OpenTestDialog 完全一致）----
-  useEffect(() => {
-    if (!('webkitSpeechRecognition' in window)) return
-
-    const SpeechRecognition = (window as any).webkitSpeechRecognition
-    const rec = new SpeechRecognition()
-    rec.continuous = true
-    rec.interimResults = true
-    rec.lang = 'en-US'
-
-    const clearSilenceTimeout = () => {
-      if (silenceTimeoutRef.current) {
-        clearTimeout(silenceTimeoutRef.current)
-        silenceTimeoutRef.current = null
-      }
+  const handleError = useCallback((error: string) => {
+    if (error.includes('权限被拒绝')) {
+      setState('permission_denied')
+    } else if (error.includes('不支持语音识别')) {
+      setState('sdk_error')
+    } else {
+      setState('idle')
     }
-
-    const setSilenceTimeout = () => {
-      clearSilenceTimeout()
-      silenceTimeoutRef.current = setTimeout(() => {
-        console.log('[SpeakingPractice] 800ms 停顿，自动停止')
-        const transcript = finalTranscriptRef.current || interimTranscriptRef.current
-        if (transcript.trim()) {
-          hasRecognitionResultRef.current = true
-          // 通过 ref 调用，避免闭包问题
-          handleVoiceInputRef.current(transcript.trim())
-        }
-        try { rec.stop() } catch (_) {}
-      }, 800)
-    }
-
-    rec.onresult = (event: any) => {
-      let finalTranscript = ''
-      let interimTranscript = ''
-
-      for (let i = event.resultIndex; i < event.results.length; i++) {
-        const t = event.results[i][0].transcript
-        if (event.results[i].isFinal) {
-          finalTranscript += t
-        } else {
-          interimTranscript += t
-        }
-      }
-
-      if (finalTranscript) {
-        finalTranscriptRef.current += finalTranscript
-        console.log('[SpeakingPractice] 最终识别:', finalTranscriptRef.current)
-      }
-      if (interimTranscript) {
-        interimTranscriptRef.current = interimTranscript
-        console.log('[SpeakingPractice] 临时识别:', interimTranscript)
-      }
-
-      setSilenceTimeout()
-
-      if (finalTranscript) {
-        hasRecognitionResultRef.current = true
-      }
-    }
-
-    rec.onerror = (event: any) => {
-      console.error('[SpeakingPractice] 识别错误:', event.error)
-      clearSilenceTimeout()
-
-      switch (event.error) {
-        case 'not-allowed':
-          setState('permission_denied')
-          setFeedbackMsg('麦克风权限被拒绝，请在浏览器设置中允许访问麦克风')
-          break
-        case 'audio-capture':
-          setState('sdk_error')
-          setFeedbackMsg('无法访问麦克风，请检查设备')
-          break
-        case 'network':
-          setState('sdk_error')
-          setFeedbackMsg('网络错误，语音识别服务不可用')
-          break
-        case 'no-speech':
-          setState('idle')
-          setFeedbackMsg('未检测到语音，请重试')
-          break
-        case 'aborted':
-          // 主动停止，不处理
-          break
-        default:
-          setState('idle')
-          setFeedbackMsg('语音识别失败，请重试')
-      }
-
-      hasRecognitionResultRef.current = false
-      setIsRecording(false)
-    }
-
-    rec.onend = () => {
-      console.log('[SpeakingPractice] onend, hasResult:', hasRecognitionResultRef.current)
-      clearSilenceTimeout()
-
-      if (!hasRecognitionResultRef.current) {
-        setState('idle')
-        setFeedbackMsg('未检测到语音，请重试')
-      }
-
-      // 重置
-      hasRecognitionResultRef.current = false
-      finalTranscriptRef.current = ''
-      interimTranscriptRef.current = ''
-      setIsRecording(false)
-
-      if (recordingTimeoutRef.current) {
-        clearTimeout(recordingTimeoutRef.current)
-        recordingTimeoutRef.current = null
-      }
-    }
-
-    setRecognition(rec)
-
-    return () => {
-      try { rec.stop() } catch (_) {}
-      clearSilenceTimeout()
-      if (recordingTimeoutRef.current) clearTimeout(recordingTimeoutRef.current)
-    }
-  // 空依赖数组：只初始化一次，与 OpenTestDialog 完全一致
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    setFeedbackMsg(error)
   }, [])
 
-  // ---- 开始录音 ----
-  const startRecording = useCallback(async () => {
-    if (!recognition || isRecording || state === 'recognizing') return
+  const {
+    isSupported,
+    isRecording,
+    interimTranscript,
+    startRecording,
+    stopRecording,
+    error,
+    audioLevel,
+  } = useSpeechRecognition({
+    onResult: handleVoiceInput,
+    onError: handleError,
+  })
 
-    try {
-      hasRecognitionResultRef.current = false
-      finalTranscriptRef.current = ''
-      interimTranscriptRef.current = ''
-      setIsRecording(true)
+  useEffect(() => {
+    if (isRecording) {
       setState('recording')
-      setFeedbackMsg('')
-      setRecognizedText('')
-
-      // 先请求麦克风权限（与 OpenTestDialog 保持一致，不提前释放 stream）
-      await navigator.mediaDevices.getUserMedia({ audio: true })
-      console.log('[SpeakingPractice] 麦克风权限已获取，启动识别')
-
-      recognition.start()
-
-      recordingTimeoutRef.current = setTimeout(() => {
-        console.log('[SpeakingPractice] 30s 超时，自动停止')
-        const transcript = finalTranscriptRef.current || interimTranscriptRef.current
-        if (transcript.trim()) {
-          hasRecognitionResultRef.current = true
-          handleVoiceInputRef.current(transcript.trim())
-        }
-        try { recognition.stop() } catch (_) {}
-      }, 30000)
-    } catch (err: any) {
-      console.error('[SpeakingPractice] 启动录音失败:', err)
-      setIsRecording(false)
-      if (err?.name === 'NotAllowedError') {
-        setState('permission_denied')
-        setFeedbackMsg('麦克风权限被拒绝')
-      } else if (err?.name === 'NotFoundError') {
-        setState('sdk_error')
-        setFeedbackMsg('未找到麦克风设备')
-      } else {
-        setState('sdk_error')
-        setFeedbackMsg('无法访问麦克风，请检查设备')
-      }
+    } else if (state === 'recording') {
+      setState('idle')
     }
-  }, [recognition, isRecording, state])
+  }, [isRecording, state])
 
-  // ---- 停止录音 ----
-  const stopRecording = useCallback(() => {
-    if (!recognition) return
+  const handleStartRecording = useCallback(async () => {
+    setFeedbackMsg('')
+    setRecognizedText('')
+    await startRecording()
+  }, [startRecording])
 
-    if (recordingTimeoutRef.current) {
-      clearTimeout(recordingTimeoutRef.current)
-      recordingTimeoutRef.current = null
-    }
-    if (silenceTimeoutRef.current) {
-      clearTimeout(silenceTimeoutRef.current)
-      silenceTimeoutRef.current = null
-    }
-
-    // 与 OpenTestDialog 一致：有结果就先处理，再停止
-    const transcript = finalTranscriptRef.current || interimTranscriptRef.current
-    if (transcript.trim()) {
-      hasRecognitionResultRef.current = true
-      handleVoiceInputRef.current(transcript.trim())
-    }
-
-    try { recognition.stop() } catch (_) {}
-  }, [recognition])
-
-  // ---- 跳过 ----
   const handleSkip = useCallback(() => {
     setState('completed')
     onCompleted()
   }, [onCompleted])
 
-  // ---- 重试 ----
   const handleRetry = useCallback(() => {
     setState('idle')
     setFeedbackMsg('')
     setRecognizedText('')
   }, [])
 
-  // ---- 已完成状态 ----
   if (state === 'completed') {
     return (
       <div className="flex items-center gap-2 mt-3 px-3 py-2 rounded-xl bg-green-50 border border-green-100">
@@ -389,20 +206,20 @@ export default function SpeakingPractice({
               className="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center shadow-md shrink-0"
               aria-label="停止录音"
             >
-              <WaveformAnimation />
+              <WaveformAnimation audioLevel={audioLevel} />
             </motion.button>
           ) : (
             <motion.button
               key="mic"
               type="button"
-              onClick={startRecording}
-              disabled={state === 'recognizing' || !recognition}
+              onClick={handleStartRecording}
+              disabled={state === 'recognizing' || !isSupported}
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.9 }}
               whileTap={{ scale: 0.92 }}
               className={`w-12 h-12 rounded-full flex items-center justify-center shadow-md shrink-0 transition-colors ${
-                state === 'recognizing' || !recognition
+                state === 'recognizing' || !isSupported
                   ? 'bg-gray-200 cursor-not-allowed'
                   : 'bg-[#4F7CF0] hover:bg-[#3D6ADE] active:bg-[#3D6ADE]'
               }`}
@@ -434,10 +251,10 @@ export default function SpeakingPractice({
         </div>
       </div>
 
-      {recognizedText && state !== 'success' && (
+      {(recognizedText || interimTranscript) && state !== 'success' && (
         <div className="px-3 py-2 rounded-lg bg-gray-50 border border-gray-100">
           <p className="text-xs text-gray-400 mb-0.5">识别结果</p>
-          <p className="text-sm text-gray-700">{recognizedText}</p>
+          <p className="text-sm text-gray-700">{recognizedText || interimTranscript}</p>
         </div>
       )}
 

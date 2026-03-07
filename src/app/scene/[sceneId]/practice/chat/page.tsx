@@ -13,6 +13,7 @@ import {
   DifficultyLevel,
   OpenDialogueContent
 } from '@/app/scene-test/components/open-test'
+import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
 
 interface SceneInfo {
   id: string
@@ -60,22 +61,14 @@ export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([])
   const [currentRound, setCurrentRound] = useState(0)
   const [maxRounds] = useState(7)
-  const [isRecording, setIsRecording] = useState(false)
   const [playingMessageIndex, setPlayingMessageIndex] = useState<number | null>(null)
-  const [recognition, setRecognition] = useState<any>(null)
   const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(null)
   const [isGeneratingResponse, setIsGeneratingResponse] = useState(false)
   const [showAnalysis, setShowAnalysis] = useState(false)
   const [isRoundLimitReached, setIsRoundLimitReached] = useState(false)
-  const [interimTranscript, setInterimTranscript] = useState<string>('')
 
   const messagesRef = useRef<Message[]>([])
   const currentRoundRef = useRef<number>(0)
-  const hasRecognitionResultRef = useRef<boolean>(false)
-  const recordingTimeoutRef = useRef<NodeJS.Timeout | null>(null)
-  const silenceTimeoutRef = useRef<NodeJS.Timeout | null>(null)
-  const finalTranscriptRef = useRef<string>('')
-  const interimTranscriptRef = useRef<string>('')
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const isInitializedRef = useRef<boolean>(false)
 
@@ -87,120 +80,67 @@ export default function ChatPage() {
     currentRoundRef.current = currentRound
   }, [currentRound])
 
-  useEffect(() => {
-    if ('webkitSpeechRecognition' in window) {
-      const SpeechRecognition = (window as any).webkitSpeechRecognition
-      const recognition = new SpeechRecognition()
-      recognition.continuous = true
-      recognition.interimResults = true
-      recognition.lang = 'en-US'
+  const handleVoiceInput = async (transcript: string) => {
+    if (!transcript.trim()) return
 
-      const clearSilenceTimeout = () => {
-        if (silenceTimeoutRef.current) {
-          clearTimeout(silenceTimeoutRef.current)
-          silenceTimeoutRef.current = null
-        }
-      }
+    const currentMessages = messagesRef.current
+    const currentRoundValue = currentRoundRef.current
 
-      const setSilenceTimeout = () => {
-        clearSilenceTimeout()
-        silenceTimeoutRef.current = setTimeout(() => {
-          const transcript = finalTranscriptRef.current || interimTranscriptRef.current
-          if (transcript.trim()) {
-            hasRecognitionResultRef.current = true
-            handleVoiceInput(transcript.trim())
-          }
-          try {
-            recognition.stop()
-          } catch (err) {
-            console.error('自动停止录音失败:', err)
-          }
-        }, 800)
-      }
-
-      recognition.onresult = (event: any) => {
-        let finalTranscript = ''
-        let interimTranscript = ''
-
-        for (let i = event.resultIndex; i < event.results.length; i++) {
-          const transcript = event.results[i][0].transcript
-          if (event.results[i].isFinal) {
-            finalTranscript += transcript
-          } else {
-            interimTranscript += transcript
-          }
-        }
-
-        if (finalTranscript) {
-          finalTranscriptRef.current += finalTranscript
-        }
-        if (interimTranscript) {
-          interimTranscriptRef.current = interimTranscript
-          setInterimTranscript(interimTranscript)
-        }
-
-        setSilenceTimeout()
-
-        if (finalTranscript) {
-          hasRecognitionResultRef.current = true
-        }
-      }
-
-      recognition.onerror = (event: any) => {
-        console.error('语音识别错误:', event.error)
-        clearSilenceTimeout()
-        
-        let errorMessage = '语音识别失败，请重试'
-        
-        switch (event.error) {
-          case 'audio-capture':
-            errorMessage = '无法访问麦克风，请检查麦克风权限和设备'
-            break
-          case 'not-allowed':
-            errorMessage = '麦克风权限被拒绝，请在浏览器设置中允许访问麦克风'
-            break
-          case 'network':
-            errorMessage = '网络错误，语音识别服务不可用'
-            break
-          case 'aborted':
-            errorMessage = ''
-            break
-          case 'no-speech':
-            errorMessage = '未检测到语音，请重试'
-            break
-          default:
-            errorMessage = `语音识别失败: ${event.error}`
-        }
-        
-        if (errorMessage) {
-          setError(errorMessage)
-        }
-        hasRecognitionResultRef.current = false
-        setIsRecording(false)
-      }
-
-      recognition.onend = () => {
-        clearSilenceTimeout()
-        
-        if (!hasRecognitionResultRef.current) {
-          setError('未检测到语音，请重试')
-        }
-        
-        hasRecognitionResultRef.current = false
-        finalTranscriptRef.current = ''
-        interimTranscriptRef.current = ''
-        setInterimTranscript('')
-        setIsRecording(false)
-        
-        if (recordingTimeoutRef.current) {
-          clearTimeout(recordingTimeoutRef.current)
-          recordingTimeoutRef.current = null
-        }
-      }
-
-      setRecognition(recognition)
+    const userMessage: Message = {
+      role: 'user',
+      content: transcript,
+      timestamp: Date.now(),
     }
+
+    const updatedMessages = [...currentMessages, userMessage]
+    setMessages(updatedMessages)
+
+    setIsGeneratingResponse(true)
+
+    try {
+      const nextRound = currentRoundValue + 1
+      const { message: assistantMessage, isEnd, isComplete } = await generateAssistantMessage(
+        transcript,
+        updatedMessages,
+        nextRound
+      )
+
+      const completeHistory = [...updatedMessages, assistantMessage]
+      setMessages(completeHistory)
+      setCurrentRound(nextRound)
+
+      if (assistantMessage.audioUrl && voiceEnabled) {
+        setTimeout(() => {
+          playAudio(assistantMessage.audioUrl!, completeHistory.length - 1)
+        }, 500)
+      }
+
+      if (isEnd || nextRound >= maxRounds) {
+        setIsRoundLimitReached(true)
+      }
+    } catch (err) {
+      console.error('处理语音输入失败:', err)
+      const errorMessage = err instanceof Error ? err.message : '处理输入失败，请重试'
+      setError(errorMessage)
+    } finally {
+      setIsGeneratingResponse(false)
+    }
+  }
+
+  const handleError = useCallback((errorMsg: string) => {
+    setError(errorMsg)
   }, [])
+
+  const {
+    isSupported: recognitionSupported,
+    isRecording,
+    interimTranscript,
+    startRecording: hookStartRecording,
+    stopRecording: hookStopRecording,
+  } = useSpeechRecognition({
+    onResult: handleVoiceInput,
+    onError: handleError,
+  })
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -210,7 +150,6 @@ export default function ChatPage() {
     const fetchPracticeContent = async () => {
       if (!sceneId) return
       
-      // 防止 React StrictMode 双重调用
       if (isInitializedRef.current) return
       isInitializedRef.current = true
 
@@ -218,14 +157,12 @@ export default function ChatPage() {
         setIsLoading(true)
         setError(null)
 
-        // 首先尝试从 sessionStorage 读取数据
         const storedData = sessionStorage.getItem(`practiceContent_${sceneId}`)
         if (storedData) {
           try {
             const data: PracticeContent = JSON.parse(storedData)
             setPracticeContent(data)
             
-            // 清除 sessionStorage 中的数据，避免占用存储空间
             sessionStorage.removeItem(`practiceContent_${sceneId}`)
             
             setStatus('initializing')
@@ -233,11 +170,9 @@ export default function ChatPage() {
             return
           } catch (parseError) {
             console.error('解析 sessionStorage 数据失败:', parseError)
-            // 解析失败，继续调用 API
           }
         }
 
-        // 如果 sessionStorage 中没有数据，调用 API 获取
         const response = await fetch(`/api/scenes/${sceneId}/practice-content`)
 
         if (!response.ok) {
@@ -387,128 +322,14 @@ export default function ChatPage() {
     }
   }
 
-  const handleVoiceInput = async (transcript: string) => {
-    if (!transcript.trim()) return
-
-    const currentMessages = messagesRef.current
-    const currentRoundValue = currentRoundRef.current
-
-    const userMessage: Message = {
-      role: 'user',
-      content: transcript,
-      timestamp: Date.now(),
-    }
-
-    const updatedMessages = [...currentMessages, userMessage]
-    setMessages(updatedMessages)
-
-    setIsGeneratingResponse(true)
-
-    try {
-      const nextRound = currentRoundValue + 1
-      const { message: assistantMessage, isEnd, isComplete } = await generateAssistantMessage(
-        transcript,
-        updatedMessages,
-        nextRound
-      )
-
-      const completeHistory = [...updatedMessages, assistantMessage]
-      setMessages(completeHistory)
-      setCurrentRound(nextRound)
-
-      if (assistantMessage.audioUrl && voiceEnabled) {
-        setTimeout(() => {
-          playAudio(assistantMessage.audioUrl!, completeHistory.length - 1)
-        }, 500)
-      }
-
-      if (isEnd || nextRound >= maxRounds) {
-        setIsRoundLimitReached(true)
-      }
-    } catch (err) {
-      console.error('处理语音输入失败:', err)
-      const errorMessage = err instanceof Error ? err.message : '处理输入失败，请重试'
-      setError(errorMessage)
-    } finally {
-      setIsGeneratingResponse(false)
-    }
-  }
-
   const startRecording = useCallback(async () => {
-    if (recognition && !isRecording && !isGeneratingResponse) {
-      try {
-        hasRecognitionResultRef.current = false
-        finalTranscriptRef.current = ''
-        interimTranscriptRef.current = ''
-        setIsRecording(true)
-        setError(null)
-        
-        await navigator.mediaDevices.getUserMedia({ audio: true })
-        
-        recognition.start()
-
-        recordingTimeoutRef.current = setTimeout(() => {
-          if (recognition) {
-            try {
-              const transcript = finalTranscriptRef.current || interimTranscriptRef.current
-              if (transcript.trim()) {
-                hasRecognitionResultRef.current = true
-                handleVoiceInput(transcript.trim())
-              }
-              recognition.stop()
-            } catch (err) {
-              console.error('超时停止录音失败:', err)
-            }
-          }
-        }, 30000)
-      } catch (err) {
-        console.error('启动录音失败:', err)
-        let errorMessage = '无法访问麦克风，请检查麦克风权限和设备'
-        
-        if (err instanceof Error) {
-          if (err.name === 'NotReadableError') {
-            errorMessage = '麦克风设备被占用或故障，请检查是否有其他应用正在使用麦克风'
-          } else if (err.name === 'NotAllowedError') {
-            errorMessage = '麦克风权限被拒绝，请在浏览器设置中允许访问麦克风'
-          } else if (err.name === 'NotFoundError') {
-            errorMessage = '未找到麦克风设备，请连接麦克风后重试'
-          }
-        }
-        
-        setError(errorMessage)
-        setIsRecording(false)
-      }
-    }
-  }, [recognition, isRecording, isGeneratingResponse])
+    setError(null)
+    await hookStartRecording()
+  }, [hookStartRecording])
 
   const stopRecording = useCallback(() => {
-    if (recognition) {
-      try {
-        if (recordingTimeoutRef.current) {
-          clearTimeout(recordingTimeoutRef.current)
-          recordingTimeoutRef.current = null
-        }
-        if (silenceTimeoutRef.current) {
-          clearTimeout(silenceTimeoutRef.current)
-          silenceTimeoutRef.current = null
-        }
-        
-        const transcript = finalTranscriptRef.current || interimTranscriptRef.current
-        if (transcript.trim()) {
-          hasRecognitionResultRef.current = true
-          handleVoiceInput(transcript.trim())
-        }
-        
-        recognition.stop()
-      } catch (err) {
-        console.error('停止录音失败:', err)
-        hasRecognitionResultRef.current = false
-        finalTranscriptRef.current = ''
-        interimTranscriptRef.current = ''
-        setIsRecording(false)
-      }
-    }
-  }, [recognition])
+    hookStopRecording()
+  }, [hookStopRecording])
 
   const playAudio = (audioUrl: string, messageIndex: number) => {
     if (!voiceEnabled) return

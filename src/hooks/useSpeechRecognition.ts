@@ -1,0 +1,397 @@
+'use client'
+
+import { useState, useCallback, useRef, useEffect } from 'react'
+
+export interface UseSpeechRecognitionOptions {
+  onResult: (transcript: string) => void
+  onError?: (error: string) => void
+  lang?: string
+  silenceTimeout?: number
+  maxRecordingTime?: number
+}
+
+export interface UseSpeechRecognitionReturn {
+  isSupported: boolean
+  isRecording: boolean
+  interimTranscript: string
+  startRecording: () => Promise<void>
+  stopRecording: () => void
+  error: string | null
+  audioLevel: number
+}
+
+export function useSpeechRecognition({
+  onResult,
+  onError,
+  lang = 'en-US',
+  silenceTimeout = 800,
+  maxRecordingTime = 30000,
+}: UseSpeechRecognitionOptions): UseSpeechRecognitionReturn {
+  const [isSupported, setIsSupported] = useState(false)
+  const [isRecording, setIsRecording] = useState(false)
+  const [interimTranscript, setInterimTranscript] = useState('')
+  const [error, setError] = useState<string | null>(null)
+  const [audioLevel, setAudioLevel] = useState(0)
+
+  const recognitionRef = useRef<any>(null)
+  const finalTranscriptRef = useRef<string>('')
+  const interimTranscriptRef = useRef<string>('')
+  const hasResultRef = useRef<boolean>(false)
+  const silenceTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const recordingTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const onResultRef = useRef(onResult)
+  const onErrorRef = useRef(onError)
+  const audioContextRef = useRef<AudioContext | null>(null)
+  const analyserRef = useRef<AnalyserNode | null>(null)
+  const mediaStreamRef = useRef<MediaStream | null>(null)
+  const animationFrameRef = useRef<number | null>(null)
+  const isRecordingRef = useRef<boolean>(false)
+
+  useEffect(() => {
+    onResultRef.current = onResult
+  }, [onResult])
+
+  useEffect(() => {
+    onErrorRef.current = onError
+  }, [onError])
+
+  useEffect(() => {
+    const hasStandard = typeof (window as any).SpeechRecognition !== 'undefined'
+    const hasWebkit = typeof (window as any).webkitSpeechRecognition !== 'undefined'
+    
+    console.log('[useSpeechRecognition] 浏览器支持检测:', {
+      SpeechRecognition: hasStandard,
+      webkitSpeechRecognition: hasWebkit,
+      userAgent: navigator.userAgent
+    })
+
+    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
+    if (!SpeechRecognition) {
+      console.log('[useSpeechRecognition] 浏览器不支持语音识别')
+      setIsSupported(false)
+      return
+    }
+    
+    console.log('[useSpeechRecognition] 浏览器支持语音识别，初始化...')
+    setIsSupported(true)
+
+    const recognition = new SpeechRecognition()
+    recognition.continuous = true
+    recognition.interimResults = true
+    recognition.lang = lang
+    
+    console.log('[useSpeechRecognition] 识别配置:', {
+      continuous: recognition.continuous,
+      interimResults: recognition.interimResults,
+      lang: recognition.lang
+    })
+
+    const clearSilenceTimeout = () => {
+      if (silenceTimeoutRef.current) {
+        clearTimeout(silenceTimeoutRef.current)
+        silenceTimeoutRef.current = null
+      }
+    }
+
+    const setSilenceTimeout = () => {
+      clearSilenceTimeout()
+      silenceTimeoutRef.current = setTimeout(() => {
+        const transcript = finalTranscriptRef.current || interimTranscriptRef.current
+        if (transcript.trim()) {
+          hasResultRef.current = true
+          onResultRef.current(transcript.trim())
+        }
+        try {
+          recognition.stop()
+        } catch (_) {}
+      }, silenceTimeout)
+    }
+
+    recognition.onresult = (event: any) => {
+      console.log('[useSpeechRecognition] onresult 触发, event.resultIndex:', event.resultIndex, 'results.length:', event.results.length)
+      
+      let finalText = ''
+      let interimText = ''
+
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const transcript = event.results[i][0].transcript
+        console.log('[useSpeechRecognition] 识别结果', i, ':', {
+          transcript,
+          isFinal: event.results[i].isFinal,
+          confidence: event.results[i][0].confidence
+        })
+        if (event.results[i].isFinal) {
+          finalText += transcript
+        } else {
+          interimText += transcript
+        }
+      }
+
+      if (finalText) {
+        finalTranscriptRef.current += finalText
+        console.log('[useSpeechRecognition] 最终文本累积:', finalTranscriptRef.current)
+      }
+      if (interimText) {
+        interimTranscriptRef.current = interimText
+        setInterimTranscript(interimText)
+        console.log('[useSpeechRecognition] 临时文本:', interimText)
+      }
+
+      setSilenceTimeout()
+
+      if (finalText) {
+        hasResultRef.current = true
+      }
+    }
+
+    recognition.onstart = () => {
+      console.log('[useSpeechRecognition] onstart - 语音识别已启动')
+    }
+
+    recognition.onaudiostart = () => {
+      console.log('[useSpeechRecognition] onaudiostart - 音频捕获已开始')
+    }
+
+    recognition.onsoundstart = () => {
+      console.log('[useSpeechRecognition] onsoundstart - 检测到声音')
+    }
+
+    recognition.onspeechstart = () => {
+      console.log('[useSpeechRecognition] onspeechstart - 检测到语音')
+    }
+
+    recognition.onspeechend = () => {
+      console.log('[useSpeechRecognition] onspeechend - 语音结束')
+    }
+
+    recognition.onaudioend = () => {
+      console.log('[useSpeechRecognition] onaudioend - 音频捕获结束')
+    }
+
+    recognition.onerror = (event: any) => {
+      console.error('语音识别错误:', event.error)
+      clearSilenceTimeout()
+
+      let errorMessage = '语音识别失败，请重试'
+
+      switch (event.error) {
+        case 'audio-capture':
+          errorMessage = '无法访问麦克风，请检查麦克风权限和设备'
+          break
+        case 'not-allowed':
+          errorMessage = '麦克风权限被拒绝，请在浏览器设置中允许访问麦克风'
+          break
+        case 'network':
+          errorMessage = '网络错误，语音识别服务不可用'
+          break
+        case 'aborted':
+          errorMessage = ''
+          break
+        case 'no-speech':
+          errorMessage = '未检测到语音，请重试'
+          break
+        default:
+          errorMessage = `语音识别失败: ${event.error}`
+      }
+
+      if (errorMessage) {
+        setError(errorMessage)
+        onErrorRef.current?.(errorMessage)
+      }
+      hasResultRef.current = false
+      setIsRecording(false)
+      isRecordingRef.current = false
+    }
+
+    recognition.onend = () => {
+      clearSilenceTimeout()
+
+      if (!hasResultRef.current && !finalTranscriptRef.current && !interimTranscriptRef.current) {
+        setError('未检测到语音，请重试')
+      }
+
+      hasResultRef.current = false
+      finalTranscriptRef.current = ''
+      interimTranscriptRef.current = ''
+      setInterimTranscript('')
+      setIsRecording(false)
+      isRecordingRef.current = false
+
+      if (recordingTimeoutRef.current) {
+        clearTimeout(recordingTimeoutRef.current)
+        recordingTimeoutRef.current = null
+      }
+    }
+
+    recognitionRef.current = recognition
+
+    return () => {
+      try {
+        recognition.stop()
+      } catch (_) {}
+      clearSilenceTimeout()
+      if (recordingTimeoutRef.current) {
+        clearTimeout(recordingTimeoutRef.current)
+      }
+    }
+  }, [lang, silenceTimeout])
+
+  const startRecording = useCallback(async () => {
+    console.log('[useSpeechRecognition] startRecording 被调用, isSupported:', isSupported, 'isRecording:', isRecording)
+    
+    if (!isSupported) {
+      const msg = '您的浏览器不支持语音识别，请使用 Chrome、Edge 或 Safari 浏览器'
+      console.log('[useSpeechRecognition] 不支持语音识别')
+      setError(msg)
+      onErrorRef.current?.(msg)
+      return
+    }
+
+    if (!recognitionRef.current || isRecording) {
+      console.log('[useSpeechRecognition] 无法启动:', {
+        hasRecognition: !!recognitionRef.current,
+        isRecording
+      })
+      return
+    }
+
+    try {
+      hasResultRef.current = false
+      finalTranscriptRef.current = ''
+      interimTranscriptRef.current = ''
+      setIsRecording(true)
+      isRecordingRef.current = true
+      setError(null)
+      setInterimTranscript('')
+
+      console.log('[useSpeechRecognition] 请求麦克风权限...')
+      const stream = await navigator.mediaDevices.getUserMedia({ 
+        audio: {
+          echoCancellation: true,
+          noiseSuppression: true,
+          autoGainControl: true
+        } 
+      })
+      mediaStreamRef.current = stream
+      console.log('[useSpeechRecognition] 麦克风权限已获取, tracks:', stream.getTracks().length)
+      
+      const audioTrack = stream.getAudioTracks()[0]
+      console.log('[useSpeechRecognition] 音频轨道信息:', {
+        label: audioTrack?.label,
+        enabled: audioTrack?.enabled,
+        muted: audioTrack?.muted,
+        readyState: audioTrack?.readyState
+      })
+
+      const AudioContext = window.AudioContext || (window as any).webkitAudioContext
+      if (AudioContext) {
+        const audioContext = new AudioContext()
+        const analyser = audioContext.createAnalyser()
+        const microphone = audioContext.createMediaStreamSource(stream)
+        microphone.connect(analyser)
+        analyser.fftSize = 256
+        
+        audioContextRef.current = audioContext
+        analyserRef.current = analyser
+        
+        const dataArray = new Uint8Array(analyser.frequencyBinCount)
+        
+        const updateAudioLevel = () => {
+          if (!analyserRef.current || !isRecordingRef.current) return
+          analyser.getByteFrequencyData(dataArray)
+          const average = dataArray.reduce((a, b) => a + b, 0) / dataArray.length
+          setAudioLevel(Math.round(average))
+          
+          animationFrameRef.current = requestAnimationFrame(updateAudioLevel)
+        }
+        updateAudioLevel()
+        console.log('[useSpeechRecognition] 音量检测已启动')
+      }
+      
+      console.log('[useSpeechRecognition] 启动语音识别...')
+      recognitionRef.current.start()
+      console.log('[useSpeechRecognition] recognition.start() 已调用')
+
+      recordingTimeoutRef.current = setTimeout(() => {
+        console.log('[useSpeechRecognition] 达到最大录音时长')
+        if (recognitionRef.current) {
+          try {
+            const transcript = finalTranscriptRef.current || interimTranscriptRef.current
+            if (transcript.trim()) {
+              hasResultRef.current = true
+              onResultRef.current(transcript.trim())
+            }
+            recognitionRef.current.stop()
+          } catch (_) {}
+        }
+      }, maxRecordingTime)
+    } catch (err) {
+      console.error('[useSpeechRecognition] 启动录音失败:', err)
+      let errorMessage = '无法访问麦克风，请检查麦克风权限和设备'
+
+      if (err instanceof Error) {
+        if (err.name === 'NotReadableError') {
+          errorMessage = '麦克风设备被占用或故障，请检查是否有其他应用正在使用麦克风'
+        } else if (err.name === 'NotAllowedError') {
+          errorMessage = '麦克风权限被拒绝，请在浏览器设置中允许访问麦克风'
+        } else if (err.name === 'NotFoundError') {
+          errorMessage = '未找到麦克风设备，请连接麦克风后重试'
+        }
+      }
+
+      setError(errorMessage)
+      onErrorRef.current?.(errorMessage)
+      setIsRecording(false)
+      isRecordingRef.current = false
+    }
+  }, [isSupported, isRecording, maxRecordingTime])
+
+  const stopRecording = useCallback(() => {
+    if (!recognitionRef.current) return
+    
+    isRecordingRef.current = false
+
+    if (recordingTimeoutRef.current) {
+      clearTimeout(recordingTimeoutRef.current)
+      recordingTimeoutRef.current = null
+    }
+    if (silenceTimeoutRef.current) {
+      clearTimeout(silenceTimeoutRef.current)
+      silenceTimeoutRef.current = null
+    }
+    
+    if (animationFrameRef.current) {
+      cancelAnimationFrame(animationFrameRef.current)
+      animationFrameRef.current = null
+    }
+    if (audioContextRef.current) {
+      audioContextRef.current.close()
+      audioContextRef.current = null
+    }
+    if (mediaStreamRef.current) {
+      mediaStreamRef.current.getTracks().forEach(track => track.stop())
+      mediaStreamRef.current = null
+    }
+    setAudioLevel(0)
+
+    const transcript = finalTranscriptRef.current || interimTranscriptRef.current
+    if (transcript.trim()) {
+      hasResultRef.current = true
+      onResultRef.current(transcript.trim())
+    }
+
+    try {
+      recognitionRef.current.stop()
+    } catch (_) {}
+  }, [])
+
+  return {
+    isSupported,
+    isRecording,
+    interimTranscript,
+    startRecording,
+    stopRecording,
+    error,
+    audioLevel,
+  }
+}
