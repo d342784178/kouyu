@@ -4,10 +4,12 @@ import { useEffect } from 'react'
 
 export function VConsoleInit() {
   useEffect(() => {
-    if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
-      import('vconsole').then((VConsole) => {
-        new VConsole.default()
-      })
+    if (typeof window !== 'undefined') {
+      if (process.env.NEXT_PUBLIC_ENABLE_VCONSOLE === 'true') {
+        import('vconsole').then((VConsole) => {
+          new VConsole.default()
+        })
+      }
     }
   }, [])
   
