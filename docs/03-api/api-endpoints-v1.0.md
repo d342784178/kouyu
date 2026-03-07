@@ -36,6 +36,7 @@
 | 短语 | `/api/phrases` | 短语列表、详情 |
 | 开放式测试 | `/api/open-test` | 对话初始化、交互、分析 |
 | 音频 | `/api/audio` | 音频代理、语音生成 |
+| 语音识别 | `/api/speech` | 语音识别、发音评估（Azure Speech SDK） |
 | 跟读评测 | `/api/shadowing` | 发音评测（Microsoft Speech SDK） |
 | 填空测试 | `/api/fill-blank` | 填空题评估 |
 | 情景再现评测 | `/api/guided-roleplay` | 情景再现题评测（GLM-4-Flash） |
@@ -578,6 +579,77 @@ interface SpeechRequest {
 { "error": "缺少目标文本" }           // 400 - 缺少 text 字段
 { "error": "语音识别失败: ..." }      // 422 - SDK 识别失败
 { "error": "Azure Speech SDK 配置缺失..." } // 500 - 环境变量未配置
+```
+
+#### 依赖环境变量
+
+| 变量名 | 说明 |
+|--------|------|
+| `AZURE_SPEECH_KEY` | Microsoft Azure 语音服务订阅密钥 |
+| `AZURE_SPEECH_REGION` | Azure 服务区域，如 `eastasia` |
+
+---
+
+## 发音评估API
+
+### POST /api/speech/pronunciation-assessment
+
+使用 Azure Speech SDK 的 Pronunciation Assessment 功能评估用户发音，返回准确度、流畅度、完整度评分及逐词反馈。
+
+#### 请求体
+
+`Content-Type: multipart/form-data`
+
+| 字段 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| audio | File (Blob) | 是 | 用户录音文件，格式为原始 PCM（16kHz 单声道 16bit） |
+| referenceText | string | 是 | 目标文本（用于发音对比评测） |
+| sampleRate | string | 否 | 采样率，默认 `16000` |
+
+#### 响应示例（成功）
+
+```json
+{
+  "success": true,
+  "accuracyScore": 85,
+  "fluencyScore": 78,
+  "completenessScore": 90,
+  "pronunciationScore": 84,
+  "recognizedText": "Welcome to our restaurant",
+  "wordFeedback": [
+    { "word": "Welcome", "accuracyScore": 90, "errorType": "None" },
+    { "word": "to", "accuracyScore": 95, "errorType": "None" },
+    { "word": "our", "accuracyScore": 45, "errorType": "Mispronunciation" },
+    { "word": "restaurant", "accuracyScore": 88, "errorType": "None" }
+  ]
+}
+```
+
+#### 响应字段说明
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| success | boolean | 是否成功 |
+| accuracyScore | number | 发音准确度（0-100） |
+| fluencyScore | number | 流畅度（0-100） |
+| completenessScore | number | 完整度（0-100） |
+| pronunciationScore | number | 综合发音评分（0-100） |
+| recognizedText | string | 识别的文本 |
+| wordFeedback | array | 逐词反馈列表 |
+| wordFeedback[].word | string | 单词文本 |
+| wordFeedback[].accuracyScore | number | 该词得分（0-100） |
+| wordFeedback[].errorType | string | 错误类型：`None` | `Omission` | `Insertion` | `Mispronunciation` |
+
+#### 错误响应
+
+```json
+{ "error": "音频数据不能为空" }           // 400 - 缺少 audio 字段
+{ "error": "目标文本不能为空" }           // 400 - 缺少 referenceText 字段
+{ "error": "音频数据过大，请录制更短的内容" } // 400 - 音频超过 10MB
+{ "error": "未识别到语音，请确保麦克风正常工作并大声说话" } // 422 - 未识别到语音
+{ "error": "发音评估失败: ..." }      // 422 - SDK 评估失败
+{ "error": "Azure Speech 密钥未配置" } // 500 - 环境变量未配置
+{ "error": "发音评估服务不可用" } // 500 - 服务异常
 ```
 
 #### 依赖环境变量

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useCallback, useRef, useEffect } from 'react'
+import type { PronunciationAssessmentResult } from '@/types'
 
 export interface UseSpeechRecognitionOptions {
   onResult: (transcript: string) => void
@@ -8,6 +9,12 @@ export interface UseSpeechRecognitionOptions {
   lang?: string
   silenceTimeout?: number
   maxRecordingTime?: number
+  /** 是否启用发音评估模式 */
+  enablePronunciationAssessment?: boolean
+  /** 发音评估的目标文本 */
+  referenceText?: string
+  /** 发音评估结果回调 */
+  onPronunciationResult?: (result: PronunciationAssessmentResult) => void
 }
 
 export interface BrowserCompatibility {
@@ -37,6 +44,18 @@ export interface UseSpeechRecognitionReturn {
   checkPermission: () => Promise<PermissionStatus>
   requestPermission: () => Promise<boolean>
   useAzureFallback: boolean
+  /** 发音评估结果 */
+  pronunciationResult: PronunciationAssessmentResult | null
+  /** 是否正在进行发音评估 */
+  isAssessing: boolean
+  /** 录音音频 Blob URL */
+  recordingUrl: string | null
+  /** 录音音频是否正在播放 */
+  isPlaying: boolean
+  /** 播放录音 */
+  playRecording: () => void
+  /** 暂停录音播放 */
+  pauseRecording: () => void
 }
 
 // ============================================================
@@ -179,6 +198,9 @@ export function useSpeechRecognition({
   lang = 'en-US',
   silenceTimeout = 800,
   maxRecordingTime = 30000,
+  enablePronunciationAssessment = false,
+  referenceText = '',
+  onPronunciationResult,
 }: UseSpeechRecognitionOptions): UseSpeechRecognitionReturn {
   // 状态
   const [browserCompatibility, setBrowserCompatibility] = useState<BrowserCompatibility>({
@@ -198,6 +220,10 @@ export function useSpeechRecognition({
     canRequest: true
   })
   const [useAzureFallback, setUseAzureFallback] = useState(false)
+  const [pronunciationResult, setPronunciationResult] = useState<PronunciationAssessmentResult | null>(null)
+  const [isAssessing, setIsAssessing] = useState(false)
+  const [recordingUrl, setRecordingUrl] = useState<string | null>(null)
+  const [isPlaying, setIsPlaying] = useState(false)
 
   // Refs
   const recognitionRef = useRef<any>(null)
@@ -208,12 +234,17 @@ export function useSpeechRecognition({
   const recordingTimeoutRef = useRef<NodeJS.Timeout | null>(null)
   const onResultRef = useRef(onResult)
   const onErrorRef = useRef(onError)
+  const onPronunciationResultRef = useRef(onPronunciationResult)
   const audioLevelDetectorRef = useRef<AudioLevelDetector | null>(null)
   const mediaStreamRef = useRef<MediaStream | null>(null)
   const isRecordingRef = useRef<boolean>(false)
   const mediaRecorderRef = useRef<MediaRecorder | null>(null)
   const audioChunksRef = useRef<Blob[]>([])
   const silenceStartTimeRef = useRef<number | null>(null)
+  const enablePronunciationAssessmentRef = useRef(enablePronunciationAssessment)
+  const referenceTextRef = useRef(referenceText)
+  const recordingAudioRef = useRef<HTMLAudioElement | null>(null)
+  const originalAudioRef = useRef<Blob | null>(null)
 
   // 停顿检测配置
   const SILENCE_THRESHOLD = 3 // RMS 阈值
@@ -226,6 +257,18 @@ export function useSpeechRecognition({
   useEffect(() => {
     onErrorRef.current = onError
   }, [onError])
+
+  useEffect(() => {
+    onPronunciationResultRef.current = onPronunciationResult
+  }, [onPronunciationResult])
+
+  useEffect(() => {
+    enablePronunciationAssessmentRef.current = enablePronunciationAssessment
+  }, [enablePronunciationAssessment])
+
+  useEffect(() => {
+    referenceTextRef.current = referenceText
+  }, [referenceText])
 
   // 初始化：检测浏览器兼容性
   useEffect(() => {
@@ -509,16 +552,23 @@ export function useSpeechRecognition({
       }
 
       mediaRecorder.onstop = async () => {
-        console.log('[useSpeechRecognition] 录音停止，发送到服务端识别...')
+        console.log('[useSpeechRecognition] 录音停止，发送到服务端处理...')
         
         setIsRecording(false)
         isRecordingRef.current = false
-        setIsRecognizing(true)
+        
+        // 保存录音 Blob 并创建播放 URL
+        if (audioChunksRef.current && audioChunksRef.current.length > 0) {
+          const audioBlob = new Blob(audioChunksRef.current, { type: mimeType })
+          originalAudioRef.current = audioBlob
+          const url = URL.createObjectURL(audioBlob)
+          setRecordingUrl(url)
+        }
+        
         cleanup()
 
         if (!audioChunksRef.current || audioChunksRef.current.length === 0) {
           setError('未检测到录音数据，请重试')
-          setIsRecognizing(false)
           return
         }
 
@@ -545,43 +595,99 @@ export function useSpeechRecognition({
             pcmInt16[i] = sample < 0 ? sample * 32768 : sample * 32767
           }
 
-          // 发送到服务端识别
-          const formData = new FormData()
-          formData.append('audio', new Blob([pcmInt16.buffer], { type: 'audio/pcm' }), 'recording.pcm')
-          formData.append('sampleRate', String(targetSampleRate))
+          const pcmBlob = new Blob([pcmInt16.buffer], { type: 'audio/pcm' })
 
-          const response = await fetch('/api/speech/recognize', {
-            method: 'POST',
-            body: formData,
-          })
+          // 判断是否启用发音评估模式
+          if (enablePronunciationAssessmentRef.current && referenceTextRef.current) {
+            // 发音评估模式
+            setIsAssessing(true)
+            console.log('[useSpeechRecognition] 发音评估模式，目标文本:', referenceTextRef.current)
 
-          if (!response.ok) {
-            let errMsg = '语音识别失败'
-            try {
-              const errData = await response.json()
-              errMsg = errData.error || errMsg
-            } catch (_) {
-              errMsg = `语音识别失败 (HTTP ${response.status})`
+            const formData = new FormData()
+            formData.append('audio', pcmBlob, 'recording.pcm')
+            formData.append('referenceText', referenceTextRef.current)
+            formData.append('sampleRate', String(targetSampleRate))
+
+            const response = await fetch('/api/speech/pronunciation-assessment', {
+              method: 'POST',
+              body: formData,
+            })
+
+            if (!response.ok) {
+              let errMsg = '发音评估失败'
+              try {
+                const errData = await response.json()
+                errMsg = errData.error || errMsg
+              } catch (_) {
+                errMsg = `发音评估失败 (HTTP ${response.status})`
+              }
+              throw new Error(errMsg)
             }
-            throw new Error(errMsg)
-          }
 
-          const result = await response.json()
-          console.log('[useSpeechRecognition] 识别结果:', result.transcript)
+            const result = await response.json()
+            console.log('[useSpeechRecognition] 发音评估结果:', result)
 
-          if (result.transcript) {
-            finalTranscriptRef.current = result.transcript
-            hasResultRef.current = true
-            onResultRef.current(result.transcript)
+            if (result.success && result.pronunciationScore !== undefined) {
+              const assessmentResult: PronunciationAssessmentResult = {
+                accuracyScore: result.accuracyScore,
+                fluencyScore: result.fluencyScore,
+                completenessScore: result.completenessScore,
+                pronunciationScore: result.pronunciationScore,
+                wordFeedback: result.wordFeedback || []
+              }
+              setPronunciationResult(assessmentResult)
+              onPronunciationResultRef.current?.(assessmentResult)
+              
+              // 同时返回识别的文本
+              if (result.recognizedText) {
+                finalTranscriptRef.current = result.recognizedText
+                hasResultRef.current = true
+                onResultRef.current(result.recognizedText)
+              }
+            }
+            setIsAssessing(false)
+          } else {
+            // 普通语音识别模式
+            setIsRecognizing(true)
+            
+            const formData = new FormData()
+            formData.append('audio', pcmBlob, 'recording.pcm')
+            formData.append('sampleRate', String(targetSampleRate))
+
+            const response = await fetch('/api/speech/recognize', {
+              method: 'POST',
+              body: formData,
+            })
+
+            if (!response.ok) {
+              let errMsg = '语音识别失败'
+              try {
+                const errData = await response.json()
+                errMsg = errData.error || errMsg
+              } catch (_) {
+                errMsg = `语音识别失败 (HTTP ${response.status})`
+              }
+              throw new Error(errMsg)
+            }
+
+            const result = await response.json()
+            console.log('[useSpeechRecognition] 识别结果:', result.transcript)
+
+            if (result.transcript) {
+              finalTranscriptRef.current = result.transcript
+              hasResultRef.current = true
+              onResultRef.current(result.transcript)
+            }
+            setIsRecognizing(false)
           }
         } catch (err) {
-          console.error('[useSpeechRecognition] 服务端识别失败:', err)
-          const errorMessage = err instanceof Error ? err.message : '语音识别失败'
+          console.error('[useSpeechRecognition] 服务端处理失败:', err)
+          const errorMessage = err instanceof Error ? err.message : '处理失败'
           setError(errorMessage)
           onErrorRef.current?.(errorMessage)
+          setIsRecognizing(false)
+          setIsAssessing(false)
         }
-
-        setIsRecognizing(false)
       }
 
       // 启动录音
@@ -721,9 +827,12 @@ export function useSpeechRecognition({
   }, [browserCompatibility, isRecording, maxRecordingTime, cleanup])
 
   const startRecording = useCallback(async () => {
-    console.log('[useSpeechRecognition] startRecording, useAzureFallback:', useAzureFallback)
+    console.log('[useSpeechRecognition] startRecording, useAzureFallback:', useAzureFallback, 'enablePronunciationAssessment:', enablePronunciationAssessmentRef.current)
     
-    if (useAzureFallback) {
+    // 如果启用了发音评估，强制使用服务端模式
+    if (enablePronunciationAssessmentRef.current) {
+      await startServerSideRecording()
+    } else if (useAzureFallback) {
       await startServerSideRecording()
     } else {
       await startNativeRecording()
@@ -756,6 +865,43 @@ export function useSpeechRecognition({
     }
   }, [cleanup, useAzureFallback])
 
+  // 播放录音
+  const playRecording = useCallback(() => {
+    if (!recordingUrl) return
+    
+    if (!recordingAudioRef.current) {
+      recordingAudioRef.current = new Audio(recordingUrl)
+      recordingAudioRef.current.onended = () => {
+        setIsPlaying(false)
+      }
+    }
+    
+    recordingAudioRef.current.play()
+    setIsPlaying(true)
+  }, [recordingUrl])
+
+  // 暂停录音播放
+  const pauseRecording = useCallback(() => {
+    if (recordingAudioRef.current) {
+      recordingAudioRef.current.pause()
+      setIsPlaying(false)
+    }
+  }, [])
+
+  // 清理资源时释放音频对象
+  useEffect(() => {
+    return () => {
+      if (recordingAudioRef.current) {
+        recordingAudioRef.current.pause()
+        recordingAudioRef.current.src = ''
+        recordingAudioRef.current = null
+      }
+      if (recordingUrl) {
+        URL.revokeObjectURL(recordingUrl)
+      }
+    }
+  }, [recordingUrl])
+
   return {
     isSupported: browserCompatibility.isSupported,
     isRecording,
@@ -770,5 +916,11 @@ export function useSpeechRecognition({
     checkPermission,
     requestPermission,
     useAzureFallback,
+    pronunciationResult,
+    isAssessing,
+    recordingUrl,
+    isPlaying,
+    playRecording,
+    pauseRecording,
   }
 }

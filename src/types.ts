@@ -137,6 +137,35 @@ export interface ShadowingResult {
 }
 
 /**
+ * 发音评估结果接口
+ * 由 Microsoft Cognitive Services Speech SDK 返回
+ */
+export interface PronunciationAssessmentResult {
+  /** 发音准确度评分（0-100） */
+  accuracyScore: number;
+  /** 流畅度评分（0-100） */
+  fluencyScore: number;
+  /** 完整度评分（0-100） */
+  completenessScore: number;
+  /** 综合发音评分（0-100） */
+  pronunciationScore: number;
+  /** 逐词反馈数组 */
+  wordFeedback: WordFeedback[];
+}
+
+/**
+ * 逐词反馈接口
+ */
+export interface WordFeedback {
+  /** 单词文本 */
+  word: string;
+  /** 该词得分（0-100） */
+  accuracyScore: number;
+  /** 错误类型 */
+  errorType?: 'None' | 'Omission' | 'Insertion' | 'Mispronunciation';
+}
+
+/**
  * 场景测试题目联合类型（扩展现有题型，新增 fill_blank、guided_roleplay、vocab_activation）
  * 与数据库 scene_tests 表对应，type 字段标识题型
  */
