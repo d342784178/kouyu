@@ -606,7 +606,7 @@ export default function ChatPage() {
 
   return (
     <div className="h-[calc(100vh-150px)] bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8] flex flex-col">
-      <div className="shrink-0 px-6 pt-6 pb-4">
+      <div className="shrink-0 px-6 pt-6 pb-4 bg-[#F5F6FA]">
         <div className="flex items-center">
           <BackButton onClick={handleBack} />
           <div className="ml-3">
@@ -617,7 +617,7 @@ export default function ChatPage() {
       </div>
 
       <div className="flex-1 min-h-0">
-        <div className="max-w-[430px] mx-auto h-full">
+        <div className="max-w-[430px] mx-auto h-[calc(100vh-150px)]">
           {status === 'initializing' && (
             <InitializingView
               message="正在初始化对话..."
