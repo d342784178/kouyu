@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useCallback, useRef, useEffect } from 'react'
-import * as sdk from 'microsoft-cognitiveservices-speech-sdk'
 
 export interface UseSpeechRecognitionOptions {
   onResult: (transcript: string) => void
@@ -109,7 +108,8 @@ export function useSpeechRecognition({
   const mediaStreamRef = useRef<MediaStream | null>(null)
   const animationFrameRef = useRef<number | null>(null)
   const isRecordingRef = useRef<boolean>(false)
-  const azureRecognizerRef = useRef<any>(null)
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null)
+  const audioChunksRef = useRef<Blob[]>([])
 
   useEffect(() => {
     onResultRef.current = onResult
@@ -398,99 +398,99 @@ export function useSpeechRecognition({
   }, [browserCompatibility.hasGetUserMedia])
 
   const startAzureRecording = useCallback(async () => {
-    console.log('[useSpeechRecognition] startAzureRecording 被调用')
+    console.log('[useSpeechRecognition] startAzureRecording 被调用 - 使用服务端 API')
     
-    if (!process.env.AZURE_SPEECH_KEY) {
-      const msg = 'Azure Speech 密钥未配置，请在 Vercel 环境变量中设置 AZURE_SPEECH_KEY'
-      console.error('[useSpeechRecognition]', msg)
-      setError(msg)
-      onErrorRef.current?.(msg)
-      return
-    }
-
     try {
       hasResultRef.current = false
       finalTranscriptRef.current = ''
+      interimTranscriptRef.current = ''
       setIsRecording(true)
       isRecordingRef.current = true
       setError(null)
       setInterimTranscript('')
+      audioChunksRef.current = []
 
-      console.log('[useSpeechRecognition] Azure SDK - 请求麦克风权限...')
+      console.log('[useSpeechRecognition] 请求麦克风权限...')
       const stream = await navigator.mediaDevices.getUserMedia({ 
         audio: {
           echoCancellation: true,
           noiseSuppression: true,
-          autoGainControl: true
+          autoGainControl: true,
+          sampleRate: 16000
         } 
       })
       mediaStreamRef.current = stream
-      console.log('[useSpeechRecognition] Azure SDK - 麦克风权限已获取')
+      console.log('[useSpeechRecognition] 麦克风权限已获取')
 
-      // 创建 Azure Speech 配置
-      const speechConfig = sdk.SpeechConfig.fromSubscription(
-        process.env.AZURE_SPEECH_KEY,
-        process.env.AZURE_SPEECH_REGION || 'eastus'
-      )
-      speechConfig.speechRecognitionLanguage = lang
+      // 使用 MediaRecorder 录制音频
+      const mediaRecorder = new MediaRecorder(stream, {
+        mimeType: 'audio/webm;codecs=opus',
+        audioBitsPerSecond: 128000
+      })
+      mediaRecorderRef.current = mediaRecorder
 
-      // 使用麦克风直接创建音频配置 - 传入流 ID
-      const audioConfig = sdk.AudioConfig.fromMicrophoneInput(stream.id)
-
-      // 创建识别器
-      azureRecognizerRef.current = new sdk.SpeechRecognizer(speechConfig, audioConfig)
-
-      // 设置事件处理
-      azureRecognizerRef.current.recognized = (_s: any, e: any) => {
-        console.log('[useSpeechRecognition] Azure SDK - recognized:', e.result.text)
-        if (e.result.text) {
-          finalTranscriptRef.current = e.result.text
-          hasResultRef.current = true
-          onResultRef.current(e.result.text)
-          stopRecording()
+      mediaRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0) {
+          audioChunksRef.current.push(event.data)
         }
       }
 
-      azureRecognizerRef.current.recognizing = (_s: any, e: any) => {
-        console.log('[useSpeechRecognition] Azure SDK - recognizing:', e.result.text)
-        if (e.result.text) {
-          setInterimTranscript(e.result.text)
+      mediaRecorder.onstop = async () => {
+        console.log('[useSpeechRecognition] 录音停止，发送到服务端识别...')
+        const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' })
+        
+        // 转换为 base64
+        const reader = new FileReader()
+        reader.readAsDataURL(audioBlob)
+        reader.onloadend = async () => {
+          const base64Audio = reader.result as string
+          
+          try {
+            const response = await fetch('/api/speech/recognize', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ audioBlob: base64Audio }),
+            })
+
+            const result = await response.json()
+
+            if (!response.ok) {
+              throw new Error(result.error || '语音识别失败')
+            }
+
+            console.log('[useSpeechRecognition] 识别结果:', result.transcript)
+            
+            if (result.transcript) {
+              finalTranscriptRef.current = result.transcript
+              hasResultRef.current = true
+              onResultRef.current(result.transcript)
+            }
+          } catch (error) {
+            console.error('[useSpeechRecognition] 服务端识别失败:', error)
+            const errorMessage = error instanceof Error ? error.message : '语音识别失败'
+            setError(errorMessage)
+            onErrorRef.current?.(errorMessage)
+          }
+          
+          setIsRecording(false)
+          isRecordingRef.current = false
         }
       }
 
-      azureRecognizerRef.current.canceled = (_s: any, e: any) => {
-        console.error('[useSpeechRecognition] Azure SDK - canceled:', e.errorDetails)
-        setError(`语音识别失败：${e.errorDetails}`)
-        onErrorRef.current?.(`语音识别失败：${e.errorDetails}`)
-        stopRecording()
-      }
-
-      azureRecognizerRef.current.sessionStopped = (_s: any, _e: any) => {
-        console.log('[useSpeechRecognition] Azure SDK - sessionStopped')
-        stopRecording()
-      }
-
-      // 启动识别
-      azureRecognizerRef.current.startContinuousRecognitionAsync(
-        () => {
-          console.log('[useSpeechRecognition] Azure SDK - 连续识别已启动')
-        },
-        (err: any) => {
-          console.error('[useSpeechRecognition] Azure SDK - 启动连续识别失败:', err)
-          setError(`启动识别失败：${err}`)
-          onErrorRef.current?.(`启动识别失败：${err}`)
-          stopRecording()
-        }
-      )
+      // 启动录音
+      mediaRecorder.start(1000) // 每秒收集一次数据
+      console.log('[useSpeechRecognition] MediaRecorder 已启动')
 
       // 设置最大录音时长
       recordingTimeoutRef.current = setTimeout(() => {
-        console.log('[useSpeechRecognition] Azure SDK - 达到最大录音时长')
-        stopRecording()
+        console.log('[useSpeechRecognition] 达到最大录音时长，停止录音')
+        if (mediaRecorderRef.current && mediaRecorderRef.current.state === 'recording') {
+          mediaRecorderRef.current.stop()
+        }
       }, maxRecordingTime)
 
     } catch (err) {
-      console.error('[useSpeechRecognition] Azure SDK - 启动录音失败:', err)
+      console.error('[useSpeechRecognition] 启动录音失败:', err)
       let errorMessage = '无法访问麦克风，请检查麦克风权限和设备'
 
       if (err instanceof Error) {
