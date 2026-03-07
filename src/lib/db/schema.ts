@@ -40,6 +40,7 @@ export const scenes = pgTable('scenes', {
   difficulty: text('difficulty').notNull(),
   duration: integer('duration').default(10),
   tags: jsonb('tags'),
+  practiceContentCache: jsonb('practice_content_cache'),
   createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
   updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`)
 })

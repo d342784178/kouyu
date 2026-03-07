@@ -11,6 +11,7 @@ interface SceneInfo {
   category: string
   description: string
   difficulty: string
+  practice_content_cache?: any
 }
 
 interface PracticeContent {
@@ -35,11 +36,22 @@ export async function GET(
   try {
     const neonSql = neon(process.env.DATABASE_URL || '')
 
-    const sceneResult = await neonSql`
-      SELECT id, name, category, description, difficulty 
-      FROM scenes 
-      WHERE id = ${id}
-    `
+    // 尝试查询带缓存字段的场景信息
+    let sceneResult
+    try {
+      sceneResult = await neonSql`
+        SELECT id, name, category, description, difficulty, practice_content_cache 
+        FROM scenes 
+        WHERE id = ${id}
+      `
+    } catch (queryError) {
+      // 如果查询失败（可能是因为字段不存在），查询基本字段
+      sceneResult = await neonSql`
+        SELECT id, name, category, description, difficulty 
+        FROM scenes 
+        WHERE id = ${id}
+      `
+    }
 
     if (!sceneResult || sceneResult.length === 0) {
       return NextResponse.json(
@@ -50,7 +62,34 @@ export async function GET(
 
     const sceneData = sceneResult[0] as SceneInfo
 
+    // 检查是否有缓存
+    if (sceneData.practice_content_cache) {
+      return NextResponse.json({
+        scene: {
+          id: sceneData.id,
+          name: sceneData.name,
+          category: sceneData.category,
+          description: sceneData.description
+        },
+        testContent: sceneData.practice_content_cache
+      })
+    }
+
+    // 生成新的练习内容
     const testContent = await generatePracticeContent(sceneData)
+
+    // 尝试保存到缓存
+    try {
+      await neonSql`
+        UPDATE scenes 
+        SET practice_content_cache = ${testContent}::jsonb,
+            updated_at = CURRENT_TIMESTAMP
+        WHERE id = ${id}
+      `
+    } catch (updateError) {
+      // 如果更新失败（可能是因为字段不存在），忽略错误，继续返回结果
+      console.warn('Failed to save practice content to cache:', updateError)
+    }
 
     return NextResponse.json({
       scene: {
