@@ -77,6 +77,7 @@ export default function ChatPage() {
   const finalTranscriptRef = useRef<string>('')
   const interimTranscriptRef = useRef<string>('')
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  const isInitializedRef = useRef<boolean>(false)
 
   useEffect(() => {
     messagesRef.current = messages
@@ -208,6 +209,10 @@ export default function ChatPage() {
   useEffect(() => {
     const fetchPracticeContent = async () => {
       if (!sceneId) return
+      
+      // 防止 React StrictMode 双重调用
+      if (isInitializedRef.current) return
+      isInitializedRef.current = true
 
       try {
         setIsLoading(true)
