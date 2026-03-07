@@ -42,6 +42,8 @@ function detectBrowserCompatibility(): BrowserCompatibility {
     typeof (window as any).webkitSpeechRecognition !== 'undefined'
   const hasGetUserMedia = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
   const isSecureContext = window.isSecureContext || location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1'
+  const userAgent = navigator.userAgent
+  const isQuark = /quark/.test(userAgent.toLowerCase())
 
   let isSupported = false
   let unsupportedReason: string | undefined
@@ -51,7 +53,11 @@ function detectBrowserCompatibility(): BrowserCompatibility {
   } else if (!hasGetUserMedia) {
     unsupportedReason = '浏览器不支持麦克风访问，请使用Chrome、Edge或Safari浏览器'
   } else if (!hasSpeechRecognition) {
-    unsupportedReason = '浏览器不支持语音识别，请使用Chrome、Edge或Safari浏览器'
+    if (isQuark) {
+      unsupportedReason = '夸克浏览器需要在设置中开启语音识别权限，请前往设置 → 隐私与安全 → 权限管理'
+    } else {
+      unsupportedReason = '浏览器不支持语音识别，请使用Chrome、Edge或Safari浏览器'
+    }
   } else {
     isSupported = true
   }
@@ -126,6 +132,16 @@ export function useSpeechRecognition({
     if (!SpeechRecognition) {
       return
     }
+
+    const userAgent = navigator.userAgent
+    const isXiaomi = /MiuiBrowser|xiaomi|mi/.test(userAgent.toLowerCase())
+    const isQuark = /quark/.test(userAgent.toLowerCase())
+    
+    console.log('[useSpeechRecognition] 浏览器信息:', {
+      userAgent,
+      isXiaomi,
+      isQuark
+    })
 
     const recognition = new SpeechRecognition()
     recognition.continuous = true
@@ -225,13 +241,22 @@ export function useSpeechRecognition({
       clearSilenceTimeout()
 
       let errorMessage = '语音识别失败，请重试'
+      const userAgent = navigator.userAgent
+      const isXiaomi = /MiuiBrowser|xiaomi|mi/.test(userAgent.toLowerCase())
+      const isQuark = /quark/.test(userAgent.toLowerCase())
 
       switch (event.error) {
         case 'audio-capture':
           errorMessage = '无法访问麦克风，请检查麦克风权限和设备'
           break
         case 'not-allowed':
-          errorMessage = '麦克风权限被拒绝，请在浏览器设置中允许访问麦克风'
+          if (isXiaomi) {
+            errorMessage = '小米浏览器需要在系统设置中允许语音识别权限，请前往设置 → 应用管理 → 浏览器 → 权限管理，开启语音识别权限'
+          } else if (isQuark) {
+            errorMessage = '夸克浏览器需要在设置中允许语音识别权限，请前往设置 → 隐私与安全 → 权限管理，开启麦克风和语音识别权限'
+          } else {
+            errorMessage = '麦克风权限被拒绝，请在浏览器设置中允许访问麦克风'
+          }
           break
         case 'network':
           errorMessage = '网络错误，语音识别服务不可用'
