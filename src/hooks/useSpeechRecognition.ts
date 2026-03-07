@@ -400,8 +400,8 @@ export function useSpeechRecognition({
   const startAzureRecording = useCallback(async () => {
     console.log('[useSpeechRecognition] startAzureRecording 被调用')
     
-    if (!process.env.NEXT_PUBLIC_AZURE_SPEECH_KEY) {
-      const msg = 'Azure Speech 密钥未配置，请在 Vercel 环境变量中设置 NEXT_PUBLIC_AZURE_SPEECH_KEY'
+    if (!process.env.AZURE_SPEECH_KEY) {
+      const msg = 'Azure Speech 密钥未配置，请在 Vercel 环境变量中设置 AZURE_SPEECH_KEY'
       console.error('[useSpeechRecognition]', msg)
       setError(msg)
       onErrorRef.current?.(msg)
@@ -429,8 +429,8 @@ export function useSpeechRecognition({
 
       // 创建 Azure Speech 配置
       const speechConfig = sdk.SpeechConfig.fromSubscription(
-        process.env.NEXT_PUBLIC_AZURE_SPEECH_KEY,
-        process.env.NEXT_PUBLIC_AZURE_SPEECH_REGION || 'eastus'
+        process.env.AZURE_SPEECH_KEY,
+        process.env.AZURE_SPEECH_REGION || 'eastus'
       )
       speechConfig.speechRecognitionLanguage = lang
 
