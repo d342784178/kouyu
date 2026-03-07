@@ -587,18 +587,21 @@ export function useSpeechRecognition({
       const AudioContext = window.AudioContext || (window as any).webkitAudioContext
       if (AudioContext) {
         try {
+          // 夸克浏览器需要为 AudioContext 创建独立的 stream
+          const audioStreamForAnalyser = await navigator.mediaDevices.getUserMedia({ 
+            audio: {
+              echoCancellation: true,
+              noiseSuppression: true,
+              autoGainControl: true
+            } 
+          })
+          console.log('[useSpeechRecognition] 为 AudioContext 创建独立 stream 成功')
+          
           const audioContext = new AudioContext()
           console.log('[useSpeechRecognition] AudioContext 初始状态:', audioContext.state)
           
-          // 夸克浏览器需要显式 resume AudioContext
-          if (audioContext.state === 'suspended') {
-            console.log('[useSpeechRecognition] AudioContext 处于 suspended 状态，尝试 resume')
-            await audioContext.resume()
-            console.log('[useSpeechRecognition] AudioContext resume 后状态:', audioContext.state)
-          }
-          
           const analyser = audioContext.createAnalyser()
-          const microphone = audioContext.createMediaStreamSource(stream)
+          const microphone = audioContext.createMediaStreamSource(audioStreamForAnalyser)
           microphone.connect(analyser)
           analyser.fftSize = 256
           analyser.smoothingTimeConstant = 0.8
@@ -622,8 +625,8 @@ export function useSpeechRecognition({
             setAudioLevel(currentLevel)
             
             // 调试日志（夸克浏览器）
-            if (isQuark && currentLevel > 0) {
-              console.log('[useSpeechRecognition] 夸克浏览器音量:', currentLevel)
+            if (isQuark) {
+              console.log('[useSpeechRecognition] 夸克浏览器音量:', currentLevel, '时间戳:', Date.now())
             }
             
             // 停顿检测
@@ -852,9 +855,18 @@ export function useSpeechRecognition({
       audioContextRef.current.close()
       audioContextRef.current = null
     }
+    // 停止 MediaRecorder 使用的 stream
     if (mediaStreamRef.current) {
       mediaStreamRef.current.getTracks().forEach(track => track.stop())
       mediaStreamRef.current = null
+    }
+    // 停止 AudioContext 使用的独立 stream（夸克浏览器）
+    if (analyserRef.current) {
+      const connectedStream = (analyserRef.current as any).context?.input?.source?.mediaStream
+      if (connectedStream) {
+        connectedStream.getTracks().forEach((track: { stop: () => any }) => track.stop())
+      }
+      analyserRef.current = null
     }
     if (mediaRecorderRef.current) {
       try {
