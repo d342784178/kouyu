@@ -36,6 +36,7 @@ export default function ActiveChatView({
   currentRound,
   maxRounds,
   isRecording,
+  isRecognizing,
   isGeneratingResponse,
   playingMessageIndex,
   error,
@@ -240,17 +241,24 @@ export default function ActiveChatView({
                   className={`h-12 px-24 rounded-full font-semibold text-sm transition-all shadow-lg flex items-center justify-center gap-2 whitespace-nowrap ${
                     isRecording
                       ? 'bg-[#EF4444] text-white shadow-red-200 hover:bg-red-600'
+                      : isRecognizing
+                      ? 'bg-gray-400 text-white cursor-wait'
                       : isGeneratingResponse
                       ? 'bg-gray-300 text-gray-500 cursor-not-allowed shadow-none'
                       : 'bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white hover:shadow-xl'
                   }`}
                   onClick={isRecording ? onStopRecording : onStartRecording}
-                  disabled={isGeneratingResponse}
+                  disabled={isGeneratingResponse || isRecognizing}
                 >
                   {isRecording ? (
                     <>
                       <RecordingWaveform isRecording={true} />
                       <span className="whitespace-nowrap">停止录音</span>
+                    </>
+                  ) : isRecognizing ? (
+                    <>
+                      <LoadingSpinner size="sm" variant="primary" className="border-white/30 border-t-white" />
+                      <span className="whitespace-nowrap">识别中...</span>
                     </>
                   ) : isGeneratingResponse ? (
                     <>

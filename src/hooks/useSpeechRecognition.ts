@@ -26,6 +26,7 @@ export interface PermissionStatus {
 export interface UseSpeechRecognitionReturn {
   isSupported: boolean
   isRecording: boolean
+  isRecognizing: boolean
   interimTranscript: string
   startRecording: () => Promise<void>
   stopRecording: () => void
@@ -44,8 +45,8 @@ function detectBrowserCompatibility(): BrowserCompatibility {
   const hasGetUserMedia = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
   const isSecureContext = window.isSecureContext || location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1'
   const userAgent = navigator.userAgent
-  const isQuark = /quark/.test(userAgent.toLowerCase())
-  const isXiaomi = /MiuiBrowser|xiaomi|mi/.test(userAgent.toLowerCase())
+  const isQuark = /quark/i.test(userAgent)
+  const isXiaomi = /MiuiBrowser|xiaomi|mi/i.test(userAgent)
 
   let isSupported = false
   let unsupportedReason: string | undefined
@@ -55,17 +56,11 @@ function detectBrowserCompatibility(): BrowserCompatibility {
   } else if (!hasGetUserMedia) {
     unsupportedReason = '浏览器不支持麦克风访问，请使用 Chrome、Edge 或 Safari 浏览器'
   } else {
-    // 有原生 SpeechRecognition API
     if (hasSpeechRecognition) {
       isSupported = true
-    } 
-    // 夸克/小米浏览器：虽然没有原生 API，但可以使用 Azure SDK fallback
-    else if (isQuark || isXiaomi) {
+    } else if (isQuark || isXiaomi) {
       isSupported = true
-      // 不设置 unsupportedReason，因为实际上是支持的
-    } 
-    // 其他不支持的浏览器
-    else {
+    } else {
       unsupportedReason = '浏览器不支持语音识别，请使用 Chrome、Edge、Safari 浏览器或夸克/小米浏览器'
     }
   }
@@ -114,6 +109,7 @@ export function useSpeechRecognition({
     canRequest: true
   })
   const [useAzureFallback, setUseAzureFallback] = useState(false)
+  const [isRecognizing, setIsRecognizing] = useState(false)
 
   const recognitionRef = useRef<any>(null)
   const finalTranscriptRef = useRef<string>('')
@@ -467,12 +463,28 @@ export function useSpeechRecognition({
       mediaRecorder.onstop = async () => {
         console.log('[useSpeechRecognition] 录音停止，发送到服务端识别...')
         
-        // 确保有音频数据
+        setIsRecording(false)
+        isRecordingRef.current = false
+        setIsRecognizing(true)
+        
+        if (animationFrameRef.current) {
+          cancelAnimationFrame(animationFrameRef.current)
+          animationFrameRef.current = null
+        }
+        if (audioContextRef.current) {
+          audioContextRef.current.close()
+          audioContextRef.current = null
+        }
+        if (mediaStreamRef.current) {
+          mediaStreamRef.current.getTracks().forEach(track => track.stop())
+          mediaStreamRef.current = null
+        }
+        setAudioLevel(0)
+        
         if (!audioChunksRef.current || audioChunksRef.current.length === 0) {
           console.error('[useSpeechRecognition] 没有录音数据')
           setError('未检测到录音数据，请重试')
-          setIsRecording(false)
-          isRecordingRef.current = false
+          setIsRecognizing(false)
           return
         }
         
@@ -561,8 +573,7 @@ export function useSpeechRecognition({
           onErrorRef.current?.(errorMessage)
         }
         
-        setIsRecording(false)
-        isRecordingRef.current = false
+        setIsRecognizing(false)
       }
 
       // 启动录音
@@ -848,6 +859,7 @@ export function useSpeechRecognition({
   return {
     isSupported: browserCompatibility.isSupported,
     isRecording,
+    isRecognizing,
     interimTranscript,
     startRecording,
     stopRecording,

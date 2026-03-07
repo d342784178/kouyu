@@ -146,6 +146,7 @@ export default function SpeakingPractice({
   const {
     isSupported,
     isRecording,
+    isRecognizing,
     interimTranscript,
     startRecording,
     stopRecording,
@@ -167,15 +168,17 @@ export default function SpeakingPractice({
   const activeStopRecording = useAzureFallback ? stopRecording : stopRecording
 
   useEffect(() => {
-    const active = { isRecording }
-    if (active.isRecording) {
+    if (isRecording) {
       prevStateRef.current = 'recording'
       setState('recording')
-    } else if (prevStateRef.current === 'recording') {
+    } else if (isRecognizing) {
+      prevStateRef.current = 'recognizing'
+      setState('recognizing')
+    } else if (prevStateRef.current === 'recording' || prevStateRef.current === 'recognizing') {
       prevStateRef.current = 'idle'
       setState('idle')
     }
-  }, [isRecording])
+  }, [isRecording, isRecognizing])
 
   useEffect(() => {
     if (!browserCompatibility.isSupported && browserCompatibility.unsupportedReason) {

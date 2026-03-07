@@ -414,6 +414,7 @@ function SpeakingQuestion({ question, onNext }: SpeakingQuestionProps) {
   const {
     isSupported,
     isRecording,
+    isRecognizing,
     startRecording,
     stopRecording,
     browserCompatibility,
@@ -435,10 +436,12 @@ function SpeakingQuestion({ question, onNext }: SpeakingQuestionProps) {
   useEffect(() => {
     if (isRecording) {
       setState('recording')
-    } else if (state === 'recording') {
+    } else if (isRecognizing) {
+      setState('recognizing')
+    } else if (state === 'recording' || state === 'recognizing') {
       setState('idle')
     }
-  }, [isRecording, state])
+  }, [isRecording, isRecognizing, state])
 
   const handleMicClick = useCallback(async () => {
     console.log('[SpeakingQuestion] handleMicClick 被调用, state:', state, 'browserCompatibility:', browserCompatibility)

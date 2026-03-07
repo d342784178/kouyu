@@ -55,6 +55,7 @@
 | `src/lib/audioUrl.ts` | 音频URL构建工具（支持多存储协议） |
 | `src/types.ts` | 全局TypeScript类型定义 |
 | `src/hooks/useAudio.ts` | 音频播放状态管理Hook |
+| `src/hooks/useSpeechRecognition.ts` | 语音识别Hook（支持浏览器原生API和Azure服务端API） |
 
 ---
 

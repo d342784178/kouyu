@@ -1,7 +1,7 @@
 # 语习集 - 项目结构
 
-> 版本: v1.4  
-> 最后更新: 2026-03-01  
+> 版本: v1.5  
+> 最后更新: 2026-03-07  
 > 优先级: P1  
 > 阅读时间: 15分钟
 
@@ -97,6 +97,7 @@ kouyu/
 | Hook | 说明 | 文件 |
 |------|------|------|
 | useAudio | 音频播放管理 | `useAudio.ts` |
+| useSpeechRecognition | 语音识别管理，支持浏览器原生API和Azure服务端API | `useSpeechRecognition.ts` |
 
 ### src/lib/ - 工具库
 
@@ -358,6 +359,7 @@ npx ts-node prepare/scene/scripts/scene-manager.ts verify
 
 | 版本 | 日期 | 变更内容 | 作者 |
 |------|------|----------|------|
+| v1.5 | 2026-03-07 | 新增 useSpeechRecognition hook 说明 | AI |
 | v1.4 | 2026-03-01 | 新增 api/guided-roleplay/ 和 api/shadowing/ 路由；补全 api/fill-blank/ 和 api/sub-scenes/ 路由说明 | AI |
 | v1.3 | 2026-02-28 | 更新场景脚本说明：generate-scene-tests.ts 合并为统一版，修正脚本文件名和测试题数量 | AI |
 | v1.2 | 2026-02-25 | 新增 prepare/ 目录详细说明 | AI |

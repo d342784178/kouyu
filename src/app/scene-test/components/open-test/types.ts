@@ -108,6 +108,7 @@ export interface ActiveChatViewProps extends ViewProps {
   currentRound: number
   maxRounds: number
   isRecording: boolean
+  isRecognizing?: boolean
   isGeneratingResponse: boolean
   playingMessageIndex: number | null
   error: string

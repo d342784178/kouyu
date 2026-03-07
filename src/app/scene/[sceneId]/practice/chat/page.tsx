@@ -134,6 +134,7 @@ export default function ChatPage() {
   const {
     isSupported: recognitionSupported,
     isRecording,
+    isRecognizing,
     interimTranscript,
     startRecording: hookStartRecording,
     stopRecording: hookStopRecording,
@@ -452,6 +453,7 @@ export default function ChatPage() {
               currentRound={currentRound}
               maxRounds={maxRounds}
               isRecording={isRecording}
+              isRecognizing={isRecognizing}
               isGeneratingResponse={isGeneratingResponse}
               playingMessageIndex={playingMessageIndex}
               error={error || ''}

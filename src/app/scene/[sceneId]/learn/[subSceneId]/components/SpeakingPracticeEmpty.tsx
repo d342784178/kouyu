@@ -164,6 +164,7 @@ export default function SpeakingPracticeEmpty({
   const {
     isSupported,
     isRecording,
+    isRecognizing,
     interimTranscript,
     startRecording,
     stopRecording,
@@ -178,11 +179,14 @@ export default function SpeakingPracticeEmpty({
     if (isRecording) {
       prevStateRef.current = 'recording'
       setState('recording')
-    } else if (prevStateRef.current === 'recording') {
+    } else if (isRecognizing) {
+      prevStateRef.current = 'recognizing'
+      setState('recognizing')
+    } else if (prevStateRef.current === 'recording' || prevStateRef.current === 'recognizing') {
       prevStateRef.current = 'idle'
       setState('idle')
     }
-  }, [isRecording])
+  }, [isRecording, isRecognizing])
 
   const handleStartRecording = useCallback(async () => {
     setFeedbackMsg('')
