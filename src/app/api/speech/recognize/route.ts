@@ -23,7 +23,13 @@ export async function POST(request: NextRequest) {
     }
 
     // 将 base64 音频数据转换为 Buffer
-    const audioData = audioBlob.split(',')[1]
+    let audioData = audioBlob.split(',')[1]
+    if (!audioData) {
+      return NextResponse.json(
+        { error: '音频数据格式错误' },
+        { status: 400 }
+      )
+    }
     const buffer = Buffer.from(audioData, 'base64')
 
     // 检测音频格式

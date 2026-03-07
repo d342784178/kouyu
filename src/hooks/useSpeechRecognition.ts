@@ -74,6 +74,9 @@ function detectBrowserCompatibility(): BrowserCompatibility {
 
 // 辅助函数：将 ArrayBuffer 转换为 Base64
 function arrayBufferToBase64(buffer: Uint8Array): string {
+  if (!buffer || buffer.byteLength === 0) {
+    return ''
+  }
   let binary = ''
   for (let i = 0; i < buffer.byteLength; i++) {
     binary += String.fromCharCode(buffer[i])
@@ -92,7 +95,8 @@ export function useSpeechRecognition({
     hasSpeechRecognition: false,
     hasGetUserMedia: false,
     isSecureContext: false,
-    isSupported: false
+    isSupported: false,
+    unsupportedReason: undefined
   })
   const [isRecording, setIsRecording] = useState(false)
   const [interimTranscript, setInterimTranscript] = useState('')
@@ -448,13 +452,22 @@ export function useSpeechRecognition({
       mediaRecorderRef.current = mediaRecorder
 
       mediaRecorder.ondataavailable = (event) => {
-        if (event.data.size > 0) {
+        if (event.data && event.data.size > 0) {
           audioChunksRef.current.push(event.data)
         }
       }
 
       mediaRecorder.onstop = async () => {
         console.log('[useSpeechRecognition] 录音停止，发送到服务端识别...')
+        
+        // 确保有音频数据
+        if (!audioChunksRef.current || audioChunksRef.current.length === 0) {
+          console.error('[useSpeechRecognition] 没有录音数据')
+          setError('未检测到录音数据，请重试')
+          setIsRecording(false)
+          isRecordingRef.current = false
+          return
+        }
         
         // 将 Blob 转换为 ArrayBuffer
         const audioBlob = new Blob(audioChunksRef.current, { type: mimeType })
