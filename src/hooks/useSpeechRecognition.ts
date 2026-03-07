@@ -10,6 +10,19 @@ export interface UseSpeechRecognitionOptions {
   maxRecordingTime?: number
 }
 
+export interface BrowserCompatibility {
+  hasSpeechRecognition: boolean
+  hasGetUserMedia: boolean
+  isSecureContext: boolean
+  isSupported: boolean
+  unsupportedReason?: string
+}
+
+export interface PermissionStatus {
+  state: 'prompt' | 'granted' | 'denied' | 'unknown'
+  canRequest: boolean
+}
+
 export interface UseSpeechRecognitionReturn {
   isSupported: boolean
   isRecording: boolean
@@ -18,6 +31,38 @@ export interface UseSpeechRecognitionReturn {
   stopRecording: () => void
   error: string | null
   audioLevel: number
+  browserCompatibility: BrowserCompatibility
+  permissionStatus: PermissionStatus
+  checkPermission: () => Promise<PermissionStatus>
+  requestPermission: () => Promise<boolean>
+}
+
+function detectBrowserCompatibility(): BrowserCompatibility {
+  const hasSpeechRecognition = typeof (window as any).SpeechRecognition !== 'undefined' ||
+    typeof (window as any).webkitSpeechRecognition !== 'undefined'
+  const hasGetUserMedia = !!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)
+  const isSecureContext = window.isSecureContext || location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1'
+
+  let isSupported = false
+  let unsupportedReason: string | undefined
+
+  if (!isSecureContext) {
+    unsupportedReason = '需要HTTPS环境才能使用麦克风功能'
+  } else if (!hasGetUserMedia) {
+    unsupportedReason = '浏览器不支持麦克风访问，请使用Chrome、Edge或Safari浏览器'
+  } else if (!hasSpeechRecognition) {
+    unsupportedReason = '浏览器不支持语音识别，请使用Chrome、Edge或Safari浏览器'
+  } else {
+    isSupported = true
+  }
+
+  return {
+    hasSpeechRecognition,
+    hasGetUserMedia,
+    isSecureContext,
+    isSupported,
+    unsupportedReason
+  }
 }
 
 export function useSpeechRecognition({
@@ -27,11 +72,20 @@ export function useSpeechRecognition({
   silenceTimeout = 800,
   maxRecordingTime = 30000,
 }: UseSpeechRecognitionOptions): UseSpeechRecognitionReturn {
-  const [isSupported, setIsSupported] = useState(false)
+  const [browserCompatibility, setBrowserCompatibility] = useState<BrowserCompatibility>({
+    hasSpeechRecognition: false,
+    hasGetUserMedia: false,
+    isSecureContext: false,
+    isSupported: false
+  })
   const [isRecording, setIsRecording] = useState(false)
   const [interimTranscript, setInterimTranscript] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [audioLevel, setAudioLevel] = useState(0)
+  const [permissionStatus, setPermissionStatus] = useState<PermissionStatus>({
+    state: 'unknown',
+    canRequest: true
+  })
 
   const recognitionRef = useRef<any>(null)
   const finalTranscriptRef = useRef<string>('')
@@ -56,24 +110,22 @@ export function useSpeechRecognition({
   }, [onError])
 
   useEffect(() => {
-    const hasStandard = typeof (window as any).SpeechRecognition !== 'undefined'
-    const hasWebkit = typeof (window as any).webkitSpeechRecognition !== 'undefined'
-    
-    console.log('[useSpeechRecognition] 浏览器支持检测:', {
-      SpeechRecognition: hasStandard,
-      webkitSpeechRecognition: hasWebkit,
+    const compatibility = detectBrowserCompatibility()
+    console.log('[useSpeechRecognition] 浏览器兼容性检测:', {
+      ...compatibility,
       userAgent: navigator.userAgent
     })
+    setBrowserCompatibility(compatibility)
+
+    if (!compatibility.isSupported) {
+      console.log('[useSpeechRecognition] 浏览器不支持:', compatibility.unsupportedReason)
+      return
+    }
 
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
     if (!SpeechRecognition) {
-      console.log('[useSpeechRecognition] 浏览器不支持语音识别')
-      setIsSupported(false)
       return
     }
-    
-    console.log('[useSpeechRecognition] 浏览器支持语音识别，初始化...')
-    setIsSupported(true)
 
     const recognition = new SpeechRecognition()
     recognition.continuous = true
@@ -236,12 +288,67 @@ export function useSpeechRecognition({
     }
   }, [lang, silenceTimeout])
 
+  const checkPermission = useCallback(async (): Promise<PermissionStatus> => {
+    if (!navigator.permissions) {
+      return { state: 'unknown', canRequest: true }
+    }
+
+    try {
+      const result = await navigator.permissions.query({ name: 'microphone' as PermissionName })
+      const status: PermissionStatus = {
+        state: result.state as 'prompt' | 'granted' | 'denied',
+        canRequest: result.state !== 'denied'
+      }
+      setPermissionStatus(status)
+      return status
+    } catch {
+      return { state: 'unknown', canRequest: true }
+    }
+  }, [])
+
+  const requestPermission = useCallback(async (): Promise<boolean> => {
+    if (!browserCompatibility.hasGetUserMedia) {
+      const msg = '浏览器不支持麦克风访问'
+      setError(msg)
+      onErrorRef.current?.(msg)
+      return false
+    }
+
+    try {
+      console.log('[useSpeechRecognition] 请求麦克风权限...')
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
+      stream.getTracks().forEach(track => track.stop())
+      
+      setPermissionStatus({ state: 'granted', canRequest: false })
+      console.log('[useSpeechRecognition] 麦克风权限已授予')
+      return true
+    } catch (err) {
+      console.error('[useSpeechRecognition] 权限请求失败:', err)
+      
+      let errorMessage = '无法访问麦克风'
+      if (err instanceof Error) {
+        if (err.name === 'NotAllowedError' || err.name === 'PermissionDeniedError') {
+          errorMessage = '麦克风权限被拒绝，请在浏览器设置中允许访问麦克风'
+          setPermissionStatus({ state: 'denied', canRequest: false })
+        } else if (err.name === 'NotFoundError') {
+          errorMessage = '未找到麦克风设备'
+        } else if (err.name === 'NotReadableError') {
+          errorMessage = '麦克风被其他应用占用'
+        }
+      }
+      
+      setError(errorMessage)
+      onErrorRef.current?.(errorMessage)
+      return false
+    }
+  }, [browserCompatibility.hasGetUserMedia])
+
   const startRecording = useCallback(async () => {
-    console.log('[useSpeechRecognition] startRecording 被调用, isSupported:', isSupported, 'isRecording:', isRecording)
+    console.log('[useSpeechRecognition] startRecording 被调用, isSupported:', browserCompatibility.isSupported, 'isRecording:', isRecording)
     
-    if (!isSupported) {
-      const msg = '您的浏览器不支持语音识别，请使用 Chrome、Edge 或 Safari 浏览器'
-      console.log('[useSpeechRecognition] 不支持语音识别')
+    if (!browserCompatibility.isSupported) {
+      const msg = browserCompatibility.unsupportedReason || '您的浏览器不支持语音识别'
+      console.log('[useSpeechRecognition] 不支持:', msg)
       setError(msg)
       onErrorRef.current?.(msg)
       return
@@ -252,6 +359,14 @@ export function useSpeechRecognition({
         hasRecognition: !!recognitionRef.current,
         isRecording
       })
+      return
+    }
+
+    const permStatus = await checkPermission()
+    if (permStatus.state === 'denied') {
+      const msg = '麦克风权限被拒绝，请在浏览器设置中允许访问麦克风'
+      setError(msg)
+      onErrorRef.current?.(msg)
       return
     }
 
@@ -273,6 +388,7 @@ export function useSpeechRecognition({
         } 
       })
       mediaStreamRef.current = stream
+      setPermissionStatus({ state: 'granted', canRequest: false })
       console.log('[useSpeechRecognition] 麦克风权限已获取, tracks:', stream.getTracks().length)
       
       const audioTrack = stream.getAudioTracks()[0]
@@ -344,7 +460,7 @@ export function useSpeechRecognition({
       setIsRecording(false)
       isRecordingRef.current = false
     }
-  }, [isSupported, isRecording, maxRecordingTime])
+  }, [browserCompatibility, isRecording, maxRecordingTime, checkPermission])
 
   const stopRecording = useCallback(() => {
     if (!recognitionRef.current) return
@@ -386,12 +502,16 @@ export function useSpeechRecognition({
   }, [])
 
   return {
-    isSupported,
+    isSupported: browserCompatibility.isSupported,
     isRecording,
     interimTranscript,
     startRecording,
     stopRecording,
     error,
     audioLevel,
+    browserCompatibility,
+    permissionStatus,
+    checkPermission,
+    requestPermission,
   }
 }

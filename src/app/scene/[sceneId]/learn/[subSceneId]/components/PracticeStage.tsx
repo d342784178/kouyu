@@ -375,8 +375,10 @@ function FillBlankQuestion({ question, onNext }: FillBlankQuestionProps) {
 // 子组件：问答题 SpeakingQuestion
 // ============================================================
 
+import { useSpeechRecognition, type BrowserCompatibility } from '@/hooks/useSpeechRecognition'
+
 /** Web Speech API 识别状态 */
-type SpeakingState = 'idle' | 'recording' | 'recognizing' | 'done' | 'error' | 'unsupported' | 'evaluating' | 'evaluated'
+type SpeakingState = 'idle' | 'recording' | 'recognizing' | 'done' | 'error' | 'unsupported' | 'evaluating' | 'evaluated' | 'requesting_permission' | 'permission_denied'
 
 interface SpeakingQuestionProps {
   question: Extract<PracticeQuestion, { type: 'speaking' }>
@@ -391,74 +393,90 @@ function SpeakingQuestion({ question, onNext }: SpeakingQuestionProps) {
     isCorrect: boolean
     feedback: string
   } | null>(null)
-  const recognitionRef = useRef<SpeechRecognition | null>(null)
 
-  // 检查 Web Speech API 支持
-  useEffect(() => {
-    const SR =
-      (window as unknown as Record<string, unknown>).SpeechRecognition as typeof SpeechRecognition ||
-      (window as unknown as Record<string, unknown>).webkitSpeechRecognition as typeof SpeechRecognition
-    if (!SR) setState('unsupported')
+  const handleVoiceInput = useCallback((text: string) => {
+    if (!text.trim()) return
+    setRecognizedText(text)
+    setState('done')
   }, [])
 
-  // 点击麦克风：idle → 开始录音；recording → 停止录音
-  const handleMicClick = useCallback(() => {
-    if (state === 'recording') {
-      // 停止录音
-      recognitionRef.current?.stop()
-      return
-    }
-
-    if (state === 'done' || state === 'recognizing') return
-
-    const SR =
-      (window as unknown as Record<string, unknown>).SpeechRecognition as typeof SpeechRecognition ||
-      (window as unknown as Record<string, unknown>).webkitSpeechRecognition as typeof SpeechRecognition
-
-    if (!SR) {
+  const handleError = useCallback((error: string) => {
+    if (error.includes('权限被拒绝') || error.includes('权限')) {
+      setState('permission_denied')
+    } else if (error.includes('不支持') || error.includes('HTTPS')) {
       setState('unsupported')
+    } else {
+      setState('error')
+    }
+    setErrorMsg(error)
+  }, [])
+
+  const {
+    isSupported,
+    isRecording,
+    startRecording,
+    stopRecording,
+    browserCompatibility,
+    permissionStatus,
+    requestPermission,
+  } = useSpeechRecognition({
+    onResult: handleVoiceInput,
+    onError: handleError,
+    lang: 'en-US',
+  })
+
+  useEffect(() => {
+    if (!browserCompatibility.isSupported && browserCompatibility.unsupportedReason) {
+      setState('unsupported')
+      setErrorMsg(browserCompatibility.unsupportedReason)
+    }
+  }, [browserCompatibility])
+
+  useEffect(() => {
+    if (isRecording) {
+      setState('recording')
+    } else if (state === 'recording') {
+      setState('idle')
+    }
+  }, [isRecording, state])
+
+  const handleMicClick = useCallback(async () => {
+    if (state === 'recording') {
+      stopRecording()
       return
     }
 
-    const recognition = new SR()
-    recognition.lang = 'en-US'
-    recognition.interimResults = false
-    recognition.maxAlternatives = 1
-    recognitionRef.current = recognition
+    if (state === 'done' || state === 'recognizing' || state === 'evaluating' || state === 'evaluated') {
+      return
+    }
 
-    recognition.onstart = () => {
-      setState('recording')
+    if (!browserCompatibility.isSupported) {
+      setState('unsupported')
+      setErrorMsg(browserCompatibility.unsupportedReason || '浏览器不支持语音识别')
+      return
+    }
+
+    if (permissionStatus.state === 'denied') {
+      setState('permission_denied')
+      setErrorMsg('麦克风权限被拒绝，请在浏览器设置中允许访问麦克风')
+      return
+    }
+
+    if (permissionStatus.state === 'prompt' || permissionStatus.state === 'unknown') {
+      setState('requesting_permission')
       setErrorMsg('')
-    }
-    recognition.onresult = (event) => {
-      const text = event.results[0][0].transcript
-      setRecognizedText(text)
-      setState('done')
-    }
-    recognition.onerror = (event) => {
-      if (event.error === 'no-speech') {
-        setErrorMsg('未检测到语音，请重试')
-      } else if (event.error === 'not-allowed') {
-        setErrorMsg('麦克风权限被拒绝，请在浏览器设置中开启')
-      } else {
-        setErrorMsg(`识别失败：${event.error}`)
+      
+      const granted = await requestPermission()
+      if (!granted) {
+        return
       }
-      setState('error')
-    }
-    recognition.onend = () => {
-      // 如果还在 recording 状态说明没有结果，回到 idle
-      setState((prev) => prev === 'recording' ? 'idle' : prev)
     }
 
-    try {
-      recognition.start()
-    } catch (err) {
-      setErrorMsg('启动录音失败，请重试')
-      setState('error')
-    }
-  }, [state])
+    setErrorMsg('')
+    setState('idle')
+    await startRecording()
+  }, [state, browserCompatibility, permissionStatus, requestPermission, startRecording, stopRecording])
 
-  // 重新录制
   const handleRetry = useCallback(() => {
     setRecognizedText('')
     setEvaluationResult(null)
@@ -466,7 +484,6 @@ function SpeakingQuestion({ question, onNext }: SpeakingQuestionProps) {
     setState('idle')
   }, [])
 
-  // 提交答案进行AI评测
   const handleSubmit = useCallback(async () => {
     if (!recognizedText.trim()) {
       setErrorMsg('请先录音')
@@ -519,8 +536,13 @@ function SpeakingQuestion({ question, onNext }: SpeakingQuestionProps) {
       <div className="flex flex-col items-center gap-4 flex-1 justify-center">
         {state === 'unsupported' ? (
           <div className="text-center px-4">
-            <p className="text-sm text-orange-600 mb-2">当前浏览器不支持语音识别</p>
-            <p className="text-xs text-gray-400">请使用 Chrome 浏览器，或直接跳过此题</p>
+            <p className="text-sm text-orange-600 mb-2">{errorMsg || '当前浏览器不支持语音识别'}</p>
+            <p className="text-xs text-gray-400">建议使用 Chrome、Edge 或 Safari 浏览器，或直接跳过此题</p>
+          </div>
+        ) : state === 'permission_denied' ? (
+          <div className="text-center px-4">
+            <p className="text-sm text-red-500 mb-2">{errorMsg || '麦克风权限被拒绝'}</p>
+            <p className="text-xs text-gray-400">前往浏览器设置 → 网站权限 → 麦克风，允许本网站访问</p>
           </div>
         ) : (
           <>
@@ -528,12 +550,12 @@ function SpeakingQuestion({ question, onNext }: SpeakingQuestionProps) {
             <button
               type="button"
               onClick={handleMicClick}
-              disabled={state === 'done' || state === 'recognizing' || state === 'evaluating' || state === 'evaluated'}
+              disabled={state === 'done' || state === 'recognizing' || state === 'evaluating' || state === 'evaluated' || state === 'requesting_permission'}
               className={`
                 w-20 h-20 rounded-full flex items-center justify-center transition-all duration-200 shadow-lg
                 ${state === 'recording'
                   ? 'bg-red-500 scale-110 shadow-red-200'
-                  : state === 'done' || state === 'recognizing' || state === 'evaluating' || state === 'evaluated'
+                  : state === 'done' || state === 'recognizing' || state === 'evaluating' || state === 'evaluated' || state === 'requesting_permission'
                   ? 'bg-gray-200 cursor-not-allowed'
                   : 'bg-[#4F7CF0] hover:bg-[#3D6ADE] active:scale-95'
                 }
@@ -542,7 +564,7 @@ function SpeakingQuestion({ question, onNext }: SpeakingQuestionProps) {
             >
               {state === 'recording' ? (
                 <WaveformAnimation />
-              ) : state === 'recognizing' ? (
+              ) : state === 'recognizing' || state === 'requesting_permission' ? (
                 <svg className="animate-spin" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
                   <path d="M21 12a9 9 0 1 1-6.219-8.56" />
                 </svg>
@@ -561,6 +583,7 @@ function SpeakingQuestion({ question, onNext }: SpeakingQuestionProps) {
               {state === 'idle' && '点击麦克风开始说话'}
               {state === 'recording' && '录音中，再次点击停止...'}
               {state === 'recognizing' && '识别中...'}
+              {state === 'requesting_permission' && '正在请求麦克风权限...'}
               {state === 'done' && '识别完成，请确认后提交'}
               {state === 'evaluating' && '评测中...'}
               {state === 'evaluated' && '评测完成'}
@@ -700,7 +723,7 @@ function SpeakingQuestion({ question, onNext }: SpeakingQuestionProps) {
         )}
 
         {/* 错误或不支持时：显示跳过按钮 */}
-        {(state === 'error' || state === 'unsupported') && (
+        {(state === 'error' || state === 'unsupported' || state === 'permission_denied') && (
           <button
             type="button"
             onClick={onNext}

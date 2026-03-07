@@ -3,7 +3,7 @@
 import { useState, useRef, useCallback, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { getAudioUrl } from '@/lib/audioUrl'
-import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+import { useSpeechRecognition, type BrowserCompatibility, type PermissionStatus } from '@/hooks/useSpeechRecognition'
 import type { QAResponse } from '@/types'
 
 type PracticeState =
@@ -14,7 +14,8 @@ type PracticeState =
   | 'failed'
   | 'completed'
   | 'permission_denied'
-  | 'sdk_error'
+  | 'browser_unsupported'
+  | 'requesting_permission'
 
 interface SpeakingPracticeProps {
   responses: QAResponse[]
@@ -134,10 +135,10 @@ export default function SpeakingPractice({
   )
 
   const handleError = useCallback((error: string) => {
-    if (error.includes('权限被拒绝')) {
+    if (error.includes('权限被拒绝') || error.includes('权限')) {
       setState('permission_denied')
-    } else if (error.includes('不支持语音识别')) {
-      setState('sdk_error')
+    } else if (error.includes('不支持') || error.includes('HTTPS')) {
+      setState('browser_unsupported')
     } else {
       setState('idle')
     }
@@ -152,6 +153,10 @@ export default function SpeakingPractice({
     stopRecording,
     error,
     audioLevel,
+    browserCompatibility,
+    permissionStatus,
+    checkPermission,
+    requestPermission,
   } = useSpeechRecognition({
     onResult: handleVoiceInput,
     onError: handleError,
@@ -167,11 +172,44 @@ export default function SpeakingPractice({
     }
   }, [isRecording])
 
+  useEffect(() => {
+    if (!browserCompatibility.isSupported && browserCompatibility.unsupportedReason) {
+      setState('browser_unsupported')
+      setFeedbackMsg(browserCompatibility.unsupportedReason)
+    } else if (permissionStatus.state === 'denied') {
+      setState('permission_denied')
+      setFeedbackMsg('麦克风权限被拒绝，请在浏览器设置中允许访问麦克风')
+    }
+  }, [browserCompatibility, permissionStatus])
+
   const handleStartRecording = useCallback(async () => {
+    if (!browserCompatibility.isSupported) {
+      setState('browser_unsupported')
+      setFeedbackMsg(browserCompatibility.unsupportedReason || '浏览器不支持语音识别')
+      return
+    }
+
+    if (permissionStatus.state === 'denied') {
+      setState('permission_denied')
+      setFeedbackMsg('麦克风权限被拒绝，请在浏览器设置中允许访问麦克风')
+      return
+    }
+
+    if (permissionStatus.state === 'prompt' || permissionStatus.state === 'unknown') {
+      setState('requesting_permission')
+      setFeedbackMsg('正在请求麦克风权限...')
+      
+      const granted = await requestPermission()
+      if (!granted) {
+        return
+      }
+    }
+
     setFeedbackMsg('')
     setRecognizedText('')
+    setState('idle')
     await startRecording()
-  }, [startRecording])
+  }, [browserCompatibility, permissionStatus, requestPermission, startRecording])
 
   const handleSkip = useCallback(() => {
     setState('completed')
@@ -217,19 +255,23 @@ export default function SpeakingPractice({
               key="mic"
               type="button"
               onClick={handleStartRecording}
-              disabled={state === 'recognizing' || !isSupported}
+              disabled={state === 'recognizing' || state === 'requesting_permission'}
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.9 }}
               whileTap={{ scale: 0.92 }}
               className={`w-12 h-12 rounded-full flex items-center justify-center shadow-md shrink-0 transition-colors ${
-                state === 'recognizing' || !isSupported
+                state === 'recognizing' || state === 'requesting_permission'
                   ? 'bg-gray-200 cursor-not-allowed'
+                  : state === 'browser_unsupported'
+                  ? 'bg-gray-300 cursor-not-allowed'
+                  : state === 'permission_denied'
+                  ? 'bg-orange-400 hover:bg-orange-500'
                   : 'bg-[#4F7CF0] hover:bg-[#3D6ADE] active:bg-[#3D6ADE]'
               }`}
               aria-label="开始录音"
             >
-              {state === 'recognizing' ? (
+              {state === 'recognizing' || state === 'requesting_permission' ? (
                 <svg className="animate-spin" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 12a9 9 0 1 1-6.219-8.56" />
                 </svg>
@@ -249,8 +291,9 @@ export default function SpeakingPractice({
           {state === 'idle' && <p className="text-sm text-gray-500">{feedbackMsg || '点击麦克风开始说话'}</p>}
           {state === 'recording' && <p className="text-sm text-[#4F7CF0] font-medium">正在录音，说完后点击停止</p>}
           {state === 'recognizing' && <p className="text-sm text-gray-500">识别中…</p>}
+          {state === 'requesting_permission' && <p className="text-sm text-[#4F7CF0] font-medium">{feedbackMsg || '正在请求麦克风权限...'}</p>}
           {state === 'success' && <p className="text-sm text-green-600 font-medium">✓ {feedbackMsg}</p>}
-          {(state === 'failed' || state === 'sdk_error') && <p className="text-sm text-orange-500">{feedbackMsg}</p>}
+          {(state === 'failed' || state === 'browser_unsupported') && <p className="text-sm text-orange-500">{feedbackMsg}</p>}
           {state === 'permission_denied' && <p className="text-sm text-red-500">{feedbackMsg}</p>}
         </div>
       </div>
@@ -263,12 +306,12 @@ export default function SpeakingPractice({
       )}
 
       <div className="flex items-center gap-2 flex-wrap">
-        {(state === 'failed' || state === 'sdk_error') && (
+        {(state === 'failed' || state === 'browser_unsupported') && (
           <button type="button" onClick={handleRetry} className="text-xs px-3 py-1.5 rounded-full bg-[#EEF2FF] text-[#4F7CF0] font-medium">
             重试
           </button>
         )}
-        {(state === 'permission_denied' || state === 'sdk_error' || state === 'failed') && (
+        {(state === 'permission_denied' || state === 'browser_unsupported' || state === 'failed') && (
           <button type="button" onClick={handleSkip} className="text-xs px-3 py-1.5 rounded-full bg-gray-100 text-gray-500 font-medium">
             跳过开口练习
           </button>
@@ -276,6 +319,11 @@ export default function SpeakingPractice({
         {state === 'permission_denied' && (
           <p className="w-full text-xs text-gray-400 mt-1">
             前往浏览器设置 → 网站权限 → 麦克风，允许本网站访问
+          </p>
+        )}
+        {state === 'browser_unsupported' && browserCompatibility.unsupportedReason && (
+          <p className="w-full text-xs text-gray-400 mt-1">
+            建议使用 Chrome、Edge 或 Safari 浏览器获得最佳体验
           </p>
         )}
       </div>
