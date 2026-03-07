@@ -213,98 +213,103 @@ export default function SpeakingPracticeEmpty({
   }
 
   return (
-    <div className="flex items-center gap-2 flex-wrap">
-      <AnimatePresence mode="wait">
-        {state === 'recording' ? (
-          <motion.button
-            key="stop"
-            type="button"
-            onClick={stopRecording}
-            initial={{ scale: 0.9 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0.9 }}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500 text-white text-xs font-medium"
-            aria-label="停止录音"
-          >
-            <WaveformAnimation audioLevel={audioLevel} />
-            <span>停止</span>
-          </motion.button>
-        ) : state === 'recognizing' ? (
-          <motion.button
-            key="recognizing"
-            type="button"
-            disabled
-            initial={{ scale: 0.9 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0.9 }}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-200 text-gray-500 text-xs font-medium cursor-wait"
-          >
-            <svg className="animate-spin" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 12a9 9 0 1 1-6.219-8.56" />
-            </svg>
-            <span>识别中</span>
-          </motion.button>
-        ) : state === 'success' ? (
-          <motion.div
-            key="success"
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-100 text-green-600 text-xs font-medium"
-          >
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="20 6 9 17 4 12" />
-            </svg>
-            <span>{feedbackMsg}</span>
-          </motion.div>
-        ) : (
-          <motion.button
-            key="practice"
-            type="button"
-            onClick={handleStartRecording}
-            disabled={!isSupported}
-            initial={{ scale: 0.9 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0.9 }}
-            whileTap={{ scale: 0.95 }}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
-              !isSupported
-                ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                : 'bg-[#EEF2FF] text-[#4F7CF0] hover:bg-[#E0E7FF]'
-            }`}
-            aria-label="开始开口练习"
-          >
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-              <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-            </svg>
-            <span>开口练习</span>
-          </motion.button>
-        )}
-      </AnimatePresence>
+    <div className="mt-2 space-y-2">
+      <div className="flex items-center gap-2">
+        <AnimatePresence mode="wait">
+          {state === 'recording' ? (
+            <motion.button
+              key="stop"
+              type="button"
+              onClick={stopRecording}
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500 text-white text-xs font-medium"
+              aria-label="停止录音"
+            >
+              <WaveformAnimation audioLevel={audioLevel} />
+              <span>停止</span>
+            </motion.button>
+          ) : state === 'recognizing' ? (
+            <motion.button
+              key="recognizing"
+              type="button"
+              disabled
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-200 text-gray-500 text-xs font-medium cursor-wait"
+            >
+              <svg className="animate-spin" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+              </svg>
+              <span>识别中</span>
+            </motion.button>
+          ) : state === 'success' ? (
+            <motion.div
+              key="success"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-green-100 text-green-600 text-xs font-medium"
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              <span>{feedbackMsg}</span>
+            </motion.div>
+          ) : (
+            <motion.button
+              key="practice"
+              type="button"
+              onClick={handleStartRecording}
+              disabled={!isSupported}
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              whileTap={{ scale: 0.95 }}
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+                !isSupported
+                  ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                  : 'bg-[#EEF2FF] text-[#4F7CF0] hover:bg-[#E0E7FF]'
+              }`}
+              aria-label="开始开口练习"
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+              </svg>
+              <span>开口练习</span>
+            </motion.button>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {(recognizedText || interimTranscript) && state !== 'success' && (
+        <div className="w-full px-3 py-2 rounded-lg bg-gray-50 border border-gray-100">
+          <p className="text-xs text-gray-400 mb-0.5">识别结果</p>
+          <p className="text-sm text-gray-700">{recognizedText || interimTranscript}</p>
+        </div>
+      )}
 
       {(state === 'failed' || state === 'sdk_error' || state === 'permission_denied') && (
-        <>
+        <div className="flex items-center gap-2 flex-wrap">
           <span className="text-xs text-orange-500">{feedbackMsg}</span>
           <button
             type="button"
             onClick={handleRetry}
-            className="text-xs px-2 py-1 rounded-full bg-[#EEF2FF] text-[#4F7CF0] font-medium hover:bg-[#E0E7FF]"
+            className="text-xs px-3 py-1 rounded-full bg-[#EEF2FF] text-[#4F7CF0] font-medium hover:bg-[#E0E7FF] transition-colors"
           >
             重试
           </button>
           <button
             type="button"
             onClick={handleSkip}
-            className="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-500 font-medium hover:bg-gray-200"
+            className="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-500 font-medium hover:bg-gray-200 transition-colors"
           >
             跳过
           </button>
-        </>
-      )}
-
-      {(recognizedText || interimTranscript) && state !== 'success' && (
-        <span className="text-xs text-gray-500 truncate max-w-[120px]">{recognizedText || interimTranscript}</span>
+        </div>
       )}
     </div>
   )
