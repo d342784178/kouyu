@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import * as sdk from 'microsoft-cognitiveservices-speech-sdk'
 
 export async function POST(request: NextRequest) {
   try {
@@ -33,74 +32,70 @@ export async function POST(request: NextRequest) {
     const buffer = Buffer.from(audioData, 'base64')
 
     // 检测音频格式
-    // WAV 文件头：52 49 46 46 (RIFF) + 57 41 56 45 (WAVE)
     const isWav = buffer.length > 12 && buffer.toString('utf8', 0, 4) === 'RIFF' && buffer.toString('utf8', 8, 12) === 'WAVE'
+    const isMp3 = buffer.length > 3 && (
+      (buffer[0] === 0xFF && (buffer[1] & 0xE0) === 0xE0) ||
+      buffer.toString('utf8', 0, 3) === 'ID3'
+    )
 
     console.log('[Speech API] 音频格式检测:', {
       isWav,
+      isMp3,
       bufferSize: buffer.length,
       firstBytes: buffer.toString('hex', 0, Math.min(16, buffer.length))
     })
 
-    // 创建 Azure Speech 配置
-    const speechConfig = sdk.SpeechConfig.fromSubscription(azureKey, azureRegion)
-    speechConfig.speechRecognitionLanguage = 'en-US'
-
-    // 创建音频配置和识别器
-    let audioConfig: sdk.AudioConfig
+    // 使用 Azure Speech REST API（支持多种格式）
+    const endpoint = `https://${azureRegion}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`
     
-    // 直接使用 WAV 文件输入，Azure SDK 会自动处理格式
-    console.log('[Speech API] 使用 WAV 文件输入')
-    try {
-      audioConfig = sdk.AudioConfig.fromWavFileInput(buffer)
-    } catch (error) {
-      console.error('[Speech API] WAV 文件输入创建失败:', error)
-      // 备选方案：使用 PushAudioInputStream
-      console.log('[Speech API] 尝试使用 PushAudioInputStream')
-      const pushStream = sdk.AudioInputStream.createPushStream()
-      pushStream.write(buffer)
-      pushStream.close()
-      audioConfig = sdk.AudioConfig.fromStreamInput(pushStream)
+    // 确定音频格式
+    let contentType = 'audio/wav; codecs=audio/pcm; samplerate=16000'
+    if (isMp3) {
+      contentType = 'audio/mp3'
+    } else if (!isWav) {
+      // 对于其他格式，尝试作为 webm 处理
+      contentType = 'audio/webm'
     }
 
-    const recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig)
+    console.log('[Speech API] 使用 REST API，Content-Type:', contentType)
 
-    return new Promise((resolve) => {
-      recognizer.recognizeOnceAsync(
-        (result: sdk.SpeechRecognitionResult) => {
-          recognizer.close()
-          
-          if (result.reason === sdk.ResultReason.RecognizedSpeech) {
-            resolve(NextResponse.json({
-              success: true,
-              transcript: result.text,
-              confidence: result.properties
-            }))
-          } else if (result.reason === sdk.ResultReason.NoMatch) {
-            resolve(NextResponse.json({
-              success: false,
-              transcript: '',
-              error: '未识别到语音'
-            }))
-          } else {
-            resolve(NextResponse.json({
-              success: false,
-              transcript: '',
-              error: `识别失败：${sdk.ResultReason[result.reason]}`
-            }, { status: 500 }))
-          }
-        },
-        (error: any) => {
-          recognizer.close()
-          console.error('Azure Speech 识别错误:', error)
-          resolve(NextResponse.json({
-            success: false,
-            transcript: '',
-            error: error.message || '语音识别失败'
-          }, { status: 500 }))
-        }
-      )
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      headers: {
+        'Ocp-Apim-Subscription-Key': azureKey,
+        'Content-Type': contentType,
+        'Accept': 'application/json'
+      },
+      body: buffer
     })
+
+    if (!response.ok) {
+      const errorText = await response.text()
+      console.error('[Speech API] REST API 错误:', response.status, errorText)
+      return NextResponse.json({
+        success: false,
+        transcript: '',
+        error: `语音识别失败: ${response.status}`
+      }, { status: 500 })
+    }
+
+    const result = await response.json()
+    console.log('[Speech API] REST API 响应:', JSON.stringify(result, null, 2))
+
+    // 解析结果
+    if (result.RecognitionStatus === 'Success') {
+      return NextResponse.json({
+        success: true,
+        transcript: result.DisplayText || '',
+        confidence: result.Confidence || 1.0
+      })
+    } else {
+      return NextResponse.json({
+        success: false,
+        transcript: '',
+        error: result.RecognitionStatus || '未识别到语音'
+      })
+    }
 
   } catch (error) {
     console.error('语音识别 API 错误:', error)
