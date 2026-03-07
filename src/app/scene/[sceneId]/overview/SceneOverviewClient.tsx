@@ -217,7 +217,7 @@ export default function SceneOverviewClient({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8] pb-8">
+    <div className="h-[calc(100vh-150px)] bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8] pb-8">
       <div className="max-w-[430px] mx-auto px-4 pt-6">
 
         <div className="flex items-center mb-6">

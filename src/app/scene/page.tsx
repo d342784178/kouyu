@@ -132,7 +132,7 @@ export default function SceneLearningList() {
   }, [loadMore, hasMore, isLoadingMore])
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8] pb-20">
+    <div className="h-[calc(100vh-150px)] bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8] pb-20">
       <div className="max-w-[430px] mx-auto px-4 pt-8">
 
         {/* 标题 */}
