@@ -155,13 +155,20 @@ export default function SpeakingPractice({
     permissionStatus,
     checkPermission,
     requestPermission,
+    useAzureFallback,
   } = useSpeechRecognition({
     onResult: handleVoiceInput,
     onError: handleError,
   })
 
+  const activeError = useAzureFallback ? error : error
+  const activeAudioLevel = useAzureFallback ? audioLevel : audioLevel
+  const activeStartRecording = useAzureFallback ? startRecording : startRecording
+  const activeStopRecording = useAzureFallback ? stopRecording : stopRecording
+
   useEffect(() => {
-    if (isRecording) {
+    const active = { isRecording }
+    if (active.isRecording) {
       prevStateRef.current = 'recording'
       setState('recording')
     } else if (prevStateRef.current === 'recording') {
@@ -181,7 +188,12 @@ export default function SpeakingPractice({
   }, [browserCompatibility, permissionStatus])
 
   const handleStartRecording = useCallback(async () => {
-    console.log('[SpeakingPractice] handleStartRecording 被调用, state:', state, 'browserCompatibility:', browserCompatibility)
+    console.log('[SpeakingPractice] handleStartRecording 被调用，state:', state, 'browserCompatibility:', browserCompatibility, 'useAzureFallback:', useAzureFallback)
+    
+    if (useAzureFallback) {
+      await activeStartRecording()
+      return
+    }
     
     if (!browserCompatibility.isSupported) {
       setState('browser_unsupported')
@@ -205,7 +217,7 @@ export default function SpeakingPractice({
     setState('idle')
     
     try {
-      await startRecording()
+      await activeStartRecording()
     } catch (err) {
       console.error('[SpeakingPractice] startRecording 异常:', err)
       setState('idle')

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useCallback, useRef, useEffect } from 'react'
+import * as sdk from 'microsoft-cognitiveservices-speech-sdk'
 
 export interface UseSpeechRecognitionOptions {
   onResult: (transcript: string) => void
@@ -35,6 +36,7 @@ export interface UseSpeechRecognitionReturn {
   permissionStatus: PermissionStatus
   checkPermission: () => Promise<PermissionStatus>
   requestPermission: () => Promise<boolean>
+  useAzureFallback: boolean
 }
 
 function detectBrowserCompatibility(): BrowserCompatibility {
@@ -92,6 +94,7 @@ export function useSpeechRecognition({
     state: 'unknown',
     canRequest: true
   })
+  const [useAzureFallback, setUseAzureFallback] = useState(false)
 
   const recognitionRef = useRef<any>(null)
   const finalTranscriptRef = useRef<string>('')
@@ -106,6 +109,7 @@ export function useSpeechRecognition({
   const mediaStreamRef = useRef<MediaStream | null>(null)
   const animationFrameRef = useRef<number | null>(null)
   const isRecordingRef = useRef<boolean>(false)
+  const azureRecognizerRef = useRef<any>(null)
 
   useEffect(() => {
     onResultRef.current = onResult
@@ -130,6 +134,8 @@ export function useSpeechRecognition({
 
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
     if (!SpeechRecognition) {
+      console.log('[useSpeechRecognition] 浏览器不支持 SpeechRecognition API，将使用 Azure SDK')
+      setUseAzureFallback(true)
       return
     }
 
@@ -144,6 +150,12 @@ export function useSpeechRecognition({
       platform: navigator.platform,
       language: navigator.language
     })
+    
+    // 小米浏览器和夸克浏览器特殊处理 - 使用 Azure SDK
+    if (isXiaomi || isQuark) {
+      console.log('[useSpeechRecognition] 检测到小米/夸克浏览器，将使用 Azure SDK')
+      setUseAzureFallback(true)
+    }
     
     // 小米浏览器特殊处理
     if (isXiaomi) {
@@ -579,5 +591,6 @@ export function useSpeechRecognition({
     permissionStatus,
     checkPermission,
     requestPermission,
+    useAzureFallback,
   }
 }
