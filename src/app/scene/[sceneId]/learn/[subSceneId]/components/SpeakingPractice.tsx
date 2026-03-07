@@ -79,12 +79,14 @@ export default function SpeakingPractice({
   const [recognizedText, setRecognizedText] = useState('')
   const [feedbackMsg, setFeedbackMsg] = useState('')
   const demoAudioRef = useRef<HTMLAudioElement | null>(null)
+  const prevStateRef = useRef<PracticeState>(isCompleted ? 'completed' : 'idle')
 
   useEffect(() => {
-    if (isCompleted && state !== 'completed') {
+    if (isCompleted && prevStateRef.current !== 'completed') {
+      prevStateRef.current = 'completed'
       setState('completed')
     }
-  }, [isCompleted, state])
+  }, [isCompleted])
 
   const playDemoAudio = useCallback(() => {
     if (!demoAudioUrl) return
@@ -157,11 +159,13 @@ export default function SpeakingPractice({
 
   useEffect(() => {
     if (isRecording) {
+      prevStateRef.current = 'recording'
       setState('recording')
-    } else if (state === 'recording') {
+    } else if (prevStateRef.current === 'recording') {
+      prevStateRef.current = 'idle'
       setState('idle')
     }
-  }, [isRecording, state])
+  }, [isRecording])
 
   const handleStartRecording = useCallback(async () => {
     setFeedbackMsg('')
