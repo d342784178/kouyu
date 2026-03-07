@@ -59,7 +59,10 @@ function AudioButton({ audioUrl, label, isPlaying, isLoading, onToggle }: AudioB
   return (
     <button
       type="button"
-      onClick={onToggle}
+      onClick={(e) => {
+        e.stopPropagation()
+        onToggle()
+      }}
       aria-label={label ?? '播放音频'}
       className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors shrink-0 ${
         isPlaying

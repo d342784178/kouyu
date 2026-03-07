@@ -127,18 +127,6 @@ export function useSpeechRecognition({
     })
     setBrowserCompatibility(compatibility)
 
-    if (!compatibility.isSupported) {
-      console.log('[useSpeechRecognition] 浏览器不支持:', compatibility.unsupportedReason)
-      return
-    }
-
-    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
-    if (!SpeechRecognition) {
-      console.log('[useSpeechRecognition] 浏览器不支持 SpeechRecognition API，将使用 Azure SDK')
-      setUseAzureFallback(true)
-      return
-    }
-
     const userAgent = navigator.userAgent
     const isXiaomi = /MiuiBrowser|xiaomi|mi/.test(userAgent.toLowerCase())
     const isQuark = /quark/.test(userAgent.toLowerCase())
@@ -151,10 +139,24 @@ export function useSpeechRecognition({
       language: navigator.language
     })
     
-    // 小米浏览器和夸克浏览器特殊处理 - 使用 Azure SDK
+    // 小米浏览器和夸克浏览器 - 直接使用 Azure SDK
     if (isXiaomi || isQuark) {
       console.log('[useSpeechRecognition] 检测到小米/夸克浏览器，将使用 Azure SDK')
       setUseAzureFallback(true)
+      // 即使浏览器不支持原生 API，Azure SDK 仍然可用
+      return
+    }
+
+    if (!compatibility.isSupported) {
+      console.log('[useSpeechRecognition] 浏览器不支持:', compatibility.unsupportedReason)
+      return
+    }
+
+    const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
+    if (!SpeechRecognition) {
+      console.log('[useSpeechRecognition] 浏览器不支持 SpeechRecognition API，将使用 Azure SDK')
+      setUseAzureFallback(true)
+      return
     }
     
     // 小米浏览器特殊处理
@@ -395,9 +397,128 @@ export function useSpeechRecognition({
     }
   }, [browserCompatibility.hasGetUserMedia])
 
-  const startRecording = useCallback(async () => {
-    console.log('[useSpeechRecognition] startRecording 被调用, isSupported:', browserCompatibility.isSupported, 'isRecording:', isRecording)
+  const startAzureRecording = useCallback(async () => {
+    console.log('[useSpeechRecognition] startAzureRecording 被调用')
     
+    if (!process.env.NEXT_PUBLIC_AZURE_SPEECH_KEY) {
+      const msg = 'Azure Speech 密钥未配置，请在 Vercel 环境变量中设置 NEXT_PUBLIC_AZURE_SPEECH_KEY'
+      console.error('[useSpeechRecognition]', msg)
+      setError(msg)
+      onErrorRef.current?.(msg)
+      return
+    }
+
+    try {
+      hasResultRef.current = false
+      finalTranscriptRef.current = ''
+      setIsRecording(true)
+      isRecordingRef.current = true
+      setError(null)
+      setInterimTranscript('')
+
+      console.log('[useSpeechRecognition] Azure SDK - 请求麦克风权限...')
+      const stream = await navigator.mediaDevices.getUserMedia({ 
+        audio: {
+          echoCancellation: true,
+          noiseSuppression: true,
+          autoGainControl: true
+        } 
+      })
+      mediaStreamRef.current = stream
+      console.log('[useSpeechRecognition] Azure SDK - 麦克风权限已获取')
+
+      // 创建 Azure Speech 配置
+      const speechConfig = sdk.SpeechConfig.fromSubscription(
+        process.env.NEXT_PUBLIC_AZURE_SPEECH_KEY,
+        process.env.NEXT_PUBLIC_AZURE_SPEECH_REGION || 'eastus'
+      )
+      speechConfig.speechRecognitionLanguage = lang
+
+      // 使用麦克风直接创建音频配置 - 传入流 ID
+      const audioConfig = sdk.AudioConfig.fromMicrophoneInput(stream.id)
+
+      // 创建识别器
+      azureRecognizerRef.current = new sdk.SpeechRecognizer(speechConfig, audioConfig)
+
+      // 设置事件处理
+      azureRecognizerRef.current.recognized = (_s: any, e: any) => {
+        console.log('[useSpeechRecognition] Azure SDK - recognized:', e.result.text)
+        if (e.result.text) {
+          finalTranscriptRef.current = e.result.text
+          hasResultRef.current = true
+          onResultRef.current(e.result.text)
+          stopRecording()
+        }
+      }
+
+      azureRecognizerRef.current.recognizing = (_s: any, e: any) => {
+        console.log('[useSpeechRecognition] Azure SDK - recognizing:', e.result.text)
+        if (e.result.text) {
+          setInterimTranscript(e.result.text)
+        }
+      }
+
+      azureRecognizerRef.current.canceled = (_s: any, e: any) => {
+        console.error('[useSpeechRecognition] Azure SDK - canceled:', e.errorDetails)
+        setError(`语音识别失败：${e.errorDetails}`)
+        onErrorRef.current?.(`语音识别失败：${e.errorDetails}`)
+        stopRecording()
+      }
+
+      azureRecognizerRef.current.sessionStopped = (_s: any, _e: any) => {
+        console.log('[useSpeechRecognition] Azure SDK - sessionStopped')
+        stopRecording()
+      }
+
+      // 启动识别
+      azureRecognizerRef.current.startContinuousRecognitionAsync(
+        () => {
+          console.log('[useSpeechRecognition] Azure SDK - 连续识别已启动')
+        },
+        (err: any) => {
+          console.error('[useSpeechRecognition] Azure SDK - 启动连续识别失败:', err)
+          setError(`启动识别失败：${err}`)
+          onErrorRef.current?.(`启动识别失败：${err}`)
+          stopRecording()
+        }
+      )
+
+      // 设置最大录音时长
+      recordingTimeoutRef.current = setTimeout(() => {
+        console.log('[useSpeechRecognition] Azure SDK - 达到最大录音时长')
+        stopRecording()
+      }, maxRecordingTime)
+
+    } catch (err) {
+      console.error('[useSpeechRecognition] Azure SDK - 启动录音失败:', err)
+      let errorMessage = '无法访问麦克风，请检查麦克风权限和设备'
+
+      if (err instanceof Error) {
+        if (err.name === 'NotAllowedError') {
+          errorMessage = '麦克风权限被拒绝，请在浏览器设置中允许访问麦克风'
+        } else if (err.name === 'NotFoundError') {
+          errorMessage = '未找到麦克风设备，请连接麦克风后重试'
+        }
+      }
+
+      setError(errorMessage)
+      onErrorRef.current?.(errorMessage)
+      setIsRecording(false)
+      isRecordingRef.current = false
+    }
+  }, [lang, maxRecordingTime])
+
+  const startRecording = useCallback(async () => {
+    console.log('[useSpeechRecognition] startRecording 被调用，isSupported:', browserCompatibility.isSupported, 'isRecording:', isRecording, 'useAzureFallback:', useAzureFallback)
+    
+    // 使用 Azure SDK 的情况
+    if (useAzureFallback) {
+      console.log('[useSpeechRecognition] 使用 Azure SDK 进行语音识别')
+      await startAzureRecording()
+      return
+    }
+
+    // 使用原生 SpeechRecognition API 的情况
     if (!browserCompatibility.isSupported) {
       const msg = browserCompatibility.unsupportedReason || '您的浏览器不支持语音识别'
       console.log('[useSpeechRecognition] 不支持:', msg)
