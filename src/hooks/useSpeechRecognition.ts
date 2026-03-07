@@ -72,6 +72,15 @@ function detectBrowserCompatibility(): BrowserCompatibility {
   }
 }
 
+// 辅助函数：将 ArrayBuffer 转换为 Base64
+function arrayBufferToBase64(buffer: Uint8Array): string {
+  let binary = ''
+  for (let i = 0; i < buffer.byteLength; i++) {
+    binary += String.fromCharCode(buffer[i])
+  }
+  return btoa(binary)
+}
+
 export function useSpeechRecognition({
   onResult,
   onError,
@@ -423,8 +432,17 @@ export function useSpeechRecognition({
       console.log('[useSpeechRecognition] 麦克风权限已获取')
 
       // 使用 MediaRecorder 录制音频
+      // 优先使用 audio/wav 格式，如果不支持则使用 audio/webm
+      const mimeType = MediaRecorder.isTypeSupported('audio/wav') 
+        ? 'audio/wav' 
+        : MediaRecorder.isTypeSupported('audio/webm;codecs=pcm')
+          ? 'audio/webm;codecs=pcm'
+          : 'audio/webm;codecs=opus'
+      
+      console.log('[useSpeechRecognition] 使用 MIME 类型:', mimeType)
+      
       const mediaRecorder = new MediaRecorder(stream, {
-        mimeType: 'audio/webm;codecs=opus',
+        mimeType,
         audioBitsPerSecond: 128000
       })
       mediaRecorderRef.current = mediaRecorder
@@ -437,44 +455,46 @@ export function useSpeechRecognition({
 
       mediaRecorder.onstop = async () => {
         console.log('[useSpeechRecognition] 录音停止，发送到服务端识别...')
-        const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' })
         
-        // 转换为 base64
-        const reader = new FileReader()
-        reader.readAsDataURL(audioBlob)
-        reader.onloadend = async () => {
-          const base64Audio = reader.result as string
+        // 将 Blob 转换为 ArrayBuffer
+        const audioBlob = new Blob(audioChunksRef.current, { type: mimeType })
+        const arrayBuffer = await audioBlob.arrayBuffer()
+        const uint8Array = new Uint8Array(arrayBuffer)
+        
+        console.log('[useSpeechRecognition] 音频数据大小:', uint8Array.length, '字节')
+        
+        try {
+          // 直接发送 ArrayBuffer 作为 base64
+          const base64Audio = arrayBufferToBase64(uint8Array)
           
-          try {
-            const response = await fetch('/api/speech/recognize', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ audioBlob: base64Audio }),
-            })
+          const response = await fetch('/api/speech/recognize', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ audioBlob: `data:audio/wav;base64,${base64Audio}` }),
+          })
 
-            const result = await response.json()
+          const result = await response.json()
 
-            if (!response.ok) {
-              throw new Error(result.error || '语音识别失败')
-            }
-
-            console.log('[useSpeechRecognition] 识别结果:', result.transcript)
-            
-            if (result.transcript) {
-              finalTranscriptRef.current = result.transcript
-              hasResultRef.current = true
-              onResultRef.current(result.transcript)
-            }
-          } catch (error) {
-            console.error('[useSpeechRecognition] 服务端识别失败:', error)
-            const errorMessage = error instanceof Error ? error.message : '语音识别失败'
-            setError(errorMessage)
-            onErrorRef.current?.(errorMessage)
+          if (!response.ok) {
+            throw new Error(result.error || '语音识别失败')
           }
+
+          console.log('[useSpeechRecognition] 识别结果:', result.transcript)
           
-          setIsRecording(false)
-          isRecordingRef.current = false
+          if (result.transcript) {
+            finalTranscriptRef.current = result.transcript
+            hasResultRef.current = true
+            onResultRef.current(result.transcript)
+          }
+        } catch (error) {
+          console.error('[useSpeechRecognition] 服务端识别失败:', error)
+          const errorMessage = error instanceof Error ? error.message : '语音识别失败'
+          setError(errorMessage)
+          onErrorRef.current?.(errorMessage)
         }
+        
+        setIsRecording(false)
+        isRecordingRef.current = false
       }
 
       // 启动录音

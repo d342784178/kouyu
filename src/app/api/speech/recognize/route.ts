@@ -1,40 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import * as sdk from 'microsoft-cognitiveservices-speech-sdk'
 
-// 简单的 WAV 文件头生成（44 字节）
-function createWavHeader(dataLength: number): Buffer {
-  const buffer = Buffer.alloc(44)
-  
-  // RIFF chunk descriptor
-  buffer.write('RIFF', 0)
-  buffer.writeUInt32LE(36 + dataLength, 4) // file length - 8
-  buffer.write('WAVE', 8)
-  
-  // fmt sub-chunk
-  buffer.write('fmt ', 12)
-  buffer.writeUInt32LE(16, 16) // Subchunk1Size (16 for PCM)
-  buffer.writeUInt16LE(1, 20) // AudioFormat (1 for PCM)
-  buffer.writeUInt16LE(1, 22) // NumChannels (1 for mono)
-  buffer.writeUInt32LE(16000, 24) // SampleRate (16000 Hz)
-  buffer.writeUInt32LE(32000, 28) // ByteRate (SampleRate * NumChannels * BitsPerSample/8)
-  buffer.writeUInt16LE(2, 32) // BlockAlign (NumChannels * BitsPerSample/8)
-  buffer.writeUInt16LE(16, 34) // BitsPerSample (16)
-  
-  // data sub-chunk
-  buffer.write('data', 36)
-  buffer.writeUInt32LE(dataLength, 40) // Subchunk2Size (data length)
-  
-  return buffer
-}
-
-// 将 webm/opus 转换为 PCM（简化版本，实际应该使用 ffmpeg）
-async function convertWebmToPcm(webmBuffer: Buffer): Promise<Buffer> {
-  // 注意：这是一个简化的实现
-  // 生产环境建议使用 fluent-ffmpeg 或 @ffmpeg/ffmpeg 进行格式转换
-  // 这里我们直接返回原始数据，Azure SDK 通常能处理 webm 格式
-  return webmBuffer
-}
-
 export async function POST(request: NextRequest) {
   try {
     const { audioBlob } = await request.json()
@@ -58,42 +24,45 @@ export async function POST(request: NextRequest) {
 
     // 将 base64 音频数据转换为 Buffer
     const audioData = audioBlob.split(',')[1]
-    let buffer = Buffer.from(audioData, 'base64')
+    const buffer = Buffer.from(audioData, 'base64')
 
-    // 检测音频格式并处理
-    // WebM 文件头：1A 45 DF A3
+    // 检测音频格式
     // WAV 文件头：52 49 46 46 (RIFF) + 57 41 56 45 (WAVE)
-    const isWebm = buffer.length > 4 && buffer[0] === 0x1A && buffer.toString('hex', 1, 4) === '45dfA3'
     const isWav = buffer.length > 12 && buffer.toString('utf8', 0, 4) === 'RIFF' && buffer.toString('utf8', 8, 12) === 'WAVE'
 
     console.log('[Speech API] 音频格式检测:', {
-      isWebm,
       isWav,
       bufferSize: buffer.length,
       firstBytes: buffer.toString('hex', 0, Math.min(16, buffer.length))
     })
 
-    let audioConfig: sdk.AudioConfig
-
-    if (isWav) {
-      // WAV 格式，直接使用
-      audioConfig = sdk.AudioConfig.fromWavFileInput(buffer)
-    } else if (isWebm) {
-      // WebM 格式，转换为 PCM（简化处理）
-      const pcmBuffer = await convertWebmToPcm(buffer)
-      // Azure SDK 也支持从流输入，我们尝试直接使用
-      audioConfig = sdk.AudioConfig.fromWavFileInput(pcmBuffer)
-    } else {
-      // 其他格式，尝试直接使用
-      console.log('[Speech API] 未知音频格式，尝试直接处理')
-      audioConfig = sdk.AudioConfig.fromWavFileInput(buffer)
-    }
-
     // 创建 Azure Speech 配置
     const speechConfig = sdk.SpeechConfig.fromSubscription(azureKey, azureRegion)
     speechConfig.speechRecognitionLanguage = 'en-US'
 
-    // 创建识别器
+    // 创建音频配置和识别器
+    let audioConfig: sdk.AudioConfig
+    
+    if (isWav) {
+      // WAV 格式，直接使用
+      console.log('[Speech API] 使用 WAV 格式')
+      audioConfig = sdk.AudioConfig.fromWavFileInput(buffer)
+    } else {
+      // 非 WAV 格式，使用 PushAudioInputStream
+      console.log('[Speech API] 使用 PushAudioInputStream')
+      
+      // 创建音频流（16kHz, 16-bit, 单声道）
+      const audioFormat = sdk.AudioStreamFormat.getWaveFormatPCM(16000, 16, 1)
+      const pushStream = sdk.AudioInputStream.createPushStream(audioFormat)
+      
+      // 写入音频数据
+      pushStream.write(buffer)
+      pushStream.close()
+      
+      // 创建音频配置
+      audioConfig = sdk.AudioConfig.fromStreamInput(pushStream)
+    }
+
     const recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig)
 
     return new Promise((resolve) => {
