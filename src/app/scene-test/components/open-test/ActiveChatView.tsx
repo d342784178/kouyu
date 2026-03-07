@@ -74,7 +74,7 @@ export default function ActiveChatView({
   }
 
   return (
-    <div className="flex flex-col h-[calc(100vh-76px)] bg-[#F5F6FA] px-6">
+    <div className="flex flex-col h-[calc(100vh-150px)] bg-[#F5F6FA] px-6">
 
       {/* 对话区域 - 可滚动 */}
       <div
