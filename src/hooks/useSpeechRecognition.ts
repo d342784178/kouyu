@@ -514,6 +514,57 @@ export function useSpeechRecognition({
       mediaRecorder.start(1000) // 每秒收集一次数据
       console.log('[useSpeechRecognition] MediaRecorder 已启动')
 
+      // 启动音频电平检测和停顿检测
+      const AudioContext = window.AudioContext || (window as any).webkitAudioContext
+      if (AudioContext) {
+        try {
+          const audioContext = new AudioContext()
+          const analyser = audioContext.createAnalyser()
+          const microphone = audioContext.createMediaStreamSource(stream)
+          microphone.connect(analyser)
+          analyser.fftSize = 256
+          
+          audioContextRef.current = audioContext
+          analyserRef.current = analyser
+          
+          const dataArray = new Uint8Array(analyser.frequencyBinCount)
+          let silenceStartTime: number | null = null
+          const silenceThreshold = 10 // 音量阈值
+          const silenceDuration = 1500 // 停顿时间（毫秒）
+          
+          const updateAudioLevel = () => {
+            if (!analyserRef.current || !isRecordingRef.current) return
+            analyser.getByteFrequencyData(dataArray)
+            const average = dataArray.reduce((a, b) => a + b, 0) / dataArray.length
+            const currentLevel = Math.round(average)
+            setAudioLevel(currentLevel)
+            
+            // 停顿检测
+            if (currentLevel < silenceThreshold) {
+              if (!silenceStartTime) {
+                silenceStartTime = Date.now()
+              } else if (Date.now() - silenceStartTime > silenceDuration) {
+                // 检测到停顿，自动停止录音
+                console.log('[useSpeechRecognition] 检测到停顿，自动停止录音')
+                if (mediaRecorderRef.current && mediaRecorderRef.current.state === 'recording') {
+                  mediaRecorderRef.current.stop()
+                }
+                return
+              }
+            } else {
+              // 检测到声音，重置停顿计时器
+              silenceStartTime = null
+            }
+            
+            animationFrameRef.current = requestAnimationFrame(updateAudioLevel)
+          }
+          updateAudioLevel()
+          console.log('[useSpeechRecognition] 音量检测和停顿检测已启动')
+        } catch (err) {
+          console.error('[useSpeechRecognition] 音量检测启动失败:', err)
+        }
+      }
+
       // 设置最大录音时长
       recordingTimeoutRef.current = setTimeout(() => {
         console.log('[useSpeechRecognition] 达到最大录音时长，停止录音')
@@ -695,8 +746,6 @@ export function useSpeechRecognition({
   }, [browserCompatibility, isRecording, maxRecordingTime, checkPermission])
 
   const stopRecording = useCallback(() => {
-    if (!recognitionRef.current) return
-    
     isRecordingRef.current = false
 
     if (recordingTimeoutRef.current) {
@@ -720,6 +769,12 @@ export function useSpeechRecognition({
       mediaStreamRef.current.getTracks().forEach(track => track.stop())
       mediaStreamRef.current = null
     }
+    if (mediaRecorderRef.current) {
+      try {
+        mediaRecorderRef.current.stop()
+      } catch (_) {}
+      mediaRecorderRef.current = null
+    }
     setAudioLevel(0)
 
     const transcript = finalTranscriptRef.current || interimTranscriptRef.current
@@ -728,9 +783,11 @@ export function useSpeechRecognition({
       onResultRef.current(transcript.trim())
     }
 
-    try {
-      recognitionRef.current.stop()
-    } catch (_) {}
+    if (recognitionRef.current) {
+      try {
+        recognitionRef.current.stop()
+      } catch (_) {}
+    }
   }, [])
 
   return {

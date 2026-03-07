@@ -49,23 +49,17 @@ export async function POST(request: NextRequest) {
     // 创建音频配置和识别器
     let audioConfig: sdk.AudioConfig
     
-    if (isWav) {
-      // WAV 格式，直接使用
-      console.log('[Speech API] 使用 WAV 格式')
+    // 直接使用 WAV 文件输入，Azure SDK 会自动处理格式
+    console.log('[Speech API] 使用 WAV 文件输入')
+    try {
       audioConfig = sdk.AudioConfig.fromWavFileInput(buffer)
-    } else {
-      // 非 WAV 格式，使用 PushAudioInputStream
-      console.log('[Speech API] 使用 PushAudioInputStream')
-      
-      // 创建音频流（16kHz, 16-bit, 单声道）
-      const audioFormat = sdk.AudioStreamFormat.getWaveFormatPCM(16000, 16, 1)
-      const pushStream = sdk.AudioInputStream.createPushStream(audioFormat)
-      
-      // 写入音频数据
+    } catch (error) {
+      console.error('[Speech API] WAV 文件输入创建失败:', error)
+      // 备选方案：使用 PushAudioInputStream
+      console.log('[Speech API] 尝试使用 PushAudioInputStream')
+      const pushStream = sdk.AudioInputStream.createPushStream()
       pushStream.write(buffer)
       pushStream.close()
-      
-      // 创建音频配置
       audioConfig = sdk.AudioConfig.fromStreamInput(pushStream)
     }
 
