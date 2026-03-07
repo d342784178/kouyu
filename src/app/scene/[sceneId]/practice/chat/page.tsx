@@ -605,7 +605,7 @@ export default function ChatPage() {
   }
 
   return (
-    <div className="h-screen bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8] flex flex-col">
+    <div className="h-[calc(100vh-150px)] bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8] flex flex-col">
       <div className="shrink-0 px-6 pt-6 pb-4">
         <div className="flex items-center">
           <BackButton onClick={handleBack} />
