@@ -1,107 +1,80 @@
 import { NextRequest, NextResponse } from 'next/server'
+import * as sdk from 'microsoft-cognitiveservices-speech-sdk'
 
+export const runtime = 'nodejs'
+
+/**
+ * 语音识别 API
+ * 接收前端用 AudioContext 解码后的原始 PCM 数据（16kHz 单声道 Int16）
+ * 通过 Azure SDK push stream 进行识别，无需 GStreamer
+ * POST /api/speech/recognize
+ * Body: FormData { audio: Blob(.pcm), sampleRate: string }
+ */
 export async function POST(request: NextRequest) {
   try {
-    const { audioBlob } = await request.json()
+    const formData = await request.formData()
+    const audioFile = formData.get('audio') as File | null
+    const sampleRate = parseInt(formData.get('sampleRate') as string || '16000', 10)
 
-    if (!audioBlob) {
-      return NextResponse.json(
-        { error: '音频数据不能为空' },
-        { status: 400 }
-      )
+    if (!audioFile) {
+      return NextResponse.json({ error: '音频数据不能为空' }, { status: 400 })
     }
 
-    const azureKey = process.env.AZURE_SPEECH_KEY || process.env.NEXT_PUBLIC_AZURE_SPEECH_KEY
-    const azureRegion = process.env.AZURE_SPEECH_REGION || process.env.NEXT_PUBLIC_AZURE_SPEECH_REGION || 'eastus'
+    const subscriptionKey = process.env.AZURE_SPEECH_KEY
+    const serviceRegion = process.env.AZURE_SPEECH_REGION || 'eastus'
 
-    if (!azureKey) {
-      return NextResponse.json(
-        { error: 'Azure Speech 密钥未配置' },
-        { status: 500 }
-      )
+    if (!subscriptionKey) {
+      return NextResponse.json({ error: 'Azure Speech 密钥未配置' }, { status: 500 })
     }
 
-    // 将 base64 音频数据转换为 Buffer
-    let audioData = audioBlob.split(',')[1]
-    if (!audioData) {
-      return NextResponse.json(
-        { error: '音频数据格式错误' },
-        { status: 400 }
-      )
-    }
-    const buffer = Buffer.from(audioData, 'base64')
+    const pcmBuffer = Buffer.from(await audioFile.arrayBuffer())
+    console.log('[语音识别] 收到 PCM 数据，大小:', pcmBuffer.length, 'bytes，采样率:', sampleRate)
 
-    // 检测音频格式
-    const isWav = buffer.length > 12 && buffer.toString('utf8', 0, 4) === 'RIFF' && buffer.toString('utf8', 8, 12) === 'WAVE'
-    const isMp3 = buffer.length > 3 && (
-      (buffer[0] === 0xFF && (buffer[1] & 0xE0) === 0xE0) ||
-      buffer.toString('utf8', 0, 3) === 'ID3'
+    // 验证音频数据大小（最大 10MB，约 5 分钟录音）
+    const maxAudioSize = 10 * 1024 * 1024
+    if (pcmBuffer.length > maxAudioSize) {
+      console.error('[语音识别] 音频数据过大:', pcmBuffer.length)
+      return NextResponse.json({ error: '音频数据过大，请录制更短的内容' }, { status: 400 })
+    }
+
+    // 创建 SDK 配置
+    const speechConfig = sdk.SpeechConfig.fromSubscription(subscriptionKey, serviceRegion)
+    speechConfig.speechRecognitionLanguage = 'en-US'
+
+    // 创建 push stream，接收原始 PCM（16kHz 单声道 16bit）
+    const pushStream = sdk.AudioInputStream.createPushStream(
+      sdk.AudioStreamFormat.getWaveFormatPCM(sampleRate, 16, 1)
     )
+    pushStream.write(pcmBuffer.buffer.slice(pcmBuffer.byteOffset, pcmBuffer.byteOffset + pcmBuffer.byteLength))
+    pushStream.close()
 
-    console.log('[Speech API] 音频格式检测:', {
-      isWav,
-      isMp3,
-      bufferSize: buffer.length,
-      firstBytes: buffer.toString('hex', 0, Math.min(16, buffer.length))
+    const audioConfig = sdk.AudioConfig.fromStreamInput(pushStream)
+    const recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig)
+
+    const result = await new Promise<sdk.SpeechRecognitionResult>((resolve, reject) => {
+      recognizer.recognizeOnceAsync(
+        (res) => { recognizer.close(); resolve(res) },
+        (err) => { recognizer.close(); reject(new Error(String(err))) }
+      )
     })
 
-    // 使用 Azure Speech REST API（支持多种格式）
-    const endpoint = `https://${azureRegion}.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`
-    
-    // 确定音频格式
-    let contentType = 'audio/wav; codecs=audio/pcm; samplerate=16000'
-    if (isMp3) {
-      contentType = 'audio/mp3'
-    } else if (!isWav) {
-      // 对于其他格式，尝试作为 webm 处理
-      contentType = 'audio/webm'
-    }
+    console.log('[语音识别] 结果:', result.reason, result.text)
 
-    console.log('[Speech API] 使用 REST API，Content-Type:', contentType)
-
-    const response = await fetch(endpoint, {
-      method: 'POST',
-      headers: {
-        'Ocp-Apim-Subscription-Key': azureKey,
-        'Content-Type': contentType,
-        'Accept': 'application/json'
-      },
-      body: buffer
-    })
-
-    if (!response.ok) {
-      const errorText = await response.text()
-      console.error('[Speech API] REST API 错误:', response.status, errorText)
-      return NextResponse.json({
-        success: false,
-        transcript: '',
-        error: `语音识别失败: ${response.status}`
-      }, { status: 500 })
-    }
-
-    const result = await response.json()
-    console.log('[Speech API] REST API 响应:', JSON.stringify(result, null, 2))
-
-    // 解析结果
-    if (result.RecognitionStatus === 'Success') {
-      return NextResponse.json({
-        success: true,
-        transcript: result.DisplayText || '',
-        confidence: result.Confidence || 1.0
-      })
+    if (result.reason === sdk.ResultReason.RecognizedSpeech) {
+      return NextResponse.json({ success: true, transcript: result.text || '' })
+    } else if (result.reason === sdk.ResultReason.NoMatch) {
+      return NextResponse.json({ success: false, transcript: '', error: '未识别到语音' })
     } else {
-      return NextResponse.json({
-        success: false,
-        transcript: '',
-        error: result.RecognitionStatus || '未识别到语音'
-      })
+      console.error('[语音识别] 失败:', result.errorDetails)
+      return NextResponse.json(
+        { success: false, transcript: '', error: result.errorDetails || '识别失败' },
+        { status: 422 }
+      )
     }
 
   } catch (error) {
-    console.error('语音识别 API 错误:', error)
-    return NextResponse.json(
-      { error: '语音识别服务不可用' },
-      { status: 500 }
-    )
+    console.error('[语音识别] 服务异常:', error)
+    const errorMessage = error instanceof Error ? error.message : '语音识别服务不可用'
+    return NextResponse.json({ error: errorMessage }, { status: 500 })
   }
 }

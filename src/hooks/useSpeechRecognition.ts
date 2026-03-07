@@ -469,29 +469,77 @@ export function useSpeechRecognition({
           return
         }
         
-        // 将 Blob 转换为 ArrayBuffer
-        const audioBlob = new Blob(audioChunksRef.current, { type: mimeType })
-        const arrayBuffer = await audioBlob.arrayBuffer()
-        const uint8Array = new Uint8Array(arrayBuffer)
-        
-        console.log('[useSpeechRecognition] 音频数据大小:', uint8Array.length, '字节')
-        
         try {
-          // 直接发送 ArrayBuffer 作为 base64
-          const base64Audio = arrayBufferToBase64(uint8Array)
+          // 用 AudioContext 把 webm/opus 解码成原始 PCM Float32，再转 Int16
+          // 这样后端可以用 Azure SDK push stream 处理，无需 GStreamer
+          const audioBlob = new Blob(audioChunksRef.current, { type: mimeType })
+          const arrayBuffer = await audioBlob.arrayBuffer()
           
+          const AudioContextClass = window.AudioContext || (window as any).webkitAudioContext
+          const offlineCtx = new AudioContextClass()
+          const decoded = await offlineCtx.decodeAudioData(arrayBuffer)
+          
+          // Azure SDK 要求：16kHz, 16-bit, 单声道 PCM
+          const targetSampleRate = 16000
+          const sourceSampleRate = decoded.sampleRate
+          const numberOfChannels = decoded.numberOfChannels
+          
+          console.log('[useSpeechRecognition] 解码后的音频信息:', {
+            sampleRate: sourceSampleRate,
+            channels: numberOfChannels,
+            duration: decoded.duration.toFixed(2) + 's',
+            totalSamples: decoded.length
+          })
+          
+          // 取第一个声道（单声道）
+          const sourceData = decoded.getChannelData(0)
+          
+          // 简单线性重采样
+          const ratio = sourceSampleRate / targetSampleRate
+          const pcmLength = Math.floor(sourceData.length / ratio)
+          const pcmInt16 = new Int16Array(pcmLength)
+          for (let i = 0; i < pcmLength; i++) {
+            const srcIdx = Math.floor(i * ratio)
+            // Float32 [-1, 1] → Int16 [-32768, 32767]
+            const sample = Math.max(-1, Math.min(1, sourceData[srcIdx]))
+            pcmInt16[i] = sample < 0 ? sample * 32768 : sample * 32767
+          }
+          
+          console.log('[useSpeechRecognition] PCM 数据大小:', pcmInt16.byteLength, '字节，采样率:', targetSampleRate, '时长:', (pcmLength / targetSampleRate).toFixed(2) + 's')
+          
+          // 发送 PCM 二进制到后端（和 shadowing/evaluate 相同方式）
+          const formData = new FormData()
+          formData.append('audio', new Blob([pcmInt16.buffer], { type: 'audio/pcm' }), 'recording.pcm')
+          formData.append('sampleRate', String(targetSampleRate))
+
           const response = await fetch('/api/speech/recognize', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ audioBlob: `data:audio/wav;base64,${base64Audio}` }),
+            body: formData,
           })
 
-          const result = await response.json()
-
+          // 先检查状态码，再解析 JSON，避免非 JSON 响应导致 SyntaxError
           if (!response.ok) {
-            throw new Error(result.error || '语音识别失败')
+            let errMsg = '语音识别失败'
+            try {
+              const errData = await response.json()
+              errMsg = errData.error || errMsg
+            } catch (_) {
+              // 如果响应不是 JSON，使用状态码文本
+              errMsg = `语音识别失败 (HTTP ${response.status})`
+            }
+            throw new Error(errMsg)
           }
 
+          // 检查响应内容类型
+          const contentType = response.headers.get('content-type')
+          if (!contentType || !contentType.includes('application/json')) {
+            console.error('[useSpeechRecognition] 响应不是 JSON:', contentType)
+            const text = await response.text()
+            console.error('[useSpeechRecognition] 响应内容:', text.substring(0, 500))
+            throw new Error('服务端返回了非 JSON 响应')
+          }
+
+          const result = await response.json()
           console.log('[useSpeechRecognition] 识别结果:', result.transcript)
           
           if (result.transcript) {
