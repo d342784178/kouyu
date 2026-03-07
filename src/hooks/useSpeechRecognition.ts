@@ -603,33 +603,46 @@ export function useSpeechRecognition({
           const analyser = audioContext.createAnalyser()
           const microphone = audioContext.createMediaStreamSource(audioStreamForAnalyser)
           microphone.connect(analyser)
-          analyser.fftSize = 256
-          analyser.smoothingTimeConstant = 0.8
+          analyser.fftSize = 2048
+          analyser.smoothingTimeConstant = 0.3
           
           audioContextRef.current = audioContext
           analyserRef.current = analyser
           
-          const dataArray = new Uint8Array(analyser.frequencyBinCount)
+          // 使用时域数据计算音量（更可靠）
+          const timeDomainData = new Uint8Array(analyser.fftSize)
+          const frequencyData = new Uint8Array(analyser.frequencyBinCount)
           let silenceStartTime: number | null = null
           // 夸克浏览器音量检测可能不准确，使用更宽松的阈值和更长的停顿时间
-          const silenceThreshold = isQuark ? 5 : 10 // 音量阈值
-          const silenceDuration = isQuark ? 1500 : 800 // 停顿时间（毫秒）
+          const silenceThreshold = isQuark ? 3 : 10 // 音量阈值
+          const silenceDuration = isQuark ? 2000 : 800 // 停顿时间（毫秒）
           
           console.log('[useSpeechRecognition] 停顿检测配置:', { isQuark, silenceThreshold, silenceDuration })
           
           const updateAudioLevel = () => {
             if (!analyserRef.current || !isRecordingRef.current) return
-            analyser.getByteFrequencyData(dataArray)
-            const average = dataArray.reduce((a, b) => a + b, 0) / dataArray.length
-            const currentLevel = Math.round(average)
-            setAudioLevel(currentLevel)
+            
+            // 使用时域数据计算 RMS 音量
+            analyser.getByteTimeDomainData(timeDomainData)
+            let sum = 0
+            for (let i = 0; i < timeDomainData.length; i++) {
+              const normalized = (timeDomainData[i] - 128) / 128
+              sum += normalized * normalized
+            }
+            const rms = Math.sqrt(sum / timeDomainData.length)
+            const currentLevel = Math.round(rms * 100) // 转换为 0-100 范围
+            
+            // 同时获取频率数据用于波形显示
+            analyser.getByteFrequencyData(frequencyData)
+            const freqAverage = frequencyData.reduce((a, b) => a + b, 0) / frequencyData.length
+            setAudioLevel(Math.round(freqAverage))
             
             // 调试日志（夸克浏览器）
             if (isQuark) {
-              console.log('[useSpeechRecognition] 夸克浏览器音量:', currentLevel, '时间戳:', Date.now())
+              console.log('[useSpeechRecognition] 夸克浏览器音量 - RMS:', currentLevel, '频率平均:', Math.round(freqAverage))
             }
             
-            // 停顿检测
+            // 停顿检测 - 使用 RMS 值
             if (currentLevel < silenceThreshold) {
               if (!silenceStartTime) {
                 silenceStartTime = Date.now()
