@@ -56,38 +56,36 @@ function WaveformAnimation({ audioLevel = 0 }: { audioLevel?: number }) {
 }
 
 function ScoreBar({ label, score, color }: { label: string; score: number; color: string }) {
+  const safeScore = isNaN(score) ? 0 : score
   return (
     <div className="flex items-center gap-2">
       <span className="text-xs text-gray-500 w-12 shrink-0">{label}</span>
       <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
-          animate={{ width: `${score}%` }}
+          animate={{ width: `${safeScore}%` }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className={`h-full rounded-full ${color}`}
         />
       </div>
-      <span className="text-xs font-medium text-gray-700 w-8 text-right">{Math.round(score)}</span>
+      <span className="text-xs font-medium text-gray-700 w-8 text-right">{Math.round(safeScore)}</span>
     </div>
   )
 }
 
-function WordFeedbackDisplay({ words, targetText }: { words: WordFeedback[]; targetText: string }) {
-  if (!words || words.length === 0) return null
+function PhonemeFeedbackDisplay({ phonemes }: { phonemes: any[] }) {
+  if (!phonemes || phonemes.length === 0) return null
 
   return (
-    <div className="flex flex-wrap gap-1 mt-2">
-      {words.map((word, index) => {
-        const isCorrect = word.accuracyScore >= 60
-        const isError = word.errorType && word.errorType !== 'None'
-        
+    <div className="flex flex-wrap gap-0.5 mt-1">
+      {phonemes.map((phoneme, index) => {
         let bgColor = 'bg-green-50 border-green-200'
         let textColor = 'text-green-700'
         
-        if (isError || word.accuracyScore < 40) {
+        if (phoneme.score < 40) {
           bgColor = 'bg-red-50 border-red-200'
           textColor = 'text-red-700'
-        } else if (word.accuracyScore < 60) {
+        } else if (phoneme.score < 60) {
           bgColor = 'bg-orange-50 border-orange-200'
           textColor = 'text-orange-700'
         }
@@ -95,13 +93,92 @@ function WordFeedbackDisplay({ words, targetText }: { words: WordFeedback[]; tar
         return (
           <span
             key={index}
-            className={`px-1.5 py-0.5 rounded text-xs font-medium border ${bgColor} ${textColor}`}
-            title={`得分: ${Math.round(word.accuracyScore)}${word.errorType !== 'None' ? ` (${word.errorType})` : ''}`}
+            className={`px-1 py-0.5 rounded text-[10px] font-medium border ${bgColor} ${textColor}`}
+            title={`音素: ${phoneme.phoneme}, 得分: ${Math.round(phoneme.score)}`}
           >
-            {word.word}
+            {phoneme.phoneme}
           </span>
         )
       })}
+    </div>
+  )
+}
+
+function WordFeedbackDisplay({ words, targetText }: { words: WordFeedback[]; targetText: string }) {
+  if (!words || words.length === 0) return null
+  const [expandedWord, setExpandedWord] = useState<number | null>(null)
+
+  const toggleExpand = (index: number) => {
+    setExpandedWord(expandedWord === index ? null : index)
+  }
+
+  return (
+    <div className="space-y-2 mt-2">
+      {/* 横向排列单词 */}
+      <div className="flex flex-wrap gap-1">
+        {words.map((word, index) => {
+          const isCorrect = word.accuracyScore >= 60
+          const isError = word.errorType && word.errorType !== 'None'
+          const isLowScore = word.accuracyScore < 60
+          
+          let bgColor = 'bg-green-50 border-green-200'
+          let textColor = 'text-green-700'
+          
+          if (isError || word.accuracyScore < 40) {
+            bgColor = 'bg-red-50 border-red-200'
+            textColor = 'text-red-700'
+          } else if (word.accuracyScore < 60) {
+            bgColor = 'bg-orange-50 border-orange-200'
+            textColor = 'text-orange-700'
+          }
+
+          return (
+            <div key={index} className="relative">
+              <span
+                className={`px-1.5 py-0.5 rounded text-xs font-medium border ${bgColor} ${textColor} cursor-pointer ${isLowScore ? 'hover:opacity-90' : ''}`}
+                title={`得分: ${Math.round(word.accuracyScore)}${isError ? ` (${word.errorType})` : ''}`}
+                onClick={() => isLowScore && toggleExpand(index)}
+              >
+                {word.word}
+                {isLowScore && (
+                  <span className="ml-1 text-xs">
+                    {expandedWord === index ? '▼' : '▶'}
+                  </span>
+                )}
+              </span>
+              
+              {/* 展开显示详细信息 */}
+              {isLowScore && expandedWord === index && (
+                <div className="absolute z-10 mt-1 p-2 bg-white border border-gray-200 rounded shadow-md min-w-[200px]">
+                  <div className="text-xs text-gray-500">
+                    得分: {Math.round(word.accuracyScore)} 分
+                  </div>
+                  {word.errorType && word.errorType !== 'None' && (
+                    <div className="text-xs text-red-500 mt-1">
+                      错误类型: {word.errorType === 'Mispronunciation' ? '发音错误' : 
+                              word.errorType === 'Omission' ? '遗漏' : 
+                              word.errorType === 'Insertion' ? '插入' : word.errorType}
+                    </div>
+                  )}
+                  {/* 音素级别反馈 */}
+                  {word.phonemeFeedback && word.phonemeFeedback.length > 0 && (
+                    <div className="mt-1">
+                      <div className="text-xs text-gray-500">音素评分:</div>
+                      <PhonemeFeedbackDisplay phonemes={word.phonemeFeedback} />
+                    </div>
+                  )}
+                  {/* 发音反馈信息 */}
+                  {word.feedback && (
+                    <div className="text-xs text-gray-600 mt-1">
+                      反馈: {word.feedback}
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }
@@ -267,10 +344,10 @@ export default function SpeakingPracticeEmpty({
               </span>
             </div>
             <div className="space-y-1">
-              <ScoreBar label="准确度" score={pronunciationResult.accuracyScore} color="bg-blue-400" />
-              <ScoreBar label="流畅度" score={pronunciationResult.fluencyScore} color="bg-green-400" />
-              <ScoreBar label="完整度" score={pronunciationResult.completenessScore} color="bg-purple-400" />
-            </div>
+            <ScoreBar label="准确度" score={pronunciationResult.accuracyScore} color="bg-blue-400" />
+            <ScoreBar label="流畅度" score={pronunciationResult.fluencyScore} color="bg-green-400" />
+            <ScoreBar label="完整度" score={pronunciationResult.completenessScore} color="bg-purple-400" />
+          </div>
             {pronunciationResult.wordFeedback.length > 0 && (
               <WordFeedbackDisplay words={pronunciationResult.wordFeedback} targetText={answerText} />
             )}

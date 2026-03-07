@@ -145,12 +145,26 @@ export interface PronunciationAssessmentResult {
   accuracyScore: number;
   /** 流畅度评分（0-100） */
   fluencyScore: number;
+  /** 韵律评分（0-100） */
+  prosodyScore: number;
   /** 完整度评分（0-100） */
   completenessScore: number;
   /** 综合发音评分（0-100） */
   pronunciationScore: number;
   /** 逐词反馈数组 */
   wordFeedback: WordFeedback[];
+}
+
+/**
+ * 音素级别的反馈接口
+ */
+export interface PhonemeFeedback {
+  /** 音素文本 */
+  phoneme: string;
+  /** 音素得分（0-100） */
+  score: number;
+  /** 音素时长（毫秒） */
+  duration?: number;
 }
 
 /**
@@ -163,6 +177,12 @@ export interface WordFeedback {
   accuracyScore: number;
   /** 错误类型 */
   errorType?: 'None' | 'Omission' | 'Insertion' | 'Mispronunciation';
+  /** 单词时长（毫秒） */
+  duration?: number;
+  /** 音素级别的反馈 */
+  phonemeFeedback?: PhonemeFeedback[];
+  /** 发音反馈信息 */
+  feedback?: string;
 }
 
 /**

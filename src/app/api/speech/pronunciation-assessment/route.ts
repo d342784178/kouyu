@@ -36,8 +36,15 @@ export async function POST(request: NextRequest) {
     console.log('[发音评估] 收到 PCM 数据，大小:', pcmBuffer.length, 'bytes，采样率:', sampleRate)
     console.log('[发音评估] 目标文本:', referenceText)
 
-    // 验证音频数据大小（最大 1000kB）
-    const maxAudioSize = 1000 * 1024
+    // 验证音频数据大小
+    const minAudioSize = 10 * 1024  // 最小 10KB
+    const maxAudioSize = 1000 * 1024  // 最大 1000KB
+    
+    if (pcmBuffer.length < minAudioSize) {
+      console.error('[发音评估] 音频数据过小:', pcmBuffer.length/1024, 'KB')
+      return NextResponse.json({ error: '语音长度过短，请重新输入' }, { status: 400 })
+    }
+    
     if (pcmBuffer.length > maxAudioSize) {
       console.error('[发音评估] 音频数据过大:', pcmBuffer.length/1024, 'KB')
       return NextResponse.json({ error: `音频数据过大，请录制不超过 ${maxAudioSize/1024}KB 的内容, 当前大小: ${pcmBuffer.length/1024}KB` }, { status: 400 })
@@ -46,6 +53,9 @@ export async function POST(request: NextRequest) {
     // 创建 SDK 配置
     const speechConfig = sdk.SpeechConfig.fromSubscription(subscriptionKey, serviceRegion)
     speechConfig.speechRecognitionLanguage = 'en-US'
+    // 设置 10 秒超时
+    speechConfig.setProperty(sdk.PropertyId.SpeechServiceConnection_InitialSilenceTimeoutMs, '10000')
+    speechConfig.setProperty(sdk.PropertyId.SpeechServiceConnection_EndSilenceTimeoutMs, '10000')
 
     // 创建发音评估配置
     const pronunciationConfig = new sdk.PronunciationAssessmentConfig(
@@ -76,8 +86,8 @@ export async function POST(request: NextRequest) {
       )
     })
 
-    console.log('[发音评估] 结果:', result.json)
-
+    console.log('[发音评估] 结果:', result.reason === sdk.ResultReason.RecognizedSpeech)
+  console.log('[发音评估] 结果:', result.json)
     if (result.reason === sdk.ResultReason.RecognizedSpeech) {
       // 解析发音评估结果
       const pronunciationResult = sdk.PronunciationAssessmentResult.fromResult(result)
@@ -88,25 +98,31 @@ export async function POST(request: NextRequest) {
       )
       
       let wordFeedback: WordFeedback[] = []
+      let prosodyScore = 0
       
       try {
         const detailJson = JSON.parse(detailResult)
         const words = detailJson.NBest?.[0]?.Words || []
         
+        // 从详细结果中获取韵律评分
+        prosodyScore = detailJson.NBest?.[0]?.PronunciationAssessment?.ProsodyScore || 0
+        
         wordFeedback = words.map((word: any) => ({
           word: word.Word || '',
           accuracyScore: word.PronunciationAssessment?.AccuracyScore || 0,
-          errorType: word.PronunciationAssessment?.ErrorType || 'None'
+          errorType: word.PronunciationAssessment?.ErrorType || 'None',
+          feedback: word.PronunciationAssessment?.Feedback || undefined,
         }))
       } catch (parseError) {
         console.warn('[发音评估] 解析详细结果失败:', parseError)
       }
 
       const assessmentResult: PronunciationAssessmentResult = {
-        accuracyScore: pronunciationResult.accuracyScore,
-        fluencyScore: pronunciationResult.fluencyScore,
-        completenessScore: pronunciationResult.completenessScore,
-        pronunciationScore: pronunciationResult.pronunciationScore,
+        accuracyScore: isNaN(pronunciationResult.accuracyScore) ? 0 : pronunciationResult.accuracyScore,
+        fluencyScore: isNaN(pronunciationResult.fluencyScore) ? 0 : pronunciationResult.fluencyScore,
+        prosodyScore: isNaN(prosodyScore || pronunciationResult.prosodyScore || 0) ? 0 : (prosodyScore || pronunciationResult.prosodyScore || 0),
+        completenessScore: isNaN(pronunciationResult.completenessScore) ? 0 : pronunciationResult.completenessScore,
+        pronunciationScore: isNaN(pronunciationResult.pronunciationScore) ? 0 : pronunciationResult.pronunciationScore,
         wordFeedback
       }
 

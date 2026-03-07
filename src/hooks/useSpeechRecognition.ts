@@ -631,6 +631,7 @@ export function useSpeechRecognition({
               const assessmentResult: PronunciationAssessmentResult = {
                 accuracyScore: result.accuracyScore,
                 fluencyScore: result.fluencyScore,
+                prosodyScore: result.prosodyScore || 0,
                 completenessScore: result.completenessScore,
                 pronunciationScore: result.pronunciationScore,
                 wordFeedback: result.wordFeedback || []
