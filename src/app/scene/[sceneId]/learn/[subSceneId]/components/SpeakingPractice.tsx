@@ -3,7 +3,7 @@
 import { useState, useRef, useCallback, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { getAudioUrl } from '@/lib/audioUrl'
-import { useSpeechRecognition, type BrowserCompatibility, type PermissionStatus } from '@/hooks/useSpeechRecognition'
+import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
 import type { QAResponse } from '@/types'
 
 type PracticeState =
@@ -25,8 +25,6 @@ interface SpeakingPracticeProps {
 }
 
 const MAX_FAIL_COUNT = 2
-
-const DEBUG_MODE = true
 
 function isSemanticMatch(userText: string, responses: QAResponse[]): boolean {
   const normalize = (s: string) =>
@@ -65,68 +63,6 @@ function WaveformAnimation({ audioLevel = 0 }: { audioLevel?: number }) {
           />
         )
       })}
-    </div>
-  )
-}
-
-function DebugPanel({
-  browserCompatibility,
-  permissionStatus,
-  state,
-  error,
-}: {
-  browserCompatibility: BrowserCompatibility
-  permissionStatus: PermissionStatus
-  state: PracticeState
-  error: string | null
-}) {
-  const [isOpen, setIsOpen] = useState(false)
-  
-  if (!DEBUG_MODE) return null
-  
-  return (
-    <div className="fixed bottom-4 left-4 right-4 z-50">
-      <button
-        type="button"
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-2 px-4 bg-gray-800 text-white text-xs rounded-lg mb-1"
-      >
-        {isOpen ? '隐藏调试信息' : '显示调试信息'}
-      </button>
-      
-      {isOpen && (
-        <div className="bg-gray-900 text-green-400 text-xs p-3 rounded-lg max-h-60 overflow-auto font-mono">
-          <div className="mb-2">
-            <div className="text-yellow-400 font-bold">浏览器兼容性:</div>
-            <div>SpeechRecognition: {browserCompatibility.hasSpeechRecognition ? '✓' : '✗'}</div>
-            <div>getUserMedia: {browserCompatibility.hasGetUserMedia ? '✓' : '✗'}</div>
-            <div>HTTPS: {browserCompatibility.isSecureContext ? '✓' : '✗'}</div>
-            <div>isSupported: {browserCompatibility.isSupported ? '✓' : '✗'}</div>
-            {browserCompatibility.unsupportedReason && (
-              <div className="text-red-400">原因: {browserCompatibility.unsupportedReason}</div>
-            )}
-          </div>
-          <div className="mb-2">
-            <div className="text-yellow-400 font-bold">权限状态:</div>
-            <div>state: {permissionStatus.state}</div>
-            <div>canRequest: {permissionStatus.canRequest ? '✓' : '✗'}</div>
-          </div>
-          <div className="mb-2">
-            <div className="text-yellow-400 font-bold">当前状态:</div>
-            <div>state: {state}</div>
-          </div>
-          {error && (
-            <div className="mb-2">
-              <div className="text-yellow-400 font-bold">错误:</div>
-              <div className="text-red-400">{error}</div>
-            </div>
-          )}
-          <div className="mb-2">
-            <div className="text-yellow-400 font-bold">UserAgent:</div>
-            <div className="break-all text-gray-400">{typeof navigator !== 'undefined' ? navigator.userAgent : 'N/A'}</div>
-          </div>
-        </div>
-      )}
     </div>
   )
 }
@@ -392,13 +328,6 @@ export default function SpeakingPractice({
           </p>
         )}
       </div>
-      
-      <DebugPanel
-        browserCompatibility={browserCompatibility}
-        permissionStatus={permissionStatus}
-        state={state}
-        error={error}
-      />
     </div>
   )
 }

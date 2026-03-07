@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import '../styles/globals.css'
 import BottomNav from '../components/BottomNav'
+import { VConsoleInit } from '../components/VConsoleInit'
 
 // 引入Font Awesome CSS
 import '@fortawesome/fontawesome-free/css/all.min.css'
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="zh-CN">
       <body className="bg-[#F5F6FA]">
+        <VConsoleInit />
         {/* 主要内容 */}
         <main className="pb-20">
           {children}
