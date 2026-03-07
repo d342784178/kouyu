@@ -138,10 +138,25 @@ export function useSpeechRecognition({
     const isQuark = /quark/.test(userAgent.toLowerCase())
     
     console.log('[useSpeechRecognition] 浏览器信息:', {
-      userAgent,
+      userAgent: navigator.userAgent,
       isXiaomi,
-      isQuark
+      isQuark,
+      platform: navigator.platform,
+      language: navigator.language
     })
+    
+    // 小米浏览器特殊处理
+    if (isXiaomi) {
+      console.log('[useSpeechRecognition] 检测到小米浏览器，应用特殊处理')
+      // 小米浏览器需要特殊的权限处理
+      try {
+        // 尝试在用户交互事件中创建 recognition 实例
+        const testRecognition = new SpeechRecognition()
+        console.log('[useSpeechRecognition] 小米浏览器 SpeechRecognition 实例创建成功')
+      } catch (err) {
+        console.error('[useSpeechRecognition] 小米浏览器 SpeechRecognition 创建失败:', err)
+      }
+    }
 
     const recognition = new SpeechRecognition()
     recognition.continuous = true
@@ -392,6 +407,15 @@ export function useSpeechRecognition({
       return
     }
 
+    const userAgent = navigator.userAgent
+    const isXiaomi = /MiuiBrowser|xiaomi|mi/.test(userAgent.toLowerCase())
+    const isQuark = /quark/.test(userAgent.toLowerCase())
+    
+    console.log('[useSpeechRecognition] 开始录音 - 浏览器类型:', {
+      isXiaomi,
+      isQuark
+    })
+
     try {
       hasResultRef.current = false
       finalTranscriptRef.current = ''
@@ -447,8 +471,26 @@ export function useSpeechRecognition({
       }
       
       console.log('[useSpeechRecognition] 启动语音识别...')
-      recognitionRef.current.start()
-      console.log('[useSpeechRecognition] recognition.start() 已调用')
+      
+      // 小米浏览器特殊处理
+      if (isXiaomi) {
+        console.log('[useSpeechRecognition] 小米浏览器 - 尝试启动语音识别...')
+        try {
+          // 直接启动，不设置额外参数
+          recognitionRef.current.start()
+          console.log('[useSpeechRecognition] 小米浏览器 - recognition.start() 已调用')
+        } catch (xiaomiError) {
+          console.error('[useSpeechRecognition] 小米浏览器 - 启动失败:', xiaomiError)
+          // 尝试备选方案
+          console.log('[useSpeechRecognition] 小米浏览器 - 尝试备选方案...')
+          // 这里可以添加备选方案，比如使用其他语音识别服务
+          throw new Error('小米浏览器语音识别权限被限制，请尝试使用Chrome浏览器')
+        }
+      } else {
+        // 正常浏览器
+        recognitionRef.current.start()
+        console.log('[useSpeechRecognition] recognition.start() 已调用')
+      }
 
       recordingTimeoutRef.current = setTimeout(() => {
         console.log('[useSpeechRecognition] 达到最大录音时长')
@@ -474,6 +516,8 @@ export function useSpeechRecognition({
           errorMessage = '麦克风权限被拒绝，请在浏览器设置中允许访问麦克风'
         } else if (err.name === 'NotFoundError') {
           errorMessage = '未找到麦克风设备，请连接麦克风后重试'
+        } else {
+          errorMessage = err.message
         }
       }
 
