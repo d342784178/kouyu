@@ -2,8 +2,7 @@
   "subSceneId": "daily_010_sub_3",
   "subSceneName": "支付费用",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:27.925Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.516Z",
   "questions": [
     {
       "id": "daily_010_sub_3_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "用简洁的名词表示支付方式，避免完整句子",
         "type": "fill_blank",
-        "situation": "在咖啡店结账时，店员告诉顾客总金额并询问支付方式，顾客需要明确选择支付方式。",
-        "speakerText": "Your total is $18. How would you like to pay?",
-        "speakerTextCn": "总共18美元，您想怎么支付？",
-        "responseTemplate": "___, please.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "用简洁的名词表示支付方式，避免完整句子",
-        "knowledgePoint": "支付方式的简洁表达"
+        "situation": "在咖啡店结账时，店员告诉顾客总金额并询问支付方式，顾客需要明确选择支付方式。",
+        "speakerText": "Your total is $18. How would you like to pay?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "总共18美元，您想怎么支付？",
+        "knowledgePoint": "支付方式的简洁表达",
+        "responseTemplate": "___, please."
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "表达感谢时使用强调语气更显礼貌，避免简单回应",
         "type": "fill_blank",
-        "situation": "结账完成后，店员将商品和收据递给顾客，顾客需要表达感谢以体现礼貌。",
-        "speakerText": "Here you go, your bag and the receipt.",
-        "speakerTextCn": "给您，您的袋子和收据。",
-        "responseTemplate": "___!",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "表达感谢时使用强调语气更显礼貌，避免简单回应",
-        "knowledgePoint": "支付后表达感谢的礼貌用语"
+        "situation": "结账完成后，店员将商品和收据递给顾客，顾客需要表达感谢以体现礼貌。",
+        "speakerText": "Here you go, your bag and the receipt.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "给您，您的袋子和收据。",
+        "knowledgePoint": "支付后表达感谢的礼貌用语",
+        "responseTemplate": "___!"
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "询问支付方式时，使用开放性问题更自然",
         "type": "fill_blank",
-        "situation": "顾客在超市结账时，想确认是否支持某种移动支付方式，以便决定如何付款。",
-        "speakerText": "I'm ready to pay. Do you accept digital wallets?",
-        "speakerTextCn": "我准备付款了，你们支持数字钱包吗？",
-        "responseTemplate": "___, for example Google Pay?",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "询问支付方式时，使用开放性问题更自然",
-        "knowledgePoint": "询问可接受支付方式的表达"
+        "situation": "顾客在超市结账时，想确认是否支持某种移动支付方式，以便决定如何付款。",
+        "speakerText": "I'm ready to pay. Do you accept digital wallets?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我准备付款了，你们支持数字钱包吗？",
+        "knowledgePoint": "询问可接受支付方式的表达",
+        "responseTemplate": "___, for example Google Pay?"
+      }
+    },
+    {
+      "id": "daily_010_sub_3_pq_4",
+      "subSceneId": "daily_010_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "店员常问的两种支付方式之一，与 'cash' 对应",
+        "qaId": "daily_010_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "card",
+            "options": [
+              "card",
+              "cash",
+              "check",
+              "bill"
+            ]
+          }
+        ],
+        "template": "Your total is $25. Cash or ___?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "支付方式核心词汇（cash or card）"
+      }
+    },
+    {
+      "id": "daily_010_sub_3_pq_5",
+      "subSceneId": "daily_010_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "表达感谢的最常用简短句型",
+        "qaId": "daily_010_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Thanks",
+            "options": [
+              "Thanks",
+              "Thank",
+              "Thanking",
+              "Thank you very"
+            ]
+          }
+        ],
+        "template": "Here's your receipt and your items. ___ so much!",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "支付后礼貌回应固定表达（Thanks so much!）"
+      }
+    },
+    {
+      "id": "daily_010_sub_3_pq_6",
+      "subSceneId": "daily_010_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表达使用某种支付方式时的正确介词搭配",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "with",
+            "options": [
+              "with",
+              "by",
+              "using",
+              "for"
+            ]
+          }
+        ],
+        "template": "I'd like to pay ___ Apple Pay. Do you accept it?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "支付方式搭配介词（pay with）"
       }
     }
   ]

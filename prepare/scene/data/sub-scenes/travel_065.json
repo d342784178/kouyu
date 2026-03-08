@@ -1,19 +1,26 @@
 {
   "sceneId": "travel_065",
   "sceneName": "紧急求助",
+  "exportedAt": "2026-03-08T15:31:54.893Z",
   "subScenes": [
     {
       "id": "travel_065_sub_1",
+      "sceneId": "travel_065",
       "name": "求助报失",
       "description": "向警察说明护照丢失情况",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_065_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi, I'm really in a bind—I lost my passport!",
-          "speakerTextCn": "嗨，我真的很麻烦，护照丢了！",
-          "responses": [
+          "subSceneId": "travel_065_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hi, I'm really in a bind—I lost my passport!",
+          "triggerTextCn": "嗨，我真的很麻烦，护照丢了！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I lost my passport while traveling. Can you help me?",
               "text_cn": "我旅行时丢了护照，能帮帮我吗？",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用简洁语言说明紧急情况，避免啰嗦"
+          "usageNote": "用简洁语言说明紧急情况，避免啰嗦",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "travel_065_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Where and when did you last have it?",
-          "speakerTextCn": "你最后一次见到它是在哪里、什么时候？",
-          "responses": [
+          "subSceneId": "travel_065_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Where and when did you last have it?",
+          "triggerTextCn": "你最后一次见到它是在哪里、什么时候？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I had it yesterday at the hotel near the train station.",
               "text_cn": "昨天在火车站附近的酒店还见过。",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "提供具体地点和时间，增强可信度"
+          "usageNote": "提供具体地点和时间，增强可信度",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "travel_065_sub_2",
+      "sceneId": "travel_065",
       "name": "确认信息",
       "description": "提供身份信息和旅行细节",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_065_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Can you give me your full name and date of birth?",
-          "speakerTextCn": "能告诉我你的全名和出生日期吗？",
-          "responses": [
+          "subSceneId": "travel_065_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Can you give me your full name and date of birth?",
+          "triggerTextCn": "能告诉我你的全名和出生日期吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "My name's Lisa Chen, born on March 12, 1995.",
               "text_cn": "我叫陈丽莎，1995年3月12日出生。",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "清晰报出姓名和生日，避免拼写错误"
+          "usageNote": "清晰报出姓名和生日，避免拼写错误",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "travel_065_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Do you have any ID or copy of your passport?",
-          "speakerTextCn": "你有其他身份证件或护照复印件吗？",
-          "responses": [
+          "subSceneId": "travel_065_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you have any ID or copy of your passport?",
+          "triggerTextCn": "你有其他身份证件或护照复印件吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I've got my driver's license and a photo of my passport on my phone.",
               "text_cn": "我有驾照，手机里存了护照照片。",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "尽量提供辅助证件，加快处理速度"
+          "usageNote": "尽量提供辅助证件，加快处理速度",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "travel_065_sub_3",
+      "sceneId": "travel_065",
       "name": "询问流程",
       "description": "了解后续补办步骤和所需材料",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_065_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "What do I need to do next?",
-          "speakerTextCn": "接下来我该做什么？",
-          "responses": [
+          "subSceneId": "travel_065_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "What do I need to do next?",
+          "triggerTextCn": "接下来我该做什么？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务方/工作人员应提供明确的指导或步骤。",
+          "followUps": [
             {
               "text": "Can you tell me the steps to get a replacement passport?",
               "text_cn": "能告诉我补办护照的步骤吗？",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "主动提问流程，避免被动等待"
+          "usageNote": "主动提问流程，避免被动等待",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "travel_065_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "You'll need to visit the embassy tomorrow with this report.",
-          "speakerTextCn": "你明天得带着这份报告去大使馆。",
-          "responses": [
+          "subSceneId": "travel_065_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "You'll need to visit the embassy tomorrow with this report.",
+          "triggerTextCn": "你明天得带着这份报告去大使馆。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务方/工作人员应提供明确的指导或步骤。",
+          "followUps": [
             {
               "text": "Do I need an appointment? And what hours are they open?",
               "text_cn": "需要预约吗？他们几点开门？",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "追问关键细节：时间、地址、是否需预约"
+          "usageNote": "追问关键细节：时间、地址、是否需预约",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "travel_065_sub_4",
+      "sceneId": "travel_065",
       "name": "道别致谢",
       "description": "礼貌结束对话并感谢帮助",
+      "order": 4,
       "estimatedMinutes": 3,
       "qaPairs": [
         {
           "id": "travel_065_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Alright, we've logged your report. Stay calm.",
-          "speakerTextCn": "好的，我们已记录你的报告，别紧张。",
-          "responses": [
+          "subSceneId": "travel_065_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Alright, we've logged your report. Stay calm.",
+          "triggerTextCn": "好的，我们已记录你的报告，别紧张。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Thank you so much for your help—I really appreciate it!",
               "text_cn": "非常感谢你的帮助，我真的很感激！",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "根据场合选择正式或随意的感谢方式"
+          "usageNote": "根据场合选择正式或随意的感谢方式",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "travel_065_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "If you have any questions, call this number.",
-          "speakerTextCn": "如果还有问题，打这个电话。",
-          "responses": [
+          "subSceneId": "travel_065_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "If you have any questions, call this number.",
+          "triggerTextCn": "如果还有问题，打这个电话。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I'll call right away. Thanks again!",
               "text_cn": "我马上打过去，再次谢谢！",
@@ -222,7 +284,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "回应时确认行动，体现主动性"
+          "usageNote": "回应时确认行动，体现主动性",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

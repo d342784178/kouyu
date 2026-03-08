@@ -2,52 +2,50 @@
   "subSceneId": "travel_059_sub_2",
   "subSceneName": "询问价格与优惠",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:10:50.162Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.097Z",
   "questions": [
     {
-      "id": "travel_059_sub_2_speaking_1",
+      "id": "travel_059_sub_2_qa_2_speaking_1",
       "subSceneId": "travel_059_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "travel_059_sub_2_qa_2",
         "type": "speaking",
-        "qaId": "travel_059_sub_2_qa_1",
-        "speakerText": "How much is the entry ticket for adults?",
-        "speakerTextCn": "成人门票多少钱？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在游览一家博物馆，工作人员站在售票处。你想知道是否有家庭或团体优惠，怎样才能节省一些钱。",
         "expectedAnswers": [
-          "It's $25 per person. Students get half price.",
-          "Twenty-five bucks. Do you have a student ID?",
-          "The adult ticket costs $25, and there's a discount if you're a student."
+          "Do you have any family or group deals?",
+          "Is there a discount for families or groups?",
+          "Are there any deals for families or groups?"
         ],
         "evaluationCriteria": [
-          "意图达成度：准确回答了成人票价并提及学生优惠",
-          "语言准确性：语法正确，无严重错误",
-          "表达自然度：使用了口语化表达如 'bucks' 或 'half price'",
-          "关键词覆盖：包含 'adult', 'price', 'student', 'discount'"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
     {
-      "id": "travel_059_sub_2_speaking_2",
+      "id": "travel_059_sub_2_qa_1_speaking_1",
       "subSceneId": "travel_059_sub_2",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "travel_059_sub_2_qa_1",
         "type": "speaking",
-        "qaId": "travel_059_sub_2_qa_2",
-        "speakerText": "Do you have any family or group deals?",
-        "speakerTextCn": "有家庭或团体优惠吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你走进一家门票售票处，询问成人门票的价格和是否有折扣。",
         "expectedAnswers": [
-          "Yes! If you're a group of three or more, you get 15% off.",
-          "We have a family package: two adults and two kids for $70.",
-          "Sorry, no group discounts, but you can save by buying tickets online."
+          "How much is the entry ticket for adults?",
+          "What's the price for adult tickets?",
+          "How much does it cost for an adult ticket?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确回应是否提供家庭/团体优惠",
-          "语言准确性：使用正确数字和百分比表达",
-          "表达自然度：使用了 'package', 'get X% off' 等地道表达",
-          "关键词覆盖：包含 'family', 'group', 'deal', 'discount', 'package'"
+          "是否正确表达了询问门票价格的意图",
+          "是否使用了场景中的关键词（成人门票）",
+          "语言表达是否自然和流畅"
         ]
       }
     },
@@ -57,9 +55,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Is there any way to save money on tickets?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "有什么办法能省点门票钱吗？",
         "expectedAnswers": [
           "Yes, you can get a discount if you book online or show a student ID.",

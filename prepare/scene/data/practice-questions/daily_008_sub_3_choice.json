@@ -2,8 +2,7 @@
   "subSceneId": "daily_008_sub_3",
   "subSceneName": "询问运费和方式",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:15:45.840Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.497Z",
   "questions": [
     {
       "id": "daily_008_sub_3_choice_1",
@@ -12,9 +11,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "顾客在网购时想了解不同配送方式的费用和送达时间，以便决定选择哪种服务。",
-        "speakerText": "What’s the difference in price and delivery time between economy and express shipping?",
-        "speakerTextCn": "经济快递和特快快递在价格和送达时间上有何不同？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +33,81 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确对比了两种方式的价格和时效，符合提问要求。干扰项1仅部分回答，未提供完整信息；干扰项2混淆了价格与时效，答非所问；干扰项3错误声称价格相同，与事实不符。"
+        "situation": "顾客在网购时想了解不同配送方式的费用和送达时间，以便决定选择哪种服务。",
+        "explanation": "正确答案准确对比了两种方式的价格和时效，符合提问要求。干扰项1仅部分回答，未提供完整信息；干扰项2混淆了价格与时效，答非所问；干扰项3错误声称价格相同，与事实不符。",
+        "speakerText": "What’s the difference in price and delivery time between economy and express shipping?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "经济快递和特快快递在价格和送达时间上有何不同？"
+      }
+    },
+    {
+      "id": "daily_008_sub_3_qa_2_choice_1",
+      "subSceneId": "daily_008_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_008_sub_3_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can you tell me how much it will cost?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you have any discounts?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "What is the delivery time to my home?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How long does it take to arrive?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "答案解析：正确答案是 \"Can you tell me how much it will cost?\"，因为它询问了运费。其他选项虽然都是合理的问题，但不直接询问运费。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客询问快递费用和方式，服务方提供信息"
+      }
+    },
+    {
+      "id": "daily_008_sub_3_qa_1_choice_1",
+      "subSceneId": "daily_008_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_008_sub_3_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How much is the shipping fee for standard and express?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How many days will it take for standard shipping?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you send it by email?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much is the express shipping fee?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案：How much is the shipping fee for standard and express？\n干扰项：\n- 选项 2：问题语法正确但不符合该场景，仅提及标准快递的时效\n- 选项 3：理解偏差型，误解了场景需求，要求服务方通过电子邮件发送\n- 选项 4：虽然提问了快递费用，但未完整提及标准快递",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客询问快递费用和方式，服务方提供信息"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "顾客想确认能否在下周三前收到包裹，因为那天有重要会议。",
-        "speakerText": "Will my package arrive by next Wednesday?",
-        "speakerTextCn": "我的包裹能在下周三前送达吗？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用'can'和'won’t'明确区分两种配送方式的可行性，符合地道表达。干扰项1语气模糊，未给出明确答案；干扰项2未提供解决方案，且表达不专业；干扰项3错误地假设顾客可支付额外费用改变物流方式，偏离问题核心。"
+        "situation": "顾客想确认能否在下周三前收到包裹，因为那天有重要会议。",
+        "explanation": "正确答案使用'can'和'won’t'明确区分两种配送方式的可行性，符合地道表达。干扰项1语气模糊，未给出明确答案；干扰项2未提供解决方案，且表达不专业；干扰项3错误地假设顾客可支付额外费用改变物流方式，偏离问题核心。",
+        "speakerText": "Will my package arrive by next Wednesday?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我的包裹能在下周三前送达吗？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "顾客在结账页面看到三种配送选项，想确认哪种适合在周末前收到礼物。",
-        "speakerText": "Which option gets it to me by Sunday?",
-        "speakerTextCn": "哪种选择能让我在周日前收到？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案清晰指出只有特快能满足要求，同时排除其他选项，语言简洁准确。干扰项1表达犹豫，缺乏信心；干扰项2错误声称所有方式都支持周末送达；干扰项3错误地断言节假日完全不配送，不符合实际物流情况。"
+        "situation": "顾客在结账页面看到三种配送选项，想确认哪种适合在周末前收到礼物。",
+        "explanation": "正确答案清晰指出只有特快能满足要求，同时排除其他选项，语言简洁准确。干扰项1表达犹豫，缺乏信心；干扰项2错误声称所有方式都支持周末送达；干扰项3错误地断言节假日完全不配送，不符合实际物流情况。",
+        "speakerText": "Which option gets it to me by Sunday?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "哪种选择能让我在周日前收到？"
       }
     }
   ]

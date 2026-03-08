@@ -2,52 +2,53 @@
   "subSceneId": "travel_066_sub_2",
   "subSceneName": "询问汇率和手续费",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:09:07.992Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.181Z",
   "questions": [
     {
-      "id": "travel_066_sub_2_speaking_1",
+      "id": "travel_066_sub_2_qa_2_speaking_1",
       "subSceneId": "travel_066_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "travel_066_sub_2_qa_2",
         "type": "speaking",
-        "qaId": "travel_066_sub_2_qa_1",
-        "speakerText": "What's the current rate for USD to EUR?",
-        "speakerTextCn": "现在美元兑欧元的汇率是多少？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在兑换外币时，想了解当前汇率以及是否还有额外手续费，需要主动向工作人员询问清楚。",
         "expectedAnswers": [
-          "It's 0.92 euros per dollar, with a $5 fee.",
-          "0.92, and there's a $5 service charge.",
-          "About 0.92 — the fee is included."
+          "What's the current exchange rate, and is the fee included?",
+          "Could you tell me the rate and whether there are any extra charges?",
+          "Is the exchange rate shown the final amount, or is there an additional fee?",
+          "How much will I actually get after all fees are deducted?"
         ],
         "evaluationCriteria": [
-          "意图达成度：准确回应了汇率数值",
-          "语言准确性：语法正确，单位清晰（euros per dollar）",
-          "表达自然度：使用了场景中推荐的口语表达，非机械背诵",
-          "关键词覆盖：包含 'rate', 'fee', 'service charge' 等关键词"
+          "意图达成度：是否明确询问了汇率和手续费情况",
+          "语言准确性：语法结构正确，用词恰当",
+          "表达自然度：符合日常英语口语习惯，不生硬",
+          "关键词覆盖：使用了 'exchange rate', 'fee', 'included', 'extra' 等场景关键词"
         ]
       }
     },
     {
-      "id": "travel_066_sub_2_speaking_2",
+      "id": "travel_066_sub_2_qa_1_speaking_1",
       "subSceneId": "travel_066_sub_2",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "travel_066_sub_2_qa_1",
         "type": "speaking",
-        "qaId": "travel_066_sub_2_qa_2",
-        "speakerText": "Is the fee included or extra?",
-        "speakerTextCn": "手续费是包含的还是额外的？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在兑换货币时，想了解当前美元兑欧元的汇率以及是否收取额外手续费，请主动询问。",
         "expectedAnswers": [
-          "It's extra — $5 flat.",
-          "Not included. You pay it on top.",
-          "Extra. The rate is already set."
+          "What's the current exchange rate for USD to EUR?",
+          "Could you tell me the rate for converting USD to EUR, and is there any fee?",
+          "How much will I get for one USD in EUR, and are there additional charges?",
+          "Can you check the latest USD to EUR rate and let me know if there are service fees?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确回答费用是否包含",
-          "语言准确性：使用了 'extra', 'included', 'on top' 等正确表达",
-          "表达自然度：简洁直接，符合真实对话节奏",
-          "关键词覆盖：使用了 'fee', 'included', 'extra' 等核心词汇"
+          "意图达成度：是否明确询问了汇率和手续费",
+          "语言准确性：语法结构正确，用词恰当",
+          "表达自然度：符合日常英语口语习惯，语气礼貌",
+          "关键词覆盖：使用了 'exchange rate', 'USD to EUR', 'fee' 或 'charge' 等核心词汇"
         ]
       }
     },
@@ -57,9 +58,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I'm exchanging $1,000. Can you tell me the rate and if there are any hidden charges?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我要兑换1000美元，能告诉我汇率和有没有隐藏费用吗？",
         "expectedAnswers": [
           "The rate is 0.91, and there's a $10 fee — nothing hidden.",

@@ -2,50 +2,50 @@
   "subSceneId": "workplace_048_sub_3",
   "subSceneName": "上传发票与要求",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:18:52.748Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.538Z",
   "questions": [
     {
-      "id": "workplace_048_sub_3_speaking_1",
+      "id": "workplace_048_sub_3_qa_2_speaking_1",
       "subSceneId": "workplace_048_sub_3",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "workplace_048_sub_3_qa_2",
         "type": "speaking",
-        "qaId": "workplace_048_sub_3_qa_1",
-        "speakerText": "Do I need to scan all receipts? What format should they be?",
-        "speakerTextCn": "所有收据都要扫描吗？要什么格式？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在询问上传发票的具体操作步骤，包括哪些情况下可以只报部分发票",
         "expectedAnswers": [
-          "Yes, please scan them as PDF or JPG files only, and avoid using phone camera photos. Name each file clearly, like 'Meal_July15.pdf'.",
-          "Only PDF or JPG are allowed—no screenshots or raw phone images. Make sure the text is readable and label files with the expense type and date.",
-          "I need to upload all receipts in PDF or JPG format. Please don't send blurry photos. Use a naming pattern like 'Flight_Date.pdf' so it's easy to track."
+          "Can I submit partial receipts if I lost one?",
+          "What if I only have part of the receipt, can I still upload it?",
+          "If I've lost some of the receipts, can I just upload the ones I have left?"
         ],
         "evaluationCriteria": [
-          "是否明确说明仅接受PDF或JPG格式，且排除手机原图",
-          "是否提及文件命名规范（如费用类型+日期）",
-          "语言表达是否自然、无语法错误，符合职场口语习惯"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
     {
-      "id": "workplace_048_sub_3_speaking_2",
+      "id": "workplace_048_sub_3_qa_1_speaking_1",
       "subSceneId": "workplace_048_sub_3",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "workplace_048_sub_3_qa_1",
         "type": "speaking",
-        "qaId": "workplace_048_sub_3_qa_2",
-        "speakerText": "Can I submit partial receipts if I lost one?",
-        "speakerTextCn": "如果丢了张发票，能只报部分吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "您正在询问上传发票的具体操作步骤",
         "expectedAnswers": [
-          "Unfortunately, no—without a receipt, the expense won't be approved. But if it's under $50, I can submit a signed statement instead.",
-          "I can't submit without the receipt, but I’ll try contacting the vendor to get a copy. If that fails, I’ll check if a signed statement under $50 is acceptable.",
-          "No, all expenses require original receipts. I’ll reach out to the vendor to request a duplicate before submitting."
+          "Do I need to scan all receipts? What format should they be?",
+          "所有收据都要扫描吗？要什么格式？",
+          "What's the format for uploading receipts?"
         ],
         "evaluationCriteria": [
-          "是否准确传达‘无发票不批’的核心政策",
-          "是否提及$50以内可提交说明的例外情况（如适用）",
-          "是否表现出主动解决问题的态度（如联系商家）"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯"
         ]
       }
     },
@@ -55,9 +55,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I'm uploading my expenses, but some receipts are a bit blurry. Should I re-scan them?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我正在上传费用，但有些收据有点模糊，我需要重新扫描吗？",
         "expectedAnswers": [
           "Yes, please re-scan them. Blurry receipts often get rejected because the details can't be verified.",

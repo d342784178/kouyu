@@ -2,42 +2,41 @@
   "subSceneId": "workplace_040_sub_3",
   "subSceneName": "预算讨论",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:17:45.490Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.437Z",
   "questions": [
     {
-      "id": "workplace_040_sub_3_choice_1",
+      "id": "workplace_040_sub_3_qa_1_choice_1",
       "subSceneId": "workplace_040_sub_3",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "workplace_040_sub_3_qa_1",
-        "speakerText": "How’s the budget holding up? Did you go over on marketing?",
-        "speakerTextCn": "预算情况如何？市场支出超支了吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "We’re at 95% of the budget, and we’ve seen a 20% increase in sales.",
+            "text": "How’s the budget doing this quarter?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I don’t know—I’m not in charge of the budget.",
+            "text": "What’s the budget for next year?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "We spent way too much—no return at all.",
+            "text": "Did we make a profit last month?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "The budget is fine, but we didn’t do any marketing.",
+            "text": "How much did we spend on marketing last year?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案回应了预算使用比例并强调了积极收益，符合场景中‘超支时需说明收益’的要求。选项2回避问题，选项3负面描述无收益，选项4与问题矛盾（已做市场支出），均不符合专业沟通规范。"
+        "explanation": "正确答案‘How’s the budget doing this quarter?’表达了对当前预算情况的询问。其他选项不符合场景需求或表达不当，例如询问下一年预算或询问过去的销售额。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "讨论当前支出与预算使用情况"
       }
     },
     {
@@ -46,10 +45,8 @@
       "type": "choice",
       "order": 2,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I noticed the travel expenses are higher than planned. Can you explain?",
-        "speakerTextCn": "我注意到差旅费用比计划高，能解释一下吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +69,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案既承认超支，又说明了商业收益，符合预算讨论中的关键沟通策略。选项2和4推卸责任，选项3仅抱怨预算不足，未提供价值论证，均缺乏专业性。"
+        "explanation": "正确答案既承认超支，又说明了商业收益，符合预算讨论中的关键沟通策略。选项2和4推卸责任，选项3仅抱怨预算不足，未提供价值论证，均缺乏专业性。",
+        "speakerText": "I noticed the travel expenses are higher than planned. Can you explain?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我注意到差旅费用比计划高，能解释一下吗？"
       }
     },
     {
@@ -81,10 +81,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Are we on track with the Q3 budget overall?",
-        "speakerTextCn": "我们整体Q3预算进展如何？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +105,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案提供了具体使用比例和项目进度，体现专业和负责任的态度。选项2缺乏数据支持，选项3预测未来平衡但无依据，选项4态度消极，均不符合职场预算沟通标准。"
+        "explanation": "正确答案提供了具体使用比例和项目进度，体现专业和负责任的态度。选项2缺乏数据支持，选项3预测未来平衡但无依据，选项4态度消极，均不符合职场预算沟通标准。",
+        "speakerText": "Are we on track with the Q3 budget overall?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们整体Q3预算进展如何？"
       }
     }
   ]

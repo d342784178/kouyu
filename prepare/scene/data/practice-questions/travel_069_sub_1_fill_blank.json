@@ -2,8 +2,7 @@
   "subSceneId": "travel_069_sub_1",
   "subSceneName": "问候还车",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:31:27.256Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.236Z",
   "questions": [
     {
       "id": "travel_069_sub_1_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "在正式还车场景中，最标准的表达是使用 'return the vehicle'，这是租车公司常用术语。",
         "type": "fill_blank",
-        "situation": "你驾驶租来的车到达还车点，走向工作人员，准备办理还车手续",
-        "speakerText": "Hi, I'd like to ______.",
-        "speakerTextCn": "嗨，我想办理还车手续。",
-        "responseTemplate": "Hi, I'd like to ______.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "在正式还车场景中，最标准的表达是使用 'return the vehicle'，这是租车公司常用术语。",
-        "knowledgePoint": "标准还车表达"
+        "situation": "你驾驶租来的车到达还车点，走向工作人员，准备办理还车手续",
+        "speakerText": "Hi, I'd like to ______.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨，我想办理还车手续。",
+        "knowledgePoint": "标准还车表达",
+        "responseTemplate": "Hi, I'd like to ______."
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "表达‘我来还车’时，最自然且符合语境的是 'here to return the car'。",
         "type": "fill_blank",
-        "situation": "你停好车后，走向还车柜台，向工作人员打招呼并说明来意",
-        "speakerText": "Hello, I'm ______.",
-        "speakerTextCn": "您好，我来还车。",
-        "responseTemplate": "Hello, I'm ______.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "表达‘我来还车’时，最自然且符合语境的是 'here to return the car'。",
-        "knowledgePoint": "目的性表达"
+        "situation": "你停好车后，走向还车柜台，向工作人员打招呼并说明来意",
+        "speakerText": "Hello, I'm ______.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "您好，我来还车。",
+        "knowledgePoint": "目的性表达",
+        "responseTemplate": "Hello, I'm ______."
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "当对方知道你在还车，只需指向车辆时，最简洁自然的回应是 'Here it is'。",
         "type": "fill_blank",
-        "situation": "你把车停在还车区，工作人员走过来打招呼，你简单回应",
-        "speakerText": "Hi! ______.",
-        "speakerTextCn": "嗨！车在这儿。",
-        "responseTemplate": "Hi! ______.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "当对方知道你在还车，只需指向车辆时，最简洁自然的回应是 'Here it is'。",
-        "knowledgePoint": "简洁确认表达"
+        "situation": "你把车停在还车区，工作人员走过来打招呼，你简单回应",
+        "speakerText": "Hi! ______.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨！车在这儿。",
+        "knowledgePoint": "简洁确认表达",
+        "responseTemplate": "Hi! ______."
+      }
+    },
+    {
+      "id": "travel_069_sub_1_pq_4",
+      "subSceneId": "travel_069_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "还车时的标准表达，动词搭配",
+        "qaId": "travel_069_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "return",
+            "options": [
+              "return",
+              "book",
+              "rent",
+              "park"
+            ]
+          }
+        ],
+        "template": "Hi! I'd like to ___ the vehicle, please.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配（return a vehicle）"
+      }
+    },
+    {
+      "id": "travel_069_sub_1_pq_5",
+      "subSceneId": "travel_069_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "口语中表示‘车在这儿’的常用句型",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "is",
+            "options": [
+              "is",
+              "are",
+              "was",
+              "be"
+            ]
+          }
+        ],
+        "template": "Yep, here it ___ .",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定表达（here it is）"
+      }
+    },
+    {
+      "id": "travel_069_sub_1_pq_6",
+      "subSceneId": "travel_069_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表示租用来源的介词搭配",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "from",
+            "options": [
+              "from",
+              "for",
+              "with",
+              "at"
+            ]
+          }
+        ],
+        "template": "I'm returning the car I rented ___ last week.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "介词用法（rented from）"
       }
     }
   ]

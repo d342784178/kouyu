@@ -2,20 +2,70 @@
   "subSceneId": "workplace_053_sub_4",
   "subSceneName": "寄送需求",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:34:13.267Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.584Z",
   "questions": [
+    {
+      "id": "workplace_053_sub_4_qa_1_fill_blank_1",
+      "subSceneId": "workplace_053_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示：快递地址",
+        "qaId": "workplace_053_sub_4_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Boston",
+            "options": [
+              "New York",
+              "Los Angeles",
+              "Chicago",
+              "Boston"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工询问快递服务的具体要求",
+        "knowledgePoint": "提问句型和快递地址",
+        "responseTemplate": "能帮我加急寄到___吗？易碎品。"
+      }
+    },
+    {
+      "id": "workplace_053_sub_4_qa_2_fill_blank_1",
+      "subSceneId": "workplace_053_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示：用户询问寄送要求，需要了解最晚寄送时间",
+        "qaId": "workplace_053_sub_4_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "client",
+            "options": [
+              "客户",
+              "服务员",
+              "收件人",
+              "寄送者"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "场景提示：用户询问快递服务，服务方提供解答。",
+        "knowledgePoint": "考察的知识点：提问句型",
+        "responseTemplate": "I need to send this to a _______________ — any cut-off time?"
+      }
+    },
     {
       "id": "workplace_053_sub_4_fill_blank_1",
       "subSceneId": "workplace_053_sub_4",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "询问快递服务的最后受理时间时，常用这个表达",
         "type": "fill_blank",
-        "situation": "员工需要寄送一份重要合同，要求确保对方当天收到，但不确定快递公司是否支持当日送达。",
-        "speakerText": "I need this delivered to the client today — what's the latest I can drop it off?",
-        "speakerTextCn": "我需要今天把这份文件送到客户手上，最晚什么时候能寄出？",
-        "responseTemplate": "The ___ is 4 PM for same-day delivery.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +78,12 @@
             ]
           }
         ],
-        "hint": "询问快递服务的最后受理时间时，常用这个表达",
-        "knowledgePoint": "询问快递服务截止时间的核心表达"
+        "situation": "员工需要寄送一份重要合同，要求确保对方当天收到，但不确定快递公司是否支持当日送达。",
+        "speakerText": "I need this delivered to the client today — what's the latest I can drop it off?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我需要今天把这份文件送到客户手上，最晚什么时候能寄出？",
+        "knowledgePoint": "询问快递服务截止时间的核心表达",
+        "responseTemplate": "The ___ is 4 PM for same-day delivery."
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "当物品易碎或贵重时，常用这个词提醒快递员注意保护",
         "type": "fill_blank",
-        "situation": "员工要寄一个贵重物品，担心运输过程中损坏，想确认快递公司是否提供特殊保护服务。",
-        "speakerText": "This item is very valuable — can you make sure it's handled with care?",
-        "speakerTextCn": "这个物品很贵重，你们能确保小心处理吗？",
-        "responseTemplate": "We can mark it as ___ and add extra padding.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "当物品易碎或贵重时，常用这个词提醒快递员注意保护",
-        "knowledgePoint": "标识易碎/贵重物品的核心词汇"
+        "situation": "员工要寄一个贵重物品，担心运输过程中损坏，想确认快递公司是否提供特殊保护服务。",
+        "speakerText": "This item is very valuable — can you make sure it's handled with care?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这个物品很贵重，你们能确保小心处理吗？",
+        "knowledgePoint": "标识易碎/贵重物品的核心词汇",
+        "responseTemplate": "We can mark it as ___ and add extra padding."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "寄快递时，必须贴上的关键单据是什么？",
         "type": "fill_blank",
-        "situation": "员工准备寄出一个包裹，但不确定是否已准备好所有材料，想确认是否需要额外准备。",
-        "speakerText": "I've packed the item, but I'm not sure if everything's ready for shipping.",
-        "speakerTextCn": "我已经把物品打包好了，但不确定是否所有材料都准备齐全了。",
-        "responseTemplate": "Do you have the ___ and the return address on it?",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "寄快递时，必须贴上的关键单据是什么？",
-        "knowledgePoint": "寄快递必需的文件名称"
+        "situation": "员工准备寄出一个包裹，但不确定是否已准备好所有材料，想确认是否需要额外准备。",
+        "speakerText": "I've packed the item, but I'm not sure if everything's ready for shipping.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我已经把物品打包好了，但不确定是否所有材料都准备齐全了。",
+        "knowledgePoint": "寄快递必需的文件名称",
+        "responseTemplate": "Do you have the ___ and the return address on it?"
+      }
+    },
+    {
+      "id": "workplace_053_sub_4_pq_6",
+      "subSceneId": "workplace_053_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表达‘准备好’的标准职场用语",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "have",
+            "options": [
+              "have",
+              "get",
+              "make",
+              "bring"
+            ]
+          }
+        ],
+        "template": "Could you please ___ the box and label ready before 3 PM?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "have + 宾语 + 形容词（准备就绪的地道表达）"
       }
     }
   ]

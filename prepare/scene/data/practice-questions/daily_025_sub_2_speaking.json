@@ -2,52 +2,53 @@
   "subSceneId": "daily_025_sub_2",
   "subSceneName": "加购饮料",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:43:22.437Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.615Z",
   "questions": [
     {
-      "id": "daily_025_sub_2_speaking_1",
+      "id": "daily_025_sub_2_qa_2_speaking_1",
       "subSceneId": "daily_025_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "daily_025_sub_2_qa_2",
         "type": "speaking",
-        "qaId": "daily_025_sub_2_qa_1",
-        "speakerText": "You got any soda or water?",
-        "speakerTextCn": "有汽水或水吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在结账时顺口询问是否有饮料可买，你作为店员已告知有售，现在顾客决定购买，你需要用英语自然地询问总价或确认订单。",
         "expectedAnswers": [
-          "Sure, water's $1.50.",
-          "Only soda left — Coke or Sprite.",
-          "Nah, no drinks today — sorry!"
+          "I'll take a Coke, please. How much is that?",
+          "Can I get a Coke as well? What's the total?",
+          "I'll go with a Coke. Could you tell me the full amount?",
+          "Add a Coke to this, please. How much do I owe?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否明确回应了饮料是否可得",
-          "语言准确性：语法和用词是否正确（如使用 'soda' 而非 'soft drink'）",
-          "表达自然度：是否使用口语化表达（如 'Nah', 'Sure'）",
-          "关键词覆盖：是否使用了 'soda', 'water', 'left' 等场景关键词"
+          "意图达成度：是否明确表达了购买饮料并询问总价的意图",
+          "语言准确性：语法、时态和冠词使用是否正确",
+          "表达自然度：是否符合日常英语口语习惯，语气是否礼貌得体",
+          "关键词覆盖：是否包含 'Coke' / 'drink' 和 'total' / 'how much' 等场景关键词"
         ]
       }
     },
     {
-      "id": "daily_025_sub_2_speaking_2",
+      "id": "daily_025_sub_2_qa_1_speaking_1",
       "subSceneId": "daily_025_sub_2",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "daily_025_sub_2_qa_1",
         "type": "speaking",
-        "qaId": "daily_025_sub_2_qa_2",
-        "speakerText": "I'll take a Coke then. Total?",
-        "speakerTextCn": "那我来瓶可乐，总共多少？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在结账时顺口询问商店是否有饮料可购买，希望了解可选的饮品种类。",
         "expectedAnswers": [
-          "That's $4.50 all together.",
-          "Three for the mag, one fifty for the Coke.",
-          "Five bucks."
+          "Do you have any drinks like soda or water?",
+          "Can I get something to drink here? Like soda or bottled water?",
+          "Do you sell any beverages? I'm looking for water or soda.",
+          "Got any drinks on hand? Maybe water or soda?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否准确计算并报出总价",
-          "语言准确性：是否使用正确的货币表达（如 'one fifty' 而非 'one dollar fifty'）",
-          "表达自然度：是否使用简洁口语（如 'bucks' 或分项报价）",
-          "关键词覆盖：是否使用了 'total', 'Coke', 'all together' 等核心表达"
+          "意图达成度：是否明确询问饮料选项",
+          "语言准确性：语法和词汇使用是否正确",
+          "表达自然度：是否符合日常口语习惯",
+          "关键词覆盖：是否包含'drink', 'soda', 'water'等场景关键词"
         ]
       }
     },
@@ -57,9 +58,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Do you have iced tea or lemonade?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "有冰茶或柠檬水吗？",
         "expectedAnswers": [
           "We've got iced tea — $2.00.",

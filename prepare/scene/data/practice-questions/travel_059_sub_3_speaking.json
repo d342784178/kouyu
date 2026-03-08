@@ -2,52 +2,53 @@
   "subSceneId": "travel_059_sub_3",
   "subSceneName": "确认开放时间与服务",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:07:14.610Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.101Z",
   "questions": [
     {
-      "id": "travel_059_sub_3_speaking_1",
+      "id": "travel_059_sub_3_qa_1_speaking_1",
       "subSceneId": "travel_059_sub_3",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "travel_059_sub_3_qa_1",
-        "speakerText": "What time does it close today?",
-        "speakerTextCn": "今天几点关门？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在参观景点前，想确认今天的开放时间以及是否提供免费导览服务。",
         "expectedAnswers": [
-          "It closes at 6 PM. Last entry at 5:30.",
-          "6 PM sharp. Don't be late!",
-          "Closes at 6. You got time."
+          "What time does it close today?",
+          "Could you tell me the opening and closing hours for today?",
+          "Do you offer guided tours, and if so, what time do they start?",
+          "Is there a guided tour included, and when does the place close?"
         ],
         "evaluationCriteria": [
-          "意图达成度：准确回答关门时间",
-          "语言准确性：语法正确，时间表达清晰",
-          "表达自然度：符合口语习惯，语气得体",
-          "关键词覆盖：包含 'close' 和 'time' 相关表达"
+          "意图达成度：是否明确询问了开放时间或导览服务",
+          "语言准确性：语法和时态使用正确，无重大错误",
+          "表达自然度：符合英语母语者日常对话习惯",
+          "关键词覆盖：使用了'close', 'opening hours', 'guided tour'等场景关键词"
         ]
       }
     },
     {
-      "id": "travel_059_sub_3_speaking_2",
+      "id": "travel_059_sub_3_qa_2_speaking_1",
       "subSceneId": "travel_059_sub_3",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "travel_059_sub_3_qa_2",
-        "speakerText": "Does the ticket include a guided tour?",
-        "speakerTextCn": "门票包含导览吗？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在参观景点前，想确认开放时间以及门票是否包含导览服务。",
         "expectedAnswers": [
-          "No, but you can book one for $10 extra.",
-          "Not included. Ask at the info desk.",
-          "Free tour at 10 AM. Just show up."
+          "What are the opening hours?",
+          "Does the ticket include a guided tour?",
+          "Are guided tours available, and do they come with the ticket?",
+          "Could you tell me the opening time and whether a guided tour is included?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确说明是否包含导览服务",
-          "语言准确性：使用正确动词和结构（include, book, show up）",
-          "表达自然度：符合游客服务场景的口语表达",
-          "关键词覆盖：包含 'ticket', 'guided tour', 'book', 'free' 等关键词"
+          "意图达成度：是否明确询问了开放时间与导览服务",
+          "语言准确性：语法结构正确，用词恰当",
+          "表达自然度：符合英语母语者日常对话习惯",
+          "关键词覆盖：包含'opening hours'或'opening time'，以及'guided tour'或'tour'等关键词"
         ]
       }
     },
@@ -57,9 +58,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Is there a guided tour available in the afternoon?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "下午有导览服务吗？",
         "expectedAnswers": [
           "Yes, there's one at 3 PM. It's free, just show up.",

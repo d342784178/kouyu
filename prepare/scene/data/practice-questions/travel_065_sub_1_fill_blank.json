@@ -2,8 +2,7 @@
   "subSceneId": "travel_065_sub_1",
   "subSceneName": "求助报失",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:30:47.490Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.163Z",
   "questions": [
     {
       "id": "travel_065_sub_1_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "这里需要一个表示不确定地点的通用词，避免具体信息。",
         "type": "fill_blank",
-        "situation": "你在国外旅行时发现护照不见了，急需向警察求助，但情绪紧张，需要清晰表达情况。",
-        "speakerText": "I need help—my passport is missing.",
-        "speakerTextCn": "我需要帮助——我的护照不见了。",
-        "responseTemplate": "I lost it ___ while ___.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "这里需要一个表示不确定地点的通用词，避免具体信息。",
-        "knowledgePoint": "表达丢失地点的模糊性表达"
+        "situation": "你在国外旅行时发现护照不见了，急需向警察求助，但情绪紧张，需要清晰表达情况。",
+        "speakerText": "I need help—my passport is missing.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我需要帮助——我的护照不见了。",
+        "knowledgePoint": "表达丢失地点的模糊性表达",
+        "responseTemplate": "I lost it ___ while ___."
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "这里需要一个表示相对时间的词，避免具体时间点。",
         "type": "fill_blank",
-        "situation": "警察询问你最后一次见到护照的情况，你试图回忆但不确定具体细节，需要礼貌且真实地回应。",
-        "speakerText": "Can you tell me when you last had your passport?",
-        "speakerTextCn": "你能告诉我你最后一次见到护照是什么时候吗？",
-        "responseTemplate": "I think I had it ___ before I ___ the place.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "这里需要一个表示相对时间的词，避免具体时间点。",
-        "knowledgePoint": "使用模糊时间表达避免精确信息"
+        "situation": "警察询问你最后一次见到护照的情况，你试图回忆但不确定具体细节，需要礼貌且真实地回应。",
+        "speakerText": "Can you tell me when you last had your passport?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你能告诉我你最后一次见到护照是什么时候吗？",
+        "knowledgePoint": "使用模糊时间表达避免精确信息",
+        "responseTemplate": "I think I had it ___ before I ___ the place."
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "这里需要一个描述照片位置的通用表达，不需要具体页码或细节。",
         "type": "fill_blank",
-        "situation": "你向警察说明护照丢失后，对方问你是否记得护照的外观，你需要简单描述以便协助查找。",
-        "speakerText": "Do you remember what your passport looks like?",
-        "speakerTextCn": "你还记得你的护照长什么样吗？",
-        "responseTemplate": "It's a small blue book with my photo ___ .",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "这里需要一个描述照片位置的通用表达，不需要具体页码或细节。",
-        "knowledgePoint": "描述证件特征的常用结构"
+        "situation": "你向警察说明护照丢失后，对方问你是否记得护照的外观，你需要简单描述以便协助查找。",
+        "speakerText": "Do you remember what your passport looks like?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你还记得你的护照长什么样吗？",
+        "knowledgePoint": "描述证件特征的常用结构",
+        "responseTemplate": "It's a small blue book with my photo ___ ."
+      }
+    },
+    {
+      "id": "travel_065_sub_1_pq_4",
+      "subSceneId": "travel_065_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "表示‘在……过程中’丢失，常用while",
+        "qaId": "travel_065_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "while",
+            "options": [
+              "while",
+              "when",
+              "after",
+              "before"
+            ]
+          }
+        ],
+        "template": "I lost my passport ___ traveling. Can you help me?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配（lose sth while doing）"
+      }
+    },
+    {
+      "id": "travel_065_sub_1_pq_5",
+      "subSceneId": "travel_065_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "提供具体时间，增强可信度，通常用昨天或今天",
+        "qaId": "travel_065_sub_1_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "yesterday",
+            "options": [
+              "yesterday",
+              "last week",
+              "this morning",
+              "two days ago"
+            ]
+          }
+        ],
+        "template": "I last had it ___ at the hotel near the train station.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "时间表达（具体时间点用于报失场景）"
+      }
+    },
+    {
+      "id": "travel_065_sub_1_pq_6",
+      "subSceneId": "travel_065_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "正式报失时常用missing表示‘不见、遗失’",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "missing",
+            "options": [
+              "missing",
+              "lost",
+              "gone",
+              "broken"
+            ]
+          }
+        ],
+        "template": "My passport is ___ — I need to report it immediately.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景核心词汇（missing vs lost）"
       }
     }
   ]

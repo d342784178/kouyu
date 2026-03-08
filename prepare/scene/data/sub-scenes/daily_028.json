@@ -1,19 +1,26 @@
 {
   "sceneId": "daily_028",
   "sceneName": "文具店买文具",
+  "exportedAt": "2026-03-08T15:31:54.857Z",
   "subScenes": [
     {
       "id": "daily_028_sub_1",
+      "sceneId": "daily_028",
       "name": "打招呼问候",
       "description": "顾客进店，店员礼貌问候",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_028_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi there! How can I help you today?",
-          "speakerTextCn": "嗨！今天需要帮什么忙吗？",
-          "responses": [
+          "subSceneId": "daily_028_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hi there! How can I help you today?",
+          "triggerTextCn": "嗨！今天需要帮什么忙吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Hi! I'm looking for a notebook and a pen.",
               "text_cn": "嗨！我在找笔记本和笔。",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "初次见面用How can I help？自然开场"
+          "usageNote": "初次见面用How can I help？自然开场",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_028_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Sure! We've got notebooks and pens right over here.",
-          "speakerTextCn": "当然！笔记本和笔在这边。",
-          "responses": [
+          "subSceneId": "daily_028_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Sure! We've got notebooks and pens right over here.",
+          "triggerTextCn": "当然！笔记本和笔在这边。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Great, thanks!",
               "text_cn": "太好了，谢谢！",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "回应帮助时用Great/Thanks表达礼貌"
+          "usageNote": "回应帮助时用Great/Thanks表达礼貌",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_028_sub_2",
+      "sceneId": "daily_028",
       "name": "询问商品位置",
       "description": "顾客询问笔记本和笔的具体位置",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_028_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Do you have those spiral notebooks in blue?",
-          "speakerTextCn": "你们有蓝色的活页笔记本吗？",
-          "responses": [
+          "subSceneId": "daily_028_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you have those spiral notebooks in blue?",
+          "triggerTextCn": "你们有蓝色的活页笔记本吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问，服务方回应商品位置",
+          "followUps": [
             {
               "text": "Yeah, they're on the second shelf.",
               "text_cn": "有，在第二层架子上。",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Do you have...？礼貌询问库存"
+          "usageNote": "用Do you have...？礼貌询问库存",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_028_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "And where are the pens?",
-          "speakerTextCn": "笔在哪儿？",
-          "responses": [
+          "subSceneId": "daily_028_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "And where are the pens?",
+          "triggerTextCn": "笔在哪儿？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问，服务方回应商品位置",
+          "followUps": [
             {
               "text": "Right next to the notebooks, on the left.",
               "text_cn": "就在笔记本旁边，左边。",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Where are...？直接问位置最有效"
+          "usageNote": "用Where are...？直接问位置最有效",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_028_sub_3",
+      "sceneId": "daily_028",
       "name": "确认价格和购买",
       "description": "顾客确认价格并决定购买",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_028_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "How much are these two notebooks and three pens?",
-          "speakerTextCn": "这两本笔记本和三支笔多少钱？",
-          "responses": [
+          "subSceneId": "daily_028_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "How much are these two notebooks and three pens?",
+          "triggerTextCn": "这两本笔记本和三支笔多少钱？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问价格，服务方/工作人员随后回答。",
+          "followUps": [
             {
               "text": "That'll be $8.50 total.",
               "text_cn": "一共8.5美元。",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用How much are...？直接问总价"
+          "usageNote": "用How much are...？直接问总价",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_028_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Do you want a bag for that?",
-          "speakerTextCn": "需要袋子吗？",
-          "responses": [
+          "subSceneId": "daily_028_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you want a bag for that?",
+          "triggerTextCn": "需要袋子吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问价格，服务方/工作人员随后回答。",
+          "followUps": [
             {
               "text": "Yes, please!",
               "text_cn": "要的，谢谢！",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "Yes, please！最自然的接受方式"
+          "usageNote": "Yes, please！最自然的接受方式",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_028_sub_4",
+      "sceneId": "daily_028",
       "name": "付款和道别",
       "description": "完成付款并礼貌告别",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_028_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Cash or card?",
-          "speakerTextCn": "现金还是刷卡？",
-          "responses": [
+          "subSceneId": "daily_028_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Cash or card?",
+          "triggerTextCn": "现金还是刷卡？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Card, please.",
               "text_cn": "刷卡。",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "Cash or card？是收银常见提问"
+          "usageNote": "Cash or card？是收银常见提问",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_028_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Thanks so much! Have a great day!",
-          "speakerTextCn": "非常感谢！祝你今天愉快！",
-          "responses": [
+          "subSceneId": "daily_028_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thanks so much! Have a great day!",
+          "triggerTextCn": "非常感谢！祝你今天愉快！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "You too! Bye!",
               "text_cn": "你也是！再见！",
@@ -222,7 +284,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用You too！回应祝福最自然"
+          "usageNote": "用You too！回应祝福最自然",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

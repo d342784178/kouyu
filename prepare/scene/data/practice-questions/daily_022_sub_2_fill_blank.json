@@ -2,20 +2,43 @@
   "subSceneId": "daily_022_sub_2",
   "subSceneName": "询问品种",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:24:50.628Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.590Z",
   "questions": [
+    {
+      "id": "daily_022_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "daily_022_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问一般事实或习惯时，主语为复数they，要用助动词do开头",
+        "qaId": "daily_022_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Do",
+            "options": [
+              "Are",
+              "Do",
+              "Have",
+              "Does"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想了解某种宠物的日常需求，询问它们是否需要大量运动",
+        "knowledgePoint": "一般疑问句的结构（助动词do用于复数主语）",
+        "responseTemplate": "___ they need a lot of exercise?"
+      }
+    },
     {
       "id": "daily_022_sub_2_fill_blank_1",
       "subSceneId": "daily_022_sub_2",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "用否定词开头，表达‘其实不多’，符合口语习惯",
         "type": "fill_blank",
-        "situation": "Someone is considering getting a small dog and wants to know if it sheds a lot, because they have allergies.",
-        "speakerText": "Do small dogs like Poodles shed a lot? I'm worried about allergies.",
-        "speakerTextCn": "像贵宾犬这样的小型犬掉毛多吗？我担心过敏问题。",
-        "responseTemplate": "___, they’re hypoallergenic.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,39 @@
             ]
           }
         ],
-        "hint": "用否定词开头，表达‘其实不多’，符合口语习惯",
-        "knowledgePoint": "表达宠物毛发特性时的否定性回应"
+        "situation": "Someone is considering getting a small dog and wants to know if it sheds a lot, because they have allergies.",
+        "speakerText": "Do small dogs like Poodles shed a lot? I'm worried about allergies.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "像贵宾犬这样的小型犬掉毛多吗？我担心过敏问题。",
+        "knowledgePoint": "表达宠物毛发特性时的否定性回应",
+        "responseTemplate": "___, they’re hypoallergenic."
+      }
+    },
+    {
+      "id": "daily_022_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "daily_022_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问声音大小时，常用 'How loud are...' 开头",
+        "qaId": "daily_022_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "How loud",
+            "options": [
+              "How loud",
+              "How much",
+              "Are they",
+              "What size"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想了解某种宠物的叫声大小，因为自己住在公寓，担心影响邻居。",
+        "knowledgePoint": "询问特征的疑问句型",
+        "responseTemplate": "___ are ___ dogs?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "对方问是否适合小空间，但该品种实际需求高，需用否定词表达‘不适合’",
         "type": "fill_blank",
-        "situation": "A person lives in a small home and is asking about a breed’s energy level to see if it’s suitable.",
-        "speakerText": "Are Border Collies good for small spaces? I don’t have a big yard.",
-        "speakerTextCn": "边境牧羊犬适合小户型吗？我没有大院子。",
-        "responseTemplate": "___—they need lots of mental and physical activity.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "对方问是否适合小空间，但该品种实际需求高，需用否定词表达‘不适合’",
-        "knowledgePoint": "用否定结构表达品种不适合特定生活环境"
+        "situation": "A person lives in a small home and is asking about a breed’s energy level to see if it’s suitable.",
+        "speakerText": "Are Border Collies good for small spaces? I don’t have a big yard.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "边境牧羊犬适合小户型吗？我没有大院子。",
+        "knowledgePoint": "用否定结构表达品种不适合特定生活环境",
+        "responseTemplate": "___—they need lots of mental and physical activity."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "针对新手，强调品种的服从性和学习意愿，用积极肯定表达",
         "type": "fill_blank",
-        "situation": "Someone is deciding between two breeds and asks about how easy one is to train, since they’re a first-time owner.",
-        "speakerText": "How easy are Golden Retrievers to train? I’ve never had a dog before.",
-        "speakerTextCn": "金毛寻回犬好训练吗？我以前没养过狗。",
-        "responseTemplate": "___—they’re super eager to please.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "针对新手，强调品种的服从性和学习意愿，用积极肯定表达",
-        "knowledgePoint": "描述宠物训练难易度时的积极肯定表达"
+        "situation": "Someone is deciding between two breeds and asks about how easy one is to train, since they’re a first-time owner.",
+        "speakerText": "How easy are Golden Retrievers to train? I’ve never had a dog before.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "金毛寻回犬好训练吗？我以前没养过狗。",
+        "knowledgePoint": "描述宠物训练难易度时的积极肯定表达",
+        "responseTemplate": "___—they’re super eager to please."
+      }
+    },
+    {
+      "id": "daily_022_sub_2_pq_6",
+      "subSceneId": "daily_022_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "一个地道的口语表达，形容宠物不爱动、喜欢躺着",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "couch",
+            "options": [
+              "couch",
+              "arm",
+              "bean",
+              "rock"
+            ]
+          }
+        ],
+        "template": "They're ___ potatoes—they love lounging on the couch.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定表达（couch potatoes）"
       }
     }
   ]

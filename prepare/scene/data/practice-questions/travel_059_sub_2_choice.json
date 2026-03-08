@@ -2,77 +2,76 @@
   "subSceneId": "travel_059_sub_2",
   "subSceneName": "询问价格与优惠",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:10:50.162Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.095Z",
   "questions": [
     {
-      "id": "travel_059_sub_2_choice_1",
+      "id": "travel_059_sub_2_qa_2_choice_1",
       "subSceneId": "travel_059_sub_2",
       "type": "choice",
       "order": 1,
       "content": {
+        "qaId": "travel_059_sub_2_qa_2",
         "type": "choice",
-        "qaId": "travel_059_sub_2_qa_1",
-        "speakerText": "How much is the entry ticket for adults?",
-        "speakerTextCn": "成人门票多少钱？",
         "options": [
           {
             "id": "opt_1",
-            "text": "It's $25 per person. Student discounts are available.",
+            "text": "Do you have any family or group deals?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I don't know, you should check the website.",
+            "text": "How much does a single ticket cost?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "The ticket is free for everyone.",
+            "text": "Is there a discount for students?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "We only accept credit cards.",
+            "text": "What time does the park close?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确回应了价格并提及学生优惠，符合对话情境。选项2是回避问题，选项3与事实不符，选项4与价格无关，属于无关信息。"
+        "explanation": "正确答案Do you have any family or group deals?是因为它询问了价格和优惠信息，符合场景需求。选项2和3虽然提到了价格和优惠，但不完全符合场景需求。选项4完全与场景无关，询问了一个不相关的问题。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你走进一家旅游景点，工作人员问你需要买什么门票。你想知道是否有家庭或团体优惠。"
       }
     },
     {
-      "id": "travel_059_sub_2_choice_2",
+      "id": "travel_059_sub_2_qa_1_choice_1",
       "subSceneId": "travel_059_sub_2",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "travel_059_sub_2_qa_1",
         "type": "choice",
-        "qaId": "travel_059_sub_2_qa_2",
-        "speakerText": "Do you have any family or group deals?",
-        "speakerTextCn": "有家庭或团体优惠吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes! Three or more get 15% off.",
+            "text": "How much is the entry ticket for adults?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "The museum closes at 6 PM.",
+            "text": "门票多少钱?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "I can give you a free map.",
+            "text": "这个门票有优惠吗?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "No, but we have a café with discounts.",
+            "text": "您有成人门票吗?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了团体优惠问题。选项1是标准回应。选项2是开放时间，选项3是赠品，选项4虽提及折扣但与团体/家庭无关，属于干扰项。"
+        "explanation": "正确答案‘How much is the entry ticket for adults?’直接询问成人门票价格。‘门票多少钱？’不使用标准英语表达，理解偏差。‘这个门票有优惠吗？’虽然询问了优惠信息，但不是主要问题。‘您有成人门票吗？’询问的是门票的存在，而不是价格信息。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在购票处询问成人门票价格"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Is there a discount if I buy tickets online?",
-        "speakerTextCn": "如果我在线购票有折扣吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确回应了在线购票优惠，符合场景逻辑。选项2是推脱责任，选项3是否定事实（与常见情况矛盾），选项4完全无关，属于典型干扰。"
+        "explanation": "正确答案明确回应了在线购票优惠，符合场景逻辑。选项2是推脱责任，选项3是否定事实（与常见情况矛盾），选项4完全无关，属于典型干扰。",
+        "speakerText": "Is there a discount if I buy tickets online?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "如果我在线购票有折扣吗？"
       }
     }
   ]

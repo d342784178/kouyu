@@ -1,19 +1,26 @@
 {
   "sceneId": "travel_061",
   "sceneName": "餐厅预订",
+  "exportedAt": "2026-03-08T15:31:54.890Z",
   "subScenes": [
     {
       "id": "travel_061_sub_1",
+      "sceneId": "travel_061",
       "name": "礼貌问候",
       "description": "接电话后礼貌开场并表明意图",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_061_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi, this is Bella's Bistro, how can I help?",
-          "speakerTextCn": "您好，这里是Bella餐厅，有什么可以帮您？",
-          "responses": [
+          "subSceneId": "travel_061_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hi, this is Bella's Bistro, how can I help?",
+          "triggerTextCn": "您好，这里是Bella餐厅，有什么可以帮您？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Hi, I'd like to book a table for tonight.",
               "text_cn": "您好，我想预订今晚的座位。",
@@ -30,22 +37,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用I'd like或Can I开头更自然"
+          "usageNote": "用I'd like或Can I开头更自然",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         }
       ]
     },
     {
       "id": "travel_061_sub_2",
+      "sceneId": "travel_061",
       "name": "说明需求",
       "description": "告知人数、时间与特殊要求",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_061_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Sure! How many people and what time?",
-          "speakerTextCn": "好的！几位？几点？",
-          "responses": [
+          "subSceneId": "travel_061_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Sure! How many people and what time?",
+          "triggerTextCn": "好的！几位？几点？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问预订细节，服务方回答",
+          "followUps": [
             {
               "text": "Four people at 7:30 PM, and we'd love a window seat if possible.",
               "text_cn": "四个人，晚上7点半，如果可以的话想要靠窗位。",
@@ -62,22 +78,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用'if possible'让请求更礼貌"
+          "usageNote": "用'if possible'让请求更礼貌",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "travel_061_sub_3",
+      "sceneId": "travel_061",
       "name": "确认信息",
       "description": "核对预订细节避免出错",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_061_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Alright, so that's four at 7:30 by the window?",
-          "speakerTextCn": "好的，四人，七点半靠窗，对吗？",
-          "responses": [
+          "subSceneId": "travel_061_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Alright, so that's four at 7:30 by the window?",
+          "triggerTextCn": "好的，四人，七点半靠窗，对吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Yes, that's correct! Thanks so much!",
               "text_cn": "对，没错！非常感谢！",
@@ -94,14 +119,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "重复关键信息确认更稳妥"
+          "usageNote": "重复关键信息确认更稳妥",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 3
         },
         {
           "id": "travel_061_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "And your name for the reservation?",
-          "speakerTextCn": "预订人姓名是？",
-          "responses": [
+          "subSceneId": "travel_061_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "And your name for the reservation?",
+          "triggerTextCn": "预订人姓名是？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "It's Alex Chen.",
               "text_cn": "我叫Alex Chen。",
@@ -118,22 +150,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "说全名时姓氏可后置更自然"
+          "usageNote": "说全名时姓氏可后置更自然",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 4
         }
       ]
     },
     {
       "id": "travel_061_sub_4",
+      "sceneId": "travel_061",
       "name": "结束预订",
       "description": "礼貌道别并确认后续安排",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_061_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Great! We'll see you at 7:30. Just show up and ask for the host.",
-          "speakerTextCn": "太好了！七点半见，到时找领位员就行。",
-          "responses": [
+          "subSceneId": "travel_061_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Great! We'll see you at 7:30. Just show up and ask for the host.",
+          "triggerTextCn": "太好了！七点半见，到时找领位员就行。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Perfect, thanks! See you then!",
               "text_cn": "太好了，谢谢！到时候见！",
@@ -150,7 +191,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用See you then更显自然亲切"
+          "usageNote": "用See you then更显自然亲切",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 5
         }
       ]
     }

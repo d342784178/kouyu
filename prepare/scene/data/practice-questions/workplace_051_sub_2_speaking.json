@@ -2,52 +2,49 @@
   "subSceneId": "workplace_051_sub_2",
   "subSceneName": "询问可用时间",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:19:10.835Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.563Z",
   "questions": [
     {
-      "id": "workplace_051_sub_2_speaking_1",
+      "id": "workplace_051_sub_2_qa_2_speaking_1",
       "subSceneId": "workplace_051_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "workplace_051_sub_2_qa_2",
         "type": "speaking",
-        "qaId": "workplace_051_sub_2_qa_1",
-        "speakerText": "Is the big conference room free on Thursday at 2 PM?",
-        "speakerTextCn": "周四下午两点大会议室有空吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你需要确认会议室在上午十点是否可用，首先你应该问：",
         "expectedAnswers": [
-          "Let me check... Yep, it's available!",
-          "Actually, it's booked until 4 PM. How about 4:30?",
-          "Sorry, it's fully booked — would 3 PM work instead?"
+          "Do you have any smaller rooms open at 10 AM?",
+          "上午十点有小会议室吗？",
+          "您十点有小会议室吗？"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确回应可用性或提供替代方案",
-          "语言准确性：语法正确，使用恰当的动词和时态",
-          "表达自然度：使用口语化表达如 'Yep' 或 'How about...'，避免生硬句式",
-          "关键词覆盖：使用 'free', 'booked', 'available', 'how about' 等场景关键词"
+          "是否正确表达了询问意图",
+          "语法和用词是否正确",
+          "是否符合英语口语习惯"
         ]
       }
     },
     {
-      "id": "workplace_051_sub_2_speaking_2",
+      "id": "workplace_051_sub_2_qa_1_speaking_1",
       "subSceneId": "workplace_051_sub_2",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "workplace_051_sub_2_qa_1",
         "type": "speaking",
-        "qaId": "workplace_051_sub_2_qa_2",
-        "speakerText": "Do you have any smaller rooms open at 10 AM?",
-        "speakerTextCn": "上午十点有小会议室空着吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "场景提示：用户通常在需要信息时先提问",
         "expectedAnswers": [
-          "The huddle room’s free — perfect for 4 people.",
-          "We only have the boardroom — it’s big, but free.",
-          "Not at 10, but 10:30 works. The quiet room is available then."
+          "Is the conference room available on Thursday at 2 PM?",
+          "Is the big meeting room free on Thursday afternoon?",
+          "Can I book the conference room on Thursday at 2 PM?"
         ],
         "evaluationCriteria": [
-          "意图达成度：准确回应房间可用性并根据人数推荐合适空间",
-          "语言准确性：正确使用 'free', 'available', 'but' 等连接词",
-          "表达自然度：使用缩略形式如 'huddle room’s'，符合口语习惯",
-          "关键词覆盖：使用 'huddle room', 'boardroom', 'smaller rooms', 'works' 等场景核心词"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯"
         ]
       }
     },
@@ -57,9 +54,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Is the video conferencing room free next Monday at 11 AM?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "下周一上午十一点视频会议室有空吗？",
         "expectedAnswers": [
           "Let me check... Yes, it’s free! But we’re also offering the new collaboration zone if you need extra screens.",

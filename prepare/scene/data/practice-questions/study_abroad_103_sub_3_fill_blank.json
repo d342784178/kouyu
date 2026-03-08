@@ -2,20 +2,43 @@
   "subSceneId": "study_abroad_103_sub_3",
   "subSceneName": "应用质疑",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:29:19.785Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.899Z",
   "questions": [
+    {
+      "id": "study_abroad_103_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "study_abroad_103_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "学生需要回答实际课堂中的应用价值",
+        "qaId": "study_abroad_103_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "classrooms",
+            "options": [
+              "课堂",
+              "实验室",
+              "研究室",
+              "办公室"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "教授或同行提出质疑，学生需回答",
+        "knowledgePoint": "表达实际应用价值的句型",
+        "responseTemplate": "This seems super niche—how's this useful in real ___?"
+      }
+    },
     {
       "id": "study_abroad_103_sub_3_fill_blank_1",
       "subSceneId": "study_abroad_103_sub_3",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "强调设计初衷是解决资源有限的现实问题，而非依赖理想条件",
         "type": "fill_blank",
-        "situation": "在学术会议上，一位听众质疑你的教育技术研究只适用于特定环境，无法推广到普通学校。",
-        "speakerText": "This feels too specific to pilot schools—how can it work in regular classrooms with larger classes and less support?",
-        "speakerTextCn": "这看起来只适合试点学校——在班级更大、支持更少的普通课堂里，它怎么行得通？",
-        "responseTemplate": "It’s built for exactly that context—___",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,49 @@
             ]
           }
         ],
-        "hint": "强调设计初衷是解决资源有限的现实问题，而非依赖理想条件",
-        "knowledgePoint": "用设计初衷证明普适性"
+        "situation": "在学术会议上，一位听众质疑你的教育技术研究只适用于特定环境，无法推广到普通学校。",
+        "speakerText": "This feels too specific to pilot schools—how can it work in regular classrooms with larger classes and less support?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这看起来只适合试点学校——在班级更大、支持更少的普通课堂里，它怎么行得通？",
+        "knowledgePoint": "用设计初衷证明普适性",
+        "responseTemplate": "It’s built for exactly that context—___"
+      }
+    },
+    {
+      "id": "study_abroad_103_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "study_abroad_103_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "回答教授或同行的质疑",
+        "qaId": "study_abroad_103_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "高等教育",
+            "options": [
+              "基础教育",
+              "高等教育",
+              "职业教育",
+              "继续教育"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "高中阶段",
+            "options": [
+              "初中阶段",
+              "高中阶段",
+              "大学阶段",
+              "职业阶段"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "教授或同行提出质疑，学生需回答",
+        "knowledgePoint": "应用质疑",
+        "responseTemplate": "你认为这个研究能用在_____吗？我们的数据都是_____。"
       }
     },
     {
@@ -38,11 +102,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "强调底层机制的可迁移性，而非表面形式的完全一致",
         "type": "fill_blank",
-        "situation": "一位同行质疑你的教学干预模型只针对K-12，问是否适用于大学教学环境。",
-        "speakerText": "Your model is based on adolescent learners—do the same strategies apply to college students?",
-        "speakerTextCn": "你的模型基于青少年学习者，这些策略对大学生也适用吗？",
-        "responseTemplate": "The core mechanism isn’t age-specific—___",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +116,12 @@
             ]
           }
         ],
-        "hint": "强调底层机制的可迁移性，而非表面形式的完全一致",
-        "knowledgePoint": "展示核心原理的可迁移性"
+        "situation": "一位同行质疑你的教学干预模型只针对K-12，问是否适用于大学教学环境。",
+        "speakerText": "Your model is based on adolescent learners—do the same strategies apply to college students?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你的模型基于青少年学习者，这些策略对大学生也适用吗？",
+        "knowledgePoint": "展示核心原理的可迁移性",
+        "responseTemplate": "The core mechanism isn’t age-specific—___"
       }
     },
     {
@@ -65,11 +130,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "聚焦教师日常最真实的痛点，而非抽象或理想化的需求",
         "type": "fill_blank",
-        "situation": "一位教育管理者担心你的研究缺乏实际落地价值，问它能否解决真实教学中的普遍困难。",
-        "speakerText": "This sounds interesting, but what real problem does it solve that teachers face every day?",
-        "speakerTextCn": "这听起来不错，但它解决了教师每天面临的什么实际问题？",
-        "responseTemplate": "It directly addresses ___",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +144,38 @@
             ]
           }
         ],
-        "hint": "聚焦教师日常最真实的痛点，而非抽象或理想化的需求",
-        "knowledgePoint": "关联实际教学痛点"
+        "situation": "一位教育管理者担心你的研究缺乏实际落地价值，问它能否解决真实教学中的普遍困难。",
+        "speakerText": "This sounds interesting, but what real problem does it solve that teachers face every day?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这听起来不错，但它解决了教师每天面临的什么实际问题？",
+        "knowledgePoint": "关联实际教学痛点",
+        "responseTemplate": "It directly addresses ___"
+      }
+    },
+    {
+      "id": "study_abroad_103_sub_3_pq_6",
+      "subSceneId": "study_abroad_103_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "这是简洁有力的回应，强调该方法在大型项目失效时的优势",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "big",
+            "options": [
+              "big",
+              "small",
+              "expensive",
+              "online"
+            ]
+          }
+        ],
+        "template": "It works where ______ programs fail.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景惯用搭配（big programs fail）"
       }
     }
   ]

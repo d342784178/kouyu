@@ -1,19 +1,26 @@
 {
   "sceneId": "study_abroad_109",
   "sceneName": "成绩单申请",
+  "exportedAt": "2026-03-08T15:31:54.885Z",
   "subScenes": [
     {
       "id": "study_abroad_109_sub_1",
+      "sceneId": "study_abroad_109",
       "name": "礼貌问候",
       "description": "学生向教务人员礼貌打招呼并说明来意",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "study_abroad_109_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi, I'd like to request my official transcript, please.",
-          "speakerTextCn": "你好，我想申请一份正式成绩单。",
-          "responses": [
+          "subSceneId": "study_abroad_109_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hi, I'd like to request my official transcript, please.",
+          "triggerTextCn": "你好，我想申请一份正式成绩单。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：服务方回应后，询问具体需求或提供帮助",
+          "followUps": [
             {
               "text": "Sure! I can help you with that. What's your name?",
               "text_cn": "当然可以！我来帮你。你叫什么名字？",
@@ -30,22 +37,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用I'd like to...表达礼貌请求"
+          "usageNote": "用I'd like to...表达礼貌请求",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         }
       ]
     },
     {
       "id": "study_abroad_109_sub_2",
+      "sceneId": "study_abroad_109",
       "name": "询问流程",
       "description": "学生询问申请成绩单的具体流程",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "study_abroad_109_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "How do I get it processed? Do I need a form?",
-          "speakerTextCn": "怎么申请？需要填表吗？",
-          "responses": [
+          "subSceneId": "study_abroad_109_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "How do I get it processed? Do I need a form?",
+          "triggerTextCn": "怎么申请？需要填表吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_asks 模式，工作人员回答流程细节",
+          "followUps": [
             {
               "text": "No form needed! Just tell me how many copies and if you need them sealed.",
               "text_cn": "不用填表！告诉我要几份，要不要密封。",
@@ -62,22 +78,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Just tell me...引导对方直接说明"
+          "usageNote": "用Just tell me...引导对方直接说明",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "study_abroad_109_sub_3",
+      "sceneId": "study_abroad_109",
       "name": "确认份数与密封",
       "description": "学生确认所需成绩单份数和密封要求",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "study_abroad_109_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "I need three copies, and they must be sealed and signed.",
-          "speakerTextCn": "我要三份，必须密封并盖章。",
-          "responses": [
+          "subSceneId": "study_abroad_109_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "I need three copies, and they must be sealed and signed.",
+          "triggerTextCn": "我要三份，必须密封并盖章。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Got it! Sealed and signed — three copies. That's standard for abroad apps.",
               "text_cn": "好的！密封盖章，三份，留学申请都这样。",
@@ -94,22 +119,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用must be...强调关键要求"
+          "usageNote": "用must be...强调关键要求",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "study_abroad_109_sub_4",
+      "sceneId": "study_abroad_109",
       "name": "确认取件时间",
       "description": "学生询问成绩单何时可取",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "study_abroad_109_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "When can I pick them up?",
-          "speakerTextCn": "我什么时候能取？",
-          "responses": [
+          "subSceneId": "study_abroad_109_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "When can I pick them up?",
+          "triggerTextCn": "我什么时候能取？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务方/工作人员在回答后，可以提供具体时间或说明取件流程",
+          "followUps": [
             {
               "text": "Usually 3–5 business days. Want express service? That’s 2 days, $10 extra.",
               "text_cn": "通常3到5个工作日。要加急吗？2天，多10美元。",
@@ -126,22 +160,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用When can I...直接问时间"
+          "usageNote": "用When can I...直接问时间",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 4
         }
       ]
     },
     {
       "id": "study_abroad_109_sub_5",
+      "sceneId": "study_abroad_109",
       "name": "礼貌道别",
       "description": "学生感谢工作人员并礼貌结束对话",
+      "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "study_abroad_109_sub_5_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Thanks so much for your help!",
-          "speakerTextCn": "非常感谢你的帮助！",
-          "responses": [
+          "subSceneId": "study_abroad_109_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thanks so much for your help!",
+          "triggerTextCn": "非常感谢你的帮助！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "You're welcome! Call if you have more questions.",
               "text_cn": "不客气！有疑问再打电话。",
@@ -158,7 +201,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Thanks so much...表达真诚感谢"
+          "usageNote": "用Thanks so much...表达真诚感谢",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 5
         }
       ]
     }

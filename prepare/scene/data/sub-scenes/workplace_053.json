@@ -1,19 +1,26 @@
 {
   "sceneId": "workplace_053",
   "sceneName": "快递收发",
+  "exportedAt": "2026-03-08T15:31:54.923Z",
   "subScenes": [
     {
       "id": "workplace_053_sub_1",
+      "sceneId": "workplace_053",
       "name": "询问包裹",
       "description": "员工向前台确认是否有自己的快递",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_053_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hey, any packages for me today?",
-          "speakerTextCn": "嘿，今天有我的快递吗？",
-          "responses": [
+          "subSceneId": "workplace_053_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hey, any packages for me today?",
+          "triggerTextCn": "嘿，今天有我的快递吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "适用于询问服务情况或请求帮助的场景",
+          "followUps": [
             {
               "text": "Yeah, there's one under your name.",
               "text_cn": "有，下面有你的名字。",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "日常询问包裹，用口语缩写更自然"
+          "usageNote": "日常询问包裹，用口语缩写更自然",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "workplace_053_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Is there a package from Amazon with my name on it?",
-          "speakerTextCn": "有没一件寄给我的亚马逊快递？",
-          "responses": [
+          "subSceneId": "workplace_053_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Is there a package from Amazon with my name on it?",
+          "triggerTextCn": "有没一件寄给我的亚马逊快递？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "适用于询问服务情况或请求帮助的场景",
+          "followUps": [
             {
               "text": "Yep, red box, third shelf.",
               "text_cn": "有，红色盒子，第三层。",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "具体描述寄件平台，提高核对效率"
+          "usageNote": "具体描述寄件平台，提高核对效率",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_053_sub_2",
+      "sceneId": "workplace_053",
       "name": "请求派送",
       "description": "员工请前台帮忙把快递送到办公室",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_053_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Can you drop this off at my desk? Thanks!",
-          "speakerTextCn": "能帮我把这送到我工位吗？谢谢！",
-          "responses": [
+          "subSceneId": "workplace_053_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can you drop this off at my desk? Thanks!",
+          "triggerTextCn": "能帮我把这送到我工位吗？谢谢！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "适用于顾客询问服务提供者是否可以完成某项服务",
+          "followUps": [
             {
               "text": "Sure thing, I'll bring it over now.",
               "text_cn": "当然，我马上送过去。",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "请求帮助时加thanks更礼貌"
+          "usageNote": "请求帮助时加thanks更礼貌",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "workplace_053_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Could you send this to Marketing? It's urgent.",
-          "speakerTextCn": "能帮我把这送到市场部吗？很急。",
-          "responses": [
+          "subSceneId": "workplace_053_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Could you send this to Marketing? It's urgent.",
+          "triggerTextCn": "能帮我把这送到市场部吗？很急。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "适用于顾客询问服务提供者是否可以完成某项服务",
+          "followUps": [
             {
               "text": "On it! I'll hand-deliver it in 5.",
               "text_cn": "马上！5分钟内亲自送去。",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "强调urgent时对方更重视"
+          "usageNote": "强调urgent时对方更重视",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_053_sub_3",
+      "sceneId": "workplace_053",
       "name": "确认签字",
       "description": "前台要求签收快递时的确认对话",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_053_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Need your signature for this one.",
-          "speakerTextCn": "这个需要你签个名。",
-          "responses": [
+          "subSceneId": "workplace_053_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Need your signature for this one.",
+          "triggerTextCn": "这个需要你签个名。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "No problem, here you go.",
               "text_cn": "没问题，给你。",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "签收前确认快递类型很重要"
+          "usageNote": "签收前确认快递类型很重要",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "workplace_053_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "You gotta sign here, initials and full name.",
-          "speakerTextCn": "这儿签名，写姓和全名。",
-          "responses": [
+          "subSceneId": "workplace_053_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "You gotta sign here, initials and full name.",
+          "triggerTextCn": "这儿签名，写姓和全名。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Got it, J.M. and Jane Miller.",
               "text_cn": "好的，J.M. 和 Jane Miller。",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "明确签名要求避免后续麻烦"
+          "usageNote": "明确签名要求避免后续麻烦",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_053_sub_4",
+      "sceneId": "workplace_053",
       "name": "寄送需求",
       "description": "员工说明寄快递的具体要求",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_053_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Can you ship this overnight to Boston? It's fragile.",
-          "speakerTextCn": "能帮我加急寄到波士顿吗？易碎品。",
-          "responses": [
+          "subSceneId": "workplace_053_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can you ship this overnight to Boston? It's fragile.",
+          "triggerTextCn": "能帮我加急寄到波士顿吗？易碎品。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户询问快递服务，服务方提供解答。",
+          "followUps": [
             {
               "text": "We can do FedEx Priority, $45.",
               "text_cn": "可选FedEx加急，45刀。",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "说明易碎/加急，避免运输损坏"
+          "usageNote": "说明易碎/加急，避免运输损坏",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "workplace_053_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I need to send this to a client tomorrow — any cut-off time?",
-          "speakerTextCn": "我明天要寄给客户，最晚几点能寄？",
-          "responses": [
+          "subSceneId": "workplace_053_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "I need to send this to a client tomorrow — any cut-off time?",
+          "triggerTextCn": "我明天要寄给客户，最晚几点能寄？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户询问快递服务，服务方提供解答。",
+          "followUps": [
             {
               "text": "Cut-off's 3 PM for same-day shipping.",
               "text_cn": "当天寄送截止是下午三点。",
@@ -222,22 +284,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "询问截止时间避免错过时效"
+          "usageNote": "询问截止时间避免错过时效",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_053_sub_5",
+      "sceneId": "workplace_053",
       "name": "道别收尾",
       "description": "完成快递事务后的礼貌结束对话",
+      "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_053_sub_5_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "All set! Thanks for your help.",
-          "speakerTextCn": "搞定了！谢谢你帮忙。",
-          "responses": [
+          "subSceneId": "workplace_053_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "All set! Thanks for your help.",
+          "triggerTextCn": "搞定了！谢谢你帮忙。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Anytime, have a great day!",
               "text_cn": "随时找我，祝你今天愉快！",
@@ -254,14 +325,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "道别时加祝福语提升职场亲和力"
+          "usageNote": "道别时加祝福语提升职场亲和力",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "workplace_053_sub_5_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Thanks again — I owe you a coffee.",
-          "speakerTextCn": "再谢一次，我请你喝咖啡。",
-          "responses": [
+          "subSceneId": "workplace_053_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thanks again — I owe you a coffee.",
+          "triggerTextCn": "再谢一次，我请你喝咖啡。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Haha, I'll hold you to that!",
               "text_cn": "哈哈，我记下了啊！",
@@ -278,7 +356,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用请喝咖啡表达感谢很职场常用"
+          "usageNote": "用请喝咖啡表达感谢很职场常用",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

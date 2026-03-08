@@ -2,52 +2,49 @@
   "subSceneId": "daily_011_sub_2",
   "subSceneName": "询问药效与用法",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:37:04.969Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.523Z",
   "questions": [
     {
-      "id": "daily_011_sub_2_speaking_1",
+      "id": "daily_011_sub_2_qa_1_speaking_1",
       "subSceneId": "daily_011_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "daily_011_sub_2_qa_1",
-        "speakerText": "This one’s for coughs, right? How often do I take it?",
-        "speakerTextCn": "这个是治咳嗽的吧？一天吃几次？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客询问药品功能和服用方法，药剂师回答",
         "expectedAnswers": [
-          "Take one tablet every 8 hours, and don’t take more than three in a day.",
-          "Every eight hours — and make sure not to crush it.",
-          "Just take one pill every 8 hours, easy as that."
+          "This one's for coughs, right? How often do I take it?",
+          "这个是治咳嗽的药吗？每天要吃多少次？",
+          "这个药是用于治疗咳嗽的，应该每天多次服用吗？"
         ],
         "evaluationCriteria": [
-          "意图达成度：准确说明服药频率和最大剂量",
-          "语言准确性：语法正确，无明显错误",
-          "表达自然度：符合口语习惯，使用日常表达",
-          "关键词覆盖：包含 'every 8 hours', 'max 3 a day', 'don't crush' 等关键信息"
+          "意图达成度：是否正确表达了询问药效和用法的意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯"
         ]
       }
     },
     {
-      "id": "daily_011_sub_2_speaking_2",
+      "id": "daily_011_sub_2_qa_2_speaking_1",
       "subSceneId": "daily_011_sub_2",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "daily_011_sub_2_qa_2",
-        "speakerText": "Does it make you sleepy?",
-        "speakerTextCn": "这个会让人犯困吗？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想问药剂师关于一盒药片的副作用，特别是是否会让人犯困",
         "expectedAnswers": [
-          "A little, so avoid driving or using heavy machinery.",
-          "No, it’s non-drowsy — safe to take during the day.",
-          "Yes, it can make you sleepy, so I’d recommend taking it at night."
+          "Will it make me feel drowsy?",
+          "Does it have any side effects?",
+          "Will it make me sleepy?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确说明是否会引起嗜睡及相应建议",
-          "语言准确性：使用正确时态和词汇（e.g., avoid, recommend）",
-          "表达自然度：符合真实对话节奏，不生硬",
-          "关键词覆盖：包含 'sleepy', 'non-drowsy', 'avoid driving', 'take at night' 等关键表达"
+          "意图达成度：是否正确表达了询问副作用的意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯"
         ]
       }
     },
@@ -57,9 +54,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I’m taking this for my allergies. Should I take it with food?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我吃这个治过敏，应该饭前吃还是饭后吃？",
         "expectedAnswers": [
           "It’s fine to take with or without food — just be consistent.",

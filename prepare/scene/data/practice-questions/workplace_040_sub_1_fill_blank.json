@@ -2,8 +2,7 @@
   "subSceneId": "workplace_040_sub_1",
   "subSceneName": "开场问候",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:32:42.948Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.433Z",
   "questions": [
     {
       "id": "workplace_040_sub_1_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "表达‘已经准备好’时，常用短语是 'got everything prepared'",
         "type": "fill_blank",
-        "situation": "员工在晨会前向经理打招呼，准备汇报工作进展",
-        "speakerText": "Good morning, Sarah. Could we start the update now?",
-        "speakerTextCn": "早上好，莎拉。我们现在可以开始汇报吗？",
-        "responseTemplate": "Of course, I've ___ everything prepared.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,39 @@
             ]
           }
         ],
-        "hint": "表达‘已经准备好’时，常用短语是 'got everything prepared'",
-        "knowledgePoint": "常用短语表达准备就绪"
+        "situation": "员工在晨会前向经理打招呼，准备汇报工作进展",
+        "speakerText": "Good morning, Sarah. Could we start the update now?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "早上好，莎拉。我们现在可以开始汇报吗？",
+        "knowledgePoint": "常用短语表达准备就绪",
+        "responseTemplate": "Of course, I've ___ everything prepared."
+      }
+    },
+    {
+      "id": "workplace_040_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "workplace_040_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "用户应该先问候经理，然后询问有关进展的信息",
+        "qaId": "workplace_040_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "manager",
+            "options": [
+              "manager",
+              "colleague",
+              "customer",
+              "supervisor"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "场景提示：用户通常在寻求信息或服务时先提问",
+        "knowledgePoint": "开场问候和提问句型",
+        "responseTemplate": "Hey ___ , got a minute to go over Q2 progress?"
       }
     },
     {
@@ -38,11 +65,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "表达‘准备好做某事’时，固定搭配是 'ready to do'",
         "type": "fill_blank",
-        "situation": "员工在经理走进办公室时主动问候并表明汇报意图",
-        "speakerText": "Hi Mark, I hope you're having a good day. I'm ready to walk you through the latest results.",
-        "speakerTextCn": "嗨，马克，希望你今天过得不错。我准备好向你汇报最新进展了。",
-        "responseTemplate": "Absolutely, I'm ___ to go over the details with you.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +79,12 @@
             ]
           }
         ],
-        "hint": "表达‘准备好做某事’时，固定搭配是 'ready to do'",
-        "knowledgePoint": "表达准备状态的常用结构"
+        "situation": "员工在经理走进办公室时主动问候并表明汇报意图",
+        "speakerText": "Hi Mark, I hope you're having a good day. I'm ready to walk you through the latest results.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨，马克，希望你今天过得不错。我准备好向你汇报最新进展了。",
+        "knowledgePoint": "表达准备状态的常用结构",
+        "responseTemplate": "Absolutely, I'm ___ to go over the details with you."
       }
     },
     {
@@ -65,11 +93,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "在非正式场合中，表达‘已经整理好’常用 'got everything organized'",
         "type": "fill_blank",
-        "situation": "员工在茶水间偶遇经理，想快速开启工作汇报",
-        "speakerText": "Hey Jamie, quick question—do you have a moment to check the project status?",
-        "speakerTextCn": "嘿，杰米，有个小问题——你有空看一下项目状态吗？",
-        "responseTemplate": "Yes, I've ___ everything organized for you.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +107,64 @@
             ]
           }
         ],
-        "hint": "在非正式场合中，表达‘已经整理好’常用 'got everything organized'",
-        "knowledgePoint": "非正式场合中表达准备就绪的简洁表达"
+        "situation": "员工在茶水间偶遇经理，想快速开启工作汇报",
+        "speakerText": "Hey Jamie, quick question—do you have a moment to check the project status?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嘿，杰米，有个小问题——你有空看一下项目状态吗？",
+        "knowledgePoint": "非正式场合中表达准备就绪的简洁表达",
+        "responseTemplate": "Yes, I've ___ everything organized for you."
+      }
+    },
+    {
+      "id": "workplace_040_sub_1_pq_5",
+      "subSceneId": "workplace_040_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "汇报前常用动词，表示‘准备好材料’",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "prepared",
+            "options": [
+              "prepared",
+              "made",
+              "created",
+              "written"
+            ]
+          }
+        ],
+        "template": "Of course. I've ___ all the data and charts.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配：prepare data/charts/reports"
+      }
+    },
+    {
+      "id": "workplace_040_sub_1_pq_6",
+      "subSceneId": "workplace_040_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "口语中表示‘开始深入讨论’的常用短语",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "dive",
+            "options": [
+              "dive",
+              "jump",
+              "start",
+              "get"
+            ]
+          }
+        ],
+        "template": "Let's ___ in. I've got the key points ready.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "惯用搭配：dive in（开始深入讨论）"
       }
     }
   ]

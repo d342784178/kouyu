@@ -1,19 +1,26 @@
 {
   "sceneId": "social_090",
   "sceneName": "视频通话",
+  "exportedAt": "2026-03-08T15:31:54.870Z",
   "subScenes": [
     {
       "id": "social_090_sub_1",
+      "sceneId": "social_090",
       "name": "连接测试",
       "description": "检查音视频是否正常，确认连接稳定",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_090_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hey, can you hear me okay? The audio's a bit crackly.",
-          "speakerTextCn": "嘿，你能听清吗？声音有点沙沙的。",
-          "responses": [
+          "subSceneId": "social_090_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hey, can you hear me okay? The audio's a bit crackly.",
+          "triggerTextCn": "嘿，你能听清吗？声音有点沙沙的。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户通常在视频通话开始时进行连接测试。",
+          "followUps": [
             {
               "text": "Yeah, I can hear you, but it's a little fuzzy. Try turning down your mic gain.",
               "text_cn": "能听见，但有点模糊，试试调低麦克风增益。",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "教用户描述网络问题并提出解决方案"
+          "usageNote": "教用户描述网络问题并提出解决方案",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "social_090_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Your video's frozen—can you check your camera?",
-          "speakerTextCn": "你的视频卡住了，能检查下摄像头吗？",
-          "responses": [
+          "subSceneId": "social_090_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Your video's frozen—can you check your camera?",
+          "triggerTextCn": "你的视频卡住了，能检查下摄像头吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户通常在视频通话开始时进行连接测试。",
+          "followUps": [
             {
               "text": "Oops, sorry! My camera's off—I'll turn it on now.",
               "text_cn": "哎呀抱歉，摄像头关了，我马上打开。",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "引导用户主动排查视频问题并回应"
+          "usageNote": "引导用户主动排查视频问题并回应",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "social_090_sub_2",
+      "sceneId": "social_090",
       "name": "寒暄问候",
       "description": "视频接通后自然寒暄，拉近关系",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_090_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hey! Long time no see—how’ve you been?",
-          "speakerTextCn": "嘿！好久不见，最近咋样？",
-          "responses": [
+          "subSceneId": "social_090_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hey! Long time no see—how’ve you been?",
+          "triggerTextCn": "嘿！好久不见，最近咋样？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_responds 模式，场景可能是客服或工作人员主动问候顾客",
+          "followUps": [
             {
               "text": "Not bad! Just swamped with work, but I’m hanging in there.",
               "text_cn": "还行，忙得要死，但还撑得住。",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "鼓励用具体细节回应寒暄，避免只说‘fine’"
+          "usageNote": "鼓励用具体细节回应寒暄，避免只说‘fine’",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "social_090_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "You look great! Did you get a haircut?",
-          "speakerTextCn": "你看起来气色真好！是剪头发了吗��",
-          "responses": [
+          "subSceneId": "social_090_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "You look great! Did you get a haircut?",
+          "triggerTextCn": "你看起来气色真好！是剪头发了吗��",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_responds 模式，场景可能是客服或工作人员主动问候顾客",
+          "followUps": [
             {
               "text": "Thanks! Yeah, I finally went to that new barbershop downtown.",
               "text_cn": "谢谢！对，我去了 downtown 那家新开的理发店。",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "教用户用轻松语气回应外貌赞美"
+          "usageNote": "教用户用轻松语气回应外貌赞美",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "social_090_sub_3",
+      "sceneId": "social_090",
       "name": "进入正题",
       "description": "自然过渡到工作或计划讨论主题",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_090_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Anyway, I wanted to check in about the Q3 report—got time to go over it?",
-          "speakerTextCn": "对了，想问问Q3报告的事，有空一起过一下吗？",
-          "responses": [
+          "subSceneId": "social_090_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "Anyway, I wanted to check in about the Q3 report—got time to go over it?",
+          "triggerTextCn": "对了，想问问Q3报告的事，有空一起过一下吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是user_asks模式，场景提示：用户提出问题，等待对方回答",
+          "followUps": [
             {
               "text": "Sure! I’ve got 20 mins—let’s share my screen.",
               "text_cn": "当然！我有20分钟，我共享屏幕。",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "教用户灵活协商时间并主动提出方案"
+          "usageNote": "教用户灵活协商时间并主动提出方案",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "social_090_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "So, what’s your take on the new client deadline?",
-          "speakerTextCn": "那你觉得新客户的截止日期咋办？",
-          "responses": [
+          "subSceneId": "social_090_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "So, what’s your take on the new client deadline?",
+          "triggerTextCn": "那你觉得新客户的截止日期咋办？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是user_asks模式，场景提示：用户提出问题，等待对方回答",
+          "followUps": [
             {
               "text": "I think we should ask for a week extension—this scope’s way too tight.",
               "text_cn": "我觉得该申请延一周，范围太紧了。",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "引导用户表达观点并提供解决方案"
+          "usageNote": "引导用户表达观点并提供解决方案",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "social_090_sub_4",
+      "sceneId": "social_090",
       "name": "结束通话",
       "description": "礼貌总结并自然道别，约定下次联系",
+      "order": 4,
       "estimatedMinutes": 3,
       "qaPairs": [
         {
           "id": "social_090_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Alright, we covered everything—thanks for your help!",
-          "speakerTextCn": "好，我们聊完了，谢谢你帮忙！",
-          "responses": [
+          "subSceneId": "social_090_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Alright, we covered everything—thanks for your help!",
+          "triggerTextCn": "好，我们聊完了，谢谢你帮忙！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "No problem! Let’s catch up again next week—maybe coffee?",
               "text_cn": "不客气！下周再约，喝杯咖啡？",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "教用户用具体行动收尾，增强可信度"
+          "usageNote": "教用户用具体行动收尾，增强可信度",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "social_090_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I’m gonna sign off now—my cat’s knocking over my coffee!",
-          "speakerTextCn": "我要下线了，我家猫把我的咖啡撞翻了！",
-          "responses": [
+          "subSceneId": "social_090_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "I’m gonna sign off now—my cat’s knocking over my coffee!",
+          "triggerTextCn": "我要下线了，我家猫把我的咖啡撞翻了！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Haha, no worries! See you tomorrow!",
               "text_cn": "哈哈，没事！明天见！",
@@ -222,7 +284,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "鼓励用幽默或生活细节自然结束通话"
+          "usageNote": "鼓励用幽默或生活细节自然结束通话",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

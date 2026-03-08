@@ -2,50 +2,53 @@
   "subSceneId": "daily_017_sub_2",
   "subSceneName": "询问价格与种类",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:38:47.514Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.563Z",
   "questions": [
     {
-      "id": "daily_017_sub_2_speaking_1",
+      "id": "daily_017_sub_2_qa_2_speaking_1",
       "subSceneId": "daily_017_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "daily_017_sub_2_qa_2",
         "type": "speaking",
-        "qaId": "daily_017_sub_2_qa_1",
-        "speakerText": "How much are these strawberries?",
-        "speakerTextCn": "这些草莓多少钱？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在水果店想了解芒果的价格和有哪些种类可选，包括是否成熟，需要主动向店员提问。",
         "expectedAnswers": [
-          "They're $5 a pound.",
-          "Five bucks per pound — on sale today!",
-          "That's $4.99 per kg. Would you like a pound?"
+          "Do you have any ripe mangoes, and how much are they?",
+          "What kinds of mangoes do you have? And what’s the price per pound?",
+          "Could you tell me which mangoes are ripe and how much they cost?",
+          "Are there different types of mangoes available? I’d like to know the price for the ripe ones."
         ],
         "evaluationCriteria": [
-          "是否准确回答了价格（使用了单价单位如 per pound/kg）",
-          "是否使用了口语化表达如 'bucks' 或 'on sale' 增强自然度",
-          "是否包含礼貌或附加服务信息（如 'Would you like...'）"
+          "意图达成度：是否明确询问了芒果的价格和种类",
+          "语言准确性：语法结构正确，时态和冠词使用恰当",
+          "表达自然度：符合日常英语口语习惯，语气礼貌得体",
+          "关键词覆盖：使用了'mangoes', 'ripe', 'price', 'kinds/types'等场景关键词"
         ]
       }
     },
     {
-      "id": "daily_017_sub_2_speaking_2",
+      "id": "daily_017_sub_2_qa_1_speaking_1",
       "subSceneId": "daily_017_sub_2",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "daily_017_sub_2_qa_1",
         "type": "speaking",
-        "qaId": "daily_017_sub_2_qa_2",
-        "speakerText": "Do you have any ripe mangoes?",
-        "speakerTextCn": "有熟的芒果吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在水果摊前想了解草莓的价格以及还有哪些其他水果可供选择",
         "expectedAnswers": [
-          "Yeah, right here — they're super sweet and juicy!",
-          "We do, but they're a bit pricey — $8 per pound.",
-          "Sorry, they're sold out, but we'll get more tomorrow."
+          "How much are the strawberries?",
+          "What's the price per pound for strawberries, and what other fruits do you have?",
+          "Could you tell me how much the strawberries cost and what kinds of fruit you're offering today?",
+          "Do you have strawberries? If so, how much are they, and what else is in stock?"
         ],
         "evaluationCriteria": [
-          "是否明确回应是否有货（yes/no/sold out）",
-          "是否使用了口语词如 'yeah' 或 'super' 增强真实感",
-          "是否补充了价格或替代信息，体现服务意识"
+          "意图达成度：是否明确询问了草莓的价格和可选种类",
+          "语言准确性：语法结构正确，用词恰当，无明显错误",
+          "表达自然度：符合日常英语口语习惯，语气礼貌自然",
+          "关键词覆盖：使用了 'strawberries', 'price', 'cost', 'fruit', 'available' 等场景关键词"
         ]
       }
     },
@@ -55,9 +58,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "What kinds of fruit do you have today?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "今天你们有什么水果？",
         "expectedAnswers": [
           "We have apples, bananas, strawberries, and a few mangoes.",

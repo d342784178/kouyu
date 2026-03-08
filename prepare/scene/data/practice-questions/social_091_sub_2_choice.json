@@ -2,42 +2,41 @@
   "subSceneId": "social_091_sub_2",
   "subSceneName": "询问账号",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:47:39.520Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.771Z",
   "questions": [
     {
-      "id": "social_091_sub_2_choice_1",
+      "id": "social_091_sub_2_qa_1_choice_1",
       "subSceneId": "social_091_sub_2",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "social_091_sub_2_qa_1",
-        "speakerText": "I saw your story on Snapchat—what's your handle?",
-        "speakerTextCn": "我刚看到你Snapchat的动态，你的账号是什么？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "It's @travelwithsam, easy to remember!",
+            "text": "I saw your story on Snapchat—what's your handle?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "My phone number is 555-1234.",
+            "text": "你用什么社交媒体平台?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "I don't have any social media accounts.",
+            "text": "我刚看到你Instagram的动态，你的号码是什么?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "You should follow me on TikTok, but I don't know my handle.",
+            "text": "你在哪个社交媒体平台上发布的?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了标准的社交媒体账号格式 '@handle'，并带有自然的补充说明。选项2提供电话号码，不符合社交媒体账号询问的语境。选项3虽然语法正确，但过于绝对，且未提供替代方案，不符合‘增加互动’的使用说明。选项4自相矛盾，声称不知道账号却让对方关注，不合逻辑。"
+        "explanation": "正确答案I saw your story on Snapchat—what's your handle?是因为它直接询问对方的社交媒体账号。选项opt_2、opt_3、opt_4都是不正确的，因为它们没有直接询问对方的账号信息。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "询问对方社交媒体账号"
       }
     },
     {
@@ -46,10 +45,8 @@
       "type": "choice",
       "order": 2,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Hey, I saw your post on Instagram—what's your username?",
-        "speakerTextCn": "嘿，我看到你在Instagram上的帖子了，你的用户名是什么？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +69,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确提供了Instagram用户名格式（@handle）并补充了内容类型，增强互动。选项2模糊不清，缺乏专业性。选项3转移平台但未回答问题，不符合直接回应要求。选项4提供邮箱，与社交媒体账号无关。"
+        "explanation": "正确答案明确提供了Instagram用户名格式（@handle）并补充了内容类型，增强互动。选项2模糊不清，缺乏专业性。选项3转移平台但未回答问题，不符合直接回应要求。选项4提供邮箱，与社交媒体账号无关。",
+        "speakerText": "Hey, I saw your post on Instagram—what's your username?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嘿，我看到你在Instagram上的帖子了，你的用户名是什么？"
       }
     },
     {
@@ -81,10 +81,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Do you have a Twitter account? I'd love to follow you.",
-        "speakerTextCn": "你有Twitter账号吗？我想关注你。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +105,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回答问题并提供完整账号和内容说明，符合互动原则。选项2虽转移平台，但未提供替代账号，信息不完整。选项3显得不真实或不礼貌，不符合日常对话习��。选项4转移平台但未回应原问题，且LinkedIn通常不用于‘关注’这类社交互动。"
+        "explanation": "正确答案直接回答问题并提供完整账号和内容说明，符合互动原则。选项2虽转移平台，但未提供替代账号，信息不完整。选项3显得不真实或不礼貌，不符合日常对话习��。选项4转移平台但未回应原问题，且LinkedIn通常不用于‘关注’这类社交互动。",
+        "speakerText": "Do you have a Twitter account? I'd love to follow you.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你有Twitter账号吗？我想关注你。"
       }
     }
   ]

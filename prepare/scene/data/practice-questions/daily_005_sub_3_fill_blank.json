@@ -2,8 +2,7 @@
   "subSceneId": "daily_005_sub_3",
   "subSceneName": "回答病史",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:02.730Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.467Z",
   "questions": [
     {
       "id": "daily_005_sub_3_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "描述当前存在的状况，用一般现在时",
         "type": "fill_blank",
-        "situation": "医生在问你是否有长期的健康问题或日常习惯影响健康",
-        "speakerText": "Do you have any ongoing health issues or habits that might affect your well-being?",
-        "speakerTextCn": "你有没有长期的健康问题或可能影响健康的习惯？",
-        "responseTemplate": "I ___ asthma, but I manage it well. I don't smoke, and I try to avoid stress.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "描述当前存在的状况，用一般现在时",
-        "knowledgePoint": "表达当前健康状况的动词使用"
+        "situation": "医生在问你是否有长期的健康问题或日常习惯影响健康",
+        "speakerText": "Do you have any ongoing health issues or habits that might affect your well-being?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你有没有长期的健康问题或可能影响健康的习惯？",
+        "knowledgePoint": "表达当前健康状况的动词使用",
+        "responseTemplate": "I ___ asthma, but I manage it well. I don't smoke, and I try to avoid stress."
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "表达过敏的固定搭配是 'be allergic to'",
         "type": "fill_blank",
-        "situation": "医生询问你是否对药物或食物有过敏反应",
-        "speakerText": "Have you ever had a reaction to any medicine or food?",
-        "speakerTextCn": "你有没有对任何药物或食物产生过反应？",
-        "responseTemplate": "Yeah, I ___ to shellfish — it makes my throat swell up.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "表达过敏的固定搭配是 'be allergic to'",
-        "knowledgePoint": "表达过敏的正确搭配"
+        "situation": "医生询问你是否对药物或食物有过敏反应",
+        "speakerText": "Have you ever had a reaction to any medicine or food?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你有没有对任何药物或食物产生过反应？",
+        "knowledgePoint": "表达过敏的正确搭配",
+        "responseTemplate": "Yeah, I ___ to shellfish — it makes my throat swell up."
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "表示过去有但现在已停止的习惯，用 'used to'",
         "type": "fill_blank",
-        "situation": "医生想了解你是否曾经有不良生活习惯但已改变",
-        "speakerText": "Have you ever had habits like smoking, heavy drinking, or poor sleep?",
-        "speakerTextCn": "你曾经有过吸烟、酗酒或睡眠不佳这类习惯吗？",
-        "responseTemplate": "I ___ smoking for years, but I stopped two years ago.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "表示过去有但现在已停止的习惯，用 'used to'",
-        "knowledgePoint": "表达过去习惯但已改变的句型"
+        "situation": "医生想了解你是否曾经有不良生活习惯但已改变",
+        "speakerText": "Have you ever had habits like smoking, heavy drinking, or poor sleep?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你曾经有过吸烟、酗酒或睡眠不佳这类习惯吗？",
+        "knowledgePoint": "表达过去习惯但已改变的句型",
+        "responseTemplate": "I ___ smoking for years, but I stopped two years ago."
+      }
+    },
+    {
+      "id": "daily_005_sub_3_pq_4",
+      "subSceneId": "daily_005_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "表达过去习惯但已停止的常用结构",
+        "qaId": "daily_005_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "used",
+            "options": [
+              "used",
+              "have",
+              "like",
+              "try"
+            ]
+          }
+        ],
+        "template": "I ______ to smoke, but I quit last year.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "used to do（过去习惯表达）"
+      }
+    },
+    {
+      "id": "daily_005_sub_3_pq_5",
+      "subSceneId": "daily_005_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "常见的药物过敏原，对话中提到的关键词汇",
+        "qaId": "daily_005_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "penicillin",
+            "options": [
+              "penicillin",
+              "coffee",
+              "exercise",
+              "sunlight"
+            ]
+          }
+        ],
+        "template": "I'm allergic to ______.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "常见过敏原词汇（医疗场景高频词）"
+      }
+    },
+    {
+      "id": "daily_005_sub_3_pq_6",
+      "subSceneId": "daily_005_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表示‘很少’喝酒的副词，语气礼貌且准确",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "rarely",
+            "options": [
+              "rarely",
+              "always",
+              "never",
+              "usually"
+            ]
+          }
+        ],
+        "template": "I ______ drink alcohol — just once in a while.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "频率副词在健康陈述中的使用（rarely）"
       }
     }
   ]

@@ -1,19 +1,26 @@
 {
   "sceneId": "daily_011",
   "sceneName": "药店买药",
+  "exportedAt": "2026-03-08T15:31:54.845Z",
   "subScenes": [
     {
       "id": "daily_011_sub_1",
+      "sceneId": "daily_011",
       "name": "问候与需求",
       "description": "顾客进店说明买药需求",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_011_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi there, I need something for a bad cough.",
-          "speakerTextCn": "嗨，我需要治严重咳嗽的药。",
-          "responses": [
+          "subSceneId": "daily_011_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hi there, I need something for a bad cough.",
+          "triggerTextCn": "嗨，我需要治严重咳嗽的药。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客通常在需要服务时先发起对话。",
+          "followUps": [
             {
               "text": "Sure, I can help with that. How long have you had it?",
               "text_cn": "当然，我可以帮您。您咳嗽多久了？",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "主动说明症状，便于药剂师推荐"
+          "usageNote": "主动说明症状，便于药剂师推荐",
+          "audioUrl": "COS:/qa/questions/daily_011_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_011_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I've had this cough for three days, and it's worse at night.",
-          "speakerTextCn": "我咳嗽三天了，晚上更严重。",
-          "responses": [
+          "subSceneId": "daily_011_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "I've had this cough for three days, and it's worse at night.",
+          "triggerTextCn": "我咳嗽三天了，晚上更严重。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客通常在需要服务时先发起对话。",
+          "followUps": [
             {
               "text": "Yeah, mine's been like that too. Do you have a fever?",
               "text_cn": "我也是，有发烧吗？",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "补充症状细节，提高推荐准确性"
+          "usageNote": "补充症状细节，提高推荐准确性",
+          "audioUrl": "COS:/qa/questions/daily_011_sub_1_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_011_sub_2",
+      "sceneId": "daily_011",
       "name": "询问药效与用法",
       "description": "确认药品功能与服用方法",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_011_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "This one’s for coughs, right? How often do I take it?",
-          "speakerTextCn": "这个是治咳嗽的吧？一天吃几次？",
-          "responses": [
+          "subSceneId": "daily_011_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "This one’s for coughs, right? How often do I take it?",
+          "triggerTextCn": "这个是治咳嗽的吧？一天吃几次？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问，药剂师回答",
+          "followUps": [
             {
               "text": "Yeah, take one tablet every 8 hours, max 3 a day.",
               "text_cn": "对，每8小时一片，一天最多三片。",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "明确用法，避免用药错误"
+          "usageNote": "明确用法，避免用药错误",
+          "audioUrl": "COS:/qa/questions/daily_011_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_011_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Does it make you sleepy?",
-          "speakerTextCn": "这个会让人犯困吗？",
-          "responses": [
+          "subSceneId": "daily_011_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Does it make you sleepy?",
+          "triggerTextCn": "这个会让人犯困吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问，药剂师回答",
+          "followUps": [
             {
               "text": "A little — avoid driving or operating machines.",
               "text_cn": "有点，别开车或操作机械。",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "确认副作用，确保安全使用"
+          "usageNote": "确认副作用，确保安全使用",
+          "audioUrl": "COS:/qa/questions/daily_011_sub_2_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_011_sub_3",
+      "sceneId": "daily_011",
       "name": "确认支付方式",
       "description": "结账时确认付款方式",
+      "order": 3,
       "estimatedMinutes": 3,
       "qaPairs": [
         {
           "id": "daily_011_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "That’ll be $12.99. Credit or cash?",
-          "speakerTextCn": "12.99美元，刷卡还是现金？",
-          "responses": [
+          "subSceneId": "daily_011_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "That’ll be $12.99. Credit or cash?",
+          "triggerTextCn": "12.99美元，刷卡还是现金？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Card, please. I'll tap it.",
               "text_cn": "刷卡，我刷一下。",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "明确支付方式，加快结账流程"
+          "usageNote": "明确支付方式，加快结账流程",
+          "audioUrl": "COS:/qa/questions/daily_011_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_011_sub_3_qa_2",
-          "qaType": "listen_only",
-          "speakerText": "Do you take insurance?",
-          "speakerTextCn": "你们收保险吗？",
-          "responses": [
+          "subSceneId": "daily_011_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you take insurance?",
+          "triggerTextCn": "你们收保险吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Yeah, we take most plans. Just show your card.",
               "text_cn": "收，大部分都行，出示卡就行。",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "提前确认保险可用性，避免尴尬"
+          "usageNote": "提前确认保险可用性，避免尴尬",
+          "audioUrl": "COS:/qa/questions/daily_011_sub_3_qa_2.mp3",
+          "learnRequirement": "listen_only",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_011_sub_4",
+      "sceneId": "daily_011",
       "name": "道别与提醒",
       "description": "购药后药剂师给予提醒",
+      "order": 4,
       "estimatedMinutes": 3,
       "qaPairs": [
         {
           "id": "daily_011_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "If it doesn’t get better in 2 days, see a doctor.",
-          "speakerTextCn": "两天还没好，就去看医生。",
-          "responses": [
+          "subSceneId": "daily_011_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "If it doesn’t get better in 2 days, see a doctor.",
+          "triggerTextCn": "两天还没好，就去看医生。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "药剂师在对话中提供专业建议",
+          "followUps": [
             {
               "text": "Will do. Thanks so much!",
               "text_cn": "好的，太感谢了！",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "回应提醒体现礼貌与配合"
+          "usageNote": "回应提醒体现礼貌与配合",
+          "audioUrl": "COS:/qa/questions/daily_011_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_011_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "No alcohol with this med, okay?",
-          "speakerTextCn": "吃这个药别喝酒，好吗？",
-          "responses": [
+          "subSceneId": "daily_011_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "No alcohol with this med, okay?",
+          "triggerTextCn": "吃这个药别喝酒，好吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "药剂师在对话中提供专业建议",
+          "followUps": [
             {
               "text": "Got it — no drinks.",
               "text_cn": "明白，不喝酒。",
@@ -222,7 +284,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "回应禁忌提醒，体现安全意识"
+          "usageNote": "回应禁忌提醒，体现安全意识",
+          "audioUrl": "COS:/qa/questions/daily_011_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

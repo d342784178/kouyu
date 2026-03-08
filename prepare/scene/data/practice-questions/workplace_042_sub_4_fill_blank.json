@@ -2,8 +2,7 @@
   "subSceneId": "workplace_042_sub_4",
   "subSceneName": "设定目标",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:32:47.195Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.464Z",
   "questions": [
     {
       "id": "workplace_042_sub_4_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "表达提升技能时，常用 'improve my skills in...' 结构，强调具体领域。",
         "type": "fill_blank",
-        "situation": "在年度发展会谈中，经理询问你希望提升的核心能力，你希望明确表达一个具体的职业发展目标。",
-        "speakerText": "What’s a key skill you’d like to develop next year?",
-        "speakerTextCn": "明年你希望提升的关键技能是什么？",
-        "responseTemplate": "I’d like to ___ in cross-team collaboration.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,66 @@
             ]
           }
         ],
-        "hint": "表达提升技能时，常用 'improve my skills in...' 结构，强调具体领域。",
-        "knowledgePoint": "表达职业发展目标的核心句型"
+        "situation": "在年度发展会谈中，经理询问你希望提升的核心能力，你希望明确表达一个具体的职业发展目标。",
+        "speakerText": "What’s a key skill you’d like to develop next year?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "明年你希望提升的关键技能是什么？",
+        "knowledgePoint": "表达职业发展目标的核心句型",
+        "responseTemplate": "I’d like to ___ in cross-team collaboration."
+      }
+    },
+    {
+      "id": "workplace_042_sub_4_qa_1_fill_blank_1",
+      "subSceneId": "workplace_042_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "明年你最想专注的目标是什么？",
+        "qaId": "workplace_042_sub_4_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "next year",
+            "options": [
+              "这个月",
+              "下个月",
+              "明年",
+              "下个季度"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工询问经理对个人职业发展的期望，引导对话进入目标设定阶段",
+        "knowledgePoint": "职业发展目标设定",
+        "responseTemplate": "What’s one goal you’d like to focus on___"
+      }
+    },
+    {
+      "id": "workplace_042_sub_4_qa_2_fill_blank_1",
+      "subSceneId": "workplace_042_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示：帮助用户回忆正确的答案",
+        "qaId": "workplace_042_sub_4_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "mentorship",
+            "options": [
+              "指导",
+              "监督",
+              "支持",
+              "资源"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工询问经理对个人职业发展的期望，引导对话进入目标设定阶段",
+        "knowledgePoint": "职业发展目标设定和资源支持",
+        "responseTemplate": "We can allocate budget for that cert — would you want ___?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "当对方提出支持时，若想进一步请求，应明确说出所需资源，避免模糊表达。",
         "type": "fill_blank",
-        "situation": "经理表示可以提供培训资源，你希望明确接受并补充一个额外的支持需求。",
-        "speakerText": "We can arrange a workshop on leadership — would you also like coaching sessions?",
-        "speakerTextCn": "我们可以安排领导力工作坊，你还需要一对一辅导吗？",
-        "responseTemplate": "Yes, the workshop is great — and ___ would really help me grow.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "当对方提出支持时，若想进一步请求，应明确说出所需资源，避免模糊表达。",
-        "knowledgePoint": "明确请求资源支持的表达方式"
+        "situation": "经理表示可以提供培训资源，你希望明确接受并补充一个额外的支持需求。",
+        "speakerText": "We can arrange a workshop on leadership — would you also like coaching sessions?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们可以安排领导力工作坊，你还需要一对一辅导吗？",
+        "knowledgePoint": "明确请求资源支持的表达方式",
+        "responseTemplate": "Yes, the workshop is great — and ___ would really help me grow."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "表达职业影响力时，'build my influence' 比 'get promoted' 更聚焦能力成长，符合发展对话语境。",
         "type": "fill_blank",
-        "situation": "你希望在下一年提升专业影响力，但不确定如何表达，经理鼓励你提出具体方向。",
-        "speakerText": "How can you make a bigger impact in your role next year?",
-        "speakerTextCn": "明年你如何在岗位上产生更大影响？",
-        "responseTemplate": "I’m aiming to ___ by leading internal knowledge-sharing sessions.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "表达职业影响力时，'build my influence' 比 'get promoted' 更聚焦能力成长，符合发展对话语境。",
-        "knowledgePoint": "表达职业影响力与成长意图的恰当措辞"
+        "situation": "你希望在下一年提升专业影响力，但不确定如何表达，经理鼓励你提出具体方向。",
+        "speakerText": "How can you make a bigger impact in your role next year?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "明年你如何在岗位上产生更大影响？",
+        "knowledgePoint": "表达职业影响力与成长意图的恰当措辞",
+        "responseTemplate": "I’m aiming to ___ by leading internal knowledge-sharing sessions."
+      }
+    },
+    {
+      "id": "workplace_042_sub_4_pq_6",
+      "subSceneId": "workplace_042_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表达主导项目时的常用动词",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "lead",
+            "options": [
+              "lead",
+              "join",
+              "watch",
+              "avoid"
+            ]
+          }
+        ],
+        "template": "I’d like to ___ a small project in UX design next year.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景核心动词搭配（lead a project）"
       }
     }
   ]

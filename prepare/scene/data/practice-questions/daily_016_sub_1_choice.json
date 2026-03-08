@@ -2,9 +2,78 @@
   "subSceneId": "daily_016_sub_1",
   "subSceneName": "打招呼询问",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:16:59.778Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.553Z",
   "questions": [
+    {
+      "id": "daily_016_sub_1_qa_1_choice_1",
+      "subSceneId": "daily_016_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_016_sub_1_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hey, do you have any orange juice?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Orange juice is very popular, right?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I'd like to know the price of the juice.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "You have orange juice, right?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "答案解析：正确答案\"Hey, do you have any orange juice?\"符合场景的询问方式。其他选项不正确，因为它们没有直接询问商品信息或价格。\"Orange juice is very popular, right?\"是一种不相关的陈述，\"I'd like to know the price of the juice.\"更倾向于询问价格信息而不是商品是否有售，\"You have orange juice, right?\"是一种询问是否有橙汁的陈述，但没有询问具体的问题。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客通常先发起询问，如询问商品信息或价格"
+      }
+    },
+    {
+      "id": "daily_016_sub_1_qa_2_choice_1",
+      "subSceneId": "daily_016_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_016_sub_1_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "And do you have the chicken sandwich?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "You have chicken sandwich?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I want chicken sandwich.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you tell me about chicken sandwich?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 'And do you have the chicken sandwich?'，因为它符合场景提示，询问商品是否有鸡肉三明治。其他选项不正确，因为它们询问了错误的问题：'You have chicken sandwich?' 是提问不当型，'I want chicken sandwich.' 是表达不当型，'Can you tell me about chicken sandwich?' 是理解偏差型。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客进店问候并询问商品有无"
+      }
+    },
     {
       "id": "daily_016_sub_1_choice_1",
       "subSceneId": "daily_016_sub_1",
@@ -12,9 +81,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "顾客走进便利店，想买牛奶，向店员礼貌询问库存情况",
-        "speakerText": "Hi, do you have any milk?",
-        "speakerTextCn": "你好，你们有牛奶吗？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +103,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确回应了对方关于牛奶库存的询问，并提供了具体位置，符合日常口语习惯。干扰项1答非所问，转而询问薯片；干扰项2表示不知道位置，缺乏帮助性；干扰项4表达不自然，购物流程逻辑错误。"
+        "situation": "顾客走进便利店，想买牛奶，向店员礼貌询问库存情况",
+        "explanation": "正确答案准确回应了对方关于牛奶库存的询问，并提供了具体位置，符合日常口语习惯。干扰项1答非所问，转而询问薯片；干扰项2表示不知道位置，缺乏帮助性；干扰项4表达不自然，购物流程逻辑错误。",
+        "speakerText": "Hi, do you have any milk?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你好，你们有牛奶吗？"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "顾客在咖啡店想买燕麦奶，向店员确认是否有货",
-        "speakerText": "Do you happen to have oat milk?",
-        "speakerTextCn": "你们有燕麦奶吗？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了询问，确认有货并指出位置，自然且完整。干扰项1是自我陈述，未回答问题；干扰项2错误地声称所有饮品都没货，与事实不符；干扰项4是提出替代方案，但未回应原问题，属于答非所问。"
+        "situation": "顾客在咖啡店想买燕麦奶，向店员确认是否有货",
+        "explanation": "正确答案直接回应了询问，确认有货并指出位置，自然且完整。干扰项1是自我陈述，未回答问题；干扰项2错误地声称所有饮品都没货，与事实不符；干扰项4是提出替代方案，但未回应原问题，属于答非所问。",
+        "speakerText": "Do you happen to have oat milk?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你们有燕麦奶吗？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "顾客在超市水果区问店员是否有新鲜的香蕉",
-        "speakerText": "Hey, you got any fresh bananas?",
-        "speakerTextCn": "嘿，你们有新鲜的香蕉吗？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案简洁回应了商品是否存在及位置，符合口语习惯。干扰项1是无关评论，未回答问题；干扰项2提供营业时间，完全跑题；干扰项4提前问价格，属于跳过标准回应流程，不符合自然对话节奏。"
+        "situation": "顾客在超市水果区问店员是否有新鲜的香蕉",
+        "explanation": "正确答案简洁回应了商品是否存在及位置，符合口语习惯。干扰项1是无关评论，未回答问题；干扰项2提供营业时间，完全跑题；干扰项4提前问价格，属于跳过标准回应流程，不符合自然对话节奏。",
+        "speakerText": "Hey, you got any fresh bananas?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嘿，你们有新鲜的香蕉吗？"
       }
     }
   ]

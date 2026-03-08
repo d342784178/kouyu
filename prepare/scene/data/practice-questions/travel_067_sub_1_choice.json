@@ -2,42 +2,41 @@
   "subSceneId": "travel_067_sub_1",
   "subSceneName": "开场问候",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:07:43.479Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.194Z",
   "questions": [
     {
-      "id": "travel_067_sub_1_choice_1",
+      "id": "travel_067_sub_1_qa_1_choice_1",
       "subSceneId": "travel_067_sub_1",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "travel_067_sub_1_qa_1",
-        "speakerText": "Hi there! I'm planning a trip next week and wanted to check out travel insurance options.",
-        "speakerTextCn": "嗨！我下周要旅行，想看看旅游保险有哪些选择。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "I need to buy a plane ticket.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "I'm looking for travel insurance for my upcoming trip.",
+            "text": "Hi there! I'm planning a trip next week and wanted to check out travel insurance options.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Hello! My flight is next week and I need to buy a ticket.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Can you recommend a good hotel?",
+            "text": "Hi! I'm looking for a cheap insurance policy.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I want to cancel my vacation.",
+            "text": "Hi! I want to know about your company's history.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确反映了原句的意图：寻求旅游保险信息。其他选项分别涉及订机票、推荐酒店和取消旅行，与保险主题无关，属于语境不符的干扰项。"
+        "explanation": "正确答案：Hi there! I'm planning a trip next week and wanted to check out travel insurance options。干扰项：Hello! My flight is next week and I need to buy a ticket（提问不当型）；Hi! I'm looking for a cheap insurance policy（理解偏差型）；Hi! I want to know about your company's history（表达不当型）",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "与保险代理人初步寒暄并说明来意"
       }
     },
     {
@@ -46,10 +45,8 @@
       "type": "choice",
       "order": 2,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Hey, I'm heading to Japan next month. Do you have any insurance plans for international trips?",
-        "speakerTextCn": "嘿，我下个月要去日本。你们有针对国际旅行的保险计划吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +69,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了自然口语表达 'I'd like to know what coverage you offer...'，符合开场问候中表达需求的语境。其他选项与保险无关，属于常见但错误的干扰表达。"
+        "explanation": "正确答案使用了自然口语表达 'I'd like to know what coverage you offer...'，符合开场问候中表达需求的语境。其他选项与保险无关，属于常见但错误的干扰表达。",
+        "speakerText": "Hey, I'm heading to Japan next month. Do you have any insurance plans for international trips?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嘿，我下个月要去日本。你们有针对国际旅行的保险计划吗？"
       }
     },
     {
@@ -81,10 +81,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Hi, I'm a bit nervous about my first solo trip. I heard insurance can help with emergencies.",
-        "speakerTextCn": "嗨，我第一次独自旅行有点紧张，听说保险能在紧急情况下提供帮助。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +105,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确捕捉了说话者的情绪和目的——通过保险获得安全感，符合场景中‘说明来意’的核心目标。其他选项完全偏离保险主题，是典型的语境混淆干扰项。"
+        "explanation": "正确答案准确捕捉了说话者的情绪和目的——通过保险获得安全感，符合场景中‘说明来意’的核心目标。其他选项完全偏离保险主题，是典型的语境混淆干扰项。",
+        "speakerText": "Hi, I'm a bit nervous about my first solo trip. I heard insurance can help with emergencies.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨，我第一次独自旅行有点紧张，听说保险能在紧急情况下提供帮助。"
       }
     }
   ]

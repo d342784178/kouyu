@@ -2,42 +2,41 @@
   "subSceneId": "study_abroad_101_sub_4",
   "subSceneName": "确认任务",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:50:43.084Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.882Z",
   "questions": [
     {
-      "id": "study_abroad_101_sub_4_choice_1",
+      "id": "study_abroad_101_sub_4_qa_1_choice_1",
       "subSceneId": "study_abroad_101_sub_4",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "study_abroad_101_sub_4_qa_1",
-        "speakerText": "So to confirm: you'll revise the literature review, add 8 new citations, and submit the draft by next Friday?",
-        "speakerTextCn": "确认一下：你要修改文献综述、加8个新引用，下周五交初稿，对吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, I'll send the final version instead.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Yes, that's correct—I'll also include a changes log so you can track what I updated.",
+            "text": "So to confirm: you'll revise the literature review, add 8 new citations, and submit the draft by next Friday?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "When is the literature review due?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I'm not sure if I can finish that soon.",
+            "text": "Can you please send me the revised version?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can we change the deadline to next Monday?",
+            "text": "I think I should start working on the citations now.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确复述并补充了关键细节（修改日志），符合确认任务场景中‘避免理解偏差’的要求。选项1混淆了‘初稿’和‘终稿’，选项3和4是拒绝或协商，不符合‘确认’的语境。"
+        "explanation": "正确答案使用了确认性句式 'So to confirm:'，完整复述了教授的三项要求（修改文献综述、添加8个引用、下周五提交），符合确认任务场景。干扰项1仅询问截止时间，未确认具体任务内容；干扰项2请求发送修订版，误解了当前阶段（学生尚未收到文件）；干扰项3是陈述句而非提问，且未体现确认意图。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "学生需要确认教授的指示：教授刚刚口头说明了文献综述的修改要求，学生需要明确下一步行动和截止时间以确保理解无误。"
       }
     },
     {
@@ -46,10 +45,8 @@
       "type": "choice",
       "order": 2,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Just to confirm, you'll finalize the presentation slides by Wednesday and send them to the team for feedback?",
-        "speakerTextCn": "确认一下，你会在周三前完成演示文稿并发送给团队征求意见，对吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +69,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案完整复述了任务内容和时间节点，符合确认场景的核心要求。选项1改变了时间，选项3是主观评价，选项4推卸责任，均不符合‘确认任务’的语用目的。"
+        "explanation": "正确答案完整复述了任务内容和时间节点，符合确认场景的核心要求。选项1改变了时间，选项3是主观评价，选项4推卸责任，均不符合‘确认任务’的语用目的。",
+        "speakerText": "Just to confirm, you'll finalize the presentation slides by Wednesday and send them to the team for feedback?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "确认一下，你会在周三前完成演示文稿并发送给团队征求意见，对吗？"
       }
     },
     {
@@ -81,10 +81,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "So we’re agreed—you’ll handle the client report, include the quarterly data, and deliver it by EOD Friday?",
-        "speakerTextCn": "所以我们达成一致了：你来负责客户报告，包含季度数据，并在周五下班前交付，对吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +105,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案完整复述了三项任务要点，语言准确自然。选项1忽略了‘整理报告’的要求，选项3和4属于推脱或请求延期，不符合‘确认’而非‘协商’的语境。"
+        "explanation": "正确答案完整复述了三项任务要点，语言准确自然。选项1忽略了‘整理报告’的要求，选项3和4属于推脱或请求延期，不符合‘确认’而非‘协商’的语境。",
+        "speakerText": "So we’re agreed—you’ll handle the client report, include the quarterly data, and deliver it by EOD Friday?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "所以我们达成一致了：你来负责客户报告，包含季度数据，并在周五下班前交付，对吗？"
       }
     }
   ]

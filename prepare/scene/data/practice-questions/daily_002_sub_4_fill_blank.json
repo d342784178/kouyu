@@ -2,20 +2,70 @@
   "subSceneId": "daily_002_sub_4",
   "subSceneName": "找收银台",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:05.204Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.450Z",
   "questions": [
+    {
+      "id": "daily_002_sub_4_qa_2_fill_blank_1",
+      "subSceneId": "daily_002_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "你可以问工作人员：我想知道哪里是收银台，你能告诉我哪里的收银台吗？",
+        "qaId": "daily_002_sub_4_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "哪里",
+            "options": [
+              "哪个地方",
+              "哪个位置",
+              "哪条队伍",
+              "哪个房间"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在商店中询问收银台的位置",
+        "knowledgePoint": "提问句型",
+        "responseTemplate": "我想知道哪里是收银台，你能告诉我___吗?"
+      }
+    },
+    {
+      "id": "daily_002_sub_4_qa_1_fill_blank_1",
+      "subSceneId": "daily_002_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问地点时，英语中常用 'Where's' 引导特殊疑问句",
+        "qaId": "daily_002_sub_4_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Where's",
+            "options": [
+              "What's",
+              "How's",
+              "Is there",
+              "Where's"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想找到最近的收银台，需要向工作人员提问",
+        "knowledgePoint": "特殊疑问句结构（询问地点）",
+        "responseTemplate": "___ the nearest checkout counter?"
+      }
+    },
     {
       "id": "daily_002_sub_4_fill_blank_1",
       "subSceneId": "daily_002_sub_4",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "回答位置时常用 'It's + 方向/地点' 结构，避免使用模糊表达如 'there' 或 'you can find it'",
         "type": "fill_blank",
-        "situation": "你在超市购物后，想找到最近的收银台结账，但不确定位置，于是向店员询问。",
-        "speakerText": "Could you tell me where the nearest checkout is?",
-        "speakerTextCn": "你能告诉我最近的收银台在哪里吗？",
-        "responseTemplate": "It's ___.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +78,12 @@
             ]
           }
         ],
-        "hint": "回答位置时常用 'It's + 方向/地点' 结构，避免使用模糊表达如 'there' 或 'you can find it'",
-        "knowledgePoint": "表达地点的清晰方向性结构"
+        "situation": "你在超市购物后，想找到最近的收银台结账，但不确定位置，于是向店员询问。",
+        "speakerText": "Could you tell me where the nearest checkout is?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你能告诉我最近的收银台在哪里吗？",
+        "knowledgePoint": "表达地点的清晰方向性结构",
+        "responseTemplate": "It's ___."
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "回答肯定句时，常用 'there's one + 地点' 结构，避免使用主观建议或无具体位置的表达",
         "type": "fill_blank",
-        "situation": "你在大型商场购物，想快速结账，但不确定是否有自助收银台，于是向工作人员确认。",
-        "speakerText": "Is there a self-checkout nearby?",
-        "speakerTextCn": "附近有自助结账台吗？",
-        "responseTemplate": "Yes, there's one ___.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "回答肯定句时，常用 'there's one + 地点' 结构，避免使用主观建议或无具体位置的表达",
-        "knowledgePoint": "肯定回答中地点信息的准确表达"
+        "situation": "你在大型商场购物，想快速结账，但不确定是否有自助收银台，于是向工作人员确认。",
+        "speakerText": "Is there a self-checkout nearby?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "附近有自助结账台吗？",
+        "knowledgePoint": "肯定回答中地点信息的准确表达",
+        "responseTemplate": "Yes, there's one ___."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "回答具体位置时，使用明确的空间方位词（如 on the right/left, ahead, near）比模糊建议更自然",
         "type": "fill_blank",
-        "situation": "你在便利店结账前，想确认是否还有人工收银台可用，因为不想用自助机。",
-        "speakerText": "Do you have a staffed counter available?",
-        "speakerTextCn": "你们有工作人员值守的收银台吗？",
-        "responseTemplate": "Yes, it's ___.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "回答具体位置时，使用明确的空间方位词（如 on the right/left, ahead, near）比模糊建议更自然",
-        "knowledgePoint": "使用空间方位词明确指示位置"
+        "situation": "你在便利店结账前，想确认是否还有人工收银台可用，因为不想用自助机。",
+        "speakerText": "Do you have a staffed counter available?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你们有工作人员值守的收银台吗？",
+        "knowledgePoint": "使用空间方位词明确指示位置",
+        "responseTemplate": "Yes, it's ___."
+      }
+    },
+    {
+      "id": "daily_002_sub_4_pq_6",
+      "subSceneId": "daily_002_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "超市中为少量商品顾客设置的快速通道",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "express",
+            "options": [
+              "express",
+              "extra",
+              "emergency",
+              "exclusive"
+            ]
+          }
+        ],
+        "template": "I'm in a hurry — is there an ___ lane for people with few items?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景核心词汇（express lane）"
       }
     }
   ]

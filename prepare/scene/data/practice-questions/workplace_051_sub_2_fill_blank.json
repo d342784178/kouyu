@@ -2,8 +2,7 @@
   "subSceneId": "workplace_051_sub_2",
   "subSceneName": "询问可用时间",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:33:31.299Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.563Z",
   "questions": [
     {
       "id": "workplace_051_sub_2_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "当房间已被预订时，常用表达是 'It's booked'。",
         "type": "fill_blank",
-        "situation": "你正在为团队安排一次临时会议，想确认某个会议室在下午时段是否空闲。",
-        "speakerText": "Is the mid-sized meeting room available in the afternoon?",
-        "speakerTextCn": "中型会议室下午有空吗？",
-        "responseTemplate": "___, but we have the quiet room open then.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,66 @@
             ]
           }
         ],
-        "hint": "当房间已被预订时，常用表达是 'It's booked'。",
-        "knowledgePoint": "表达房间已被占用的常用句型"
+        "situation": "你正在为团队安排一次临时会议，想确认某个会议室在下午时段是否空闲。",
+        "speakerText": "Is the mid-sized meeting room available in the afternoon?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "中型会议室下午有空吗？",
+        "knowledgePoint": "表达房间已被占用的常用句型",
+        "responseTemplate": "___, but we have the quiet room open then."
+      }
+    },
+    {
+      "id": "workplace_051_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "workplace_051_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "请用提问句型的关键部分填空",
+        "qaId": "workplace_051_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "that time",
+            "options": [
+              "that time",
+              "next week",
+              "on Friday",
+              "at 2 PM"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "确认会议室在特定时段是否可用",
+        "knowledgePoint": "提问句型",
+        "responseTemplate": "Do you have any smaller rooms open at ___?"
+      }
+    },
+    {
+      "id": "workplace_051_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "workplace_051_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "使用 'free' 表示会议室是否有空",
+        "qaId": "workplace_051_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "free",
+            "options": [
+              "有空",
+              "无空",
+              "不确定",
+              "不知道"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户通常在需要信息时先提问",
+        "knowledgePoint": "提问句型和场景适用",
+        "responseTemplate": "会议室在___是否有空?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "推荐替代空间时，应使用与会议功能相关的准确术语。",
         "type": "fill_blank",
-        "situation": "同事问你是否有适合小团队的房间可用，你希望推荐一个替代选项。",
-        "speakerText": "Do you have a room for about five people this morning?",
-        "speakerTextCn": "今天上午有适合五个人的房间吗？",
-        "responseTemplate": "The focus room isn't free, but ___.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "推荐替代空间时，应使用与会议功能相关的准确术语。",
-        "knowledgePoint": "推荐替代会议室的自然表达方式"
+        "situation": "同事问你是否有适合小团队的房间可用，你希望推荐一个替代选项。",
+        "speakerText": "Do you have a room for about five people this morning?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "今天上午有适合五个人的房间吗？",
+        "knowledgePoint": "推荐替代会议室的自然表达方式",
+        "responseTemplate": "The focus room isn't free, but ___."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "当原时间不可用时，提供一个合理的替代时间是标准回应。",
         "type": "fill_blank",
-        "situation": "你被问及某个会议室是否能在非高峰时段使用，你想确认对方是否能接受稍晚的时间。",
-        "speakerText": "Can we book the main conference room at 11 AM?",
-        "speakerTextCn": "我们能预订主会议室在上午十一点吗？",
-        "responseTemplate": "Not at 11, but ___.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "当原时间不可用时，提供一个合理的替代时间是标准回应。",
-        "knowledgePoint": "提出替代时间的常用结构"
+        "situation": "你被问及某个会议室是否能在非高峰时段使用，你想确认对方是否能接受稍晚的时间。",
+        "speakerText": "Can we book the main conference room at 11 AM?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们能预订主会议室在上午十一点吗？",
+        "knowledgePoint": "提出替代时间的常用结构",
+        "responseTemplate": "Not at 11, but ___."
+      }
+    },
+    {
+      "id": "workplace_051_sub_2_pq_6",
+      "subSceneId": "workplace_051_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "提出替代时间的常见结构",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "10:30",
+            "options": [
+              "10:30",
+              "11 AM",
+              "noon",
+              "10:15"
+            ]
+          }
+        ],
+        "template": "Not at 10, but ___ works.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "替代时间表达（but ___ works 是标准句型）"
       }
     }
   ]

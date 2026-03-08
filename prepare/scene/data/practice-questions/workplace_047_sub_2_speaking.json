@@ -2,29 +2,28 @@
   "subSceneId": "workplace_047_sub_2",
   "subSceneName": "提出请求",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:18:43.830Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.529Z",
   "questions": [
     {
-      "id": "workplace_047_sub_2_speaking_1",
+      "id": "workplace_047_sub_2_qa_1_speaking_1",
       "subSceneId": "workplace_047_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "workplace_047_sub_2_qa_1",
-        "speakerText": "I'd like to take a day off next Wednesday.",
-        "speakerTextCn": "我想下周三请一天假。",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "经理作为服务方回应员工的休假请求，请说明下周三是否可以批准员工的休假请求，并说明原因",
         "expectedAnswers": [
-          "Could I take next Wednesday off? I have a doctor's appointment.",
-          "I'd like to request Wednesday off — I need to take care of a family matter.",
-          "Would it be possible to have Wednesday off? I've got a personal commitment that day."
+          "Sure, I can approve your request for next Wednesday. You've been working hard lately, so you deserve a break.",
+          "Okay, I've checked the schedule and it looks like we can approve your request for next Wednesday. However, please make sure to complete all your tasks before you leave.",
+          "Sorry, but I'm afraid we can't approve your request for next Wednesday. We have an important meeting scheduled and your presence is required."
         ],
         "evaluationCriteria": [
-          "意图达成度：明确表达了请假请求",
-          "语言准确性：语法正确，使用了礼貌句型（Could I / Would it be possible）",
-          "表达自然度：符合职场口语习惯，语气得体",
-          "关键词覆盖：使用了 'take off', 'day off', 'appointment' 或类似合理原因"
+          "意图达成度：是否正确表达了批准或拒绝休假请求的意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词（如休假、批准、原因）"
         ]
       }
     },
@@ -34,9 +33,10 @@
       "type": "speaking",
       "order": 2,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I need to reschedule a day off this week.",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我需要调休一天。",
         "expectedAnswers": [
           "Could I reschedule my day off to Friday? I have a family dinner planned.",
@@ -57,9 +57,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I’ve got a personal matter to attend to.",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我有一件私事要处理。",
         "expectedAnswers": [
           "I'd like to take Monday off — I have a personal matter to handle.",

@@ -1,19 +1,26 @@
 {
   "sceneId": "daily_017",
   "sceneName": "水果店买水果",
+  "exportedAt": "2026-03-08T15:31:54.849Z",
   "subScenes": [
     {
       "id": "daily_017_sub_1",
+      "sceneId": "daily_017",
       "name": "打招呼问候",
       "description": "顾客进店与店员礼貌打招呼",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_017_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi there! Got any fresh apples today?",
-          "speakerTextCn": "嗨！今天有新鲜苹果吗？",
-          "responses": [
+          "subSceneId": "daily_017_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hi there! Got any fresh apples today?",
+          "triggerTextCn": "嗨！今天有新鲜苹果吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客主动询问水果店是否有特定水果",
+          "followUps": [
             {
               "text": "Yeah, we just got a big shipment!",
               "text_cn": "有啊，刚到一批新鲜的！",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Yeah/Sure do更自然，避免纯正式回答"
+          "usageNote": "用Yeah/Sure do更自然，避免纯正式回答",
+          "audioUrl": "COS:/qa/questions/daily_017_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_017_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "How's it going?",
-          "speakerTextCn": "最近怎么样？",
-          "responses": [
+          "subSceneId": "daily_017_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "How's it going?",
+          "triggerTextCn": "最近怎么样？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客主动询问水果店是否有特定水果",
+          "followUps": [
             {
               "text": "Pretty good, thanks! You?",
               "text_cn": "还不错，谢谢！你呢？",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "简单回应Fine即可，但建议加反问更礼貌"
+          "usageNote": "简单回应Fine即可，但建议加反问更礼貌",
+          "audioUrl": "COS:/qa/questions/daily_017_sub_1_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_017_sub_2",
+      "sceneId": "daily_017",
       "name": "询问价格与种类",
       "description": "顾客询问水果价格和可选种类",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_017_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "How much are these strawberries?",
-          "speakerTextCn": "这些草莓多少钱一斤？",
-          "responses": [
+          "subSceneId": "daily_017_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "How much are these strawberries?",
+          "triggerTextCn": "这些草莓多少钱一斤？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问价格，服务方提供价格信息",
+          "followUps": [
             {
               "text": "They're $5 a pound.",
               "text_cn": "五美元一磅。",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "口语中常用bucks代替dollars，更自然"
+          "usageNote": "口语中常用bucks代替dollars，更自然",
+          "audioUrl": "COS:/qa/questions/daily_017_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_017_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Do you have any ripe mangoes?",
-          "speakerTextCn": "有熟的芒果吗？",
-          "responses": [
+          "subSceneId": "daily_017_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you have any ripe mangoes?",
+          "triggerTextCn": "有熟的芒果吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问价格，服务方提供价格信息",
+          "followUps": [
             {
               "text": "Yeah, right here — they're sweet and juicy!",
               "text_cn": "有，在这儿，又甜又多汁！",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Yeah比Yes更口语，可加表情描述增强真实感"
+          "usageNote": "用Yeah比Yes更口语，可加表情描述增强真实感",
+          "audioUrl": "COS:/qa/questions/daily_017_sub_2_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_017_sub_3",
+      "sceneId": "daily_017",
       "name": "指定重量与挑选",
       "description": "顾客要求称重并挑选水果",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_017_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Can I get two pounds of grapes, please?",
-          "speakerTextCn": "能给我称两磅葡萄吗？",
-          "responses": [
+          "subSceneId": "daily_017_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Can I get two pounds of grapes, please?",
+          "triggerTextCn": "能给我称两磅葡萄吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Sure thing! Red or green?",
               "text_cn": "没问题！红的还是绿的？",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Sure thing比Sure更口语，适合日常购物"
+          "usageNote": "用Sure thing比Sure更口语，适合日常购物",
+          "audioUrl": "COS:/qa/questions/daily_017_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_017_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I'll take these apples — but can you pick the juiciest ones?",
-          "speakerTextCn": "我要这些苹果，但能挑最汁多的吗？",
-          "responses": [
+          "subSceneId": "daily_017_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "I'll take these apples — but can you pick the juiciest ones?",
+          "triggerTextCn": "我要这些苹果，但能挑最汁多的吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Absolutely! These are the sweetest in stock.",
               "text_cn": "当然！这些是店里最甜的。",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Absolutely/Hand-pick体现服务态度，适合练习礼貌表达"
+          "usageNote": "用Absolutely/Hand-pick体现服务态度，适合练习礼貌表达",
+          "audioUrl": "COS:/qa/questions/daily_017_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_017_sub_4",
+      "sceneId": "daily_017",
       "name": "结账与道别",
       "description": "完成付款并礼貌告别",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_017_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "That'll be $12.40 total.",
-          "speakerTextCn": "一共12.40美元。",
-          "responses": [
+          "subSceneId": "daily_017_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "That'll be $12.40 total.",
+          "triggerTextCn": "一共12.40美元。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Here you go — cash only?",
               "text_cn": "给你，只收现金吗？",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "Here you go是递钱时的自然表达，必学短语"
+          "usageNote": "Here you go是递钱时的自然表达，必学短语",
+          "audioUrl": "COS:/qa/questions/daily_017_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_017_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Thanks so much! Have a great day!",
-          "speakerTextCn": "非常感谢！祝你今天愉快！",
-          "responses": [
+          "subSceneId": "daily_017_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thanks so much! Have a great day!",
+          "triggerTextCn": "非常感谢！祝你今天愉快！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "You're welcome! See you tomorrow!",
               "text_cn": "不客气！明天见！",
@@ -222,7 +284,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用See you tomorrow比Bye更显常客关系"
+          "usageNote": "用See you tomorrow比Bye更显常客关系",
+          "audioUrl": "COS:/qa/questions/daily_017_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

@@ -2,77 +2,76 @@
   "subSceneId": "study_abroad_107_sub_5",
   "subSceneName": "询问校园活动",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:58:18.949Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.956Z",
   "questions": [
     {
-      "id": "study_abroad_107_sub_5_choice_1",
+      "id": "study_abroad_107_sub_5_qa_2_choice_1",
       "subSceneId": "study_abroad_107_sub_5",
       "type": "choice",
       "order": 1,
       "content": {
+        "qaId": "study_abroad_107_sub_5_qa_2",
         "type": "choice",
-        "qaId": "study_abroad_107_sub_5_qa_1",
-        "speakerText": "The welcome party's tonight at 7 in the Student Union building.",
-        "speakerTextCn": "新生派对今晚7点在学生活动中心。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Is it only for international students?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Is it open to all new students? I'm a bit shy.",
+            "text": "What activities are planned for new students tomorrow, and where will they take place?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Is there an ESL meet-up tomorrow?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "What time does it end?",
+            "text": "When is the orientation?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can I bring a friend?",
+            "text": "I want to join the event tomorrow.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Is it open to all new students? I'm a bit shy.' 直接回应了对方提供的活动信息，并表达了对参与门槛和自身情绪的关切，符合场景中'主动询问地点和参与门槛'的要求。其他选项虽然语法正确，但要么关注无关细节（如结束时间），要么未触及核心问题（如是否开放给所有新生）。"
+        "explanation": "正确答案询问了活动内容和地点，符合新生全面了解信息的需求。选项2只问是否存在活动，未涉及时间地点，信息不完整；选项3聚焦于orientation，与ESL meet-up无关，属于理解偏差；选项4是陈述句而非提问，不符合场景要求。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "新生询问校园内即将举行的欢迎活动及其具体时间和地点"
       }
     },
     {
-      "id": "study_abroad_107_sub_5_choice_2",
+      "id": "study_abroad_107_sub_5_qa_1_choice_1",
       "subSceneId": "study_abroad_107_sub_5",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "study_abroad_107_sub_5_qa_1",
         "type": "choice",
-        "qaId": "study_abroad_107_sub_5_qa_2",
-        "speakerText": "There’s also an ESL meet-up tomorrow at 4 in Room 203 of the Language Center.",
-        "speakerTextCn": "明天下午4点语言中心203室还有英语角。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Do I need to register in advance?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Perfect—I need to practice! Is it casual?",
+            "text": "When and where is the welcome party?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Is there a welcome party tonight?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Is the room air-conditioned?",
+            "text": "What time does the Student Union open?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can I get a snack there?",
+            "text": "Can I join the welcome party?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Perfect—I need to practice! Is it casual?' 体现了对活动的积极回应，并自然地确认了活动氛围，符合'确认活动是否适合自己参与'的使用说明。其他选项虽然合理，但偏离了核心意图——表达参与意愿并确认活动形式。"
+        "explanation": "正确答案直接询问活动的时间和地点，符合场景需求。选项2仅确认活动是否存在，未获取关键信息；选项3询问学生活动中心的开放时间，偏离活动主题；选项4询问是否能参加，属于后续问题而非初始信息询问。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "新生询问关于校园欢迎活动的时间和地点"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "We're hosting a campus tour this Friday at 10 a.m. outside the main gate.",
-        "speakerTextCn": "我们周五上午10点在主校门口举办校园导览。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Is it free for everyone?' 是询问参与门槛的典型表达，符合'询问校园活动'场景的核心目标。其他选项关注天气、付费或导游，属于无关细节，未体现对活动包容性或参与资格的关注。"
+        "explanation": "正确答案 'Is it free for everyone?' 是询问参与门槛的典型表达，符合'询问校园活动'场景的核心目标。其他选项关注天气、付费或导游，属于无关细节，未体现对活动包容性或参与资格的关注。",
+        "speakerText": "We're hosting a campus tour this Friday at 10 a.m. outside the main gate.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们周五上午10点在主校门口举办校园导览。"
       }
     }
   ]

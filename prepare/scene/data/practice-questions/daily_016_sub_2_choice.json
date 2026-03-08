@@ -2,9 +2,78 @@
   "subSceneId": "daily_016_sub_2",
   "subSceneName": "确认价格",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:17:01.014Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.555Z",
   "questions": [
+    {
+      "id": "daily_016_sub_2_qa_1_choice_1",
+      "subSceneId": "daily_016_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_016_sub_2_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How much does the juice cost?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "How much is the juice and the sandwich?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "What is the price of the juice?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you tell me the price of the sandwich?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 How much is the juice and the sandwich?，因为它询问了两个商品的价格。其他选项不正确，因为它们只询问了一个商品的价格或询问了一个商品的价格和另一个商品的可用性",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客询问商品价格并确认总价"
+      }
+    },
+    {
+      "id": "daily_016_sub_2_qa_2_choice_1",
+      "subSceneId": "daily_016_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_016_sub_2_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "So that's $6.50?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much is this?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is this product expensive?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'd like to pay $10, please.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "答案解析：正确答案\"So that's $6.50?\"反映了顾客询问商品价格并确认总价的需求。其他选项不符合场景要求，例如询问商品价格（How much is this?）或询问商品价格是否贵（Is this product expensive?）或自行决定支付金额（I'd like to pay $10, please.）",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客询问商品价格并确认总价"
+      }
+    },
     {
       "id": "daily_016_sub_2_choice_1",
       "subSceneId": "daily_016_sub_2",
@@ -12,9 +81,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "你在咖啡店点了一杯拿铁和一块蓝莓松饼，店员告诉你价格后，你希望确认总金额是否正确。",
-        "speakerText": "So the latte and the blueberry muffin come to $8.75?",
-        "speakerTextCn": "所以拿铁和蓝莓松饼总共是8块75吗？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +103,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是直接确认金额，符合确认价格场景的核心交际任务。干扰项1是质疑价格，干扰项2是请求折扣，干扰项3是重新询问单项价格，都偏离了确认总价的意图。"
+        "situation": "你在咖啡店点了一杯拿铁和一块蓝莓松饼，店员告诉你价格后，你希望确认总金额是否正确。",
+        "explanation": "正确答案是直接确认金额，符合确认价格场景的核心交际任务。干扰项1是质疑价格，干扰项2是请求折扣，干扰项3是重新询问单项价格，都偏离了确认总价的意图。",
+        "speakerText": "So the latte and the blueberry muffin come to $8.75?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "所以拿铁和蓝莓松饼总共是8块75吗？"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "你在超市结账时，收银员报出你买的苹果、牛奶和面包的总价为$12.30，你希望简单确认这个金额是否准确。",
-        "speakerText": "That's $12.30 total, right?",
-        "speakerTextCn": "总共是12块30，对吧？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是简洁确认，符合高频确认总价的自然回应。干扰项1是询问优惠券，干扰项2是更改商品，干扰项3是提及昨天的促销，均未回应确认请求，属于答非所问。"
+        "situation": "你在超市结账时，收银员报出你买的苹果、牛奶和面包的总价为$12.30，你希望简单确认这个金额是否准确。",
+        "explanation": "正确答案是简洁确认，符合高频确认总价的自然回应。干扰项1是询问优惠券，干扰项2是更改商品，干扰项3是提及昨天的促销，均未回应确认请求，属于答非所问。",
+        "speakerText": "That's $12.30 total, right?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "总共是12块30，对吧？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "你在书店买了一本小说和一支笔，店员说小说是$15，笔是$2.50，你希望快速确认总金额并准备付款。",
-        "speakerText": "So that's $17.50 altogether?",
-        "speakerTextCn": "所以总共是17块5吗？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是口语化确认，自然且符合确认总价的语境。干扰项1是询问支付方式（虽相关但非回应确认），干扰项2是询问书籍版本（无关），干扰项3是取消购买（误解意图），均未完成确认任务。"
+        "situation": "你在书店买了一本小说和一支笔，店员说小说是$15，笔是$2.50，你希望快速确认总金额并准备付款。",
+        "explanation": "正确答案是口语化确认，自然且符合确认总价的语境。干扰项1是询问支付方式（虽相关但非回应确认），干扰项2是询问书籍版本（无关），干扰项3是取消购买（误解意图），均未完成确认任务。",
+        "speakerText": "So that's $17.50 altogether?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "所以总共是17块5吗？"
       }
     }
   ]

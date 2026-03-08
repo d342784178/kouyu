@@ -86,12 +86,16 @@ export const subScenes = pgTable('sub_scenes', {
 export const qaPairs = pgTable('qa_pairs', {
   id: text('id').primaryKey(),                                    // 格式: {sub_scene_id}_qa_{n}
   subSceneId: text('sub_scene_id').notNull().references(() => subScenes.id),
-  speakerText: text('speaker_text').notNull(),                    // 对方说的话（英文）
-  speakerTextCn: text('speaker_text_cn').notNull(),               // 对方说的话（中文）
-  responses: jsonb('responses').notNull(),                        // QAResponse[]
+  dialogueMode: text('dialogue_mode').notNull(),                  // 'user_responds' | 'user_asks'
+  triggerText: text('trigger_text').notNull(),                    // 触发文本（英文）
+  triggerTextCn: text('trigger_text_cn').notNull(),               // 触发文本（中文）
+  triggerSpeakerRole: text('trigger_speaker_role').notNull(),     // 触发说话者角色
+  scenarioHint: text('scenario_hint'),                            // 场景提示（英文）
+  scenarioHintCn: text('scenario_hint_cn'),                       // 场景提示（中文）
+  followUps: jsonb('follow_ups').notNull(),                       // FollowUp[]
   usageNote: text('usage_note'),                                  // 使用说明
-  audioUrl: text('audio_url'),                                    // speaker_text 的真人音频（COS:/...）
-  qaType: text('qa_type').notNull(),                              // 'listen_only' | 'must_speak'
+  audioUrl: text('audio_url'),                                    // trigger_text 的真人音频（COS:/...）
+  learnRequirement: text('learn_requirement').notNull(),          // 'speak_trigger' | 'speak_followup' | 'listen_only'
   order: integer('order').notNull(),                              // 在子场景中的排序（1-based）
   createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
   updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`),

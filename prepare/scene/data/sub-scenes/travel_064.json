@@ -1,19 +1,26 @@
 {
   "sceneId": "travel_064",
   "sceneName": "行李寄存",
+  "exportedAt": "2026-03-08T15:31:54.892Z",
   "subScenes": [
     {
       "id": "travel_064_sub_1",
+      "sceneId": "travel_064",
       "name": "寻找寄存处",
       "description": "旅客询问行李寄存处的位置",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_064_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi there! Can I help you find something?",
-          "speakerTextCn": "您好！需要帮忙找什么吗？",
-          "responses": [
+          "subSceneId": "travel_064_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hi there! Can I help you find something?",
+          "triggerTextCn": "您好！需要帮忙找什么吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Yes, where's the luggage storage?",
               "text_cn": "请问行李寄存处在哪？",
@@ -30,22 +37,31 @@
               "audio_url": "COS:/qa/responses/travel_064_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "初次询问位置，用简单句即可"
+          "usageNote": "初次询问位置，用简单句即可",
+          "audioUrl": "COS:/qa/questions/travel_064_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         }
       ]
     },
     {
       "id": "travel_064_sub_2",
+      "sceneId": "travel_064",
       "name": "询问收费标准",
       "description": "旅客了解寄存费用和计费方式",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_064_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "It's $5 per bag for up to 24 hours.",
-          "speakerTextCn": "每件行李24小时内收费5美元。",
-          "responses": [
+          "subSceneId": "travel_064_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "It's $5 per bag for up to 24 hours.",
+          "triggerTextCn": "每件行李24小时内收费5美元。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客：How much does it cost to store my luggage for 24 hours?",
+          "followUps": [
             {
               "text": "That's affordable. I'll leave two bags.",
               "text_cn": "价格合理，我寄两件。",
@@ -62,14 +78,21 @@
               "audio_url": "COS:/qa/responses/travel_064_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "确认价格后决定是否寄存"
+          "usageNote": "确认价格后决定是否寄存",
+          "audioUrl": "COS:/qa/questions/travel_064_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "travel_064_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "We charge by the day, not by the hour.",
-          "speakerTextCn": "我们按天收费，不是按小时。",
-          "responses": [
+          "subSceneId": "travel_064_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "We charge by the day, not by the hour.",
+          "triggerTextCn": "我们按天收费，不是按小时。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客：How much does it cost to store my luggage for 24 hours?",
+          "followUps": [
             {
               "text": "So if I leave it for 12 hours, it's still $5?",
               "text_cn": "那我寄12小时也是5美元？",
@@ -86,22 +109,31 @@
               "audio_url": "COS:/qa/responses/travel_064_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "澄清计费方式，避免误会"
+          "usageNote": "澄清计费方式，避免误会",
+          "audioUrl": "COS:/qa/questions/travel_064_sub_2_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "travel_064_sub_3",
+      "sceneId": "travel_064",
       "name": "确认取件时间",
       "description": "旅客确认寄存期限和取件流程",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_064_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "You can pick up your bags anytime before midnight tomorrow.",
-          "speakerTextCn": "您明天午夜前都可以来取行李。",
-          "responses": [
+          "subSceneId": "travel_064_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "You can pick up your bags anytime before midnight tomorrow.",
+          "triggerTextCn": "您明天午夜前都可以来取行李。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "What do I need to show when I pick them up?",
               "text_cn": "取行李时需要出示什么？",
@@ -118,14 +150,21 @@
               "audio_url": "COS:/qa/responses/travel_064_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "确认取件时间与凭证"
+          "usageNote": "确认取件时间与凭证",
+          "audioUrl": "COS:/qa/questions/travel_064_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "travel_064_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Just show your receipt and ID.",
-          "speakerTextCn": "出示收据和身份证即可。",
-          "responses": [
+          "subSceneId": "travel_064_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Just show your receipt and ID.",
+          "triggerTextCn": "出示收据和身份证即可。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I'll keep the receipt safe.",
               "text_cn": "我会保管好收据。",
@@ -142,22 +181,31 @@
               "audio_url": "COS:/qa/responses/travel_064_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "确认取件所需证件"
+          "usageNote": "确认取件所需证件",
+          "audioUrl": "COS:/qa/questions/travel_064_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "travel_064_sub_4",
+      "sceneId": "travel_064",
       "name": "道别与感谢",
       "description": "旅客完成寄存后礼貌道别",
+      "order": 4,
       "estimatedMinutes": 3,
       "qaPairs": [
         {
           "id": "travel_064_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Our storage room is under 24-hour camera surveillance and locked at night.",
-          "speakerTextCn": "我们的寄存室有24小时监控，夜间上锁。",
-          "responses": [
+          "subSceneId": "travel_064_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Our storage room is under 24-hour camera surveillance and locked at night.",
+          "triggerTextCn": "我们的寄存室有24小时监控，夜间上锁。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "That's reassuring. Are the bags checked before storage?",
               "text_cn": "这让我安心了，寄存前会检查行李吗？",
@@ -174,7 +222,10 @@
               "audio_url": "COS:/qa/responses/travel_064_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "询问安全措施，增强信任感"
+          "usageNote": "询问安全措施，增强信任感",
+          "audioUrl": "COS:/qa/questions/travel_064_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         }
       ]
     }

@@ -2,8 +2,7 @@
   "subSceneId": "workplace_032_sub_4",
   "subSceneName": "会议收尾",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:32:02.516Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.360Z",
   "questions": [
     {
       "id": "workplace_032_sub_4_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "表达同意时，常用结构是 'That works for me' 或 'Sounds good to me'，语气自然且专业。",
         "type": "fill_blank",
-        "situation": "会议即将结束，主持人总结了关键决策并询问大家是否同意，你需要表达认同并感谢组织者。",
-        "speakerText": "So to wrap up, we’ve agreed on the new workflow, weekly syncs, and the deadline extension. Does that work for everyone?",
-        "speakerTextCn": "所以总结一下，我们已经同意了新流程、每周同步和截止日期延期。大家觉得怎么样？",
-        "responseTemplate": "___, thanks for keeping us on track.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "表达同意时，常用结构是 'That works for me' 或 'Sounds good to me'，语气自然且专业。",
-        "knowledgePoint": "表达认同与感谢的礼貌回应结构"
+        "situation": "会议即将结束，主持人总结了关键决策并询问大家是否同意，你需要表达认同并感谢组织者。",
+        "speakerText": "So to wrap up, we’ve agreed on the new workflow, weekly syncs, and the deadline extension. Does that work for everyone?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "所以总结一下，我们已经同意了新流程、每周同步和截止日期延期。大家觉得怎么样？",
+        "knowledgePoint": "表达认同与感谢的礼貌回应结构",
+        "responseTemplate": "___, thanks for keeping us on track."
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "当别人感谢你时，若想转而感谢主持人，常用 'Thanks for...' 开头，表达对领导力的认可。",
         "type": "fill_blank",
-        "situation": "会议结束时，同事感谢你积极参与讨论，你希望回应并认可主持人的引导作用。",
-        "speakerText": "Thanks for your insights during the discussion—you really helped clarify the priorities.",
-        "speakerTextCn": "谢谢你在讨论中的见解，你真的帮助明确了优先事项。",
-        "responseTemplate": "___ for guiding the conversation so effectively.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "当别人感谢你时，若想转而感谢主持人，常用 'Thanks for...' 开头，表达对领导力的认可。",
-        "knowledgePoint": "回应感谢时转移认可对象的表达方式"
+        "situation": "会议结束时，同事感谢你积极参与讨论，你希望回应并认可主持人的引导作用。",
+        "speakerText": "Thanks for your insights during the discussion—you really helped clarify the priorities.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "谢谢你在讨论中的见解，你真的帮助明确了优先事项。",
+        "knowledgePoint": "回应感谢时转移认可对象的表达方式",
+        "responseTemplate": "___ for guiding the conversation so effectively."
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "在结束会议时，用 'Thanks again' 表达持续感谢，比 'Good job' 更符合职场礼貌规范。",
         "type": "fill_blank",
-        "situation": "会议即将结束，你希望简短确认下一步行动并礼貌结束对话。",
-        "speakerText": "Alright, we’re all aligned. Let’s close this out.",
-        "speakerTextCn": "好了，我们都达成一致了，我们结束会议吧。",
-        "responseTemplate": "___, everyone. Talk soon.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "在结束会议时，用 'Thanks again' 表达持续感谢，比 'Good job' 更符合职场礼貌规范。",
-        "knowledgePoint": "礼貌结束会议的常用收尾语"
+        "situation": "会议即将结束，你希望简短确认下一步行动并礼貌结束对话。",
+        "speakerText": "Alright, we’re all aligned. Let’s close this out.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "好了，我们都达成一致了，我们结束会议吧。",
+        "knowledgePoint": "礼貌结束会议的常用收尾语",
+        "responseTemplate": "___, everyone. Talk soon."
+      }
+    },
+    {
+      "id": "workplace_032_sub_4_pq_4",
+      "subSceneId": "workplace_032_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "这是会议收尾时常用的确认句型，表示‘大家同意吗？’",
+        "qaId": "workplace_032_sub_4_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "good",
+            "options": [
+              "good",
+              "fine",
+              "okay",
+              "well"
+            ]
+          }
+        ],
+        "template": "Alright, to recap—we’re cutting print by 30%, keeping local inserts, Alex handles social by Fri, and Jamie owns the Q3 report. Sound ___?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定表达：Sound good?（确认共识）"
+      }
+    },
+    {
+      "id": "workplace_032_sub_4_pq_5",
+      "subSceneId": "workplace_032_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "‘shape’ 在此表示‘塑造、完善’，是职场中描述贡献的常用动词",
+        "qaId": "workplace_032_sub_4_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "shape",
+            "options": [
+              "shape",
+              "build",
+              "create",
+              "make"
+            ]
+          }
+        ],
+        "template": "Thanks, everyone—your input really helped ___ this plan.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配：help shape a plan（帮助完善计划）"
+      }
+    },
+    {
+      "id": "workplace_032_sub_4_pq_6",
+      "subSceneId": "workplace_032_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "在会议结束前，通常需要更新任务清单以确保责任明确",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "update",
+            "options": [
+              "update",
+              "write",
+              "send",
+              "delete"
+            ]
+          }
+        ],
+        "template": "Before we wrap up, I’ll ___ the action items in the shared document.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "职场高频动词搭配：update action items（更新行动项）"
       }
     }
   ]

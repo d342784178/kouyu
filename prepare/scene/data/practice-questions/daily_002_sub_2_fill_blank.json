@@ -2,20 +2,70 @@
   "subSceneId": "daily_002_sub_2",
   "subSceneName": "确认计量单位",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:04.356Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.444Z",
   "questions": [
+    {
+      "id": "daily_002_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "daily_002_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "注意名词短语的正确顺序，'bag of + 名词' 是表示容器与内容的标准结构",
+        "qaId": "daily_002_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "bag of apples",
+            "options": [
+              "bag of apples",
+              "apples bag",
+              "apple bag",
+              "bag apples"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在超市想了解某商品是按公斤还是按袋出售，需要询问该商品的重量单位",
+        "knowledgePoint": "询问重量的句型结构与名词短语搭配",
+        "responseTemplate": "How much does this ___ weigh?"
+      }
+    },
+    {
+      "id": "daily_002_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "daily_002_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "请根据商品的计量单位确认",
+        "qaId": "daily_002_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "pound",
+            "options": [
+              "磅",
+              "盒子",
+              "袋子",
+              "件"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在超市寻找商品时，需要了解商品的计量单位",
+        "knowledgePoint": "口语表达：确认计量单位",
+        "responseTemplate": "Is this yogurt sold by the ___ or by the container?"
+      }
+    },
     {
       "id": "daily_002_sub_2_fill_blank_1",
       "subSceneId": "daily_002_sub_2",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "如果商品是固定包装销售，常用 'sold by the [container]' 表达。",
         "type": "fill_blank",
-        "situation": "在超市购买散装大米时，顾客不确定是按袋卖还是按重量卖，向店员确认计价方式。",
-        "speakerText": "Are these rice bags pre-packed, or do you weigh them out?",
-        "speakerTextCn": "这些大米是预包装好的，还是称重卖的？",
-        "responseTemplate": "They're sold ___ — each bag is 5 kilograms.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +78,12 @@
             ]
           }
         ],
-        "hint": "如果商品是固定包装销售，常用 'sold by the [container]' 表达。",
-        "knowledgePoint": "确认商品计价单位：按包装 vs 按重量"
+        "situation": "在超市购买散装大米时，顾客不确定是按袋卖还是按重量卖，向店员确认计价方式。",
+        "speakerText": "Are these rice bags pre-packed, or do you weigh them out?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这些大米是预包装好的，还是称重卖的？",
+        "knowledgePoint": "确认商品计价单位：按包装 vs 按重量",
+        "responseTemplate": "They're sold ___ — each bag is 5 kilograms."
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "当商品以固定数量包装出售时，用 'sold by the [container]' 表示。",
         "type": "fill_blank",
-        "situation": "在农贸市场，顾客想买土豆，看到一堆散装土豆，不确定是按斤称还是按袋卖。",
-        "speakerText": "Do you charge by the pound, or are these sold in bags?",
-        "speakerTextCn": "你们是按磅收费，还是这些土豆按袋卖？",
-        "responseTemplate": "We sell them ___ — you can take one or two.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "当商品以固定数量包装出售时，用 'sold by the [container]' 表示。",
-        "knowledgePoint": "确认商品计价单位：按包装 vs 按重量"
+        "situation": "在农贸市场，顾客想买土豆，看到一堆散装土豆，不确定是按斤称还是按袋卖。",
+        "speakerText": "Do you charge by the pound, or are these sold in bags?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你们是按磅收费，还是这些土豆按袋卖？",
+        "knowledgePoint": "确认商品计价单位：按包装 vs 按重量",
+        "responseTemplate": "We sell them ___ — you can take one or two."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "当所有商品都是预包装且统一价格时，常用 'sold by the bag' 表达。",
         "type": "fill_blank",
-        "situation": "在便利店，顾客想买坚果，看到货架上有小袋和大袋两种，想确认是否按袋定价。",
-        "speakerText": "Is the price per bag, or do I need to weigh them?",
-        "speakerTextCn": "价格是按袋算，还是需要称重？",
-        "responseTemplate": "It's all ___ — no weighing needed.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "当所有商品都是预包装且统一价格时，常用 'sold by the bag' 表达。",
-        "knowledgePoint": "确认商品计价单位：按包装 vs 按重量"
+        "situation": "在便利店，顾客想买坚果，看到货架上有小袋和大袋两种，想确认是否按袋定价。",
+        "speakerText": "Is the price per bag, or do I need to weigh them?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "价格是按袋算，还是需要称重？",
+        "knowledgePoint": "确认商品计价单位：按包装 vs 按重量",
+        "responseTemplate": "It's all ___ — no weighing needed."
+      }
+    },
+    {
+      "id": "daily_002_sub_2_pq_6",
+      "subSceneId": "daily_002_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "描述近似重量时常用的模糊表达",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "about",
+            "options": [
+              "about",
+              "exactly",
+              "nearly",
+              "almost"
+            ]
+          }
+        ],
+        "template": "The cheese is pre-packaged — each block is ___ 250 grams.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "近似重量表达：about / approximately + 数量"
       }
     }
   ]

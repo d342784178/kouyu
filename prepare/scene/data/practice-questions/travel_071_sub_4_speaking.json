@@ -2,52 +2,50 @@
   "subSceneId": "travel_071_sub_4",
   "subSceneName": "索取发票",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:10:46.892Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.267Z",
   "questions": [
     {
-      "id": "travel_071_sub_4_speaking_1",
+      "id": "travel_071_sub_4_qa_1_speaking_1",
       "subSceneId": "travel_071_sub_4",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "travel_071_sub_4_qa_1",
-        "speakerText": "Could I get a receipt for my expenses?",
-        "speakerTextCn": "能给我一张报销用的收据吗？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "您在商店里购买了东西，需要索取发票用于报销。您应该怎么问服务员?",
         "expectedAnswers": [
-          "Of course! I'll email it to you.",
-          "Sure thing — would you prefer a printed copy or an email?",
-          "Absolutely, I'll generate one right away."
+          "Could I get a receipt for my expenses?",
+          "能给我一张报销用的收据吗?",
+          "May I have a receipt, please?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确回应了索要收据的请求",
-          "语言准确性：语法正确，无拼写或时态错误",
-          "表达自然度：使用符合服务场景的礼貌表达",
-          "关键词覆盖：包含 receipt, email/print 等核心词汇"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯"
         ]
       }
     },
     {
-      "id": "travel_071_sub_4_speaking_2",
+      "id": "travel_071_sub_4_qa_2_speaking_1",
       "subSceneId": "travel_071_sub_4",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "travel_071_sub_4_qa_2",
-        "speakerText": "Can you put my company name on it? It's ABC Corp.",
-        "speakerTextCn": "能写上我公司名字吗？是ABC公司。",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚刚购买了一些东西，服务员正在准备收据。你想让他们在收据上写上你的公司名字。",
         "expectedAnswers": [
-          "No problem, I'll add ABC Corp. right away.",
-          "Got it — ABC Corp. will be on the receipt.",
-          "Sure, I'll make sure ABC Corp. is clearly printed."
+          "能在收据上写上我的公司名字吗？",
+          "我公司名字是ABC Corp，能写上吗？",
+          "能在发票上写上我的公司名字吗？是ABC公司。"
         ],
         "evaluationCriteria": [
-          "意图达成度：准确理解并确认公司名称的添加要求",
-          "语言准确性：正确使用动词短语如 'add', 'put on', 'make sure'",
-          "表达自然度：语气友好，符合职场沟通习惯",
-          "关键词覆盖：明确包含公司名称 'ABC Corp.' 且未使用 'My company is...' 结构"
+          "是否正确表达了询问意图",
+          "语法和用词是否正确",
+          "是否符合英语口语习惯",
+          "是否使用了场景关键词"
         ]
       }
     },
@@ -57,9 +55,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I paid for the dinner with my corporate card. Could you include the tax ID on the receipt?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我用公司卡支付了晚餐，能在收据上加上税号吗？",
         "expectedAnswers": [
           "Of course, I'll add your tax ID right away.",

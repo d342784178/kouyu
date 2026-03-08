@@ -2,8 +2,7 @@
   "subSceneId": "study_abroad_107_sub_2",
   "subSceneName": "核对信息",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:29:11.126Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.946Z",
   "questions": [
     {
       "id": "study_abroad_107_sub_2_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "用完整正确姓名回答，避免重复错误拼写",
         "type": "fill_blank",
-        "situation": "你在办理酒店入住时，前台核对你的姓名，但拼写有误，你需要礼貌纠正并确认正确信息。",
-        "speakerText": "Your name is spelled 'Johm Smith' on the reservation—did you mean 'John'?",
-        "speakerTextCn": "预订信息上您的名字拼写为 'Johm Smith'，您是想写 'John' 吗？",
-        "responseTemplate": "Yes, that's a typo—please update it to ___.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "用完整正确姓名回答，避免重复错误拼写",
-        "knowledgePoint": "礼貌纠正信息并请求更新"
+        "situation": "你在办理酒店入住时，前台核对你的姓名，但拼写有误，你需要礼貌纠正并确认正确信息。",
+        "speakerText": "Your name is spelled 'Johm Smith' on the reservation—did you mean 'John'?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "预订信息上您的名字拼写为 'Johm Smith'，您是想写 'John' 吗？",
+        "knowledgePoint": "礼貌纠正信息并请求更新",
+        "responseTemplate": "Yes, that's a typo—please update it to ___."
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "直接提供正确邮箱，不要重复错误版本",
         "type": "fill_blank",
-        "situation": "你在申请签证时，工作人员发现你的邮箱地址填写错误，你需要确认正确邮箱并请对方修改。",
-        "speakerText": "The email on file is 'jane.doe@gamil.com'—is that correct?",
-        "speakerTextCn": "我们记录的邮箱是 'jane.doe@gamil.com'，这个正确吗？",
-        "responseTemplate": "Actually, it should be '___'. Could you please correct it?",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "直接提供正确邮箱，不要重复错误版本",
-        "knowledgePoint": "明确指出正确信息并请求修正"
+        "situation": "你在申请签证时，工作人员发现你的邮箱地址填写错误，你需要确认正确邮箱并请对方修改。",
+        "speakerText": "The email on file is 'jane.doe@gamil.com'—is that correct?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们记录的邮箱是 'jane.doe@gamil.com'，这个正确吗？",
+        "knowledgePoint": "明确指出正确信息并请求修正",
+        "responseTemplate": "Actually, it should be '___'. Could you please correct it?"
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "用简洁的名词短语回答职业，避免完整句子",
         "type": "fill_blank",
-        "situation": "你在银行开户时，柜员核对你的职业信息，但系统误填为‘学生’，而你实际上是‘工程师’，你需要澄清并请求更新。",
-        "speakerText": "Your occupation is listed as 'Student'—are you sure that's accurate?",
-        "speakerTextCn": "系统显示您的职业是‘学生’，这个信息准确吗？",
-        "responseTemplate": "No, I'm actually a(n) ___. Could you update the record?",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,100 @@
             ]
           }
         ],
-        "hint": "用简洁的名词短语回答职业，避免完整句子",
-        "knowledgePoint": "澄清身份信息并请求系统更新"
+        "situation": "你在银行开户时，柜员核对你的职业信息，但系统误填为‘学生’，而你实际上是‘工程师’，你需要澄清并请求更新。",
+        "speakerText": "Your occupation is listed as 'Student'—are you sure that's accurate?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "系统显示您的职业是‘学生’，这个信息准确吗？",
+        "knowledgePoint": "澄清身份信息并请求系统更新",
+        "responseTemplate": "No, I'm actually a(n) ___. Could you update the record?"
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_2_pq_4",
+      "subSceneId": "study_abroad_107_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "用于指代书面或系统录入的拼写错误，是核对信息场景中的高频词",
+        "qaId": "study_abroad_107_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "typo",
+            "options": [
+              "typo",
+              "mistake",
+              "error",
+              "fault"
+            ]
+          }
+        ],
+        "template": "Oh no! That's a ___—I live at 125. Can you fix it?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "高频词汇：typo（打字错误）"
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_2_pq_5",
+      "subSceneId": "study_abroad_107_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "用于描述专业、职位或计划的正式变更",
+        "qaId": "study_abroad_107_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "switched",
+            "options": [
+              "switched",
+              "changed",
+              "moved",
+              "turned"
+            ]
+          }
+        ],
+        "template": "Actually, I ___ to Biochem last week. Please update it!",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配：switch to（切换至）"
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_2_pq_6",
+      "subSceneId": "study_abroad_107_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表达感谢对方发现错误的固定搭配",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "125",
+            "options": [
+              "125",
+              "123",
+              "Maple St",
+              "Chen"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "catching",
+            "options": [
+              "catching",
+              "finding",
+              "noticing",
+              "seeing"
+            ]
+          }
+        ],
+        "template": "You're right, it's ___. Thanks for ___ that!",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定表达：thanks for catching that（感谢你发现）"
       }
     }
   ]

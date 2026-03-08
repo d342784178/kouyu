@@ -2,77 +2,76 @@
   "subSceneId": "social_080_sub_2",
   "subSceneName": "询问计划",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:44:01.556Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.692Z",
   "questions": [
     {
-      "id": "social_080_sub_2_choice_1",
+      "id": "social_080_sub_2_qa_1_choice_1",
       "subSceneId": "social_080_sub_2",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "social_080_sub_2_qa_1",
-        "speakerText": "You're not working on Christmas Day, right?",
-        "speakerTextCn": "你圣诞节那天不上班吧？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "No, I'm working overtime.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Nah, I'm off! Gonna chill with family.",
+            "text": "You're not working on Christmas Day, right?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "What are you doing on Christmas Day?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Yes, I have a big meeting.",
+            "text": "Do you have Christmas off?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I'm booking a flight tomorrow.",
+            "text": "Christmas is coming, aren't you excited?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了口语化缩写 'Nah' 和自然表达 'I'm off! Gonna chill with family'，符合对话中轻松自然的语境。其他选项要么与问题矛盾（如 'working overtime'），要么未直接回应假期安排（如 'booking a flight'），不符合口语回应习惯。"
+        "explanation": "正确答案使用了反义疑问句 'right?'，语气自然且符合确认对方假期安排的语境。选项2虽然语法正确，但属于开放性提问，不够直接契合确认性语境。选项3表达不够自然，'have Christmas off' 通常用于泛指假期，不如具体到 'on Christmas Day' 精准。选项4偏离主题，关注情绪而非安排，与场景无关。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想自然地询问对方圣诞节当天的安排，确认他是否上班"
       }
     },
     {
-      "id": "social_080_sub_2_choice_2",
+      "id": "social_080_sub_2_qa_2_choice_1",
       "subSceneId": "social_080_sub_2",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "social_080_sub_2_qa_2",
-        "speakerText": "What about New Year's? Any big plans?",
-        "speakerTextCn": "新年呢？有什么大计划吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'm going to the office to finish reports.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "I'm meeting friends for dinner, then fireworks!",
+            "text": "What about New Year's? Any big plans?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Do you like New Year's Day?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I need to buy a new phone.",
+            "text": "When is New Year's Eve?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "The weather is going to be cold.",
+            "text": "I'm planning a trip for New Year, what do you think?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了新年计划，使用了生动的口语表达 'meeting friends for dinner, then fireworks!'，符合场景中自然询问假期安排的意图。其他选项要么无关（如买手机）、要么是天气描述，未回应 'plans' 的核心问题。"
+        "explanation": "正确答案直接自然地询问对方假期计划，符合社交语境。干扰项1只询问喜好，未涉及计划；干扰项2是事实性提问，与安排无关；干扰项3是自我陈述加反问，不符合自然询问对方的语用规则。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想自然地询问对方新年假期有什么安排或计划"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Do you have anything planned for Thanksgiving?",
-        "speakerTextCn": "感恩节你有安排吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了节日安排，使用了符合文化背景的表达 'cooking a turkey with my cousins'，自然且具体。其他选项要么是无关事实（如月份）、要么是生活事务，未体现假期计划的核心意图。"
+        "explanation": "正确答案直接回应了节日安排，使用了符合文化背景的表达 'cooking a turkey with my cousins'，自然且具体。其他选项要么是无关事实（如月份）、要么是生活事务，未体现假期计划的核心意图。",
+        "speakerText": "Do you have anything planned for Thanksgiving?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "感恩节你有安排吗？"
       }
     }
   ]

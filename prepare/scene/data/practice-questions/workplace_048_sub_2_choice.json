@@ -2,112 +2,41 @@
   "subSceneId": "workplace_048_sub_2",
   "subSceneName": "询问系统登录",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:18:49.055Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.535Z",
   "questions": [
     {
-      "id": "workplace_048_sub_2_choice_1",
+      "id": "workplace_048_sub_2_qa_1_choice_1",
       "subSceneId": "workplace_048_sub_2",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "workplace_048_sub_2_qa_1",
-        "speakerText": "How do I log into the expense system? I forgot my password.",
-        "speakerTextCn": "报销系统怎么登录？我忘记密码了。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "You should call the IT department immediately.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "You can reset it via the portal—just click 'Forgot Password'.",
+            "text": "How do I log into the expense system? I forgot my password.",
             "isCorrect": true
           },
           {
-            "id": "opt_3",
-            "text": "You need to buy a new login key from the store.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Just use your personal email address.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 'You can reset it via the portal—just click 'Forgot Password'.'，因为这是公司系统标准的密码重置流程。选项1虽然合理但不够高效，不是直接解决方案；选项3完全错误，公司系统无需购买密钥；选项4错误，必须使用工号邮箱而非私人邮箱。"
-      }
-    },
-    {
-      "id": "workplace_048_sub_2_choice_2",
-      "subSceneId": "workplace_048_sub_2",
-      "type": "choice",
-      "order": 2,
-      "content": {
-        "type": "choice",
-        "qaId": "workplace_048_sub_2_qa_1",
-        "speakerText": "I can't access the expense system. Where is it located?",
-        "speakerTextCn": "我无法访问报销系统，它在哪里？",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "It's on the public internet, just search for 'expense system'.",
-            "isCorrect": false
-          },
-          {
             "id": "opt_2",
-            "text": "The system's on the company intranet. Need me to send you the link?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_3",
-            "text": "You have to install an app from the Apple Store.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "It's only available on Friday afternoons.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 'The system's on the company intranet. Need me to send you the link?'，因为企业系统通常只在内网访问。选项1错误，内网系统不会公开在互联网；选项3错误，系统不是通过App Store安装；选项4无依据，系统应全天可用。"
-      }
-    },
-    {
-      "id": "workplace_048_sub_2_choice_3",
-      "subSceneId": "workplace_048_sub_2",
-      "type": "choice",
-      "order": 3,
-      "content": {
-        "type": "choice",
-        "qaId": "workplace_048_sub_2_qa_1",
-        "speakerText": "What email should I use to log in to the expense system?",
-        "speakerTextCn": "我该用哪个邮箱登录报销系统？",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Use your Gmail account.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Use your personal Hotmail address.",
+            "text": "Can you send me the expense system link?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Just use your work email.",
-            "isCorrect": true
+            "text": "Is the expense system working today?",
+            "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "You can use any email you registered with last year.",
+            "text": "I need to submit a report, can you help?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是 'Just use your work email.'，因为企业系统要求使用公司分配的工号邮箱。选项1和2使用私人邮箱，不符合公司安全政策；选项4模糊且不准确，系统只认当前���效工号邮箱。"
+        "explanation": "正确答案直接询问登录方式并说明忘记密码，符合场景需求。选项2只问链接，未提及账号或密码问题，信息不完整；选项3关注系统是否可用，与登录方式无关；选项4偏离主题，谈论提交报告而非登录问题。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工需要登录报销系统，但忘记了登录方式和密码，想向同事寻求帮助。"
       }
     }
   ]

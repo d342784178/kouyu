@@ -2,20 +2,70 @@
   "subSceneId": "workplace_048_sub_4",
   "subSceneName": "审批流程与时间",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:33:24.524Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.540Z",
   "questions": [
+    {
+      "id": "workplace_048_sub_4_qa_1_fill_blank_1",
+      "subSceneId": "workplace_048_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "在询问审批周期时使用的句子结构",
+        "qaId": "workplace_048_sub_4_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "How long does approval usually take?",
+            "options": [
+              "How long does it take?",
+              "How long will it take?",
+              "How long does approval take?",
+              "How long does the approval take?"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工询问报销审批周期和到账时间",
+        "knowledgePoint": "提问句型与时间",
+        "responseTemplate": "审批一般要多久?"
+      }
+    },
+    {
+      "id": "workplace_048_sub_4_qa_2_fill_blank_1",
+      "subSceneId": "workplace_048_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "提问的关键部分是时间",
+        "qaId": "workplace_048_sub_4_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "到账",
+            "options": [
+              "到账",
+              "汇款",
+              "审批",
+              "支付"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工询问报销审批周期和到账时间",
+        "knowledgePoint": "提问句型和时间表达",
+        "responseTemplate": "钱什么时候___"
+      }
+    },
     {
       "id": "workplace_048_sub_4_fill_blank_1",
       "subSceneId": "workplace_048_sub_4",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "审批通常不是立即完成的，要用表示工作日范围的表达。",
         "type": "fill_blank",
-        "situation": "员工在提交报销申请后，向财务同事询问审批大概需要多久，以便安排个人财务计划。",
-        "speakerText": "I just submitted my expense report. How long does the approval process usually take?",
-        "speakerTextCn": "我刚提交了报销单，审批一般需要多久？",
-        "responseTemplate": "It usually takes ___ after submission.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +78,12 @@
             ]
           }
         ],
-        "hint": "审批通常不是立即完成的，要用表示工作日范围的表达。",
-        "knowledgePoint": "表达审批周期的常用范围结构"
+        "situation": "员工在提交报销申请后，向财务同事询问审批大概需要多久，以便安排个人财务计划。",
+        "speakerText": "I just submitted my expense report. How long does the approval process usually take?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我刚提交了报销单，审批一般需要多久？",
+        "knowledgePoint": "表达审批周期的常用范围结构",
+        "responseTemplate": "It usually takes ___ after submission."
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "结合公司发薪周期来说明更准确，避免绝对时间。",
         "type": "fill_blank",
-        "situation": "员工担心报销到账时间，向人事部门确认款项在审批通过后多久能实际到账。",
-        "speakerText": "Once it's approved, when can I expect the money to be deposited?",
-        "speakerTextCn": "审批通过后，我什么时候能收到款项？",
-        "responseTemplate": "It usually goes through ___ after approval.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "结合公司发薪周期来说明更准确，避免绝对时间。",
-        "knowledgePoint": "结合发薪周期说明到账时间的表达方式"
+        "situation": "员工担心报销到账时间，向人事部门确认款项在审批通过后多久能实际到账。",
+        "speakerText": "Once it's approved, when can I expect the money to be deposited?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "审批通过后，我什么时候能收到款项？",
+        "knowledgePoint": "结合发薪周期说明到账时间的表达方式",
+        "responseTemplate": "It usually goes through ___ after approval."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "关键因素是审批人是否在岗，而不是系统或金额问题。",
         "type": "fill_blank",
-        "situation": "员工听说经理出差，担心报销审批会被延迟，想确认是否会影响整体流程。",
-        "speakerText": "I heard our manager is traveling this week. Will that delay the approval?",
-        "speakerTextCn": "我听说我们经理这周在出差，这会影响审批吗？",
-        "responseTemplate": "It might take a bit longer if ___.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "关键因素是审批人是否在岗，而不是系统或金额问题。",
-        "knowledgePoint": "表达审批延迟的合理原因"
+        "situation": "员工听说经理出差，担心报销审批会被延迟，想确认是否会影响整体流程。",
+        "speakerText": "I heard our manager is traveling this week. Will that delay the approval?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我听说我们经理这周在出差，这会影响审批吗？",
+        "knowledgePoint": "表达审批延迟的合理原因",
+        "responseTemplate": "It might take a bit longer if ___."
+      }
+    },
+    {
+      "id": "workplace_048_sub_4_pq_6",
+      "subSceneId": "workplace_048_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表示时间延长的常用表达",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "longer",
+            "options": [
+              "longer",
+              "faster",
+              "less",
+              "earlier"
+            ]
+          }
+        ],
+        "template": "If your manager is on vacation, the approval might take ___.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "惯用搭配（might take longer）"
       }
     }
   ]

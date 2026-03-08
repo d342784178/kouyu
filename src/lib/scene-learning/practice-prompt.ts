@@ -9,7 +9,7 @@
  */
 
 import type { SubScene, QAPair } from '@/lib/db/schema'
-import type { QAResponse } from '@/types'
+import type { FollowUp } from '@/types'
 
 /**
  * 选择题输出结构
@@ -17,8 +17,8 @@ import type { QAResponse } from '@/types'
 export interface ChoiceQuestionOutput {
   type: 'choice'
   qaId: string | null
-  speakerText: string
-  speakerTextCn: string
+  triggerText: string
+  triggerTextCn: string
   options: Array<{
     id: string
     text: string
@@ -48,8 +48,8 @@ export interface FillBlankQuestionOutput {
 export interface SpeakingQuestionOutput {
   type: 'speaking'
   qaId: string | null
-  speakerText: string
-  speakerTextCn: string
+  triggerText: string
+  triggerTextCn: string
   expectedAnswers: string[]
   evaluationCriteria: string[]
 }
@@ -67,11 +67,11 @@ export interface PracticePromptOutput {
 }
 
 /**
- * 从 QAPair 的 responses 字段中安全解析出 QAResponse 数组
+ * 从 QAPair 的 followUps 字段中安全解析出 FollowUp 数组
  */
-function parseResponses(responses: unknown): QAResponse[] {
-  if (!Array.isArray(responses)) return []
-  return responses as QAResponse[]
+function parseFollowUps(followUps: unknown): FollowUp[] {
+  if (!Array.isArray(followUps)) return []
+  return followUps as FollowUp[]
 }
 
 /**
@@ -79,15 +79,15 @@ function parseResponses(responses: unknown): QAResponse[] {
  */
 function formatQaPairsForPrompt(qaPairs: QAPair[]): string {
   return qaPairs.map((qa, index) => {
-    const responses = parseResponses(qa.responses)
-    const responsesText = responses.map(r => `  - ${r.text}（${r.text_cn}）`).join('\n')
+    const followUps = parseFollowUps(qa.followUps)
+    const followUpsText = followUps.map(r => `  - ${r.text}（${r.text_cn}）`).join('\n')
 
     return `[QA_${index + 1}] ID: ${qa.id}
-类型: ${qa.qaType}
-对方说: ${qa.speakerText}
-中文: ${qa.speakerTextCn}
+类型: ${qa.learnRequirement}
+对方说: ${qa.triggerText}
+中文: ${qa.triggerTextCn}
 标准回应:
-${responsesText}
+${followUpsText}
 ${qa.usageNote ? `使用说明: ${qa.usageNote}` : ''}`
   }).join('\n\n')
 }
@@ -127,8 +127,8 @@ export function buildPracticePrompt(
     {
       "type": "choice",
       "qaId": "对应的QA_Pair ID（如果题目来自QA_Pair）或null（如果自主创作）",
-      "speakerText": "对方说的话（英文）",
-      "speakerTextCn": "对方说的话（中文）",
+      "triggerText": "对方说的话（英文）",
+      "triggerTextCn": "对方说的话（中文）",
       "options": [
         {"id": "opt_1", "text": "选项文本", "isCorrect": true或false}
       ],
@@ -293,8 +293,8 @@ export function buildPracticePromptForTypes(
 {
   "type": "choice",
   "qaId": "QA_Pair ID或null",
-  "speakerText": "对方说的话（英文）",
-  "speakerTextCn": "中文翻译",
+  "triggerText": "对方说的话（英文）",
+  "triggerTextCn": "中文翻译",
   "options": [
     {"id": "opt_1", "text": "选项", "isCorrect": boolean}
   ],
@@ -366,8 +366,8 @@ export function buildSingleQuestionPrompt(
   questionType: 'choice' | 'fill_blank' | 'speaking',
   allQaPairs: QAPair[]
 ): Array<{ role: 'system' | 'user'; content: string }> {
-  const responses = parseResponses(qaPair.responses)
-  const responsesText = responses.map(r => `- ${r.text}（${r.text_cn}）`).join('\n')
+  const followUps = parseFollowUps(qaPair.followUps)
+  const followUpsText = followUps.map(r => `- ${r.text}（${r.text_cn}）`).join('\n')
 
   const typeSpecificRules = {
     choice: `生成一道选择题：
@@ -395,19 +395,19 @@ export function buildSingleQuestionPrompt(
 
 ${typeSpecificRules[questionType]}`
 
-  const otherResponses = allQaPairs
+  const otherFollowUps = allQaPairs
     .filter(qa => qa.id !== qaPair.id)
-    .flatMap(qa => parseResponses(qa.responses).map(r => r.text))
+    .flatMap(qa => parseFollowUps(qa.followUps).map(r => r.text))
     .slice(0, 10)
 
   const userPrompt = `对话信息：
-- 对方说：${qaPair.speakerText}（${qaPair.speakerTextCn}）
+- 对方说：${qaPair.triggerText}（${qaPair.triggerTextCn}）
 - 标准回应：
-${responsesText}
+${followUpsText}
 ${qaPair.usageNote ? `- 使用说明：${qaPair.usageNote}` : ''}
 
-${questionType === 'choice' && otherResponses.length > 0 ? `其他对话中的回应（可作为干扰项参考）：
-${otherResponses.join('\n')}` : ''}
+${questionType === 'choice' && otherFollowUps.length > 0 ? `其他对话中的回应（可作为干扰项参考）：
+${otherFollowUps.join('\n')}` : ''}
 
 请生成题目（直接输出 JSON）：`
 

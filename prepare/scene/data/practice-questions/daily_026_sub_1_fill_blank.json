@@ -2,8 +2,7 @@
   "subSceneId": "daily_026_sub_1",
   "subSceneName": "打招呼问候",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:25:47.521Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.618Z",
   "questions": [
     {
       "id": "daily_026_sub_1_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "用 'I'm looking for' 表达需求，后面接名词短语，保持礼貌自然",
         "type": "fill_blank",
-        "situation": "你在农贸市场遇到一位摊主，他微笑着主动跟你打招呼，准备开启对话。",
-        "speakerText": "Hi there! How can I help you today?",
-        "speakerTextCn": "嗨！今天需要点什么？",
-        "responseTemplate": "Hi! I'm looking for ___",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "用 'I'm looking for' 表达需求，后面接名词短语，保持礼貌自然",
-        "knowledgePoint": "礼貌表达需求的常用结构"
+        "situation": "你在农贸市场遇到一位摊主，他微笑着主动跟你打招呼，准备开启对话。",
+        "speakerText": "Hi there! How can I help you today?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨！今天需要点什么？",
+        "knowledgePoint": "礼貌表达需求的常用结构",
+        "responseTemplate": "Hi! I'm looking for ___"
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "用 'Could I get...' 表达请求更礼貌，避免直接说 'I need'",
         "type": "fill_blank",
-        "situation": "你走进一家街边面包店，老板热情地向你打招呼，准备为你服务。",
-        "speakerText": "Good morning! What are you in the mood for?",
-        "speakerTextCn": "早上好！想买点什么？",
-        "responseTemplate": "Hi! Could I get ___?",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "用 'Could I get...' 表达请求更礼貌，避免直接说 'I need'",
-        "knowledgePoint": "礼貌请求的委婉表达方式"
+        "situation": "你走进一家街边面包店，老板热情地向你打招呼，准备为你服务。",
+        "speakerText": "Good morning! What are you in the mood for?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "早上好！想买点什么？",
+        "knowledgePoint": "礼貌请求的委婉表达方式",
+        "responseTemplate": "Hi! Could I get ___?"
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "用 'I'd like' 表达愿望，比 'I want' 更礼貌，适合日常服务场景",
         "type": "fill_blank",
-        "situation": "你在花卉摊前，摊主笑着问你是否需要帮忙。",
-        "speakerText": "Hey! Looking for something special today?",
-        "speakerTextCn": "嘿！今天想找点特别的吗？",
-        "responseTemplate": "Hi! I'd like ___",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "用 'I'd like' 表达愿望，比 'I want' 更礼貌，适合日常服务场景",
-        "knowledgePoint": "表达愿望的礼貌句型"
+        "situation": "你在花卉摊前，摊主笑着问你是否需要帮忙。",
+        "speakerText": "Hey! Looking for something special today?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嘿！今天想找点特别的吗？",
+        "knowledgePoint": "表达愿望的礼貌句型",
+        "responseTemplate": "Hi! I'd like ___"
+      }
+    },
+    {
+      "id": "daily_026_sub_1_pq_4",
+      "subSceneId": "daily_026_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "在肯定句中表达不确定数量的可数/不可数名词时，常用这个限定词",
+        "qaId": "daily_026_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "some",
+            "options": [
+              "some",
+              "any",
+              "a",
+              "the"
+            ]
+          }
+        ],
+        "template": "Hi! I'm looking for ___ tomatoes.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "some 的用法（肯定句中表示不确定数量）"
+      }
+    },
+    {
+      "id": "daily_026_sub_1_pq_5",
+      "subSceneId": "daily_026_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "在市场购物时，顾客常强调食材的品质",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "fresh",
+            "options": [
+              "fresh",
+              "expensive",
+              "big",
+              "red"
+            ]
+          }
+        ],
+        "template": "Hey! Got any ___ vegetables?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景高频词汇（fresh 用于描述农产品品质）"
+      }
+    },
+    {
+      "id": "daily_026_sub_1_pq_6",
+      "subSceneId": "daily_026_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "摊主常用句型，表示‘能为您做点什么？’",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "get",
+            "options": [
+              "get",
+              "give",
+              "bring",
+              "sell"
+            ]
+          }
+        ],
+        "template": "Hi there! What can I ___ you today?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定表达（What can I get you?）"
       }
     }
   ]

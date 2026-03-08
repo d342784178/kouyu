@@ -2,8 +2,7 @@
   "subSceneId": "daily_005_sub_2",
   "subSceneName": "描述症状",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:03.520Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.464Z",
   "questions": [
     {
       "id": "daily_005_sub_2_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "描述两个并列的身体不适症状，常用 'and' 连接",
         "type": "fill_blank",
-        "situation": "你去看医生，描述持续的咳嗽和喉咙痛，医生询问是否有其他症状。",
-        "speakerText": "Any cough or sore throat?",
-        "speakerTextCn": "有咳嗽或喉咙痛吗？",
-        "responseTemplate": "I've had a persistent cough and ___.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "描述两个并列的身体不适症状，常用 'and' 连接",
-        "knowledgePoint": "并列症状描述"
+        "situation": "你去看医生，描述持续的咳嗽和喉咙痛，医生询问是否有其他症状。",
+        "speakerText": "Any cough or sore throat?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "有咳嗽或喉咙痛吗？",
+        "knowledgePoint": "并列症状描述",
+        "responseTemplate": "I've had a persistent cough and ___."
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "表达转折关系，否定一个症状但补充另一个相关症状时常用",
         "type": "fill_blank",
-        "situation": "医生问你是否伴有发烧，你没有发烧但感觉全身乏力。",
-        "speakerText": "Do you have a fever?",
-        "speakerTextCn": "你发烧吗？",
-        "responseTemplate": "No fever, ___ I feel really exhausted.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "表达转折关系，否定一个症状但补充另一个相关症状时常用",
-        "knowledgePoint": "转折语气表达"
+        "situation": "医生问你是否伴有发烧，你没有发烧但感觉全身乏力。",
+        "speakerText": "Do you have a fever?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你发烧吗？",
+        "knowledgePoint": "转折语气表达",
+        "responseTemplate": "No fever, ___ I feel really exhausted."
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "强调特定情境下的症状加重，常用 'especially' 引出具体触发情况",
         "type": "fill_blank",
-        "situation": "你向医生描述自己最近总感到头晕，尤其是站起来的时候。",
-        "speakerText": "What else are you experiencing?",
-        "speakerTextCn": "你还感觉哪里不舒服？",
-        "responseTemplate": "I keep getting dizzy, ___ when I stand up.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,100 @@
             ]
           }
         ],
-        "hint": "强调特定情境下的症状加重，常用 'especially' 引出具体触发情况",
-        "knowledgePoint": "症状情境强化表达"
+        "situation": "你向医生描述自己最近总感到头晕，尤其是站起来的时候。",
+        "speakerText": "What else are you experiencing?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你还感觉哪里不舒服？",
+        "knowledgePoint": "症状情境强化表达",
+        "responseTemplate": "I keep getting dizzy, ___ when I stand up."
+      }
+    },
+    {
+      "id": "daily_005_sub_2_pq_4",
+      "subSceneId": "daily_005_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "描述身体不适的常见名词，与'tight'（僵硬）并列出现",
+        "qaId": "daily_005_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "headache",
+            "options": [
+              "headache",
+              "cold",
+              "appointment",
+              "rest"
+            ]
+          }
+        ],
+        "template": "I've had a ___ for three days and my back feels really tight.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "症状名词搭配（headache + stiff/tight body part）"
+      }
+    },
+    {
+      "id": "daily_005_sub_2_pq_5",
+      "subSceneId": "daily_005_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "医生常问的两个症状之一，与'nausea'并列",
+        "qaId": "daily_005_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "fever",
+            "options": [
+              "fever",
+              "pain",
+              "sleep",
+              "time"
+            ]
+          }
+        ],
+        "template": "No ___, but I feel kinda sick to my stomach.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "常见症状词汇（fever, nausea）与but转折结构"
+      }
+    },
+    {
+      "id": "daily_005_sub_2_pq_6",
+      "subSceneId": "daily_005_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "描述颈部或头部不适时的常见动作",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "head",
+            "options": [
+              "head",
+              "leg",
+              "phone",
+              "book"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "turn",
+            "options": [
+              "turn",
+              "shake",
+              "touch",
+              "wash"
+            ]
+          }
+        ],
+        "template": "My ___ has been hurting since Monday, and I can't ___ my head.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配（turn one's head）与时间状语since"
       }
     }
   ]

@@ -1,19 +1,26 @@
 {
   "sceneId": "travel_055",
   "sceneName": "问路导航",
+  "exportedAt": "2026-03-08T15:31:54.886Z",
   "subScenes": [
     {
       "id": "travel_055_sub_1",
+      "sceneId": "travel_055",
       "name": "礼貌打招呼",
       "description": "礼貌打断路人开始问路",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_055_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Excuse me, could I ask for a quick favor?",
-          "speakerTextCn": "不好意思，能麻烦您一下吗？",
-          "responses": [
+          "subSceneId": "travel_055_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Excuse me, could I ask for a quick favor?",
+          "triggerTextCn": "不好意思，能麻烦您一下吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户需要礼貌地打断他人，表达请求",
+          "followUps": [
             {
               "text": "Of course, what can I help you with?",
               "text_cn": "当然，有什么可以帮您的？",
@@ -30,14 +37,21 @@
               "audio_url": "COS:/qa/responses/travel_055_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于礼貌开启问路对话"
+          "usageNote": "用于礼貌开启问路对话",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "travel_055_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I'm looking for the nearest subway station. Could you point me in the right direction?",
-          "speakerTextCn": "我在找最近的地铁站，您能指一下方向吗？",
-          "responses": [
+          "subSceneId": "travel_055_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'm looking for the nearest subway station. Could you point me in the right direction?",
+          "triggerTextCn": "我在找最近的地铁站，您能指一下方向吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户需要礼貌地打断他人，表达请求",
+          "followUps": [
             {
               "text": "",
               "text_cn": "",
@@ -49,14 +63,21 @@
               "audio_url": "COS:/qa/responses/travel_055_sub_1_qa_2_response1.mp3"
             }
           ],
-          "usageNote": "询问具体地点的标准表达"
+          "usageNote": "询问具体地点的标准表达",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_1_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
         },
         {
           "id": "travel_055_sub_1_qa_3",
-          "qaType": "must_speak",
-          "speakerText": "Sorry, I'm not from around here either. I'm not sure.",
-          "speakerTextCn": "抱歉，我也不是本地人，我不太确定。",
-          "responses": [
+          "subSceneId": "travel_055_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Sorry, I'm not from around here either. I'm not sure.",
+          "triggerTextCn": "抱歉，我也不是本地人，我不太确定。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户需要礼貌地打断他人，表达请求",
+          "followUps": [
             {
               "text": "",
               "text_cn": "",
@@ -68,36 +89,52 @@
               "audio_url": "COS:/qa/responses/travel_055_sub_1_qa_3_response1.mp3"
             }
           ],
-          "usageNote": "对方不知道时的应对"
+          "usageNote": "对方不知道时的应对",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         },
         {
           "id": "travel_055_sub_1_qa_4",
-          "qaType": "listen_only",
-          "speakerText": "You can also use Google Maps — it's very accurate around here.",
-          "speakerTextCn": "您也可以用谷歌地图，这附近很准确。",
-          "responses": [
+          "subSceneId": "travel_055_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "You can also use Google Maps — it's very accurate around here.",
+          "triggerTextCn": "您也可以用谷歌地图，这附近很准确。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户需要礼貌地打断他人，表达请求",
+          "followUps": [
             {
               "text": "",
               "text_cn": "",
               "audio_url": "COS:/qa/responses/travel_055_sub_1_qa_4_response0.mp3"
             }
           ],
-          "usageNote": "对方建议使用导航软件"
+          "usageNote": "对方建议使用导航软件",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_1_qa_4.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 4
         }
       ]
     },
     {
       "id": "travel_055_sub_2",
+      "sceneId": "travel_055",
       "name": "询问目的地",
       "description": "清楚说出你要去的地方",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_055_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "That's right. You'll see a big fountain — that's the landmark.",
-          "speakerTextCn": "对的。您会看到一个大喷泉，那就是地标。",
-          "responses": [
+          "subSceneId": "travel_055_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "That's right. You'll see a big fountain — that's the landmark.",
+          "triggerTextCn": "对的。您会看到一个大喷泉，那就是地标。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "",
               "text_cn": "",
@@ -109,14 +146,21 @@
               "audio_url": "COS:/qa/responses/travel_055_sub_2_qa_2_response1.mp3"
             }
           ],
-          "usageNote": "确认地标帮助辨认方向"
+          "usageNote": "确认地标帮助辨认方向",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_2_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         },
         {
           "id": "travel_055_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Do you know how to get to the Central Museum?",
-          "speakerTextCn": "你知道怎么去中央博物馆吗？",
-          "responses": [
+          "subSceneId": "travel_055_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you know how to get to the Central Museum?",
+          "triggerTextCn": "你知道怎么去中央博物馆吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Yes, it's just two blocks north on Main Street.",
               "text_cn": "知道，沿着主街向北两个街区。",
@@ -133,14 +177,21 @@
               "audio_url": "COS:/qa/responses/travel_055_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "询问具体地点的常用句型"
+          "usageNote": "询问具体地点的常用句型",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         },
         {
           "id": "travel_055_sub_2_qa_3",
-          "qaType": "must_speak",
-          "speakerText": "It's about a 10-minute walk. You can't miss it.",
-          "speakerTextCn": "大约走10分钟，您不会错过的。",
-          "responses": [
+          "subSceneId": "travel_055_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "It's about a 10-minute walk. You can't miss it.",
+          "triggerTextCn": "大约走10分钟，您不会错过的。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "",
               "text_cn": "",
@@ -152,14 +203,21 @@
               "audio_url": "COS:/qa/responses/travel_055_sub_2_qa_3_response1.mp3"
             }
           ],
-          "usageNote": "询问距离和时间"
+          "usageNote": "询问距离和时间",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         },
         {
           "id": "travel_055_sub_2_qa_4",
-          "qaType": "must_speak",
-          "speakerText": "You're welcome! Enjoy your visit!",
-          "speakerTextCn": "不客气！祝您参观愉快！",
-          "responses": [
+          "subSceneId": "travel_055_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "You're welcome! Enjoy your visit!",
+          "triggerTextCn": "不客气！祝您参观愉快！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "",
               "text_cn": "",
@@ -171,41 +229,31 @@
               "audio_url": "COS:/qa/responses/travel_055_sub_2_qa_4_response1.mp3"
             }
           ],
-          "usageNote": "道谢后的礼貌回应"
+          "usageNote": "道谢后的礼貌回应",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_2_qa_4.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 4
         }
       ]
     },
     {
       "id": "travel_055_sub_3",
+      "sceneId": "travel_055",
       "name": "确认方向",
       "description": "确认左右、前后等方位指引",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
-          "id": "travel_055_sub_3_qa_3",
-          "qaType": "must_speak",
-          "speakerText": "In that case, you need to turn around and walk back about 200 meters.",
-          "speakerTextCn": "那样的话，您需要转身往回走大约200米。",
-          "responses": [
-            {
-              "text": "",
-              "text_cn": "",
-              "audio_url": "COS:/qa/responses/travel_055_sub_3_qa_3_response0.mp3"
-            },
-            {
-              "text": "",
-              "text_cn": "",
-              "audio_url": "COS:/qa/responses/travel_055_sub_3_qa_3_response1.mp3"
-            }
-          ],
-          "usageNote": "走错方向时的纠正指引"
-        },
-        {
           "id": "travel_055_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Is it far from here? And do I turn left or right after the post office?",
-          "speakerTextCn": "离这儿远吗？过了邮局是左转还是右转？",
-          "responses": [
+          "subSceneId": "travel_055_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "Is it far from here? And do I turn left or right after the post office?",
+          "triggerTextCn": "离这儿远吗？过了邮局是左转还是右转？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "在询问方向时，应先礼貌地打招呼，然后提出具体问题。",
+          "followUps": [
             {
               "text": "It's about five minutes walk. Turn left after the post office.",
               "text_cn": "大概五分钟路程，邮局后左转。",
@@ -222,28 +270,47 @@
               "audio_url": "COS:/qa/responses/travel_055_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "确认方向和距离的关键提问"
+          "usageNote": "确认方向和距离的关键提问",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         },
         {
-          "id": "travel_055_sub_3_qa_4",
-          "qaType": "listen_only",
-          "speakerText": "No problem at all. It happens to everyone in a new city!",
-          "speakerTextCn": "完全没问题。在陌生城市迷路是常有的事！",
-          "responses": [
+          "id": "travel_055_sub_3_qa_3",
+          "subSceneId": "travel_055_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "In that case, you need to turn around and walk back about 200 meters.",
+          "triggerTextCn": "那样的话，您需要转身往回走大约200米。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "在询问方向时，应先礼貌地打招呼，然后提出具体问题。",
+          "followUps": [
             {
               "text": "",
               "text_cn": "",
-              "audio_url": "COS:/qa/responses/travel_055_sub_3_qa_4_response0.mp3"
+              "audio_url": "COS:/qa/responses/travel_055_sub_3_qa_3_response0.mp3"
+            },
+            {
+              "text": "",
+              "text_cn": "",
+              "audio_url": "COS:/qa/responses/travel_055_sub_3_qa_3_response1.mp3"
             }
           ],
-          "usageNote": "对方安慰的友好回应"
+          "usageNote": "走错方向时的纠正指引",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         },
         {
           "id": "travel_055_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Is it far from here?",
-          "speakerTextCn": "离这儿远吗？",
-          "responses": [
+          "subSceneId": "travel_055_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "Is it far from here?",
+          "triggerTextCn": "离这儿远吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "在询问方向时，应先礼貌地打招呼，然后提出具体问题。",
+          "followUps": [
             {
               "text": "",
               "text_cn": "",
@@ -258,22 +325,52 @@
               "audio_url": "https://kouyu-scene-1300762139.cos.ap-guangzhou.myqcloud.com/qa-audio/responses/travel_055_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "用is it far?确认距离很实用"
+          "usageNote": "用is it far?确认距离很实用",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 4
+        },
+        {
+          "id": "travel_055_sub_3_qa_4",
+          "subSceneId": "travel_055_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "No problem at all. It happens to everyone in a new city!",
+          "triggerTextCn": "完全没问题。在陌生城市迷路是常有的事！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "在询问方向时，应先礼貌地打招呼，然后提出具体问题。",
+          "followUps": [
+            {
+              "text": "",
+              "text_cn": "",
+              "audio_url": "COS:/qa/responses/travel_055_sub_3_qa_4_response0.mp3"
+            }
+          ],
+          "usageNote": "对方安慰的友好回应",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_3_qa_4.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 4
         }
       ]
     },
     {
       "id": "travel_055_sub_4",
+      "sceneId": "travel_055",
       "name": "道谢告别",
       "description": "表达感谢并礼貌结束对话",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_055_sub_4_qa_1",
-          "qaType": "listen_only",
-          "speakerText": "Thanks so much for your help!",
-          "speakerTextCn": "非常感谢你的帮助！",
-          "responses": [
+          "subSceneId": "travel_055_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thanks so much for your help!",
+          "triggerTextCn": "非常感谢你的帮助！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "You're welcome! Have a great day!",
               "text_cn": "不客气，祝你今天愉快！",
@@ -290,7 +387,10 @@
               "audio_url": "COS:/qa/responses/travel_055_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "表达感谢并结束对话"
+          "usageNote": "表达感谢并结束对话",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_4_qa_1.mp3",
+          "learnRequirement": "listen_only",
+          "order": 5
         }
       ]
     }

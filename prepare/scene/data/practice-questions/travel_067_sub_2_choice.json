@@ -2,77 +2,76 @@
   "subSceneId": "travel_067_sub_2",
   "subSceneName": "询问必要性",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:08:47.367Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.200Z",
   "questions": [
     {
-      "id": "travel_067_sub_2_choice_1",
+      "id": "travel_067_sub_2_qa_2_choice_1",
       "subSceneId": "travel_067_sub_2",
       "type": "choice",
       "order": 1,
       "content": {
+        "qaId": "travel_067_sub_2_qa_2",
         "type": "choice",
-        "qaId": "travel_067_sub_2_qa_1",
-        "speakerText": "Do I really need travel insurance? I mean, it's just a short trip to Japan.",
-        "speakerTextCn": "我真的需要买旅游保险吗？只是去日本短途旅行。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Absolutely! Even short trips can have unexpected issues like flight delays or lost luggage.",
+            "text": "What does the basic plan cover?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "No, you don't need it—Japan is very safe and hospitals are free.",
+            "text": "Is insurance mandatory?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "It's mandatory by law, so you must buy it.",
+            "text": "How much does the insurance cost?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I don't know, maybe ask the airline.",
+            "text": "Can I buy insurance later?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案用具体理由（航班延误、行李丢失）增强说服力，符合使用说明。干扰项1错误地声称日本医院免费（实际不免费）；干扰项2夸大法律强制要求；干扰项4回避问题，缺乏专业建议。"
+        "explanation": "正确答案 'What does the basic plan cover?' 直接询问保障范围，符合旅客了解保险内容的核心需求。干扰项 'Is insurance mandatory?' 仅询问是否必须购买，未涉及保障内容；'How much does the insurance cost?' 关注价格而非保障范围；'Can I buy insurance later?' 询问购买时机，偏离了了解保险覆盖范围的意图。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "旅客在购买旅行保险时，想了解基础保险计划具体包含哪些保障内容，以便判断是否必须购买。"
       }
     },
     {
-      "id": "travel_067_sub_2_choice_2",
+      "id": "travel_067_sub_2_qa_1_choice_1",
       "subSceneId": "travel_067_sub_2",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "travel_067_sub_2_qa_1",
         "type": "choice",
-        "qaId": "travel_067_sub_2_qa_2",
-        "speakerText": "What does the basic plan cover?",
-        "speakerTextCn": "基础计划都保什么？",
         "options": [
           {
             "id": "opt_1",
-            "text": "It covers medical emergencies, trip cancellations, and lost baggage — all the big stuff.",
+            "text": "Do I really need travel insurance for a short trip to Japan?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "It includes free meals, hotel upgrades, and guided tours.",
+            "text": "How much does travel insurance cost?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Only flight delays and visa fees are covered.",
+            "text": "Can you recommend a good travel insurance company?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Everything—medical, legal, and even pet care.",
+            "text": "I want to buy travel insurance, what do I need to do?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案简洁明确地列出核心保障（医疗、取消、行李），符合使用说明。干扰项1添加了不属于基础计划的餐饮和导游；干扰项2缩小范围且包含错误内容（签证费通常不保）；干扰项4夸大范围，不符合现实。"
+        "explanation": "正确答案直接询问保险的必要性，符合场景中旅客的核心疑问。选项2只关心价格，忽略了是否必须购买的问题；选项3假设旅客已决定购买，偏离了确认必要性的初衷；选项4直接进入购买流程，未先确认需求，不符合对话逻辑。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "旅客计划去日本进行短途旅行，不确定是否必须购买旅游保险，想确认保险的必要性及覆盖范围。"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Is travel insurance worth it if I'm only staying for three days?",
-        "speakerTextCn": "如果我只待三天，买旅游保险值得吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案强调意外风险与时长无关，符合场景核心逻辑。干扰项1错误暗示保险有等待期；干扰项2��保障范围局限在贵重物品，忽略医疗和行程变更；干扰项4推卸责任，非专业回应。"
+        "explanation": "正确答案强调意外风险与时长无关，符合场景核心逻辑。干扰项1错误暗示保险有等待期；干扰项2��保障范围局限在贵重物品，忽略医疗和行程变更；干扰项4推卸责任，非专业回应。",
+        "speakerText": "Is travel insurance worth it if I'm only staying for three days?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "如果我只待三天，买旅游保险值得吗？"
       }
     }
   ]

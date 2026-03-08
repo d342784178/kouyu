@@ -2,20 +2,80 @@
   "subSceneId": "workplace_052_sub_2",
   "subSceneName": "询问操作",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:33:50.327Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.572Z",
   "questions": [
+    {
+      "id": "workplace_052_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "workplace_052_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "请回忆询问复印机的使用和设置时使用的正确句型",
+        "qaId": "workplace_052_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "copies",
+            "options": [
+              "文件",
+              "机器",
+              "复印机",
+              "操作"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "询问复印机的使用和设置",
+        "knowledgePoint": "提问句型",
+        "responseTemplate": "I'm new here—how do I make___?"
+      }
+    },
+    {
+      "id": "workplace_052_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "workplace_052_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示：请在这里输入正确的答案",
+        "qaId": "workplace_052_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "double-sided",
+            "options": [
+              "单面复印",
+              "双面复印",
+              "边缘复印",
+              "高质量复印"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "save paper",
+            "options": [
+              "使用更多纸张",
+              "提高复印质量",
+              "加快复印速度",
+              "节省时间"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "请教复印机如何使用和设置",
+        "knowledgePoint": "询问操作，表达双面复印和节省纸张的需求",
+        "responseTemplate": "Can I set it to ___, I need to ___."
+      }
+    },
     {
       "id": "workplace_052_sub_2_fill_blank_1",
       "subSceneId": "workplace_052_sub_2",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "当不知道如何操作时，常用这个表达来请求指导",
         "type": "fill_blank",
-        "situation": "新员工在办公室第一次使用复印机，想把文件缩放成A5大小以便装订",
-        "speakerText": "Could you help me? I need to reduce the size of these documents. ______?",
-        "speakerTextCn": "你能帮我一下吗？我需要把文件缩小一点，______？",
-        "responseTemplate": "Just select 'Reduce' and choose 70% on the screen.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +88,12 @@
             ]
           }
         ],
-        "hint": "当不知道如何操作时，常用这个表达来请求指导",
-        "knowledgePoint": "请求操作指导的常用句型"
+        "situation": "新员工在办公室第一次使用复印机，想把文件缩放成A5大小以便装订",
+        "speakerText": "Could you help me? I need to reduce the size of these documents. ______?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你能帮我一下吗？我需要把文件缩小一点，______？",
+        "knowledgePoint": "请求操作指导的常用句型",
+        "responseTemplate": "Just select 'Reduce' and choose 70% on the screen."
       }
     },
     {
@@ -38,11 +102,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "询问设备是否支持某项功能时，常用 'Can I set it...' 开头",
         "type": "fill_blank",
-        "situation": "同事想快速复印10份合同，但不确定是否能一次完成多份复制",
-        "speakerText": "I need ten copies of this contract. ______ to make multiple copies at once?",
-        "speakerTextCn": "我需要十份这份合同的复印件。______一次复印多份？",
-        "responseTemplate": "Yes, just enter the number in the 'Copies' field.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +116,12 @@
             ]
           }
         ],
-        "hint": "询问设备是否支持某项功能时，常用 'Can I set it...' 开头",
-        "knowledgePoint": "确认设备功能的肯定回应结构"
+        "situation": "同事想快速复印10份合同，但不确定是否能一次完成多份复制",
+        "speakerText": "I need ten copies of this contract. ______ to make multiple copies at once?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我需要十份这份合同的复印件。______一次复印多份？",
+        "knowledgePoint": "确认设备功能的肯定回应结构",
+        "responseTemplate": "Yes, just enter the number in the 'Copies' field."
       }
     },
     {
@@ -65,11 +130,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "描述复印需求时，颜色需求常用 'in color' 表达",
         "type": "fill_blank",
-        "situation": "员工想复印彩色页面，但不确定这台机器是否支持彩色输出",
-        "speakerText": "Does this machine print in color? I need to copy a cover page ______.",
-        "speakerTextCn": "这台机器能印彩色吗？我需要复印一张封面页，______。",
-        "responseTemplate": "Yes, switch to 'Color Mode' before pressing start.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +144,38 @@
             ]
           }
         ],
-        "hint": "描述复印需求时，颜色需求常用 'in color' 表达",
-        "knowledgePoint": "表达复印颜色需求的准确用词"
+        "situation": "员工想复印彩色页面，但不确定这台机器是否支持彩色输出",
+        "speakerText": "Does this machine print in color? I need to copy a cover page ______.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这台机器能印彩色吗？我需要复印一张封面页，______。",
+        "knowledgePoint": "表达复印颜色需求的准确用词",
+        "responseTemplate": "Yes, switch to 'Color Mode' before pressing start."
+      }
+    },
+    {
+      "id": "workplace_052_sub_2_pq_6",
+      "subSceneId": "workplace_052_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "这是表达‘我来教你’的常用口语表达",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "show",
+            "options": [
+              "show",
+              "tell",
+              "explain",
+              "teach"
+            ]
+          }
+        ],
+        "template": "Let me ___ you—it’s not complicated.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景功能表达（提供帮助的惯用搭配）"
       }
     }
   ]

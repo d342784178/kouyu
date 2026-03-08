@@ -2,20 +2,70 @@
   "subSceneId": "travel_059_sub_3",
   "subSceneName": "确认开放时间与服务",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:30:36.564Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.100Z",
   "questions": [
+    {
+      "id": "travel_059_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "travel_059_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问某物是否包含某项服务时，常用 'include' 表达",
+        "qaId": "travel_059_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "include",
+            "options": [
+              "include",
+              "have",
+              "offer",
+              "provide"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客想确认门票是否包含导览服务",
+        "knowledgePoint": "询问服务包含关系的句型结构",
+        "responseTemplate": "Does the ticket ___ a guided tour?"
+      }
+    },
+    {
+      "id": "travel_059_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "travel_059_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "注意使用间接疑问句结构，避免使用助动词倒装，同时包含两个关键信息：关门时间和导览服务",
+        "qaId": "travel_059_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "what time it closes today and whether guided tours are included",
+            "options": [
+              "what time it closes today and whether guided tours are included",
+              "when does it close today and if guided tours are free",
+              "how late it stays open and if there is a guide",
+              "what time it opens and if I need a tour"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客想了解景点今天的开放结束时间以及是否包含免费导览服务",
+        "knowledgePoint": "间接疑问句结构与并列信息提问",
+        "responseTemplate": "Could you tell me ___?"
+      }
+    },
     {
       "id": "travel_059_sub_3_fill_blank_1",
       "subSceneId": "travel_059_sub_3",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "回答关门时间，用 'It closes at ___.' 结构，注意使用结束时间，不是开始时间。",
         "type": "fill_blank",
-        "situation": "游客在景点入口询问当天的开放时间，担心错过闭馆时间",
-        "speakerText": "Could you tell me when the site closes today?",
-        "speakerTextCn": "您能告诉我今天这个地方什么时候关门吗？",
-        "responseTemplate": "It closes at ___.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +78,12 @@
             ]
           }
         ],
-        "hint": "回答关门时间，用 'It closes at ___.' 结构，注意使用结束时间，不是开始时间。",
-        "knowledgePoint": "确认开放/关闭时间的标准表达"
+        "situation": "游客在景点入口询问当天的开放时间，担心错过闭馆时间",
+        "speakerText": "Could you tell me when the site closes today?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "您能告诉我今天这个地方什么时候关门吗？",
+        "knowledgePoint": "确认开放/关闭时间的标准表达",
+        "responseTemplate": "It closes at ___."
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "当服务不包含时，通常会指引游客去咨询台或服务点获取额外服务。",
         "type": "fill_blank",
-        "situation": "游客在购票处询问门票是否包含语音导览服务",
-        "speakerText": "Does the admission fee include an audio guide?",
-        "speakerTextCn": "门票包含语音导览吗？",
-        "responseTemplate": "Not included, but you can rent one at ___.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "当服务不包含时，通常会指引游客去咨询台或服务点获取额外服务。",
-        "knowledgePoint": "表达服务不包含并提供替代方案的常用结构"
+        "situation": "游客在购票处询问门票是否包含语音导览服务",
+        "speakerText": "Does the admission fee include an audio guide?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "门票包含语音导览吗？",
+        "knowledgePoint": "表达服务不包含并提供替代方案的常用结构",
+        "responseTemplate": "Not included, but you can rent one at ___."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "回答免费导览时间时，需提供具体时段，但不需说明具体数字，只需使用合理的时间表达。",
         "type": "fill_blank",
-        "situation": "游客想确认是否有免费导览，避免额外付费",
-        "speakerText": "Is there a free guided tour available today?",
-        "speakerTextCn": "今天有免费导览吗？",
-        "responseTemplate": "Yes, there's one at ___.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "回答免费导览时间时，需提供具体时段，但不需说明具体数字，只需使用合理的时间表达。",
-        "knowledgePoint": "确认免费服务及时间安排的表达方式"
+        "situation": "游客想确认是否有免费导览，避免额外付费",
+        "speakerText": "Is there a free guided tour available today?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "今天有免费导览吗？",
+        "knowledgePoint": "确认免费服务及时间安排的表达方式",
+        "responseTemplate": "Yes, there's one at ___."
+      }
+    },
+    {
+      "id": "travel_059_sub_3_pq_6",
+      "subSceneId": "travel_059_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "这是获取服务信息的常见动词",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "ask",
+            "options": [
+              "ask",
+              "call",
+              "pay",
+              "wait"
+            ]
+          }
+        ],
+        "template": "If you want a guided tour, just ___ at the info desk.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "服务咨询动词搭配（ask at the desk）"
       }
     }
   ]

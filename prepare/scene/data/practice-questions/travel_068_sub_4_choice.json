@@ -2,77 +2,76 @@
   "subSceneId": "travel_068_sub_4",
   "subSceneName": "休息与费用",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:09:45.685Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.227Z",
   "questions": [
     {
-      "id": "travel_068_sub_4_choice_1",
+      "id": "travel_068_sub_4_qa_2_choice_1",
       "subSceneId": "travel_068_sub_4",
       "type": "choice",
       "order": 1,
       "content": {
+        "qaId": "travel_068_sub_4_qa_2",
         "type": "choice",
-        "qaId": "travel_068_sub_4_qa_1",
-        "speakerText": "We've been walking for an hour—any chance we can stop for coffee soon?",
-        "speakerTextCn": "我们走了快一小时了，能找个地方喝杯咖啡吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Sure, let's go to the nearest supermarket.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "We'll hit a café in 10 minutes—perfect timing!",
+            "text": "How much is the entrance fee to the temple?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Can we have a discount on the temple's food?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I don't like coffee, let's get tea instead.",
+            "text": "Do you have any free Wi-Fi at the temple?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "We should keep walking—exercise is good for you.",
+            "text": "What is the opening time of the temple today?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案回应了对方的请求并提供了具体解决方案（10分钟后有咖啡馆），符合语境。选项1的supermarket不是休息喝咖啡的合适场所；选项3转移了话题，未回应时间安排；选项4忽视了对方的身体疲劳，缺乏同理心。"
+        "explanation": "答案解析：正确答案\"How much is the entrance fee to the temple?\"是最合适的问题，因为它询问了寺庙门票的费用信息。其他选项虽然语法正确，但与场景提示不符，无法有效地询问休息安排和费用信息。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客询问休息安排，导游提供信息"
       }
     },
     {
-      "id": "travel_068_sub_4_choice_2",
+      "id": "travel_068_sub_4_qa_1_choice_1",
       "subSceneId": "travel_068_sub_4",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "travel_068_sub_4_qa_1",
         "type": "choice",
-        "qaId": "travel_068_sub_4_qa_2",
-        "speakerText": "The entrance fee to the temple's $10 extra—cash only.",
-        "speakerTextCn": "寺庙门票另收10美元，只收现金。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Can I pay with my credit card?",
+            "text": "How long does it take to get to the next stop?",
             "isCorrect": false
           },
           {
             "id": "opt_2",
-            "text": "Do you have a place nearby to exchange money?",
+            "text": "We've been walking for an hour—can we take a break now?",
             "isCorrect": true
           },
           {
             "id": "opt_3",
-            "text": "That's too expensive—I'll just take a photo from outside.",
+            "text": "I'd like to know the price of the tour before we continue.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I didn't know there was a fee—I thought it was free.",
+            "text": "What time do you think we'll finish the tour?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是主动寻求解决方案（换钱），符合积极沟通的语境。选项1无视了‘cash only’的明确说明；选项3虽合理但属于放弃而非解决问题；选项4只是抱怨，未推进对话。"
+        "explanation": "正确答案是 'We've been walking for an hour—can we take a break now?'，因为它询问了休息安排的问题。其他选项不正确，因为它们询问了不同的信息，例如下一个停点的时间、导游费用的价格或完成游览的时间。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客询问休息安排，导游提供信息"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I'm getting really tired—could we take a short break before the next site?",
-        "speakerTextCn": "我真的很累了，我们能在下一个景点前休息一下吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案积极回应需求并提供具体方案，体现同理心。选项1冷漠拒绝，选项3指责对方，选项4用物质奖励转移责任，都不符合友好旅游对话的语境。"
+        "explanation": "正确答案积极回应需求并提供具体方案，体现同理心。选项1冷漠拒绝，选项3指责对方，选项4用物质奖励转移责任，都不符合友好旅游对话的语境。",
+        "speakerText": "I'm getting really tired—could we take a short break before the next site?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我真的很累了，我们能在下一个景点前休息一下吗？"
       }
     }
   ]

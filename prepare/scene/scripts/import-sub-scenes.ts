@@ -41,12 +41,16 @@ function createDb() {
 interface QAPairData {
   id: string
   subSceneId: string
-  speakerText: string
-  speakerTextCn: string
-  responses: unknown[]
+  dialogueMode: string
+  triggerText: string
+  triggerTextCn: string
+  triggerSpeakerRole: string
+  scenarioHint: string | null
+  scenarioHintCn: string | null
+  followUps: unknown[]
   usageNote: string | null
   audioUrl: string | null
-  qaType: string
+  learnRequirement: string
   order: number
 }
 
@@ -101,12 +105,16 @@ async function importSceneFileBatch(
         qaPairValues.push({
           id: qa.id,
           subSceneId: qa.subSceneId,
-          speakerText: qa.speakerText,
-          speakerTextCn: qa.speakerTextCn,
-          responses: qa.responses,
+          dialogueMode: qa.dialogueMode,
+          triggerText: qa.triggerText,
+          triggerTextCn: qa.triggerTextCn,
+          triggerSpeakerRole: qa.triggerSpeakerRole,
+          scenarioHint: qa.scenarioHint,
+          scenarioHintCn: qa.scenarioHintCn,
+          followUps: qa.followUps,
           usageNote: qa.usageNote,
           audioUrl: qa.audioUrl,
-          qaType: qa.qaType,
+          learnRequirement: qa.learnRequirement,
           order: qa.order,
           updatedAt: now,
         })
@@ -144,12 +152,16 @@ async function importSceneFileBatch(
             .onConflictDoUpdate({
               target: schema.qaPairs.id,
               set: {
-                speakerText: val.speakerText,
-                speakerTextCn: val.speakerTextCn,
-                responses: val.responses,
+                dialogueMode: val.dialogueMode,
+                triggerText: val.triggerText,
+                triggerTextCn: val.triggerTextCn,
+                triggerSpeakerRole: val.triggerSpeakerRole,
+                scenarioHint: val.scenarioHint,
+                scenarioHintCn: val.scenarioHintCn,
+                followUps: val.followUps,
                 usageNote: val.usageNote,
                 audioUrl: val.audioUrl,
-                qaType: val.qaType,
+                learnRequirement: val.learnRequirement,
                 order: val.order,
                 updatedAt: val.updatedAt,
               },

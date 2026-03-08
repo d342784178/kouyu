@@ -2,77 +2,76 @@
   "subSceneId": "workplace_033_sub_4",
   "subSceneName": "确认抄送与格式",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:17:20.401Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.368Z",
   "questions": [
     {
-      "id": "workplace_033_sub_4_choice_1",
+      "id": "workplace_033_sub_4_qa_2_choice_1",
       "subSceneId": "workplace_033_sub_4",
       "type": "choice",
       "order": 1,
       "content": {
+        "qaId": "workplace_033_sub_4_qa_2",
         "type": "choice",
-        "qaId": "workplace_033_sub_4_qa_1",
-        "speakerText": "Just sent the report—CC'd Sarah and Tom, right?",
-        "speakerTextCn": "刚发了报告，抄送了Sarah和Tom，对吧？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, and I'll also add Alex—he needs to review it.",
+            "text": "Is the attachment in the correct format?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Yes, but I think you forgot to attach the file.",
+            "text": "Can you send me a copy of the email?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "No, I didn't see it yet—can you resend?",
+            "text": "What is the purpose of the email?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "That's great, but could you send it to my personal email too?",
+            "text": "Can you confirm if the attachment is in .docx format?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应抄送名单的调整，符合场景中‘高效指出增删人员’的沟通原则。干扰项2偏离主题（讨论附件），3是请求重发而非确认，4涉及私人邮箱，不符合职场专业规范。"
+        "explanation": "答案解析：正确答案\"Is the attachment in the correct format?\"是最合适的问题，因为它直接询问抄送人是否正确。其他选项\"Can you send me a copy of the email?\"是询问邮件副本的请求，\"What is the purpose of the email?\"询问邮件目的，\"Can you confirm if the attachment is in .docx format?\"询问附件格式，但不询问抄送人是否正确。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户询问抄送人是否正确，服务方/工作人员确认或纠正"
       }
     },
     {
-      "id": "workplace_033_sub_4_choice_2",
+      "id": "workplace_033_sub_4_qa_1_choice_1",
       "subSceneId": "workplace_033_sub_4",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "workplace_033_sub_4_qa_1",
         "type": "choice",
-        "qaId": "workplace_033_sub_4_qa_2",
-        "speakerText": "I attached the budget in .xlsx—should I change it to .pdf?",
-        "speakerTextCn": "我附上了Excel格式的预算表，要改成PDF吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, please—our policy requires PDF for final versions.",
+            "text": "Did I correctly CC Linda and Mark on the update?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "No, but you should rename it to 'Budget_Final'.",
+            "text": "Are Linda and Mark the only people who received the update?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Actually, I prefer Word documents for budgeting.",
+            "text": "What is the correct format for attaching files to the email?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can you send it again? I can't open it.",
+            "text": "Is the update already sent to Linda and Mark?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案基于公司政策说明格式选择依据，符合场景中‘说明依据减少争议’的要求。干扰项2只提重命名，未回应格式问题；3提出个人偏好，不专业；4是技术故障反馈，与格式决策无关。"
+        "explanation": "正确答案：Did I correctly CC Linda and Mark on the update？\n\n干扰项所在：\n- Are Linda and Mark the only people who received the update？（理解偏差型，误解了场景需求）\n- What is the correct format for attaching files to the email？（提问不当型，问题语法正确但不符合该场景）\n- Is the update already sent to Linda and Mark？（表达不当型，表达不自然或不完整）",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "确认邮件抄送对象和附件格式是否正确"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I'm sending the contract—CC'd Legal and Finance, and attached the signed version.",
-        "speakerTextCn": "我正在发送合同，抄送了法务和财务，并附上了签署版。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案在确认基础上提出合理增补（HR）和格式要求（PDF），体现专业沟通。干扰项2与电子流程冲突，3要求非标准渠道，4质疑发送状态，属于重复确认而非优化反馈。"
+        "explanation": "正确答案在确认基础上提出合理增补（HR）和格式要求（PDF），体现专业沟通。干扰项2与电子流程冲突，3要求非标准渠道，4质疑发送状态，属于重复确认而非优化反馈。",
+        "speakerText": "I'm sending the contract—CC'd Legal and Finance, and attached the signed version.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我正在发送合同，抄送了法务和财务，并附上了签署版。"
       }
     }
   ]

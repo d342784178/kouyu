@@ -2,77 +2,76 @@
   "subSceneId": "study_abroad_104_sub_3",
   "subSceneName": "确认与反馈",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:52:24.375Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.908Z",
   "questions": [
     {
-      "id": "study_abroad_104_sub_3_choice_1",
+      "id": "study_abroad_104_sub_3_qa_1_choice_1",
       "subSceneId": "study_abroad_104_sub_3",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "study_abroad_104_sub_3_qa_1",
-        "speakerText": "How do I know it went through? Will I get an email?",
-        "speakerTextCn": "怎么确认报名成功？会收到邮件吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "You’ll get a confirmation email within 24 hours.",
+            "text": "How do I know it went through? Will I get an email?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "You’ll receive a text message in 3 days.",
+            "text": "Can you tell me how much the fee is?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Just wait for a phone call from the office.",
+            "text": "When will the event start?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "You don’t need any confirmation — it’s automatic.",
+            "text": "I think I signed up, but I'm not sure.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是 'You’ll get a confirmation email within 24 hours.'，因为对话中明确提到邮件是主要确认方式。其他选项错误：短信三天后送达不符合时间要求，电话通知未被提及，而'无需确认'与主动确认反馈的场景目标相悖。"
+        "explanation": "正确答案直接询问确认机制和邮件凭证，符合场景需求。选项2询问费用，与确认流程无关；选项3询问活动时间，偏离凭证需求；选项4是陈述句而非提问，不符合场景要求的主动确认行为。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚完成在线报名，想确认是否成功，并想知道是否会收到确认邮件作为凭证"
       }
     },
     {
-      "id": "study_abroad_104_sub_3_choice_2",
+      "id": "study_abroad_104_sub_3_qa_2_choice_1",
       "subSceneId": "study_abroad_104_sub_3",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "study_abroad_104_sub_3_qa_2",
-        "speakerText": "Can I print a receipt? I need it for my visa records.",
-        "speakerTextCn": "能打印收据吗？我需要用于签证材料。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Sure! Go to ‘My Exams’ and click ‘Print Receipt’.",
+            "text": "Can I print a receipt? I need it for my visa records.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Sorry, we don’t issue receipts for visa purposes.",
+            "text": "Did my registration go through?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "You can ask the front desk for a printed copy.",
+            "text": "Where can I get a receipt?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Receipts are only available after the exam date.",
+            "text": "I need a receipt.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是 'Sure! Go to ‘My Exams’ and click ‘Print Receipt’.'，与对话中提供的具体操作一致。其他选项错误：拒绝提供收据违背用户需求，前台打印未被提及，且收据应在报名后立即可用，而非考试后。"
+        "explanation": "正确答案直接表达了请求打印收据并说明用途，符合场景中‘确认报名成功并索取凭证’的需求。选项2仅确认报名状态，未涉及索取凭证；选项3虽涉及收据但未明确请求动作，语气被动；选项4是陈述句，缺乏礼貌和明确的提问结构，不符合口语交际规范。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚刚完成了一项在线报名，系统显示成功，但你需要一份纸质收据作为签证申请的证明材料，你想向工作人员确认是否可以打印收据。"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I just registered for the TOEFL. How can I make sure everything is recorded correctly?",
-        "speakerTextCn": "我刚报名了托福考试，如何确保所有信息都正确记录？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案强调通过邮件和门户双重确认，符合场景核心策略。其他选项不可靠：电话验证非标准流程，纸质信件已过时，而向他人询问不能替代官��系统确认。"
+        "explanation": "正确答案强调通过邮件和门户双重确认，符合场景核心策略。其他选项不可靠：电话验证非标准流程，纸质信件已过时，而向他人询问不能替代官��系统确认。",
+        "speakerText": "I just registered for the TOEFL. How can I make sure everything is recorded correctly?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我刚报名了托福考试，如何确保所有信息都正确记录？"
       }
     }
   ]

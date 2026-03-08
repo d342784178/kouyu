@@ -1,19 +1,26 @@
 {
   "sceneId": "workplace_045",
   "sceneName": "办公室求助",
+  "exportedAt": "2026-03-08T15:31:54.915Z",
   "subScenes": [
     {
       "id": "workplace_045_sub_1",
+      "sceneId": "workplace_045",
       "name": "礼貌打断",
       "description": "新员工礼貌请求同事协助",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_045_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hey Sarah, can I bother you for a sec?",
-          "speakerTextCn": "莎拉，能打扰你一下吗？",
-          "responses": [
+          "subSceneId": "workplace_045_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hey Sarah, can I bother you for a sec?",
+          "triggerTextCn": "莎拉，能打扰你一下吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户通常在需要帮助时先发起对话",
+          "followUps": [
             {
               "text": "Sure, what's up?",
               "text_cn": "当然，怎么了？",
@@ -30,22 +37,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用can I bother you?礼貌打断"
+          "usageNote": "用can I bother you?礼貌打断",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         }
       ]
     },
     {
       "id": "workplace_045_sub_2",
+      "sceneId": "workplace_045",
       "name": "描述问题",
       "description": "说明打印机故障的具体情况",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_045_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "The printer's jammed again—I've tried restarting it, but it won't print.",
-          "speakerTextCn": "打印机又卡纸了，我重启过，还是打不出。",
-          "responses": [
+          "subSceneId": "workplace_045_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "The printer's jammed again—I've tried restarting it, but it won't print.",
+          "triggerTextCn": "打印机又卡纸了，我重启过，还是打不出。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户遇到问题，需要同事帮助解决",
+          "followUps": [
             {
               "text": "Hmm, did you check the paper tray?",
               "text_cn": "嗯，你检查过纸盒吗？",
@@ -62,14 +78,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用I've tried...说明已尝试操作"
+          "usageNote": "用I've tried...说明已尝试操作",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         },
         {
           "id": "workplace_045_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "It shows 'Paper Jam' on the screen, and the red light's flashing.",
-          "speakerTextCn": "屏幕上显示‘卡纸’，红灯一直在闪。",
-          "responses": [
+          "subSceneId": "workplace_045_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "It shows 'Paper Jam' on the screen, and the red light's flashing.",
+          "triggerTextCn": "屏幕上显示‘卡纸’，红灯一直在闪。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户遇到问题，需要同事帮助解决",
+          "followUps": [
             {
               "text": "Open the back panel—there's usually paper stuck there.",
               "text_cn": "打开后盖，通常纸卡在里面。",
@@ -86,22 +109,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "描述故障时用具体提示词"
+          "usageNote": "描述故障时用具体提示词",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     },
     {
       "id": "workplace_045_sub_3",
+      "sceneId": "workplace_045",
       "name": "确认步骤",
       "description": "确认并复述操作指引",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_045_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Just pull the paper out gently from the back, then hit reset.",
-          "speakerTextCn": "从后面轻轻把纸拉出来，再按重置键。",
-          "responses": [
+          "subSceneId": "workplace_045_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Just pull the paper out gently from the back, then hit reset.",
+          "triggerTextCn": "从后面轻轻把纸拉出来，再按重置键。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "So, back panel, pull slowly, then reset—got it!",
               "text_cn": "后盖，慢点拉，再重置，明白了！",
@@ -118,22 +150,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "复述步骤确认理解更安全"
+          "usageNote": "复述步骤确认理解更安全",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 4
         }
       ]
     },
     {
       "id": "workplace_045_sub_4",
+      "sceneId": "workplace_045",
       "name": "表达感谢",
       "description": "完成操作后真诚致谢",
+      "order": 4,
       "estimatedMinutes": 3,
       "qaPairs": [
         {
           "id": "workplace_045_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "It's working! Thanks so much for your help, Sarah.",
-          "speakerTextCn": "好了！太感谢你帮忙了，莎拉。",
-          "responses": [
+          "subSceneId": "workplace_045_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "It's working! Thanks so much for your help, Sarah.",
+          "triggerTextCn": "好了！太感谢你帮忙了，莎拉。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "No problem, anytime!",
               "text_cn": "不客气，随时找我！",
@@ -150,14 +191,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Thanks so much表达真诚感谢"
+          "usageNote": "用Thanks so much表达真诚感谢",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 5
         },
         {
           "id": "workplace_045_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I really appreciate you showing me how to fix this.",
-          "speakerTextCn": "真的很感谢你教我怎么修。",
-          "responses": [
+          "subSceneId": "workplace_045_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "I really appreciate you showing me how to fix this.",
+          "triggerTextCn": "真的很感谢你教我怎么修。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Anytime, happy to help new folks!",
               "text_cn": "随时找我，帮新人我乐意！",
@@ -174,7 +222,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用I appreciate...强调学习价值"
+          "usageNote": "用I appreciate...强调学习价值",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 6
         }
       ]
     }

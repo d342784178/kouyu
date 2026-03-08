@@ -1,29 +1,95 @@
 {
   "subSceneId": "travel_055_sub_3",
-  "subSceneName": "确认方向细节",
+  "subSceneName": "确认方向",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:53:27.472Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.025Z",
   "questions": [
     {
-      "id": "travel_055_sub_3_speaking_1",
+      "id": "travel_055_sub_3_qa_1_speaking_1",
       "subSceneId": "travel_055_sub_3",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "travel_055_sub_3_qa_1",
-        "speakerText": "Is it far from here? And do I turn left or right after the post office?",
-        "speakerTextCn": "离这儿远吗？过了邮局是左转还是右转？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在询问路人的时候，应该先打招呼，然后问清楚路线指示。",
         "expectedAnswers": [
-          "It's only a five-minute walk. Turn left right after the post office.",
-          "Not far at all — just take a left turn after the post office.",
-          "You're good! Keep walking past the post office, no turn needed."
+          "Excuse me, is it far from here? And do I turn left or right after the post office?",
+          "Hi, how far is it from here? Do I need to turn left or right after the post office?",
+          "Hello, is it a long way from here? After I pass the post office, should I turn left or right?"
         ],
         "evaluationCriteria": [
-          "是否准确回应了距离和转弯方向两个问题",
-          "是否使用了场景关键词如 'turn left/right', 'after', 'minutes walk'",
-          "表达是否自然流畅，符合口语习惯，避免生硬翻译"
+          "意图达成度：正确表达了询问方向的意图",
+          "语言准确性：语法和用词正确",
+          "表达自然度：符合英语口语习惯",
+          "关键词覆盖：使用了场景关键词（方向、邮局）"
+        ]
+      }
+    },
+    {
+      "id": "travel_055_sub_3_qa_2_speaking_1",
+      "subSceneId": "travel_055_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "qaId": "travel_055_sub_3_qa_2",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在询问路人的方向，先礼貌地打招呼，然后提出具体问题。请你按照礼貌的口吻询问路人一个问题。",
+        "expectedAnswers": [
+          "Excuse me, how far is the train station from here?",
+          "Hi, is the restaurant far from here?",
+          "Sorry to bother you, is the park far from here?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否正确表达了询问方向的意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯"
+        ]
+      }
+    },
+    {
+      "id": "travel_055_sub_3_qa_4_speaking_1",
+      "subSceneId": "travel_055_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "qaId": "travel_055_sub_3_qa_4",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你迷路了，需要询问方向时，应先礼貌地打招呼，然后提出具体问题。比如，你可以问：",
+        "expectedAnswers": [
+          "Excuse me, could you tell me which way is the city center?",
+          "Hi, I'm a bit lost. Could you help me find the way to the park?",
+          "Sorry to bother you. Could you tell me which direction is the nearest subway station?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否正确表达了询问方向的意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯"
+        ]
+      }
+    },
+    {
+      "id": "travel_055_sub_3_qa_3_speaking_1",
+      "subSceneId": "travel_055_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "qaId": "travel_055_sub_3_qa_3",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "您和朋友分开了，朋友站在路口向您招手，想确认方向。您应该礼貌地打招呼，然后问对方需要往哪个方向走。",
+        "expectedAnswers": [
+          "Hi, could you tell me which way I should go?",
+          "Excuse me, do you think I should go left or right?",
+          "Hi, in that case, could you point me in the right direction?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：正确表达了询问方向的意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯"
         ]
       }
     },
@@ -33,9 +99,10 @@
       "type": "speaking",
       "order": 2,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "How do I get to the train station? Is it past the supermarket?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "怎么去火车站？是经过超市之后吗？",
         "expectedAnswers": [
           "Yes, go straight past the supermarket and turn left at the bus stop.",
@@ -55,9 +122,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Is the park nearby? Do I need to turn after the bookstore?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "公园离得近吗？过了书店要转弯吗？",
         "expectedAnswers": [
           "It's just around the corner. No turn needed — the park is right after the bookstore.",

@@ -2,8 +2,7 @@
   "subSceneId": "study_abroad_109_sub_3",
   "subSceneName": "确认份数与密封",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:29:18.596Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.978Z",
   "questions": [
     {
       "id": "study_abroad_109_sub_3_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "这里需要一个表示‘几份’的模糊数量词，强调非具体数字但符合正式语境",
         "type": "fill_blank",
-        "situation": "学生向学校办公室申请成绩单，需要确认份数和是否需要密封盖章以用于海外大学申请",
-        "speakerText": "I need ___ copies, and they must be sealed and signed.",
-        "speakerTextCn": "我需要___份，必须密封并盖章。",
-        "responseTemplate": "Got it! Sealed and signed — ___ copies. That's standard for abroad apps.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "这里需要一个表示‘几份’的模糊数量词，强调非具体数字但符合正式语境",
-        "knowledgePoint": "模糊数量词在正式请求中的使用"
+        "situation": "学生向学校办公室申请成绩单，需要确认份数和是否需要密封盖章以用于海外大学申请",
+        "speakerText": "I need ___ copies, and they must be sealed and signed.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我需要___份，必须密封并盖章。",
+        "knowledgePoint": "模糊数量词在正式请求中的使用",
+        "responseTemplate": "Got it! Sealed and signed — ___ copies. That's standard for abroad apps."
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "海外申请通常要求文件密封，这是关键术语",
         "type": "fill_blank",
-        "situation": "学生询问成绩单是否必须密封，以便满足国外院校的接收要求",
-        "speakerText": "Are the documents ___? I need them to meet official requirements.",
-        "speakerTextCn": "这些文件必须___吗？我需要满足官方要求。",
-        "responseTemplate": "Yes, they need to be ___ for international applications.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "海外申请通常要求文件密封，这是关键术语",
-        "knowledgePoint": "关键动词短语在官方文件流程中的准确使用"
+        "situation": "学生询问成绩单是否必须密封，以便满足国外院校的接收要求",
+        "speakerText": "Are the documents ___? I need them to meet official requirements.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这些文件必须___吗？我需要满足官方要求。",
+        "knowledgePoint": "关键动词短语在官方文件流程中的准确使用",
+        "responseTemplate": "Yes, they need to be ___ for international applications."
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "‘sealed’是唯一与官方文件要求直接相关的术语，其他选项不符合语境",
         "type": "fill_blank",
-        "situation": "学生确认成绩单的密封要求，担心是否需要额外付费",
-        "speakerText": "Will there be an extra charge if I ask for ___ documents?",
-        "speakerTextCn": "如果我要求___的文件，会额外收费吗？",
-        "responseTemplate": "Yes, we charge extra for ___ documents.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "‘sealed’是唯一与官方文件要求直接相关的术语，其他选项不符合语境",
-        "knowledgePoint": "专业语境中术语的精确匹配"
+        "situation": "学生确认成绩单的密封要求，担心是否需要额外付费",
+        "speakerText": "Will there be an extra charge if I ask for ___ documents?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "如果我要求___的文件，会额外收费吗？",
+        "knowledgePoint": "专业语境中术语的精确匹配",
+        "responseTemplate": "Yes, we charge extra for ___ documents."
+      }
+    },
+    {
+      "id": "study_abroad_109_sub_3_pq_4",
+      "subSceneId": "study_abroad_109_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "根据对话，学生明确要求的数量是三份。",
+        "qaId": "study_abroad_109_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "three",
+            "options": [
+              "three",
+              "two",
+              "five",
+              "one"
+            ]
+          }
+        ],
+        "template": "I need ___ copies, and they must be sealed and signed.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景高频词汇（份数表达）"
+      }
+    },
+    {
+      "id": "study_abroad_109_sub_3_pq_5",
+      "subSceneId": "study_abroad_109_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "在成绩单处理中，确保文件密封是关键步骤。",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "seal",
+            "options": [
+              "seal",
+              "fold",
+              "mail",
+              "print"
+            ]
+          }
+        ],
+        "template": "Could you please ___ the documents and add the official stamp?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景核心动词搭配（seal documents）"
+      }
+    },
+    {
+      "id": "study_abroad_109_sub_3_pq_6",
+      "subSceneId": "study_abroad_109_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "留学申请中，官方文件通常需要密封以保证真实性。",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "sealed",
+            "options": [
+              "sealed",
+              "stapled",
+              "laminated",
+              "photocopied"
+            ]
+          }
+        ],
+        "template": "For international applications, transcripts are usually required to be ___ and signed by the university.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景惯用搭配（sealed and signed）"
       }
     }
   ]

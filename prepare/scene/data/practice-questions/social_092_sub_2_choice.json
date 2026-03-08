@@ -2,77 +2,76 @@
   "subSceneId": "social_092_sub_2",
   "subSceneName": "询问垃圾处理",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:48:17.066Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.783Z",
   "questions": [
     {
-      "id": "social_092_sub_2_choice_1",
+      "id": "social_092_sub_2_qa_2_choice_1",
       "subSceneId": "social_092_sub_2",
       "type": "choice",
       "order": 1,
       "content": {
+        "qaId": "social_092_sub_2_qa_2",
         "type": "choice",
-        "qaId": "social_092_sub_2_qa_1",
-        "speakerText": "Hey, do you know when trash day is around here?",
-        "speakerTextCn": "嘿，你知道这儿的垃圾日是哪天吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "It's every Monday morning.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "It's Thursday nights—put bins out by 7 p.m. Don't forget to rinse them!",
+            "text": "Oh, and do they recycle plastics here?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "When is the best time to buy groceries?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I don't know, but I think it's free.",
+            "text": "Do you know where the trash goes after it's picked up?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "You should call the police for trash info.",
+            "text": "Can you tell me about recycling rules?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确回应了垃圾日时间及注意事项（周四晚、7点前、冲洗），是完整且实用的回应。其他选项要么时间错误，要么无关（如联系警察），或语义不完整（如只说'free'）。"
+        "explanation": "正确答案 'Oh, and do they recycle plastics here?' 是自然、具体的日常提问，符合邻里对话语境，直接针对垃圾分类中的塑料回收。干扰项1与垃圾处理无关；干扰项2虽然相关但过于宽泛，不够口语化且未聚焦具体规则；干扰项3语法正确但表达生硬，不符合日常自然对话习惯。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚搬进新小区，想了解垃圾投放的时间和分类规则，准备向邻居提问。"
       }
     },
     {
-      "id": "social_092_sub_2_choice_2",
+      "id": "social_092_sub_2_qa_1_choice_1",
       "subSceneId": "social_092_sub_2",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "social_092_sub_2_qa_1",
         "type": "choice",
-        "qaId": "social_092_sub_2_qa_2",
-        "speakerText": "Oh, and do they recycle plastics here?",
-        "speakerTextCn": "对了，这儿回收塑料吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, plastic goes in the green bin.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Yep, blue bin next to the main trash—just sort it!",
+            "text": "Hey, do you know when trash day is around here?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "What time do you go to bed?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I don't care about recycling.",
+            "text": "Can you tell me the weather forecast?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Plastic is not allowed in this neighborhood.",
+            "text": "Do you know the best restaurant in the neighborhood?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确指出塑料回收使用蓝色垃圾桶，并提醒分类，符合对话语境。绿色桶通常用于厨余，与题干不符；其他选项要么态度消极，要么信息错误。"
+        "explanation": "正确答案：Hey, do you know when trash day is around here？其他选项不符合场景，不能准确地询问垃圾处理时间和规则。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想询问小区的垃圾处理时间和规则"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I'm new here. Could you tell me where to put cardboard boxes?",
-        "speakerTextCn": "我是新来的，你能告诉我纸板箱该扔在哪里吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案提供准确的纸板回收信息（通常为棕色或标注'Paper'的垃圾桶），符合环保规范。其他选项要么荒谬（如扔进浴室、焚烧），要么推诿责任（找邮递员），不符合社区规范。"
+        "explanation": "正确答案提供准确的纸板回收信息（通常为棕色或标注'Paper'的垃圾桶），符合环保规范。其他选项要么荒谬（如扔进浴室、焚烧），要么推诿责任（找邮递员），不符合社区规范。",
+        "speakerText": "I'm new here. Could you tell me where to put cardboard boxes?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我是新来的，你能告诉我纸板箱该扔在哪里吗？"
       }
     }
   ]

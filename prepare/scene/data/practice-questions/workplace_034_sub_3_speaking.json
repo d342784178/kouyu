@@ -2,52 +2,51 @@
   "subSceneId": "workplace_034_sub_3",
   "subSceneName": "应对提问",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:16:30.745Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.377Z",
   "questions": [
     {
-      "id": "workplace_034_sub_3_speaking_1",
+      "id": "workplace_034_sub_3_qa_2_speaking_1",
       "subSceneId": "workplace_034_sub_3",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "workplace_034_sub_3_qa_2",
         "type": "speaking",
-        "qaId": "workplace_034_sub_3_qa_1",
-        "speakerText": "How's the budget holding up? I heard the vendor costs spiked last month.",
-        "speakerTextCn": "预算情况怎么样？我听说上个月供应商费用涨了。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "场景提示：用户询问预算情况，服务方/工作人员需提供详细回答",
         "expectedAnswers": [
-          "We're at 90% of forecast—overspent on cloud but cut freelance costs. Overall, we're on track.",
-          "Slightly over, but we’ve reallocated funds from low-priority items and will cap spending next month.",
-          "Fine, no worries."
+          "What potential risks could impact our budget before Q3?",
+          "Are there any major risks that could affect our budget before the end of Q3?",
+          "What are the potential financial risks we should be aware of before Q3?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否正面回应预算状态，未回避问题",
-          "语言准确性：使用了正确术语如 'forecast', 'reallocated', 'cap spending'",
-          "表达自然度：语句流畅，符合职场口语节奏",
-          "关键词覆盖：包含 budget, forecast, overspent, adjusted 等关键词"
+          "意图达成度：是否正确表达了询问预算风险的意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词（风险、预算、Q3）"
         ]
       }
     },
     {
-      "id": "workplace_034_sub_3_speaking_2",
+      "id": "workplace_034_sub_3_qa_1_speaking_1",
       "subSceneId": "workplace_034_sub_3",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "workplace_034_sub_3_qa_1",
         "type": "speaking",
-        "qaId": "workplace_034_sub_3_qa_2",
-        "speakerText": "Any major risks we should flag before Q3?",
-        "speakerTextCn": "Q3前有什么重大风险需要提前预警吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "场景提示：用户询问预算情况，服务方/工作人员需提供详细回答",
         "expectedAnswers": [
-          "Yes—the main risk is our reliance on Vendor X’s API. We’ve already drafted a fallback integration with Vendor Y and tested it in staging.",
-          "Nothing critical yet, but we’re monitoring Vendor X’s SLA compliance and have a contingency timeline ready.",
-          "All good."
+          "What's the latest on the budget? I heard there were some unexpected expenses.",
+          "Can you give me an update on the budget? I'd like to know how the vendor costs are affecting it.",
+          "How's the budget looking? I'm concerned about the impact of the vendor price hike on our overall costs."
         ],
         "evaluationCriteria": [
-          "意图达成度：是否明确识别风险并说明应对措施",
-          "语言准确性：使用了专业词汇如 'reliance', 'fallback', 'contingency', 'SLA'",
-          "表达自然度：语气专业但不夸张，符合向上汇报语境",
-          "关键词覆盖：包含 risk, dependency, backup plan, monitoring 等关键词"
+          "意图达成度：是否正确表达了询问预算情况的意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了预算和风险的关键词"
         ]
       }
     },
@@ -57,9 +56,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "What’s the status on the compliance audit? Any red flags?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "合规审计进展如何？有什么警示信号吗？",
         "expectedAnswers": [
           "We’re 85% complete. The only issue is documentation gaps in the finance team—we’ve assigned a task owner and set a deadline for next week.",

@@ -2,8 +2,7 @@
   "subSceneId": "daily_012_sub_3",
   "subSceneName": "确认价格",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:16:40.755Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.530Z",
   "questions": [
     {
       "id": "daily_012_sub_3_choice_1",
@@ -12,9 +11,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "你在健身房咨询会员方案，顾问介绍了月付和年付两种选项，你希望了解年付是否有折扣。",
-        "speakerText": "We have a monthly plan for $40, or you can pay $420 upfront for the whole year.",
-        "speakerTextCn": "我们有每月40美元的月付方案，或者一次性支付420美元即可获得全年服务。",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +33,81 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用 'Can I get a discount if I pay for the whole year?' 以礼貌且直接的方式询问年付优惠，符合该场景核心交际任务——确认价格与优惠。干扰项1与主题无关（询问设备数量），干扰项2直接做决定但未询问优惠（未完成核心任务），干扰项3偏离重点（询问家庭适用性，而非价格优惠）。"
+        "situation": "你在健身房咨询会员方案，顾问介绍了月付和年付两种选项，你希望了解年付是否有折扣。",
+        "explanation": "正确答案使用 'Can I get a discount if I pay for the whole year?' 以礼貌且直接的方式询问年付优惠，符合该场景核心交际任务——确认价格与优惠。干扰项1与主题无关（询问设备数量），干扰项2直接做决定但未询问优惠（未完成核心任务），干扰项3偏离重点（询问家庭适用性，而非价格优惠）。",
+        "speakerText": "We have a monthly plan for $40, or you can pay $420 upfront for the whole year.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们有每月40美元的月付方案，或者一次性支付420美元即可获得全年服务。"
+      }
+    },
+    {
+      "id": "daily_012_sub_3_qa_2_choice_1",
+      "subSceneId": "daily_012_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_012_sub_3_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I get a discount if I pay for a year upfront?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you have any membership plans for students?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much is the membership fee per month?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What are the benefits of being a premium member?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 'Can I get a discount if I pay for a year upfront?'，因为用户想知道预付一年后是否能获得折扣。这道题目要求用户能够根据场景提问相关的问题，正确答案是基于场景提示设计的。其他选项是干扰项，用户可能会因为误解场景或提问不当而选择这些选项。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在与销售员讨论会员方案，想知道不同价格的优惠情况"
+      }
+    },
+    {
+      "id": "daily_012_sub_3_qa_1_choice_1",
+      "subSceneId": "daily_012_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_012_sub_3_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What are the prices for each membership plan?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much is the membership fee?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have any discounts for long-term contracts?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I pay in cash?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是\"What are the prices for each membership plan?\"因为它直接询问了会员价格的详细信息。其他选项虽然可能与价格有关，但没有准确地询问会员价格的详细信息。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想询问会员价格，因为你不确定哪个计划最合适。"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "健身房顾问告诉你，年付能节省10%，你听完后觉得划算，决定立即签约。",
-        "speakerText": "If you pay annually, you save 10% — so it’s only $36 per month.",
-        "speakerTextCn": "如果你选择年付，可以节省10%，相当于每月仅36美元。",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'That’s a deal! I’ll take the annual plan.' 是对该优惠的自然、积极回应，符合场景中‘直接做决定’的核心表达模式。干扰项1表达犹豫但未进一步询问，偏离了‘接受优惠’的语境；干扰项3重复询问已知信息，无意义；干扰项4转向无关问题（瑜伽课程），答非所问。"
+        "situation": "健身房顾问告诉你，年付能节省10%，你听完后觉得划算，决定立即签约。",
+        "explanation": "正确答案 'That’s a deal! I’ll take the annual plan.' 是对该优惠的自然、积极回应，符合场景中‘直接做决定’的核心表达模式。干扰项1表达犹豫但未进一步询问，偏离了‘接受优惠’的语境；干扰项3重复询问已知信息，无意义；干扰项4转向无关问题（瑜伽课程），答非所问。",
+        "speakerText": "If you pay annually, you save 10% — so it’s only $36 per month.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "如果你选择年付，可以节省10%，相当于每月仅36美元。"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "你正在比较两种会员方案，顾问解释了基础版和高级版的区别，你希望先确认两者具体包含哪些服务再做决定。",
-        "speakerText": "The basic plan includes gym access, and the premium plan adds personal training sessions and towel service.",
-        "speakerTextCn": "基础版包含健身房使用权限，高级版额外提供私人训练课程和毛巾服务。",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'What’s the difference between basic and premium?' 是在比较方案时最自然、最直接的确认方式，符合该场景‘比较方案并询问差异’的核心任务。干扰项1直接做决定，但尚未获取足够信息；干扰项3虽相关，但只关注价格，忽略了服务内容对比这一关键点；干扰项4转向无关的折扣问题，偏离当前对话焦点。"
+        "situation": "你正在比较两种会员方案，顾问解释了基础版和高级版的区别，你希望先确认两者具体包含哪些服务再做决定。",
+        "explanation": "正确答案 'What’s the difference between basic and premium?' 是在比较方案时最自然、最直接的确认方式，符合该场景‘比较方案并询问差异’的核心任务。干扰项1直接做决定，但尚未获取足够信息；干扰项3虽相关，但只关注价格，忽略了服务内容对比这一关键点；干扰项4转向无关的折扣问题，偏离当前对话焦点。",
+        "speakerText": "The basic plan includes gym access, and the premium plan adds personal training sessions and towel service.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "基础版包含健身房使用权限，高级版额外提供私人训练课程和毛巾服务。"
       }
     }
   ]

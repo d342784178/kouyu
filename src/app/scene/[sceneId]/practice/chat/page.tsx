@@ -14,6 +14,7 @@ import {
   OpenDialogueContent
 } from '@/app/scene-test/components/open-test'
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+import type { PronunciationAssessmentResult } from '@/types'
 
 interface SceneInfo {
   id: string
@@ -71,6 +72,8 @@ export default function ChatPage() {
   const currentRoundRef = useRef<number>(0)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const isInitializedRef = useRef<boolean>(false)
+  // 存储待处理的发音评估结果
+  const pendingPronunciationRef = useRef<PronunciationAssessmentResult | null>(null)
 
   useEffect(() => {
     messagesRef.current = messages
@@ -86,11 +89,17 @@ export default function ChatPage() {
     const currentMessages = messagesRef.current
     const currentRoundValue = currentRoundRef.current
 
+    // 创建用户消息，包含发音评估结果
     const userMessage: Message = {
       role: 'user',
       content: transcript,
       timestamp: Date.now(),
+      // 将发音评估结果存储到消息中
+      pronunciationAssessment: pendingPronunciationRef.current || undefined,
     }
+    
+    // 清空待处理的发音评估结果
+    pendingPronunciationRef.current = null
 
     const updatedMessages = [...currentMessages, userMessage]
     setMessages(updatedMessages)
@@ -131,16 +140,27 @@ export default function ChatPage() {
     setError(errorMsg)
   }, [])
 
+  // 处理发音评估结果
+  const handlePronunciationResult = useCallback((result: PronunciationAssessmentResult) => {
+    console.log('[PracticeChat] 发音评估结果:', result)
+    // 存储发音评估结果，等待 handleVoiceInput 时使用
+    pendingPronunciationRef.current = result
+  }, [])
+
   const {
     isSupported: recognitionSupported,
     isRecording,
     isRecognizing,
+    isAssessing,
     interimTranscript,
     startRecording: hookStartRecording,
     stopRecording: hookStopRecording,
   } = useSpeechRecognition({
     onResult: handleVoiceInput,
     onError: handleError,
+    // 启用发音评估模式
+    enablePronunciationAssessment: true,
+    onPronunciationResult: handlePronunciationResult,
   })
 
   useEffect(() => {
@@ -454,6 +474,7 @@ export default function ChatPage() {
               maxRounds={maxRounds}
               isRecording={isRecording}
               isRecognizing={isRecognizing}
+              isAssessing={isAssessing}
               isGeneratingResponse={isGeneratingResponse}
               playingMessageIndex={playingMessageIndex}
               error={error || ''}

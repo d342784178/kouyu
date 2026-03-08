@@ -1,19 +1,26 @@
 {
   "sceneId": "daily_006",
   "sceneName": "银行办理业务",
+  "exportedAt": "2026-03-08T15:31:54.841Z",
   "subScenes": [
     {
       "id": "daily_006_sub_1",
+      "sceneId": "daily_006",
       "name": "问候与需求",
       "description": "客户到银行问候并说明来意",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_006_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi there! How can I help you today?",
-          "speakerTextCn": "您好！今天有什么可以帮您的？",
-          "responses": [
+          "subSceneId": "daily_006_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hi there! How can I help you today?",
+          "triggerTextCn": "您好！今天有什么可以帮您的？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I'd like to open a new savings account.",
               "text_cn": "我想开一个新储蓄账户。",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用I'd like来表达礼貌需求"
+          "usageNote": "用I'd like来表达礼貌需求",
+          "audioUrl": "COS:/qa/questions/daily_006_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_006_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Sure thing! Do you have your ID and proof of address?",
-          "speakerTextCn": "当然！您有身份证和住址证明吗？",
-          "responses": [
+          "subSceneId": "daily_006_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Sure thing! Do you have your ID and proof of address?",
+          "triggerTextCn": "当然！您有身份证和住址证明吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Yes, here's my passport and utility bill.",
               "text_cn": "有，这是我的护照和水电账单。",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用here's/ I've got表达即时出示"
+          "usageNote": "用here's/ I've got表达即时出示",
+          "audioUrl": "COS:/qa/questions/daily_006_sub_1_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_006_sub_2",
+      "sceneId": "daily_006",
       "name": "账户类型选择",
       "description": "柜员介绍账户类型，客户做选择",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_006_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "We've got basic savings with 0.5% interest, or a premium one with higher returns but a $500 minimum deposit.",
-          "speakerTextCn": "我们有利率0.5%的基础储蓄，或高收益的高级账户，需存500美元起。",
-          "responses": [
+          "subSceneId": "daily_006_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "We've got basic savings with 0.5% interest, or a premium one with higher returns but a $500 minimum deposit.",
+          "triggerTextCn": "我们有利率0.5%的基础储蓄，或高收益的高级账户，需存500美元起。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务方介绍完毕后，用户可询问具体细节或选择账户类型",
+          "followUps": [
             {
               "text": "I'll go with the basic one for now.",
               "text_cn": "我先选基础版。",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用I'll go with表达明确选择"
+          "usageNote": "用I'll go with表达明确选择",
+          "audioUrl": "COS:/qa/questions/daily_006_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_006_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "You'll need to sign here and initial the terms.",
-          "speakerTextCn": "您需要在这里签名并签署条款。",
-          "responses": [
+          "subSceneId": "daily_006_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "You'll need to sign here and initial the terms.",
+          "triggerTextCn": "您需要在这里签名并签署条款。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务方介绍完毕后，用户可询问具体细节或选择账户类型",
+          "followUps": [
             {
               "text": "Got it—I'll sign right away.",
               "text_cn": "好的，我马上签。",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Got it/Sure thing回应操作指令"
+          "usageNote": "用Got it/Sure thing回应操作指令",
+          "audioUrl": "COS:/qa/questions/daily_006_sub_2_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_006_sub_3",
+      "sceneId": "daily_006",
       "name": "存款与确认",
       "description": "客户存入首笔资金并确认账户信息",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_006_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "How much would you like to deposit as your opening balance?",
-          "speakerTextCn": "您想存多少作为初始余额？",
-          "responses": [
+          "subSceneId": "daily_006_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "How much would you like to deposit as your opening balance?",
+          "triggerTextCn": "您想存多少作为初始余额？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I'll put in $1,000.",
               "text_cn": "我存1000美元。",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用I'll put in表达主动存款"
+          "usageNote": "用I'll put in表达主动存款",
+          "audioUrl": "COS:/qa/questions/daily_006_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_006_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Your account number is 8842-1095, and your card will arrive in 5–7 business days.",
-          "speakerTextCn": "您的账号是8842-1095，卡片将在5到7个工作日内寄到。",
-          "responses": [
+          "subSceneId": "daily_006_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Your account number is 8842-1095, and your card will arrive in 5–7 business days.",
+          "triggerTextCn": "您的账号是8842-1095，卡片将在5到7个工作日内寄到。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Thanks! Can I get a digital copy now?",
               "text_cn": "谢谢！现在能给我电子版吗？",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Can I...?礼貌请求额外服务"
+          "usageNote": "用Can I...?礼貌请求额外服务",
+          "audioUrl": "COS:/qa/questions/daily_006_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_006_sub_4",
+      "sceneId": "daily_006",
       "name": "道别与后续",
       "description": "柜员礼貌道别，客户表达感谢",
+      "order": 4,
       "estimatedMinutes": 3,
       "qaPairs": [
         {
           "id": "daily_006_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Thanks for banking with us! Is there anything else I can help you with?",
-          "speakerTextCn": "感谢选择我们银行！还有其他能帮您的吗？",
-          "responses": [
+          "subSceneId": "daily_006_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thanks for banking with us! Is there anything else I can help you with?",
+          "triggerTextCn": "感谢选择我们银行！还有其他能帮您的吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "No, that's all—really appreciate your help!",
               "text_cn": "不用了，太感谢了！",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用That's all/All set简���结束对话"
+          "usageNote": "用That's all/All set简���结束对话",
+          "audioUrl": "COS:/qa/questions/daily_006_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_006_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Have a great day!",
-          "speakerTextCn": "祝您今天愉快！",
-          "responses": [
+          "subSceneId": "daily_006_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Have a great day!",
+          "triggerTextCn": "祝您今天愉快！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "You too! See you next time.",
               "text_cn": "你也是！下次见。",
@@ -222,7 +284,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用You too!回应祝福最自然"
+          "usageNote": "用You too!回应祝福最自然",
+          "audioUrl": "COS:/qa/questions/daily_006_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

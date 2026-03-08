@@ -209,15 +209,32 @@ import type { SubScene, QAPair } from '@/lib/db/schema'
 export type { SubScene, QAPair }
 
 /**
- * QAPair.responses 字段中每条回应的结构
+ * 对话模式类型
+ * - user_responds: 用户回应（AI先说，用户回应）
+ * - user_asks: 用户提问（用户先说，AI回应）
  */
-export interface QAResponse {
+export type DialogueMode = 'user_responds' | 'user_asks'
+
+/**
+ * 学习要求类型
+ * - speak_trigger: 需要说出触发句
+ * - speak_followup: 需要说出跟进回应
+ * - listen_only: 仅听（不需要说）
+ */
+export type LearnRequirement = 'speak_trigger' | 'speak_followup' | 'listen_only'
+
+/**
+ * QAPair.followUps 字段中每条跟进回应的结构
+ */
+export interface FollowUp {
   /** 英文表达，如 "Hot, please." */
   text: string
   /** 中文翻译，如 "要热的。" */
   text_cn: string
-  /** COS:/ 协议音频路径 */
-  audio_url: string
+  /** 场景标签（可选），如 "hot", "iced" */
+  scenario?: string
+  /** COS:/ 协议音频路径（可选） */
+  audio_url?: string
 }
 
 /**
@@ -255,11 +272,14 @@ export interface BlankItem {
 
 /**
  * 练习题联合类型（选择题 / 填空题 / 问答题）
+ * 支持两种对话模式：
+ * - user_responds: 听问题选回答
+ * - user_asks: 看场景选提问
  */
 export type PracticeQuestion =
-  | { type: 'choice'; qaId: string; audioUrl: string; speakerText: string; speakerTextCn: string; options: ChoiceOption[]; explanation?: string }
-  | { type: 'fill_blank'; qaId: string; template: string; blanks: BlankItem[]; hint?: string; knowledgePoint?: string }
-  | { type: 'speaking'; qaId: string; speakerText: string; speakerTextCn: string; expectedAnswer?: string; expectedAnswers?: string[]; evaluationCriteria?: string[] }
+  | { type: 'choice'; qaId: string; audioUrl?: string; triggerText?: string; triggerTextCn?: string; scenarioHint?: string; options: ChoiceOption[]; explanation?: string; dialogueMode: DialogueMode }
+  | { type: 'fill_blank'; qaId: string; template: string; blanks: BlankItem[]; hint?: string; knowledgePoint?: string; scenarioHint?: string; dialogueMode: DialogueMode }
+  | { type: 'speaking'; qaId: string; triggerText: string; triggerTextCn: string; expectedAnswer?: string; expectedAnswers?: string[]; evaluationCriteria?: string[]; scenarioHint?: string; dialogueMode: DialogueMode }
 
 /**
  * AI 模拟对话 API 请求体
@@ -272,6 +292,8 @@ export interface AIDialogueRequest {
   currentQaIndex: number
   /** 本轮对话历史 */
   conversationHistory: { role: 'ai' | 'user'; text: string }[]
+  /** 对话模式 */
+  dialogueMode?: DialogueMode
 }
 
 /**
@@ -282,7 +304,7 @@ export interface AIDialogueResponse {
   pass: boolean
   /** 下一个待处理的 QA_Pair 索引（0-based） */
   nextQaIndex: number
-  /** 下一条 speaker_text 或提示语 */
+  /** 下一条 triggerText 或提示语 */
   aiMessage?: string
   /** 是否所有 QA_Pair 都已完成 */
   isComplete: boolean

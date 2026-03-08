@@ -2,8 +2,7 @@
   "subSceneId": "travel_055_sub_2",
   "subSceneName": "询问目的地",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:30:06.809Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.020Z",
   "questions": [
     {
       "id": "travel_055_sub_2_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "当你说‘我在找...’时，直接跟上地点名词，不需要加动词或疑问结构。",
         "type": "fill_blank",
-        "situation": "你在陌生城市向路人询问如何到达图书馆，需要明确说出你的目的地。",
-        "speakerText": "Excuse me, could you help me? I'm looking for ___",
-        "speakerTextCn": "打扰一下，你能帮我吗？我在找___",
-        "responseTemplate": "I'm looking for ___",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "当你说‘我在找...’时，直接跟上地点名词，不需要加动词或疑问结构。",
-        "knowledgePoint": "表达目的地的核心句型：I'm looking for + 地点"
+        "situation": "你在陌生城市向路人询问如何到达图书馆，需要明确说出你的目的地。",
+        "speakerText": "Excuse me, could you help me? I'm looking for ___",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "打扰一下，你能帮我吗？我在找___",
+        "knowledgePoint": "表达目的地的核心句型：I'm looking for + 地点",
+        "responseTemplate": "I'm looking for ___"
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "表达目的地点时，用‘get to + 地点’是最自然的表达，避免使用疑问句结构。",
         "type": "fill_blank",
-        "situation": "你在机场问工作人员怎么去出租车候车区，需要清楚说出你要去的地方。",
-        "speakerText": "Hi, I need to get to ___. Could you tell me which way to go?",
-        "speakerTextCn": "你好，我要去___。你能告诉我该往哪走吗？",
-        "responseTemplate": "I need to get to ___",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "表达目的地点时，用‘get to + 地点’是最自然的表达，避免使用疑问句结构。",
-        "knowledgePoint": "表达目的地的常用句型：I need to get to + 地点"
+        "situation": "你在机场问工作人员怎么去出租车候车区，需要清楚说出你要去的地方。",
+        "speakerText": "Hi, I need to get to ___. Could you tell me which way to go?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你好，我要去___。你能告诉我该往哪走吗？",
+        "knowledgePoint": "表达目的地的常用句型：I need to get to + 地点",
+        "responseTemplate": "I need to get to ___"
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "‘reach’后面直接接地点名词，不需要加介词或从句。",
         "type": "fill_blank",
-        "situation": "你在酒店前台问服务员去最近的便利店怎么走，需要明确说出你的目标地点。",
-        "speakerText": "Could you tell me how to reach ___? I need to buy some water.",
-        "speakerTextCn": "你能告诉我怎么去___吗？我需要买点水。",
-        "responseTemplate": "how to reach ___",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "‘reach’后面直接接地点名词，不需要加介词或从句。",
-        "knowledgePoint": "表达目的地的动词结构：reach + 地点"
+        "situation": "你在酒店前台问服务员去最近的便利店怎么走，需要明确说出你的目标地点。",
+        "speakerText": "Could you tell me how to reach ___? I need to buy some water.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你能告诉我怎么去___吗？我需要买点水。",
+        "knowledgePoint": "表达目的地的动词结构：reach + 地点",
+        "responseTemplate": "how to reach ___"
+      }
+    },
+    {
+      "id": "travel_055_sub_2_pq_4",
+      "subSceneId": "travel_055_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "在指路时，转弯方向常用 left 或 right",
+        "qaId": "travel_055_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "left",
+            "options": [
+              "left",
+              "right",
+              "up",
+              "back"
+            ]
+          }
+        ],
+        "template": "Walk straight, then turn ___ at the bank.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "方向动词搭配（turn left/right）"
+      }
+    },
+    {
+      "id": "travel_055_sub_2_pq_5",
+      "subSceneId": "travel_055_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "描述位置时常用方位词表示方向",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "north",
+            "options": [
+              "north",
+              "south",
+              "east",
+              "west"
+            ]
+          }
+        ],
+        "template": "It's just two blocks ___ on Main Street.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "方位词用法（north/south/east/west）"
+      }
+    },
+    {
+      "id": "travel_055_sub_2_pq_6",
+      "subSceneId": "travel_055_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "询问路线时常用 'how to get to' 句型",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "get",
+            "options": [
+              "get",
+              "go",
+              "arrive",
+              "reach"
+            ]
+          }
+        ],
+        "template": "Could you tell me how to ___ to the library?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定表达（how to get to）"
       }
     }
   ]

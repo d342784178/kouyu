@@ -6,15 +6,18 @@
 prepare/scene/
 ├── data/
 │   ├── scenes_final.json            # 最终场景数据（已导入数据库）
+│   ├── sub-scenes/                  # 子场景数据（含问答对）
+│   │   └── {scene_id}.json
 │   └── practice-questions/          # 子场景练习题数据
-│       └── {scene_id}_sub_{n}_{type}.json
+│       └── {sub_scene_id}_{type}.json
 ├── scripts/
 │   ├── scene-manager.ts             # 场景管理脚本（主要）
 │   ├── generate_scenes_110.js       # 生成110个场景数据
 │   ├── generate-sub-scenes.js       # 生成子场景数据
 │   ├── generate-practice-questions.js # 生成练习题数据
 │   ├── import-sub-scenes.ts         # 导入子场景到数据库
-│   └── import-practice-questions.js # 导入练习题到数据库
+│   ├── import-practice-questions.js # 导入练习题到数据库
+│   └── export-database.ts           # 从数据库导出数据到本地
 └── README.md
 ```
 
@@ -114,8 +117,35 @@ npx ts-node prepare/scene/scripts/import-sub-scenes.ts
 将练习题数据导入数据库（sub_scene_practice_questions 表）。
 
 ```bash
+# 导入所有数据
 node prepare/scene/scripts/import-practice-questions.js
+
+# 只导入指定题型
+node prepare/scene/scripts/import-practice-questions.js --type fill_blank
+
+# 只导入指定对话模式
+node prepare/scene/scripts/import-practice-questions.js --dialogueMode user_asks
+
+# 强制覆盖已有数据
+node prepare/scene/scripts/import-practice-questions.js --force
 ```
+
+---
+
+### 6. 数据导出脚本
+
+#### export-database.ts
+
+从数据库导出数据到本地 JSON 文件。
+
+```bash
+npx tsx prepare/scene/scripts/export-database.ts
+```
+
+**输出**:
+- `data/scenes_final.json` - 场景数据
+- `data/sub-scenes/{scene_id}.json` - 子场景数据（含问答对）
+- `data/practice-questions/{sub_scene_id}_{type}.json` - 练习题数据
 
 ---
 
@@ -156,16 +186,29 @@ node prepare/scene/scripts/import-practice-questions.js
 {
   "id": "daily_001_sub_1_qa_1",
   "subSceneId": "daily_001_sub_1",
-  "speakerText": "Hi there! Table for one?",
-  "speakerTextCn": "您好！一位吗？",
-  "responses": [
+  "dialogueMode": "user_responds",
+  "triggerText": "Hi there! Table for one?",
+  "triggerTextCn": "您好！一位吗？",
+  "triggerSpeakerRole": "staff",
+  "scenarioHint": "The waiter is greeting you at the restaurant entrance.",
+  "scenarioHintCn": "服务员在餐厅门口迎接你。",
+  "followUps": [
     { "text": "Yeah, just me, thanks.", "text_cn": "对，就我一个，谢谢。" }
   ],
   "usageNote": "服务员问候时的回应",
-  "qaType": "must_speak",
+  "learnRequirement": "speak_followup",
   "order": 1
 }
 ```
+
+**对话模式说明**:
+- `user_responds`: 服务方先说话，用户学习如何回应
+- `user_asks`: 用户主动提问，服务方回应
+
+**学习要求说明**:
+- `speak_trigger`: 需要练习触发文本
+- `speak_followup`: 需要练习后续回应
+- `listen_only`: 只需听懂即可
 
 ### 练习题结构 (sub_scene_practice_questions 表)
 
@@ -251,13 +294,17 @@ CREATE TABLE sub_scenes (
 CREATE TABLE qa_pairs (
   id TEXT PRIMARY KEY,
   sub_scene_id TEXT NOT NULL REFERENCES sub_scenes(id),
-  speaker_text TEXT NOT NULL,
-  speaker_text_cn TEXT NOT NULL,
-  responses JSONB NOT NULL,
+  dialogue_mode TEXT NOT NULL DEFAULT 'user_responds',
+  trigger_text TEXT NOT NULL,
+  trigger_text_cn TEXT NOT NULL,
+  trigger_speaker_role TEXT,
+  scenario_hint TEXT,
+  scenario_hint_cn TEXT,
+  follow_ups JSONB NOT NULL,
   usage_note TEXT,
   audio_url TEXT,
-  qa_type TEXT NOT NULL,
-  order INTEGER NOT NULL,
+  learn_requirement TEXT NOT NULL,
+  "order" INTEGER NOT NULL,
   created_at TIMESTAMP DEFAULT NOW(),
   updated_at TIMESTAMP DEFAULT NOW()
 );
@@ -291,16 +338,25 @@ CREATE TABLE sub_scene_practice_questions (
 
 ---
 
-## 用户角色定位规则
+## 对话模式与角色定位规则
 
-生成数据时遵循以下角色定位原则：
+生成数据时遵循以下对话模式和角色定位原则：
+
+### 对话模式
+
+| 模式 | 说明 | triggerSpeakerRole |
+|------|------|-------------------|
+| `user_responds` | 服务方先说话，用户学习如何回应 | `staff` |
+| `user_asks` | 用户主动提问，服务方回应 | `user` |
+
+### 角色定位原则
 
 | 原则 | 说明 |
 |------|------|
 | **用户角色** | 用户（学习者）应扮演"消费者"、"使用者"、"顾客"、"求职者"、"学生"等角色 |
 | **用户定位** | 用户应该是"接受服务"或"提出需求"的一方 |
-| **speakerText** | 应该是服务提供者说的话（如服务员、店员、医生、面试官等） |
-| **responses** | 应该是用户作为消费者/使用者的回应 |
+| **triggerText** | 触发对话的文本，根据 dialogueMode 决定是服务方还是用户说的话 |
+| **followUps** | 后续回应，用于 user_responds 模式下用户学习如何回应 |
 
 ---
 

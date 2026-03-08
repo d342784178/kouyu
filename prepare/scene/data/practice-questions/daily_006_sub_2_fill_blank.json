@@ -2,8 +2,7 @@
   "subSceneId": "daily_006_sub_2",
   "subSceneName": "账户类型选择",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:14.288Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.476Z",
   "questions": [
     {
       "id": "daily_006_sub_2_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "用 'I'll go with the ___' 表达选择，需用代词指代前文提到的账户类型",
         "type": "fill_blank",
-        "situation": "银行柜员向客户介绍两种账户选项，客户在了解后决定选择其中一种。",
-        "speakerText": "We offer a standard account with no monthly fee, or a rewards account that gives cash back on purchases.",
-        "speakerTextCn": "我们提供无月费的标准账户，或有消费返现的奖励账户。",
-        "responseTemplate": "I think I'll go with the ___.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "用 'I'll go with the ___' 表达选择，需用代词指代前文提到的账户类型",
-        "knowledgePoint": "表达明确选择的句型：I'll go with the ___"
+        "situation": "银行柜员向客户介绍两种账户选项，客户在了解后决定选择其中一种。",
+        "speakerText": "We offer a standard account with no monthly fee, or a rewards account that gives cash back on purchases.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们提供无月费的标准账户，或有消费返现的奖励账户。",
+        "knowledgePoint": "表达明确选择的句型：I'll go with the ___",
+        "responseTemplate": "I think I'll go with the ___."
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "表达决定开通某账户时，常用 'open that one' 指代前文提到的账户类型",
         "type": "fill_blank",
-        "situation": "柜员说明两种账户的差异后，客户表示对高收益账户感兴趣，但不确定是否符合门槛。",
-        "speakerText": "The high-yield account offers better interest, but requires a minimum balance of a few hundred dollars.",
-        "speakerTextCn": "高收益账户利率更高，但需要维持几百美元的最低余额。",
-        "responseTemplate": "That sounds good—I think I can manage that. I'd like to ___.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "表达决定开通某账户时，常用 'open that one' 指代前文提到的账户类型",
-        "knowledgePoint": "表达开通账户的自然回应：I'd like to open that one"
+        "situation": "柜员说明两种账户的差异后，客户表示对高收益账户感兴趣，但不确定是否符合门槛。",
+        "speakerText": "The high-yield account offers better interest, but requires a minimum balance of a few hundred dollars.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "高收益账户利率更高，但需要维持几百美元的最低余额。",
+        "knowledgePoint": "表达开通账户的自然回应：I'd like to open that one",
+        "responseTemplate": "That sounds good—I think I can manage that. I'd like to ___."
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "用 'Is that the one' 确认所指账户，避免歧义，是自然口语中的常见确认方式",
         "type": "fill_blank",
-        "situation": "柜员询问客户倾向哪种账户，客户表示对奖励账户有兴趣，但希望先确认是否需要额外费用。",
-        "speakerText": "The rewards account has no sign-up fee, but there’s a small fee if you don’t meet the spending requirement.",
-        "speakerTextCn": "奖励账户没有开户费，但如果不满足消费要求会收取小额费用。",
-        "responseTemplate": "I'm leaning toward the rewards account. ___?",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "用 'Is that the one' 确认所指账户，避免歧义，是自然口语中的常见确认方式",
-        "knowledgePoint": "确认所指对象的口语表达：Is that the one"
+        "situation": "柜员询问客户倾向哪种账户，客户表示对奖励账户有兴趣，但希望先确认是否需要额外费用。",
+        "speakerText": "The rewards account has no sign-up fee, but there’s a small fee if you don’t meet the spending requirement.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "奖励账户没有开户费，但如果不满足消费要求会收取小额费用。",
+        "knowledgePoint": "确认所指对象的口语表达：Is that the one",
+        "responseTemplate": "I'm leaning toward the rewards account. ___?"
+      }
+    },
+    {
+      "id": "daily_006_sub_2_pq_4",
+      "subSceneId": "daily_006_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "客户在比较账户时，常会询问收益更高的选项",
+        "qaId": "daily_006_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "higher",
+            "options": [
+              "higher",
+              "lower",
+              "free",
+              "fixed"
+            ]
+          }
+        ],
+        "template": "I'd like to open a savings account. Do you have one with ___ interest?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "形容词搭配：higher returns / higher interest（账户类型对比核心表达）"
+      }
+    },
+    {
+      "id": "daily_006_sub_2_pq_5",
+      "subSceneId": "daily_006_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "银行介绍账户门槛时常用这个词",
+        "qaId": "daily_006_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "minimum",
+            "options": [
+              "minimum",
+              "maximum",
+              "optional",
+              "monthly"
+            ]
+          }
+        ],
+        "template": "The premium account requires a ___ deposit of $500.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定搭配：minimum deposit（账户开户最低存款要求）"
+      }
+    },
+    {
+      "id": "daily_006_sub_2_pq_6",
+      "subSceneId": "daily_006_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "回应操作指令时最自然的口语表达",
+        "qaId": "daily_006_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Got",
+            "options": [
+              "Got",
+              "Understood",
+              "Known",
+              "Remembered"
+            ]
+          }
+        ],
+        "template": "___ it—I'll sign right away.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "口语回应短语：Got it（确认并接受指令）"
       }
     }
   ]

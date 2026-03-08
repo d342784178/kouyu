@@ -2,77 +2,76 @@
   "subSceneId": "workplace_048_sub_3",
   "subSceneName": "上传发票与要求",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:18:52.748Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.537Z",
   "questions": [
     {
-      "id": "workplace_048_sub_3_choice_1",
+      "id": "workplace_048_sub_3_qa_1_choice_1",
       "subSceneId": "workplace_048_sub_3",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "workplace_048_sub_3_qa_1",
-        "speakerText": "Do I need to scan all receipts? What format should they be?",
-        "speakerTextCn": "所有收据都要扫描吗？要什么格式？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, any image format is fine, including screenshots or phone photos.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Yes, PDF or JPG only—no photos from your phone camera.",
+            "text": "Do I need to scan all receipts? What format should they be?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "What is the deadline for submitting the receipts?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "No, just email the original paper receipts.",
+            "text": "Can I upload the receipts directly from the company website?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Upload them as Word documents so we can edit the amounts.",
+            "text": "How many receipts can I upload at one time?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案强调仅接受PDF或JPG格式，且禁止手机原图，这是公司防篡改和清晰度要求。干扰项1允许所有图像格式，违反规定；干扰项3建议邮寄纸质件，与数字化流程冲突；干扰项4要求Word格式，不符合报销系统支持的格式。"
+        "explanation": "正确答案是 Do I need to scan all receipts? What format should they be？因为用户在询问具体操作步骤时，通常会先提问。其他选项都是不正确的，因为它们没有回答用户的主要问题：收据的扫描和格式要求。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在询问具体操作步骤时，用户通常会先提问。"
       }
     },
     {
-      "id": "workplace_048_sub_3_choice_2",
+      "id": "workplace_048_sub_3_qa_2_choice_1",
       "subSceneId": "workplace_048_sub_3",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "workplace_048_sub_3_qa_2",
-        "speakerText": "Can I submit partial receipts if I lost one?",
-        "speakerTextCn": "如果丢了张发票，能只报部分吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, you can submit whatever you have—even if it's incomplete.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Unfortunately, no—without a receipt, it won't be approved.",
+            "text": "Can I submit partial receipts if I lost one?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "What is the deadline for submitting receipts?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Sure, just write 'lost receipt' in the notes section.",
+            "text": "Do I need to scan the receipts or can I take a photo?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "You can use a credit card statement instead of a receipt.",
+            "text": "How do I know if my receipts are being processed?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确拒绝无发票报销，这是财务合规的核心规则。干扰项1暗示可随意提交，违反完整性原则；干扰项3认为备注即可，但无正式替代文件；干扰项4混淆了信用卡账单与税务认可的发票，不符合政策。"
+        "explanation": "正确答案是 Can I submit partial receipts if I lost one？因为用户在询问具体操作步骤时，通常会先提问。其他选项虽然都是合理的问题，但并不是在这个场景下最合适的问题。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在询问具体操作步骤时，用户通常会先提问，特别是在确认发票上传格式和注意事项的情况下。"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I'm uploading my travel expenses. Should I include the hotel receipt even if I paid with company card?",
-        "speakerTextCn": "我正在上传差旅费用，即使我用公司卡支付了酒店费用，也需要上传酒店收据吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案���调无论支付方式如何，所有费用都必须提供收据，这是审计和合规的基本要求。干扰项1错误认为系统自动追踪可替代收据；干扰项3错误区分现金与刷卡；干扰项4设定金额门槛，但政策无此例外。"
+        "explanation": "正确答案���调无论支付方式如何，所有费用都必须提供收据，这是审计和合规的基本要求。干扰项1错误认为系统自动追踪可替代收据；干扰项3错误区分现金与刷卡；干扰项4设定金额门槛，但政策无此例外。",
+        "speakerText": "I'm uploading my travel expenses. Should I include the hotel receipt even if I paid with company card?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我正在上传差旅费用，即使我用公司卡支付了酒店费用，也需要上传酒店收据吗？"
       }
     }
   ]

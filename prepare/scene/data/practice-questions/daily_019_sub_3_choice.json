@@ -2,8 +2,7 @@
   "subSceneId": "daily_019_sub_3",
   "subSceneName": "定制需求",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:17:53.669Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.576Z",
   "questions": [
     {
       "id": "daily_019_sub_3_choice_1",
@@ -12,9 +11,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "顾客在定制一款生日蛋糕，要求改变奶油颜色并添加糖霜名字，店员确认可行后，顾客进一步提出配送时间要求。",
-        "speakerText": "We can change the frosting to blue and add 'Happy Birthday, Sarah' on top. The total is $55 including delivery.",
-        "speakerTextCn": "我们可以把奶油改成蓝色，并在上面写上‘生日快乐，莎拉’。总价55美元，包含配送。",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +33,81 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应价格确认后最自然的下一步——提出配送时间要求，符合高频交际模式。干扰项1是答非所问（突然问无麸质，与对话无关）；干扰项2是理解偏差（误解为要更换产品）；干扰项3是表达不当（虽理解价格，但未确认最终决定，语气不完整）"
+        "situation": "顾客在定制一款生日蛋糕，要求改变奶油颜色并添加糖霜名字，店员确认可行后，顾客进一步提出配送时间要求。",
+        "explanation": "正确答案直接回应价格确认后最自然的下一步——提出配送时间要求，符合高频交际模式。干扰项1是答非所问（突然问无麸质，与对话无关）；干扰项2是理解偏差（误解为要更换产品）；干扰项3是表达不当（虽理解价格，但未确认最终决定，语气不完整）",
+        "speakerText": "We can change the frosting to blue and add 'Happy Birthday, Sarah' on top. The total is $55 including delivery.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们可以把奶油改成蓝色，并在上面写上‘生日快乐，莎拉’。总价55美元，包含配送。"
+      }
+    },
+    {
+      "id": "daily_019_sub_3_qa_1_choice_1",
+      "subSceneId": "daily_019_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_019_sub_3_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can you make it with pink roses instead? And maybe include a little teddy bear?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you sell pink roses and teddy bears?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I want pink roses and a teddy bear.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Are pink roses available?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接表达了修改原订单的请求，语气礼貌且完整包含两个定制需求，符合口语交际习惯。干扰项2仅询问商品是否存在，未表达定制意图；干扰项3是命令式表达，缺乏礼貌和协商语气；干扰项4只问单一商品的可用性，未提及修改或添加要求。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想定制一份花束，希望将原定的红玫瑰换成粉玫瑰，并额外添加一个小熊玩偶，现在需要向花店工作人员提出这个个性化要求。"
+      }
+    },
+    {
+      "id": "daily_019_sub_3_qa_2_choice_1",
+      "subSceneId": "daily_019_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_019_sub_3_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can you make this customization for me?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much does it cost to order a standard version?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "When will you finish the order?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I want this customized, please.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案询问是否能完成定制，符合场景中等待服务方确认需求的交际目标。干扰项2询问标准版本价格，偏离定制需求；干扰项3关注完成时间，而非可行性；干扰项4是陈述句而非提问，不符合互动情境。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客提出个性化定制要求，等待服务方回应是否可以满足需求"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "顾客定制一款纪念相框，希望更换背景颜色并加刻纪念日期，店员确认后告知加价，顾客决定接受但要求缩短制作时间。",
-        "speakerText": "We can switch the background to gold and engrave 'June 12, 2024' — that’s an extra $12. It usually takes 3 days, but we can do it in 24 hours.",
-        "speakerTextCn": "我们可以把背景换成金色，并刻上‘2024年6月12日’，额外收费12美元。通常需要3天，但我们24小时内就能完成。",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案精准回应了加价确认后最合理的请求——要求缩短制作时间，符合‘确认收费→提出交付要求’的核心模式。干扰项1是拒绝定制（与店员已确认的进展矛盾）；干扰项2是理解偏差（对价格信息产生疑问，而非行动）；干扰项3是表达不当（提出无关的验证请求，非高频自然反应）"
+        "situation": "顾客定制一款纪念相框，希望更换背景颜色并加刻纪念日期，店员确认后告知加价，顾客决定接受但要求缩短制作时间。",
+        "explanation": "正确答案精准回应了加价确认后最合理的请求——要求缩短制作时间，符合‘确认收费→提出交付要求’的核心模式。干扰项1是拒绝定制（与店员已确认的进展矛盾）；干扰项2是理解偏差（对价格信息产生疑问，而非行动）；干扰项3是表达不当（提出无关的验证请求，非高频自然反应）",
+        "speakerText": "We can switch the background to gold and engrave 'June 12, 2024' — that’s an extra $12. It usually takes 3 days, but we can do it in 24 hours.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们可以把背景换成金色，并刻上‘2024年6月12日’，额外收费12美元。通常需要3天，但我们24小时内就能完成。"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "顾客为婚礼定制花束，要求更换主花并添加丝带颜色，店员确认后说明费用，顾客立即决定购买并询问送达方式。",
-        "speakerText": "We can replace the lilies with peonies and add a blush pink ribbon. That adds $15 to the price, and we offer free local delivery.",
-        "speakerTextCn": "我们可以把百合换成牡丹，并加一条浅粉丝带，额外收费15美元，本地配送免费。",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案自然承接价格确认，直接表达购买意愿并提出具体交付要求，完全符合高频定制场景的交际逻辑。干扰项1是理解偏差（因价格犹豫，与顾客已接受定制的语境矛盾）；干扰项2是答非所问（转向询问其他选项，偏离决策流程）；干扰项3是表达不当（虽语义正确，但未完成交易闭环，不符合‘立即确认’的语用习惯）"
+        "situation": "顾客为婚礼定制花束，要求更换主花并添加丝带颜色，店员确认后说明费用，顾客立即决定购买并询问送达方式。",
+        "explanation": "正确答案自然承接价格确认，直接表达购买意愿并提出具体交付要求，完全符合高频定制场景的交际逻辑。干扰项1是理解偏差（因价格犹豫，与顾客已接受定制的语境矛盾）；干扰项2是答非所问（转向询问其他选项，偏离决策流程）；干扰项3是表达不当（虽语义正确，但未完成交易闭环，不符合‘立即确认’的语用习惯）",
+        "speakerText": "We can replace the lilies with peonies and add a blush pink ribbon. That adds $15 to the price, and we offer free local delivery.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们可以把百合换成牡丹，并加一条浅粉丝带，额外收费15美元，本地配送免费。"
       }
     }
   ]

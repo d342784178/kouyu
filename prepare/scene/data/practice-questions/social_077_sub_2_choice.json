@@ -2,9 +2,78 @@
   "subSceneId": "social_077_sub_2",
   "subSceneName": "寻找共同点",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:19:09.481Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.667Z",
   "questions": [
+    {
+      "id": "social_077_sub_2_qa_2_choice_1",
+      "subSceneId": "social_077_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "social_077_sub_2_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "No way! I just hiked the same trail last month—was the view as epic as you said?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "That’s nice. Do you hike often?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I like hiking too, what’s your favorite trail?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "So, how long did it take you to finish?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案通过表达惊喜（'No way!'）和共享经历（'I just hiked the same trail'）自然引发深入对话，同时用'as epic as you said?'聚焦对方的主观体验，符合'寻找共同点'的交际目标。选项2是泛泛的后续问题，缺乏情感共鸣；选项3虽相关但过于直接转向新话题，未回应对方的具体经历；选项4只关注时间细节，忽略了情感连接和共同体验的建立。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你最近有什么兴趣爱好？对方提到他上个月去徒步了一条风景优美的步道，你想表达惊喜并开启更深入的对话。"
+      }
+    },
+    {
+      "id": "social_077_sub_2_qa_1_choice_1",
+      "subSceneId": "social_077_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "social_077_sub_2_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "So, what do you usually do to unwind after work?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you like your job?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "What’s your favorite movie?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "When do you finish work?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接引导对方分享下班后的放松方式，符合‘通过兴趣开启深入对话’的场景。选项2只询问工作感受，过于表面；选项3聚焦电影，范围太窄且不够生活化；选项4仅询问时间，未触及兴趣或放松行为，无法推动对话深入。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚认识一位新同事，想通过兴趣爱好开启一段轻松的深入对话，了解他平时如何放松自己。"
+      }
+    },
     {
       "id": "social_077_sub_2_choice_1",
       "subSceneId": "social_077_sub_2",
@@ -12,9 +81,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "在咖啡馆偶遇新同事，对方主动问你周末常做什么来放松",
-        "speakerText": "So, what’s your go-to way to relax on weekends?",
-        "speakerTextCn": "那么，你周末通常怎么放松呢？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +103,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案提供了具体、生动的例子（种番茄和玫瑰），符合‘用具体例子开启深入对话’的核心任务。干扰项1太笼统，干扰项3消极且关闭对话，干扰项4虽试图回应但跳过了回答问题的步骤，属于答非所问。"
+        "situation": "在咖啡馆偶遇新同事，对方主动问你周末常做什么来放松",
+        "explanation": "正确答案提供了具体、生动的例子（种番茄和玫瑰），符合‘用具体例子开启深入对话’的核心任务。干扰项1太笼统，干扰项3消极且关闭对话，干扰项4虽试图回应但跳过了回答问题的步骤，属于答非所问。",
+        "speakerText": "So, what’s your go-to way to relax on weekends?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "那么，你周末通常怎么放松呢？"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "你在读书俱乐部认识了一位新成员，对方听说你喜欢旅行后惊讶地说：‘Really? I just got back from Kyoto last week!’",
-        "speakerText": "Really? I just got back from Kyoto last week! Did you go to the Fushimi Inari Shrine?",
-        "speakerTextCn": "真的吗？我上周刚从京都回来！你去过伏见稻荷大社吗？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案用‘No way!’表达惊喜，并补充了具体细节（红色鸟居绵延不绝），完美强化连接感。干扰项1直接否定，中断对话；干扰项3模糊且不真诚；干扰项4转移话题，未回应对方的兴奋点。"
+        "situation": "你在读书俱乐部认识了一位新成员，对方听说你喜欢旅行后惊讶地说：‘Really? I just got back from Kyoto last week!’",
+        "explanation": "正确答案用‘No way!’表达惊喜，并补充了具体细节（红色鸟居绵延不绝），完美强化连接感。干扰项1直接否定，中断对话；干扰项3模糊且不真诚；干扰项4转移话题，未回应对方的兴奋点。",
+        "speakerText": "Really? I just got back from Kyoto last week! Did you go to the Fushimi Inari Shrine?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "真的吗？我上周刚从京都回来！你去过伏见稻荷大社吗？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "在健身房，你和一位常客聊起运动习惯，对方说：‘I’m obsessed with yoga—I do it every morning before work.’",
-        "speakerText": "I’m obsessed with yoga—I do it every morning before work.",
-        "speakerTextCn": "我超爱瑜伽——每天上班前都练。",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案用积极回应（That’s awesome）+ 自我分享（正在尝试但有小挫折），既认可对方又自然引出共同话题。干扰项1负面否定，破坏氛围；干扰项3贬低对方兴趣；干扰项4虽相关但过于直接提问，缺乏情感共鸣。"
+        "situation": "在健身房，你和一位常客聊起运动习惯，对方说：‘I’m obsessed with yoga—I do it every morning before work.’",
+        "explanation": "正确答案用积极回应（That’s awesome）+ 自我分享（正在尝试但有小挫折），既认可对方又自然引出共同话题。干扰项1负面否定，破坏氛围；干扰项3贬低对方兴趣；干扰项4虽相关但过于直接提问，缺乏情感共鸣。",
+        "speakerText": "I’m obsessed with yoga—I do it every morning before work.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我超爱瑜伽——每天上班前都练。"
       }
     }
   ]

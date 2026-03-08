@@ -1,78 +1,77 @@
 {
   "subSceneId": "travel_064_sub_2",
-  "subSceneName": "询问收费",
+  "subSceneName": "询问收费标准",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:06:11.008Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.153Z",
   "questions": [
     {
-      "id": "travel_064_sub_2_choice_1",
+      "id": "travel_064_sub_2_qa_1_choice_1",
       "subSceneId": "travel_064_sub_2",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "travel_064_sub_2_qa_1",
-        "speakerText": "It's $5 per bag for up to 24 hours.",
-        "speakerTextCn": "每件行李24小时内收费5美元。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Can I pay by credit card?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "That's affordable. I'll leave two bags.",
+            "text": "How much does it cost to store my luggage for 24 hours?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "How many bags can I store for $5?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Do you have Wi-Fi here?",
+            "text": "Is there a discount for storing luggage for more than 24 hours?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "How late are you open?",
+            "text": "What is the cost of storing a suitcase for a week?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案回应了价格信息并表达了决定寄存，符合对话语境。其他选项与价格确认无关，属于无关提问。"
+        "explanation": "正确答案是‘How much does it cost to store my luggage for 24 hours?’因为它直接询问了寄存行李24小时内的费用。其他选项不正确，因为它们询问了不同的信息，例如存放的数量、时间长短等",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你需要知道寄存行李24小时内的费用"
       }
     },
     {
-      "id": "travel_064_sub_2_choice_2",
+      "id": "travel_064_sub_2_qa_2_choice_1",
       "subSceneId": "travel_064_sub_2",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "travel_064_sub_2_qa_2",
-        "speakerText": "We charge by the day, not by the hour.",
-        "speakerTextCn": "我们按天收费，不是按小时。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Is there a discount for long-term storage?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "So if I leave it for 12 hours, it's still $5?",
+            "text": "Do you charge by the day or by the hour?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "How much does it cost to store my luggage for a week?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Can I get a receipt?",
+            "text": "Can I get a discount if I store my luggage for 24 hours?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Where is the exit?",
+            "text": "Is there a limit on how much luggage I can store?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是对计费方式的合理确认，体现对'按天收费'的理解。其他选项与计费方式澄清无关，属于无关问题。"
+        "explanation": "答案解析：正确答案‘Do you charge by the day or by the hour？’是询问收费标准的合适问题。其他选项不符合场景需求，或者是提问不当型，无法获得想要的信息。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "旅客了解寄存费用和计费方式，顾客：How much does it cost to store my luggage for 24 hours?"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "The first 24 hours are free, then $3 per additional day.",
-        "speakerTextCn": "前24小时免费，之后每天3美元。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确理解了'前24小时免费'的含义，体现了对计费规则的正确回应。其他选项或误解规则，或与收费无关。"
+        "explanation": "正确答案准确理解了'前24小时免费'的含义，体现了对计费规则的正确回应。其他选项或误解规则，或与收费无关。",
+        "speakerText": "The first 24 hours are free, then $3 per additional day.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "前24小时免费，之后每天3美元。"
       }
     }
   ]

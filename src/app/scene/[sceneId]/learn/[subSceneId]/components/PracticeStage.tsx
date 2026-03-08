@@ -89,19 +89,30 @@ function ChoiceQuestion({ question, onNext }: ChoiceQuestionProps) {
     return 'bg-white border-gray-100 text-gray-400'
   }
 
+  const isUserAsks = question.dialogueMode === 'user_asks'
+
   return (
     <div className="flex flex-col h-full px-4 pt-4 pb-6">
       {/* 题目说明 */}
       <div className="mb-5">
-        <p className="text-xs text-gray-400 mb-1">选择正确的回应方式</p>
+        <p className="text-xs text-gray-400 mb-1">
+          {isUserAsks ? '选择正确的提问方式' : '选择正确的回应方式'}
+        </p>
       </div>
 
-      {/* 文本展示 */}
-      <div className="bg-white rounded-card shadow-card border border-gray-100 p-4 mb-5">
-        <p className="text-xs text-gray-400 mb-1">对方说：</p>
-        <p className="text-base font-medium text-gray-900 leading-snug">{question.speakerText}</p>
-        <p className="text-sm text-gray-400 mt-1">{question.speakerTextCn}</p>
-      </div>
+      {/* 文本展示 - 根据对话模式显示不同内容 */}
+      {isUserAsks ? (
+        <div className="bg-white rounded-card shadow-card border border-gray-100 p-4 mb-5">
+          <p className="text-xs text-gray-400 mb-1">场景提示：</p>
+          <p className="text-base font-medium text-gray-900 leading-snug">{question.scenarioHint}</p>
+        </div>
+      ) : (
+        <div className="bg-white rounded-card shadow-card border border-gray-100 p-4 mb-5">
+          <p className="text-xs text-gray-400 mb-1">对方说：</p>
+          <p className="text-base font-medium text-gray-900 leading-snug">{question.triggerText}</p>
+          <p className="text-sm text-gray-400 mt-1">{question.triggerTextCn}</p>
+        </div>
+      )}
 
       {/* 选项列表 */}
       <div className="flex flex-col gap-3 flex-1">
@@ -394,6 +405,8 @@ function SpeakingQuestion({ question, onNext }: SpeakingQuestionProps) {
     feedback: string
   } | null>(null)
 
+  const isUserAsks = question.dialogueMode === 'user_asks'
+
   const handleVoiceInput = useCallback((text: string) => {
     if (!text.trim()) return
     setRecognizedText(text)
@@ -501,10 +514,10 @@ function SpeakingQuestion({ question, onNext }: SpeakingQuestionProps) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           userAnswer: recognizedText,
-          expectedAnswer: question.expectedAnswer || question.speakerText,
+          expectedAnswer: question.expectedAnswer || question.triggerText,
           context: {
-            speakerText: question.speakerText,
-            speakerTextCn: question.speakerTextCn,
+            triggerText: question.triggerText,
+            triggerTextCn: question.triggerTextCn,
           },
         }),
       })
@@ -525,14 +538,23 @@ function SpeakingQuestion({ question, onNext }: SpeakingQuestionProps) {
   return (
     <div className="flex flex-col h-full px-4 pt-4 pb-6">
       {/* 题目说明 */}
-      <p className="text-xs text-gray-400 mb-4">听对方说的话，用英语语音回应</p>
+      <p className="text-xs text-gray-400 mb-4">
+        {isUserAsks ? '根据场景提示，用英语语音提问' : '听对方说的话，用英语语音回应'}
+      </p>
 
-      {/* 对方说的话 */}
-      <div className="bg-white rounded-card shadow-card border border-gray-100 p-4 mb-5">
-        <p className="text-xs text-gray-400 mb-1">对方说：</p>
-        <p className="text-base font-medium text-gray-900 leading-snug">{question.speakerText}</p>
-        <p className="text-sm text-gray-400 mt-1">{question.speakerTextCn}</p>
-      </div>
+      {/* 场景提示或对方说的话 */}
+      {isUserAsks ? (
+        <div className="bg-white rounded-card shadow-card border border-gray-100 p-4 mb-5">
+          <p className="text-xs text-gray-400 mb-1">场景提示：</p>
+          <p className="text-base font-medium text-gray-900 leading-snug">{question.scenarioHint}</p>
+        </div>
+      ) : (
+        <div className="bg-white rounded-card shadow-card border border-gray-100 p-4 mb-5">
+          <p className="text-xs text-gray-400 mb-1">对方说：</p>
+          <p className="text-base font-medium text-gray-900 leading-snug">{question.triggerText}</p>
+          <p className="text-sm text-gray-400 mt-1">{question.triggerTextCn}</p>
+        </div>
+      )}
 
       {/* 录音区域 */}
       <div className="flex flex-col items-center gap-4 flex-1 justify-center">

@@ -2,9 +2,43 @@
   "subSceneId": "daily_012_sub_2",
   "subSceneName": "询问设施",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:16:25.794Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.528Z",
   "questions": [
+    {
+      "id": "daily_012_sub_2_qa_2_choice_1",
+      "subSceneId": "daily_012_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_012_sub_2_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do you have a pool?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "What kind of equipment do you have?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "How much does a membership cost?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I use the equipment for free?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 'What kind of equipment do you have?' 因为它直接询问健身房的设备。其他选项不符合场景的需求或询问了不相关的信息。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在健身房询问设施和服务"
+      }
+    },
     {
       "id": "daily_012_sub_2_choice_1",
       "subSceneId": "daily_012_sub_2",
@@ -12,9 +46,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "你第一次去一家新健身房，前台工作人员介绍了设备和服务，你想确认是否有团体课程。",
-        "speakerText": "We have treadmills, ellipticals, and a functional training zone. We also offer free locker rentals and water stations.",
-        "speakerTextCn": "我们有跑步机、椭圆机和功能性训练区，还提供免费储物柜和饮水站。",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +68,46 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用'Do you offer...'直接询问团体课程，符合询问设施的核心交际任务。干扰项1是回应设备而非提问，干扰项2是请求折扣（偏离主题），干扰项3是感谢服务（答非所问）"
+        "situation": "你第一次去一家新健身房，前台工作人员介绍了设备和服务，你想确认是否有团体课程。",
+        "explanation": "正确答案使用'Do you offer...'直接询问团体课程，符合询问设施的核心交际任务。干扰项1是回应设备而非提问，干扰项2是请求折扣（偏离主题），干扰项3是感谢服务（答非所问）",
+        "speakerText": "We have treadmills, ellipticals, and a functional training zone. We also offer free locker rentals and water stations.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们有跑步机、椭圆机和功能性训练区，还提供免费储物柜和饮水站。"
+      }
+    },
+    {
+      "id": "daily_012_sub_2_qa_1_choice_1",
+      "subSceneId": "daily_012_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_012_sub_2_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What kind of equipment do you have?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you tell me about the gym's history?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have any personal trainers available?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much does it cost to join the gym?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 'What kind of equipment do you have?'，因为这直接问到了健身房的设备。其他选项虽然都是合理的问题，但与场景的主要关注点不符。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在健身房询问设施和服务"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "前台告诉你健身房没有泳池但有桑拿房和按摩服务，你对按摩感兴趣但不确定是否现在需要预约。",
-        "speakerText": "We don’t have a pool, but we’ve got a sauna and massage therapy sessions — they’re $40 per 30 minutes.",
-        "speakerTextCn": "我们没有泳池，但有桑拿和按摩服务，每次30分钟40美元。",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用'I might...'表达未来意愿，语气自然且符合上下文。干扰项1是抱怨（不礼貌且偏离意图），干扰项2是询问细节（非表达意愿），干扰项3是负面评价（非建设性回应）"
+        "situation": "前台告诉你健身房没有泳池但有桑拿房和按摩服务，你对按摩感兴趣但不确定是否现在需要预约。",
+        "explanation": "正确答案使用'I might...'表达未来意愿，语气自然且符合上下文。干扰项1是抱怨（不礼貌且偏离意图），干扰项2是询问细节（非表达意愿），干扰项3是负面评价（非建设性回应）",
+        "speakerText": "We don’t have a pool, but we’ve got a sauna and massage therapy sessions — they’re $40 per 30 minutes.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们没有泳池，但有桑拿和按摩服务，每次30分钟40美元。"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "你询问健身房是否有私人教练，对方回答有认证教练并可预约，你决定先不请教练，但想确认是否可以免费试用设备。",
-        "speakerText": "Yes, our certified trainers are available for $25 an hour. You can sign up at the front desk.",
-        "speakerTextCn": "是的，我们的认证教练每小时25美元，可以在前台预约。",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用'I’ll skip...'表达暂时放弃教练，同时用问句确认使用设备的权限，自然完整。干扰项1是请求免费服务（与上下文矛盾），干扰项2是无关问题，干扰项3是消极表达，缺乏礼貌和明确意图"
+        "situation": "你询问健身房是否有私人教练，对方回答有认证教练并可预约，你决定先不请教练，但想确认是否可以免费试用设备。",
+        "explanation": "正确答案使用'I’ll skip...'表达暂时放弃教练，同时用问句确认使用设备的权限，自然完整。干扰项1是请求免费服务（与上下文矛盾），干扰项2是无关问题，干扰项3是消极表达，缺乏礼貌和明确意图",
+        "speakerText": "Yes, our certified trainers are available for $25 an hour. You can sign up at the front desk.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "是的，我们的认证教练每小时25美元，可以在前台预约。"
       }
     }
   ]

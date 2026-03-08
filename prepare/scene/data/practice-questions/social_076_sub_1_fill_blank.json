@@ -2,20 +2,43 @@
   "subSceneId": "social_076_sub_1",
   "subSceneName": "初次问候",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:25:58.539Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.657Z",
   "questions": [
+    {
+      "id": "social_076_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "social_076_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "这里需要填入自己的名字，用于自我介绍后自然过渡到提问",
+        "qaId": "social_076_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Alex",
+            "options": [
+              "Alex",
+              "my name",
+              "this",
+              "the one"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在社交场合，主动打招呼并询问对方情况是建立良好交流的开端",
+        "knowledgePoint": "自我介绍后使用确认式提问开启对话",
+        "responseTemplate": "Hey, I'm ___! You're new here, right?"
+      }
+    },
     {
       "id": "social_076_sub_1_fill_blank_1",
       "subSceneId": "social_076_sub_1",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "回答时直接说名字，不需要加 'I am' 或其他多余词",
         "type": "fill_blank",
-        "situation": "在办公室第一次见到新同事，对方主动打招呼并自我介绍",
-        "speakerText": "Hi there! I'm Sam. We haven't met before, have we?",
-        "speakerTextCn": "嗨！我是萨姆，我们之前没见过吧？",
-        "responseTemplate": "Oh, nice to meet you! I'm ___",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,12 @@
             ]
           }
         ],
-        "hint": "回答时直接说名字，不需要加 'I am' 或其他多余词",
-        "knowledgePoint": "自我介绍的自然表达方式"
+        "situation": "在办公室第一次见到新同事，对方主动打招呼并自我介绍",
+        "speakerText": "Hi there! I'm Sam. We haven't met before, have we?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨！我是萨姆，我们之前没见过吧？",
+        "knowledgePoint": "自我介绍的自然表达方式",
+        "responseTemplate": "Oh, nice to meet you! I'm ___"
       }
     },
     {
@@ -38,11 +65,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "在非正式场合，直接说名字最自然，避免完整句式",
         "type": "fill_blank",
-        "situation": "在咖啡店排队时，邻近的人微笑着对你打招呼",
-        "speakerText": "Hey, this line is longer than I expected! First time here?",
-        "speakerTextCn": "嘿，这队伍比我想的长多了！你第一次来这儿吗？",
-        "responseTemplate": "Yeah, it is! I'm ___",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +79,12 @@
             ]
           }
         ],
-        "hint": "在非正式场合，直接说名字最自然，避免完整句式",
-        "knowledgePoint": "日常社交中的简洁自我介绍"
+        "situation": "在咖啡店排队时，邻近的人微笑着对你打招呼",
+        "speakerText": "Hey, this line is longer than I expected! First time here?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嘿，这队伍比我想的长多了！你第一次来这儿吗？",
+        "knowledgePoint": "日常社交中的简洁自我介绍",
+        "responseTemplate": "Yeah, it is! I'm ___"
       }
     },
     {
@@ -65,11 +93,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "回应时用最简短的结构，突出友好和自然的语气",
         "type": "fill_blank",
-        "situation": "在社区活动上，一位邻居主动向你挥手并走过来",
-        "speakerText": "Hi! I'm Rachel. I think we live on the same street?",
-        "speakerTextCn": "嗨！我是雷切尔，我觉得我们住在同一条街上？",
-        "responseTemplate": "Small world! I'm ___",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +107,64 @@
             ]
           }
         ],
-        "hint": "回应时用最简短的结构，突出友好和自然的语气",
-        "knowledgePoint": "非正式场合的礼貌回应结构"
+        "situation": "在社区活动上，一位邻居主动向你挥手并走过来",
+        "speakerText": "Hi! I'm Rachel. I think we live on the same street?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨！我是雷切尔，我觉得我们住在同一条街上？",
+        "knowledgePoint": "非正式场合的礼貌回应结构",
+        "responseTemplate": "Small world! I'm ___"
+      }
+    },
+    {
+      "id": "social_076_sub_1_pq_5",
+      "subSceneId": "social_076_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "回应对方自我介绍时的标准开场",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Nice",
+            "options": [
+              "Nice",
+              "Good",
+              "Fine",
+              "Great"
+            ]
+          }
+        ],
+        "template": "Hi, I'm Sam. Just started last week. ___ to meet you!",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定表达：Nice to meet you"
+      }
+    },
+    {
+      "id": "social_076_sub_1_pq_6",
+      "subSceneId": "social_076_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "口语中更自然、更随意的肯定回应",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Yep",
+            "options": [
+              "Yep",
+              "Yes",
+              "Of course",
+              "Certainly"
+            ]
+          }
+        ],
+        "template": "Hey, you must be the new intern! ___! I'm Lily.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "口语缩写：Yep 替代 Yes"
       }
     }
   ]

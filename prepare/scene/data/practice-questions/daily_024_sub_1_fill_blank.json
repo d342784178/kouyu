@@ -2,8 +2,7 @@
   "subSceneId": "daily_024_sub_1",
   "subSceneName": "打招呼问候",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:25:19.739Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.603Z",
   "questions": [
     {
       "id": "daily_024_sub_1_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "回应问候后，直接说明你想点的饮品或食物，用 I'd like to... 最自然",
         "type": "fill_blank",
-        "situation": "顾客走进一家咖啡店，店员主动上前问候，顾客需要点单",
-        "speakerText": "Hey! Welcome in. What can I get for you today?",
-        "speakerTextCn": "嘿！欢迎光临。今天想点些什么？",
-        "responseTemplate": "Hi! I'd like to order ___",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "回应问候后，直接说明你想点的饮品或食物，用 I'd like to... 最自然",
-        "knowledgePoint": "日常点单中的礼貌请求表达"
+        "situation": "顾客走进一家咖啡店，店员主动上前问候，顾客需要点单",
+        "speakerText": "Hey! Welcome in. What can I get for you today?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嘿！欢迎光临。今天想点些什么？",
+        "knowledgePoint": "日常点单中的礼貌请求表达",
+        "responseTemplate": "Hi! I'd like to order ___"
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "用 I'm looking for... 表达你正在寻找的商品，避免直接问位置或价格",
         "type": "fill_blank",
-        "situation": "顾客进入一家服装店，店员微笑问候，顾客想试穿衣服",
-        "speakerText": "Hello! How’s it going? Need help finding something?",
-        "speakerTextCn": "你好！最近怎么样？需要帮忙找点什么吗？",
-        "responseTemplate": "Hi! I'm looking for ___",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "用 I'm looking for... 表达你正在寻找的商品，避免直接问位置或价格",
-        "knowledgePoint": "表达需求的常用句型"
+        "situation": "顾客进入一家服装店，店员微笑问候，顾客想试穿衣服",
+        "speakerText": "Hello! How’s it going? Need help finding something?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你好！最近怎么样？需要帮忙找点什么吗？",
+        "knowledgePoint": "表达需求的常用句型",
+        "responseTemplate": "Hi! I'm looking for ___"
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "用 I'm trying to find... 表达你正在寻找特定用途的物品，更自然且有语境",
         "type": "fill_blank",
-        "situation": "顾客走进一家书店，店员热情打招呼，顾客想买一本礼物书",
-        "speakerText": "Hi there! Welcome to our shop. Anything special you're browsing for?",
-        "speakerTextCn": "嗨！欢迎来到我们的店。有什么特别想找的吗？",
-        "responseTemplate": "Hey! I'm trying to find ___",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "用 I'm trying to find... 表达你正在寻找特定用途的物品，更自然且有语境",
-        "knowledgePoint": "表达目的性需求的口语表达"
+        "situation": "顾客走进一家书店，店员热情打招呼，顾客想买一本礼物书",
+        "speakerText": "Hi there! Welcome to our shop. Anything special you're browsing for?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨！欢迎来到我们的店。有什么特别想找的吗？",
+        "knowledgePoint": "表达目的性需求的口语表达",
+        "responseTemplate": "Hey! I'm trying to find ___"
+      }
+    },
+    {
+      "id": "daily_024_sub_1_pq_4",
+      "subSceneId": "daily_024_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "表达‘想要做某事’的固定搭配",
+        "qaId": "daily_024_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "with",
+              "at"
+            ]
+          }
+        ],
+        "template": "Hi! I'd like ___ get these clothes dry cleaned.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "would like to do（预约场景核心句型）"
+      }
+    },
+    {
+      "id": "daily_024_sub_1_pq_5",
+      "subSceneId": "daily_024_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "请求协助时常用动词",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "help",
+            "options": [
+              "help",
+              "give",
+              "take",
+              "bring"
+            ]
+          }
+        ],
+        "template": "Hey! Can you ___ me with dry cleaning these shirts?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "help sb with sth（服务场景核心搭配）"
+      }
+    },
+    {
+      "id": "daily_024_sub_1_pq_6",
+      "subSceneId": "daily_024_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "店员标准问候句型",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "help",
+            "options": [
+              "help",
+              "do",
+              "give",
+              "see"
+            ]
+          }
+        ],
+        "template": "Hi there! What can I ___ you today?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "How can I help you?（服务场景高频句型）"
       }
     }
   ]

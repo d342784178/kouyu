@@ -2,8 +2,7 @@
   "subSceneId": "daily_005_sub_4",
   "subSceneName": "获取医嘱",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:09.598Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.469Z",
   "questions": [
     {
       "id": "daily_005_sub_4_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "用温和的询问方式确认少量是否允许，避免绝对化表达",
         "type": "fill_blank",
-        "situation": "医生建议你减少盐分摄入以控制血压，你希望确认是否可以吃少量酱油。",
-        "speakerText": "You should cut down on salt to manage your blood pressure.",
-        "speakerTextCn": "你应该减少盐的摄入来控制血压。",
-        "responseTemplate": "Understood. ___ soy sauce?",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "用温和的询问方式确认少量是否允许，避免绝对化表达",
-        "knowledgePoint": "请求确认限制性建议的礼貌表达"
+        "situation": "医生建议你减少盐分摄入以控制血压，你希望确认是否可以吃少量酱油。",
+        "speakerText": "You should cut down on salt to manage your blood pressure.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你应该减少盐的摄入来控制血压。",
+        "knowledgePoint": "请求确认限制性建议的礼貌表达",
+        "responseTemplate": "Understood. ___ soy sauce?"
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "用 'What about...' 询问例外情况，是英语中自然的确认方式",
         "type": "fill_blank",
-        "situation": "医生告诉你不要剧烈运动，但你想知道是否可以散步。",
-        "speakerText": "Avoid strenuous activities for the next few days.",
-        "speakerTextCn": "接下来几天避免剧烈活动。",
-        "responseTemplate": "Got it. ___ walking?",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "用 'What about...' 询问例外情况，是英语中自然的确认方式",
-        "knowledgePoint": "询问例外情况的常用结构"
+        "situation": "医生告诉你不要剧烈运动，但你想知道是否可以散步。",
+        "speakerText": "Avoid strenuous activities for the next few days.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "接下来几天避免剧烈活动。",
+        "knowledgePoint": "询问例外情况的常用结构",
+        "responseTemplate": "Got it. ___ walking?"
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "最地道的回应是用 'Will do' 表示会照做，简洁且自然",
         "type": "fill_blank",
-        "situation": "医生叮嘱你按时服药，并提醒你如果症状没改善要复诊，你希望表达会遵从建议。",
-        "speakerText": "Take the medicine as directed, and return if you don't feel better.",
-        "speakerTextCn": "按说明服药，如果感觉没好转就回来复诊。",
-        "responseTemplate": "___, I'll come back if it doesn't improve.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "最地道的回应是用 'Will do' 表示会照做，简洁且自然",
-        "knowledgePoint": "回应医嘱时的地道承诺表达"
+        "situation": "医生叮嘱你按时服药，并提醒你如果症状没改善要复诊，你希望表达会遵从建议。",
+        "speakerText": "Take the medicine as directed, and return if you don't feel better.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "按说明服药，如果感觉没好转就回来复诊。",
+        "knowledgePoint": "回应医嘱时的地道承诺表达",
+        "responseTemplate": "___, I'll come back if it doesn't improve."
+      }
+    },
+    {
+      "id": "daily_005_sub_4_pq_4",
+      "subSceneId": "daily_005_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "询问医嘱建议时的常用情态动词",
+        "qaId": "daily_005_sub_4_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "should",
+            "options": [
+              "should",
+              "could",
+              "would",
+              "must"
+            ]
+          }
+        ],
+        "template": "I'm feeling better, but ___ I avoid caffeine?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "情态动词 should 表建议（医嘱场景核心句型）"
+      }
+    },
+    {
+      "id": "daily_005_sub_4_pq_5",
+      "subSceneId": "daily_005_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "医生说 'Come back if...'，这是标准回应的动词搭配",
+        "qaId": "daily_005_sub_4_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "come",
+            "options": [
+              "come",
+              "go",
+              "return",
+              "get"
+            ]
+          }
+        ],
+        "template": "I'll ___ back if the pain doesn't improve.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "come back（复诊场景核心动词短语）"
+      }
+    },
+    {
+      "id": "daily_005_sub_4_pq_6",
+      "subSceneId": "daily_005_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "询问药物服用方式时的标准开头",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Should",
+            "options": [
+              "Should",
+              "Will",
+              "Could",
+              "Must"
+            ]
+          }
+        ],
+        "template": "Thanks. ___ I take this with food?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "Should I...?（询问医嘱细节的礼貌句型）"
       }
     }
   ]

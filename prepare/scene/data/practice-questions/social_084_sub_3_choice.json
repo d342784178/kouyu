@@ -2,77 +2,76 @@
   "subSceneId": "social_084_sub_3",
   "subSceneName": "朋友邀约旅行",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:45:23.059Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.722Z",
   "questions": [
     {
-      "id": "social_084_sub_3_choice_1",
+      "id": "social_084_sub_3_qa_1_choice_1",
       "subSceneId": "social_084_sub_3",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "social_084_sub_3_qa_1",
-        "speakerText": "We’re doing a weekend road trip to the mountains—want to come? It’s super cheap!",
-        "speakerTextCn": "我们周末去山里自驾游，一起来？超便宜的！",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "That sounds great! I’ll be there.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "That sounds amazing—I’ve been dying to go! But my wallet’s crying this month. Can I join the next one?",
+            "text": "Do you want to come with us?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "How much money do you need for the trip?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I don’t like mountains. Let’s go to the beach instead.",
+            "text": "Why do you want to go to the mountains?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Why should I go? You always pick boring places.",
+            "text": "Can you drive a car?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了积极肯定 + 经济理由 + 未来期待的结构，既表达了兴趣又婉拒了邀请，保留了关系温度。选项1直接接受，不符合预算紧张的设定；选项3转移话题且不礼貌；选项4带有攻击性，破坏友谊。"
+        "explanation": "正确答案‘Do you want to come with us？’询问朋友是否愿意加入旅行计划。其他选项不符合场景需求或表达不自然。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你朋友提议周末去山里自驾游，你想知道他是否愿意一起去"
       }
     },
     {
-      "id": "social_084_sub_3_choice_2",
+      "id": "social_084_sub_3_qa_2_choice_1",
       "subSceneId": "social_084_sub_3",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "social_084_sub_3_qa_2",
-        "speakerText": "Seriously? You always have an excuse!",
-        "speakerTextCn": "真的吗？你每次都找借口！",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Because I’m lazy, okay?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "I know, I’m the worst friend for trips right now. But I’m saving up for next season—I’ll be your #1 travel buddy!",
+            "text": "That sounds fun, but I'm on a tight budget right now—do you really plan to go this weekend?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Seriously? You always have an excuse!",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Fine, I’ll go. Just book me a spot.",
+            "text": "Can we go somewhere cheaper instead?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "You’re being unfair. I have other priorities.",
+            "text": "When are you leaving?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用自嘲+承诺未来的方式，有效化解对方情绪并重建积极预期。选项1过于消极，缺乏建设性；选项3违背了预算紧张的前提；选项4防御性强，容易激化矛盾。"
+        "explanation": "正确答案通过表达理解并委婉说明预算限制，同时温和确认对方计划，符合礼貌婉拒的语境。干扰项1是原文错误复用，语气指责，不适合婉拒场景；干扰项2虽试图协商，但未先确认对方计划，显得急于替代方案；干扰项3仅询问时间，未表达拒绝意图，可能被误解为接受。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "朋友邀请你一起短途旅行，但你预算紧张，想礼貌地婉拒，同时想确认对方是否真的打算去，以避免误解。"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Hey, there’s a beach party next weekend—want to join?",
-        "speakerTextCn": "嘿，下周末有个海滩派对，一起来吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用经济理由+主动参与未来计划，既礼貌又维持关系。选项2直接否定兴趣，缺乏温度；选项3要求对方付费，显得自私；选项4理由模糊，未体现未来意愿，容易被理解为敷衍。"
+        "explanation": "正确答案使用经济理由+主动参与未来计划，既礼貌又维持关系。选项2直接否定兴趣，缺乏温度；选项3要求对方付费，显得自私；选项4理由模糊，未体现未来意愿，容易被理解为敷衍。",
+        "speakerText": "Hey, there’s a beach party next weekend—want to join?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嘿，下周末有个海滩派对，一起来吗？"
       }
     }
   ]

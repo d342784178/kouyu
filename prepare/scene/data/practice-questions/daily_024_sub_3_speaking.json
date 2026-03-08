@@ -2,29 +2,29 @@
   "subSceneId": "daily_024_sub_3",
   "subSceneName": "确认取衣时间",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:41:23.380Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.607Z",
   "questions": [
     {
-      "id": "daily_024_sub_3_speaking_1",
+      "id": "daily_024_sub_3_qa_1_speaking_1",
       "subSceneId": "daily_024_sub_3",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "daily_024_sub_3_qa_1",
-        "speakerText": "When can I pick them up?",
-        "speakerTextCn": "我什么时候能来取？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在干洗店取衣服，想询问工作人员什么时候可以来取回衣物。",
         "expectedAnswers": [
-          "Can I get them by Wednesday? I have a presentation.",
-          "What’s the earliest I can pick them up? I need them for an event.",
-          "Is it possible to get them tomorrow? I’m traveling on Friday."
+          "When can I pick up my clothes?",
+          "Could you tell me what time my clothes will be ready?",
+          "When will my laundry be ready for pickup?",
+          "Is it possible to pick them up today? If so, what time?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否明确询问取衣时间并提出合理请求",
-          "语言准确性：语法和词汇使用是否正确，如 'by + day' 或 'earliest' 的使用",
-          "表达自然度：是否使用了自然的口语表达，如 'I’m in a hurry' 或 'if possible'",
-          "关键词覆盖：是否使用了场景关键词如 'pick up', 'by', 'earliest', 'ready'"
+          "意图达成度：是否正确表达了询问取衣时间的意图",
+          "语言准确性：语法结构和词汇使用是否正确",
+          "表达自然度：是否符合英语母语者日常交流习惯",
+          "关键词覆盖：是否包含'pick up', 'clothes/laundry', 'ready/time'等场景关键词"
         ]
       }
     },
@@ -34,9 +34,10 @@
       "type": "speaking",
       "order": 2,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I need my dress for a wedding on Saturday. When can I collect it?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我周六有个婚礼，需要这件礼服，什么时候能取？",
         "expectedAnswers": [
           "Could you have it ready by Thursday? I want to try it on before the wedding.",
@@ -57,9 +58,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I’m leaving for a business trip on Monday. Can I pick up my shirts before then?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我周一要出差，能在那之前取走我的衬衫吗？",
         "expectedAnswers": [
           "I’d like to pick them up on Friday if that works.",

@@ -2,77 +2,76 @@
   "subSceneId": "workplace_040_sub_4",
   "subSceneName": "确认计划",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:17:47.219Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.439Z",
   "questions": [
     {
-      "id": "workplace_040_sub_4_choice_1",
+      "id": "workplace_040_sub_4_qa_1_choice_1",
       "subSceneId": "workplace_040_sub_4",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "workplace_040_sub_4_qa_1",
-        "speakerText": "What’s the plan for next quarter? Any support you need?",
-        "speakerTextCn": "下季度计划是什么？需要什么支持？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "We’ll launch the new feature in July—need legal to review the T&Cs by June 15.",
+            "text": "What’s the plan for next quarter? Any support you need?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I think we should do something soon.",
+            "text": "你下周要做什么?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Let’s wait and see what happens.",
+            "text": "你觉得这个项目需要多长时间?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I’m not sure, maybe next year?",
+            "text": "你有没有时间来帮助我?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确指出了时间节点（July）和责任人（legal），符合‘确认计划’场景的核心要求。其他选项模糊、缺乏具体行动项或责任人，无法用于有效跟进。"
+        "explanation": "正确答案是正确的提问，因为它明确了下季度计划和所需支持。其他选项都是不正确的提问，因为它们没有明确地询问下季度计划或所需支持。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "经理询问员工下季度计划及所需支持"
       }
     },
     {
-      "id": "workplace_040_sub_4_choice_2",
+      "id": "workplace_040_sub_4_qa_2_choice_1",
       "subSceneId": "workplace_040_sub_4",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "workplace_040_sub_4_qa_2",
-        "speakerText": "Can you send me the updated report by EOD?",
-        "speakerTextCn": "你能在今天下班前发我更新版报告吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Absolutely—I’ll email it by 5 PM.",
+            "text": "Can you send me the updated report by EOD?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I’ll try to send it sometime today.",
+            "text": "你能告诉我下季度的目标吗?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "I’ll send it when I finish.",
+            "text": "我能帮你做什么?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Maybe tomorrow morning?",
+            "text": "你能给我更多的资源吗?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案给出了具体时间（5 PM），符合‘承诺时间要具体’的场景要求。其他选项使用模糊表达（sometime, when I finish, maybe），无法确保责任明确和计划可追踪。"
+        "explanation": "答案解析：正确答案是“Can you send me the updated report by EOD?”因为它直接询问了员工需要经理发送的报告。选项2理解了场景需求，但提问不直接。选项3和选项4表达不当，因为它们没有明确询问下一步行动与责任人。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "经理询问员工下季度计划及所需支持"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Who’s responsible for finalizing the budget draft?",
-        "speakerTextCn": "谁负责最终确定预算草案？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确了责任人（Finance team）和截止时间（Friday EOD），符合‘确认计划’的核心要素。其他选项缺乏明确责任或时间节点，属于回避型回应，不利于任务推进。"
+        "explanation": "正确答案明确了责任人（Finance team）和截止时间（Friday EOD），符合‘确认计划’的核心要素。其他选项缺乏明确责任或时间节点，属于回避型回应，不利于任务推进。",
+        "speakerText": "Who’s responsible for finalizing the budget draft?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "谁负责最终确定预算草案？"
       }
     }
   ]

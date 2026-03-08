@@ -2,8 +2,7 @@
   "subSceneId": "daily_002_sub_3",
   "subSceneName": "询问促销活动",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:15:00.191Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.447Z",
   "questions": [
     {
       "id": "daily_002_sub_3_choice_1",
@@ -12,9 +11,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "你在超市想买牛奶，想知道现在是否有折扣或赠品活动。",
-        "speakerText": "Is there any promotion on milk this week?",
-        "speakerTextCn": "这周牛奶有促销活动吗？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +33,81 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了促销信息，提供了具体的优惠方式和位置，符合日常对话习惯。干扰项1答非所问（提到鸡蛋），干扰项3是无关的保质期信息，干扰项4完全回避问题。"
+        "situation": "你在超市想买牛奶，想知道现在是否有折扣或赠品活动。",
+        "explanation": "正确答案直接回应了促销信息，提供了具体的优惠方式和位置，符合日常对话习惯。干扰项1答非所问（提到鸡蛋），干扰项3是无关的保质期信息，干扰项4完全回避问题。",
+        "speakerText": "Is there any promotion on milk this week?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这周牛奶有促销活动吗？"
+      }
+    },
+    {
+      "id": "daily_002_sub_3_qa_2_choice_1",
+      "subSceneId": "daily_002_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_002_sub_3_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do you have any promotions on cereal right now?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much does cereal cost?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I get a free sample of cereal?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you sell cereal?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案询问当前是否有促销活动，符合场景需求。选项2只问价格，未涉及促销；选项3假设免费样品，但场景是询问折扣或赠品，范围过窄且不自然；选项4只是确认是否售卖，与促销无关。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在超市想了解麦片是否有促销活动，比如折扣或赠品，需要向工作人员提问"
+      }
+    },
+    {
+      "id": "daily_002_sub_3_qa_1_choice_1",
+      "subSceneId": "daily_002_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_002_sub_3_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is there a special deal on bread today?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "你喜欢面包吗?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "面包价格多少钱?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "你推荐什么东西?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 \"Is there a special deal on bread today?\"，因为它直接询问有没有今天面包的促销活动。其他选项不正确，因为它们没有直接询问促销活动的细节或与促销活动无关。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在商店询问有没有今天面包的促销活动"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "你在便利店想买咖啡，想确认是否有会员优惠或赠品。",
-        "speakerText": "Do you give any discounts if I use your app?",
-        "speakerTextCn": "如果我用你们的App，会有折扣吗？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确回应了App优惠的具体内容，自然且完整。干扰项1否认商品存在，干扰项3是设备故障，干扰项4转移话题到支付方式，均未回应核心问题。"
+        "situation": "你在便利店想买咖啡，想确认是否有会员优惠或赠品。",
+        "explanation": "正确答案准确回应了App优惠的具体内容，自然且完整。干扰项1否认商品存在，干扰项3是设备故障，干扰项4转移话题到支付方式，均未回应核心问题。",
+        "speakerText": "Do you give any discounts if I use your app?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "如果我用你们的App，会有折扣吗？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "你在超市想买洗发水，想知道是否有买赠活动或优惠券。",
-        "speakerText": "Are there any free samples or coupons for shampoo?",
-        "speakerTextCn": "有洗发水的免费样品或优惠券吗？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案完整回应了两个问题：优惠券位置和买赠活动，符合自然对话。干扰项1只提到打折但未回应优惠券或样品，干扰项3是个人偏好，干扰项4错误制造购买门槛，均不准确或不完整。"
+        "situation": "你在超市想买洗发水，想知道是否有买赠活动或优惠券。",
+        "explanation": "正确答案完整回应了两个问题：优惠券位置和买赠活动，符合自然对话。干扰项1只提到打折但未回应优惠券或样品，干扰项3是个人偏好，干扰项4错误制造购买门槛，均不准确或不完整。",
+        "speakerText": "Are there any free samples or coupons for shampoo?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "有洗发水的免费样品或优惠券吗？"
       }
     }
   ]

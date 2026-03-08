@@ -2,8 +2,7 @@
   "subSceneId": "workplace_040_sub_4",
   "subSceneName": "确认计划",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:32:39.308Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.440Z",
   "questions": [
     {
       "id": "workplace_040_sub_4_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "明确具体行动和责任对象，避免模糊表达",
         "type": "fill_blank",
-        "situation": "团队会议上，经理询问项目进展并要求明确下一步行动和负责人",
-        "speakerText": "What’s the next step for the client onboarding project?",
-        "speakerTextCn": "客户上线项目的下一步是什么？",
-        "responseTemplate": "We need to ___ by the end of the week.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,66 @@
             ]
           }
         ],
-        "hint": "明确具体行动和责任对象，避免模糊表达",
-        "knowledgePoint": "明确行动与责任人"
+        "situation": "团队会议上，经理询问项目进展并要求明确下一步行动和负责人",
+        "speakerText": "What’s the next step for the client onboarding project?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "客户上线项目的下一步是什么？",
+        "knowledgePoint": "明确行动与责任人",
+        "responseTemplate": "We need to ___ by the end of the week."
+      }
+    },
+    {
+      "id": "workplace_040_sub_4_qa_1_fill_blank_1",
+      "subSceneId": "workplace_040_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示：下季度的支持",
+        "qaId": "workplace_040_sub_4_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 1,
+            "answer": "support",
+            "options": [
+              "帮助",
+              "建议",
+              "意见",
+              "支持"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "经理询问员工下季度计划及所需支持",
+        "knowledgePoint": "确认计划",
+        "responseTemplate": "What’s the plan for next quarter? Any ___ you need?"
+      }
+    },
+    {
+      "id": "workplace_040_sub_4_qa_2_fill_blank_1",
+      "subSceneId": "workplace_040_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "确认计划的下一步行动与责任人",
+        "qaId": "workplace_040_sub_4_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "今天下班",
+            "options": [
+              "下周",
+              "下个月",
+              "今天下班",
+              "明年"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "经理询问员工下季度计划及所需支持",
+        "knowledgePoint": "提问句型和责任分配",
+        "responseTemplate": "你能在___前发我更新版计划吗？"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "承诺时使用主动动词，明确动作内容",
         "type": "fill_blank",
-        "situation": "同事询问你是否能跟进某个任务，你需要承诺具体行动",
-        "speakerText": "Can you handle the vendor contract renewal?",
-        "speakerTextCn": "你能处理供应商合同续签吗？",
-        "responseTemplate": "Yes, I’ll ___ before the deadline.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "承诺时使用主动动词，明确动作内容",
-        "knowledgePoint": "具体承诺行动"
+        "situation": "同事询问你是否能跟进某个任务，你需要承诺具体行动",
+        "speakerText": "Can you handle the vendor contract renewal?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你能处理供应商合同续签吗？",
+        "knowledgePoint": "具体承诺行动",
+        "responseTemplate": "Yes, I’ll ___ before the deadline."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "说明责任人+具体动作，避免只提名字或模糊责任",
         "type": "fill_blank",
-        "situation": "项目协调人询问后续安排，你需要说明谁负责什么",
-        "speakerText": "Who’s responsible for the training materials?",
-        "speakerTextCn": "培训材料由谁负责？",
-        "responseTemplate": "Sarah will ___ by Friday.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "说明责任人+具体动作，避免只提名字或模糊责任",
-        "knowledgePoint": "明确责任人与具体任务"
+        "situation": "项目协调人询问后续安排，你需要说明谁负责什么",
+        "speakerText": "Who’s responsible for the training materials?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "培训材料由谁负责？",
+        "knowledgePoint": "明确责任人与具体任务",
+        "responseTemplate": "Sarah will ___ by Friday."
+      }
+    },
+    {
+      "id": "workplace_040_sub_4_pq_6",
+      "subSceneId": "workplace_040_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "正式场景中‘提交’提案的常用动词",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "submit",
+            "options": [
+              "submit",
+              "send",
+              "give",
+              "make"
+            ]
+          }
+        ],
+        "template": "Could you please ___ the client proposal by Wednesday?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景核心动词搭配（submit a proposal）"
       }
     }
   ]

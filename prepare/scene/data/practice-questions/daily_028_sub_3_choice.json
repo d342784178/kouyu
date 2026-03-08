@@ -2,8 +2,7 @@
   "subSceneId": "daily_028_sub_3",
   "subSceneName": "确认价格和购买",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:18:51.204Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.639Z",
   "questions": [
     {
       "id": "daily_028_sub_3_choice_1",
@@ -12,9 +11,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "在超市结账时，店员告诉你商品总价，你决定购买所有商品并需要购物袋。",
-        "speakerText": "That'll be $24.75 altogether.",
-        "speakerTextCn": "一共是24.75美元。",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +33,81 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确回应了价格确认并主动提出需要购物袋，符合高频购物场景的自然表达。干扰项1是拒绝购买，与情境矛盾；干扰项2是询问折扣，未回应是否购买；干扰项3虽提及支付方式，但忽略了是否要袋子这一关键后续问题。"
+        "situation": "在超市结账时，店员告诉你商品总价，你决定购买所有商品并需要购物袋。",
+        "explanation": "正确答案准确回应了价格确认并主动提出需要购物袋，符合高频购物场景的自然表达。干扰项1是拒绝购买，与情境矛盾；干扰项2是询问折扣，未回应是否购买；干扰项3虽提及支付方式，但忽略了是否要袋子这一关键后续问题。",
+        "speakerText": "That'll be $24.75 altogether.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "一共是24.75美元。"
+      }
+    },
+    {
+      "id": "daily_028_sub_3_qa_2_choice_1",
+      "subSceneId": "daily_028_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_028_sub_3_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do you want a bag for that?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much does it cost?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I have a discount?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have any bags?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Do you want a bag for that?' 是店员在顾客确认价格后自然提出的附加服务询问，符合购物场景。干扰项 'How much does it cost?' 是顾客在确认价格前的问题，不符合当前情境；'Can I have a discount?' 是议价行为，与确认购买阶段无关；'Do you have any bags?' 仅询问库存，未体现服务性提问，表达不完整且不自然。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在确认商品价格后，准备付款，店员询问是否需要购物袋。"
+      }
+    },
+    {
+      "id": "daily_028_sub_3_qa_1_choice_1",
+      "subSceneId": "daily_028_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_028_sub_3_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How much are these two notebooks and three pens?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you have any notebooks and pens?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I buy these items?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much is one notebook?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接询问所选商品的总价，符合确认价格并决定购买的场景。选项2只询问是否有货，未涉及价格；选项3询问能否购买，但未提价格，无法帮助决策；选项4只问单本笔记本价格，未涵盖全部商品，信息不完整。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想购买两本笔记本和三支笔，需要询问总价以便决定是否购买。"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "你在咖啡店点了一杯拿铁和一个牛角包，店员问你是否需要纸袋装食物。",
-        "speakerText": "Would you like a bag for your pastry?",
-        "speakerTextCn": "你需要袋子装你的牛角包吗？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案自然接受提议并补充理由（外带），是高频场景中最得体的回应。干扰项1是转移话题，干扰项2是询问费用（但通常袋子免费），干扰项3虽合理但与情境不符（用户明确要外带，却说在店内吃，逻辑矛盾）。"
+        "situation": "你在咖啡店点了一杯拿铁和一个牛角包，店员问你是否需要纸袋装食物。",
+        "explanation": "正确答案自然接受提议并补充理由（外带），是高频场景中最得体的回应。干扰项1是转移话题，干扰项2是询问费用（但通常袋子免费），干扰项3虽合理但与情境不符（用户明确要外带，却说在店内吃，逻辑矛盾）。",
+        "speakerText": "Would you like a bag for your pastry?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你需要袋子装你的牛角包吗？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "你在书店问完价格后，店员确认了书的总价，你决定只买其中一本。",
-        "speakerText": "The two books are $18 total.",
-        "speakerTextCn": "这两本书一共18美元。",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案清晰表达只买一本的决定，语气自然，符合常见购物决策场景。干扰项1是试图议价，但未明确是否购买；干扰项2是完全拒绝，与情境中‘决定买一本’矛盾；干扰项3是询问版本，属于无关信息，未回应价格确认后的购买意图。"
+        "situation": "你在书店问完价格后，店员确认了书的总价，你决定只买其中一本。",
+        "explanation": "正确答案清晰表达只买一本的决定，语气自然，符合常见购物决策场景。干扰项1是试图议价，但未明确是否购买；干扰项2是完全拒绝，与情境中‘决定买一本’矛盾；干扰项3是询问版本，属于无关信息，未回应价格确认后的购买意图。",
+        "speakerText": "The two books are $18 total.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这两本书一共18美元。"
       }
     }
   ]

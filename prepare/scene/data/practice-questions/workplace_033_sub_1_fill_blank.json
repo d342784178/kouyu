@@ -2,20 +2,70 @@
   "subSceneId": "workplace_033_sub_1",
   "subSceneName": "询问邮件状态",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:31:54.064Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.362Z",
   "questions": [
+    {
+      "id": "workplace_033_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "workplace_033_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示：嘿，你有空发项目更新邮件了吗？",
+        "qaId": "workplace_033_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "project update",
+            "options": [
+              "项目汇报",
+              "项目进展",
+              "项目更新",
+              "项目报告"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "场景提示：用户询问，服务方/工作人员回应邮件发送情况。",
+        "knowledgePoint": "表达邮件发送情况的提问句型",
+        "responseTemplate": "Hey, did you get a chance to send the _______________ email?"
+      }
+    },
+    {
+      "id": "workplace_033_sub_1_qa_2_fill_blank_1",
+      "subSceneId": "workplace_033_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示，帮助用户回忆",
+        "qaId": "workplace_033_sub_1_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "发了吗",
+            "options": [
+              "发了吗",
+              "有没有",
+              "有没有收到",
+              "已经发了"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "场景提示：用户询问，服务方/工作人员回应邮件发送情况",
+        "knowledgePoint": "询问邮件状态，表达礼貌和关心",
+        "responseTemplate": "顺口问下，给客户的邮件___"
+      }
+    },
     {
       "id": "workplace_033_sub_1_fill_blank_1",
       "subSceneId": "workplace_033_sub_1",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "表达‘在等待某人提供内容’时，常用这个短语",
         "type": "fill_blank",
-        "situation": "你正在跟进一个重要的客户报告，想礼貌询问同事是否已经发送了邮件，但不想显得催促。",
-        "speakerText": "Hi, just wanted to check if the client report email has been sent?",
-        "speakerTextCn": "嗨，我想确认一下客户报告的邮件发了吗？",
-        "responseTemplate": "I'm still ___ the final version—I'll send it as soon as it's approved.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +78,12 @@
             ]
           }
         ],
-        "hint": "表达‘在等待某人提供内容’时，常用这个短语",
-        "knowledgePoint": "礼貌询问邮件状态时的等待表达"
+        "situation": "你正在跟进一个重要的客户报告，想礼貌询问同事是否已经发送了邮件，但不想显得催促。",
+        "speakerText": "Hi, just wanted to check if the client report email has been sent?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨，我想确认一下客户报告的邮件发了吗？",
+        "knowledgePoint": "礼貌询问邮件状态时的等待表达",
+        "responseTemplate": "I'm still ___ the final version—I'll send it as soon as it's approved."
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "完成动作但尚未执行，用现在完成时否定形式",
         "type": "fill_blank",
-        "situation": "你的主管问你是否发送了团队周报邮件，你想礼貌地说明你已经完成但还没发，以示负责态度。",
-        "speakerText": "Have you sent out the weekly team update?",
-        "speakerTextCn": "你发团队周报邮件了吗？",
-        "responseTemplate": "I've finished drafting it, but I haven't ___ yet—I'll do it right away.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "完成动作但尚未执行，用现在完成时否定形式",
-        "knowledgePoint": "已完成动作但未执行的表达结构"
+        "situation": "你的主管问你是否发送了团队周报邮件，你想礼貌地说明你已经完成但还没发，以示负责态度。",
+        "speakerText": "Have you sent out the weekly team update?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你发团队周报邮件了吗？",
+        "knowledgePoint": "已完成动作但未执行的表达结构",
+        "responseTemplate": "I've finished drafting it, but I haven't ___ yet—I'll do it right away."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "描述刚刚完成的动作，用一般过去时最自然",
         "type": "fill_blank",
-        "situation": "你和同事并肩工作，想轻松确认对方是否已发送项目摘要邮件，语气友好但不随意。",
-        "speakerText": "Hey, did you manage to send the project summary email?",
-        "speakerTextCn": "嘿，你有发项目摘要邮件吗？",
-        "responseTemplate": "Yes, I ___ it just before lunch—I think it arrived in your inbox.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,32 @@
             ]
           }
         ],
-        "hint": "描述刚刚完成的动作，用一般过去时最自然",
-        "knowledgePoint": "完成动作的简单过去时表达"
+        "situation": "你和同事并肩工作，想轻松确认对方是否已发送项目摘要邮件，语气友好但不随意。",
+        "speakerText": "Hey, did you manage to send the project summary email?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嘿，你有发项目摘要邮件吗？",
+        "knowledgePoint": "完成动作的简单过去时表达",
+        "responseTemplate": "Yes, I ___ it just before lunch—I think it arrived in your inbox."
+      }
+    },
+    {
+      "id": "workplace_033_sub_1_pq_6",
+      "subSceneId": "workplace_033_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "这是一个非常礼貌的职场短语，用于温和地跟进任务进度。",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "checking"
+          }
+        ],
+        "template": "Just ___ in—was the email to the client sent?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定表达"
       }
     }
   ]

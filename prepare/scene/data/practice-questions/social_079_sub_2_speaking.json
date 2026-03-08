@@ -2,28 +2,29 @@
   "subSceneId": "social_079_sub_2",
   "subSceneName": "询问计划",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:43:57.277Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.685Z",
   "questions": [
     {
-      "id": "social_079_sub_2_speaking_1",
+      "id": "social_079_sub_2_qa_1_speaking_1",
       "subSceneId": "social_079_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "social_079_sub_2_qa_1",
-        "speakerText": "What're you up to today?",
-        "speakerTextCn": "今天有什么安排呀？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你的好友明天过生日，你想自然地询问他/她当天有什么计划，表达关心但不显得太正式。",
         "expectedAnswers": [
-          "Just hanging out with friends.",
-          "I'm going to have a small get-together with my roommates.",
-          "Nothing much, just relaxing at home after work."
+          "What are you doing for your birthday tomorrow?",
+          "Any special plans for your birthday?",
+          "How are you thinking of celebrating your birthday?",
+          "Got anything fun planned for tomorrow?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否明确回应了关于当天安排的问题",
-          "语言准确性：语法和用词是否正确，是否使用了口语化表达",
-          "表达自然度：是否符合母语者日常对话习惯，避免生硬或书面语"
+          "意图达成度：是否明确询问了对方生日当天的安排",
+          "语言准确性：语法正确，时态使用恰当（一般将来时或现在进行时表示计划）",
+          "表达自然度：符合朋友间日常对话的口语习惯，不生硬",
+          "关键词覆盖：使用了 'birthday' 或相关表达，体现场景关键词"
         ]
       }
     },
@@ -33,9 +34,10 @@
       "type": "speaking",
       "order": 2,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Any plans for your birthday?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "生日有什么计划吗？",
         "expectedAnswers": [
           "I'm thinking of having a quiet dinner with my parents.",
@@ -55,9 +57,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "How are you planning to celebrate this year?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "今年你打算怎么庆祝呢？",
         "expectedAnswers": [
           "I'm planning a small party with some close friends—nothing too fancy.",

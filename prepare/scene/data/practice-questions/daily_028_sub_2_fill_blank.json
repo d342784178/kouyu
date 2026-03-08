@@ -2,20 +2,43 @@
   "subSceneId": "daily_028_sub_2",
   "subSceneName": "询问商品位置",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:25:41.851Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.637Z",
   "questions": [
+    {
+      "id": "daily_028_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "daily_028_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "注意这里需要填入名词短语，整个句子是礼貌地请求对方指出位置",
+        "qaId": "daily_028_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "those spiral notebooks",
+            "options": [
+              "those spiral notebooks",
+              "are those spiral notebooks",
+              "where are those spiral notebooks",
+              "do you have those spiral notebooks"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想询问某种商品的具体位置，比如笔记本或笔在哪个区域",
+        "knowledgePoint": "礼貌询问商品位置的句型结构",
+        "responseTemplate": "Could you tell me where ___ are?"
+      }
+    },
     {
       "id": "daily_028_sub_2_fill_blank_1",
       "subSceneId": "daily_028_sub_2",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "表示物品在某个区域内部时，常用介词 'in'。",
         "type": "fill_blank",
-        "situation": "顾客在文具店想找荧光笔和便利贴，向店员询问位置",
-        "speakerText": "Could you tell me where the highlighters are?",
-        "speakerTextCn": "你能告诉我荧光笔在哪里吗？",
-        "responseTemplate": "They're ___ the stationery section.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,39 @@
             ]
           }
         ],
-        "hint": "表示物品在某个区域内部时，常用介词 'in'。",
-        "knowledgePoint": "表示位置的介词使用"
+        "situation": "顾客在文具店想找荧光笔和便利贴，向店员询问位置",
+        "speakerText": "Could you tell me where the highlighters are?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你能告诉我荧光笔在哪里吗？",
+        "knowledgePoint": "表示位置的介词使用",
+        "responseTemplate": "They're ___ the stationery section."
+      }
+    },
+    {
+      "id": "daily_028_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "daily_028_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问物品位置时，用 'where are...' 结构，注意主语是复数",
+        "qaId": "daily_028_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "are",
+            "options": [
+              "is",
+              "have",
+              "do",
+              "are"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想询问笔的具体位置，需要向店员提问",
+        "knowledgePoint": "询问位置的疑问句结构",
+        "responseTemplate": "And where ___ the pens?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "表示某物靠近另一物时，常用 'by' 表示 '在...旁边'。",
         "type": "fill_blank",
-        "situation": "顾客想买黑色圆珠笔，但找不到，向店员求助",
-        "speakerText": "I'm looking for black pens. Do you know where I can find them?",
-        "speakerTextCn": "我在找黑色的圆珠笔，你知道它们在哪里吗？",
-        "responseTemplate": "They're ___ the desk, next to the notepads.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "表示某物靠近另一物时，常用 'by' 表示 '在...旁边'。",
-        "knowledgePoint": "表示邻近位置的介词"
+        "situation": "顾客想买黑色圆珠笔，但找不到，向店员求助",
+        "speakerText": "I'm looking for black pens. Do you know where I can find them?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我在找黑色的圆珠笔，你知道它们在哪里吗？",
+        "knowledgePoint": "表示邻近位置的介词",
+        "responseTemplate": "They're ___ the desk, next to the notepads."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "当两个物品位置相邻时，最自然的表达是 'next to'。",
         "type": "fill_blank",
-        "situation": "顾客想确认便签纸是否在文具区，向店员确认位置",
-        "speakerText": "Are the sticky notes in the same area as the notebooks?",
-        "speakerTextCn": "便利贴和笔记本是在同一个区域吗？",
-        "responseTemplate": "Yes, they're ___ the notebooks.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "当两个物品位置相邻时，最自然的表达是 'next to'。",
-        "knowledgePoint": "表达物品相邻关系的常用短语"
+        "situation": "顾客想确认便签纸是否在文具区，向店员确认位置",
+        "speakerText": "Are the sticky notes in the same area as the notebooks?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "便利贴和笔记本是在同一个区域吗？",
+        "knowledgePoint": "表达物品相邻关系的常用短语",
+        "responseTemplate": "Yes, they're ___ the notebooks."
+      }
+    },
+    {
+      "id": "daily_028_sub_2_pq_6",
+      "subSceneId": "daily_028_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "当商品缺货时，推荐替代选项的常用表达",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "another",
+            "options": [
+              "another",
+              "other",
+              "the other",
+              "different"
+            ]
+          }
+        ],
+        "template": "Sorry, we're out of black pens. Would you like ___ color?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "替代建议表达（would you like another...?）"
       }
     }
   ]

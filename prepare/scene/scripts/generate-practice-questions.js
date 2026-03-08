@@ -50,7 +50,7 @@ function loadEnv() {
 loadEnv()
 
 const NVIDIA_API_KEY = process.env.NVIDIA_API_KEY
-const MODEL = 'qwen/qwen3-next-80b-a3b-instruct'
+const MODEL = 'meta/llama-3.1-8b-instruct'
 const SUB_SCENES_DIR = path.resolve(__dirname, '../data/sub-scenes')
 const OUTPUT_DIR = path.resolve(__dirname, '../data/practice-questions')
 
@@ -148,15 +148,17 @@ async function generatePracticeQuestions(subSceneData, questionType) {
 
   console.log(`\n[生成] 子场景: ${name} (${subSceneId}) - 题型: ${questionType}`)
 
-  // 格式化问答对数据
   const qaPairsText = (qaPairs || []).map((qa, index) => {
-    const responses = (qa.responses || []).map(r => `  - ${r.text}（${r.text_cn}）`).join('\n')
+    const followUps = (qa.followUps || []).map(r => `  - ${r.text}（${r.text_cn}）`).join('\n')
     return `[QA_${index + 1}] ID: ${qa.id}
-类型: ${qa.qaType}
-对方说: ${qa.speakerText}
-中文: ${qa.speakerTextCn}
-标准回应:
-${responses}
+对话模式: ${qa.dialogueMode}
+触发说话者角色: ${qa.triggerSpeakerRole}
+触发文本: ${qa.triggerText}
+中文: ${qa.triggerTextCn}
+场景提示: ${qa.scenarioHintCn || '无'}
+后续回应:
+${followUps}
+学习要求: ${qa.learnRequirement}
 ${qa.usageNote ? `使用说明: ${qa.usageNote}` : ''}`
   }).join('\n\n')
 
@@ -200,13 +202,20 @@ ${qa.usageNote ? `使用说明: ${qa.usageNote}` : ''}`
     questionType,
     generatedAt: new Date().toISOString(),
     model: MODEL,
-    questions: generated.questions.map((q, index) => ({
-      id: `${subSceneId}_${questionType}_${index + 1}`,
-      subSceneId,
-      type: questionType,
-      order: index + 1,
-      content: q,
-    })),
+    questions: generated.questions.map((q, index) => {
+      const qaPair = qaPairs[index % qaPairs.length]
+      return {
+        id: qaPair ? `${qaPair.id}_${questionType}_1` : `${subSceneId}_${questionType}_${index + 1}`,
+        subSceneId,
+        type: questionType,
+        order: index + 1,
+        content: {
+          ...q,
+          qaId: qaPair?.id || null,
+          dialogueMode: qaPair?.dialogueMode || 'user_responds',
+        },
+      }
+    }),
   }
 
   return result
@@ -228,29 +237,29 @@ function getTypeSpecificPrompt(questionType) {
 - 你能准确识别场景中的核心交际任务和语言知识点
 - 你设计的题目具有教学价值，能有效帮助学习者掌握口语表达
 
-## 核心目标
-1. 测试用户能否准确理解对方问题（避免答非所问）
-2. 测试用户能否在常见&高频情形下给出恰当回答（避免听懂但不会表达）
+## 对话模式说明
+问答对中包含 dialogueMode 字段，需要区分两种模式：
+- "user_responds": 服务方先说话，用户学习如何回应（测试用户能否正确回应）
+- "user_asks": 用户主动提问，服务方回应（测试用户能否正确提问）
 
-## 主题提炼要求
-1. 从问答对中识别核心问题类型（如：询问、确认、请求、拒绝等）
-2. 从问答对中识别核心回答模式（如：I'd like to..., Could you..., I'm looking for...）
-3. 结合子场景主题，确定该场景的核心交际任务
+## 核心目标
+1. 对于 user_responds 模式：测试用户能否准确理解对方问题并给出恰当回答
+2. 对于 user_asks 模式：测试用户能否在特定场景下提出正确的问题
 
 ## 题目创作要求
-1. 基于提炼的主题，设计全新的具体情形
+1. 基于问答对中的 dialogueMode 设计对应的题目
 2. 情形必须是常见&高频的实际生活情境（禁止低频、罕见、极端情形）
 3. 对话内容必须重新创作，不能复用问答对原文
 4. 每道题必须明确描述具体情形，让用户代入实际场景
 5. 设计 2-3 道选择题
 
 ## 选项设计要求
-- 正确答案：该情形下最自然、最常用的表达
+- user_responds 模式：正确答案是用户应该说的话
+- user_asks 模式：正确答案是用户应该问的问题
 - 干扰项类型：
-  1. 答非所问型：听懂问题但回答了别的内容
-  2. 理解偏差型：误解了问题的真实意图
-  3. 表达不当型：理解正确但表达不自然或不完整
-- 所有选项必须是实际对话中可能出现的真实表达
+  1. 答非所问型/提问不当型
+  2. 理解偏差型
+  3. 表达不当型
 - 每道题 4 个选项：1 个正确答案 + 3 个干扰项
 
 ## 禁止事项
@@ -267,9 +276,10 @@ function getTypeSpecificPrompt(questionType) {
   "questions": [
     {
       "type": "choice",
-      "situation": "具体情形描述（常见&高频的实际生活情境）",
-      "speakerText": "对方说的话（英文）",
-      "speakerTextCn": "对方说的话（中文翻译）",
+      "dialogueMode": "user_responds 或 user_asks",
+      "scenarioHint": "场景提示（中文，描述用户所处的情境）",
+      "speakerText": "对方说的话（英文，仅 user_responds 模式需要）",
+      "speakerTextCn": "对方说的话（中文翻译，仅 user_responds 模式需要）",
       "options": [
         {"id": "opt_1", "text": "选项文本（英文）", "isCorrect": true或false}
       ],
@@ -297,10 +307,9 @@ function getTypeSpecificPrompt(questionType) {
 {qaPairsText}
 
 ## 生成要求
-1. 从上述子场景和问答对中提炼核心主题
-2. 基于提炼的主题，设计全新的常见&高频情形
-3. 设计 2-3 道选择题
-4. 确保输出是严格的 JSON 格式，不要包含任何其他文字
+1. 根据问答对中的 dialogueMode 设计对应的题目
+2. 设计 2-3 道选择题
+3. 确保输出是严格的 JSON 格式，不要包含任何其他文字
 
 请直接输出 JSON：`,
     },
@@ -313,17 +322,17 @@ function getTypeSpecificPrompt(questionType) {
 - 你能准确识别场景中的核心表达结构和功能词汇
 - 你设计的题目具有教学价值，能有效帮助学习者掌握口语表达
 
-## 核心目标
-1. 测试用户能否准确理解对方问题
-2. 测试用户能否在常见&高频情形下使用正确的表达方式
+## 对话模式说明
+问答对中包含 dialogueMode 字段，需要区分两种模式：
+- "user_responds": 服务方先说话，用户学习如何回应（填空考察回应句型）
+- "user_asks": 用户主动提问，服务方回应（填空考察提问句型）
 
-## 主题提炼要求
-1. 从问答对中识别核心表达结构（如：would like to, could you, I'm looking for）
-2. 从问答对中识别关键功能词汇（如：目的地、时间、数量等场景相关词汇）
-3. 结合子场景主题，确定该场景的核心语言点
+## 核心目标
+1. 对于 user_responds 模式：测试用户能否正确使用回应句型
+2. 对于 user_asks 模式：测试用户能否正确使用提问句型
 
 ## 题目创作要求
-1. 基于提炼的主题，设计全新的具体情形
+1. 基于问答对中的 dialogueMode 设计对应的题目
 2. 情形必须是常见&高频的实际生活情境（禁止低频、罕见、极端情形）
 3. 对话内容必须重新创作，不能复用问答对原文
 4. 每道题必须明确描述具体情形，让用户代入实际场景
@@ -331,8 +340,8 @@ function getTypeSpecificPrompt(questionType) {
 6. 设计 2-3 道填空题
 
 ## 空格设计要求
-- 空格位置必须是该情形下最核心、最常用的表达
-- 考察的是实际表达中必须掌握的关键词或句型
+- user_responds 模式：空格位置在用户回应句型中
+- user_asks 模式：空格位置在用户提问句型中
 - 每个空格必须有 4 个选项（1 个正确答案 + 3 个干扰项）
 - 禁止考察具体信息（地址、人名、数字、时间）
 - 禁止考察生僻表达或低频用法
@@ -358,9 +367,10 @@ function getTypeSpecificPrompt(questionType) {
   "questions": [
     {
       "type": "fill_blank",
-      "situation": "具体情形描述（常见&高频的实际生活情境）",
-      "speakerText": "对方说的话（英文）",
-      "speakerTextCn": "对方说的话（中文翻译）",
+      "dialogueMode": "user_responds 或 user_asks",
+      "scenarioHint": "场景提示（中文，描述用户所处的情境）",
+      "speakerText": "对方说的话（英文，仅 user_responds 模式需要）",
+      "speakerTextCn": "对方说的话（中文翻译，仅 user_responds 模式需要）",
       "responseTemplate": "用户回答模板，用___表示空格",
       "blanks": [
         {
@@ -393,11 +403,10 @@ function getTypeSpecificPrompt(questionType) {
 {qaPairsText}
 
 ## 生成要求
-1. 从上述子场景和问答对中提炼核心主题和表达结构
-2. 基于提炼的主题，设计全新的常见&高频情形
-3. 设计 2-3 道填空题
-4. 禁止考察具体信息（地址、人名、数字、时间）
-5. 确保输出是严格的 JSON 格式，不要包含任何其他文字
+1. 根据问答对中的 dialogueMode 设计对应的题目
+2. 设计 2-3 道填空题
+3. 禁止考察具体信息（地址、人名、数字、时间）
+4. 确保输出是严格的 JSON 格式，不要包含任何其他文字
 
 请直接输出 JSON：`,
     },
@@ -410,30 +419,31 @@ function getTypeSpecificPrompt(questionType) {
 - 你能准确识别场景中的核心交际任务和语言知识点
 - 你设计的题目具有教学价值，能有效帮助学习者掌握口语表达
 
-## 核心目标
-1. 测试用户能否准确理解对方问题（避免答非所问）
-2. 测试用户能否在常见&高频情形下给出恰当回答（避免听懂但不会表达）
+## 对话模式说明
+问答对中包含 dialogueMode 字段，需要区分两种模式：
+- "user_responds": 服务方先说话，用户学习如何回应（测试用户能否正确回应）
+- "user_asks": 用户主动提问，服务方回应（测试用户能否正确提问）
 
-## 主题提炼要求
-1. 从问答对中识别核心问题类型（如：询问、确认、请求、拒绝等）
-2. 从问答对中识别核心回答模式（如：I'd like to..., Could you..., I'm looking for...）
-3. 结合子场景主题，确定该场景的核心交际任务
+## 核心目标
+1. 对于 user_responds 模式：测试用户能否准确理解对方问题并给出恰当回答
+2. 对于 user_asks 模式：测试用户能否在特定场景下提出正确的问题
 
 ## 题目创作要求
-1. 基于提炼的主题，设计全新的具体情形
+1. 基于问答对中的 dialogueMode 设计对应的题目
 2. 情形必须是常见&高频的实际生活情境（禁止低频、罕见、极端情形）
 3. 对话内容必须重新创作，不能复用问答对原文
 4. 每道题必须明确描述具体情形，让用户代入实际场景
 5. 设计 2-3 道问答题
 
 ## 参考答案设计要求
-- 提供 2-4 个可接受的参考答案
+- user_responds 模式：提供用户应该说的回应（2-4 个可接受的答案）
+- user_asks 模式：提供用户应该问的问题（2-4 个可接受的问法）
 - 参考答案应包含不同难度层次（简单表达 → 高级表达）
 - 所有参考答案必须是该情形下自然、常用的表达
 
 ## 评分标准要求
 评分标准要具体可操作，包括：
-- 意图达成度：是否正确回应了对方的问题
+- 意图达成度：是否正确表达了意图
 - 语言准确性：语法和用词是否正确
 - 表达自然度：是否符合英语口语习惯
 - 关键词覆盖：是否使用了场景关键词
@@ -451,9 +461,10 @@ function getTypeSpecificPrompt(questionType) {
   "questions": [
     {
       "type": "speaking",
-      "situation": "具体情形描述（常见&高频的实际生活情境）",
-      "speakerText": "对方说的话（英文）",
-      "speakerTextCn": "对方说的话（中文翻译）",
+      "dialogueMode": "user_responds 或 user_asks",
+      "scenarioHint": "场景提示（中文，描述用户所处的情境）",
+      "speakerText": "对方说的话（英文，仅 user_responds 模式需要）",
+      "speakerTextCn": "对方说的话（中文翻译，仅 user_responds 模式需要）",
       "expectedAnswers": ["参考答案1", "参考答案2", "参考答案3"],
       "evaluationCriteria": ["评分标准1", "评分标准2", "评分标准3"]
     }
@@ -478,11 +489,10 @@ function getTypeSpecificPrompt(questionType) {
 {qaPairsText}
 
 ## 生成要求
-1. 从上述子场景和问答对中提炼核心主题
-2. 基于提炼的主题，设计全新的常见&高频情形
-3. 设计 2-3 道问答题
-4. 每道题提供 2-4 个参考答案
-5. 确保输出是严格的 JSON 格式，不要包含任何其他文字
+1. 根据问答对中的 dialogueMode 设计对应的题目
+2. 设计 2-3 道问答题
+3. 每道题提供 2-4 个参考答案
+4. 确保输出是严格的 JSON 格式，不要包含任何其他文字
 
 请直接输出 JSON：`,
     },

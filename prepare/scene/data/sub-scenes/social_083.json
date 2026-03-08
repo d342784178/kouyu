@@ -1,19 +1,26 @@
 {
   "sceneId": "social_083",
   "sceneName": "邀请参加派对",
+  "exportedAt": "2026-03-08T15:31:54.865Z",
   "subScenes": [
     {
       "id": "social_083_sub_1",
+      "sceneId": "social_083",
       "name": "打招呼邀请",
       "description": "朋友间自然打招呼并发出派对邀请",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_083_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hey! What's up this weekend?",
-          "speakerTextCn": "嘿！这周末有什么安排？",
-          "responses": [
+          "subSceneId": "social_083_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hey! What's up this weekend?",
+          "triggerTextCn": "嘿！这周末有什么安排？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_asks 模式，场景提示：用户询问对方周末计划，引出邀请话题",
+          "followUps": [
             {
               "text": "Not much, just chillin'. You got something planned?",
               "text_cn": "没什么，就宅着。你有安排吗？",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用轻松语气开启邀请，避免太正式"
+          "usageNote": "用轻松语气开启邀请，避免太正式",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "social_083_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Actually, I'm throwing a small party Saturday night — wanna come?",
-          "speakerTextCn": "其实我周六晚上办个小派对，来吗？",
-          "responses": [
+          "subSceneId": "social_083_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Actually, I'm throwing a small party Saturday night — wanna come?",
+          "triggerTextCn": "其实我周六晚上办个小派对，来吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_asks 模式，场景提示：用户询问对方周末计划，引出邀请话题",
+          "followUps": [
             {
               "text": "Yes! I'd love to! What time?",
               "text_cn": "当然！太好了！几点开始？",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "接受邀请时要热情明确，避免含糊"
+          "usageNote": "接受邀请时要热情明确，避免含糊",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "social_083_sub_2",
+      "sceneId": "social_083",
       "name": "确认时间地点",
       "description": "确认派对具体时间和地点细节",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_083_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "It's at my place — 123 Maple St, starting at 8pm.",
-          "speakerTextCn": "在我家，枫树街123号，晚上8点开始。",
-          "responses": [
+          "subSceneId": "social_083_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "It's at my place — 123 Maple St, starting at 8pm.",
+          "triggerTextCn": "在我家，枫树街123号，晚上8点开始。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "8pm? Perfect! I'll be there!",
               "text_cn": "八点？太棒了，我一定到！",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "确认地点时可追问交通信息更自然"
+          "usageNote": "确认地点时可追问交通信息更自然",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "social_083_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Yeah, it's just two blocks from the Green Line station.",
-          "speakerTextCn": "对，离绿线地铁站就两百米。",
-          "responses": [
+          "subSceneId": "social_083_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Yeah, it's just two blocks from the Green Line station.",
+          "triggerTextCn": "对，离绿线地铁站就两百米。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Awesome, I'll take the train then!",
               "text_cn": "太好了，我坐地铁去！",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "根据出行方式追问停车或交通细节"
+          "usageNote": "根据出行方式追问停车或交通细节",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "social_083_sub_3",
+      "sceneId": "social_083",
       "name": "询问携带物品",
       "description": "礼貌询问是否需自带食物或饮料",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_083_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Should I bring anything? Like snacks or drinks?",
-          "speakerTextCn": "我需要带点什么吗？比如零食或饮料？",
-          "responses": [
+          "subSceneId": "social_083_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "Should I bring anything? Like snacks or drinks?",
+          "triggerTextCn": "我需要带点什么吗？比如零食或饮料？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：在社交场合中，主动询问对方是否需要携带物品是一种礼貌的表现。",
+          "followUps": [
             {
               "text": "Nah, I got food covered — just bring your vibe!",
               "text_cn": "不用，吃的我全准备了，带心情来就行！",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "回应时明确需求或轻松拒绝，避免模糊"
+          "usageNote": "回应时明确需求或轻松拒绝，避免模糊",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "social_083_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I'll bring a six-pack of IPA then!",
-          "speakerTextCn": "那我带六瓶印度淡色艾尔啤酒来！",
-          "responses": [
+          "subSceneId": "social_083_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'll bring a six-pack of IPA then!",
+          "triggerTextCn": "那我带六瓶印度淡色艾尔啤酒来！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：在社交场合中，主动询问对方是否需要携带物品是一种礼貌的表现。",
+          "followUps": [
             {
               "text": "Yes! That’s perfect — I love IPA!",
               "text_cn": "太棒了！我超爱IPA！",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "回应时可顺势补充细节，增强互动感"
+          "usageNote": "回应时可顺势补充细节，增强互动感",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "social_083_sub_4",
+      "sceneId": "social_083",
       "name": "礼貌道别确认",
       "description": "结束对话前再次确认出席并礼貌道别",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_083_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "So you're definitely coming Saturday?",
-          "speakerTextCn": "所以你周六肯定来吧？",
-          "responses": [
+          "subSceneId": "social_083_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "So you're definitely coming Saturday?",
+          "triggerTextCn": "所以你周六肯定来吧？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Absolutely! Can't wait!",
               "text_cn": "一定！超期待！",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "确认出席时重复关键信息更显认真"
+          "usageNote": "确认出席时重复关键信息更显认真",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "social_083_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Awesome! See you Saturday then — don't be late!",
-          "speakerTextCn": "太棒了！周六见啊，别迟到！",
-          "responses": [
+          "subSceneId": "social_083_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "Awesome! See you Saturday then — don't be late!",
+          "triggerTextCn": "太棒了！周六见啊，别迟到！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：在确认对方是否接受邀请时，通常由邀请方提问。",
+          "followUps": [
             {
               "text": "Haha, I'll be there early with the beer!",
               "text_cn": "哈哈，我带着啤酒提前到！",
@@ -222,7 +284,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "道别时用轻松语气表达感谢更显礼貌"
+          "usageNote": "道别时用轻松语气表达感谢更显礼貌",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     }

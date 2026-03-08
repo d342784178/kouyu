@@ -1,16 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSubSceneById, getQAPairsBySubSceneId } from '@/lib/db/sub-scenes'
 import { callLLMForScene } from '@/lib/llm'
-import type { AIDialogueRequest, AIDialogueResponse, QAResponse } from '@/types'
+import type { AIDialogueRequest, AIDialogueResponse, FollowUp, DialogueMode } from '@/types'
 
-// 禁用 Next.js 数据缓存
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
 /**
  * POST /api/sub-scenes/[subSceneId]/ai-dialogue
- * 调用大模型判断用户回应是否语义匹配当前 QA_Pair，并推进对话
- * 使用模型: nvidia/qwen/qwen3-next-80b-a3b-instruct (测评模型)
+ * 调用大模型判断用户输入是否语义匹配当前 QA_Pair，并推进对话
+ * 支持两种对话模式：
+ * - user_responds: AI 先说 triggerText，用户回应需匹配 followUps
+ * - user_asks: 用户提问需匹配 triggerText，AI 回复 followUps 中的回答
  */
 export async function POST(
   request: NextRequest,
@@ -19,65 +20,61 @@ export async function POST(
   const { subSceneId } = params
 
   try {
-    // 解析请求体
     const body: AIDialogueRequest = await request.json()
-    const { userMessage, currentQaIndex, conversationHistory } = body
+    const { userMessage, currentQaIndex, conversationHistory, dialogueMode } = body
 
-    // 获取子场景信息
     const subScene = await getSubSceneById(subSceneId)
     if (!subScene) {
       return NextResponse.json({ error: 'Sub-scene not found' }, { status: 404 })
     }
 
-    // 获取该子场景下所有问答对
     const qaPairs = await getQAPairsBySubSceneId(subSceneId)
     if (qaPairs.length === 0) {
       return NextResponse.json({ error: 'No QA pairs found' }, { status: 404 })
     }
 
-    // 边界检查：确保 currentQaIndex 合法
     if (currentQaIndex < 0 || currentQaIndex >= qaPairs.length) {
       return NextResponse.json({ error: 'Invalid QA index' }, { status: 400 })
     }
 
     const currentQa = qaPairs[currentQaIndex]
+    const currentDialogueMode: DialogueMode = dialogueMode || (currentQa.dialogueMode as DialogueMode) || 'user_responds'
 
-    // 解析当前 QA_Pair 的所有合法回应
-    const responses: QAResponse[] = Array.isArray(currentQa.responses)
-      ? (currentQa.responses as QAResponse[])
+    const followUps: FollowUp[] = Array.isArray(currentQa.followUps)
+      ? (currentQa.followUps as FollowUp[])
       : []
 
-    // 构建参考回应列表文本
-    const responseOptions = responses
-      .map((r, i) => `${i + 1}. ${r.text}（${r.text_cn}）`)
-      .join('\n')
-
-    // 构建对话历史上下文（最近5条，避免 token 过多）
     const recentHistory = conversationHistory.slice(-5)
     const historyText = recentHistory
       .map(msg => `${msg.role === 'ai' ? 'AI' : '用户'}: ${msg.text}`)
       .join('\n')
 
-    // 调用测评模型进行语义判断
-    const messages = [
-      {
-        role: 'system' as const,
-        content: `你是英语口语场景练习助手。当前场景：${subScene.name}。
+    let messages: Array<{ role: 'system' | 'user'; content: string }>
+
+    if (currentDialogueMode === 'user_responds') {
+      const responseOptions = followUps
+        .map((r, i) => `${i + 1}. ${r.text}（${r.text_cn}）`)
+        .join('\n')
+
+      messages = [
+        {
+          role: 'system' as const,
+          content: `你是英语口语场景练习助手。当前场景：${subScene.name}。
 请判断用户的回应是否符合当前场景的语义要求。
 你需要返回一个 JSON 对象，格式如下：
 {
-  "pass": true/false,  // 用户回应是否语义匹配
+  "pass": true/false,
   "reason": "简短说明判断理由（中文，20字以内）",
   "hint": "当pass为false时，给出具体的提示信息（中文，告诉用户应该如何回应，30字以内）"
 }
 只返回 JSON，不要有其他内容。`,
-      },
-      {
-        role: 'user' as const,
-        content: `场景对话历史：
+        },
+        {
+          role: 'user' as const,
+          content: `场景对话历史：
 ${historyText || '（对话刚开始）'}
 
-当前对方说的话：${currentQa.speakerText}（${currentQa.speakerTextCn}）
+当前对方说的话：${currentQa.triggerText}（${currentQa.triggerTextCn}）
 
 参考回应（以下任意一种语义均视为通过）：
 ${responseOptions}
@@ -85,17 +82,42 @@ ${responseOptions}
 用户实际回应：${userMessage}
 
 请判断用户回应是否语义匹配。如果不匹配，请给出具体的提示信息。`,
-      },
-    ]
+        },
+      ]
+    } else {
+      messages = [
+        {
+          role: 'system' as const,
+          content: `你是英语口语场景练习助手。当前场景：${subScene.name}。
+请判断用户的提问是否与预期问题语义相近。
+你需要返回一个 JSON 对象，格式如下：
+{
+  "pass": true/false,
+  "reason": "简短说明判断理由（中文，20字以内）",
+  "hint": "当pass为false时，给出具体的提示信息（中文，告诉用户应该如何提问，30字以内）"
+}
+只返回 JSON，不要有其他内容。`,
+        },
+        {
+          role: 'user' as const,
+          content: `场景对话历史：
+${historyText || '（对话刚开始）'}
+
+用户应该问的问题：${currentQa.triggerText}（${currentQa.triggerTextCn}）
+
+用户实际提问：${userMessage}
+
+请判断用户提问是否语义匹配。如果不匹配，请给出具体的提示信息。`,
+        },
+      ]
+    }
 
     const llmResult = await callLLMForScene('question-evaluation', messages, 0.3, 300)
 
-    // 解析 LLM 返回的 JSON
     let pass = false
     let hint: string | undefined
     let reason: string | undefined
     try {
-      // 提取 JSON 内容（防止 LLM 返回多余文字）
       const jsonMatch = llmResult.content.match(/\{[\s\S]*\}/)
       if (jsonMatch) {
         const parsed = JSON.parse(jsonMatch[0])
@@ -107,17 +129,24 @@ ${responseOptions}
       console.warn('[ai-dialogue] LLM 返回内容解析失败，默认 pass=false:', llmResult.content)
     }
 
-    // 计算下一个 QA 索引
     const nextQaIndex = pass ? currentQaIndex + 1 : currentQaIndex
     const isComplete = pass && nextQaIndex >= qaPairs.length
 
-    // 若通过且还有下一条，返回下一条 speaker_text 作为 AI 消息
     let aiMessage: string | undefined
     if (!pass) {
-      // 未通过：给出提示，让用户重新输入
-      aiMessage = "Hmm, that doesn't quite fit. Try again — what would you say here?"
+      if (currentDialogueMode === 'user_responds') {
+        aiMessage = "Hmm, that doesn't quite fit. Try again — what would you say here?"
+      } else {
+        aiMessage = "That's not quite the question I expected. Try asking something different."
+      }
     } else if (pass && !isComplete && nextQaIndex < qaPairs.length) {
-      aiMessage = qaPairs[nextQaIndex].speakerText
+      const nextQa = qaPairs[nextQaIndex]
+      if (nextQa.dialogueMode === 'user_asks') {
+        const randomFollowUp = followUps[Math.floor(Math.random() * followUps.length)]
+        aiMessage = randomFollowUp?.text || nextQa.triggerText
+      } else {
+        aiMessage = nextQa.triggerText
+      }
     } else if (isComplete) {
       aiMessage = "Great job! You've completed this scene. 🎉"
     }

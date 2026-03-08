@@ -1,53 +1,53 @@
 {
   "subSceneId": "travel_073_sub_2",
-  "subSceneName": "确认换乘",
+  "subSceneName": "询问目的地",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:14:07.998Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.301Z",
   "questions": [
     {
-      "id": "travel_073_sub_2_speaking_1",
+      "id": "travel_073_sub_2_qa_2_speaking_1",
       "subSceneId": "travel_073_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "travel_073_sub_2_qa_2",
         "type": "speaking",
-        "qaId": "travel_073_sub_2_qa_1",
-        "speakerText": "You need to change at Green Park. The train heads north from there.",
-        "speakerTextCn": "您需要在绿园站换乘，之后列车往北开。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在地铁站内想前往某个特定站点，但不确定该如何到达，需要向工作人员或路人询问前往该站点的路线，请清晰说出你想去的地铁站名称。",
         "expectedAnswers": [
-          "Wait, is it the same platform?",
-          "So I just stay on the same platform?",
-          "North? I thought it was heading west — did I get the wrong line?"
+          "Excuse me, how do I get to Green Park?",
+          "Can you tell me the way to Green Park?",
+          "Could you help me find the route to Green Park?",
+          "I'm trying to reach Green Park—could you point me in the right direction?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确询问换乘方式或方向是否正确",
-          "语言准确性：语法正确，使用恰当的疑问结构",
-          "表达自然度：符合口语习惯，语气自然",
-          "关键词覆盖：使用了 'platform', 'north', 'change' 等场景关键词"
+          "意图达成度：是否明确表达了想前往特定地铁站的意图",
+          "语言准确性：语法结构正确，用词恰当，无重大错误",
+          "表达自然度：符合日常英语口语习惯，语气礼貌得体",
+          "关键词覆盖：是否包含场景关键词如 'Green Park' 或类似具体站名"
         ]
       }
     },
     {
-      "id": "travel_073_sub_2_speaking_2",
+      "id": "travel_073_sub_2_qa_1_speaking_1",
       "subSceneId": "travel_073_sub_2",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "travel_073_sub_2_qa_1",
         "type": "speaking",
-        "qaId": "travel_073_sub_2_qa_2",
-        "speakerText": "No, you’ll need to take the stairs to the next level. Look for the signs that say 'Line 5 - Northbound'.",
-        "speakerTextCn": "不，您得上楼梯到下一层，找标着‘5号线-北行’的指示牌。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "Excuse me, could you tell me how to get to Green Park?",
         "expectedAnswers": [
-          "Got it! I’ll follow the signs.",
-          "Thanks, I’ll keep an eye out for them.",
-          "Understood — I won’t miss the sign for Line 5 Northbound."
+          "I'm trying to get to Green Park, could you please tell me which train to take?",
+          "How do I get to Green Park Station?",
+          "Could you help me find the train to Green Park?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确确认收到指示并表达会执行",
-          "语言准确性：语法正确，使用恰当的回应句型",
-          "表达自然度：语气自然，符合英语母语者日常回应方式",
-          "关键词覆盖：使用了 'signs', 'Line 5', 'Northbound', 'stairs' 等场景关键词"
+          "意图达成度：正确表达了询问目的地的意图",
+          "语言准确性：语法和用词正确",
+          "表达自然度：符合英语口语习惯",
+          "关键词覆盖：使用了目的地的关键词"
         ]
       }
     },
@@ -57,9 +57,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Your transfer is at Union Station. The next train runs south.",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "您的换乘站在联合车站，下一班列车往南开。",
         "expectedAnswers": [
           "South? I was told it was going east — can you double-check?",

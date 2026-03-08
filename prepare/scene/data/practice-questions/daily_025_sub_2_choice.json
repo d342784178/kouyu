@@ -2,9 +2,43 @@
   "subSceneId": "daily_025_sub_2",
   "subSceneName": "加购饮料",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:18:12.071Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.614Z",
   "questions": [
+    {
+      "id": "daily_025_sub_2_qa_1_choice_1",
+      "subSceneId": "daily_025_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_025_sub_2_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "You got any soda or water?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you sell coffee?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much is the drink?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I want a beverage.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'You got any soda or water?' 是口语中自然、符合场景的询问方式，直接询问可选饮品。干扰项1只问咖啡，范围过窄且偏离原场景的泛指饮料；干扰项2假设已有饮品并直接问价格，但顾客尚未确认是否有货；干扰项3是陈述句而非问题，不符合询问情境。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在结账时顺口询问商店是否有饮料可买，想了解可选的饮品类型"
+      }
+    },
     {
       "id": "daily_025_sub_2_choice_1",
       "subSceneId": "daily_025_sub_2",
@@ -12,9 +46,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "你在便利店结账时，店员问你是否要加购饮料，你正想买一瓶水。",
-        "speakerText": "Want anything to drink with that?",
-        "speakerTextCn": "还要加点饮料吗？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +68,46 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了店员的询问并明确表达了购买意愿，符合日常对话的自然表达。干扰项1是拒绝购买，与情境不符；干扰项2是询问价格，但未表明购买意图，答非所问；干扰项3是换了一个饮料选项，没有直接回应店员的提议，显得不自然。"
+        "situation": "你在便利店结账时，店员问你是否要加购饮料，你正想买一瓶水。",
+        "explanation": "正确答案直接回应了店员的询问并明确表达了购买意愿，符合日常对话的自然表达。干扰项1是拒绝购买，与情境不符；干扰项2是询问价格，但未表明购买意图，答非所问；干扰项3是换了一个饮料选项，没有直接回应店员的提议，显得不自然。",
+        "speakerText": "Want anything to drink with that?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "还要加点饮料吗？"
+      }
+    },
+    {
+      "id": "daily_025_sub_2_qa_2_choice_1",
+      "subSceneId": "daily_025_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_025_sub_2_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll take a Coke then. Total?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you have any drinks?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much is a Coke?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get a drink?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'I'll take a Coke then. Total?'符合场景中顾客已确认有饮料可选，直接点单并询问总价的自然表达。干扰项'Do you have any drinks?'是询问阶段的问题，但场景中服务方已回应有售，此时应直接点单；'How much is a Coke?'只问单价，未表达购买意图，也不符合结账语境；'Can I get a drink?'语气犹豫，未明确选择商品，不符合顾客已决定购买的语境。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在结账时顺带询问是否有饮料可买，服务人员回应有售，顾客需要选择饮料并询问总价。"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "你在超市结账时，收银员问你是否要买饮料，你只看到有可乐和雪碧，想选可乐。",
-        "speakerText": "We've got Coke and Sprite — anything you'd like?",
-        "speakerTextCn": "我们有可乐和雪碧，要哪一种吗？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接选择给出的选项，简洁自然，符合高频口语表达。干扰项1是询问未提供的商品，误解了情境；干扰项2是询问另一种饮料的价格，未表明购买意图；干扰项3是拒绝，与想购买的语境矛盾。"
+        "situation": "你在超市结账时，收银员问你是否要买饮料，你只看到有可乐和雪碧，想选可乐。",
+        "explanation": "正确答案直接选择给出的选项，简洁自然，符合高频口语表达。干扰项1是询问未提供的商品，误解了情境；干扰项2是询问另一种饮料的价格，未表明购买意图；干扰项3是拒绝，与想购买的语境矛盾。",
+        "speakerText": "We've got Coke and Sprite — anything you'd like?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们有可乐和雪碧，要哪一种吗？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "你在便利店想买点喝的，但不确定有没有水，于是主动询问店员。",
-        "speakerText": "Do you have any bottled water?",
-        "speakerTextCn": "你们有瓶装水吗？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了询问，提供商品存在性及价格，是最自然、完整的回答。干扰项1是转移话题，未回应问题；干扰项2是询问位置，误解了对方在确认库存；干扰项3是追问细节，但未先确认是否有货，不合逻辑顺序。"
+        "situation": "你在便利店想买点喝的，但不确定有没有水，于是主动询问店员。",
+        "explanation": "正确答案直接回应了询问，提供商品存在性及价格，是最自然、完整的回答。干扰项1是转移话题，未回应问题；干扰项2是询问位置，误解了对方在确认库存；干扰项3是追问细节，但未先确认是否有货，不合逻辑顺序。",
+        "speakerText": "Do you have any bottled water?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你们有瓶装水吗？"
       }
     }
   ]

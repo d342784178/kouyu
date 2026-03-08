@@ -15,7 +15,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { calculateFluencyScore } from '@/lib/scene-learning/scoring'
-import type { QAPair, QAResponse } from '@/types'
+import type { QAPair, FollowUp, DialogueMode } from '@/types'
 import type { QAPairResult, QAPairResultStatus } from '@/lib/scene-learning/scoring'
 
 // ============================================================
@@ -41,6 +41,8 @@ interface ChatMessage {
   text: string
   /** 是否为超时提示语 */
   isHint?: boolean
+  /** 是否为对话目标提示（user_asks 模式专用） */
+  isGoalHint?: boolean
 }
 
 /** 当前录音/识别状态 */
@@ -151,13 +153,18 @@ function MessageBubble({ message }: MessageBubbleProps) {
         <div
           className={`px-4 py-3 rounded-2xl text-sm leading-relaxed shadow-md ${
             isAI
-              ? message.isHint
+              ? message.isGoalHint
+                ? 'bg-[#E8F5E9] border border-[#4CAF50]/20 text-[#1B5E20] rounded-tl-none'
+                : message.isHint
                 ? 'bg-[#FFF8EE] border border-[#F59E0B]/20 text-[#92400E] rounded-tl-none'
                 : 'bg-white border border-gray-100 text-[#1F2937] rounded-tl-none'
               : 'bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white rounded-tr-none'
           }`}
         >
-          {message.isHint && (
+          {message.isGoalHint && (
+            <span className="text-xs text-[#4CAF50] font-medium block mb-1.5">🎯 对话目标</span>
+          )}
+          {message.isHint && !message.isGoalHint && (
             <span className="text-xs text-[#F59E0B] font-medium block mb-1.5">💡 提示</span>
           )}
           <div className="leading-relaxed">{message.text}</div>
@@ -232,7 +239,7 @@ function DialogueSummary({ fluencyScore, results, qaPairs, onProceed }: Dialogue
           return (
             <div key={result.qaId} className="flex items-center justify-between gap-2">
               <p className="text-sm text-gray-700 flex-1 truncate">
-                {qa?.speakerText ?? result.qaId}
+                {qa?.triggerText ?? result.qaId}
               </p>
               <span className={`text-xs font-medium px-2 py-0.5 rounded-full shrink-0 ${cfg.color}`}>
                 {cfg.label}
@@ -321,8 +328,8 @@ export default function AIDialogueStage({
   }, [messages, isAITyping, scrollToBottom])
 
   // ---- 添加消息到列表 ----
-  const addMessage = useCallback((role: 'ai' | 'user', text: string, isHint = false) => {
-    const msg: ChatMessage = { id: genId(), role, text, isHint }
+  const addMessage = useCallback((role: 'ai' | 'user', text: string, isHint = false, isGoalHint = false) => {
+    const msg: ChatMessage = { id: genId(), role, text, isHint, isGoalHint }
     setMessages((prev) => [...prev, msg])
     conversationHistoryRef.current.push({ role, text })
     return msg
@@ -346,10 +353,14 @@ export default function AIDialogueStage({
       try {
         setIsAITyping(true)
 
+        const currentQa = qaPairs[currentQaIndexRef.current]
+        const dialogueMode = (currentQa?.dialogueMode as DialogueMode) || 'user_responds'
+
         const body = {
           userMessage,
           currentQaIndex: currentQaIndexRef.current,
           conversationHistory: conversationHistoryRef.current,
+          dialogueMode,
         }
 
         const res = await fetch(`/api/sub-scenes/${subSceneId}/ai-dialogue`, {
@@ -364,8 +375,7 @@ export default function AIDialogueStage({
         const { pass, nextQaIndex, aiMessage, isComplete: done, hint, reason } = data
 
         // 记录当前 QA_Pair 的回应状态（仅在通过时记录）
-        const currentQa = qaPairs[currentQaIndexRef.current]
-        if (pass && currentQa && currentQa.qaType === 'must_speak') {
+        if (pass && currentQa && (currentQa.learnRequirement === 'speak_followup' || currentQa.learnRequirement === 'speak_trigger')) {
           const status: QAPairResultStatus = currentQaHintedRef.current ? 'prompted' : 'fluent'
           userTextMapRef.current.set(currentQa.id, userMessage)
           setQaResults((prev) => {
@@ -409,9 +419,20 @@ export default function AIDialogueStage({
         setCurrentQaIndex(nextQaIndex)
         currentQaIndexRef.current = nextQaIndex
 
+        // 获取下一个 QA_Pair 的对话模式
+        const nextQa = qaPairs[nextQaIndex]
+        const nextDialogueMode = (nextQa?.dialogueMode as DialogueMode) || 'user_responds'
+
         // AI 发送下一条消息
         if (aiMessage) {
           addMessage('ai', aiMessage)
+        }
+
+        // 如果下一个是 user_asks 模式，显示对话目标提示
+        if (nextDialogueMode === 'user_asks' && nextQa?.scenarioHint) {
+          setTimeout(() => {
+            addMessage('ai', nextQa.scenarioHint!, false, true)
+          }, 800)
         }
       } catch {
         setIsAITyping(false)
@@ -480,16 +501,29 @@ export default function AIDialogueStage({
     [addMessage, callAIDialogue, clearTimeoutTimer]
   )
 
-  // ---- 初始化：AI 发送第一条消息 ----
+  // ---- 获取当前 QA_Pair 的对话模式 ----
+  const getCurrentDialogueMode = useCallback((): DialogueMode => {
+    const currentQa = qaPairs[currentQaIndexRef.current]
+    return (currentQa?.dialogueMode as DialogueMode) || 'user_responds'
+  }, [qaPairs])
+
+  // ---- 初始化：根据 dialogueMode 决定第一条消息 ----
   useEffect(() => {
     if (qaPairs.length === 0) return
 
     const firstQa = qaPairs[0]
-    // 稍作延迟，让组件渲染完成后再显示消息
+    const dialogueMode = (firstQa.dialogueMode as DialogueMode) || 'user_responds'
+
     const timer = setTimeout(() => {
-      addMessage('ai', firstQa.speakerText)
-      // 不自动启动超时计时器，等用户开始录音后再启动
-      // startTimeoutTimer()
+      if (dialogueMode === 'user_responds') {
+        // user_responds 模式：AI 发送 triggerText
+        addMessage('ai', firstQa.triggerText)
+      } else {
+        // user_asks 模式：显示对话目标提示（scenarioHint）
+        if (firstQa.scenarioHint) {
+          addMessage('ai', firstQa.scenarioHint, false, true)
+        }
+      }
     }, 500)
 
     return () => {
@@ -504,7 +538,7 @@ export default function AIDialogueStage({
     if (!isComplete) return
 
     // 补记没有通过记录的 must_speak QA_Pair 为 failed
-    const mustSpeakQas = qaPairs.filter((q) => q.qaType === 'must_speak')
+    const mustSpeakQas = qaPairs.filter((q) => q.learnRequirement === 'speak_followup' || q.learnRequirement === 'speak_trigger')
     setQaResults((prev) => {
       const extra = mustSpeakQas
         .filter((q) => !prev.find((r) => r.qaId === q.id))

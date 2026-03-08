@@ -2,42 +2,41 @@
   "subSceneId": "workplace_054_sub_2",
   "subSceneName": "申领物品",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:19:32.212Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.588Z",
   "questions": [
     {
-      "id": "workplace_054_sub_2_choice_1",
+      "id": "workplace_054_sub_2_qa_1_choice_1",
       "subSceneId": "workplace_054_sub_2",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "workplace_054_sub_2_qa_1",
-        "speakerText": "I'd like to grab some pens, notepads, and tape.",
-        "speakerTextCn": "我想领些笔、便签和胶带。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Sure, how many of each?",
+            "text": "I'd like to know how many pens are available.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Do you want me to order them online?",
+            "text": "I need a pen, a notepad, and a whole box of tape.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can you return those later?",
+            "text": "Can I have some pens and notepads, please?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I'll bring them to your desk tomorrow.",
+            "text": "Do you have any pens left?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Sure, how many of each?' 是对申领物品请求的标准回应，用于确认数量。其他选项虽然语法正确，但不符合场景：B 是建议网购，C 是关于归还，D 是承诺送货，均未回应核心需求——明确数量。"
+        "explanation": "正确答案I'd like to know how many pens are available.是正确的，因为它询问了库存数量。选项2中的表达不完整，选项3中的语法正确但不符合场景，选项4中的问题过于简单，不完全符合场景需求。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "服务方/工作人员可能询问具体数量或确认库存"
       }
     },
     {
@@ -46,10 +45,8 @@
       "type": "choice",
       "order": 2,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I need some printer paper and staplers.",
-        "speakerTextCn": "我需要一些打印纸和订书机。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +69,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'How many reams and how many staplers?' 是专业、自然的确认数量方式，使用了场景关键词 'reams'（纸张单位）和 'staplers'。B 是无关闲聊，C 是消极回应，D 是流程要求，均未在申领场景中优先回应需求。"
+        "explanation": "正确答案 'How many reams and how many staplers?' 是专业、自然的确认数量方式，使用了场景关键词 'reams'（纸张单位）和 'staplers'。B 是无关闲聊，C 是消极回应，D 是流程要求，均未在申领场景中优先回应需求。",
+        "speakerText": "I need some printer paper and staplers.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我需要一些打印纸和订书机。"
       }
     },
     {
@@ -81,10 +81,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I'd like to pick up some markers and sticky notes.",
-        "speakerTextCn": "我想领取一些马克笔和便利贴。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +105,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'How many boxes of each?' 使用了场景高频表达 'of each'，并匹配物品单位（便利贴常用 box）。B 带有质疑语气，不专业；C 和 D 虽相关但未解决核心问题——确认数量，不符合 'must_speak' 的高效沟通要求。"
+        "explanation": "正确答案 'How many boxes of each?' 使用了场景高频表达 'of each'，并匹配物品单位（便利贴常用 box）。B 带有质疑语气，不专业；C 和 D 虽相关但未解决核心问题——确认数量，不符合 'must_speak' 的高效沟通要求。",
+        "speakerText": "I'd like to pick up some markers and sticky notes.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我想领取一些马克笔和便利贴。"
       }
     }
   ]

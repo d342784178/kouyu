@@ -1,19 +1,26 @@
 {
   "sceneId": "travel_075",
   "sceneName": "长途巴士",
+  "exportedAt": "2026-03-08T15:31:54.901Z",
   "subScenes": [
     {
       "id": "travel_075_sub_1",
+      "sceneId": "travel_075",
       "name": "问候与开场",
       "description": "乘客向工作人员礼貌打招呼并说明来意",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_075_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi! Can I help you with the bus schedule?",
-          "speakerTextCn": "您好！需要帮您查班车时间吗？",
-          "responses": [
+          "subSceneId": "travel_075_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hi! Can I help you with the bus schedule?",
+          "triggerTextCn": "您好！需要帮您查班车时间吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Yes, when's the next bus to Shanghai?",
               "text_cn": "是的，去上海的下一班车几点发？",
@@ -30,22 +37,31 @@
               "audio_url": "COS:/qa/responses/travel_075_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "询问班次常用句型"
+          "usageNote": "询问班次常用句型",
+          "audioUrl": "COS:/qa/questions/travel_075_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         }
       ]
     },
     {
       "id": "travel_075_sub_2",
+      "sceneId": "travel_075",
       "name": "询问班次时间",
       "description": "乘客确认发车时间及是否准点",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_075_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Do you know the baggage policy? We allow one large suitcase and one small carry-on.",
-          "speakerTextCn": "您知道行李规定吗？每人可免费托运一件大行李和一件小随身包。",
-          "responses": [
+          "subSceneId": "travel_075_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you know the baggage policy? We allow one large suitcase and one small carry-on.",
+          "triggerTextCn": "您知道行李规定吗？每人可免费托运一件大行李和一件小随身包。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问，工作人员提供信息。",
+          "followUps": [
             {
               "text": "What’s the weight limit for the big suitcase?",
               "text_cn": "大行李的重量限制是多少？",
@@ -62,14 +78,21 @@
               "audio_url": "COS:/qa/responses/travel_075_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "确认行李数量和重量"
+          "usageNote": "确认行李数量和重量",
+          "audioUrl": "COS:/qa/questions/travel_075_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "travel_075_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "The large suitcase can’t exceed 20 kg. Extra bags cost $10 each.",
-          "speakerTextCn": "大行李不得超过20公斤，额外行李每件10美元。",
-          "responses": [
+          "subSceneId": "travel_075_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "The large suitcase can’t exceed 20 kg. Extra bags cost $10 each.",
+          "triggerTextCn": "大行李不得超过20公斤，额外行李每件10美元。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问，工作人员提供信息。",
+          "followUps": [
             {
               "text": "I’ll check my bag’s weight then. Thanks!",
               "text_cn": "那我先去称一下重量，谢谢！",
@@ -86,22 +109,31 @@
               "audio_url": "COS:/qa/responses/travel_075_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "决定是否支付额外行李费"
+          "usageNote": "决定是否支付额外行李费",
+          "audioUrl": "COS:/qa/questions/travel_075_sub_2_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "travel_075_sub_3",
+      "sceneId": "travel_075",
       "name": "行李规定咨询",
       "description": "乘客询问行李尺寸与免费额度",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_075_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "The bus has free Wi-Fi, USB charging ports, and a restroom on board.",
-          "speakerTextCn": "车上提供免费Wi-Fi、USB充电口和卫生间。",
-          "responses": [
+          "subSceneId": "travel_075_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "The bus has free Wi-Fi, USB charging ports, and a restroom on board.",
+          "triggerTextCn": "车上提供免费Wi-Fi、USB充电口和卫生间。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客：请问车上有什么设施？",
+          "followUps": [
             {
               "text": "Is the Wi-Fi strong enough for video calls?",
               "text_cn": "Wi-Fi能支持视频通话吗？",
@@ -118,22 +150,31 @@
               "audio_url": "COS:/qa/responses/travel_075_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "确认车上便利设施"
+          "usageNote": "确认车上便利设施",
+          "audioUrl": "COS:/qa/questions/travel_075_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         }
       ]
     },
     {
       "id": "travel_075_sub_4",
+      "sceneId": "travel_075",
       "name": "车上设施确认",
       "description": "乘客了解是否有Wi-Fi、充电口和卫生间",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_075_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Your ticket is confirmed. Seat 14B, boarding at Gate 5 in 15 minutes.",
-          "speakerTextCn": "您的票已确认，14B座，15分钟后从5号门上车。",
-          "responses": [
+          "subSceneId": "travel_075_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Your ticket is confirmed. Seat 14B, boarding at Gate 5 in 15 minutes.",
+          "triggerTextCn": "您的票已确认，14B座，15分钟后从5号门上车。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Is seat 14B by the window?",
               "text_cn": "14B是靠窗的座位吗？",
@@ -150,14 +191,21 @@
               "audio_url": "COS:/qa/responses/travel_075_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "确认座位位置"
+          "usageNote": "确认座位位置",
+          "audioUrl": "COS:/qa/questions/travel_075_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "travel_075_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I’m sorry, seat 14B is the only one left. But it’s a great window view.",
-          "speakerTextCn": "抱歉，只剩14B了，但窗外风景很好。",
-          "responses": [
+          "subSceneId": "travel_075_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "I’m sorry, seat 14B is the only one left. But it’s a great window view.",
+          "triggerTextCn": "抱歉，只剩14B了，但窗外风景很好。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "No problem, I’ll take it!",
               "text_cn": "没关系，我就要这个！",
@@ -174,22 +222,31 @@
               "audio_url": "COS:/qa/responses/travel_075_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "接受或请求更换座位"
+          "usageNote": "接受或请求更换座位",
+          "audioUrl": "COS:/qa/questions/travel_075_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "travel_075_sub_5",
+      "sceneId": "travel_075",
       "name": "购票与道别",
       "description": "乘客完成购票并礼貌告别",
+      "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_075_sub_5_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Please be at Gate 5 10 minutes before departure. Don’t forget your belongings!",
-          "speakerTextCn": "请在发车前10分钟到达5号门，别忘了随身物品！",
-          "responses": [
+          "subSceneId": "travel_075_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Please be at Gate 5 10 minutes before departure. Don’t forget your belongings!",
+          "triggerTextCn": "请在发车前10分钟到达5号门，别忘了随身物品！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Will there be an announcement?",
               "text_cn": "会有广播提醒吗？",
@@ -206,14 +263,21 @@
               "audio_url": "COS:/qa/responses/travel_075_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "回应上车提醒"
+          "usageNote": "回应上车提醒",
+          "audioUrl": "COS:/qa/questions/travel_075_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "travel_075_sub_5_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "The driver will announce stops. If you need help, press the call button.",
-          "speakerTextCn": "司机将播报站点，如有需要请按呼叫按钮。",
-          "responses": [
+          "subSceneId": "travel_075_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "The driver will announce stops. If you need help, press the call button.",
+          "triggerTextCn": "司机将播报站点，如有需要请按呼叫按钮。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "What if I miss my stop?",
               "text_cn": "如果错过站点怎么办？",
@@ -230,7 +294,10 @@
               "audio_url": "COS:/qa/responses/travel_075_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "确认下车方式并道别"
+          "usageNote": "确认下车方式并道别",
+          "audioUrl": "COS:/qa/questions/travel_075_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

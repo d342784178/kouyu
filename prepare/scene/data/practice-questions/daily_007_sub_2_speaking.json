@@ -2,28 +2,27 @@
   "subSceneId": "daily_007_sub_2",
   "subSceneName": "预约意图",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:35:26.451Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.484Z",
   "questions": [
     {
-      "id": "daily_007_sub_2_speaking_1",
+      "id": "daily_007_sub_2_qa_1_speaking_1",
       "subSceneId": "daily_007_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "daily_007_sub_2_qa_1",
-        "speakerText": "I'd like to book a haircut for this week.",
-        "speakerTextCn": "我想预约这周的理发。",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想预约理发服务，服务员正在为你安排时间，请你提出预约需求。",
         "expectedAnswers": [
-          "Sure! What day and time works best for you?",
-          "Of course! Do you prefer morning or afternoon?",
-          "I'd be happy to help. Could you tell me your name and preferred time?"
+          "I'd like to book a haircut for this week.",
+          "Can I schedule a haircut for this week?",
+          "I'm looking to book a haircut appointment for this week, is that possible?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否明确回应了预约请求并询问具体时间",
-          "语言准确性：语法正确，使用了恰当的预约词汇如 'book', 'preferred time'",
-          "表达自然度：语气礼貌，符合服务场景的口语习惯"
+          "意图达成度：是否正确表达了预约意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯"
         ]
       }
     },
@@ -33,9 +32,10 @@
       "type": "speaking",
       "order": 2,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I need a trim soon — can you help me book something?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我需要尽快剪一下头发，你能帮我预约吗？",
         "expectedAnswers": [
           "Absolutely! When would you like to come in?",
@@ -55,9 +55,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I'm thinking of getting my hair cut next week. Do you have availability?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我打算下周剪头发，你们有空位吗？",
         "expectedAnswers": [
           "We do! We have slots on Monday, Wednesday, and Friday. Which day works for you?",

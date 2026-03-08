@@ -2,50 +2,51 @@
   "subSceneId": "daily_008_sub_3",
   "subSceneName": "询问运费和方式",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:37:14.426Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.498Z",
   "questions": [
     {
-      "id": "daily_008_sub_3_speaking_1",
+      "id": "daily_008_sub_3_qa_2_speaking_1",
       "subSceneId": "daily_008_sub_3",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "daily_008_sub_3_qa_2",
         "type": "speaking",
-        "qaId": "daily_008_sub_3_qa_1",
-        "speakerText": "How much for standard shipping and express?",
-        "speakerTextCn": "普通快递和特快多少钱？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想知道购买的商品如何快速送达?",
         "expectedAnswers": [
-          "Standard is $15 and express is $35 — express arrives in 3 days.",
-          "The regular one costs $15, but express is double at $35 and faster.",
-          "I’d go with standard — it’s $15, and express is $35, which is a bit steep."
+          "Can you tell me the delivery time and cost?",
+          "How long will it take to get there and how much will it cost?",
+          "What's the fastest way to get the package delivered and how much will it cost?"
         ],
         "evaluationCriteria": [
-          "是否明确区分了两种方式的价格和时效",
-          "是否使用了 but 或对比结构使表达更自然",
-          "是否使用了场景关键词如 standard, express, arrives, cost"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
     {
-      "id": "daily_008_sub_3_speaking_2",
+      "id": "daily_008_sub_3_qa_1_speaking_1",
       "subSceneId": "daily_008_sub_3",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "daily_008_sub_3_qa_1",
         "type": "speaking",
-        "qaId": "daily_008_sub_3_qa_2",
-        "speakerText": "Can I get it there by Friday?",
-        "speakerTextCn": "能周五前送到吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在咨询快递费用和方式，服务员正在提供信息",
         "expectedAnswers": [
-          "Express can make it by Friday, but standard won’t arrive in time.",
-          "It depends on when you ship — if you send it today, express can, standard can’t.",
-          "No way for standard, but express should get there by Friday."
+          "What's the price for standard shipping and express?",
+          "普通快递和特快多少钱?",
+          "How much does standard shipping and express cost?"
         ],
         "evaluationCriteria": [
-          "是否正确使用 won’t / can’t 表达否定，而非模糊表达",
-          "是否根据物流方式给出合理判断",
-          "是否使用了场景关键词如 express, standard, make it, by Friday"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
@@ -55,9 +56,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I need to send this package next week. Which option do you recommend?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我下周要寄这个包裹，你推荐哪种方式？",
         "expectedAnswers": [
           "If you need it fast, go with express — it’s $35 and arrives in 3 days. If not, standard at $15 is fine.",

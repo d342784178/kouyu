@@ -2,20 +2,70 @@
   "subSceneId": "daily_022_sub_1",
   "subSceneName": "进门问候",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:24:40.307Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.588Z",
   "questions": [
+    {
+      "id": "daily_022_sub_1_qa_2_fill_blank_1",
+      "subSceneId": "daily_022_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "当对方说明是新手时，店员应询问对方在寻找什么样的宠物，而不是直接推荐或问价格。",
+        "qaId": "daily_022_sub_1_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "what kind of pet you're looking for",
+            "options": [
+              "what kind of pet you're looking for",
+              "which pet is the best",
+              "do you like dogs or cats",
+              "how much do you want to spend"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客进店，表示自己是第一次养宠物，想了解适合新手的宠物类型，店员需要礼貌地询问顾客的具体需求。",
+        "knowledgePoint": "询问需求的礼貌提问句型",
+        "responseTemplate": "Could you tell me what kind of pet you're looking for, since this is your first time?"
+      }
+    },
+    {
+      "id": "daily_022_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "daily_022_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "表达‘适合公寓养’时，常用结构是 'good for + 场所'，注意介词搭配。",
+        "qaId": "daily_022_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "good for apartments",
+            "options": [
+              "good for apartments",
+              "good in apartments",
+              "live in apartments",
+              "for living in apartments"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客走进宠物店，想向店员说明自己需要一只适合住在公寓的宠物，但不确定如何自然地表达这个需求。",
+        "knowledgePoint": "日常场景中的功能句型结构",
+        "responseTemplate": "Hi there! I'm looking for a pet that's ___."
+      }
+    },
     {
       "id": "daily_022_sub_1_fill_blank_1",
       "subSceneId": "daily_022_sub_1",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "当对方表达担忧或需求时，常用这个短语来安抚并提供帮助",
         "type": "fill_blank",
-        "situation": "顾客走进宠物店，想为新公寓找一只容易照顾的宠物，第一次开口表达需求",
-        "speakerText": "Hi, I'm looking for a pet that's easy to take care of.",
-        "speakerTextCn": "嗨，我在找一只好打理的宠物。",
-        "responseTemplate": "___! We've got several great options for beginners.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +78,12 @@
             ]
           }
         ],
-        "hint": "当对方表达担忧或需求时，常用这个短语来安抚并提供帮助",
-        "knowledgePoint": "安抚性回应表达"
+        "situation": "顾客走进宠物店，想为新公寓找一只容易照顾的宠物，第一次开口表达需求",
+        "speakerText": "Hi, I'm looking for a pet that's easy to take care of.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨，我在找一只好打理的宠物。",
+        "knowledgePoint": "安抚性回应表达",
+        "responseTemplate": "___! We've got several great options for beginners."
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "当顾客表达不确定时，店员常用这个短语表示愿意提供帮助并引导选择",
         "type": "fill_blank",
-        "situation": "顾客走进服装店，想买一件适合日常通勤的上衣，但不确定该选什么款式",
-        "speakerText": "Hi, I need something comfortable for work, but I'm not sure what style to pick.",
-        "speakerTextCn": "嗨，我需要一件上班穿得舒服的衣服，但不确定该选什么款式。",
-        "responseTemplate": "___! How about a casual blazer or a soft sweater?",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "当顾客表达不确定时，店员常用这个短语表示愿意提供帮助并引导选择",
-        "knowledgePoint": "提供帮助的礼貌回应"
+        "situation": "顾客走进服装店，想买一件适合日常通勤的上衣，但不确定该选什么款式",
+        "speakerText": "Hi, I need something comfortable for work, but I'm not sure what style to pick.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨，我需要一件上班穿得舒服的衣服，但不确定该选什么款式。",
+        "knowledgePoint": "提供帮助的礼貌回应",
+        "responseTemplate": "___! How about a casual blazer or a soft sweater?"
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "当顾客直接请求建议时，常用这个短语表示乐意提供推荐",
         "type": "fill_blank",
-        "situation": "顾客走进咖啡店，想点一杯不加糖的热饮，但不确定该选什么",
-        "speakerText": "Hi, I'd like something warm without sugar — any suggestions?",
-        "speakerTextCn": "嗨，我想点一杯不加糖的热饮，有什么推荐吗？",
-        "responseTemplate": "___! Our black coffee or herbal tea are perfect for that.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "当顾客直接请求建议时，常用这个短语表示乐意提供推荐",
-        "knowledgePoint": "积极回应请求的常用短语"
+        "situation": "顾客走进咖啡店，想点一杯不加糖的热饮，但不确定该选什么",
+        "speakerText": "Hi, I'd like something warm without sugar — any suggestions?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨，我想点一杯不加糖的热饮，有什么推荐吗？",
+        "knowledgePoint": "积极回应请求的常用短语",
+        "responseTemplate": "___! Our black coffee or herbal tea are perfect for that."
+      }
+    },
+    {
+      "id": "daily_022_sub_1_pq_6",
+      "subSceneId": "daily_022_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "新手推荐的两种常见宠物之一",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Cats",
+            "options": [
+              "Cats",
+              "Birds",
+              "Ferrets",
+              "Rabbits"
+            ]
+          }
+        ],
+        "template": "No worries! ___ or small dogs are perfect starters for beginners.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景高频词汇（新手宠物推荐）"
       }
     }
   ]

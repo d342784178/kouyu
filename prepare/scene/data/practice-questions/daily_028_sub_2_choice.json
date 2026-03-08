@@ -2,8 +2,7 @@
   "subSceneId": "daily_028_sub_2",
   "subSceneName": "询问商品位置",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:18:49.086Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.637Z",
   "questions": [
     {
       "id": "daily_028_sub_2_choice_1",
@@ -12,9 +11,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "你在文具店想买笔记本和笔，但不确定它们放在哪里，于是向店员询问。",
-        "speakerText": "Could you tell me where the composition notebooks are?",
-        "speakerTextCn": "你能告诉我活页笔记本在哪里吗？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +33,81 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回答了位置问题，符合'Where are...?'的常见回应模式。选项2是重复询问库存，答非所问；选项3是表达需求而非回应问题；选项4虽然真实但缺乏帮助性，不是最佳回应。"
+        "situation": "你在文具店想买笔记本和笔，但不确定它们放在哪里，于是向店员询问。",
+        "explanation": "正确答案直接回答了位置问题，符合'Where are...?'的常见回应模式。选项2是重复询问库存，答非所问；选项3是表达需求而非回应问题；选项4虽然真实但缺乏帮助性，不是最佳回应。",
+        "speakerText": "Could you tell me where the composition notebooks are?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你能告诉我活页笔记本在哪里吗？"
+      }
+    },
+    {
+      "id": "daily_028_sub_2_qa_1_choice_1",
+      "subSceneId": "daily_028_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_028_sub_2_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Could you tell me where the blue spiral notebooks and matching pens are?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you have those spiral notebooks in blue?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I want blue notebooks and pens.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Where are the pens and notebooks?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接询问商品位置，符合场景需求。选项2只确认商品是否存在，未问位置；选项3是陈述句，非提问；选项4未指定颜色或类型，信息模糊不具体。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在文具店想找到蓝色的活页笔记本和配套的笔，需要向店员询问这些商品的具体位置。"
+      }
+    },
+    {
+      "id": "daily_028_sub_2_qa_2_choice_1",
+      "subSceneId": "daily_028_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_028_sub_2_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "And where are the pens?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you sell pens and notebooks?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much are the pens?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I want pens and notebooks.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'And where are the pens?' 直接询问商品位置，符合场景需求。干扰项1 'Do you sell pens and notebooks?' 询问是否销售，而非位置；干扰项2 'How much are the pens?' 询问价格，偏离主题；干扰项3 'I want pens and notebooks.' 是陈述需求，不是提问，无法引导店员提供位置信息。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在商店里想找到笔记本和笔的具体位置，准备向店员提问。"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "你在超市文具区想找黑色签字笔，看到店员在整理货架，便上前询问。",
-        "speakerText": "Where can I find the black pens?",
-        "speakerTextCn": "黑色签字笔在哪里？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案清晰指出了具体位置，符合高频回应模式。选项2是表达需求而非回答问题；选项3是提供其他颜色，忽略原问题；选项4是请求帮助而非提供信息，属于答非所问。"
+        "situation": "你在超市文具区想找黑色签字笔，看到店员在整理货架，便上前询问。",
+        "explanation": "正确答案清晰指出了具体位置，符合高频回应模式。选项2是表达需求而非回答问题；选项3是提供其他颜色，忽略原问题；选项4是请求帮助而非提供信息，属于答非所问。",
+        "speakerText": "Where can I find the black pens?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "黑色签字笔在哪里？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "你正在找A4大小的活页笔记本，但找不到，于是向店员确认位置。",
-        "speakerText": "Are the A4 spiral notebooks on this shelf?",
-        "speakerTextCn": "A4大小的活页笔记本在这层货架上吗？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了是/否问题并补充了准确位置，是自然且有帮助的回应。选项2是模糊推脱，不够明确；选项3是反问确认需求，偏离了对方的问题焦点；选项4是错误信息，且无帮助性���"
+        "situation": "你正在找A4大小的活页笔记本，但找不到，于是向店员确认位置。",
+        "explanation": "正确答案直接回应了是/否问题并补充了准确位置，是自然且有帮助的回应。选项2是模糊推脱，不够明确；选项3是反问确认需求，偏离了对方的问题焦点；选项4是错误信息，且无帮助性���",
+        "speakerText": "Are the A4 spiral notebooks on this shelf?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "A4大小的活页笔记本在这层货架上吗？"
       }
     }
   ]

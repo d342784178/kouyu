@@ -2,50 +2,52 @@
   "subSceneId": "travel_071_sub_1",
   "subSceneName": "问候退房",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:10:23.064Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.260Z",
   "questions": [
     {
-      "id": "travel_071_sub_1_speaking_1",
+      "id": "travel_071_sub_1_qa_2_speaking_1",
       "subSceneId": "travel_071_sub_1",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "travel_071_sub_1_qa_2",
         "type": "speaking",
-        "qaId": "travel_071_sub_1_qa_1",
-        "speakerText": "Good morning! I'd like to check out today.",
-        "speakerTextCn": "早上好！我想今天退房。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "您正在酒店前台，准备办理退房手续，需要礼貌地向工作人员请求结算账单。",
         "expectedAnswers": [
-          "Sure, I can help with that. Could I have your room number?",
-          "OK, checkout? Just a sec!",
-          "Check out? Room 305?"
+          "I'm checking out. Could I please get my bill?",
+          "I'm staying in room 412 — can I settle my account now?",
+          "Hi, I'd like to check out. Could you prepare my invoice?",
+          "Could I get my final bill, please? I'm in room 412."
         ],
         "evaluationCriteria": [
-          "意图达成度：是否准确回应了退房请求并引导提供房号",
-          "语言准确性：语法和词汇使用是否正确，是否避免使用 'I want'",
-          "表达自然度：语气是否礼貌、符合酒店服务场景"
+          "意图达成度：是否明确表达了退房和索要账单的意图",
+          "语言准确性：语法结构正确，时态和用词恰当",
+          "表达自然度：符合英语口语习惯，语气礼貌得体",
+          "关键词覆盖：使用了'check out', 'bill', 'account', 或 'invoice'等场景关键词"
         ]
       }
     },
     {
-      "id": "travel_071_sub_1_speaking_2",
+      "id": "travel_071_sub_1_qa_1_speaking_1",
       "subSceneId": "travel_071_sub_1",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "travel_071_sub_1_qa_1",
         "type": "speaking",
-        "qaId": "travel_071_sub_1_qa_2",
-        "speakerText": "I'm in room 412. Can I get my bill now?",
-        "speakerTextCn": "我住412房，能现在给我账单吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在酒店前台礼貌地提出退房请求，需要使用恰当的英语表达来告知前台工作人员自己今天要结账离开。",
         "expectedAnswers": [
-          "Absolutely, I'll pull up your account right away.",
-          "Bill? One minute, I'll check.",
-          "412? Got it, bill coming!"
+          "Good morning, I'd like to check out today.",
+          "Hi, could I check out now, please?",
+          "Hello, I'm ready to check out today.",
+          "Morning! I'd like to settle my bill and check out, please."
         ],
         "evaluationCriteria": [
-          "意图达成度：是否明确回应账单请求并承诺立即处理",
-          "语言准确性：是否使用 'Can I get...' 的礼貌句型，避免命令式表达",
-          "表达自然度：语调是否友好，是否使用口语化但专业的回应方式"
+          "意图达成度：是否清晰表达了退房的意图",
+          "语言准确性：语法结构和用词是否正确",
+          "表达自然度：是否符合酒店场景中的日常口语习惯"
         ]
       }
     },
@@ -55,9 +57,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I'd like to check out. Could you please send the bill to my email?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我想退房，能将账单发送到我的邮箱吗？",
         "expectedAnswers": [
           "Of course! Could you please confirm your email address?",

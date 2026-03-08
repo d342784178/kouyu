@@ -2,52 +2,53 @@
   "subSceneId": "daily_022_sub_3",
   "subSceneName": "确认价格与细节",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:41:06.923Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.592Z",
   "questions": [
     {
-      "id": "daily_022_sub_3_speaking_1",
+      "id": "daily_022_sub_3_qa_1_speaking_1",
       "subSceneId": "daily_022_sub_3",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "daily_022_sub_3_qa_1",
-        "speakerText": "How much is the puppy? Does the price include shots?",
-        "speakerTextCn": "小狗多少钱？价格包含疫苗吗？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在宠物店想购买一只小狗，想了解具体价格、是否包含疫苗接种以及是否有其他附加费用或条件。",
         "expectedAnswers": [
-          "It's $800, and all shots and the microchip are included.",
-          "The price is $800, including vaccinations and chip.",
-          "Included. Everything's covered."
+          "How much does the puppy cost?",
+          "Does the price include vaccinations and other services?",
+          "Are there any additional fees I should know about?",
+          "Could you tell me what’s included in the price?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确回答价格和是否包含疫苗",
-          "语言准确性：语法正确，用词恰当（如included, microchip）",
-          "表达自然度：符合口语习惯，不生硬或冗长",
-          "关键词覆盖：使用了price, shots, included等核心词"
+          "意图达成度：是否明确询问了价格、包含服务和购买条件",
+          "语言准确性：语法结构正确，用词恰当",
+          "表达自然度：符合日常英语口语习惯，语气礼貌自然",
+          "关键词覆盖：使用了 price, include, vaccinations, fees 等场景关键词"
         ]
       }
     },
     {
-      "id": "daily_022_sub_3_speaking_2",
+      "id": "daily_022_sub_3_qa_2_speaking_1",
       "subSceneId": "daily_022_sub_3",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "daily_022_sub_3_qa_2",
-        "speakerText": "Can I take it home today?",
-        "speakerTextCn": "我能今天带它回家吗？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在宠物店想了解一只小狗的价格、包含的服务（如疫苗）以及是否可以当天带回家，需要主动向店员提问。",
         "expectedAnswers": [
-          "Sure! Just sign the paperwork and pay, and you're good to go.",
-          "Yes, as long as you complete the forms and make payment.",
-          "Not today—we need to do a home check first."
+          "How much does it cost, and does the price include the vaccinations?",
+          "Can I take it home today? What’s included in the price?",
+          "Could you tell me the total cost and what services are covered?",
+          "Is the price all-inclusive, and am I able to bring it home today?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确告知是否可提货及原因",
-          "语言准确性：使用正确动词搭配（sign paperwork, make payment）",
-          "表达自然度：符合日常销售对话节奏",
-          "关键词覆盖：使用了paperwork, pay, home check等场景关键词"
+          "意图达成度：是否明确询问了价格、包含服务和购买条件",
+          "语言准确性：语法正确，用词恰当，无明显错误",
+          "表达自然度：符合英语口语习惯，语气礼貌自然",
+          "关键词覆盖：使用了'price', 'cost', 'include', 'vaccinations', 'take home'等场景关键词"
         ]
       }
     },
@@ -57,9 +58,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Is there a warranty or return policy if the pet gets sick?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "如果宠物生病了，有保修或退换政策吗？",
         "expectedAnswers": [
           "Yes, we offer a 14-day health guarantee. If the puppy gets sick, you can return it for a full refund.",

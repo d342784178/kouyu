@@ -2,42 +2,41 @@
   "subSceneId": "study_abroad_100_sub_4",
   "subSceneName": "确认截止日期",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:53:27.640Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.870Z",
   "questions": [
     {
-      "id": "study_abroad_100_sub_4_choice_1",
+      "id": "study_abroad_100_sub_4_qa_1_choice_1",
       "subSceneId": "study_abroad_100_sub_4",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "study_abroad_100_sub_4_qa_1",
-        "speakerText": "You've got until Friday at 5 PM to add or drop courses without penalty.",
-        "speakerTextCn": "你周五下午5点前都能免费加退课。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Can I add a class after Friday if I pay a fee?",
+            "text": "Can I know the deadline for adding or dropping courses?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Is the deadline for tuition payment also Friday?",
+            "text": "What's the penalty for late course drops?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Do I need to submit a form to drop a course?",
+            "text": "Do I need to pay extra to add or drop courses?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can I switch to a different semester instead?",
+            "text": "When is the final exam for this course?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案询问了付费后是否还能加课，是对截止日期的合理延伸提问，符合语境。其他选项偏离主题：B涉及学费，C涉及表格流程，D涉及转学期，均与‘加退课截止时间’无关。"
+        "explanation": "正确答案是 opt_1，因为它询问了截止日期和加退课规则。其他选项不正确，因为它们询问了不同的信息。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想确认选课截止日期和加退课的规则"
       }
     },
     {
@@ -46,10 +45,8 @@
       "type": "choice",
       "order": 2,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "The final deadline to drop a course is next Monday at noon.",
-        "speakerTextCn": "退课的最终截止日期是下周一中午。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +69,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接针对截止日期后的后果提问，符合确认截止日期的场景核心目的。B是注册新课，C是找教室，D是学期开始时间，均与‘退课截止’无关。"
+        "explanation": "正确答案直接针对截止日期后的后果提问，符合确认截止日期的场景核心目的。B是注册新课，C是找教室，D是学期开始时间，均与‘退课截止’无关。",
+        "speakerText": "The final deadline to drop a course is next Monday at noon.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "退课的最终截止日期是下周一中午。"
       }
     },
     {
@@ -81,10 +81,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "You can add courses until the end of the add/drop period, which is Friday.",
-        "speakerTextCn": "你可以在加退课期内加课，截止到周五。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +105,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案确认了周五当天是否仍可操作，精准回应了截止时间的含义。B涉及证件，C涉及课程数量，D涉及退款，虽相关但非当前语境下最直接的追问。"
+        "explanation": "正确答案确认了周五当天是否仍可操作，精准回应了截止时间的含义。B涉及证件，C涉及课程数量，D涉及退款，虽相关但非当前语境下最直接的追问。",
+        "speakerText": "You can add courses until the end of the add/drop period, which is Friday.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你可以在加退课期内加课，截止到周五。"
       }
     }
   ]

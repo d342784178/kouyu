@@ -2,77 +2,76 @@
   "subSceneId": "travel_062_sub_3",
   "subSceneName": "确认票价与时间",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:05:24.511Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.134Z",
   "questions": [
     {
-      "id": "travel_062_sub_3_choice_1",
+      "id": "travel_062_sub_3_qa_1_choice_1",
       "subSceneId": "travel_062_sub_3",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "travel_062_sub_3_qa_1",
-        "speakerText": "How much is the entrance fee for the museum?",
-        "speakerTextCn": "博物馆门票多少钱？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "It's $12 for adults, but under 18s are free!",
+            "text": "How much is the entrance fee for the museum?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I think it's about ten minutes away.",
+            "text": "When did the museum open last year?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "The museum is very popular.",
+            "text": "Is the museum open today?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can I pay by credit card?",
+            "text": "How many people visit the museum daily?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了票价问题，使用了场景核心表达。选项2混淆了时间与价格；选项3是无关评价；选项4询问支付方式，偏离了问题核心。"
+        "explanation": "正确答案询问门票价格，直接回应场景需求。干扰项1询问去年的开放时间，与当前信息无关；干扰项2仅问是否开放，未涉及价格和常规开放时间；干扰项3询问日均游客量，偏离核心需求。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客想了解博物馆的门票价格和开放时间，准备向工作人员提问。"
       }
     },
     {
-      "id": "travel_062_sub_3_choice_2",
+      "id": "travel_062_sub_3_qa_2_choice_1",
       "subSceneId": "travel_062_sub_3",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "travel_062_sub_3_qa_2",
-        "speakerText": "Do they close early on weekends?",
-        "speakerTextCn": "周末会早关吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, closes at 5 on Sat/Sun.",
+            "text": "Do they close early on weekends?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I love visiting museums on weekends.",
+            "text": "How much is the ticket price?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "The tickets are cheap.",
+            "text": "Do they open early on weekends?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Would you like a guided tour?",
+            "text": "When is the closing time?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确回应了关于周末关闭时间的疑问。选项1是常见干扰项，但语义无关；选项3谈价格；选项4是服务推荐，均未回答问题。"
+        "explanation": "正确答案询问周末是否早关，精准匹配场景需求。干扰项1只问票价，偏离时间焦点；干扰项2问的是开门时间而非关门时间，方向错误；干扰项3虽问关闭时间，但未限定周末，缺乏场景针对性。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客想了解景点在周末的关闭时间是否比平时早"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "What time does the art gallery open on weekdays?",
-        "speakerTextCn": "艺术画廊工作日几点开门？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回答了开放时间，符合场景需求。选项2回避问题；选项3是建议；选项4谈免费政策，而非开门时间，均未精准回应。"
+        "explanation": "正确答案直接回答了开放时间，符合场景需求。选项2回避问题；选项3是建议；选项4谈免费政策，而非开门时间，均未精准回应。",
+        "speakerText": "What time does the art gallery open on weekdays?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "艺术画廊工作日几点开门？"
       }
     }
   ]

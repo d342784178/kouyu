@@ -2,8 +2,7 @@
   "subSceneId": "daily_001_sub_1",
   "subSceneName": "入座问候",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:15:08.241Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.427Z",
   "questions": [
     {
       "id": "daily_001_sub_1_choice_1",
@@ -12,9 +11,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "你走进一家餐厅，服务员微笑着迎上来，手中拿着菜单，准备引导你入座。",
-        "speakerText": "Welcome! How many in your party?",
-        "speakerTextCn": "欢迎光临！请问几位？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +33,151 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Just two, thanks.' 是对 'How many in your party?' 的自然、简洁回应，符合入座问候场景的核心任务——确认人数。干扰项1是提出座位偏好（属于后续问题），干扰项3是询问甜点菜单（偏离当前问题），干扰项4是请求推荐菜品（未回答人数问题），均答非所问。"
+        "situation": "你走进一家餐厅，服务员微笑着迎上来，手中拿着菜单，准备引导你入座。",
+        "explanation": "正确答案 'Just two, thanks.' 是对 'How many in your party?' 的自然、简洁回应，符合入座问候场景的核心任务——确认人数。干扰项1是提出座位偏好（属于后续问题），干扰项3是询问甜点菜单（偏离当前问题），干扰项4是请求推荐菜品（未回答人数问题），均答非所问。",
+        "speakerText": "Welcome! How many in your party?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "欢迎光临！请问几位？"
+      }
+    },
+    {
+      "id": "daily_001_sub_1_qa_3_choice_1",
+      "subSceneId": "daily_001_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_001_sub_1_qa_3",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Here are your menus. Can I get you something to drink while you look?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "What would you like to order?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have a reservation?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I take your coat?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是选项1，因为它符合服务员在引导入座后自然提供饮品服务的礼貌表达，既提供菜单又主动询问需求。选项2过早询问点餐，不符合‘看菜单时’的时机；选项3是入座前的核对问题，与场景不符；选项4涉及外套服务，虽可能发生在餐厅，但与提供饮品和菜单的典型流程无关。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "服务员引导顾客入座后，主动提供服务，询问是否需要饮品。"
+      }
+    },
+    {
+      "id": "daily_001_sub_1_qa_1_choice_1",
+      "subSceneId": "daily_001_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_001_sub_1_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hi there! Table for one?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "您好，我要点菜了吗?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "请问这里有空调吗?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Hi, how much is the bill?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "答案解析：正确答案\"Hi there! Table for one?\"是合适的入座问候问题，其他选项中\"您好，我要点菜了吗?\"理解偏差，\"请问这里有空调吗?\"不相关，\"Hi, how much is the bill?\"提问不当",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客主动询问，服务方回应"
+      }
+    },
+    {
+      "id": "daily_001_sub_1_qa_2_choice_1",
+      "subSceneId": "daily_001_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_001_sub_1_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Would you prefer a window seat or a booth?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I have a table near the door?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "What time do you serve lunch?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much is the food here?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "答案解析：正确答案\"Would you prefer a window seat or a booth?\"是用户询问座位位置，符合场景需求。干扰项\"Can I have a table near the door?\"\"What time do you serve lunch?\"和\"How much is the food here?\"虽然是合理的问题，但与场景提示\"座位位置\"不符，属于不当提问",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客主动询问座位位置，服务方回应"
+      }
+    },
+    {
+      "id": "daily_001_sub_1_qa_4_choice_1",
+      "subSceneId": "daily_001_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_001_sub_1_qa_4",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "May I ask when you will take my order?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "What's the special of the day?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much does it cost?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you help me with the menu?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "答案解析：正确答案\"May I ask when you will take my order?\"是合适的回应，因为它询问了服务员接待的时间。其他选项不合适，因为它们询问了不同的信息：\"What's the special of the day?\"询问了餐厅的特餐，\"How much does it cost?\"询问了价格，\"Can you help me with the menu?\"询问了帮助使用菜单。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客主动询问，服务方回应"
       }
     },
     {
@@ -47,9 +187,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "服务员带你到座位前，微笑着问你偏好哪种座位，餐厅有靠窗位、卡座和普通餐桌可选。",
-        "speakerText": "Would you like a table by the window, a cozy booth, or a regular table?",
-        "speakerTextCn": "您想要靠窗的座位、舒适的卡座，还是普通餐桌？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +209,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'A booth, please. It’s quieter there.' 是对座位偏好的恰当回应，表达清晰且礼貌。干扰项1是推迟点餐（与座位无关），干扰项3是询问菜品（偏离座位选择），干扰项4是点饮料（属于后续流程），均未回应核心问题。"
+        "situation": "服务员带你到座位前，微笑着问你偏好哪种座位，餐厅有靠窗位、卡座和普通餐桌可选。",
+        "explanation": "正确答案 'A booth, please. It’s quieter there.' 是对座位偏好的恰当回应，表达清晰且礼貌。干扰项1是推迟点餐（与座位无关），干扰项3是询问菜品（偏离座位选择），干扰项4是点饮料（属于后续流程），均未回应核心问题。",
+        "speakerText": "Would you like a table by the window, a cozy booth, or a regular table?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "您想要靠窗的座位、舒适的卡座，还是普通餐桌？"
       }
     },
     {
@@ -82,9 +223,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "服务员为你摆好餐具，递上菜单，并礼貌询问是否需要先点饮品。",
-        "speakerText": "I'll leave the menus with you. Can I bring you anything to drink while you decide?",
-        "speakerTextCn": "我把菜单放在您这儿。在您决定之前，需要先来点喝的吗？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +245,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Just sparkling water for now, thanks.' 是对递菜单后询问饮品的自然回应，符合高频交际模式。干扰项1是点主菜（时间过早），干扰项3是询问上菜时间（无关当前问题），干扰项4是索要账单（完全提前），均不符合对话流程。"
+        "situation": "服务员为你摆好餐具，递上菜单，并礼貌询问是否需要先点饮品。",
+        "explanation": "正确答案 'Just sparkling water for now, thanks.' 是对递菜单后询问饮品的自然回应，符合高频交际模式。干扰项1是点主菜（时间过早），干扰项3是询问上菜时间（无关当前问题），干扰项4是索要账单（完全提前），均不符合对话流程。",
+        "speakerText": "I'll leave the menus with you. Can I bring you anything to drink while you decide?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我把菜单放在您这儿。在您决定之前，需要先来点喝的吗？"
       }
     }
   ]

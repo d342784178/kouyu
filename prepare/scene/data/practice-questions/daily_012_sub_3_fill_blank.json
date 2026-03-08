@@ -2,20 +2,43 @@
   "subSceneId": "daily_012_sub_3",
   "subSceneName": "确认价格",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:37.626Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.530Z",
   "questions": [
+    {
+      "id": "daily_012_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "daily_012_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "你可以问：'预付多少个月送多少个月？'",
+        "qaId": "daily_012_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "three months",
+            "options": [
+              "three months",
+              "six months",
+              "one month",
+              "a year"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "确认价格时比较不同会员方案并询问优惠",
+        "knowledgePoint": "会员价格和优惠方案",
+        "responseTemplate": "What are the membership prices if I pay ___ upfront?"
+      }
+    },
     {
       "id": "daily_012_sub_3_fill_blank_1",
       "subSceneId": "daily_012_sub_3",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "用礼貌的问法询问预付优惠，常用 Can I get...?",
         "type": "fill_blank",
-        "situation": "你在咨询健身房的会员方案，工作人员介绍了基础版和高级版的区别后，你想询问是否预付能享受优惠。",
-        "speakerText": "We have a basic plan and a premium option with extra perks. Would you like to sign up today?",
-        "speakerTextCn": "我们有基础版和高级版，高级版包含更多福利。今天要注册吗？",
-        "responseTemplate": "___ if I pay for several months in advance?",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,39 @@
             ]
           }
         ],
-        "hint": "用礼貌的问法询问预付优惠，常用 Can I get...?",
-        "knowledgePoint": "礼貌询问优惠的句型"
+        "situation": "你在咨询健身房的会员方案，工作人员介绍了基础版和高级版的区别后，你想询问是否预付能享受优惠。",
+        "speakerText": "We have a basic plan and a premium option with extra perks. Would you like to sign up today?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们有基础版和高级版，高级版包含更多福利。今天要注册吗？",
+        "knowledgePoint": "礼貌询问优惠的句型",
+        "responseTemplate": "___ if I pay for several months in advance?"
+      }
+    },
+    {
+      "id": "daily_012_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "daily_012_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问会员方案价格和优惠",
+        "qaId": "daily_012_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "membership prices",
+            "options": [
+              "会员费用",
+              "价格表",
+              "优惠方案",
+              "会员卡"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "比较不同会员方案并询问优惠",
+        "knowledgePoint": "提问句型和会员方案",
+        "responseTemplate": "What are the membership prices for your basic and premium plans?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "表达觉得优惠划算并决定购买时，常用 That’s a great deal!",
         "type": "fill_blank",
-        "situation": "工作人员告诉你预付半年可免一个月费用，你认为这个优惠很划算，决定立即签约。",
-        "speakerText": "If you pay for six months upfront, you’ll get one month free — it saves you a lot over time.",
-        "speakerTextCn": "如果你预付六个月，会免费赠送一个月，这样长期能省不少钱。",
-        "responseTemplate": "___! I'll go with the premium plan.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "表达觉得优惠划算并决定购买时，常用 That’s a great deal!",
-        "knowledgePoint": "表达认可优惠并做决定的口语表达"
+        "situation": "工作人员告诉你预付半年可免一个月费用，你认为这个优惠很划算，决定立即签约。",
+        "speakerText": "If you pay for six months upfront, you’ll get one month free — it saves you a lot over time.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "如果你预付六个月，会免费赠送一个月，这样长期能省不少钱。",
+        "knowledgePoint": "表达认可优惠并做决定的口语表达",
+        "responseTemplate": "___! I'll go with the premium plan."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "询问具体服务时，用 Does it include...? 结构，聚焦你关心的核心服务",
         "type": "fill_blank",
-        "situation": "你对比了两个会员方案，但还在犹豫，想确认高级版是否包含你最关心的私人教练服务。",
-        "speakerText": "The premium plan includes unlimited classes, sauna, and locker access. The basic plan only includes gym access.",
-        "speakerTextCn": "高级版包含无限次课程、桑拿和储物柜使用权，基础版只包含健身房入场。",
-        "responseTemplate": "Does the premium plan include ___?",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "询问具体服务时，用 Does it include...? 结构，聚焦你关心的核心服务",
-        "knowledgePoint": "询问服务内容的句型"
+        "situation": "你对比了两个会员方案，但还在犹豫，想确认高级版是否包含你最关心的私人教练服务。",
+        "speakerText": "The premium plan includes unlimited classes, sauna, and locker access. The basic plan only includes gym access.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "高级版包含无限次课程、桑拿和储物柜使用权，基础版只包含健身房入场。",
+        "knowledgePoint": "询问服务内容的句型",
+        "responseTemplate": "Does the premium plan include ___?"
+      }
+    },
+    {
+      "id": "daily_012_sub_3_pq_6",
+      "subSceneId": "daily_012_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "比较方案时的核心问句结构",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "difference",
+            "options": [
+              "difference",
+              "price",
+              "advantage",
+              "option"
+            ]
+          }
+        ],
+        "template": "What’s the ___ between the basic and premium plans?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "核心句型 What’s the difference between...?（比较差异）"
       }
     }
   ]

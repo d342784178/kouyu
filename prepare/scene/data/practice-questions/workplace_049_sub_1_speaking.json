@@ -2,29 +2,50 @@
   "subSceneId": "workplace_049_sub_1",
   "subSceneName": "提出申请",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:19:01.500Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.545Z",
   "questions": [
     {
-      "id": "workplace_049_sub_1_speaking_1",
+      "id": "workplace_049_sub_1_qa_1_speaking_1",
       "subSceneId": "workplace_049_sub_1",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "workplace_049_sub_1_qa_1",
         "type": "speaking",
-        "qaId": "workplace_049_sub_1_qa_2",
-        "speakerText": "I'd like to apply for a business trip to Shanghai next week.",
-        "speakerTextCn": "我想申请下周去上海出差。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在与你的经理，迈克，讨论工作任务。他似乎很忙，需要你礼貌地询问一下他是否有空。",
         "expectedAnswers": [
-          "I'd like to apply for a business trip to Shanghai next week to attend the client onboarding meeting.",
-          "I'm requesting a business trip to Shanghai next week to finalize the contract with our new partner.",
-          "Could I please apply for a trip to Shanghai next week? I need to meet with the regional team."
+          "Hey Mike, do you have a minute?",
+          "Hi Mike, got a minute?",
+          "Mike, do you have a minute to talk?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否清晰表达了出差请求",
-          "语言准确性：语法和时态是否正确",
-          "表达自然度：是否使用了礼貌、职场常用表达",
-          "关键词覆盖：是否包含 apply, business trip, Shanghai, next week 等核心词"
+          "是否正确表达了询问意图",
+          "语法和用词是否正确",
+          "是否符合英语口语习惯"
+        ]
+      }
+    },
+    {
+      "id": "workplace_049_sub_1_qa_2_speaking_1",
+      "subSceneId": "workplace_049_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "qaId": "workplace_049_sub_1_qa_2",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想申请出差到上海，但你还不知道经理是否有空，于是你需要礼貌地向经理提出申请。",
+        "expectedAnswers": [
+          "Hi boss, I'd like to apply for a business trip to Shanghai next week.",
+          "Excuse me, boss, I was wondering if I could apply for a business trip to Shanghai next week?",
+          "May I apply for a business trip to Shanghai next week, boss?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
@@ -34,9 +55,10 @@
       "type": "speaking",
       "order": 2,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Could you approve my request for a business trip to Tokyo next month?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "你能批准我下个月去东京出差的申请吗？",
         "expectedAnswers": [
           "I can approve it if you provide the itinerary and estimated costs by Friday.",
@@ -57,9 +79,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Hey, got a minute? I need to talk about a trip.",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "嘿，有空吗？我想谈谈一次出差。",
         "expectedAnswers": [
           "Sure, what’s the trip for? I need to know the purpose and dates.",

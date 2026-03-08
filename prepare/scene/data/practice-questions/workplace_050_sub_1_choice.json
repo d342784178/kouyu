@@ -2,77 +2,76 @@
   "subSceneId": "workplace_050_sub_1",
   "subSceneName": "报修发起",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:19:09.243Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.553Z",
   "questions": [
     {
-      "id": "workplace_050_sub_1_choice_1",
+      "id": "workplace_050_sub_1_qa_2_choice_1",
       "subSceneId": "workplace_050_sub_1",
       "type": "choice",
       "order": 1,
       "content": {
+        "qaId": "workplace_050_sub_1_qa_2",
         "type": "choice",
-        "qaId": "workplace_050_sub_1_qa_1",
-        "speakerText": "Hey, can you help? My laptop's totally frozen.",
-        "speakerTextCn": "嘿，能帮个忙吗？我的笔记本彻底卡死了。",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll send you a new one right away.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Sure, I'm on it. What's the error message?",
+            "text": "It won't boot up—just shows a black screen after the Apple logo.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "My computer is very slow, can you help me speed it up?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "You should restart it yourself.",
+            "text": "What's the password for the computer?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "That’s not my job, call the vendor.",
+            "text": "Can you tell me the latest company news?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Sure, I'm on it. What's the error message?' 是IT支持人员的标准专业回应，既表达立即行动，又引导用户提供关键信息。选项1过早承诺换机，不符合排查流程；选项3推卸责任，不符合职场协作；选项4态度消极，违反公司支持文化。"
+        "explanation": "正确答案\"It won't boot up—just shows a black screen after the Apple logo.\"是最合适的问题，因为它直接描述了电脑故障的症状。其他选项虽然语法正确，但不符合场景需求或不相关。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你发现电脑开机不了，苹果标志后就黑屏了，需要联系IT支持，快点帮助我!"
       }
     },
     {
-      "id": "workplace_050_sub_1_choice_2",
+      "id": "workplace_050_sub_1_qa_1_choice_1",
       "subSceneId": "workplace_050_sub_1",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "workplace_050_sub_1_qa_1",
         "type": "choice",
-        "qaId": "workplace_050_sub_1_qa_2",
-        "speakerText": "It won't boot up—just shows a black screen after the Apple logo.",
-        "speakerTextCn": "开机不了，苹果标志后就黑屏了。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Have you tried holding the power button for 10 seconds?",
+            "text": "Hey, my laptop is not working. Can you help me?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Did you spill coffee on it?",
+            "text": "What's your phone number? I need help with my laptop.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "I'll book a flight to your office.",
+            "text": "I'm calling to report a problem with the internet.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Maybe you need a new monitor.",
+            "text": "Can you fix my computer now? It's really urgent.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是标准的初步排查步骤，体现IT支持的专业性。选项2是猜测原因，非标准流程；选项3完全离题；选项4错误归因，黑屏问题通常不是显示器故障。"
+        "explanation": "正确答案：Hey, my laptop is not working. Can you help me？因为它准确描述了电脑故障的情况并表达了需求。其他选项不正确，因为它们没有准确描述电脑故障或没有表达需求。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工发现电脑故障，联系IT支持"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "My keyboard isn't responding at all. I've tried restarting.",
-        "speakerTextCn": "我的键盘完全没反应，我已经试过重启了。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是合理且专业的初步排查建议，符合技术支援流程。选项2和3推卸责任，选项4荒谬不专业，均不符合职场沟通规范。"
+        "explanation": "正确答案是合理且专业的初步排查建议，符合技术支援流程。选项2和3推卸责任，选项4荒谬不专业，均不符合职场沟通规范。",
+        "speakerText": "My keyboard isn't responding at all. I've tried restarting.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我的键盘完全没反应，我已经试过重启了。"
       }
     }
   ]

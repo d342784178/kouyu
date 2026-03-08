@@ -2,8 +2,7 @@
   "subSceneId": "workplace_039_sub_2",
   "subSceneName": "价格分歧",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:32:22.747Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.422Z",
   "questions": [
     {
       "id": "workplace_039_sub_2_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "表达当前价格已无空间，但用替代方案缓和语气",
         "type": "fill_blank",
-        "situation": "客户希望降低产品单价，但供应商认为当前价格已接近成本，需委婉拒绝并提出替代方案",
-        "speakerText": "We're under serious pressure to cut costs — can you offer a lower price per unit?",
-        "speakerTextCn": "我们正面临巨大的成本压力，你们能提供更低的单价吗？",
-        "responseTemplate": "I understand your position, but ___ — perhaps we could adjust the order quantity instead?",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "表达当前价格已无空间，但用替代方案缓和语气",
-        "knowledgePoint": "委婉拒绝 + 提出替代方案"
+        "situation": "客户希望降低产品单价，但供应商认为当前价格已接近成本，需委婉拒绝并提出替代方案",
+        "speakerText": "We're under serious pressure to cut costs — can you offer a lower price per unit?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们正面临巨大的成本压力，你们能提供更低的单价吗？",
+        "knowledgePoint": "委婉拒绝 + 提出替代方案",
+        "responseTemplate": "I understand your position, but ___ — perhaps we could adjust the order quantity instead?"
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "表达愿意让步，但需绑定其他条件（如长期合作）",
         "type": "fill_blank",
-        "situation": "客户提议增加订单量以换取降价，供应商考虑接受但需附加条件",
-        "speakerText": "If we increase our order to 15,000 units, would you be willing to reduce the price?",
-        "speakerTextCn": "如果我们把订单增加到一万五千件，你们愿意降价吗？",
-        "responseTemplate": "That’s a compelling proposal — ___ if you’re open to a longer-term agreement.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "表达愿意让步，但需绑定其他条件（如长期合作）",
-        "knowledgePoint": "条件式让步表达"
+        "situation": "客户提议增加订单量以换取降价，供应商考虑接受但需附加条件",
+        "speakerText": "If we increase our order to 15,000 units, would you be willing to reduce the price?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "如果我们把订单增加到一万五千件，你们愿意降价吗？",
+        "knowledgePoint": "条件式让步表达",
+        "responseTemplate": "That’s a compelling proposal — ___ if you’re open to a longer-term agreement."
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "用价值点（非价格）解释为何价格更高，转移焦点",
         "type": "fill_blank",
-        "situation": "客户坚持要求降价，供应商需在不破坏关系的前提下说明价格合理性",
-        "speakerText": "Other vendors are offering much cheaper — why should we choose you?",
-        "speakerTextCn": "其他供应商报价低很多，我们为什么要选你们？",
-        "responseTemplate": "I appreciate you comparing options — ___ is what makes our offering stand out.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "用价值点（非价格）解释为何价格更高，转移焦点",
-        "knowledgePoint": "价值主张替代价格竞争"
+        "situation": "客户坚持要求降价，供应商需在不破坏关系的前提下说明价格合理性",
+        "speakerText": "Other vendors are offering much cheaper — why should we choose you?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "其他供应商报价低很多，我们为什么要选你们？",
+        "knowledgePoint": "价值主张替代价格竞争",
+        "responseTemplate": "I appreciate you comparing options — ___ is what makes our offering stand out."
+      }
+    },
+    {
+      "id": "workplace_039_sub_2_pq_4",
+      "subSceneId": "workplace_039_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "表示‘亏本’的固定搭配",
+        "qaId": "workplace_039_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "loss",
+            "options": [
+              "loss",
+              "profit",
+              "discount",
+              "deal"
+            ]
+          }
+        ],
+        "template": "I totally get that, but at $45, we’d be operating at a ___ — our quality standards won’t allow it.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定表达：operate at a loss（亏本运营）"
+      }
+    },
+    {
+      "id": "workplace_039_sub_2_pq_5",
+      "subSceneId": "workplace_039_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "供应商常用附加价值来换取价格让步",
+        "qaId": "workplace_039_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "free",
+            "options": [
+              "free",
+              "fast",
+              "standard",
+              "expedited"
+            ]
+          }
+        ],
+        "template": "That’s a strong offer — we could do $48 for 10K, with ___ shipping and extended warranty.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "商务谈判中的附加服务搭配：free shipping（包邮）"
+      }
+    },
+    {
+      "id": "workplace_039_sub_2_pq_6",
+      "subSceneId": "workplace_039_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "常见用于绑定长期合作的合同期限",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "12",
+            "options": [
+              "12",
+              "3",
+              "6",
+              "24"
+            ]
+          }
+        ],
+        "template": "We can’t match that price, but we could offer a ___-month contract with volume discounts.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "商务合作中的常见合同期限表达：12-month contract"
       }
     }
   ]

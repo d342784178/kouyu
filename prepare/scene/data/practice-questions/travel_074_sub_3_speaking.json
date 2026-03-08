@@ -2,29 +2,28 @@
   "subSceneId": "travel_074_sub_3",
   "subSceneName": "指定座位偏好",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:12:51.138Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.320Z",
   "questions": [
     {
-      "id": "travel_074_sub_3_speaking_1",
+      "id": "travel_074_sub_3_qa_1_speaking_1",
       "subSceneId": "travel_074_sub_3",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "travel_074_sub_3_qa_1",
-        "speakerText": "Window or aisle?",
-        "speakerTextCn": "靠窗还是靠过道？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在飞机上，工作人员向你询问座位类型，你希望坐在靠窗还是靠过道的位置?",
         "expectedAnswers": [
-          "Window, please. I like to see the scenery.",
-          "I'd prefer an aisle seat because I need to move around during the flight.",
-          "Aisle, thanks — I’m a bit claustrophobic."
+          "我希望坐在靠窗的座位。",
+          "我想坐靠窗的座位，谢谢。",
+          "靠窗座位好吗?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确回应了 window 或 aisle 的选择",
-          "语言准确性：语法正确，冠词和冠词搭配无误",
-          "表达自然度：使用了符合口语习惯的表达，如 'please', 'thanks', 'because' 连接理由",
-          "关键词覆盖：使用了 'window seat' 或 'aisle seat' 核心词汇"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了座位类型的关键词"
         ]
       }
     },
@@ -34,9 +33,10 @@
       "type": "speaking",
       "order": 2,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "We're assigning seats now. Do you have a preference?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我们现在分配座位，您有偏好吗？",
         "expectedAnswers": [
           "I'd like a window seat, if possible. I enjoy watching the sunset.",
@@ -57,9 +57,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Your seat is confirmed. Window or aisle?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "您的座位已确认，靠窗还是靠过道？",
         "expectedAnswers": [
           "Window, please. I always like to take photos out the window.",

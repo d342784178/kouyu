@@ -2,77 +2,76 @@
   "subSceneId": "travel_059_sub_4",
   "subSceneName": "支付与确认",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:04:55.626Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.102Z",
   "questions": [
     {
-      "id": "travel_059_sub_4_choice_1",
+      "id": "travel_059_sub_4_qa_1_choice_1",
       "subSceneId": "travel_059_sub_4",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "travel_059_sub_4_qa_1",
-        "speakerText": "I'll take two adult tickets. Can I pay by card?",
-        "speakerTextCn": "我要两张成人票，能刷卡吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Sure! Just tap or insert your card.",
+            "text": "I'd like to buy two adult tickets, can I pay with a credit card?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I'm sorry, we don't accept any payments.",
+            "text": "Can I get a discount on the ticket price?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "You can pay with Bitcoin if you want.",
+            "text": "What time does the show start?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Cash is better, but card is okay too.",
+            "text": "How much does it cost for a child ticket?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Sure! Just tap or insert your card.' 是对刷卡支付请求的自然、标准回应。选项2完全拒绝支付，不符合服务场景；选项3提到比特币，与常规支付方式不符；选项4虽然语义接近，但语气模糊且不够专业，不符合标准回应的明确性。"
+        "explanation": "正确答案\"I'd like to buy two adult tickets, can I pay with a credit card?\"正确，因为它询问了支付方式。其他选项不正确，因为它们询问了不同的信息。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客询问价格、优惠等，工作人员回答"
       }
     },
     {
-      "id": "travel_059_sub_4_choice_2",
+      "id": "travel_059_sub_4_qa_2_choice_1",
       "subSceneId": "travel_059_sub_4",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "travel_059_sub_4_qa_2",
-        "speakerText": "Can you confirm my tickets are for today?",
-        "speakerTextCn": "能确认一下票是今天的吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, dated today. Valid all day.",
+            "text": "Can you confirm my tickets are for today?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I think they're for tomorrow.",
+            "text": "How much do the tickets cost?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "You can use them anytime next week.",
+            "text": "Do you have any discounts?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I'm not sure, check your email.",
+            "text": "I bought tickets, right?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确确认了票务日期和有效期，符合服务场景的专业性。选项2和3提供错误信息，可能导致游客误用；选项4推卸责任，不符合服务人员应主动确认信息的要求。"
+        "explanation": "正确答案询问确认票务日期，符合支付后核实关键信息的场景。干扰项1和2聚焦价格与优惠，属于支付前的询问；干扰项4表达不完整且语气不专业，缺乏明确的确认意图。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客刚完成支付，想确认所购门票是否有效且为当天使用"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I'd like to pay for the tickets using Apple Pay. Is that possible?",
-        "speakerTextCn": "我想用苹果支付买票，可以吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案提供了清晰、友好的操作指引，符合现代支付方式的回应标准。选项2直接拒绝，缺乏灵活性；选项3表现出无知，影响专业形象；选项4虽然合理，但未直接回应Apple Pay的可能性，属于回避式回应。"
+        "explanation": "正确答案提供了清晰、友好的操作指引，符合现代支付方式的回应标准。选项2直接拒绝，缺乏灵活性；选项3表现出无知，影响专业形象；选项4虽然合理，但未直接回应Apple Pay的可能性，属于回避式回应。",
+        "speakerText": "I'd like to pay for the tickets using Apple Pay. Is that possible?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我想用苹果支付买票，可以吗？"
       }
     }
   ]

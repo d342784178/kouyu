@@ -2,20 +2,43 @@
   "subSceneId": "study_abroad_110_sub_1",
   "subSceneName": "初次咨询",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:29:31.810Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.994Z",
   "questions": [
+    {
+      "id": "study_abroad_110_sub_1_qa_2_fill_blank_1",
+      "subSceneId": "study_abroad_110_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示：用户正在寻求转专业的建议",
+        "qaId": "study_abroad_110_sub_1_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Biology",
+            "options": [
+              "Biology",
+              "Mathematics",
+              "History",
+              "Philosophy"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "场景提示：用户通常在需要服务或信息时先发起对话",
+        "knowledgePoint": "转专业意向表达",
+        "responseTemplate": "I'm currently studying ___ but I'm really into design and digital media."
+      }
+    },
     {
       "id": "study_abroad_110_sub_1_fill_blank_1",
       "subSceneId": "study_abroad_110_sub_1",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "表达转专业意向时，常用 'switching to [专业名]' 或 'thinking about switching to [专业名]'，直接跟专业名称，不加冠词或动词变形",
         "type": "fill_blank",
-        "situation": "学生向学术顾问表达想从工程专业转到心理学专业的意向，希望获得建议",
-        "speakerText": "Hi, I'm currently studying Engineering, but I've realized I'm much more passionate about understanding human behavior. I'm thinking about switching to Psychology—could you help me with the process?",
-        "speakerTextCn": "嗨，我目前在学工程，但我发现我更热衷于理解人类行为。我想转到心理学专业，你能帮我了解流程吗？",
-        "responseTemplate": "I'm thinking about switching to ___",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,39 @@
             ]
           }
         ],
-        "hint": "表达转专业意向时，常用 'switching to [专业名]' 或 'thinking about switching to [专业名]'，直接跟专业名称，不加冠词或动词变形",
-        "knowledgePoint": "表达转专业意向的核心句型"
+        "situation": "学生向学术顾问表达想从工程专业转到心理学专业的意向，希望获得建议",
+        "speakerText": "Hi, I'm currently studying Engineering, but I've realized I'm much more passionate about understanding human behavior. I'm thinking about switching to Psychology—could you help me with the process?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨，我目前在学工程，但我发现我更热衷于理解人类行为。我想转到心理学专业，你能帮我了解流程吗？",
+        "knowledgePoint": "表达转专业意向的核心句型",
+        "responseTemplate": "I'm thinking about switching to ___"
+      }
+    },
+    {
+      "id": "study_abroad_110_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "study_abroad_110_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "用户想聊聊转专业的事",
+        "qaId": "study_abroad_110_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "switching my major",
+            "options": [
+              "switching my major",
+              "getting a job",
+              "studying abroad",
+              "enjoying my life"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户通常在需要服务或信息时先发起对话",
+        "knowledgePoint": "初次咨询-转专业意向",
+        "responseTemplate": "Hi, I'd like to talk about___—do you have a minute?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "描述转专业动机时，'switched to' 后直接接专业名称，无需介词 'to' 或冠词 'the'，避免中式直译",
         "type": "fill_blank",
-        "situation": "学生向顾问说明自己从商科转向艺术专业的动机，强调内在兴趣而非就业前景",
-        "speakerText": "I'm in Business right now, but I spend all my free time painting and experimenting with digital art. I feel like I'd be more fulfilled if I switched to ___",
-        "speakerTextCn": "我现在学商科，但我所有空闲时间都在画画和尝试数字艺术。如果我能转到___，我会感觉更有成就感。",
-        "responseTemplate": "I feel like I'd be more fulfilled if I switched to ___",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "描述转专业动机时，'switched to' 后直接接专业名称，无需介词 'to' 或冠词 'the'，避免中式直译",
-        "knowledgePoint": "表达内在动机时的专业名称使用规范"
+        "situation": "学生向顾问说明自己从商科转向艺术专业的动机，强调内在兴趣而非就业前景",
+        "speakerText": "I'm in Business right now, but I spend all my free time painting and experimenting with digital art. I feel like I'd be more fulfilled if I switched to ___",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我现在学商科，但我所有空闲时间都在画画和尝试数字艺术。如果我能转到___，我会感觉更有成就感。",
+        "knowledgePoint": "表达内在动机时的专业名称使用规范",
+        "responseTemplate": "I feel like I'd be more fulfilled if I switched to ___"
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "表达转专业意愿时，'switch to' 后直接使用专业名称，避免添加 'the' 或 'changing into' 等非标准搭配",
         "type": "fill_blank",
-        "situation": "学生在咨询中表达想从语言学转到传播学的意愿，强调专业匹配度而非模糊喜好",
-        "speakerText": "I've been studying Linguistics, but I'm more interested in how messages reach large audiences. I'd like to switch to ___ because it aligns better with my goals.",
-        "speakerTextCn": "我一直在学语言学，但我更感兴趣的是信息如何触达大众。我想转到___，因为它更符合我的目标。",
-        "responseTemplate": "I'd like to switch to ___",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "表达转专业意愿时，'switch to' 后直接使用专业名称，避免添加 'the' 或 'changing into' 等非标准搭配",
-        "knowledgePoint": "正式表达转专业意愿的正确句式结构"
+        "situation": "学生在咨询中表达想从语言学转到传播学的意愿，强调专业匹配度而非模糊喜好",
+        "speakerText": "I've been studying Linguistics, but I'm more interested in how messages reach large audiences. I'd like to switch to ___ because it aligns better with my goals.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我一直在学语言学，但我更感兴趣的是信息如何触达大众。我想转到___，因为它更符合我的目标。",
+        "knowledgePoint": "正式表达转专业意愿的正确句式结构",
+        "responseTemplate": "I'd like to switch to ___"
+      }
+    },
+    {
+      "id": "study_abroad_110_sub_1_pq_6",
+      "subSceneId": "study_abroad_110_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表达‘这感觉对极了’的地道说法",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "right",
+            "options": [
+              "right",
+              "good",
+              "fine",
+              "nice"
+            ]
+          }
+        ],
+        "template": "I’ve always loved art, so this feels ___ to me.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "惯用表达：feels right（感觉正确/合适）"
       }
     }
   ]

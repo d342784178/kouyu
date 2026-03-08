@@ -2,42 +2,41 @@
   "subSceneId": "study_abroad_098_sub_2",
   "subSceneName": "借阅规则",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:52:58.842Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.846Z",
   "questions": [
     {
-      "id": "study_abroad_098_sub_2_choice_1",
+      "id": "study_abroad_098_sub_2_qa_1_choice_1",
       "subSceneId": "study_abroad_098_sub_2",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "study_abroad_098_sub_2_qa_1",
-        "speakerText": "How many books can I check out at once, and how long can I keep 'em?",
-        "speakerTextCn": "我一次能借几本书？能借多久？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "You can borrow up to 10 books for 4 weeks.",
+            "text": "How many books can I check out at once, and how long can I keep 'em?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "You can borrow unlimited books, but only for 1 week.",
+            "text": "Do you have any books about history?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "You need to return all books within 24 hours.",
+            "text": "Can I borrow a book?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "You can only borrow 3 books, and no renewals are allowed.",
+            "text": "How much does it cost to borrow a book?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案符合图书馆常规借阅规则，使用口语化表达 'up to' 和 'for 4 weeks'。干扰项1夸大了借阅数量，干扰项2和3的期限过短且不符合常见图书馆政策，过于极端，不符合实际场景。"
+        "explanation": "正确答案准确询问了借书数量和期限，符合场景需求。选项2询问书籍类型，与借阅规则无关；选项3仅询问是否能借，未涉及具体数量和期限，信息不完整；选项4询问费用，而场景中未提及收费问题，属于理解偏差。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户在图书馆咨询处想了解一次能借多少本书以及借阅期限，需要向管理员提问。"
       }
     },
     {
@@ -46,10 +45,8 @@
       "type": "choice",
       "order": 2,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Can I renew my books if I need more time?",
-        "speakerTextCn": "如果我需要更多时间，我可以续借吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +69,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案合理反映了图书馆常见的续借政策（可续一次，且无他人预约）。干扰项1完全否定续借，不符合常规；干扰项3过于宽松，不现实；干扰项4错误地限制了续借对象，而续借通常适用于所有类型图书。"
+        "explanation": "正确答案合理反映了图书馆常见的续借政策（可续一次，且无他人预约）。干扰项1完全否定续借，不符合常规；干扰项3过于宽松，不现实；干扰项4错误地限制了续借对象，而续借通常适用于所有类型图书。",
+        "speakerText": "Can I renew my books if I need more time?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "如果我需要更多时间，我可以续借吗？"
       }
     },
     {
@@ -81,10 +81,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "What happens if I return a book late?",
-        "speakerTextCn": "如果我迟还书会怎样？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +105,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案符合大多数图书馆的延迟归还处理方式：按天收取小额罚款。干扰项1和3夸大后果，不符合常规政策；干扰项4完全忽视规则，不现实。"
+        "explanation": "正确答案符合大多数图书馆的延迟归还处理方式：按天收取小额罚款。干扰项1和3夸大后果，不符合常规政策；干扰项4完全忽视规则，不现实。",
+        "speakerText": "What happens if I return a book late?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "如果我迟还书会怎样？"
       }
     }
   ]

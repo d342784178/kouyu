@@ -2,8 +2,7 @@
   "subSceneId": "daily_011_sub_3",
   "subSceneName": "确认支付方式",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:32.472Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.524Z",
   "questions": [
     {
       "id": "daily_011_sub_3_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "这是最常见的支付方式之一，指银行卡或非接触式支付",
         "type": "fill_blank",
-        "situation": "在咖啡店结账时，店员询问支付方式，你需要明确告知使用哪种方式付款。",
-        "speakerText": "How would you like to pay today?",
-        "speakerTextCn": "今天你打算怎么付款？",
-        "responseTemplate": "I'll pay with ___.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "这是最常见的支付方式之一，指银行卡或非接触式支付",
-        "knowledgePoint": "常用支付方式表达"
+        "situation": "在咖啡店结账时，店员询问支付方式，你需要明确告知使用哪种方式付款。",
+        "speakerText": "How would you like to pay today?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "今天你打算怎么付款？",
+        "knowledgePoint": "常用支付方式表达",
+        "responseTemplate": "I'll pay with ___."
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "这是最基础的支付方式，适用于不想使用附加支付工具的情况",
         "type": "fill_blank",
-        "situation": "在超市结账时，收银员问你是否使用会员卡或优惠券，你需要礼貌地说明不使用任何附加支付方式。",
-        "speakerText": "Do you have a loyalty card or coupon to apply?",
-        "speakerTextCn": "你有会员卡或优惠券要使用吗？",
-        "responseTemplate": "No, just ___ please.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "这是最基础的支付方式，适用于不想使用附加支付工具的情况",
-        "knowledgePoint": "拒绝附加支付方式的简洁表达"
+        "situation": "在超市结账时，收银员问你是否使用会员卡或优惠券，你需要礼貌地说明不使用任何附加支付方式。",
+        "speakerText": "Do you have a loyalty card or coupon to apply?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你有会员卡或优惠券要使用吗？",
+        "knowledgePoint": "拒绝附加支付方式的简洁表达",
+        "responseTemplate": "No, just ___ please."
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "表示使用单一支付方式完成全部支付，避免混淆",
         "type": "fill_blank",
-        "situation": "在餐厅结账时，服务员问你是否想分开付款，你需要明确表示希望一次性用同一种方式支付。",
-        "speakerText": "Would you like to split the bill or pay together?",
-        "speakerTextCn": "你想分开付账还是一起付？",
-        "responseTemplate": "We'll pay together with ___.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "表示使用单一支付方式完成全部支付，避免混淆",
-        "knowledgePoint": "合并支付时的支付方式说明"
+        "situation": "在餐厅结账时，服务员问你是否想分开付款，你需要明确表示希望一次性用同一种方式支付。",
+        "speakerText": "Would you like to split the bill or pay together?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你想分开付账还是一起付？",
+        "knowledgePoint": "合并支付时的支付方式说明",
+        "responseTemplate": "We'll pay together with ___."
+      }
+    },
+    {
+      "id": "daily_011_sub_3_pq_4",
+      "subSceneId": "daily_011_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "这是结账时最常见的两种支付方式之一",
+        "qaId": "daily_011_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "cash",
+            "options": [
+              "cash",
+              "check",
+              "card",
+              "bank"
+            ]
+          }
+        ],
+        "template": "That’ll be $12.99. Credit or ___?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "支付方式核心词汇（cash vs. credit）"
+      }
+    },
+    {
+      "id": "daily_011_sub_3_pq_5",
+      "subSceneId": "daily_011_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "用于描述非接触式刷卡的动作",
+        "qaId": "daily_011_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "tap",
+            "options": [
+              "tap",
+              "scan",
+              "swipe",
+              "insert"
+            ]
+          }
+        ],
+        "template": "I'll ___ it.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "非接触式支付动词搭配（tap a card）"
+      }
+    },
+    {
+      "id": "daily_011_sub_3_pq_6",
+      "subSceneId": "daily_011_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表示‘接受’某种支付方式的正式动词",
+        "qaId": "daily_011_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "accept",
+            "options": [
+              "accept",
+              "take",
+              "use",
+              "need"
+            ]
+          }
+        ],
+        "template": "We ___ most insurance plans. Just show your card.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "接受保险支付的动词搭配（accept/take insurance）"
       }
     }
   ]

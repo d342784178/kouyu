@@ -2,20 +2,43 @@
   "subSceneId": "travel_062_sub_3",
   "subSceneName": "确认票价与时间",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:30:24.644Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.135Z",
   "questions": [
+    {
+      "id": "travel_062_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "travel_062_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问关闭时间，动词需与 'early' 搭配表示结束营业",
+        "qaId": "travel_062_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "close",
+            "options": [
+              "close",
+              "open",
+              "start",
+              "finish"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客想了解景点在周末是否提前关闭",
+        "knowledgePoint": "日常询问开放时间的句型结构",
+        "responseTemplate": "Do they ___ early on weekends?"
+      }
+    },
     {
       "id": "travel_062_sub_3_fill_blank_1",
       "subSceneId": "travel_062_sub_3",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "通常成人收费，儿童有优惠，用固定搭配表达价格差异",
         "type": "fill_blank",
-        "situation": "游客在景点售票处询问门票价格，想确认成人和儿童的收费情况",
-        "speakerText": "Could you tell me the ticket price for adults and children?",
-        "speakerTextCn": "您能告诉我成人和儿童的票价吗？",
-        "responseTemplate": "It's ___ for adults and ___ for children.",
         "blanks": [
           {
             "index": 0,
@@ -38,8 +61,39 @@
             ]
           }
         ],
-        "hint": "通常成人收费，儿童有优惠，用固定搭配表达价格差异",
-        "knowledgePoint": "表达价格差异的常用结构"
+        "situation": "游客在景点售票处询问门票价格，想确认成人和儿童的收费情况",
+        "speakerText": "Could you tell me the ticket price for adults and children?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "您能告诉我成人和儿童的票价吗？",
+        "knowledgePoint": "表达价格差异的常用结构",
+        "responseTemplate": "It's ___ for adults and ___ for children."
+      }
+    },
+    {
+      "id": "travel_062_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "travel_062_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问价格和时间时，用间接疑问句结构，避免使用倒装",
+        "qaId": "travel_062_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "how much the entrance fee is and when it opens",
+            "options": [
+              "how much the entrance fee is and when it opens",
+              "what is the price and opening time",
+              "the cost and opening hours of it",
+              "how much does it cost and what time it starts"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客想了解景点的门票价格和开放时间",
+        "knowledgePoint": "间接疑问句的正确语序",
+        "responseTemplate": "Could you tell me ___?"
       }
     },
     {
@@ -48,11 +102,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "询问特殊日期时间变动时，常用 'stay open later' 或 'close earlier' 表达变化",
         "type": "fill_blank",
-        "situation": "游客想知道景点在节假日是否延长开放时间",
-        "speakerText": "Do you extend the hours during holidays?",
-        "speakerTextCn": "节假日会延长开放时间吗？",
-        "responseTemplate": "We usually ___ on public holidays.",
         "blanks": [
           {
             "index": 0,
@@ -65,8 +116,12 @@
             ]
           }
         ],
-        "hint": "询问特殊日期时间变动时，常用 'stay open later' 或 'close earlier' 表达变化",
-        "knowledgePoint": "表达时间调整的惯用表达"
+        "situation": "游客想知道景点在节假日是否延长开放时间",
+        "speakerText": "Do you extend the hours during holidays?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "节假日会延长开放时间吗？",
+        "knowledgePoint": "表达时间调整的惯用表达",
+        "responseTemplate": "We usually ___ on public holidays."
       }
     },
     {
@@ -75,11 +130,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "购买门票的动词搭配，避免与 'borrow' 或 'return' 等错误动词混淆",
         "type": "fill_blank",
-        "situation": "游客在询问是否需要提前购票，担心现场买不到票",
-        "speakerText": "Should I buy tickets in advance, or can I get them at the door?",
-        "speakerTextCn": "我应该提前买票，还是可以在现场买？",
-        "responseTemplate": "You can ___ at the entrance, but it's better to book ahead.",
         "blanks": [
           {
             "index": 0,
@@ -92,8 +144,38 @@
             ]
           }
         ],
-        "hint": "购买门票的动词搭配，避免与 'borrow' 或 'return' 等错误动词混淆",
-        "knowledgePoint": "购票场景中的正确动词搭配"
+        "situation": "游客在询问是否需要提前购票，担心现场买不到票",
+        "speakerText": "Should I buy tickets in advance, or can I get them at the door?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我应该提前买票，还是可以在现场买？",
+        "knowledgePoint": "购票场景中的正确动词搭配",
+        "responseTemplate": "You can ___ at the entrance, but it's better to book ahead."
+      }
+    },
+    {
+      "id": "travel_062_sub_3_pq_6",
+      "subSceneId": "travel_062_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "询问儿童是否免费时的关键词",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "free",
+            "options": [
+              "free",
+              "cheap",
+              "open",
+              "available"
+            ]
+          }
+        ],
+        "template": "Is admission ___ for children under 12?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景高频词汇（free）"
       }
     }
   ]

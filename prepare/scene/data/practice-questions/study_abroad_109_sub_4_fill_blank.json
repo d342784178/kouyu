@@ -2,8 +2,7 @@
   "subSceneId": "study_abroad_109_sub_4",
   "subSceneName": "确认取件时间",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:29:55.878Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.980Z",
   "questions": [
     {
       "id": "study_abroad_109_sub_4_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "回答中应使用表示一般时间范围的短语，而非具体日期或时间点。",
         "type": "fill_blank",
-        "situation": "学生在教务处询问成绩单的领取时间，希望知道大概什么时候可以去取。",
-        "speakerText": "Could you tell me when I can pick up my transcript?",
-        "speakerTextCn": "您能告诉我什么时候我可以取成绩单吗？",
-        "responseTemplate": "It usually takes ___ to process.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,39 @@
             ]
           }
         ],
-        "hint": "回答中应使用表示一般时间范围的短语，而非具体日期或时间点。",
-        "knowledgePoint": "表达处理或等待的常规时间范围"
+        "situation": "学生在教务处询问成绩单的领取时间，希望知道大概什么时候可以去取。",
+        "speakerText": "Could you tell me when I can pick up my transcript?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "您能告诉我什么时候我可以取成绩单吗？",
+        "knowledgePoint": "表达处理或等待的常规时间范围",
+        "responseTemplate": "It usually takes ___ to process."
+      }
+    },
+    {
+      "id": "study_abroad_109_sub_4_qa_1_fill_blank_1",
+      "subSceneId": "study_abroad_109_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示：你可以问服务方或工作人员什么时候可以取件",
+        "qaId": "study_abroad_109_sub_4_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "them",
+            "options": [
+              "它们",
+              "我",
+              "成绩单",
+              "他们"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "确认成绩单的取件时间",
+        "knowledgePoint": "提问句型和语法结构",
+        "responseTemplate": "我什么时候能取___?"
       }
     },
     {
@@ -38,11 +65,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "这里需要一个表示灵活性或非特定时间的通用词，强调无需特定时间。",
         "type": "fill_blank",
-        "situation": "学生在邮件回复中询问成绩单的领取安排，想确认是否需要预约或直接前往。",
-        "speakerText": "Do I need to make an appointment, or can I just come by to collect it?",
-        "speakerTextCn": "我需要预约吗，还是可以直接来取？",
-        "responseTemplate": "You can just come by during office hours — ___ is fine.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +79,12 @@
             ]
           }
         ],
-        "hint": "这里需要一个表示灵活性或非特定时间的通用词，强调无需特定时间。",
-        "knowledgePoint": "表达非特定时间的灵活性表达"
+        "situation": "学生在邮件回复中询问成绩单的领取安排，想确认是否需要预约或直接前往。",
+        "speakerText": "Do I need to make an appointment, or can I just come by to collect it?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我需要预约吗，还是可以直接来取？",
+        "knowledgePoint": "表达非特定时间的灵活性表达",
+        "responseTemplate": "You can just come by during office hours — ___ is fine."
       }
     },
     {
@@ -65,11 +93,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "这里需要一个表示工作日周期的常见表达，避免使用具体日期或过去时间。",
         "type": "fill_blank",
-        "situation": "学生在电话中询问成绩单是否已准备好，想确认领取的大概周期。",
-        "speakerText": "Has my transcript been ready yet? I’m wondering how long it usually takes.",
-        "speakerTextCn": "我的成绩单准备好了吗？我想知道通常需要多久。",
-        "responseTemplate": "It’s usually ready within ___ after the request.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +107,64 @@
             ]
           }
         ],
-        "hint": "这里需要一个表示工作日周期的常见表达，避免使用具体日期或过去时间。",
-        "knowledgePoint": "使用工作日周期描述服务处理时间"
+        "situation": "学生在电话中询问成绩单是否已准备好，想确认领取的大概周期。",
+        "speakerText": "Has my transcript been ready yet? I’m wondering how long it usually takes.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我的成绩单准备好了吗？我想知道通常需要多久。",
+        "knowledgePoint": "使用工作日周期描述服务处理时间",
+        "responseTemplate": "It’s usually ready within ___ after the request."
+      }
+    },
+    {
+      "id": "study_abroad_109_sub_4_pq_5",
+      "subSceneId": "study_abroad_109_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "标准处理时间范围",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "3–5",
+            "options": [
+              "3–5",
+              "1–2",
+              "7–10",
+              "5–7"
+            ]
+          }
+        ],
+        "template": "The transcript will be ready in ___ business days.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景高频词汇（处理周期）"
+      }
+    },
+    {
+      "id": "study_abroad_109_sub_4_pq_6",
+      "subSceneId": "study_abroad_109_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表达‘想要’加急服务的句型",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "with",
+              "on"
+            ]
+          }
+        ],
+        "template": "Would you like ___ express service? It's $10 extra.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "would like to do（服务提议句型）"
       }
     }
   ]

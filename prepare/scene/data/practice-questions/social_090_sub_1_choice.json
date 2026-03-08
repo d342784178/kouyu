@@ -2,77 +2,76 @@
   "subSceneId": "social_090_sub_1",
   "subSceneName": "连接测试",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:46:27.402Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.759Z",
   "questions": [
     {
-      "id": "social_090_sub_1_choice_1",
+      "id": "social_090_sub_1_qa_2_choice_1",
       "subSceneId": "social_090_sub_1",
       "type": "choice",
       "order": 1,
       "content": {
+        "qaId": "social_090_sub_1_qa_2",
         "type": "choice",
-        "qaId": "social_090_sub_1_qa_1",
-        "speakerText": "Hey, can you hear me okay? The audio's a bit crackly.",
-        "speakerTextCn": "嘿，你能听清吗？声音有点沙沙的。",
         "options": [
           {
             "id": "opt_1",
-            "text": "I can't hear you at all. Please hang up and call again.",
+            "text": "Is your internet stable?",
             "isCorrect": false
           },
           {
             "id": "opt_2",
-            "text": "Yeah, I can hear you, but it's a little fuzzy. Try turning down your mic gain.",
-            "isCorrect": true
+            "text": "Can you hear me?",
+            "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "The sound is perfect! You should turn up your volume.",
-            "isCorrect": false
+            "text": "Your video's frozen—can you check your camera?",
+            "isCorrect": true
           },
           {
             "id": "opt_4",
-            "text": "I'm not sure. Maybe you should change your microphone brand.",
+            "text": "How long will we be talking?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确回应了音频问题并提供了具体解决方案（调低麦克风增益），符合场景中的专业沟通习惯。选项1过于极端，选项3与问题矛盾，选项4建议更换设备不切实际，属于无效建议。"
+        "explanation": "正确答案：Your video's frozen—can you check your camera？因为这是连接测试时用户通常会问的问题。\n干扰项1：Is your internet stable？不符合连接测试场景。\n干扰项2：Can you hear me？与连接测试无关。\n干扰项3：How long will we be talking？不符合连接测试场景。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在视频通话开始时进行连接测试"
       }
     },
     {
-      "id": "social_090_sub_1_choice_2",
+      "id": "social_090_sub_1_qa_1_choice_1",
       "subSceneId": "social_090_sub_1",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "social_090_sub_1_qa_1",
         "type": "choice",
-        "qaId": "social_090_sub_1_qa_2",
-        "speakerText": "Your video's frozen—can you check your camera?",
-        "speakerTextCn": "你的视频卡住了，能检查下摄像头吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I don't know how to use a camera.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Oops, sorry! My camera's off—I'll turn it on now.",
+            "text": "Hey, can you hear me okay? The audio's a bit crackly.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "What's your name?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Maybe your screen is broken.",
+            "text": "Is the video working?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I'll restart my computer in five minutes.",
+            "text": "Can you see my picture?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接承认问题并立即采取行动，符合高效沟通原则。选项1推卸责任，选项3转移问题到屏幕，选项4拖延处理，都不符合及时排查的场景要求。"
+        "explanation": "答案解析：正确的选项 \"Hey, can you hear me okay? The audio's a bit crackly.\" 是一个合适的连接测试问题，适合在视频通话开始时使用。其他选项不符合连接测试的场景需求，或者表达不自然或不完整。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户通常在视频通话开始时进行连接测试，检查音视频是否正常，确认连接稳定"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I'm experiencing lag during the call—my video keeps buffering.",
-        "speakerTextCn": "我在通话中遇到卡顿，视频一直在缓冲。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案提供两个实用解决方案（切换有线连接、关闭应用），符合技术问题处理逻辑。选项1消极应对，选项3错误归因于摄像头，选项4拒绝协助，均不符合积极解决问题的场景目标。"
+        "explanation": "正确答案提供两个实用解决方案（切换有线连接、关闭应用），符合技术问题处理逻辑。选项1消极应对，选项3错误归因于摄像头，选项4拒绝协助，均不符合积极解决问题的场景目标。",
+        "speakerText": "I'm experiencing lag during the call—my video keeps buffering.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我在通话中遇到卡顿，视频一直在缓冲。"
       }
     }
   ]

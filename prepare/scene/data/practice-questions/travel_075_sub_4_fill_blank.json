@@ -2,8 +2,7 @@
   "subSceneId": "travel_075_sub_4",
   "subSceneName": "车上设施确认",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:32:01.476Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.341Z",
   "questions": [
     {
       "id": "travel_075_sub_4_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "常用表达是 'free Wi-Fi' 和 'USB charging ports'，注意用复数形式",
         "type": "fill_blank",
-        "situation": "乘客在登车前向工作人员询问车上是否有免费Wi-Fi和充电接口",
-        "speakerText": "Hi, I was wondering if this bus has Wi-Fi and USB charging ports?",
-        "speakerTextCn": "你好，我想问一下这辆巴士有没有Wi-Fi和USB充电接口？",
-        "responseTemplate": "Yes, we have ___ and ___ available for passengers.",
         "blanks": [
           {
             "index": 0,
@@ -38,8 +34,12 @@
             ]
           }
         ],
-        "hint": "常用表达是 'free Wi-Fi' 和 'USB charging ports'，注意用复数形式",
-        "knowledgePoint": "设施功能表达"
+        "situation": "乘客在登车前向工作人员询问车上是否有免费Wi-Fi和充电接口",
+        "speakerText": "Hi, I was wondering if this bus has Wi-Fi and USB charging ports?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你好，我想问一下这辆巴士有没有Wi-Fi和USB充电接口？",
+        "knowledgePoint": "设施功能表达",
+        "responseTemplate": "Yes, we have ___ and ___ available for passengers."
       }
     },
     {
@@ -48,11 +48,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "在美式英语中，'restrooms' 是最常用、最礼貌的表达方式",
         "type": "fill_blank",
-        "situation": "乘客在长途火车上想确认是否配备卫生间，礼貌询问工作人员",
-        "speakerText": "Excuse me, could you tell me if there are restrooms on this train?",
-        "speakerTextCn": "不好意思，请问这列火车上有卫生间吗？",
-        "responseTemplate": "Of course, there are ___ at the end of each car.",
         "blanks": [
           {
             "index": 0,
@@ -65,8 +62,12 @@
             ]
           }
         ],
-        "hint": "在美式英语中，'restrooms' 是最常用、最礼貌的表达方式",
-        "knowledgePoint": "场所设施的地道表达"
+        "situation": "乘客在长途火车上想确认是否配备卫生间，礼貌询问工作人员",
+        "speakerText": "Excuse me, could you tell me if there are restrooms on this train?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "不好意思，请问这列火车上有卫生间吗？",
+        "knowledgePoint": "场所设施的地道表达",
+        "responseTemplate": "Of course, there are ___ at the end of each car."
       }
     },
     {
@@ -75,11 +76,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "表达部分具备时，'most seats' 最符合真实情况且语气准确",
         "type": "fill_blank",
-        "situation": "乘客在上车后想确认是否所有座位都有充电口，向乘务员询问",
-        "speakerText": "Are all the seats equipped with charging outlets?",
-        "speakerTextCn": "所有座位都有充电插座吗？",
-        "responseTemplate": "Not all, but ___ have them — just look for the icon near your seat.",
         "blanks": [
           {
             "index": 0,
@@ -92,8 +90,90 @@
             ]
           }
         ],
-        "hint": "表达部分具备时，'most seats' 最符合真实情况且语气准确",
-        "knowledgePoint": "程度表达与设施分布描述"
+        "situation": "乘客在上车后想确认是否所有座位都有充电口，向乘务员询问",
+        "speakerText": "Are all the seats equipped with charging outlets?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "所有座位都有充电插座吗？",
+        "knowledgePoint": "程度表达与设施分布描述",
+        "responseTemplate": "Not all, but ___ have them — just look for the icon near your seat."
+      }
+    },
+    {
+      "id": "travel_075_sub_4_pq_4",
+      "subSceneId": "travel_075_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "描述座位相对于窗户的位置时使用的介词",
+        "qaId": "travel_075_sub_4_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "by",
+            "options": [
+              "by",
+              "at",
+              "on",
+              "for"
+            ]
+          }
+        ],
+        "template": "I'd like to confirm: is seat 14B ___ the window?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "介词用法（by the window）"
+      }
+    },
+    {
+      "id": "travel_075_sub_4_pq_5",
+      "subSceneId": "travel_075_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "当对方提到窗外风景好时，你应接受的座位类型",
+        "qaId": "travel_075_sub_4_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Window",
+            "options": [
+              "Window",
+              "Aisle",
+              "Back",
+              "Front"
+            ]
+          }
+        ],
+        "template": "No problem, I’ll take it! ___ view is fine.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景核心词汇（window seat）"
+      }
+    },
+    {
+      "id": "travel_075_sub_4_pq_6",
+      "subSceneId": "travel_075_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "购票确认时，乘客通常会要求确认的关键信息之一",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "seat",
+            "options": [
+              "seat",
+              "ticket",
+              "time",
+              "baggage"
+            ]
+          }
+        ],
+        "template": "Could you please confirm my ___ and boarding gate?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景高频词汇（seat）"
       }
     }
   ]

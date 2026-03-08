@@ -2,20 +2,43 @@
   "subSceneId": "workplace_051_sub_3",
   "subSceneName": "确认设备需求",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:33:53.295Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.565Z",
   "questions": [
+    {
+      "id": "workplace_051_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "workplace_051_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "提问时应确认会议设备是否准备就绪",
+        "qaId": "workplace_051_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Zoom",
+            "options": [
+              "投影设备",
+              "视频设备",
+              "白板",
+              "音频设备"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "确认会议所需设备",
+        "knowledgePoint": "提问句型和会议设备确认",
+        "responseTemplate": "Do you have ___ setup ready?"
+      }
+    },
     {
       "id": "workplace_051_sub_3_fill_blank_1",
       "subSceneId": "workplace_051_sub_3",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "视频会议通常需要显示画面的设备，与cameras并列使用。",
         "type": "fill_blank",
-        "situation": "你正在为一场跨部门会议做准备，同事询问是否已准备好会议所需的技术设备。",
-        "speakerText": "Have we got everything for the video call?",
-        "speakerTextCn": "视频会议所需设备都准备好了吗？",
-        "responseTemplate": "Yes, we've got the ___ and cameras ready.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,39 @@
             ]
           }
         ],
-        "hint": "视频会议通常需要显示画面的设备，与cameras并列使用。",
-        "knowledgePoint": "设备需求表达：确认视频会议核心硬件"
+        "situation": "你正在为一场跨部门会议做准备，同事询问是否已准备好会议所需的技术设备。",
+        "speakerText": "Have we got everything for the video call?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "视频会议所需设备都准备好了吗？",
+        "knowledgePoint": "设备需求表达：确认视频会议核心硬件",
+        "responseTemplate": "Yes, we've got the ___ and cameras ready."
+      }
+    },
+    {
+      "id": "workplace_051_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "workplace_051_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "提问时表达需求",
+        "qaId": "workplace_051_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "投影仪",
+            "options": [
+              "投影仪",
+              "话筒",
+              "麦克风",
+              "摄像头"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "确认会议所需设备",
+        "knowledgePoint": "确认设备需求",
+        "responseTemplate": "能帮我们安排___和话筒吗？"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "这里需要填入另一个常见的会议平台，与Teams形成对比选项。",
         "type": "fill_blank",
-        "situation": "你负责安排一场线上会议，对方想知道是否支持他们常用的会议平台。",
-        "speakerText": "Is the room compatible with Microsoft Teams?",
-        "speakerTextCn": "这个会议室支持Microsoft Teams吗？",
-        "responseTemplate": "We have Teams set up, but if you need ___ we can switch.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "这里需要填入另一个常见的会议平台，与Teams形成对比选项。",
-        "knowledgePoint": "平台兼容性表达：提供替代方案"
+        "situation": "你负责安排一场线上会议，对方想知道是否支持他们常用的会议平台。",
+        "speakerText": "Is the room compatible with Microsoft Teams?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这个会议室支持Microsoft Teams吗？",
+        "knowledgePoint": "平台兼容性表达：提供替代方案",
+        "responseTemplate": "We have Teams set up, but if you need ___ we can switch."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "音频设置通常包括拾音和发声设备，与speakers形成搭配。",
         "type": "fill_blank",
-        "situation": "会议组织者提醒你确认所有设备，你准备回应已安排好的关键工具。",
-        "speakerText": "Don’t forget to check the audio setup.",
-        "speakerTextCn": "别忘了检查音频设备。",
-        "responseTemplate": "Already checked — ___ and speakers are all working.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "音频设置通常包括拾音和发声设备，与speakers形成搭配。",
-        "knowledgePoint": "音频设备表达：核心术语搭配使用"
+        "situation": "会议组织者提醒你确认所有设备，你准备回应已安排好的关键工具。",
+        "speakerText": "Don’t forget to check the audio setup.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "别忘了检查音频设备。",
+        "knowledgePoint": "音频设备表达：核心术语搭配使用",
+        "responseTemplate": "Already checked — ___ and speakers are all working."
+      }
+    },
+    {
+      "id": "workplace_051_sub_3_pq_6",
+      "subSceneId": "workplace_051_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "在职场中，表示‘准备/安排’设备常用动词",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "get",
+            "options": [
+              "get",
+              "buy",
+              "find",
+              "use"
+            ]
+          }
+        ],
+        "template": "I’ll ___ a laptop and HDMI cable for the presentation.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配（get ready equipment）"
       }
     }
   ]

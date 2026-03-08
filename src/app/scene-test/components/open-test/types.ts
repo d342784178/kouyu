@@ -1,9 +1,13 @@
+import type { PronunciationAssessmentResult } from '@/types'
+
 // 定义消息类型
 export interface Message {
   role: 'assistant' | 'user'
   content: string
   audioUrl?: string
   timestamp: number
+  // 发音评估结果（仅用户语音消息有）
+  pronunciationAssessment?: PronunciationAssessmentResult
 }
 
 // 定义测试状态类型
@@ -109,6 +113,7 @@ export interface ActiveChatViewProps extends ViewProps {
   maxRounds: number
   isRecording: boolean
   isRecognizing?: boolean
+  isAssessing?: boolean
   isGeneratingResponse: boolean
   playingMessageIndex: number | null
   error: string

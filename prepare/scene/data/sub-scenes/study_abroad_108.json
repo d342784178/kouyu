@@ -1,19 +1,26 @@
 {
   "sceneId": "study_abroad_108",
   "sceneName": "毕业申请",
+  "exportedAt": "2026-03-08T15:31:54.884Z",
   "subScenes": [
     {
       "id": "study_abroad_108_sub_1",
+      "sceneId": "study_abroad_108",
       "name": "预约咨询",
       "description": "学生预约学术顾问面谈毕业事宜",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "study_abroad_108_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi, I'm calling to book a slot for my graduation checklist meeting.",
-          "speakerTextCn": "你好，我想预约一个毕业清单面谈的时间。",
-          "responses": [
+          "subSceneId": "study_abroad_108_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hi, I'm calling to book a slot for my graduation checklist meeting.",
+          "triggerTextCn": "你好，我想预约一个毕业清单面谈的时间。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务方需要确认时间并回应用户请求。",
+          "followUps": [
             {
               "text": "Sure, how about Wednesday at 3 PM?",
               "text_cn": "当然，周三下午三点可以吗？",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "预约时提供可选时间更高效"
+          "usageNote": "预约时提供可选时间更高效",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "study_abroad_108_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "You'll need to bring your transcript and thesis outline.",
-          "speakerTextCn": "你得带上成绩单和论文提纲。",
-          "responses": [
+          "subSceneId": "study_abroad_108_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "You'll need to bring your transcript and thesis outline.",
+          "triggerTextCn": "你得带上成绩单和论文提纲。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务方需要确认时间并回应用户请求。",
+          "followUps": [
             {
               "text": "Got it—I'll print them out tonight.",
               "text_cn": "好的，我今晚就打印好。",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "确认材料时要明确版本要求"
+          "usageNote": "确认材料时要明确版本要求",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "study_abroad_108_sub_2",
+      "sceneId": "study_abroad_108",
       "name": "确认学分",
       "description": "核对是否满足毕业所需学分",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "study_abroad_108_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "You're missing 3 credits in core courses—did you take Advanced Research Methods?",
-          "speakerTextCn": "你核心课还差3学分，你修过高级研究方法了吗？",
-          "responses": [
+          "subSceneId": "study_abroad_108_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "You're missing 3 credits in core courses—did you take Advanced Research Methods?",
+          "triggerTextCn": "你核心课还差3学分，你修过高级研究方法了吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Oh no—I thought I’d already taken it. Can I enroll now?",
               "text_cn": "天哪，我以为修过了，现在还能选吗？",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "缺学分时主动询问替代方案"
+          "usageNote": "缺学分时主动询问替代方案",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "study_abroad_108_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "You can swap one elective for a core if you submit a petition by Friday.",
-          "speakerTextCn": "如果你周五前提交申请，可以用一门选修替换核心课。",
-          "responses": [
+          "subSceneId": "study_abroad_108_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "You can swap one elective for a core if you submit a petition by Friday.",
+          "triggerTextCn": "如果你周五前提交申请，可以用一门选修替换核心课。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "That’s a lifesaver! Where’s the form?",
               "text_cn": "太救急了！申请表在哪？",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "申请替代方案时确认流程细节"
+          "usageNote": "申请替代方案时确认流程细节",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "study_abroad_108_sub_3",
+      "sceneId": "study_abroad_108",
       "name": "论文提交",
       "description": "确认论文格式与提交截止时间",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "study_abroad_108_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Your thesis must be in APA 7th edition and uploaded to the GradPortal by May 15.",
-          "speakerTextCn": "你的论文必须用APA第七版格式，5月15日前上传到毕业门户。",
-          "responses": [
+          "subSceneId": "study_abroad_108_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Your thesis must be in APA 7th edition and uploaded to the GradPortal by May 15.",
+          "triggerTextCn": "你的论文必须用APA第七版格式，5月15日前上传到毕业门户。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Wait, does the abstract count toward the word limit?",
               "text_cn": "等等，摘要算在字数限制里吗？",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "确认格式细节避免被退回"
+          "usageNote": "确认格式细节避免被退回",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "study_abroad_108_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Late submissions get a 10% grade penalty unless you have extenuating circumstances.",
-          "speakerTextCn": "逾期提交会扣10%成绩，除非有特殊原因。",
-          "responses": [
+          "subSceneId": "study_abroad_108_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Late submissions get a 10% grade penalty unless you have extenuating circumstances.",
+          "triggerTextCn": "逾期提交会扣10%成绩，除非有特殊原因。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I’m worried I won’t finish on time—what counts as extenuating?",
               "text_cn": "我怕赶不上，什么算特殊原因？",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "提及特殊情况需提前准备证明"
+          "usageNote": "提及特殊情况需提前准备证明",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "study_abroad_108_sub_4",
+      "sceneId": "study_abroad_108",
       "name": "支付费用",
       "description": "确认毕业相关费用与支付方式",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "study_abroad_108_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "There’s a $150 graduation fee—paid online via the student portal.",
-          "speakerTextCn": "有150美元毕业费，需通过学生门户在线支付。",
-          "responses": [
+          "subSceneId": "study_abroad_108_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "There’s a $150 graduation fee—paid online via the student portal.",
+          "triggerTextCn": "有150美元毕业费，需通过学生门户在线支付。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Can I pay in installments? I’m short on cash right now.",
               "text_cn": "能分期付吗？我现在手头紧。",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "支付前确认是否可退或分期"
+          "usageNote": "支付前确认是否可退或分期",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "study_abroad_108_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Payment confirmation takes 24 hours—don’t wait till the last minute.",
-          "speakerTextCn": "支付确认需24小时，别拖到最后一刻。",
-          "responses": [
+          "subSceneId": "study_abroad_108_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Payment confirmation takes 24 hours—don’t wait till the last minute.",
+          "triggerTextCn": "支付确认需24小时，别拖到最后一刻。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "So I should pay by the 13th to be safe?",
               "text_cn": "那我13号前付比较安全？",
@@ -222,22 +284,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "预留处理时间避免延误"
+          "usageNote": "预留处理时间避免延误",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "study_abroad_108_sub_5",
+      "sceneId": "study_abroad_108",
       "name": "道别致谢",
       "description": "结束咨询时表达感谢与后续跟进",
+      "order": 5,
       "estimatedMinutes": 3,
       "qaPairs": [
         {
           "id": "study_abroad_108_sub_5_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "You’re all set—just email me if anything’s unclear.",
-          "speakerTextCn": "你都搞定了，有不清楚的随时邮件我。",
-          "responses": [
+          "subSceneId": "study_abroad_108_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "You’re all set—just email me if anything’s unclear.",
+          "triggerTextCn": "你都搞定了，有不清楚的随时邮件我。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Thanks so much—you’ve been a huge help!",
               "text_cn": "太感谢了，你帮了大忙！",
@@ -254,14 +325,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "道别时表达感谢提升印象"
+          "usageNote": "道别时表达感谢提升印象",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "study_abroad_108_sub_5_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "We’ll send your diploma in 6–8 weeks after conferral.",
-          "speakerTextCn": "学位授予后6到8周寄出毕业证。",
-          "responses": [
+          "subSceneId": "study_abroad_108_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "We’ll send your diploma in 6–8 weeks after conferral.",
+          "triggerTextCn": "学位授予后6到8周寄出毕业证。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Will I get an email when it’s shipped?",
               "text_cn": "寄出时会发邮件通知吗？",
@@ -278,7 +356,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "结尾确认后续流程更安心"
+          "usageNote": "结尾确认后续流程更安心",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

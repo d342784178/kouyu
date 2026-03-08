@@ -2,52 +2,53 @@
   "subSceneId": "travel_062_sub_2",
   "subSceneName": "询问推荐与距离",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:58:24.237Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.133Z",
   "questions": [
     {
-      "id": "travel_062_sub_2_speaking_1",
+      "id": "travel_062_sub_2_qa_1_speaking_1",
       "subSceneId": "travel_062_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "travel_062_sub_2_qa_1",
-        "speakerText": "Is the Old Town far from here? Can I walk?",
-        "speakerTextCn": "老城区离这儿远吗？能走过去吗？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在陌生城市向当地工作人员询问景点推荐，并想知道从当前位置到推荐景点的步行距离是否可行。",
         "expectedAnswers": [
-          "It's only a 15-minute walk — very close!",
-          "You can definitely walk. It's just a short stroll through the streets.",
-          "No need to walk — take bus 12, it’s faster and you’ll get there in 8 minutes."
+          "Is the Old Town far from here? Can I walk there?",
+          "How far is the Old Town from this spot? Is it walkable?",
+          "Could you recommend a nearby attraction, and is it within walking distance?",
+          "What’s the closest must-see place around here, and how long would it take to walk there?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确回答了步行是否可行",
-          "语言准确性：使用了正确的时态、单位和表达（如 on foot / stroll / take bus）",
-          "表达自然度：使用了口语化表达（super close / just a short stroll）",
-          "关键词覆盖：包含 distance / walk / bus 等场景关键词"
+          "意图达成度：是否明确询问了景点推荐和步行距离",
+          "语言准确性：语法结构正确，时态和用词无错误",
+          "表达自然度：符合英语母语者日常对话习惯",
+          "关键词覆盖：包含 'Old Town'、'far'、'walk' 或相关表达"
         ]
       }
     },
     {
-      "id": "travel_062_sub_2_speaking_2",
+      "id": "travel_062_sub_2_qa_2_speaking_1",
       "subSceneId": "travel_062_sub_2",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "travel_062_sub_2_qa_2",
-        "speakerText": "What about the mountain view spot? Is it worth the trip?",
-        "speakerTextCn": "那个观山景点值得专程去吗？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客正在咨询旅游建议，工作人员已经推荐了几个景点，游客想确认其中一个观山景点是否值得前往，并想知道从当前位置到那里有多远。",
         "expectedAnswers": [
-          "Yes, absolutely — the sunset view is unforgettable, even though it takes 30 minutes by bus.",
-          "If you have time and love views, yes. Otherwise, you can skip it without missing much.",
-          "It's worth it if you're into photography — best light at golden hour."
+          "Is the mountain view spot worth visiting? How far is it from here?",
+          "Do you think it's worth making a trip to the mountain view spot? About how far is it?",
+          "Would you recommend the mountain view spot? I'm curious about the distance.",
+          "Is the mountain view spot a good place to go? How long does it take to get there?"
         ],
         "evaluationCriteria": [
-          "意图达成度：清晰评估了景点的性价比（值得/不值得）",
-          "语言准确性：正确使用了条件句（if you have time）、比较级（best light）等结构",
-          "表达自然度：语气自然，有推荐性而非命令式，符合口语习惯",
-          "关键词覆盖：包含 worth the trip / view / bus / time 等核心词汇"
+          "意图达成度：是否明确询问景点是否值得去以及距离信息",
+          "语言准确性：语法结构正确，时态和用词恰当",
+          "表达自然度：符合英语母语者日常对话习惯",
+          "关键词覆盖：使用了'mountain view spot', 'worth', 'far'或'distance'等场景关键词"
         ]
       }
     },
@@ -57,9 +58,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I’m interested in the local market. Is it easy to get to? And is it worth visiting?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我对当地市场感兴趣。好去吗？值得去吗？",
         "expectedAnswers": [
           "Yes, it’s just a 10-minute walk from here — and totally worth it for fresh food and souvenirs!",

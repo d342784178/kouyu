@@ -2,8 +2,7 @@
   "subSceneId": "travel_058_sub_3",
   "subSceneName": "车辆升级",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:29:45.196Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.086Z",
   "questions": [
     {
       "id": "travel_058_sub_3_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "当对方提供免费升级时，你通常会关心实际使用体验，尤其是内部空间是否更宽敞。",
         "type": "fill_blank",
-        "situation": "在租车柜台，工作人员告知你可以免费升级到更大的车型，你表示感兴趣并想确认升级后的空间变化",
-        "speakerText": "We can offer you a free upgrade to a larger vehicle.",
-        "speakerTextCn": "我们可以为您提供免费升级到更大车型的机会。",
-        "responseTemplate": "That’s great! Is it ___?",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "当对方提供免费升级时，你通常会关心实际使用体验，尤其是内部空间是否更宽敞。",
-        "knowledgePoint": "表达对升级后实际体验的关心"
+        "situation": "在租车柜台，工作人员告知你可以免费升级到更大的车型，你表示感兴趣并想确认升级后的空间变化",
+        "speakerText": "We can offer you a free upgrade to a larger vehicle.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们可以为您提供免费升级到更大车型的机会。",
+        "knowledgePoint": "表达对升级后实际体验的关心",
+        "responseTemplate": "That’s great! Is it ___?"
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "当付费升级成本较高时，你可能希望灵活选择升级的时间段，而不是全程升级。",
         "type": "fill_blank",
-        "situation": "租车员告诉你升级到豪华车型每天需要额外付费，你考虑后想询问是否可以只升级部分天数",
-        "speakerText": "Upgrading to the premium model costs an additional fee.",
-        "speakerTextCn": "升级到豪华车型需要额外付费。",
-        "responseTemplate": "Could I upgrade for ___?",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "当付费升级成本较高时，你可能希望灵活选择升级的时间段，而不是全程升级。",
-        "knowledgePoint": "询问部分时段升级的可能性"
+        "situation": "租车员告诉你升级到豪华车型每天需要额外付费，你考虑后想询问是否可以只升级部分天数",
+        "speakerText": "Upgrading to the premium model costs an additional fee.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "升级到豪华车型需要额外付费。",
+        "knowledgePoint": "询问部分时段升级的可能性",
+        "responseTemplate": "Could I upgrade for ___?"
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "拒绝升级时，应保持礼貌，同时明确表达你对当前选择的满意。",
         "type": "fill_blank",
-        "situation": "工作人员推荐你升级到更高级别的车，但你觉得当前车型已经足够，你礼貌地拒绝并表达感谢",
-        "speakerText": "Would you like to upgrade to a higher class vehicle?",
-        "speakerTextCn": "您想升级到更高一级的车型吗？",
-        "responseTemplate": "Thanks, but I think ___ is fine for me.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "拒绝升级时，应保持礼貌，同时明确表达你对当前选择的满意。",
-        "knowledgePoint": "礼貌拒绝升级的常用表达"
+        "situation": "工作人员推荐你升级到更高级别的车，但你觉得当前车型已经足够，你礼貌地拒绝并表达感谢",
+        "speakerText": "Would you like to upgrade to a higher class vehicle?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "您想升级到更高一级的车型吗？",
+        "knowledgePoint": "礼貌拒绝升级的常用表达",
+        "responseTemplate": "Thanks, but I think ___ is fine for me."
+      }
+    },
+    {
+      "id": "travel_058_sub_3_pq_4",
+      "subSceneId": "travel_058_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "指代前文提到的免费升级选项",
+        "qaId": "travel_058_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "it",
+            "options": [
+              "it",
+              "this",
+              "that",
+              "one"
+            ]
+          }
+        ],
+        "template": "We’ve got a free upgrade to an SUV if you’re interested. — Really? That’s awesome—I’ll take ___!",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "代词指代（it 指代前面提到的单数事物）"
+      }
+    },
+    {
+      "id": "travel_058_sub_3_pq_5",
+      "subSceneId": "travel_058_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "询问仅升级一天时的常用表达",
+        "qaId": "travel_058_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "one",
+            "options": [
+              "one",
+              "a",
+              "the",
+              "some"
+            ]
+          }
+        ],
+        "template": "If you want a luxury sedan, it’s $30 extra per day. — Can I upgrade for just ___ day?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "数量词搭配（one day 表示单日）"
+      }
+    },
+    {
+      "id": "travel_058_sub_3_pq_6",
+      "subSceneId": "travel_058_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表示‘每’单位时间的固定搭配",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "per",
+            "options": [
+              "per",
+              "for",
+              "in",
+              "on"
+            ]
+          }
+        ],
+        "template": "The SUV is free, but the luxury model costs $30 ___ day.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "介词搭配（per 表示单位时间费用）"
       }
     }
   ]

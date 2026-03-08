@@ -2,8 +2,7 @@
   "subSceneId": "travel_073_sub_3",
   "subSceneName": "确认换乘信息",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:31:49.989Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.303Z",
   "questions": [
     {
       "id": "travel_073_sub_3_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "表示‘换乘’的最常用动词是哪个？",
         "type": "fill_blank",
-        "situation": "你在地铁站准备换乘，向站台工作人员确认下一趟列车是否需要换乘以及该在哪一站换乘。",
-        "speakerText": "I'm trying to get to City Center. Do I need to switch trains, and if so, where?",
-        "speakerTextCn": "我想去市中心，需要换乘吗？如果需要，是在哪一站换？",
-        "responseTemplate": "Yes, you'll need to ___ at Green Line Station.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "表示‘换乘’的最常用动词是哪个？",
-        "knowledgePoint": "换乘场景中的核心动词"
+        "situation": "你在地铁站准备换乘，向站台工作人员确认下一趟列车是否需要换乘以及该在哪一站换乘。",
+        "speakerText": "I'm trying to get to City Center. Do I need to switch trains, and if so, where?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我想去市中心，需要换乘吗？如果需要，是在哪一站换？",
+        "knowledgePoint": "换乘场景中的核心动词",
+        "responseTemplate": "Yes, you'll need to ___ at Green Line Station."
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "描述列车行驶方向时，最自然的表达方式是什么？",
         "type": "fill_blank",
-        "situation": "你即将上车，担心坐错方向，向附近乘客确认列车行驶方向是否正确。",
-        "speakerText": "Is this train heading toward the downtown area?",
-        "speakerTextCn": "这趟车是开往市中心方向的吗？",
-        "responseTemplate": "Yes, it's going ___ — don't get off until the final stop.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "描述列车行驶方向时，最自然的表达方式是什么？",
-        "knowledgePoint": "表达方向的常用短语"
+        "situation": "你即将上车，担心坐错方向，向附近乘客确认列车行驶方向是否正确。",
+        "speakerText": "Is this train heading toward the downtown area?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这趟车是开往市中心方向的吗？",
+        "knowledgePoint": "表达方向的常用短语",
+        "responseTemplate": "Yes, it's going ___ — don't get off until the final stop."
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "当别人告诉你在哪里准备换乘时，最常用的动词是什么？",
         "type": "fill_blank",
-        "situation": "你在拥挤的地铁车厢里，想确认自己是否在正确的车厢，以便顺利换乘到另一条线路。",
-        "speakerText": "Excuse me, is this the right car for transferring to the Blue Line?",
-        "speakerTextCn": "打扰一下，这节车厢是换乘蓝线的正确车厢吗？",
-        "responseTemplate": "Yes, you should ___ near the front doors for the transfer.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "当别人告诉你在哪里准备换乘时，最常用的动词是什么？",
-        "knowledgePoint": "换乘时指示位置的常用动词"
+        "situation": "你在拥挤的地铁车厢里，想确认自己是否在正确的车厢，以便顺利换乘到另一条线路。",
+        "speakerText": "Excuse me, is this the right car for transferring to the Blue Line?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "打扰一下，这节车厢是换乘蓝线的正确车厢吗？",
+        "knowledgePoint": "换乘时指示位置的常用动词",
+        "responseTemplate": "Yes, you should ___ near the front doors for the transfer."
+      }
+    },
+    {
+      "id": "travel_073_sub_3_pq_4",
+      "subSceneId": "travel_073_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "用于确认列车是否为终点站的关键词",
+        "qaId": "travel_073_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "last",
+            "options": [
+              "last",
+              "first",
+              "next",
+              "only"
+            ]
+          }
+        ],
+        "template": "Is this the ___ stop? I don't want to miss it.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定表达（last stop）"
+      }
+    },
+    {
+      "id": "travel_073_sub_3_pq_5",
+      "subSceneId": "travel_073_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "根据对话内容，这是列车广播中会提到的终点站名称",
+        "qaId": "travel_073_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Museum",
+            "options": [
+              "Museum",
+              "Central",
+              "Airport",
+              "Downtown"
+            ]
+          }
+        ],
+        "template": "Just stay on until you hear '___ Station, last stop'.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景高频词汇（终点站名称）"
+      }
+    },
+    {
+      "id": "travel_073_sub_3_pq_6",
+      "subSceneId": "travel_073_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "询问是否需要换乘时的核心词汇",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "transfers",
+            "options": [
+              "transfers",
+              "tickets",
+              "seats",
+              "stops"
+            ]
+          }
+        ],
+        "template": "I'd like to confirm — this train doesn't require any ___ , right?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "核心句型（no transfers needed）"
       }
     }
   ]

@@ -2,8 +2,7 @@
   "subSceneId": "daily_014_sub_1",
   "subSceneName": "问候与开场",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:49.755Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.542Z",
   "questions": [
     {
       "id": "daily_014_sub_1_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "用礼貌表达需求的常用结构是 I'd like to...",
         "type": "fill_blank",
-        "situation": "顾客走进电影院售票处，向售票员打招呼并表达想看一部新上映的电影",
-        "speakerText": "Hi there! What can I get for you today?",
-        "speakerTextCn": "嗨！今天想买什么票呢？",
-        "responseTemplate": "___, please.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "用礼貌表达需求的常用结构是 I'd like to...",
-        "knowledgePoint": "礼貌表达需求"
+        "situation": "顾客走进电影院售票处，向售票员打招呼并表达想看一部新上映的电影",
+        "speakerText": "Hi there! What can I get for you today?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨！今天想买什么票呢？",
+        "knowledgePoint": "礼貌表达需求",
+        "responseTemplate": "___, please."
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "礼貌请求特定场次常用 Can I get... 结构",
         "type": "fill_blank",
-        "situation": "售票员告知多个场次后，顾客希望选择一个合适的时段，但不想太晚",
-        "speakerText": "We have showings at several times tonight. Which one works best for you?",
-        "speakerTextCn": "今天晚上有几个场次，您选哪个最合适？",
-        "responseTemplate": "___? I'd prefer not to stay out too late.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "礼貌请求特定场次常用 Can I get... 结构",
-        "knowledgePoint": "礼貌请求特定选项"
+        "situation": "售票员告知多个场次后，顾客希望选择一个合适的时段，但不想太晚",
+        "speakerText": "We have showings at several times tonight. Which one works best for you?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "今天晚上有几个场次，您选哪个最合适？",
+        "knowledgePoint": "礼貌请求特定选项",
+        "responseTemplate": "___? I'd prefer not to stay out too late."
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "询问是否存在某种服务或选项时，常用 Do you have...？",
         "type": "fill_blank",
-        "situation": "顾客想确认是否提供某种观影体验，比如3D或IMAX",
-        "speakerText": "We have standard and premium options available.",
-        "speakerTextCn": "我们有普通厅和高级厅可选。",
-        "responseTemplate": "___? I'd love to experience it in the best quality.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "询问是否存在某种服务或选项时，常用 Do you have...？",
-        "knowledgePoint": "询问服务选项"
+        "situation": "顾客想确认是否提供某种观影体验，比如3D或IMAX",
+        "speakerText": "We have standard and premium options available.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们有普通厅和高级厅可选。",
+        "knowledgePoint": "询问服务选项",
+        "responseTemplate": "___? I'd love to experience it in the best quality."
+      }
+    },
+    {
+      "id": "daily_014_sub_1_pq_4",
+      "subSceneId": "daily_014_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "表达意愿时的固定搭配",
+        "qaId": "daily_014_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "at",
+              "with"
+            ]
+          }
+        ],
+        "template": "I'd like ___ see the new Spider-Man, please.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "would like to do（预约场景核心句型）"
+      }
+    },
+    {
+      "id": "daily_014_sub_1_pq_5",
+      "subSceneId": "daily_014_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "特指上文提到的某个具体场次",
+        "qaId": "daily_014_sub_1_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "the",
+            "options": [
+              "the",
+              "a",
+              "an",
+              "this"
+            ]
+          }
+        ],
+        "template": "Can I get ___ 7:30 one?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "定冠词 the 用于特指（已提及的场次）"
+      }
+    },
+    {
+      "id": "daily_014_sub_1_pq_6",
+      "subSceneId": "daily_014_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "口语中 'What are you going to...' 的缩略形式",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "are",
+            "options": [
+              "are",
+              "is",
+              "do",
+              "have"
+            ]
+          }
+        ],
+        "template": "Hi! What ___ you gonna watch today?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "口语缩略形式：What're you gonna = What are you going to"
       }
     }
   ]

@@ -2,42 +2,41 @@
   "subSceneId": "travel_070_sub_1",
   "subSceneName": "开场致意",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:14:24.158Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.245Z",
   "questions": [
     {
-      "id": "travel_070_sub_1_choice_1",
+      "id": "travel_070_sub_1_qa_1_choice_1",
       "subSceneId": "travel_070_sub_1",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "travel_070_sub_1_qa_1",
-        "speakerText": "Hi, this is Lisa Chen calling about my flight.",
-        "speakerTextCn": "您好，我是Lisa Chen，想咨询我的航班。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'm calling to reschedule my flight because of a family emergency.",
+            "text": "Hi, this is Lisa Chen calling about my flight.",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I want to know if you have any discounts for next month.",
+            "text": "Hello, I am calling about the weather.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can you send me the airport map?",
+            "text": "Hi, I am Lisa Chen, can you help me?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I'm not sure when my flight is, can you check?",
+            "text": "What is my flight number?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了来电目的（改签航班）并给出合理理由，符合场景要求。其他选项虽然语法正确，但偏离了‘说明来电目的’的核心功能：选项2是询问折扣，选项3是索要地图，选项4是确认航班时间，均未体现主动提出需求或说明原因。"
+        "explanation": "答案解析：正确答案\"Hi, this is Lisa Chen calling about my flight.\"因为它直接询问了航班目的，符合场景需求。其他选项不正确，因为它们没有明确提及航班信息或目的。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "客服接听电话后，应询问用户姓名和航班信息"
       }
     },
     {
@@ -46,10 +45,8 @@
       "type": "choice",
       "order": 2,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Hello, this is Mark Johnson. I'm calling about my reservation.",
-        "speakerTextCn": "您好，我是Mark Johnson，我打电话是关于我的预订。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +69,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确表达了来电目的（取消预订）并附带简要原因，符合开场致意的简洁原则。选项2是询问服务细节，选项3是无关时间问题，选项4是表达赞美，均未履行‘说明来电目的’的功能，属于干扰性但语法正确的错误选项。"
+        "explanation": "正确答案明确表达了来电目的（取消预订）并附带简要原因，符合开场致意的简洁原则。选项2是询问服务细节，选项3是无关时间问题，选项4是表达赞美，均未履行‘说明来电目的’的功能，属于干扰性但语法正确的错误选项。",
+        "speakerText": "Hello, this is Mark Johnson. I'm calling about my reservation.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "您好，我是Mark Johnson，我打电话是关于我的预订。"
       }
     },
     {
@@ -81,10 +81,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Hi, this is Anna from Toronto. I'm calling regarding my upcoming trip.",
-        "speakerTextCn": "您好，我是来自多伦多的Anna，我打电话是关于我即将出行的行程。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +105,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案清晰表达了具体请求（更改座位偏好），符合‘说明来电目的’的场景要求。选项2是无关天气询问，选项3是直接索要升级但未说明理由，选项4是投诉系统，均不符合礼貌开场并明确目的的规范。"
+        "explanation": "正确答案清晰表达了具体请求（更改座位偏好），符合‘说明来电目的’的场景要求。选项2是无关天气询问，选项3是直接索要升级但未说明理由，选项4是投诉系统，均不符合礼貌开场并明确目的的规范。",
+        "speakerText": "Hi, this is Anna from Toronto. I'm calling regarding my upcoming trip.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "您好，我是来自多伦多的Anna，我打电话是关于我即将出行的行程。"
       }
     }
   ]

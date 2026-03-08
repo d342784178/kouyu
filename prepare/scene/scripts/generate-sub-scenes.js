@@ -38,7 +38,7 @@ function loadEnv() {
 loadEnv()
 
 const NVIDIA_API_KEY = process.env.NVIDIA_API_KEY
-const MODEL = 'qwen/qwen3-next-80b-a3b-instruct'
+const MODEL = 'meta/llama-3.1-8b-instruct'
 const OUTPUT_DIR = path.resolve(__dirname, '../data/sub-scenes')
 
 // ============================================================
@@ -133,25 +133,30 @@ async function generateSubScenesForScene(scene) {
 
 请设计 3-5 个子场景，每个子场景包含 3-6 个问答对。
 
-**重要：用户角色定位原则**
-- 用户（学习者）应该扮演"消费者"、"使用者"、"顾客"、"求职者"、"学生"等角色
-- 用户应该是"接受服务"或"提出需求"的一方
-- speakerText 应该是服务提供者说的话（如服务员、店员、医生、面试官等）
-- responses 应该是用户作为消费者/使用者的回应
-- 例如：在餐厅场景中，speakerText 是服务员说的话，responses 是顾客（用户）的回应
+**重要：对话模式说明**
+每个问答对需要指定 dialogueMode：
+- "user_responds": 服务方先说话，用户学习如何回应（如：服务员问"需要什么帮助？"，用户回答）
+- "user_asks": 用户主动提问，服务方回应（如：用户问"请问营业时间？"，服务员回答）
 
-请设计 3-5 个子场景，每个子场景包含 3-6 个问答对。
+**角色定位原则**
+- 用户（学习者）应该扮演"消费者"、"使用者"、"顾客"、"求职者"、"学生"等角色
+- triggerSpeakerRole 表示触发说话者的角色：
+  - 当 dialogueMode="user_responds" 时，triggerSpeakerRole="staff"（服务方说话）
+  - 当 dialogueMode="user_asks" 时，triggerSpeakerRole="user"（用户主动提问）
 
 要求：
 1. 子场景要覆盖该场景的核心交流环节（如：问候→询问→确认→道别）
 2. 每个问答对包含：
-   - speaker_text: 对方（服务提供者）说的话（英文，自然口语）
-   - speaker_text_cn: 对方说的话（中文翻译）
-   - responses: 用户（消费者/使用者）的2-3种回应方式（正式/非正式/简短）
-   - usage_note: 使用说明（中文，20字以内）
-   - qa_type: "must_speak"（需要用户开口练习）或 "listen_only"（只需听）
-3. 每个子场景至少有 2 个 must_speak 类型的问答对
-4. responses 中每条包含：text（英文）、text_cn（中文）、audio_url（留空字符串）
+   - triggerText: 触发文本（英文，自然口语）
+   - triggerTextCn: 触发文本（中文翻译）
+   - dialogueMode: "user_responds" 或 "user_asks"
+   - triggerSpeakerRole: "staff" 或 "user"
+   - scenarioHintCn: 场景提示（中文，描述用户所处的情境，20字以内）
+   - followUps: 后续回应（2-3种方式，用于 user_responds 模式）或空数组（user_asks 模式）
+   - usageNote: 使用说明（中文，20字以内）
+   - learnRequirement: "speak_trigger"（练习触发文本）、"speak_followup"（练习回应）或 "listen_only"（只需听）
+3. 每个子场景至少有 2 个 speak_trigger 或 speak_followup 类型的问答对
+4. followUps 中每条包含：text（英文）、text_cn（中文）、audio_url（留空字符串）
 
 请严格按以下 JSON 格式返回，不要有其他内容：
 {
@@ -163,14 +168,16 @@ async function generateSubScenesForScene(scene) {
       "estimatedMinutes": 5,
       "qaPairs": [
         {
-          "speakerText": "对方说的英文",
-          "speakerTextCn": "对方说的中文",
-          "responses": [
-            {"text": "回应英文", "text_cn": "回应中文", "audio_url": ""},
-            {"text": "回应英文2", "text_cn": "回应中文2", "audio_url": ""}
+          "triggerText": "触发文本（英文）",
+          "triggerTextCn": "触发文本（中文）",
+          "dialogueMode": "user_responds",
+          "triggerSpeakerRole": "staff",
+          "scenarioHintCn": "场景提示（中文）",
+          "followUps": [
+            {"text": "回应英文", "text_cn": "回应中文", "audio_url": ""}
           ],
           "usageNote": "使用说明",
-          "qaType": "must_speak",
+          "learnRequirement": "speak_followup",
           "order": 1
         }
       ]
@@ -179,7 +186,7 @@ async function generateSubScenesForScene(scene) {
 }`
 
   const content = await callQwen([
-    { role: 'system', content: '你是英语口语教学内容设计专家，擅长设计自然、实用的口语练习场景。重要：用户（学习者）必须扮演消费者、使用者、顾客等角色，speakerText应该是服务提供者说的话，responses是用户的回应。请严格按要求的JSON格式返回，不要有其他内容。' },
+    { role: 'system', content: '你是英语口语教学内容设计专家，擅长设计自然、实用的口语练习场景。重要：每个问答对需要指定 dialogueMode（user_responds 或 user_asks），triggerSpeakerRole 表示触发说话者的角色。请严格按要求的JSON格式返回，不要有其他内容。' },
     { role: 'user', content: prompt },
   ])
 
@@ -208,8 +215,7 @@ async function generateSubScenesForScene(scene) {
         estimatedMinutes: sub.estimatedMinutes ?? 5,
         qaPairs: (sub.qaPairs || []).map((qa, qaIdx) => {
           const qaId = `${subSceneId}_qa_${qaIdx + 1}`
-          // 为每个答案生成音频URL
-          const responses = (qa.responses || []).map((resp, respIdx) => ({
+          const followUps = (qa.followUps || []).map((resp, respIdx) => ({
             text: resp.text || '',
             text_cn: resp.text_cn || '',
             audio_url: `COS:/qa/responses/${qaId}_response${respIdx}.mp3`
@@ -218,12 +224,16 @@ async function generateSubScenesForScene(scene) {
           return {
             id: qaId,
             subSceneId,
-            speakerText: qa.speakerText,
-            speakerTextCn: qa.speakerTextCn,
-            responses,
+            dialogueMode: qa.dialogueMode || 'user_responds',
+            triggerText: qa.triggerText,
+            triggerTextCn: qa.triggerTextCn,
+            triggerSpeakerRole: qa.triggerSpeakerRole || 'staff',
+            scenarioHint: qa.scenarioHint || null,
+            scenarioHintCn: qa.scenarioHintCn || null,
+            followUps,
             usageNote: qa.usageNote || null,
             audioUrl: `COS:/qa/questions/${qaId}.mp3`,
-            qaType: qa.qaType || 'must_speak',
+            learnRequirement: qa.learnRequirement || 'speak_followup',
             order: qa.order ?? qaIdx + 1,
           }
         }),

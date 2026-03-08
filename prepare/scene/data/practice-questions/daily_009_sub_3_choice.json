@@ -2,8 +2,7 @@
   "subSceneId": "daily_009_sub_3",
   "subSceneName": "支付与索要收据",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:16:13.670Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.506Z",
   "questions": [
     {
       "id": "daily_009_sub_3_choice_1",
@@ -12,9 +11,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "在便利店结账时，顾客选择用信用卡支付，并希望获得电子收据发送到手机邮箱。",
-        "speakerText": "I'll pay with my card. Could you email me the receipt?",
-        "speakerTextCn": "我用信用卡支付，能把收据发到我邮箱吗？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +33,81 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确回应了顾客请求电子收据的意图，并承诺立即处理。干扰项1将‘email’误改为‘text’，偏离请求；干扰项3错误地声称不提供刷卡收据，与事实不符；干扰项4虽礼貌但完全忽略请求，属于答非所问。"
+        "situation": "在便利店结账时，顾客选择用信用卡支付，并希望获得电子收据发送到手机邮箱。",
+        "explanation": "正确答案准确回应了顾客请求电子收据的意图，并承诺立即处理。干扰项1将‘email’误改为‘text’，偏离请求；干扰项3错误地声称不提供刷卡收据，与事实不符；干扰项4虽礼貌但完全忽略请求，属于答非所问。",
+        "speakerText": "I'll pay with my card. Could you email me the receipt?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我用信用卡支付，能把收据发到我邮箱吗？"
+      }
+    },
+    {
+      "id": "daily_009_sub_3_qa_2_choice_1",
+      "subSceneId": "daily_009_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_009_sub_3_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll pay by card, and no receipt, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I pay in cash?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you give receipts?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I want a receipt and pay by card.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'I'll pay by card, and no receipt, please.' 完整表达了支付方式和拒收收据的意愿，符合场景中主动说明需求的自然表达。干扰项1仅询问现金支付，未涉及收据；干扰项2只询问收据是否存在，未表明支付方式；干扰项3语义矛盾，要求同时支付并索取收据，与场景中'不用收据'的意图相反。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在完成加油后，主动询问如何支付和是否需要收据。"
+      }
+    },
+    {
+      "id": "daily_009_sub_3_qa_1_choice_1",
+      "subSceneId": "daily_009_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_009_sub_3_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll pay inside with cash. Can I get a receipt?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "You need to pay outside. Can I get a receipt?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I want to pay with credit card. What's the total amount?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get a receipt now? I'm going to pay later.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案I'll pay inside with cash. Can I get a receipt？是因为它符合场景需求，顾客询问如何支付和是否需要收据。其他选项不正确，因为它们不符合场景需求，例如opt_2询问需要支付在哪里，opt_3询问付款方式和总金额，opt_4询问是否可以现在获得收据，付款方式未明确。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在完成加油后，主动询问如何支付和是否需要收据。"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "在咖啡店付款后，顾客不确定是否需要收据，于是询问店员是否可以提供纸质收据。",
-        "speakerText": "I paid with Apple Pay. Do you give receipts for this?",
-        "speakerTextCn": "我用苹果支付付款了，你们会给收据吗？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案自然回应了顾客的询问，直接提供收据，符合服务场景。干扰项1错误地限制了收据发放条件；干扰项3过度追问动机，显得不专业；干扰项4假装没听清，回避问题，不符合服务态度。"
+        "situation": "在咖啡店付款后，顾客不确定是否需要收据，于是询问店员是否可以提供纸质收据。",
+        "explanation": "正确答案自然回应了顾客的询问，直接提供收据，符合服务场景。干扰项1错误地限制了收据发放条件；干扰项3过度追问动机，显得不专业；干扰项4假装没听清，回避问题，不符合服务态度。",
+        "speakerText": "I paid with Apple Pay. Do you give receipts for this?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我用苹果支付付款了，你们会给收据吗？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "顾客在超市结账时用现金付款，明确表示不需要收据，店员应如何回应以保持礼貌且自然？",
-        "speakerText": "I'm paying with cash. No receipt, please.",
-        "speakerTextCn": "我用现金支付，不用收据了。",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案简洁礼貌，接受顾客请求并表达感谢，符合拒绝收据后的标准回应模式。干扰项1强行保留收据，违背顾客意愿；干扰项3虽出于好意但过度建议，可能引起不适；干扰项4编造借口，不真实且不专业。"
+        "situation": "顾客在超市结账时用现金付款，明确表示不需要收据，店员应如何回应以保持礼貌且自然？",
+        "explanation": "正确答案简洁礼貌，接受顾客请求并表达感谢，符合拒绝收据后的标准回应模式。干扰项1强行保留收据，违背顾客意愿；干扰项3虽出于好意但过度建议，可能引起不适；干扰项4编造借口，不真实且不专业。",
+        "speakerText": "I'm paying with cash. No receipt, please.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我用现金支付，不用收据了。"
       }
     }
   ]

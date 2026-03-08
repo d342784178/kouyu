@@ -2,20 +2,43 @@
   "subSceneId": "daily_010_sub_2",
   "subSceneName": "核对衣物",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:34.076Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.513Z",
   "questions": [
+    {
+      "id": "daily_010_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "daily_010_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "用户应该问的问题是关于核对衣物数量的",
+        "qaId": "daily_010_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "mix-up",
+            "options": [
+              "mix-up",
+              "mistake",
+              "confusion",
+              "misunderstanding"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客询问衣物数量，工作人员回答",
+        "knowledgePoint": "表达核对衣物数量时的常用句型",
+        "responseTemplate": "Let me double-check... Oh, here it is! Sorry for the ___"
+      }
+    },
     {
       "id": "daily_010_sub_2_fill_blank_1",
       "subSceneId": "daily_010_sub_2",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "当确认物品齐全时，使用礼貌且肯定的表达方式",
         "type": "fill_blank",
-        "situation": "店员在结账前核对顾客购买的衣物数量，确认是否齐全",
-        "speakerText": "I've pulled everything from your order — let me confirm: two jackets, one sweater, and three pairs of socks?",
-        "speakerTextCn": "我已从您的订单中取出所有物品——让我确认一下：两件夹克、一件毛衣和三双袜子，对吗？",
-        "responseTemplate": "___",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,39 @@
             ]
           }
         ],
-        "hint": "当确认物品齐全时，使用礼貌且肯定的表达方式",
-        "knowledgePoint": "确认信息并表达感谢的礼貌回应"
+        "situation": "店员在结账前核对顾客购买的衣物数量，确认是否齐全",
+        "speakerText": "I've pulled everything from your order — let me confirm: two jackets, one sweater, and three pairs of socks?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我已从您的订单中取出所有物品——让我确认一下：两件夹克、一件毛衣和三双袜子，对吗？",
+        "knowledgePoint": "确认信息并表达感谢的礼貌回应",
+        "responseTemplate": "___"
+      }
+    },
+    {
+      "id": "daily_010_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "daily_010_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "用肯定陈述句+right?来确认信息，不要用疑问词开头",
+        "qaId": "daily_010_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "3 shirts, 2 pants, and 1 towel",
+            "options": [
+              "3 shirts, 2 pants, and 1 towel",
+              "there are 3 shirts, 2 pants, and 1 towel",
+              "do you have 3 shirts, 2 pants, and 1 towel",
+              "I think you have 3 shirts, 2 pants, and 1 towel"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "店员在核对衣物数量与订单是否一致，顾客想确认所列物品的数量是否正确",
+        "knowledgePoint": "确认性提问句型",
+        "responseTemplate": "You've got ___ , right?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "当指出错误时，应使用礼貌且积极的回应，表明会立即纠正",
         "type": "fill_blank",
-        "situation": "顾客发现少了一件衣服，向店员指出核对错误",
-        "speakerText": "Actually, I ordered four T-shirts, but I only see three here.",
-        "speakerTextCn": "实际上，我订了四件T恤，但我只看到三件。",
-        "responseTemplate": "___",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "当指出错误时，应使用礼貌且积极的回应，表明会立即纠正",
-        "knowledgePoint": "礼貌指出错误并请求补正的表达方式"
+        "situation": "顾客发现少了一件衣服，向店员指出核对错误",
+        "speakerText": "Actually, I ordered four T-shirts, but I only see three here.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "实际上，我订了四件T恤，但我只看到三件。",
+        "knowledgePoint": "礼貌指出错误并请求补正的表达方式",
+        "responseTemplate": "___"
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "面对店员主动道歉和纠正时，应表达理解和感谢",
         "type": "fill_blank",
-        "situation": "店员在核对后发现拿错物品，主动向顾客道歉并纠正",
-        "speakerText": "I'm so sorry — I gave you the wrong color of the sweater. Let me fix that for you.",
-        "speakerTextCn": "非常抱歉，我给了您错误颜色的毛衣，我马上帮您更换。",
-        "responseTemplate": "___",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "面对店员主动道歉和纠正时，应表达理解和感谢",
-        "knowledgePoint": "对他人主动纠错表示理解和感谢的礼貌回应"
+        "situation": "店员在核对后发现拿错物品，主动向顾客道歉并纠正",
+        "speakerText": "I'm so sorry — I gave you the wrong color of the sweater. Let me fix that for you.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "非常抱歉，我给了您错误颜色的毛衣，我马上帮您更换。",
+        "knowledgePoint": "对他人主动纠错表示理解和感谢的礼貌回应",
+        "responseTemplate": "___"
+      }
+    },
+    {
+      "id": "daily_010_sub_2_pq_6",
+      "subSceneId": "daily_010_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "店员核对时常用的动词短语",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "double",
+            "options": [
+              "double",
+              "quick",
+              "re",
+              "final"
+            ]
+          }
+        ],
+        "template": "Let me ___-check your order to make sure everything is correct.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "核对动作的固定搭配（double-check）"
       }
     }
   ]

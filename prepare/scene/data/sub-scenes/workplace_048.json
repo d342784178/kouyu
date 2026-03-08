@@ -1,19 +1,26 @@
 {
   "sceneId": "workplace_048",
   "sceneName": "报销流程",
+  "exportedAt": "2026-03-08T15:31:54.918Z",
   "subScenes": [
     {
       "id": "workplace_048_sub_1",
+      "sceneId": "workplace_048",
       "name": "问候与开场",
       "description": "员工礼貌问候财务经理并开启报销咨询",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_048_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi Sarah, hope you're doing well!",
-          "speakerTextCn": "嗨，莎拉，希望你最近不错！",
-          "responses": [
+          "subSceneId": "workplace_048_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hi Sarah, hope you're doing well!",
+          "triggerTextCn": "嗨，莎拉，希望你最近不错！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I'm good, thanks! I've got a few questions about expense reimbursement.",
               "text_cn": "我很好，谢谢！我有几个关于报销的问题。",
@@ -30,22 +37,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用轻松语气开场，拉近距离"
+          "usageNote": "用轻松语气开场，拉近距离",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         }
       ]
     },
     {
       "id": "workplace_048_sub_2",
+      "sceneId": "workplace_048",
       "name": "询问系统登录",
       "description": "员工询问报销系统登录方式和账号",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_048_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "How do I log into the expense system? I forgot my password.",
-          "speakerTextCn": "报销系统怎么登录？我忘记密码了。",
-          "responses": [
+          "subSceneId": "workplace_048_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "How do I log into the expense system? I forgot my password.",
+          "triggerTextCn": "报销系统怎么登录？我忘记密码了。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "用户通常在需要信息或帮助时先提问。",
+          "followUps": [
             {
               "text": "You can reset it via the portal—just click 'Forgot Password'.",
               "text_cn": "去门户点‘忘记密码’重置就行。",
@@ -62,22 +78,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "主动提供解决方案更高效"
+          "usageNote": "主动提供解决方案更高效",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_048_sub_3",
+      "sceneId": "workplace_048",
       "name": "上传发票与要求",
       "description": "员工确认发票上传格式和注意事项",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_048_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Do I need to scan all receipts? What format should they be?",
-          "speakerTextCn": "所有收据都要扫描吗？要什么格式？",
-          "responses": [
+          "subSceneId": "workplace_048_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do I need to scan all receipts? What format should they be?",
+          "triggerTextCn": "所有收据都要扫描吗？要什么格式？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "在询问具体操作步骤时，用户通常会先提问。",
+          "followUps": [
             {
               "text": "Yes, PDF or JPG only—no photos from your phone camera.",
               "text_cn": "必须PDF或JPG，别发手机拍的原图。",
@@ -94,14 +119,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "明确格式要求��免退回"
+          "usageNote": "明确格式要求��免退回",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 3
         },
         {
           "id": "workplace_048_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Can I submit partial receipts if I lost one?",
-          "speakerTextCn": "如果丢了张发票，能只报部分吗？",
-          "responses": [
+          "subSceneId": "workplace_048_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can I submit partial receipts if I lost one?",
+          "triggerTextCn": "如果丢了张发票，能只报部分吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "在询问具体操作步骤时，用户通常会先提问。",
+          "followUps": [
             {
               "text": "Unfortunately, no—without a receipt, it won't be approved.",
               "text_cn": "不行，没发票一律不批。",
@@ -118,22 +150,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "强调规则，避免误解"
+          "usageNote": "强调规则，避免误解",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 4
         }
       ]
     },
     {
       "id": "workplace_048_sub_4",
+      "sceneId": "workplace_048",
       "name": "审批流程与时间",
       "description": "员工询问报销审批周期和到账时间",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_048_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "How long does approval usually take?",
-          "speakerTextCn": "审批一般要多久？",
-          "responses": [
+          "subSceneId": "workplace_048_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "How long does approval usually take?",
+          "triggerTextCn": "审批一般要多久？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "用户提出问题，服务方/工作人员提供信息",
+          "followUps": [
             {
               "text": "About 3–5 business days after submission.",
               "text_cn": "提交后3到5个工作日。",
@@ -150,14 +191,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "给出范围，管理预期"
+          "usageNote": "给出范围，管理预期",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 5
         },
         {
           "id": "workplace_048_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "When will the money hit my account?",
-          "speakerTextCn": "钱什么时候到账？",
-          "responses": [
+          "subSceneId": "workplace_048_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "When will the money hit my account?",
+          "triggerTextCn": "钱什么时候到账？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "用户提出问题，服务方/工作人员提供信息",
+          "followUps": [
             {
               "text": "Within 2 days after approval—payroll runs every Friday.",
               "text_cn": "审批后两天内到账，工资周五发。",
@@ -174,22 +222,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "结合发薪周期说明更清晰"
+          "usageNote": "结合发薪周期说明更清晰",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 6
         }
       ]
     },
     {
       "id": "workplace_048_sub_5",
+      "sceneId": "workplace_048",
       "name": "道别与感谢",
       "description": "员工结束咨询并礼貌致谢",
+      "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_048_sub_5_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Thanks so much for your help, Sarah!",
-          "speakerTextCn": "太感谢你了，莎拉！",
-          "responses": [
+          "subSceneId": "workplace_048_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thanks so much for your help, Sarah!",
+          "triggerTextCn": "太感谢你了，莎拉！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "No problem! Just email me if anything's unclear.",
               "text_cn": "不客气，有疑问随时邮件我。",
@@ -206,7 +263,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "结尾表达感谢提升职场形象"
+          "usageNote": "结尾表达感谢提升职场形象",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 7
         }
       ]
     }

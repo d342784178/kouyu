@@ -1,19 +1,26 @@
 {
   "sceneId": "daily_005",
   "sceneName": "看医生",
+  "exportedAt": "2026-03-08T15:31:54.840Z",
   "subScenes": [
     {
       "id": "daily_005_sub_1",
+      "sceneId": "daily_005",
       "name": "挂号登记",
       "description": "患者到诊所报到并填写基本信息",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_005_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi, I'm here for my appointment. My name's Tom Chen.",
-          "speakerTextCn": "嗨，我来就诊，我叫汤姆·陈。",
-          "responses": [
+          "subSceneId": "daily_005_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hi, I'm here for my appointment. My name's Tom Chen.",
+          "triggerTextCn": "嗨，我来就诊，我叫汤姆·陈。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Yeah, I'm Tom Chen. I booked at 3 PM.",
               "text_cn": "对，我叫汤姆·陈，三点约的。",
@@ -30,22 +37,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用简短句快速报姓名和时间"
+          "usageNote": "用简短句快速报姓名和时间",
+          "audioUrl": "COS:/qa/questions/daily_005_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         }
       ]
     },
     {
       "id": "daily_005_sub_2",
+      "sceneId": "daily_005",
       "name": "描述症状",
       "description": "向医生说明身体不适的具体表现",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_005_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "So, what's been going on?",
-          "speakerTextCn": "那你最近哪儿不舒服？",
-          "responses": [
+          "subSceneId": "daily_005_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "So, what's been going on?",
+          "triggerTextCn": "那你最近哪儿不舒服？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I've had a bad headache for two days, and my neck's stiff.",
               "text_cn": "我头疼两天了，脖子也僵硬。",
@@ -62,14 +78,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用具体时间+身体部位描述症状"
+          "usageNote": "用具体时间+身体部位描述症状",
+          "audioUrl": "COS:/qa/questions/daily_005_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_005_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Any fever or nausea?",
-          "speakerTextCn": "有发烧或恶心吗？",
-          "responses": [
+          "subSceneId": "daily_005_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Any fever or nausea?",
+          "triggerTextCn": "有发烧或恶心吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "No fever, but I feel kinda sick to my stomach.",
               "text_cn": "没发烧，但有点想吐。",
@@ -86,22 +109,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用but或yeah加强语气，更自然"
+          "usageNote": "用but或yeah加强语气，更自然",
+          "audioUrl": "COS:/qa/questions/daily_005_sub_2_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_005_sub_3",
+      "sceneId": "daily_005",
       "name": "回答病史",
       "description": "医生询问过往病史或生活习惯",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_005_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Do you smoke or drink much?",
-          "speakerTextCn": "你抽烟或喝酒多吗？",
-          "responses": [
+          "subSceneId": "daily_005_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you smoke or drink much?",
+          "triggerTextCn": "你抽烟或喝酒多吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I used to smoke, but I quit last year. I drink wine once a week.",
               "text_cn": "以前抽，去年戒了，每周喝点红酒。",
@@ -118,14 +150,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用used to / nah / rarelly体现不同语气"
+          "usageNote": "用used to / nah / rarelly体现不同语气",
+          "audioUrl": "COS:/qa/questions/daily_005_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_005_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Any allergies or chronic conditions?",
-          "speakerTextCn": "有过敏或慢性病吗？",
-          "responses": [
+          "subSceneId": "daily_005_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Any allergies or chronic conditions?",
+          "triggerTextCn": "有过敏或慢性病吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I'm allergic to penicillin. No other issues.",
               "text_cn": "我对青霉素过敏，没别的问题。",
@@ -142,22 +181,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用makes me break out更口语化"
+          "usageNote": "用makes me break out更口语化",
+          "audioUrl": "COS:/qa/questions/daily_005_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_005_sub_4",
+      "sceneId": "daily_005",
       "name": "获取医嘱",
       "description": "医生给出治疗建议和注意事项",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_005_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "You're probably just stressed. Rest up, drink water, and take this painkiller.",
-          "speakerTextCn": "你可能是压力大，多休息、多喝水，吃这个止痛药。",
-          "responses": [
+          "subSceneId": "daily_005_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "You're probably just stressed. Rest up, drink water, and take this painkiller.",
+          "triggerTextCn": "你可能是压力大，多休息、多喝水，吃这个止痛药。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Got it. Should I avoid caffeine?",
               "text_cn": "明白，我该避免咖啡因吗？",
@@ -174,14 +222,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Got it / Okay / Thanks开头，自然回应"
+          "usageNote": "用Got it / Okay / Thanks开头，自然回应",
+          "audioUrl": "COS:/qa/questions/daily_005_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_005_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Come back if it gets worse in 48 hours.",
-          "speakerTextCn": "48小时后如果更糟，就回来复诊。",
-          "responses": [
+          "subSceneId": "daily_005_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Come back if it gets worse in 48 hours.",
+          "triggerTextCn": "48小时后如果更糟，就回来复诊。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Will do. Thanks so much!",
               "text_cn": "好的，太感谢了！",
@@ -198,22 +253,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Will do最地道，Understood最简短"
+          "usageNote": "用Will do最地道，Understood最简短",
+          "audioUrl": "COS:/qa/questions/daily_005_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_005_sub_5",
+      "sceneId": "daily_005",
       "name": "道别离场",
       "description": "就诊结束，礼貌告别医护人员",
+      "order": 5,
       "estimatedMinutes": 3,
       "qaPairs": [
         {
           "id": "daily_005_sub_5_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Alright, take care, Tom.",
-          "speakerTextCn": "好的，保重，汤姆。",
-          "responses": [
+          "subSceneId": "daily_005_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Alright, take care, Tom.",
+          "triggerTextCn": "好的，保重，汤姆。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Thanks, doc. You too!",
               "text_cn": "谢谢医生，您也是！",
@@ -230,7 +294,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用You too / Have a good one更显礼貌"
+          "usageNote": "用You too / Have a good one更显礼貌",
+          "audioUrl": "COS:/qa/questions/daily_005_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         }
       ]
     }

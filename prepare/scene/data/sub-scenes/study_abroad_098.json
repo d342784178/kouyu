@@ -1,19 +1,26 @@
 {
   "sceneId": "study_abroad_098",
   "sceneName": "图书馆咨询",
+  "exportedAt": "2026-03-08T15:31:54.876Z",
   "subScenes": [
     {
       "id": "study_abroad_098_sub_1",
+      "sceneId": "study_abroad_098",
       "name": "问候咨询",
       "description": "学生向管理员礼貌打招呼并说明来意",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "study_abroad_098_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi there! I'm new here—could you help me out with the library rules?",
-          "speakerTextCn": "嗨！我是新生，能帮我讲讲图书馆规则吗？",
-          "responses": [
+          "subSceneId": "study_abroad_098_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hi there! I'm new here—could you help me out with the library rules?",
+          "triggerTextCn": "嗨！我是新生，能帮我讲讲图书馆规则吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "管理员在用户提问后提供帮助",
+          "followUps": [
             {
               "text": "Of course! I'd be happy to help.",
               "text_cn": "当然可以，我很乐意帮忙。",
@@ -30,22 +37,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "初次见面用礼貌请求句，避免直接问"
+          "usageNote": "初次见面用礼貌请求句，避免直接问",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         }
       ]
     },
     {
       "id": "study_abroad_098_sub_2",
+      "sceneId": "study_abroad_098",
       "name": "借阅规则",
       "description": "询问图书借阅数量和期限",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "study_abroad_098_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "How many books can I check out at once, and how long can I keep 'em?",
-          "speakerTextCn": "我一次能借几本书？能借多久？",
-          "responses": [
+          "subSceneId": "study_abroad_098_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "How many books can I check out at once, and how long can I keep 'em?",
+          "triggerTextCn": "我一次能借几本书？能借多久？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户在图书馆咨询处主动提问，管理员根据问题提供信息。",
+          "followUps": [
             {
               "text": "You can borrow up to 10 books for 4 weeks.",
               "text_cn": "最多可借10本，借期4周。",
@@ -62,22 +78,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用缩写和口语表达更自然，避免生硬书面语"
+          "usageNote": "用缩写和口语表达更自然，避免生硬书面语",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "study_abroad_098_sub_3",
+      "sceneId": "study_abroad_098",
       "name": "电子资源",
       "description": "咨询如何访问数据库和电子期刊",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "study_abroad_098_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "I can't get into the JSTOR database—do I need a special login?",
-          "speakerTextCn": "我登不上JSTOR，需要特殊账号吗？",
-          "responses": [
+          "subSceneId": "study_abroad_098_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "I can't get into the JSTOR database—do I need a special login?",
+          "triggerTextCn": "我登不上JSTOR，需要特殊账号吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户在遇到问题时，首先发起对话",
+          "followUps": [
             {
               "text": "Yep, use your student ID and campus password.",
               "text_cn": "对，用学号和校园密码登录。",
@@ -94,22 +119,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "电子资源访问需明确步骤，避免模糊回答"
+          "usageNote": "电子资源访问需明确步骤，避免模糊回答",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     },
     {
       "id": "study_abroad_098_sub_4",
+      "sceneId": "study_abroad_098",
       "name": "讨论��预订",
       "description": "询问如何预订小组讨论室",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "study_abroad_098_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Can I book a study room for my group? How far ahead do I need to reserve?",
-          "speakerTextCn": "我能预订小组讨论室吗？要提前多久订？",
-          "responses": [
+          "subSceneId": "study_abroad_098_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can I book a study room for my group? How far ahead do I need to reserve?",
+          "triggerTextCn": "我能预订小组讨论室吗？要提前多久订？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户提出问题，服务方根据问题提供信息或帮助",
+          "followUps": [
             {
               "text": "You can book online up to a week in advance.",
               "text_cn": "可提前一周在线预订。",
@@ -126,22 +160,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "预订类问题需强调操作平台和时效性"
+          "usageNote": "预订类问题需强调操作平台和时效性",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 4
         }
       ]
     },
     {
       "id": "study_abroad_098_sub_5",
+      "sceneId": "study_abroad_098",
       "name": "道别确认",
       "description": "确认信息并礼貌告别",
+      "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "study_abroad_098_sub_5_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "So just to confirm—I can borrow 10 books, access JSTOR with my student login, and book rooms online?",
-          "speakerTextCn": "我确认下：能借10本书，用学号登录JSTOR，还能在线订房间？",
-          "responses": [
+          "subSceneId": "study_abroad_098_sub_5",
+          "dialogueMode": "user_asks",
+          "triggerText": "So just to confirm—I can borrow 10 books, access JSTOR with my student login, and book rooms online?",
+          "triggerTextCn": "我确认下：能借10本书，用学号登录JSTOR，还能在线订房间？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户在确认信息前，管理员应先确认信息无误。",
+          "followUps": [
             {
               "text": "Exactly! You're all set.",
               "text_cn": "没错，搞定啦！",
@@ -158,7 +201,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "结尾确认信息可避免误解，提升沟通效率"
+          "usageNote": "结尾确认信息可避免误解，提升沟通效率",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 5
         }
       ]
     }

@@ -2,50 +2,53 @@
   "subSceneId": "daily_028_sub_3",
   "subSceneName": "确认价格和购买",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:41:57.859Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.640Z",
   "questions": [
     {
-      "id": "daily_028_sub_3_speaking_1",
+      "id": "daily_028_sub_3_qa_1_speaking_1",
       "subSceneId": "daily_028_sub_3",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "daily_028_sub_3_qa_1",
-        "speakerText": "How much are these two notebooks and three pens?",
-        "speakerTextCn": "这两本笔记本和三支笔多少钱？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在文具店想买两本笔记本和三支笔，想确认总价后再决定是否购买。",
         "expectedAnswers": [
-          "That'll be $8.50 total.",
-          "The total is eight dollars and fifty cents.",
-          "It's $8.50 for everything."
+          "How much are these two notebooks and three pens?",
+          "Could you tell me the total for two notebooks and three pens?",
+          "What’s the price for two notebooks and three pens altogether?",
+          "I’d like to buy these two notebooks and three pens—how much do they cost?"
         ],
         "evaluationCriteria": [
-          "意图达成度：准确回答了总价",
-          "语言准确性：使用正确的货币表达格式（$ + 数字）",
-          "表达自然度：使用口语化表达如 'That'll be...' 或 'for everything'，而非机械复述"
+          "意图达成度：是否明确询问了两本笔记本和三支笔的总价",
+          "语言准确性：语法正确，量词和名词使用无误",
+          "表达自然度：符合日常购物对话的口语习惯",
+          "关键词覆盖：包含'notebooks'、'pens'和价格询问的核心表达"
         ]
       }
     },
     {
-      "id": "daily_028_sub_3_speaking_2",
+      "id": "daily_028_sub_3_qa_2_speaking_1",
       "subSceneId": "daily_028_sub_3",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "daily_028_sub_3_qa_2",
-        "speakerText": "Do you want a bag for that?",
-        "speakerTextCn": "需要袋子吗？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在确认商品价格后，准备购买，收银员询问是否需要购物袋。",
         "expectedAnswers": [
-          "Yes, please!",
-          "Sure, that would be great.",
-          "Yes, I'd appreciate that."
+          "Do you need a bag?",
+          "Would you like a bag for this?",
+          "Should I put that in a bag?",
+          "Do you want a bag with your purchase?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确表达是否需要袋子",
-          "语言准确性：使用正确的礼貌表达，避免生硬回答如 'Yes' 或 'No'",
-          "表达自然度：使用 'please', 'appreciate', 或 'great' 等增强礼貌性和自然度"
+          "意图达成度：是否正确表达了询问是否需要袋子的意图",
+          "语言准确性：语法结构正确，用词恰当",
+          "表达自然度：符合日常英语口语习惯，语气礼貌自然",
+          "关键词覆盖：使用了'bag'或相关词汇，与场景关键词一致"
         ]
       }
     },
@@ -55,9 +58,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "The total is $22.45. Would you like to buy it?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "总价是22.45美元，您要购买吗？",
         "expectedAnswers": [
           "Yes, I'll take it.",

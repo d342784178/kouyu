@@ -1,19 +1,26 @@
 {
   "sceneId": "daily_007",
   "sceneName": "理发店预约",
+  "exportedAt": "2026-03-08T15:31:54.841Z",
   "subScenes": [
     {
       "id": "daily_007_sub_1",
+      "sceneId": "daily_007",
       "name": "礼貌问候",
       "description": "顾客拨通电话，礼貌开场",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_007_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi, this is Lisa calling from downtown.",
-          "speakerTextCn": "你好，我是来自市中心的丽莎。",
-          "responses": [
+          "subSceneId": "daily_007_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hi, this is Lisa calling from downtown.",
+          "triggerTextCn": "你好，我是来自市中心的丽莎。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Hi Lisa, how can I help you today?",
               "text_cn": "你好丽莎，有什么可以帮您？",
@@ -30,22 +37,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "初次通话用礼貌问候，避免太随意"
+          "usageNote": "初次通话用礼貌问候，避免太随意",
+          "audioUrl": "COS:/qa/questions/daily_007_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         }
       ]
     },
     {
       "id": "daily_007_sub_2",
+      "sceneId": "daily_007",
       "name": "预约意图",
       "description": "说明想预约理发服务",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_007_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "I'd like to book a haircut for this week.",
-          "speakerTextCn": "我想预约这周的理发。",
-          "responses": [
+          "subSceneId": "daily_007_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'd like to book a haircut for this week.",
+          "triggerTextCn": "我想预约这周的理发。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客通常先提出预约需求，服务方再回应。",
+          "followUps": [
             {
               "text": "Sure! Do you have a preferred day or time?",
               "text_cn": "当然！您有偏好的日期或时间吗？",
@@ -62,22 +78,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用I'd like to表达预约意图，自然又礼貌"
+          "usageNote": "用I'd like to表达预约意图，自然又礼貌",
+          "audioUrl": "COS:/qa/questions/daily_007_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         }
       ]
     },
     {
       "id": "daily_007_sub_3",
+      "sceneId": "daily_007",
       "name": "确认时间",
       "description": "确认可预约的具体时间段",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_007_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "We've got openings on Thursday at 3 PM or Friday at 11 AM.",
-          "speakerTextCn": "我们周四下午3点或周五上午11点有空。",
-          "responses": [
+          "subSceneId": "daily_007_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "We've got openings on Thursday at 3 PM or Friday at 11 AM.",
+          "triggerTextCn": "我们周四下午3点或周五上午11点有空。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Thursday at 3 works for me, thanks!",
               "text_cn": "周四下午3点可以，谢谢！",
@@ -94,14 +119,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用works for me表达接受，简洁自然"
+          "usageNote": "用works for me表达接受，简洁自然",
+          "audioUrl": "COS:/qa/questions/daily_007_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_007_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Will that be a standard cut or something special?",
-          "speakerTextCn": "是普通理发还是特殊造型？",
-          "responses": [
+          "subSceneId": "daily_007_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Will that be a standard cut or something special?",
+          "triggerTextCn": "是普通理发还是特殊造型？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Just a regular trim, nothing fancy.",
               "text_cn": "普通修剪就好，不用特别造型。",
@@ -118,22 +150,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "明确说明服务类型，避免后续误会"
+          "usageNote": "明确说明服务类型，避免后续误会",
+          "audioUrl": "COS:/qa/questions/daily_007_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_007_sub_4",
+      "sceneId": "daily_007",
       "name": "提供信息",
       "description": "提供姓名和联系方式",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_007_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Could I get your name and phone number, please?",
-          "speakerTextCn": "能告诉我您的姓名和电话吗？",
-          "responses": [
+          "subSceneId": "daily_007_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Could I get your name and phone number, please?",
+          "triggerTextCn": "能告诉我您的姓名和电话吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Sure, it's Lisa Chen, 555-0192.",
               "text_cn": "好的，丽莎·陈，电话555-0192。",
@@ -150,22 +191,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "报电话时逐字念数字，清晰易懂"
+          "usageNote": "报电话时逐字念数字，清晰易懂",
+          "audioUrl": "COS:/qa/questions/daily_007_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         }
       ]
     },
     {
       "id": "daily_007_sub_5",
+      "sceneId": "daily_007",
       "name": "礼貌道别",
       "description": "预约成功后礼貌结束通话",
+      "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_007_sub_5_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Great! See you Thursday at 3.",
-          "speakerTextCn": "太好了！周四下午3点见。",
-          "responses": [
+          "subSceneId": "daily_007_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Great! See you Thursday at 3.",
+          "triggerTextCn": "太好了！周四下午3点见。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Thanks so much! See you then!",
               "text_cn": "非常感谢！到时候见！",
@@ -182,7 +232,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "道别时加感谢，体现礼貌与教养"
+          "usageNote": "道别时加感谢，体现礼貌与教养",
+          "audioUrl": "COS:/qa/questions/daily_007_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         }
       ]
     }

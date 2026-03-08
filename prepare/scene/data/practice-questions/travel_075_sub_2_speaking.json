@@ -1,53 +1,52 @@
 {
   "subSceneId": "travel_075_sub_2",
-  "subSceneName": "行李规定",
+  "subSceneName": "询问班次时间",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:15:25.258Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.336Z",
   "questions": [
     {
-      "id": "travel_075_sub_2_speaking_1",
+      "id": "travel_075_sub_2_qa_2_speaking_1",
       "subSceneId": "travel_075_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "travel_075_sub_2_qa_2",
         "type": "speaking",
-        "qaId": "travel_075_sub_2_qa_1",
-        "speakerText": "Do you know the baggage policy? We allow one large suitcase and one small carry-on.",
-        "speakerTextCn": "您知道行李规定吗？每人可免费托运一件大行李和一件小随身包。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "您正在问工作人员关于班次时间的问题，希望确认发车时间是否准点",
         "expectedAnswers": [
-          "Just one big bag and one carry-on? Got it.",
-          "Could I replace the suitcase with a large backpack?",
-          "Is there a size limit for the carry-on bag?"
+          "What time is the bus departing?",
+          "Is the bus on schedule?",
+          "Can you tell me the departure time of the bus?"
         ],
         "evaluationCriteria": [
-          "意图达成度：正确确认或询问行李数量限制",
-          "语言准确性：语法正确，无严重错误",
-          "表达自然度：使用口语化表达如 'Got it' 或 'Could I replace...' 符合真实对话",
-          "关键词覆盖：使用 'suitcase', 'carry-on', 'bag' 等场景关键词"
+          "意图达成度：正确表达了询问班次时间的意图",
+          "语言准确性：语法和用词正确",
+          "表达自然度：符合英语口语习惯",
+          "关键词覆盖：使用了场景关键词"
         ]
       }
     },
     {
-      "id": "travel_075_sub_2_speaking_2",
+      "id": "travel_075_sub_2_qa_1_speaking_1",
       "subSceneId": "travel_075_sub_2",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "travel_075_sub_2_qa_1",
         "type": "speaking",
-        "qaId": "travel_075_sub_2_qa_2",
-        "speakerText": "The large suitcase can’t exceed 20 kg. Extra bags cost $10 each.",
-        "speakerTextCn": "大行李不得超过20公斤，额外行李每件10美元。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "您需要询问班次的发车时间和是否准点，工作人员将提供有关信息。",
         "expectedAnswers": [
-          "I’ll weigh my bag before I leave home to be safe.",
-          "I’ll just pack light — no extra bags for me.",
-          "Okay, I’ll pay the $10 fee if I need to check a second bag."
+          "What time does the bus leave, and is it on schedule?",
+          "Can you tell me the departure time and if the bus is running on time?",
+          "When does the bus depart, and is it going to be on time?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确回应是否接受重量限制或额外费用",
-          "语言准确性：正确使用 'weigh my bag', 'pay the fee', 'pack light' 等表达",
-          "表达自然度：使用口语缩略和自然语气，如 'I’ll just...' 或 'Okay, I’ll...' ",
-          "关键词覆盖：使用 'weight', 'extra bags', 'fee', 'kg' 等核心词汇"
+          "意图达成度：正确表达了询问发车时间和准点的意图",
+          "语言准确性：语法和用词正确",
+          "表达自然度：符合英语口语习惯",
+          "关键词覆盖：使用了场景关键词"
         ]
       }
     },
@@ -57,9 +56,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "We allow one checked bag up to 23 kg and one personal item. Oversized bags require approval.",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我们允许一件最多23公斤的托运行李和一件随身物品。超大行李需提前申请。",
         "expectedAnswers": [
           "What qualifies as a personal item? Like a purse or a laptop bag?",

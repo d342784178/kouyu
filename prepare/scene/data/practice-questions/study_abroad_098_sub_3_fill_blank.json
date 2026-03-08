@@ -2,8 +2,7 @@
   "subSceneId": "study_abroad_098_sub_3",
   "subSceneName": "电子资源",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:28:21.732Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.849Z",
   "questions": [
     {
       "id": "study_abroad_098_sub_3_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "你必须先用学校账号完成身份验证才能访问付费资源",
         "type": "fill_blank",
-        "situation": "学生在宿舍想访问学校订阅的学术期刊，但点击链接后提示权限不足",
-        "speakerText": "I clicked on the link to the ScienceDirect journal, but it says I don't have access. What should I do?",
-        "speakerTextCn": "我点了ScienceDirect期刊的链接，但提示我没有权限。我该怎么办？",
-        "responseTemplate": "You need to ___ through the library's portal first.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,39 @@
             ]
           }
         ],
-        "hint": "你必须先用学校账号完成身份验证才能访问付费资源",
-        "knowledgePoint": "访问权限的正确表达方式"
+        "situation": "学生在宿舍想访问学校订阅的学术期刊，但点击链接后提示权限不足",
+        "speakerText": "I clicked on the link to the ScienceDirect journal, but it says I don't have access. What should I do?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我点了ScienceDirect期刊的链接，但提示我没有权限。我该怎么办？",
+        "knowledgePoint": "访问权限的正确表达方式",
+        "responseTemplate": "You need to ___ through the library's portal first."
+      }
+    },
+    {
+      "id": "study_abroad_098_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "study_abroad_098_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "当遇到访问问题时，常用句型是询问是否需要特殊权限或账号",
+        "qaId": "study_abroad_098_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "do I need a special login",
+            "options": [
+              "do I need a special login",
+              "can I use my personal account",
+              "is it working properly",
+              "where can I find the link"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户在尝试访问电子数据库时遇到困难，想询问是否需要特殊登录权限",
+        "knowledgePoint": "请求帮助的提问句型",
+        "responseTemplate": "I can't access the database—___?"
       }
     },
     {
@@ -38,11 +65,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "校外访问通常需要通过一个特殊的网络通道，图书馆网站会提供这个链接",
         "type": "fill_blank",
-        "situation": "留学生想通过校外网络访问学校数据库，但不确定该用什么方式连接",
-        "speakerText": "I'm off-campus and trying to reach the ProQuest database. How can I get access?",
-        "speakerTextCn": "我在校外，想访问ProQuest数据库。我该怎么登录？",
-        "responseTemplate": "Use the ___ link on the library's website to connect securely.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +79,12 @@
             ]
           }
         ],
-        "hint": "校外访问通常需要通过一个特殊的网络通道，图书馆网站会提供这个链接",
-        "knowledgePoint": "校外访问资源的关键术语"
+        "situation": "留学生想通过校外网络访问学校数据库，但不确定该用什么方式连接",
+        "speakerText": "I'm off-campus and trying to reach the ProQuest database. How can I get access?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我在校外，想访问ProQuest数据库。我该怎么登录？",
+        "knowledgePoint": "校外访问资源的关键术语",
+        "responseTemplate": "Use the ___ link on the library's website to connect securely."
       }
     },
     {
@@ -65,11 +93,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "图书馆通常按学科分类推荐资源，帮助用户快速找到合适数据库",
         "type": "fill_blank",
-        "situation": "学生发现图书馆官网的电子资源列表里有很多数据库，但不知道该从哪里开始",
-        "speakerText": "There are so many databases on the library page—how do I know which one to use for my research?",
-        "speakerTextCn": "图书馆页面上有这么多数据库，我该怎么知道该用哪一个做研究？",
-        "responseTemplate": "Check the ___ section—it tells you which database matches your subject.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +107,64 @@
             ]
           }
         ],
-        "hint": "图书馆通常按学科分类推荐资源，帮助用户快速找到合适数据库",
-        "knowledgePoint": "按学科筛选资源的表达方式"
+        "situation": "学生发现图书馆官网的电子资源列表里有很多数据库，但不知道该从哪里开始",
+        "speakerText": "There are so many databases on the library page—how do I know which one to use for my research?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "图书馆页面上有这么多数据库，我该怎么知道该用哪一个做研究？",
+        "knowledgePoint": "按学科筛选资源的表达方式",
+        "responseTemplate": "Check the ___ section—it tells you which database matches your subject."
+      }
+    },
+    {
+      "id": "study_abroad_098_sub_3_pq_5",
+      "subSceneId": "study_abroad_098_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "这是图书馆提供的校外访问技术名称",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "proxy",
+            "options": [
+              "proxy",
+              "private",
+              "secure",
+              "public"
+            ]
+          }
+        ],
+        "template": "If you're off campus, try the ___ link on the library homepage to access subscribed databases.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景核心短语（proxy link）"
+      }
+    },
+    {
+      "id": "study_abroad_098_sub_3_pq_6",
+      "subSceneId": "study_abroad_098_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "有时需要连接校园网络才能自动认证",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "network",
+            "options": [
+              "network",
+              "server",
+              "site",
+              "portal"
+            ]
+          }
+        ],
+        "template": "To access JSTOR, make sure you're connected to the university ___ before logging in.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景惯用搭配（university network）"
       }
     }
   ]

@@ -1,19 +1,26 @@
 {
   "sceneId": "daily_009",
   "sceneName": "加油站加油",
+  "exportedAt": "2026-03-08T15:31:54.843Z",
   "subScenes": [
     {
       "id": "daily_009_sub_1",
+      "sceneId": "daily_009",
       "name": "打招呼请求加油",
       "description": "顾客向加油站员工打招呼并说明需要加油",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_009_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hey there! Can I get some gas, please?",
-          "speakerTextCn": "嘿，能给我加点油吗？",
-          "responses": [
+          "subSceneId": "daily_009_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hey there! Can I get some gas, please?",
+          "triggerTextCn": "嘿，能给我加点油吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客通常先提出需求，服务方再提供服务",
+          "followUps": [
             {
               "text": "Sure! What kind of gas?",
               "text_cn": "当然！要哪种油？",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用简短口语回应，避免冗长"
+          "usageNote": "用简短口语回应，避免冗长",
+          "audioUrl": "COS:/qa/questions/daily_009_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_009_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I'd like to fill up, please.",
-          "speakerTextCn": "我想加满油，谢谢。",
-          "responses": [
+          "subSceneId": "daily_009_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'd like to fill up, please.",
+          "triggerTextCn": "我想加满油，谢谢。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客通常先提出需求，服务方再提供服务",
+          "followUps": [
             {
               "text": "No problem. Regular or premium?",
               "text_cn": "没问题，要普通还是高级？",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用缩写形式更自然，适合日常对话"
+          "usageNote": "用缩写形式更自然，适合日常对话",
+          "audioUrl": "COS:/qa/questions/daily_009_sub_1_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_009_sub_2",
+      "sceneId": "daily_009",
       "name": "确认油号和价格",
       "description": "顾客确认油号并询问单价和总价",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_009_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Regular's fine. How much per gallon?",
-          "speakerTextCn": "普通就行，每加仑多少钱？",
-          "responses": [
+          "subSceneId": "daily_009_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Regular's fine. How much per gallon?",
+          "triggerTextCn": "普通就行，每加仑多少钱？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "It's $3.89. Total'll be around $60.",
               "text_cn": "3.89美元一加仑，总共约60美元。",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "注意数字和货币的口语表达方式"
+          "usageNote": "注意数字和货币的口语表达方式",
+          "audioUrl": "COS:/qa/questions/daily_009_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_009_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Okay, fill it up. Do I need to pay now?",
-          "speakerTextCn": "好的，加满吧，现在付钱吗？",
-          "responses": [
+          "subSceneId": "daily_009_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Okay, fill it up. Do I need to pay now?",
+          "triggerTextCn": "好的，加满吧，现在付钱吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Yeah, you can pay at the pump or inside.",
               "text_cn": "对，你可以在加油机或店里付。",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "提供选择时用either或both更自然"
+          "usageNote": "提供选择时用either或both更自然",
+          "audioUrl": "COS:/qa/questions/daily_009_sub_2_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_009_sub_3",
+      "sceneId": "daily_009",
       "name": "支付与索要收据",
       "description": "顾客选择支付方式并请求收据",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_009_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "I'll pay inside with cash. Can I get a receipt?",
-          "speakerTextCn": "我进去用现金付，能给我收据吗？",
-          "responses": [
+          "subSceneId": "daily_009_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'll pay inside with cash. Can I get a receipt?",
+          "triggerTextCn": "我进去用现金付，能给我收据吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：顾客在完成加油后，主动询问如何支付和是否需要收据。",
+          "followUps": [
             {
               "text": "Sure thing. Here you go!",
               "text_cn": "当然，给你！",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "索要收据用Can I get...最自然"
+          "usageNote": "索要收据用Can I get...最自然",
+          "audioUrl": "COS:/qa/questions/daily_009_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_009_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I'm good with card. No receipt, thanks.",
-          "speakerTextCn": "我刷卡就行，不用收据了，谢谢。",
-          "responses": [
+          "subSceneId": "daily_009_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'm good with card. No receipt, thanks.",
+          "triggerTextCn": "我刷卡就行，不用收据了，谢谢。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：顾客在完成加油后，主动询问如何支付和是否需要收据。",
+          "followUps": [
             {
               "text": "All set! Have a safe trip!",
               "text_cn": "搞定啦，一路平安！",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "拒绝收据后常伴随道别语"
+          "usageNote": "拒绝收据后常伴随道别语",
+          "audioUrl": "COS:/qa/questions/daily_009_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_009_sub_4",
+      "sceneId": "daily_009",
       "name": "道别与感谢",
       "description": "顾客和员工礼貌道别，完成对话",
+      "order": 4,
       "estimatedMinutes": 3,
       "qaPairs": [
         {
           "id": "daily_009_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Thanks a lot! Have a good one!",
-          "speakerTextCn": "非常感谢！你今天也愉快！",
-          "responses": [
+          "subSceneId": "daily_009_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thanks a lot! Have a good one!",
+          "triggerTextCn": "非常感谢！你今天也愉快！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "You're welcome! Drive safe!",
               "text_cn": "不客气，开车小心！",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "回应感谢时用You're welcome最常用"
+          "usageNote": "回应感谢时用You're welcome最常用",
+          "audioUrl": "COS:/qa/questions/daily_009_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_009_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Appreciate it! Bye!",
-          "speakerTextCn": "谢谢！再见！",
-          "responses": [
+          "subSceneId": "daily_009_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Appreciate it! Bye!",
+          "triggerTextCn": "谢谢！再见！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Bye! Come back soon!",
               "text_cn": "拜！欢迎再来！",
@@ -222,7 +284,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "非正式道别用Bye/Later更地道"
+          "usageNote": "非正式道别用Bye/Later更地道",
+          "audioUrl": "COS:/qa/questions/daily_009_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

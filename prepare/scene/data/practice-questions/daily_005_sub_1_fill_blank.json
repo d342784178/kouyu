@@ -2,8 +2,7 @@
   "subSceneId": "daily_005_sub_1",
   "subSceneName": "挂号登记",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:02.855Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.462Z",
   "questions": [
     {
       "id": "daily_005_sub_1_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "在口语中，直接说名字最自然，无需多余主语或结构",
         "type": "fill_blank",
-        "situation": "患者到达诊所前台，准备进行挂号登记，主动告知来意和身份",
-        "speakerText": "Hi, I'm here for a checkup. My name is ___",
-        "speakerTextCn": "嗨，我来做一个检查，我的名字是___",
-        "responseTemplate": "Hi, I'm here for a checkup. My name is ___",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "在口语中，直接说名字最自然，无需多余主语或结构",
-        "knowledgePoint": "自我介绍的简洁表达"
+        "situation": "患者到达诊所前台，准备进行挂号登记，主动告知来意和身份",
+        "speakerText": "Hi, I'm here for a checkup. My name is ___",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨，我来做一个检查，我的名字是___",
+        "knowledgePoint": "自我介绍的简洁表达",
+        "responseTemplate": "Hi, I'm here for a checkup. My name is ___"
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "在挂号场景中，直接用姓名表明身份，避免冗余表达",
         "type": "fill_blank",
-        "situation": "患者向接待员说明来意，表明自己有预约但未提具体时间",
-        "speakerText": "I have an appointment today. I'm ___",
-        "speakerTextCn": "我今天有预约，我是___",
-        "responseTemplate": "I have an appointment today. I'm ___",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "在挂号场景中，直接用姓名表明身份，避免冗余表达",
-        "knowledgePoint": "身份确认的自然表达"
+        "situation": "患者向接待员说明来意，表明自己有预约但未提具体时间",
+        "speakerText": "I have an appointment today. I'm ___",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我今天有预约，我是___",
+        "knowledgePoint": "身份确认的自然表达",
+        "responseTemplate": "I have an appointment today. I'm ___"
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "说明就诊类型时，使用具体服务名称，而非模糊指代",
         "type": "fill_blank",
-        "situation": "患者主动向接待员说明就诊目的，用于启动登记流程",
-        "speakerText": "I'd like to check in for ___",
-        "speakerTextCn": "我想办理挂号，为了___",
-        "responseTemplate": "I'd like to check in for ___",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "说明就诊类型时，使用具体服务名称，而非模糊指代",
-        "knowledgePoint": "表达就诊目的的常用短语"
+        "situation": "患者主动向接待员说明就诊目的，用于启动登记流程",
+        "speakerText": "I'd like to check in for ___",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我想办理挂号，为了___",
+        "knowledgePoint": "表达就诊目的的常用短语",
+        "responseTemplate": "I'd like to check in for ___"
+      }
+    },
+    {
+      "id": "daily_005_sub_1_pq_4",
+      "subSceneId": "daily_005_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "表达‘想要做某事’的固定搭配",
+        "qaId": "daily_005_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "with",
+              "at"
+            ]
+          }
+        ],
+        "template": "I'd like ___ check in for my appointment.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "would like to do（挂号场景核心句型）"
+      }
+    },
+    {
+      "id": "daily_005_sub_1_pq_5",
+      "subSceneId": "daily_005_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "挂号时填写表格的常用动词搭配",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "fill out",
+            "options": [
+              "fill out",
+              "fill in",
+              "write down",
+              "hand in"
+            ]
+          }
+        ],
+        "template": "Could you please help me ___ this form?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配（fill out a form）"
+      }
+    },
+    {
+      "id": "daily_005_sub_1_pq_6",
+      "subSceneId": "daily_005_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "预约时间的常见表达，参考对话中的3 PM",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "three",
+            "options": [
+              "three",
+              "ten",
+              "twelve",
+              "five"
+            ]
+          }
+        ],
+        "template": "My appointment is at ___ o'clock.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "时间表达（整点数字）"
       }
     }
   ]

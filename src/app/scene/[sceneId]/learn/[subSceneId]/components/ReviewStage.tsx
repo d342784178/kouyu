@@ -159,7 +159,7 @@ function ReplayFlow({
                   {/* 对方说的话 */}
                   {qa && (
                     <p className="text-xs text-gray-400 mb-1 truncate">
-                      {qa.speakerText}
+                      {qa.triggerText}
                     </p>
                   )}
                   {/* 用户说的话 */}
@@ -294,8 +294,8 @@ function RetryFlow({ qaPairs, failedQaIds, onRetry, onComplete }: RetryFlowProps
             </div>
             <div className="flex-1 min-w-0">
               {/* 对方说的话 */}
-              <p className="text-xs text-gray-400 mb-0.5 truncate">{qa.speakerText}</p>
-              <p className="text-xs text-gray-300">{qa.speakerTextCn}</p>
+              <p className="text-xs text-gray-400 mb-0.5 truncate">{qa.triggerText}</p>
+              <p className="text-xs text-gray-300">{qa.triggerTextCn}</p>
             </div>
           </div>
         </motion.div>

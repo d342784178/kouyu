@@ -2,9 +2,148 @@
   "subSceneId": "daily_001_sub_2",
   "subSceneName": "询问推荐",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:15:08.258Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.431Z",
   "questions": [
+    {
+      "id": "daily_001_sub_2_qa_1_choice_1",
+      "subSceneId": "daily_001_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_001_sub_2_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What do you recommend?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "What's the most expensive dish?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have any discounts?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I have a menu?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案为 What do you recommend?，因为它符合场景要求，询问服务员推荐菜。其他选项不合适，因为 What's the most expensive dish? 是询问价格最高的菜，Do you have any discounts? 是询问是否有折扣，Can I have a menu? 是询问菜单。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客询问服务员今天的推荐菜"
+      }
+    },
+    {
+      "id": "daily_001_sub_2_qa_3_choice_1",
+      "subSceneId": "daily_001_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_001_sub_2_qa_3",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What's the most popular dish today?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "What's the price of the vegetarian option?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have any dishes with seafood?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you recommend a dish for a kid?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 'What's the most popular dish today?' 因为它询问了今天的推荐菜。其他选项不正确，因为它们询问了不同的信息。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想知道今天的推荐菜是什么"
+      }
+    },
+    {
+      "id": "daily_001_sub_2_qa_2_choice_1",
+      "subSceneId": "daily_001_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_001_sub_2_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do you have any vegetarian options?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "What is your favorite dish?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much is the bill?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get a refill on my drink?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案为'Do you have any vegetarian options?'，因为它符合场景需求并且表达自然。其他选项不符合场景或表达不自然",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想询问服务员今天的推荐菜"
+      }
+    },
+    {
+      "id": "daily_001_sub_2_qa_4_choice_1",
+      "subSceneId": "daily_001_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_001_sub_2_qa_4",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What's the best dish to try today?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you have any discounts on food?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I get a menu in English?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have any vegetarian options?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是\"What's the best dish to try today？\"，因为它直接询问了服务员关于推荐菜的意见。其他选项虽然也是合理的问题，但不直接回答了顾客询问的需求。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "您需要询问服务员今天的推荐菜"
+      }
+    },
     {
       "id": "daily_001_sub_2_choice_1",
       "subSceneId": "daily_001_sub_2",
@@ -12,9 +151,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "顾客在餐厅询问今天的特色菜，服务员正在推荐当日主厨特选。",
-        "speakerText": "What would you recommend today?",
-        "speakerTextCn": "今天你推荐什么？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +173,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了'I'd go for...'这一高频推荐表达，并结合了'chef's special'和具体菜品，自然且符合语境。干扰项1是敷衍式回应，缺乏推荐；干扰项2是负面建议，偏离问题意图；干扰项3是推卸责任，不符合服务员角色。"
+        "situation": "顾客在餐厅询问今天的特色菜，服务员正在推荐当日主厨特选。",
+        "explanation": "正确答案使用了'I'd go for...'这一高频推荐表达，并结合了'chef's special'和具体菜品，自然且符合语境。干扰项1是敷衍式回应，缺乏推荐；干扰项2是负面建议，偏离问题意图；干扰项3是推卸责任，不符合服务员角色。",
+        "speakerText": "What would you recommend today?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "今天你推荐什么？"
       }
     },
     {
@@ -47,9 +187,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "一位素食顾客询问餐厅是否有适合的菜品，服务员提供具体选项。",
-        "speakerText": "Do you have any vegetarian dishes?",
-        "speakerTextCn": "你们有素食菜品吗？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +209,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了'We have...'这一自然回应结构，明确列出两个具体素食选项，符合高频对话模式。干扰项1错误地将非素食推荐给素食者；干扰项2用'fries are okay'弱化回应，不专业；干扰项3建议顾客自己查菜单，回避服务责任。"
+        "situation": "一位素食顾客询问餐厅是否有适合的菜品，服务员提供具体选项。",
+        "explanation": "正确答案使用了'We have...'这一自然回应结构，明确列出两个具体素食选项，符合高频对话模式。干扰项1错误地将非素食推荐给素食者；干扰项2用'fries are okay'弱化回应，不专业；干扰项3建议顾客自己查菜单，回避服务责任。",
+        "speakerText": "Do you have any vegetarian dishes?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你们有素食菜品吗？"
       }
     },
     {
@@ -82,9 +223,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "服务员介绍完主厨特选后，顾客表示想尝试，服务员确认选择并补充细节。",
-        "speakerText": "I'll take the mushroom risotto, then.",
-        "speakerTextCn": "那我就要蘑菇烩饭了。",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +245,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了积极肯定（Great choice!）并补充菜品细节和附加选项，是服务场景中专业且温暖的回应。干扰项1仅机械确认，缺乏服务温度；干扰项2强行推销无关菜品，答非所问；干扰项3质疑顾客选择，不礼貌且不符合服务规范。"
+        "situation": "服务员介绍完主厨特选后，顾客表示想尝试，服务员确认选择并补充细节。",
+        "explanation": "正确答案使用了积极肯定（Great choice!）并补充菜品细节和附加选项，是服务场景中专业且温暖的回应。干扰项1仅机械确认，缺乏服务温度；干扰项2强行推销无关菜品，答非所问；干扰项3质疑顾客选择，不礼貌且不符合服务规范。",
+        "speakerText": "I'll take the mushroom risotto, then.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "那我就要蘑菇烩饭了。"
       }
     }
   ]

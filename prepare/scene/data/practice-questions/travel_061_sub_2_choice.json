@@ -2,42 +2,41 @@
   "subSceneId": "travel_061_sub_2",
   "subSceneName": "说明需求",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:05:23.691Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.112Z",
   "questions": [
     {
-      "id": "travel_061_sub_2_choice_1",
+      "id": "travel_061_sub_2_qa_1_choice_1",
       "subSceneId": "travel_061_sub_2",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "travel_061_sub_2_qa_1",
-        "speakerText": "Sure! How many people and what time?",
-        "speakerTextCn": "好的！几位？几点？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "I need a table for four at 7:30 PM, and I'd prefer a window seat if possible.",
+            "text": "Sure! How many people and what time?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I want a table for four at 7:30 PM, and give me a window seat.",
+            "text": "Do you have any vegetarian options?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "There are four people, and we're coming at 7:30, no preference.",
+            "text": "Can I make a reservation for tomorrow?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can you book a table? I don't know how many people yet.",
+            "text": "How much is the dinner?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了礼貌表达 'I'd prefer... if possible'，符合场景中强调的礼貌请求原则。选项2语气生硬，缺少礼貌用语；选项3虽然信息正确，但表达过于简略，不符合主动说明需求的语境；选项4未回答问题，偏离了回应要求。"
+        "explanation": "正确答案 'Sure! How many people and what time?' 符合场景中服务方要求提供预订关键信息（人数和时间）的语境。干扰项 'Do you have any vegetarian options?' 关注饮食偏好，属于特殊要求，但未回应核心的人员与时间信息；'Can I make a reservation for tomorrow?' 是请求而非回应服务方的询问；'How much is the dinner?' 询问价格，与预订细节无关。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客正在餐厅预订座位，服务人员询问需要什么信息，顾客需要回应以提供预订所需的关键细节：人数、时间及特殊要求。"
       }
     },
     {
@@ -46,10 +45,8 @@
       "type": "choice",
       "order": 2,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I'm calling to reserve a table. Can you help?",
-        "speakerTextCn": "我打电话来预订餐桌，能帮忙吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +69,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确回应了预订需求，询问人数和时间，符合本场景核心功能。选项2询问信用卡，属于支付环节，与当前阶段无关；选项3直接拒绝，未提供帮助；选项4询问口味，偏离了‘说明需求’的焦点。"
+        "explanation": "正确答案准确回应了预订需求，询问人数和时间，符合本场景核心功能。选项2询问信用卡，属于支付环节，与当前阶段无关；选项3直接拒绝，未提供帮助；选项4询问口味，偏离了‘说明需求’的焦点。",
+        "speakerText": "I'm calling to reserve a table. Can you help?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我打电话来预订餐桌，能帮忙吗？"
       }
     },
     {
@@ -81,10 +81,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "We'd like to book a private room for a birthday party.",
-        "speakerTextCn": "我们想预订一个私人房间办生日派对。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +105,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案精准询问人数和时间，是回应特殊需求的标准流程。选项2聚焦食物选择，属于后续细节；选项3提供优惠，但未收集必要信息；选项4更改时间，属于推脱而非回应需求。"
+        "explanation": "正确答案精准询问人数和时间，是回应特殊需求的标准流程。选项2聚焦食物选择，属于后续细节；选项3提供优惠，但未收集必要信息；选项4更改时间，属于推脱而非回应需求。",
+        "speakerText": "We'd like to book a private room for a birthday party.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们想预订一个私人房间办生日派对。"
       }
     }
   ]

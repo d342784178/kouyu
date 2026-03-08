@@ -2,8 +2,7 @@
   "subSceneId": "daily_017_sub_2",
   "subSceneName": "询问价格与种类",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:25:23.136Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.562Z",
   "questions": [
     {
       "id": "daily_017_sub_2_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "回答种类时，列出具体苹果品种最自然",
         "type": "fill_blank",
-        "situation": "顾客在水果摊前想了解苹果的种类和价格，准备挑选一些购买",
-        "speakerText": "Do you have different kinds of apples?",
-        "speakerTextCn": "你们有不同种类的苹果吗？",
-        "responseTemplate": "Yes, we have ___.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,76 @@
             ]
           }
         ],
-        "hint": "回答种类时，列出具体苹果品种最自然",
-        "knowledgePoint": "列举具体商品种类的口语表达"
+        "situation": "顾客在水果摊前想了解苹果的种类和价格，准备挑选一些购买",
+        "speakerText": "Do you have different kinds of apples?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你们有不同种类的苹果吗？",
+        "knowledgePoint": "列举具体商品种类的口语表达",
+        "responseTemplate": "Yes, we have ___."
+      }
+    },
+    {
+      "id": "daily_017_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "daily_017_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问某物是否存在时，常用一般疑问句结构 'Do you have...?'",
+        "qaId": "daily_017_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Do",
+            "options": [
+              "Are",
+              "Can",
+              "Do",
+              "Will"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "ripe mangoes",
+            "options": [
+              "fresh apples",
+              "ripe mangoes",
+              "sweet oranges",
+              "big bananas"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想了解水果的价格和可选种类，准备向店员提问",
+        "knowledgePoint": "一般疑问句结构用于询问物品是否存在",
+        "responseTemplate": "___ you have any ___?"
+      }
+    },
+    {
+      "id": "daily_017_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "daily_017_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "注意复数形式和冠词的使用，这里指代的是可数名词的复数形式",
+        "qaId": "daily_017_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "strawberries",
+            "options": [
+              "strawberries",
+              "strawberry's",
+              "the strawberries",
+              "strawberry"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想询问某种水果的价格和可选种类，需要向店员提出一个自然得体的问题",
+        "knowledgePoint": "询问价格的句型结构",
+        "responseTemplate": "How much are these ___?"
       }
     },
     {
@@ -38,11 +102,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "回答价格时需包含单位（如 per pound / per kg）",
         "type": "fill_blank",
-        "situation": "顾客看到一筐橙子，想确认价格后决定买多少",
-        "speakerText": "How much are these oranges?",
-        "speakerTextCn": "这些橙子多少钱？",
-        "responseTemplate": "They're ___.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +116,12 @@
             ]
           }
         ],
-        "hint": "回答价格时需包含单位（如 per pound / per kg）",
-        "knowledgePoint": "表达单价的常用结构"
+        "situation": "顾客看到一筐橙子，想确认价格后决定买多少",
+        "speakerText": "How much are these oranges?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这些橙子多少钱？",
+        "knowledgePoint": "表达单价的常用结构",
+        "responseTemplate": "They're ___."
       }
     },
     {
@@ -65,11 +130,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "描述水果成熟度时，用 'a little green' 或 'just ripe' 更地道",
         "type": "fill_blank",
-        "situation": "顾客想买香蕉，但不确定是否成熟，向摊主确认可选状态",
-        "speakerText": "Do you have bananas that aren't too ripe?",
-        "speakerTextCn": "你们有不太熟的香蕉吗？",
-        "responseTemplate": "Sure, we've got ___.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +144,38 @@
             ]
           }
         ],
-        "hint": "描述水果成熟度时，用 'a little green' 或 'just ripe' 更地道",
-        "knowledgePoint": "描述水果成熟程度的口语表达"
+        "situation": "顾客想买香蕉，但不确定是否成熟，向摊主确认可选状态",
+        "speakerText": "Do you have bananas that aren't too ripe?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你们有不太熟的香蕉吗？",
+        "knowledgePoint": "描述水果成熟程度的口语表达",
+        "responseTemplate": "Sure, we've got ___."
+      }
+    },
+    {
+      "id": "daily_017_sub_2_pq_6",
+      "subSceneId": "daily_017_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "询问单价时最常用的名词",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "price",
+            "options": [
+              "price",
+              "cost",
+              "money",
+              "rate"
+            ]
+          }
+        ],
+        "template": "I'd like to buy some kiwis. What's the ___ per kilogram?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "询问价格的核心词汇：price"
       }
     }
   ]

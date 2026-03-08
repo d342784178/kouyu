@@ -2,8 +2,7 @@
   "subSceneId": "daily_017_sub_1",
   "subSceneName": "打招呼问候",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:17:06.171Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.560Z",
   "questions": [
     {
       "id": "daily_017_sub_1_choice_1",
@@ -12,9 +11,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "顾客走进一家咖啡店，店员微笑着打招呼，顾客需要礼貌回应并开启对话",
-        "speakerText": "Good morning! Welcome to Brew & Co!",
-        "speakerTextCn": "早上好！欢迎光临Brew & Co！",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +33,81 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是回应问候并表达感谢，符合社交礼仪。opt_1是直接点单，忽略了问候回应；opt_3是提问建议，跳过回应显得突兀；opt_4是回应'How are you?'的常用语，不适合回应欢迎语。"
+        "situation": "顾客走进一家咖啡店，店员微笑着打招呼，顾客需要礼貌回应并开启对话",
+        "explanation": "正确答案是回应问候并表达感谢，符合社交礼仪。opt_1是直接点单，忽略了问候回应；opt_3是提问建议，跳过回应显得突兀；opt_4是回应'How are you?'的常用语，不适合回应欢迎语。",
+        "speakerText": "Good morning! Welcome to Brew & Co!",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "早上好！欢迎光临Brew & Co！"
+      }
+    },
+    {
+      "id": "daily_017_sub_1_qa_2_choice_1",
+      "subSceneId": "daily_017_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_017_sub_1_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How's it going?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you have apples?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "What time do you close?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Hi, I need some fruit.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'How's it going?' 是自然、礼貌的日常问候语，适合顾客进店时与店员开启对话。选项2是直接询问商品，缺乏问候，显得突兀；选项3询问营业时间，与打招呼场景无关；选项4虽是真实表达，但属于需求陈述而非问候，不符合礼貌开场的语用需求。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客走进水果店，想礼貌地向店员打招呼并开启对话"
+      }
+    },
+    {
+      "id": "daily_017_sub_1_qa_1_choice_1",
+      "subSceneId": "daily_017_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_017_sub_1_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hi there! Do you have any new fruits today?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "你有苹果吗？",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I'd like to know if you have any fresh fruits today, please.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "今天有苹果吗？",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案：Hi there! Do you have any new fruits today？正确的提问语句不仅询问有无新鲜苹果，还表明了对新鲜水果的兴趣。干扰项‘你有苹果吗？’过于简单直接，未能体现礼貌性。‘I'd like to know if you have any fresh fruits today, please.’虽然表达礼貌，但语气较为正式，不太自然。‘今天有苹果吗？’虽然询问苹果，但未能表达礼貌性，且语气较为直接。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客进店与店员礼貌打招呼，询问水果店是否有新鲜苹果"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "顾客进入一家面包店，店员笑着说'Hey there! How's your day going?'，顾客希望自然回应并保持友好氛围",
-        "speakerText": "Hey there! How's your day going?",
-        "speakerTextCn": "嗨！今天过得怎么样？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是使用非正式但礼貌的回应，并反问对方，符合日常口语习惯。opt_1是直接购物，忽略问候；opt_3是无关陈述，答非所问；opt_4虽然正确但语气过于正式，不如opt_2自然亲切。"
+        "situation": "顾客进入一家面包店，店员笑着说'Hey there! How's your day going?'，顾客希望自然回应并保持友好氛围",
+        "explanation": "正确答案是使用非正式但礼貌的回应，并反问对方，符合日常口语习惯。opt_1是直接购物，忽略问候；opt_3是无关陈述，答非所问；opt_4虽然正确但语气过于正式，不如opt_2自然亲切。",
+        "speakerText": "Hey there! How's your day going?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨！今天过得怎么样？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "顾客走进一家花店，店员热情地说'Welcome! Looking for something special today?'，顾客想礼貌回应并开启对话",
-        "speakerText": "Welcome! Looking for something special today?",
-        "speakerTextCn": "欢迎光临！今天想找点特别的东西吗？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是先感谢并提供背景信息，自然承接店员的开放式提问。opt_1直接回答需求，略显生硬；opt_3是提问但未回应问候，显得不礼貌；opt_4是回应'How are you?'的用法，不适合回应询问意图的提问。"
+        "situation": "顾客走进一家花店，店员热情地说'Welcome! Looking for something special today?'，顾客想礼貌回应并开启对话",
+        "explanation": "正确答案是先感谢并提供背景信息，自然承接店员的开放式提问。opt_1直接回答需求，略显生硬；opt_3是提问但未回应问候，显得不礼貌；opt_4是回应'How are you?'的用法，不适合回应询问意图的提问。",
+        "speakerText": "Welcome! Looking for something special today?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "欢迎光临！今天想找点特别的东西吗？"
       }
     }
   ]

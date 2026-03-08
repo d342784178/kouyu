@@ -1,19 +1,26 @@
 {
   "sceneId": "workplace_043",
   "sceneName": "离职谈话",
+  "exportedAt": "2026-03-08T15:31:54.913Z",
   "subScenes": [
     {
       "id": "workplace_043_sub_1",
+      "sceneId": "workplace_043",
       "name": "预约谈话",
       "description": "员工请求与经理进行离职面谈",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_043_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hey, could we schedule a quick chat this afternoon?",
-          "speakerTextCn": "嘿，今天下午能抽空聊一下吗？",
-          "responses": [
+          "subSceneId": "workplace_043_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hey, could we schedule a quick chat this afternoon?",
+          "triggerTextCn": "嘿，今天下午能抽空聊一下吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户提出请求，服务方/工作人员回应。",
+          "followUps": [
             {
               "text": "Sure, how about 3 PM?",
               "text_cn": "当然，三点可以吗？",
@@ -30,22 +37,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用委婉请求开启敏感对话"
+          "usageNote": "用委婉请求开启敏感对话",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         }
       ]
     },
     {
       "id": "workplace_043_sub_2",
+      "sceneId": "workplace_043",
       "name": "提出离职",
       "description": "员工正式但礼貌地告知辞职决定",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_043_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "I've really enjoyed working here, but I've decided to move on.",
-          "speakerTextCn": "我很享受在这里的工作，但我决定离开了。",
-          "responses": [
+          "subSceneId": "workplace_043_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "I've really enjoyed working here, but I've decided to move on.",
+          "triggerTextCn": "我很享受在这里的工作，但我决定离开了。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I understand, and I appreciate the opportunity.",
               "text_cn": "我理解，感谢这个机会。",
@@ -62,14 +78,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "先肯定再表达离职，降低冲击"
+          "usageNote": "先肯定再表达离职，降低冲击",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "workplace_043_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I'm not leaving because of anything bad—just a new direction.",
-          "speakerTextCn": "我不是因为什么不好的事才走，只是想换方向。",
-          "responses": [
+          "subSceneId": "workplace_043_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "I'm not leaving because of anything bad—just a new direction.",
+          "triggerTextCn": "我不是因为什么不好的事才走，只是想换方向。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I'm glad you're not unhappy here.",
               "text_cn": "很高兴你不是因为不满才走。",
@@ -86,22 +109,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "主动澄清负面原因，避免误会"
+          "usageNote": "主动澄清负面原因，避免误会",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_043_sub_3",
+      "sceneId": "workplace_043",
       "name": "协商离职日期",
       "description": "双方商议最合适的离职时间",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_043_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "I'd like to leave by the end of next month—would that work?",
-          "speakerTextCn": "我想下月底离职，这样可以吗？",
-          "responses": [
+          "subSceneId": "workplace_043_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'd like to leave by the end of next month—would that work?",
+          "triggerTextCn": "我想下月底离职，这样可以吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：经理作为服务方，回应员工的离职日期请求。",
+          "followUps": [
             {
               "text": "That gives us enough time to transition.",
               "text_cn": "这样我们有足够时间交接。",
@@ -118,14 +150,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "提出具体日期，体现责任感"
+          "usageNote": "提出具体日期，体现责任感",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "workplace_043_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I know two weeks is standard, but I'm happy to stay longer if needed.",
-          "speakerTextCn": "我知道两周是惯例，但需要我多留点时间我愿意。",
-          "responses": [
+          "subSceneId": "workplace_043_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "I know two weeks is standard, but I'm happy to stay longer if needed.",
+          "triggerTextCn": "我知道两周是惯例，但需要我多留点时间我愿意。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：经理作为服务方，回应员工的离职日期请求。",
+          "followUps": [
             {
               "text": "That's really thoughtful of you.",
               "text_cn": "你真贴心。",
@@ -142,22 +181,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "主动让步，展现职业素养"
+          "usageNote": "主动让步，展现职业素养",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_043_sub_4",
+      "sceneId": "workplace_043",
       "name": "安排工作交接",
       "description": "讨论关键任务和交接人",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_043_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "I'll document everything I'm handling before I go.",
-          "speakerTextCn": "我走之前会把所有工作整理清楚。",
-          "responses": [
+          "subSceneId": "workplace_043_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "I'll document everything I'm handling before I go.",
+          "triggerTextCn": "我走之前会把所有工作整理清楚。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "That's a huge help—thank you.",
               "text_cn": "太有用了，谢谢你。",
@@ -174,14 +222,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "主动承诺整理，赢得信任"
+          "usageNote": "主动承诺整理，赢得信任",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "workplace_043_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I can train Sam on the client reports—she’s already familiar.",
-          "speakerTextCn": "我可以培训萨姆接手客户报告，她早有了解。",
-          "responses": [
+          "subSceneId": "workplace_043_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "I can train Sam on the client reports—she’s already familiar.",
+          "triggerTextCn": "我可以培训萨姆接手客户报告，她早有了解。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Perfect—she’s the best person for it.",
               "text_cn": "太好了，她最合适。",
@@ -198,22 +253,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "推荐接替者，体现团队意识"
+          "usageNote": "推荐接替者，体现团队意识",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_043_sub_5",
+      "sceneId": "workplace_043",
       "name": "礼貌道别",
       "description": "结束谈话，表达感谢与祝福",
+      "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_043_sub_5_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "I'm really grateful for everything you've taught me.",
-          "speakerTextCn": "真的很感谢你教我的一切。",
-          "responses": [
+          "subSceneId": "workplace_043_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "I'm really grateful for everything you've taught me.",
+          "triggerTextCn": "真的很感谢你教我的一切。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "You've been a great asset—we'll miss you.",
               "text_cn": "你一直是重要成员，我们会想你的。",
@@ -230,14 +294,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "真诚感谢，留下好印象"
+          "usageNote": "真诚感谢，留下好印象",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "workplace_043_sub_5_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I hope we can stay in touch—I'd love to hear how things go for you.",
-          "speakerTextCn": "希望我们能保持联系，很想听你未来的发展。",
-          "responses": [
+          "subSceneId": "workplace_043_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "I hope we can stay in touch—I'd love to hear how things go for you.",
+          "triggerTextCn": "希望我们能保持联系，很想听你未来的发展。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Absolutely—I'll message you on LinkedIn.",
               "text_cn": "当然，我发你领英消息。",
@@ -254,7 +325,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "主动提议后续联系，延续关系"
+          "usageNote": "主动提议后续联系，延续关系",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

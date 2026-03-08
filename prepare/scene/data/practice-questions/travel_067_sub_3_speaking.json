@@ -2,28 +2,28 @@
   "subSceneId": "travel_067_sub_3",
   "subSceneName": "既往病史处理",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:14:24.521Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.208Z",
   "questions": [
     {
-      "id": "travel_067_sub_3_speaking_1",
+      "id": "travel_067_sub_3_qa_1_speaking_1",
       "subSceneId": "travel_067_sub_3",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "travel_067_sub_3_qa_1",
-        "speakerText": "I've got high blood pressure — will that affect my coverage?",
-        "speakerTextCn": "我有高血压，这会影响保险吗？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客询问个人健康状况对保险的影响",
         "expectedAnswers": [
-          "I have high blood pressure, but it’s under control with medication. Can I still get coverage?",
-          "I’ve been diagnosed with hypertension for five years — is there a way to include it in the policy?",
-          "I’m worried my condition might lead to a denial. What do I need to do to qualify?"
+          "I've got high blood pressure — will that affect my coverage?",
+          "Will my high blood pressure impact my insurance policy?",
+          "I have high blood pressure. Will that affect my insurance?"
         ],
         "evaluationCriteria": [
-          "是否明确说明了慢性病名称和当前状态（如是否控制良好）",
-          "是否使用了场景关键词如 'pre-existing condition', 'coverage', 'declare' 或 'waiver'",
-          "表达是否自然、礼貌，符合英语口语习惯，避免生硬或命令式语气"
+          "意图达成度：正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
@@ -33,9 +33,10 @@
       "type": "speaking",
       "order": 2,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I have asthma and take medication daily. Can I buy travel insurance?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我有哮喘，每天服药，能买旅行保险吗？",
         "expectedAnswers": [
           "I’ve had asthma since childhood and use an inhaler regularly — is that covered under your policy?",
@@ -55,9 +56,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I was recently diagnosed with diabetes. Should I wait before buying insurance?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我最近被诊断出糖尿病，我应该等一等再买保险吗？",
         "expectedAnswers": [
           "No, it’s better to apply now and disclose the diagnosis — delays might cause coverage gaps.",

@@ -1,53 +1,51 @@
 {
   "subSceneId": "travel_064_sub_2",
-  "subSceneName": "询问收费",
+  "subSceneName": "询问收费标准",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:06:11.008Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.155Z",
   "questions": [
     {
-      "id": "travel_064_sub_2_speaking_1",
+      "id": "travel_064_sub_2_qa_1_speaking_1",
       "subSceneId": "travel_064_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "travel_064_sub_2_qa_1",
-        "speakerText": "It's $5 per bag for up to 24 hours.",
-        "speakerTextCn": "每件行李24小时内收费5美元。",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想知道寄存行李的费用和计费方式。",
         "expectedAnswers": [
-          "That's reasonable. I'll leave one bag.",
-          "I'd like to store two bags then.",
-          "Could you tell me if there's a discount for three bags?"
+          "It's $5 per bag for up to 24 hours.",
+          "每件行李24小时内收费5美元。",
+          "您好，我想问一下寄存行李的费用是多少?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否明确回应了价格并表达了寄存意愿或进一步询问",
-          "语言准确性：语法和用词正确，无严重错误",
-          "表达自然度：符合日常口语习惯，不生硬",
-          "关键词覆盖：使用了 'bag', 'store', 'discount' 等场景关键词"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
     {
-      "id": "travel_064_sub_2_speaking_2",
+      "id": "travel_064_sub_2_qa_2_speaking_1",
       "subSceneId": "travel_064_sub_2",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "travel_064_sub_2_qa_2",
-        "speakerText": "We charge by the day, not by the hour.",
-        "speakerTextCn": "我们按天收费，不是按小时。",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你来到寄存柜台，准备存放行李，工作人员向你询问费用，你应该问什么?",
         "expectedAnswers": [
-          "So even if I pick it up after 18 hours, I still pay $5?",
-          "Perfect, I'm staying for 2 days, so that's $10 total.",
-          "Got it, thanks for clarifying."
+          "What is the cost for storing luggage for a day?",
+          "How much does it cost to store my luggage for 24 hours?",
+          "Do you charge by the hour or by the day?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否准确确认了计费方式，避免误解",
-          "语言准确性：使用了正确的时态和表达（如 'pick it up', 'pay $5'）",
-          "表达自然度：语气自然，符合真实对话节奏",
-          "关键词覆盖：使用了 'day', 'hour', 'charge', 'pick up' 等核心词"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯"
         ]
       }
     },
@@ -57,9 +55,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "The first 24 hours are free, then $3 per additional day.",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "前24小时免费，之后每天3美元。",
         "expectedAnswers": [
           "That's great! I'll pick it up in 20 hours then.",

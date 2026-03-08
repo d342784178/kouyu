@@ -2,8 +2,7 @@
   "subSceneId": "workplace_050_sub_2",
   "subSceneName": "初步排查",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:33:30.570Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.556Z",
   "questions": [
     {
       "id": "workplace_050_sub_2_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "回答需明确是否听到声音，避免使用模糊词如'maybe'或'kinda'",
         "type": "fill_blank",
-        "situation": "IT支持人员指导用户检查笔记本电脑无法开机的问题，询问电源和硬件状态。",
-        "speakerText": "Is the power adapter connected properly? Do you hear any beep when you press the power button?",
-        "speakerTextCn": "电源适配器插好了吗？按下电源键时有听到任何蜂鸣声吗？",
-        "responseTemplate": "The adapter is plugged in, but ___.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,66 @@
             ]
           }
         ],
-        "hint": "回答需明确是否听到声音，避免使用模糊词如'maybe'或'kinda'",
-        "knowledgePoint": "具体反馈硬件状态"
+        "situation": "IT支持人员指导用户检查笔记本电脑无法开机的问题，询问电源和硬件状态。",
+        "speakerText": "Is the power adapter connected properly? Do you hear any beep when you press the power button?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "电源适配器插好了吗？按下电源键时有听到任何蜂鸣声吗？",
+        "knowledgePoint": "具体反馈硬件状态",
+        "responseTemplate": "The adapter is plugged in, but ___."
+      }
+    },
+    {
+      "id": "workplace_050_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "workplace_050_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "技术人员可能会建议用户尝试的第一步",
+        "qaId": "workplace_050_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "press and hold the power button",
+            "options": [
+              "拔掉电源后就好",
+              "长按电源键30秒",
+              "按下电源键再试",
+              "不需要操作"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户描述故障，等待技术人员指导",
+        "knowledgePoint": "基本故障排除技巧",
+        "responseTemplate": "Try unplugging it, then ___"
+      }
+    },
+    {
+      "id": "workplace_050_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "workplace_050_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "帮助用户回忆基础检查问题",
+        "qaId": "workplace_050_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "charger",
+            "options": [
+              "电源",
+              "充电器",
+              "风扇",
+              "电脑"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户描述故障，等待技术人员指导",
+        "knowledgePoint": "基础检查问题表达",
+        "responseTemplate": "Is the ___ light on? Any fan noise?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "描述现象需清晰直接，避免主观猜测或模糊表达",
         "type": "fill_blank",
-        "situation": "用户报告显示器无信号，IT人员指导其检查连接线和指示灯状态。",
-        "speakerText": "Is the monitor's power light on? And is the cable securely connected to both ends?",
-        "speakerTextCn": "显示器的电源指示灯亮吗？线缆两端都插紧了吗？",
-        "responseTemplate": "The power light is on, but ___.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "描述现象需清晰直接，避免主观猜测或模糊表达",
-        "knowledgePoint": "准确描述视觉/状态反馈"
+        "situation": "用户报告显示器无信号，IT人员指导其检查连接线和指示灯状态。",
+        "speakerText": "Is the monitor's power light on? And is the cable securely connected to both ends?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "显示器的电源指示灯亮吗？线缆两端都插紧了吗？",
+        "knowledgePoint": "准确描述视觉/状态反馈",
+        "responseTemplate": "The power light is on, but ___."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "描述网络连接状态需明确是否成功，避免使用不确定的表达",
         "type": "fill_blank",
-        "situation": "用户无法连接Wi-Fi，IT人员指导其确认网络适配器状态和指示灯。",
-        "speakerText": "Does your computer show any Wi-Fi icon? And is the wireless switch turned on?",
-        "speakerTextCn": "你的电脑显示Wi-Fi图标了吗？无线开关打开了吗？",
-        "responseTemplate": "I see the Wi-Fi icon, but ___.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "描述网络连接状态需明确是否成功，避免使用不确定的表达",
-        "knowledgePoint": "明确表达功能是否实现"
+        "situation": "用户无法连接Wi-Fi，IT人员指导其确认网络适配器状态和指示灯。",
+        "speakerText": "Does your computer show any Wi-Fi icon? And is the wireless switch turned on?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你的电脑显示Wi-Fi图标了吗？无线开关打开了吗？",
+        "knowledgePoint": "明确表达功能是否实现",
+        "responseTemplate": "I see the Wi-Fi icon, but ___."
+      }
+    },
+    {
+      "id": "workplace_050_sub_2_pq_6",
+      "subSceneId": "workplace_050_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "在排查设备故障时，常检查的物理连接部位",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "connection",
+            "options": [
+              "connection",
+              "screen",
+              "keyboard",
+              "speaker"
+            ]
+          }
+        ],
+        "template": "I checked the ___ and it's plugged in tightly.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景高频词汇（connection）"
       }
     }
   ]

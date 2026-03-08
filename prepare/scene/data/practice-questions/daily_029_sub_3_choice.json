@@ -2,9 +2,78 @@
   "subSceneId": "daily_029_sub_3",
   "subSceneName": "支付方式",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:19:02.657Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.646Z",
   "questions": [
+    {
+      "id": "daily_029_sub_3_qa_1_choice_1",
+      "subSceneId": "daily_029_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_029_sub_3_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'll take this one. Can I pay with card?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you accept cash only?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much is it?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I pay with card?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 'I'll take this one. Can I pay with card?'，因为它既表达了购买意愿，又自然地询问支付方式，符合结账场景。干扰项1 'Do you accept cash only?' 暗示只接受现金，与意图相反；干扰项2 'How much is it?' 只询问价格，未涉及支付方式；干扰项3 'Can I pay with card?' 虽语法正确，但缺少购买表态，显得突兀不完整。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "家长在结账时决定购买商品，想确认是否可以使用银行卡支付"
+      }
+    },
+    {
+      "id": "daily_029_sub_3_qa_2_choice_1",
+      "subSceneId": "daily_029_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_029_sub_3_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do you accept Apple Pay?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much does it cost?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I pay with cash?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have Apple Pay?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Do you accept Apple Pay?' 是询问商家是否接受某种支付方式的标准表达。干扰项1 'How much does it cost?' 询问价格，与支付方式无关；干扰项2 'Can I pay with cash?' 虽语法正确，但聚焦现金而非题目要求的Apple Pay；干扰项3 'Do you have Apple Pay?' 表达不自然，误将支付方式当作商家拥有的物品，不符合英语习惯。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "家长在结账时想确认商家是否支持苹果支付，以便使用手机完成付款"
+      }
+    },
     {
       "id": "daily_029_sub_3_choice_1",
       "subSceneId": "daily_029_sub_3",
@@ -12,9 +81,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "家长在超市结账时，已经选好商品，收银员询问付款方式。",
-        "speakerText": "That's all? How would you like to pay?",
-        "speakerTextCn": "就这些吗？您想怎么付款？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +103,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案'I'll pay in cash, please.'直接回应了收银员关于付款方式的询问，简洁自然。干扰项A是询问收据，属于结账后的需求；B是询问折扣，与付款方式无关；D是表达个人财务顾虑，不符合即时回应的交际需求。"
+        "situation": "家长在超市结账时，已经选好商品，收银员询问付款方式。",
+        "explanation": "正确答案'I'll pay in cash, please.'直接回应了收银员关于付款方式的询问，简洁自然。干扰项A是询问收据，属于结账后的需求；B是询问折扣，与付款方式无关；D是表达个人财务顾虑，不符合即时回应的交际需求。",
+        "speakerText": "That's all? How would you like to pay?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "就这些吗？您想怎么付款？"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "家长在儿童玩具店结账，想用手机支付，但不确定是否支持。",
-        "speakerText": "Do you take Google Pay or Samsung Pay?",
-        "speakerTextCn": "你们支持谷歌支付或三星支付吗？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确确认支持两种支付方式并给出操作指引，符合高频服务场景。干扰项A错误地否认了非卡支付，与现实不符；B推卸责任，不符合服务标准；D是转换支付方式，未回应原问题，属于答非所问。"
+        "situation": "家长在儿童玩具店结账，想用手机支付，但不确定是否支持。",
+        "explanation": "正确答案明确确认支持两种支付方式并给出操作指引，符合高频服务场景。干扰项A错误地否认了非卡支付，与现实不符；B推卸责任，不符合服务标准；D是转换支付方式，未回应原问题，属于答非所问。",
+        "speakerText": "Do you take Google Pay or Samsung Pay?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你们支持谷歌支付或三星支付吗？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "家长在便利店购买零食和饮料，收银员提示‘刷卡或现金’，家长想用非接触式支付。",
-        "speakerText": "Cash or card?",
-        "speakerTextCn": "现金还是刷卡？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案'I'll tap my card, thanks.'直接回应了付款方式的选择，并使用了高频动词'tap'，自然准确。干扰项A是追问其他设备，属于延伸提问；B是陈述困难，未正面回应；D是重复确认金额，偏离付款方式主题。"
+        "situation": "家长在便利店购买零食和饮料，收银员提示‘刷卡或现金’，家长想用非接触式支付。",
+        "explanation": "正确答案'I'll tap my card, thanks.'直接回应了付款方式的选择，并使用了高频动词'tap'，自然准确。干扰项A是追问其他设备，属于延伸提问；B是陈述困难，未正面回应；D是重复确认金额，偏离付款方式主题。",
+        "speakerText": "Cash or card?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "现金还是刷卡？"
       }
     }
   ]

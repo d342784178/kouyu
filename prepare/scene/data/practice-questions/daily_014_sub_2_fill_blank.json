@@ -2,8 +2,7 @@
   "subSceneId": "daily_014_sub_2",
   "subSceneName": "询问票价与选项",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:46.865Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.543Z",
   "questions": [
     {
       "id": "daily_014_sub_2_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "用 'I'll take...' 表达直接接受建议，是口语中最自然的确认方式",
         "type": "fill_blank",
-        "situation": "在电影院购票时，工作人员询问是否要购买含饮料和爆米花的套餐，你决定接受",
-        "speakerText": "Would you like to upgrade to a combo with popcorn and a drink?",
-        "speakerTextCn": "您要升级为含爆米花和饮料的套餐吗？",
-        "responseTemplate": "___, please.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "用 'I'll take...' 表达直接接受建议，是口语中最自然的确认方式",
-        "knowledgePoint": "表达接受服务选项的常用句型"
+        "situation": "在电影院购票时，工作人员询问是否要购买含饮料和爆米花的套餐，你决定接受",
+        "speakerText": "Would you like to upgrade to a combo with popcorn and a drink?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "您要升级为含爆米花和饮料的套餐吗？",
+        "knowledgePoint": "表达接受服务选项的常用句型",
+        "responseTemplate": "___, please."
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "用 '___, please' 表达礼貌请求，再加理由让回答更自然",
         "type": "fill_blank",
-        "situation": "工作人员询问座位偏好，你想选中间区域，因为前排太近，后排看不清",
-        "speakerText": "Do you prefer front, middle, or back seats?",
-        "speakerTextCn": "你想要前排、中间还是后排的座位？",
-        "responseTemplate": "___, because the front is too close and the back is hard to see.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "用 '___, please' 表达礼貌请求，再加理由让回答更自然",
-        "knowledgePoint": "礼貌表达座位偏好并说明理由"
+        "situation": "工作人员询问座位偏好，你想选中间区域，因为前排太近，后排看不清",
+        "speakerText": "Do you prefer front, middle, or back seats?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你想要前排、中间还是后排的座位？",
+        "knowledgePoint": "礼貌表达座位偏好并说明理由",
+        "responseTemplate": "___, because the front is too close and the back is hard to see."
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "用 'I'll just have the ticket' 明确表达只买基础票，避免歧义",
         "type": "fill_blank",
-        "situation": "你不想买套餐，但想确认单张票的价格是否包含任何免费物品",
-        "speakerText": "The ticket is $10. Would you like to add popcorn or a drink?",
-        "speakerTextCn": "票是10刀，你要加爆米花或饮料吗？",
-        "responseTemplate": "No, thanks. ___",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "用 'I'll just have the ticket' 明确表达只买基础票，避免歧义",
-        "knowledgePoint": "明确拒绝附加选项的地道表达"
+        "situation": "你不想买套餐，但想确认单张票的价格是否包含任何免费物品",
+        "speakerText": "The ticket is $10. Would you like to add popcorn or a drink?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "票是10刀，你要加爆米花或饮料吗？",
+        "knowledgePoint": "明确拒绝附加选项的地道表达",
+        "responseTemplate": "No, thanks. ___"
+      }
+    },
+    {
+      "id": "daily_014_sub_2_pq_4",
+      "subSceneId": "daily_014_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "表达‘想要做某事’的固定句型",
+        "qaId": "daily_014_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "with",
+              "at"
+            ]
+          }
+        ],
+        "template": "I'd like ___ book a ticket and add a large popcorn with soda.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "would like to do（预约场景核心句型）"
+      }
+    },
+    {
+      "id": "daily_014_sub_2_pq_5",
+      "subSceneId": "daily_014_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "常见座位区域表达，介于前排和后排之间",
+        "qaId": "daily_014_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "middle",
+            "options": [
+              "middle",
+              "back",
+              "side",
+              "center"
+            ]
+          }
+        ],
+        "template": "I'd prefer the ___ row, please. The front is too close for me.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "座位偏好词汇（middle/back/front）"
+      }
+    },
+    {
+      "id": "daily_014_sub_2_pq_6",
+      "subSceneId": "daily_014_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "影院套餐的常用词，包含票+零食+饮料",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "combo",
+            "options": [
+              "combo",
+              "ticket",
+              "seat",
+              "show"
+            ]
+          }
+        ],
+        "template": "Could I get the ___ with a drink and popcorn? I'm hungry!",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "影院套餐固定表达（combo）"
       }
     }
   ]

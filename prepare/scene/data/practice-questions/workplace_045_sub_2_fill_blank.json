@@ -2,20 +2,43 @@
   "subSceneId": "workplace_045_sub_2",
   "subSceneName": "描述问题",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:33:31.623Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.508Z",
   "questions": [
+    {
+      "id": "workplace_045_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "workplace_045_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "回想你在解决打印机故障时需要问的什么问题",
+        "qaId": "workplace_045_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "屏幕上显示",
+            "options": [
+              "屏幕上显示",
+              "打印机显示",
+              "我看到",
+              "电脑显示"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "同事的打印机出现故障，需要你的帮助",
+        "knowledgePoint": "提问句型和故障描述",
+        "responseTemplate": "我看到打印机的___"
+      }
+    },
     {
       "id": "workplace_045_sub_2_fill_blank_1",
       "subSceneId": "workplace_045_sub_2",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "对方已经尝试过更换墨盒，下一步应是执行打印机内置的清洁程序。",
         "type": "fill_blank",
-        "situation": "同事在办公室抱怨打印机无法正常打印，屏幕上显示错误信息，你准备帮忙检查。",
-        "speakerText": "The printer won't respond at all, and the screen says 'Ink Low'. I've already replaced the cartridge, but it's still not working.",
-        "speakerTextCn": "打印机完全没反应，屏幕上显示‘墨水不足’。我已经换过墨盒了，但还是不行。",
-        "responseTemplate": "Have you tried ___?",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,39 @@
             ]
           }
         ],
-        "hint": "对方已经尝试过更换墨盒，下一步应是执行打印机内置的清洁程序。",
-        "knowledgePoint": "描述已尝试操作 + 提出下一步技术性建议"
+        "situation": "同事在办公室抱怨打印机无法正常打印，屏幕上显示错误信息，你准备帮忙检查。",
+        "speakerText": "The printer won't respond at all, and the screen says 'Ink Low'. I've already replaced the cartridge, but it's still not working.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "打印机完全没反应，屏幕上显示‘墨水不足’。我已经换过墨盒了，但还是不行。",
+        "knowledgePoint": "描述已尝试操作 + 提出下一步技术性建议",
+        "responseTemplate": "Have you tried ___?"
+      }
+    },
+    {
+      "id": "workplace_045_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "workplace_045_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "回忆之前的对话",
+        "qaId": "workplace_045_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "又卡纸了",
+            "options": [
+              "工作正常",
+              "打不出",
+              "卡纸了",
+              "故障了"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "打印机卡纸了，需要同事帮助解决",
+        "knowledgePoint": "提问句型",
+        "responseTemplate": "打印机___"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "‘门未关好’的提示常因纸张卡在门边传感器附近，而非门本身没关。",
         "type": "fill_blank",
-        "situation": "你看到打印机的指示灯闪烁，屏幕提示‘Door Open’，而同事正焦急地等着打印文件。",
-        "speakerText": "It keeps showing 'Door Open', but I'm sure I closed it properly. I've checked it twice already.",
-        "speakerTextCn": "它一直显示‘门未关好’，但我确定我已经关好了，我都检查了两遍。",
-        "responseTemplate": "Maybe there's ___.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "‘门未关好’的提示常因纸张卡在门边传感器附近，而非门本身没关。",
-        "knowledgePoint": "根据故障提示推断物理性障碍的常见原因"
+        "situation": "你看到打印机的指示灯闪烁，屏幕提示‘Door Open’，而同事正焦急地等着打印文件。",
+        "speakerText": "It keeps showing 'Door Open', but I'm sure I closed it properly. I've checked it twice already.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "它一直显示‘门未关好’，但我确定我已经关好了，我都检查了两遍。",
+        "knowledgePoint": "根据故障提示推断物理性障碍的常见原因",
+        "responseTemplate": "Maybe there's ___."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "‘需要维修’提示通常不是用户能直接解决的，但内部滚轮积尘是常见可处理原因。",
         "type": "fill_blank",
-        "situation": "打印机突然停止工作，屏幕显示‘Service Required’，你之前也遇到过类似情况。",
-        "speakerText": "It just stopped working with 'Service Required' on the screen. I haven't touched anything since the last print.",
-        "speakerTextCn": "它突然停止工作了，屏幕上显示‘需要维修’。我从上次打印后就没碰过它。",
-        "responseTemplate": "I've had that before — it usually means ___.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "‘需要维修’提示通常不是用户能直接解决的，但内部滚轮积尘是常见可处理原因。",
-        "knowledgePoint": "解释技术性错误代码的常见内部原因"
+        "situation": "打印机突然停止工作，屏幕显示‘Service Required’，你之前也遇到过类似情况。",
+        "speakerText": "It just stopped working with 'Service Required' on the screen. I haven't touched anything since the last print.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "它突然停止工作了，屏幕上显示‘需要维修’。我从上次打印后就没碰过它。",
+        "knowledgePoint": "解释技术性错误代码的常见内部原因",
+        "responseTemplate": "I've had that before — it usually means ___."
+      }
+    },
+    {
+      "id": "workplace_045_sub_2_pq_6",
+      "subSceneId": "workplace_045_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "处理卡纸时的标准操作指令",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "open",
+            "options": [
+              "open",
+              "close",
+              "lock",
+              "paint"
+            ]
+          }
+        ],
+        "template": "Please ___ the back panel to check for stuck paper.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配：open the panel（打开面板，打印机维修核心动作）"
       }
     }
   ]

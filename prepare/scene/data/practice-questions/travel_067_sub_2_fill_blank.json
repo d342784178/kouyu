@@ -2,8 +2,7 @@
   "subSceneId": "travel_067_sub_2",
   "subSceneName": "询问必要性",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:31:26.477Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.202Z",
   "questions": [
     {
       "id": "travel_067_sub_2_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "表示‘可选但建议’时，常用这个形容词",
         "type": "fill_blank",
-        "situation": "一位旅客在机场柜台询问是否必须购买旅行保险，他觉得行程很短，不确定是否值得买。",
-        "speakerText": "I'm only staying for two days. Do I really need to buy travel insurance?",
-        "speakerTextCn": "我只待两天，我真的需要买旅行保险吗？",
-        "responseTemplate": "It's ______, but I'd still recommend it.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,66 @@
             ]
           }
         ],
-        "hint": "表示‘可选但建议’时，常用这个形容词",
-        "knowledgePoint": "表达必要性与建议的语气"
+        "situation": "一位旅客在机场柜台询问是否必须购买旅行保险，他觉得行程很短，不确定是否值得买。",
+        "speakerText": "I'm only staying for two days. Do I really need to buy travel insurance?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我只待两天，我真的需要买旅行保险吗？",
+        "knowledgePoint": "表达必要性与建议的语气",
+        "responseTemplate": "It's ______, but I'd still recommend it."
+      }
+    },
+    {
+      "id": "travel_067_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "travel_067_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问某项服务包含哪些内容时，常用 'What does... cover?' 结构",
+        "qaId": "travel_067_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "cover",
+            "options": [
+              "include",
+              "cover",
+              "have",
+              "contain"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "旅客想了解保险计划的保障范围，需要向工作人员提问",
+        "knowledgePoint": "询问保障范围的固定句型",
+        "responseTemplate": "What does the basic plan ___?"
+      }
+    },
+    {
+      "id": "travel_067_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "travel_067_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "注意这里需要一个名词短语，表示‘旅游保险’这个具体对象，而不是动词短语或近义词",
+        "qaId": "travel_067_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "travel insurance",
+            "options": [
+              "to buy insurance",
+              "insurance",
+              "travel protection",
+              "a policy"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "旅客想确认在短途旅行中是否必须购买保险，希望用自然的口语表达提出疑问",
+        "knowledgePoint": "询问必要性的标准句型结构",
+        "responseTemplate": "Do I really need ___?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "旅行保险最核心的保障通常是应对突发健康问题",
         "type": "fill_blank",
-        "situation": "旅客在预订酒店时，工作人员询问是否要添加保险，旅客想知道基础计划包含哪些保障。",
-        "speakerText": "What's included in the basic coverage?",
-        "speakerTextCn": "基础保障包含哪些内容？",
-        "responseTemplate": "It covers ______, trip cancellations, and lost luggage.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "旅行保险最核心的保障通常是应对突发健康问题",
-        "knowledgePoint": "旅行保险核心保障项的口语表达"
+        "situation": "旅客在预订酒店时，工作人员询问是否要添加保险，旅客想知道基础计划包含哪些保障。",
+        "speakerText": "What's included in the basic coverage?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "基础保障包含哪些内容？",
+        "knowledgePoint": "旅行保险核心保障项的口语表达",
+        "responseTemplate": "It covers ______, trip cancellations, and lost luggage."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "不买保险时最可能产生高额费用的是什么？",
         "type": "fill_blank",
-        "situation": "旅客犹豫是否购买保险，担心费用太高，想确认不买保险是否真的会有风险。",
-        "speakerText": "I'm worried about the cost. What if I skip it altogether?",
-        "speakerTextCn": "我担心费用太高，如果完全不买会怎样？",
-        "responseTemplate": "You might be fine, but ______ can be really expensive without it.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "不买保险时最可能产生高额费用的是什么？",
-        "knowledgePoint": "风险后果的常见口语表达"
+        "situation": "旅客犹豫是否购买保险，担心费用太高，想确认不买保险是否真的会有风险。",
+        "speakerText": "I'm worried about the cost. What if I skip it altogether?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我担心费用太高，如果完全不买会怎样？",
+        "knowledgePoint": "风险后果的常见口语表达",
+        "responseTemplate": "You might be fine, but ______ can be really expensive without it."
+      }
+    },
+    {
+      "id": "travel_067_sub_2_pq_6",
+      "subSceneId": "travel_067_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "这是专业建议中常用的程度副词，比 'very' 更正式",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "highly",
+            "options": [
+              "highly",
+              "very",
+              "really",
+              "extremely"
+            ]
+          }
+        ],
+        "template": "It's optional, but ___ recommended.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "正式建议中的高频搭配（highly recommended）"
       }
     }
   ]

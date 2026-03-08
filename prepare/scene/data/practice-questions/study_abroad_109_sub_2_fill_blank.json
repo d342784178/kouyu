@@ -2,8 +2,7 @@
   "subSceneId": "study_abroad_109_sub_2",
   "subSceneName": "询问流程",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:29:16.436Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.975Z",
   "questions": [
     {
       "id": "study_abroad_109_sub_2_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "这是引导对方直接提供必要信息的常用表达，语气直接但礼貌。",
         "type": "fill_blank",
-        "situation": "一名学生想申请官方成绩单，向教务处工作人员询问具体步骤",
-        "speakerText": "Could you tell me what I need to do to get my official transcript?",
-        "speakerTextCn": "你能告诉我申请官方成绩单需要做什么吗？",
-        "responseTemplate": "Just ___ how many copies you need and whether you want them sealed.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,39 @@
             ]
           }
         ],
-        "hint": "这是引导对方直接提供必要信息的常用表达，语气直接但礼貌。",
-        "knowledgePoint": "引导性表达：Just tell me... 用于简化流程说明"
+        "situation": "一名学生想申请官方成绩单，向教务处工作人员询问具体步骤",
+        "speakerText": "Could you tell me what I need to do to get my official transcript?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你能告诉我申请官方成绩单需要做什么吗？",
+        "knowledgePoint": "引导性表达：Just tell me... 用于简化流程说明",
+        "responseTemplate": "Just ___ how many copies you need and whether you want them sealed."
+      }
+    },
+    {
+      "id": "study_abroad_109_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "study_abroad_109_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "你可以问工作人员",
+        "qaId": "study_abroad_109_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "填表",
+            "options": [
+              "填表",
+              "打电话",
+              "邮寄",
+              "去现场"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想知道申请成绩单的具体流程?",
+        "knowledgePoint": "询问流程",
+        "responseTemplate": "你想知道申请成绩单的具体流程？需要___"
       }
     },
     {
@@ -38,11 +65,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "这里强调的是‘提供’基本信息，而不是‘提交’或‘发送’完整文件。",
         "type": "fill_blank",
-        "situation": "学生在申请毕业材料时，不确定是否需要填写表格，向工作人员确认",
-        "speakerText": "Do I have to fill out any forms for the transcript request?",
-        "speakerTextCn": "我申请成绩单时需要填表吗？",
-        "responseTemplate": "No form required — just ___ your name and student ID.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +79,12 @@
             ]
           }
         ],
-        "hint": "这里强调的是‘提供’基本信息，而不是‘提交’或‘发送’完整文件。",
-        "knowledgePoint": "核心动词：provide 用于提供必要信息"
+        "situation": "学生在申请毕业材料时，不确定是否需要填写表格，向工作人员确认",
+        "speakerText": "Do I have to fill out any forms for the transcript request?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我申请成绩单时需要填表吗？",
+        "knowledgePoint": "核心动词：provide 用于提供必要信息",
+        "responseTemplate": "No form required — just ___ your name and student ID."
       }
     },
     {
@@ -65,11 +93,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "这里强调在多个选项中做出明确选择，最准确的动词是哪一个？",
         "type": "fill_blank",
-        "situation": "国际学生想了解成绩单的处理方式，询问是否需要额外步骤",
-        "speakerText": "Is there anything else I should know before I request my transcript?",
-        "speakerTextCn": "在我申请成绩单之前，还有什么我需要注意的吗？",
-        "responseTemplate": "Just make sure you ___ the correct mailing option if you need it sent abroad.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +107,64 @@
             ]
           }
         ],
-        "hint": "这里强调在多个选项中做出明确选择，最准确的动词是哪一个？",
-        "knowledgePoint": "情境动词：select 用于在系统或选项中做出明确选择"
+        "situation": "国际学生想了解成绩单的处理方式，询问是否需要额外步骤",
+        "speakerText": "Is there anything else I should know before I request my transcript?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "在我申请成绩单之前，还有什么我需要注意的吗？",
+        "knowledgePoint": "情境动词：select 用于在系统或选项中做出明确选择",
+        "responseTemplate": "Just make sure you ___ the correct mailing option if you need it sent abroad."
+      }
+    },
+    {
+      "id": "study_abroad_109_sub_2_pq_5",
+      "subSceneId": "study_abroad_109_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "这是官方人员引导对方提供信息的常用句型，与 'Just tell me...' 完全一致",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "tell",
+            "options": [
+              "tell",
+              "ask",
+              "send",
+              "give"
+            ]
+          }
+        ],
+        "template": "I'd like to request an official transcript. Could you please tell me what information you need? Just ___ me your student ID, the number of copies, and whether you want them sealed.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定表达：Just tell me...（引导对方提供必要信息）"
+      }
+    },
+    {
+      "id": "study_abroad_109_sub_2_pq_6",
+      "subSceneId": "study_abroad_109_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "这是简化流程、提高效率的典型回应，关键词是 'tell me' + 信息点",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "tell",
+            "options": [
+              "tell",
+              "show",
+              "hand",
+              "send"
+            ]
+          }
+        ],
+        "template": "No form is needed — just ___ me how many copies you want and if you need them stamped.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配：tell sb. + 信息（信息传递的核心动词）"
       }
     }
   ]

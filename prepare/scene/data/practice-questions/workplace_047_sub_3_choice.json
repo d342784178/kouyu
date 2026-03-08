@@ -2,77 +2,76 @@
   "subSceneId": "workplace_047_sub_3",
   "subSceneName": "确认安排",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:18:47.438Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.530Z",
   "questions": [
     {
-      "id": "workplace_047_sub_3_choice_1",
+      "id": "workplace_047_sub_3_qa_1_choice_1",
       "subSceneId": "workplace_047_sub_3",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "workplace_047_sub_3_qa_1",
-        "speakerText": "Will your tasks be covered?",
-        "speakerTextCn": "你的工作有人接手吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll ask John to take over my duties before I leave.",
+            "text": "Will my tasks be covered?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I hope someone can do it for me.",
+            "text": "Can I have your tasks?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "I'm not sure who will handle it.",
+            "text": "What are your tasks?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I think I can finish it alone.",
+            "text": "Do you have any free time?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确说明了交接对象和时间，符合职场专业表达。干扰项中，'I hope...' 和 'I'm not sure...' 显得被动且不专业，'I can finish it alone' 未解决交接问题，不符合问题意图。"
+        "explanation": "正确答案Will my tasks be covered?因为它直接询问任务是否有人接手。其他选项不正确，因为它们不直接解决任务交接的问题。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "经理正在确认工作交接与批准，作为员工你想确认自己的工作安排是否得到保障"
       }
     },
     {
-      "id": "workplace_047_sub_3_choice_2",
+      "id": "workplace_047_sub_3_qa_2_choice_1",
       "subSceneId": "workplace_047_sub_3",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "workplace_047_sub_3_qa_2",
-        "speakerText": "Approved! Just send me the form.",
-        "speakerTextCn": "批准了！把申请表发我一下。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll send it over in the next hour.",
+            "text": "Has the project been approved?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I'll try to send it soon.",
+            "text": "What is the deadline for this project?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Do you really need the form?",
+            "text": "I have finished the project, when can I go home?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I already sent it last week.",
+            "text": "Can you explain the project details again?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案承诺明确时间，体现专业性和执行力。'I'll try to...' 显得犹豫不决，'Do you really need...' 是质疑对方，'I already sent...' 与当前语境矛盾，均不符合职场回应规范。"
+        "explanation": "正确答案是 \"Has the project been approved?\"，因为这是在确认工作交接与批准的场景下，询问项目是否已获得批准。其他选项虽然语法正确，但不符合该场景的需求",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你向经理确认工作交接并等待批准"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Can you confirm that the project handover is complete before your vacation?",
-        "speakerTextCn": "你能在休假前确认项目交接已完成吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用完成时态并具体说明行动（briefed, shared），体现责任担当。干扰项使用模糊表达（think, see if, not sure），缺乏确定性，不符合职场确认场景的严谨要求。"
+        "explanation": "正确答案使用完成时态并具体说明行动（briefed, shared），体现责任担当。干扰项使用模糊表达（think, see if, not sure），缺乏确定性，不符合职场确认场景的严谨要求。",
+        "speakerText": "Can you confirm that the project handover is complete before your vacation?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你能在休假前确认项目交接已完成吗？"
       }
     }
   ]

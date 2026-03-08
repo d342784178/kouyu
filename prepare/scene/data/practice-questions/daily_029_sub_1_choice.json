@@ -2,9 +2,78 @@
   "subSceneId": "daily_029_sub_1",
   "subSceneName": "打招呼询问",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:18:52.242Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.642Z",
   "questions": [
+    {
+      "id": "daily_029_sub_1_qa_2_choice_1",
+      "subSceneId": "daily_029_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_029_sub_1_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Thanks! Do you have any toys with batteries?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Hello! How much is the toy?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Sorry, I'm looking for something else.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Excuse me, where is the toy section?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案\"Thanks! Do you have any toys with batteries?\"符合场景需求，询问有没有带电池的玩具。其他选项不符合场景需求或表达不自然",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "家长进入玩具店后，向店员打招呼并询问有没有带电池的玩具"
+      }
+    },
+    {
+      "id": "daily_029_sub_1_qa_1_choice_1",
+      "subSceneId": "daily_029_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_029_sub_1_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hi! Where can I find the toys?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "You have a lot of toys! Can I have them all?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you know where my kids are?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'm looking for the action figures. Can you show me?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 opt_1，因为它礼貌地问候并询问玩具位置。其他选项不符合场景要求：opt_2 是不恰当的提问，opt_3 是不相关的问题，opt_4 是不必要的表达",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "家长进店后向店员礼貌问候并询问玩具位置"
+      }
+    },
     {
       "id": "daily_029_sub_1_choice_1",
       "subSceneId": "daily_029_sub_1",
@@ -12,9 +81,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "一位妈妈走进玩具店，想为儿子找一款遥控车，她先礼貌打招呼并询问位置。",
-        "speakerText": "Hi there! Could you tell me where the remote-controlled cars are?",
-        "speakerTextCn": "你好！你能告诉我遥控车在哪里吗？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +103,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了礼貌且具体的方位指引（section B, next to...），符合日常服务场景的自然表达。干扰项1是生硬拒绝，不符合服务态度；干扰项2是偏离问题，询问购买意图而非位置；干扰项3虽提到商品但未回答问题，且表达不完整不礼貌。"
+        "situation": "一位妈妈走进玩具店，想为儿子找一款遥控车，她先礼貌打招呼并询问位置。",
+        "explanation": "正确答案使用了礼貌且具体的方位指引（section B, next to...），符合日常服务场景的自然表达。干扰项1是生硬拒绝，不符合服务态度；干扰项2是偏离问题，询问购买意图而非位置；干扰项3虽提到商品但未回答问题，且表达不完整不礼貌。",
+        "speakerText": "Hi there! Could you tell me where the remote-controlled cars are?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你好！你能告诉我遥控车在哪里吗？"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "父亲在玩具店向店员问好后，想确认乐高积木是否在儿童区附近。",
-        "speakerText": "Hello! Are the LEGO sets around the kids' section?",
-        "speakerTextCn": "你好！乐高积木是在儿童区附近吗？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了位置询问，使用了准确的空间描述（right next to...），符合日常服务语境。干扰项1是无关评价（价格），干扰项2是转移话题（询问家庭状况），干扰项3是错误信息（否认销售），均未正确回应核心问题。"
+        "situation": "父亲在玩具店向店员问好后，想确认乐高积木是否在儿童区附近。",
+        "explanation": "正确答案直接回应了位置询问，使用了准确的空间描述（right next to...），符合日常服务语境。干扰项1是无关评价（价格），干扰项2是转移话题（询问家庭状况），干扰项3是错误信息（否认销售），均未正确回应核心问题。",
+        "speakerText": "Hello! Are the LEGO sets around the kids' section?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你好！乐高积木是在儿童区附近吗？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "祖母进店后微笑问候店员，想找到适合3岁宝宝的软毛玩具。",
-        "speakerText": "Good morning! Do you know where the soft plush toys for toddlers are?",
-        "speakerTextCn": "早上好！你知道适合幼儿的软毛玩具在哪儿吗？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了礼貌回应���Of course!）+ 明确位置（aisle 2）+ 具体标识（labeled...），是服务场景中最自然、完整的回应。干扰项1是推卸责任式回应，缺乏帮助；干扰项2是猜测性回答，不够可靠；干扰项3是追问动机，属于不当提问，不符合服务规范。"
+        "situation": "祖母进店后微笑问候店员，想找到适合3岁宝宝的软毛玩具。",
+        "explanation": "正确答案使用了礼貌回应���Of course!）+ 明确位置（aisle 2）+ 具体标识（labeled...），是服务场景中最自然、完整的回应。干扰项1是推卸责任式回应，缺乏帮助；干扰项2是猜测性回答，不够可靠；干扰项3是追问动机，属于不当提问，不符合服务规范。",
+        "speakerText": "Good morning! Do you know where the soft plush toys for toddlers are?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "早上好！你知道适合幼儿的软毛玩具在哪儿吗？"
       }
     }
   ]

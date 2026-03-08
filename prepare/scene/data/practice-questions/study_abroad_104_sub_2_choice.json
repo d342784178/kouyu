@@ -2,77 +2,76 @@
   "subSceneId": "study_abroad_104_sub_2",
   "subSceneName": "确认流程",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:52:39.187Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.905Z",
   "questions": [
     {
-      "id": "study_abroad_104_sub_2_choice_1",
+      "id": "study_abroad_104_sub_2_qa_1_choice_1",
       "subSceneId": "study_abroad_104_sub_2",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "study_abroad_104_sub_2_qa_1",
-        "speakerText": "When’s the deadline to register? I don’t wanna miss it.",
-        "speakerTextCn": "报名截止日是哪天？我不想错过。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "It’s next Monday at 9 AM.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "It’s this Friday at 5 PM. No extensions!",
+            "text": "When’s the deadline to register?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Can you tell me how to sign up for the event?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "You can register anytime before the semester starts.",
+            "text": "Is the registration still open?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "The deadline is flexible if you call the office.",
+            "text": "I want to register, what do I need?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接引用标准回应，强调截止时间与‘过期不候’的语气。其他选项要么时间错误，要么暗示灵活性，与原对话中强调紧迫性的语境不符。"
+        "explanation": "正确答案直接询问截止日期，符合场景中‘确认截止日期’的核心需求。选项2关注报名步骤，虽相关但未聚焦截止日；选项3只询问是否开放，未明确日期；选项4询问所需材料，偏离了‘避免错过’的时间重点。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想了解报名的具体步骤和截止日期，以免错过机会。"
       }
     },
     {
-      "id": "study_abroad_104_sub_2_choice_2",
+      "id": "study_abroad_104_sub_2_qa_2_choice_1",
       "subSceneId": "study_abroad_104_sub_2",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "study_abroad_104_sub_2_qa_2",
-        "speakerText": "Do I need to pay anything when I register?",
-        "speakerTextCn": "报名时需要交钱吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, everyone must pay $100 regardless of status.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "No fee at all — just confirm your choices.",
+            "text": "Could you please tell me the registration steps and the deadline?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Do I need to pay anything when I register?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "You pay after your application is approved.",
+            "text": "When is the event going to start?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Payment is optional but recommended.",
+            "text": "Can I register later?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案符合标准回应中‘完全免费，只需确认’的表达。其他选项错误地暗示所有学生都必须付费、付费在后期或非强制，与对话中‘区分身份’和‘按时免费’的核心信息矛盾。"
+        "explanation": "正确答案询问了报名步骤和截止日期，完全匹配场景需求。干扰项1虽然语法正确，但只关注费用，偏离了步骤与截止日期的核心信息；干扰项2询问活动开始时间，与报名流程无关；干扰项3虽然相关，但只聚焦于是否能延期，未涵盖完整流程和截止日期，表达不全面。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想了解报名的具体步骤和截止日期，需要向工作人员提问以获取清晰信息。"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Is there a form I need to fill out before registering?",
-        "speakerTextCn": "报名前需要填表吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案提供清晰的流程信息，符合‘确认流程’场景。干扰项要么简化流程（仅发邮件），要么制造不必要的条件（仅限国际生或付费可跳过），不符合常规报名流程的逻辑。"
+        "explanation": "正确答案提供清晰的流程信息，符合‘确认流程’场景。干扰项要么简化流程（仅发邮件），要么制造不必要的条件（仅限国际生或付费可跳过），不符合常规报名流程的逻辑。",
+        "speakerText": "Is there a form I need to fill out before registering?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "报名前需要填表吗？"
       }
     }
   ]

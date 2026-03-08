@@ -1,30 +1,29 @@
 {
   "subSceneId": "travel_075_sub_3",
-  "subSceneName": "车上设施",
+  "subSceneName": "行李规定咨询",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:14:27.081Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.340Z",
   "questions": [
     {
-      "id": "travel_075_sub_3_speaking_1",
+      "id": "travel_075_sub_3_qa_1_speaking_1",
       "subSceneId": "travel_075_sub_3",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "travel_075_sub_3_qa_1",
-        "speakerText": "The bus has free Wi-Fi, USB charging ports, and a restroom on board.",
-        "speakerTextCn": "车上提供免费Wi-Fi、USB充电口和卫生间。",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客：请问车上有哪些行李尺寸限制和免费额度？",
         "expectedAnswers": [
-          "Nice! That’s helpful.",
-          "Great, I can stay connected and charge my phone.",
-          "Perfect! I was worried about battery and internet during the ride."
+          "What are the luggage size restrictions and how much free luggage space is available on the bus?",
+          "Can you tell me about the luggage size limits and the free luggage allowance on the bus?",
+          "What are the baggage size restrictions and how much free baggage space is provided on the bus?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否对提供的设施做出积极回应",
-          "语言准确性：语法和用词是否正确，无明显错误",
-          "表达自然度：是否符合英语口语习惯，避免机械背诵",
-          "关键词覆盖：是否使用了如'Wi-Fi', 'charge', 'helpful'等场景关键词"
+          "意图达成度：正确表达了询问行李尺寸限制和免费额度的意图",
+          "语言准确性：语法和用词正确",
+          "表达自然度：符合英语口语习惯",
+          "关键词覆盖：使用了场景关键词"
         ]
       }
     },
@@ -34,9 +33,10 @@
       "type": "speaking",
       "order": 2,
       "content": {
-        "type": "speaking",
         "qaId": "travel_075_sub_3_qa_2",
+        "type": "speaking",
         "speakerText": "Yes, each seat has two USB ports. Wi-Fi works well except in tunnels.",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "是的，每个座位有两个USB口，Wi-Fi在隧道外信号很好。",
         "expectedAnswers": [
           "Perfect, I’ll charge my phone.",
@@ -57,9 +57,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Is there a restroom available on this bus?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "这辆巴士有卫生间吗？",
         "expectedAnswers": [
           "Yes, it's at the back of the bus.",

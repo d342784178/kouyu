@@ -2,20 +2,43 @@
   "subSceneId": "social_092_sub_2",
   "subSceneName": "询问垃圾处理",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:27:06.969Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.784Z",
   "questions": [
+    {
+      "id": "social_092_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "social_092_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "邻居可能会回答你关于垃圾日的时间和规则",
+        "qaId": "social_092_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "垃圾日",
+            "options": [
+              "垃圾日",
+              "开车时间",
+              "公交线路",
+              "停车地点"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你住的小区垃圾处理问题需要你知道什么",
+        "knowledgePoint": "提问句型",
+        "responseTemplate": "你想问邻居关于小区垃圾处理的问题是___"
+      }
+    },
     {
       "id": "social_092_sub_2_fill_blank_1",
       "subSceneId": "social_092_sub_2",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "记住，大多数小区要求将垃圾按类型分类，比如可回收物和普通垃圾。",
         "type": "fill_blank",
-        "situation": "你刚搬进新公寓，想了解小区的垃圾投放规则，向邻居询问。",
-        "speakerText": "Hi, I'm new here. Could you tell me how to properly dispose of garbage?",
-        "speakerTextCn": "嗨，我是新搬来的。你能告诉我怎么正确处理垃圾吗？",
-        "responseTemplate": "You need to ___ and put them out before 8 p.m. on weekdays.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,39 @@
             ]
           }
         ],
-        "hint": "记住，大多数小区要求将垃圾按类型分类，比如可回收物和普通垃圾。",
-        "knowledgePoint": "表达垃圾分类和投放要求"
+        "situation": "你刚搬进新公寓，想了解小区的垃圾投放规则，向邻居询问。",
+        "speakerText": "Hi, I'm new here. Could you tell me how to properly dispose of garbage?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨，我是新搬来的。你能告诉我怎么正确处理垃圾吗？",
+        "knowledgePoint": "表达垃圾分类和投放要求",
+        "responseTemplate": "You need to ___ and put them out before 8 p.m. on weekdays."
+      }
+    },
+    {
+      "id": "social_092_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "social_092_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "注意这里需要一个表示‘回收’的动词，常用于环保语境中",
+        "qaId": "social_092_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "recycle",
+            "options": [
+              "throw",
+              "collect",
+              "store",
+              "recycle"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户想了解小区的垃圾投放规则，特别是是否回收塑料制品，向邻居提问。",
+        "knowledgePoint": "日常场景中的功能句型：询问环保处理方式",
+        "responseTemplate": "Oh, and do they ___ plastics here?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "大件垃圾通常不能随意丢弃，需要提前预约专门回收。",
         "type": "fill_blank",
-        "situation": "你在楼道看到垃圾桶满溢，想确认是否可以将大件垃圾放在那里。",
-        "speakerText": "I have an old sofa to get rid of. Is it okay to leave it here with the regular trash?",
-        "speakerTextCn": "我有一张旧沙发要处理，能和普通垃圾一起放在这里吗？",
-        "responseTemplate": "No, you need to ___ for bulky items like that.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "大件垃圾通常不能随意丢弃，需要提前预约专门回收。",
-        "knowledgePoint": "表达大件垃圾处理方式"
+        "situation": "你在楼道看到垃圾桶满溢，想确认是否可以将大件垃圾放在那里。",
+        "speakerText": "I have an old sofa to get rid of. Is it okay to leave it here with the regular trash?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我有一张旧沙发要处理，能和普通垃圾一起放在这里吗？",
+        "knowledgePoint": "表达大件垃圾处理方式",
+        "responseTemplate": "No, you need to ___ for bulky items like that."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "回收物通常有指定颜色的容器，且需要清洗后投放。",
         "type": "fill_blank",
-        "situation": "你注意到邻居把塑料瓶和纸箱混在普通垃圾桶里，想礼貌提醒他们回收规则。",
-        "speakerText": "Hey, just a quick heads-up—do you know where we should put recyclables?",
-        "speakerTextCn": "嘿，提醒一下，你知道回收物应该放在哪里吗？",
-        "responseTemplate": "Yes, ___ near the entrance—please rinse them first.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "回收物通常有指定颜色的容器，且需要清洗后投放。",
-        "knowledgePoint": "表达回收物投放地点和注意事项"
+        "situation": "你注意到邻居把塑料瓶和纸箱混在普通垃圾桶里，想礼貌提醒他们回收规则。",
+        "speakerText": "Hey, just a quick heads-up—do you know where we should put recyclables?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嘿，提醒一下，你知道回收物应该放在哪里吗？",
+        "knowledgePoint": "表达回收物投放地点和注意事项",
+        "responseTemplate": "Yes, ___ near the entrance—please rinse them first."
+      }
+    },
+    {
+      "id": "social_092_sub_2_pq_6",
+      "subSceneId": "social_092_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "保持垃圾桶清洁的必要步骤",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "rinse",
+            "options": [
+              "rinse",
+              "paint",
+              "move",
+              "lock"
+            ]
+          }
+        ],
+        "template": "Don't forget to ___ your bins before putting them out.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配：rinse bins（清洁垃圾桶）"
       }
     }
   ]

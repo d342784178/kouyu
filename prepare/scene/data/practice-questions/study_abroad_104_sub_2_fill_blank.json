@@ -2,20 +2,43 @@
   "subSceneId": "study_abroad_104_sub_2",
   "subSceneName": "确认流程",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:28:30.373Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.906Z",
   "questions": [
+    {
+      "id": "study_abroad_104_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "study_abroad_104_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "这里需要一个表示‘最后期限’的词，用于询问报名的截止时间",
+        "qaId": "study_abroad_104_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "deadline",
+            "options": [
+              "payment",
+              "registration",
+              "deadline",
+              "requirement"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想了解报名的具体步骤和截止时间，但不想直接问‘什么时候截止’，而是用更自然的方式询问整个流程和关键时间节点",
+        "knowledgePoint": "提问句型中的关键名词使用",
+        "responseTemplate": "Could you tell me what the process is for signing up and when the ___ is?"
+      }
+    },
     {
       "id": "study_abroad_104_sub_2_fill_blank_1",
       "subSceneId": "study_abroad_104_sub_2",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "通常报名第一步是填写在线表格，而不是立即付款或寄材料。",
         "type": "fill_blank",
-        "situation": "你打算参加一个短期语言课程，想确认报名流程是否需要先提交材料。",
-        "speakerText": "Do I need to send any documents before I sign up?",
-        "speakerTextCn": "我在报名前需要提交任何材料吗？",
-        "responseTemplate": "You just need to ___ and you're all set.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,39 @@
             ]
           }
         ],
-        "hint": "通常报名第一步是填写在线表格，而不是立即付款或寄材料。",
-        "knowledgePoint": "报名流程中的基础操作表达"
+        "situation": "你打算参加一个短期语言课程，想确认报名流程是否需要先提交材料。",
+        "speakerText": "Do I need to send any documents before I sign up?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我在报名前需要提交任何材料吗？",
+        "knowledgePoint": "报名流程中的基础操作表达",
+        "responseTemplate": "You just need to ___ and you're all set."
+      }
+    },
+    {
+      "id": "study_abroad_104_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "study_abroad_104_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问截止时间的标准表达是 'When's the deadline to...?'",
+        "qaId": "study_abroad_104_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "When's the deadline",
+            "options": [
+              "When's the deadline",
+              "What's the date",
+              "How long is the registration",
+              "Where can I sign up"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想了解报名的截止时间，以免错过机会",
+        "knowledgePoint": "提问句型：询问截止时间",
+        "responseTemplate": "___ to register?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "强调截止日期的严格性，常用表达是‘关闭后不再接受’。",
         "type": "fill_blank",
-        "situation": "你担心错过报名时间，想确认是否可以延迟注册。",
-        "speakerText": "Can I still register if I miss the deadline?",
-        "speakerTextCn": "如果我错过了截止日期，还能报名吗？",
-        "responseTemplate": "Unfortunately, ___ — no exceptions.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "强调截止日期的严格性，常用表达是‘关闭后不再接受’。",
-        "knowledgePoint": "表达截止日期不可延期的固定搭配"
+        "situation": "你担心错过报名时间，想确认是否可以延迟注册。",
+        "speakerText": "Can I still register if I miss the deadline?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "如果我错过了截止日期，还能报名吗？",
+        "knowledgePoint": "表达截止日期不可延期的固定搭配",
+        "responseTemplate": "Unfortunately, ___ — no exceptions."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "线上报名后常见的后续动作是点击确认链接，而不是付款或参加活动。",
         "type": "fill_blank",
-        "situation": "你不确定报名后是否需要进一步确认，想弄清楚后续步骤。",
-        "speakerText": "After I register, do I need to do anything else?",
-        "speakerTextCn": "报名之后我还需要做别的事情吗？",
-        "responseTemplate": "Just ___ and you'll get confirmation by email.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "线上报名后常见的后续动作是点击确认链接，而不是付款或参加活动。",
-        "knowledgePoint": "报名后确认步骤的常用表达"
+        "situation": "你不确定报名后是否需要进一步确认，想弄清楚后续步骤。",
+        "speakerText": "After I register, do I need to do anything else?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "报名之后我还需要做别的事情吗？",
+        "knowledgePoint": "报名后确认步骤的常用表达",
+        "responseTemplate": "Just ___ and you'll get confirmation by email."
+      }
+    },
+    {
+      "id": "study_abroad_104_sub_2_pq_6",
+      "subSceneId": "study_abroad_104_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "报名流程中的关键动作，常与‘course selections’搭配",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "confirm",
+            "options": [
+              "submit",
+              "confirm",
+              "send",
+              "change"
+            ]
+          }
+        ],
+        "template": "To complete your registration, you need to ______ your course selections.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配（confirm your choices）"
       }
     }
   ]

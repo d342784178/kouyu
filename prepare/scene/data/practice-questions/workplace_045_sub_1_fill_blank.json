@@ -2,20 +2,43 @@
   "subSceneId": "workplace_045_sub_1",
   "subSceneName": "礼貌打断",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:32:59.651Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.506Z",
   "questions": [
+    {
+      "id": "workplace_045_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "workplace_045_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "用 'Can I bother' 表达礼貌的请求，避免直接命令或过于生硬的表达",
+        "qaId": "workplace_045_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Can I bother",
+            "options": [
+              "Can I bother",
+              "Could you bother",
+              "I want to bother",
+              "May I disturb"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "新员工想礼貌地请求同事短暂协助，需要先用一个温和的表达开启对话",
+        "knowledgePoint": "礼貌请求句型",
+        "responseTemplate": "___ you for a sec?"
+      }
+    },
     {
       "id": "workplace_045_sub_1_fill_blank_1",
       "subSceneId": "workplace_045_sub_1",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "用礼貌的表达请求短暂打扰，强调非强制性",
         "type": "fill_blank",
-        "situation": "新员工想请资深同事帮忙检查一份报告，趁对方暂时空闲时礼貌打断",
-        "speakerText": "Hi Mark, ________?",
-        "speakerTextCn": "嗨，马克，能打扰你一下吗？",
-        "responseTemplate": "Sure, what's up?",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,12 @@
             ]
           }
         ],
-        "hint": "用礼貌的表达请求短暂打扰，强调非强制性",
-        "knowledgePoint": "礼貌打断的常用句型"
+        "situation": "新员工想请资深同事帮忙检查一份报告，趁对方暂时空闲时礼貌打断",
+        "speakerText": "Hi Mark, ________?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨，马克，能打扰你一下吗？",
+        "knowledgePoint": "礼貌打断的常用句型",
+        "responseTemplate": "Sure, what's up?"
       }
     },
     {
@@ -38,11 +65,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "表达歉意后提出请求，强调请求的温和性",
         "type": "fill_blank",
-        "situation": "你想请同事帮忙确认一个流程，对方正在打电话，你等他结束时用温和方式开口",
-        "speakerText": "Sorry to interrupt, but ________?",
-        "speakerTextCn": "抱歉打断你，但你能花一点时间帮我吗？",
-        "responseTemplate": "No problem, what do you need?",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +79,12 @@
             ]
           }
         ],
-        "hint": "表达歉意后提出请求，强调请求的温和性",
-        "knowledgePoint": "道歉式礼貌请求结构"
+        "situation": "你想请同事帮忙确认一个流程，对方正在打电话，你等他结束时用温和方式开口",
+        "speakerText": "Sorry to interrupt, but ________?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "抱歉打断你，但你能花一点时间帮我吗？",
+        "knowledgePoint": "道歉式礼貌请求结构",
+        "responseTemplate": "No problem, what do you need?"
       }
     },
     {
@@ -65,11 +93,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "用弱化语气表达请求，降低对方压力",
         "type": "fill_blank",
-        "situation": "你看到同事在喝咖啡，想借机请他帮忙看一眼你的PPT，避免显得突兀",
-        "speakerText": "Hey, I hate to ask, but ________?",
-        "speakerTextCn": "嘿，不好意思开口，但你能帮我看看吗？",
-        "responseTemplate": "Of course, happy to help!",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +107,64 @@
             ]
           }
         ],
-        "hint": "用弱化语气表达请求，降低对方压力",
-        "knowledgePoint": "弱化请求的礼貌表达"
+        "situation": "你看到同事在喝咖啡，想借机请他帮忙看一眼你的PPT，避免显得突兀",
+        "speakerText": "Hey, I hate to ask, but ________?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嘿，不好意思开口，但你能帮我看看吗？",
+        "knowledgePoint": "弱化请求的礼貌表达",
+        "responseTemplate": "Of course, happy to help!"
+      }
+    },
+    {
+      "id": "workplace_045_sub_1_pq_5",
+      "subSceneId": "workplace_045_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "这是比 'bother' 更正式的礼貌打断方式，常用于职场",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "interrupt",
+            "options": [
+              "interrupt",
+              "disturb",
+              "stop",
+              "talk"
+            ]
+          }
+        ],
+        "template": "Would you mind if I ___ you for a quick question?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配：interrupt someone for a question（礼貌请求打断）"
+      }
+    },
+    {
+      "id": "workplace_045_sub_1_pq_6",
+      "subSceneId": "workplace_045_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "这是非常礼貌的表达方式，常用于向上级或资深同事请求帮助",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "have",
+            "options": [
+              "have",
+              "take",
+              "get",
+              "use"
+            ]
+          }
+        ],
+        "template": "Excuse me, could I ___ a moment of your time?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定表达：have a moment of your time（请求短暂时间）"
       }
     }
   ]

@@ -2,77 +2,76 @@
   "subSceneId": "travel_062_sub_2",
   "subSceneName": "询问推荐与距离",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:58:24.237Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.131Z",
   "questions": [
     {
-      "id": "travel_062_sub_2_choice_1",
+      "id": "travel_062_sub_2_qa_2_choice_1",
       "subSceneId": "travel_062_sub_2",
       "type": "choice",
       "order": 1,
       "content": {
+        "qaId": "travel_062_sub_2_qa_2",
         "type": "choice",
-        "qaId": "travel_062_sub_2_qa_1",
-        "speakerText": "Is the Old Town far from here? Can I walk?",
-        "speakerTextCn": "老城区离这儿远吗？能走过去吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "It's 2 hours away by car — you should take a taxi.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Only 15 mins on foot — it's super close!",
+            "text": "What about the mountain view spot? Is it worth the trip?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "How much does it cost to visit the mountain view spot?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I don't know where that is.",
+            "text": "Is the mountain view spot open today?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "You can't walk there because it's private property.",
+            "text": "Can you tell me where the mountain view spot is?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Only 15 mins on foot — it's super close!' 符合对话中对步行可行性的积极回应，且使用了自然口语表达。其他选项要么信息错误（2小时车程）、不相关（不知道地点），要么无理拒绝（私人财产），不符合游客咨询的友好语境。"
+        "explanation": "正确答案直接回应了游客对景点价值和是否值得专程前往的关切，符合场景核心需求。干扰项2聚焦票价，与场景中‘推荐与距离’无关；干扰项3询问开放时间，偏离了评估景点价值的意图；干扰项4仅询问位置，未体现对‘是否值得’的评估，表达不完整。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客正在咨询旅游建议，工作人员刚刚推荐了几个景点，游客想确认其中一个观山景点是否值得专程前往，并想知道从当前位置到那里有多远。"
       }
     },
     {
-      "id": "travel_062_sub_2_choice_2",
+      "id": "travel_062_sub_2_qa_1_choice_1",
       "subSceneId": "travel_062_sub_2",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "travel_062_sub_2_qa_1",
         "type": "choice",
-        "qaId": "travel_062_sub_2_qa_2",
-        "speakerText": "What about the mountain view spot? Is it worth the trip?",
-        "speakerTextCn": "那个观山景点值得专程去吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "It's just a hill. Not worth it.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Absolutely! Best sunset view in the city — but it’s 30 mins by bus.",
+            "text": "Is the Old Town far from here? Can I walk?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "How much does it cost to get to the Old Town?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I heard the food there is amazing.",
+            "text": "Is the Old Town open today?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "You should ask the hotel staff.",
+            "text": "Can you tell me where the Old Town is?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Absolutely! Best sunset view in the city — but it’s 30 mins by bus.' 完整回应了 'Is it worth the trip?'，既肯定了价值又说明了交通时间，符合对话标准回应。其他选项要么否定过强、要么偏离主题（提到食物）、要么推卸责任，缺乏有效建议。"
+        "explanation": "正确答案询问了距离和步行可能性，符合场景中确认推荐景点后关注交通方式的需求。干扰项2关注费用，与距离无关；干扰项3询问开放时间，偏离主题；干扰项4仅要求位置信息，未涉及距离或交通方式，表达不完整。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在询问景点推荐后，想确认老城区是否离当前位置较远，以及是否可以步行前往。"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I heard the botanical garden is nice. Is it far from the train station?",
-        "speakerTextCn": "我听说植物园不错，离火车站远吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案提供了距离和两种交通方式，符合询问距离与推荐的场景核心。其他选项或回避问题、或答非所问（车站关闭）、或建议无关行为（买票），均未有效回应游客需求。"
+        "explanation": "正确答案提供了距离和两种交通方式，符合询问距离与推荐的场景核心。其他选项或回避问题、或答非所问（车站关闭）、或建议无关行为（买票），均未有效回应游客需求。",
+        "speakerText": "I heard the botanical garden is nice. Is it far from the train station?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我听说植物园不错，离火车站远吗？"
       }
     }
   ]

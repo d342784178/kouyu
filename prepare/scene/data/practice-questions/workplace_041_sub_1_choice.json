@@ -2,77 +2,76 @@
   "subSceneId": "workplace_041_sub_1",
   "subSceneName": "晨会进度汇报",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:17:51.076Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.446Z",
   "questions": [
     {
-      "id": "workplace_041_sub_1_choice_1",
+      "id": "workplace_041_sub_1_qa_2_choice_1",
       "subSceneId": "workplace_041_sub_1",
       "type": "choice",
       "order": 1,
       "content": {
+        "qaId": "workplace_041_sub_1_qa_2",
         "type": "choice",
-        "qaId": "workplace_041_sub_1_qa_1",
-        "speakerText": "Hey, how's the client report coming along?",
-        "speakerTextCn": "嘿，客户报告进展怎么样了？",
         "options": [
           {
             "id": "opt_1",
-            "text": "It's okay.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "I'm about 75% done—I’ll finish by 3 PM.",
+            "text": "Can you tell me what you've done so far?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Can you send me the project plan?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I don't know yet.",
+            "text": "What's your favorite project?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "It's not my job to report on it.",
+            "text": "Can you send me the final report?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案提供了具体进度（75%）和明确完成时间（3 PM），符合职场汇报的清晰性要求。选项A和C过于模糊，不符合‘避免只说还行’的使用说明；选项D回避责任，不符合团队协作语境。"
+        "explanation": "答案解析：正确的选项是 \"Can you tell me what you've done so far?\"，因为它直接询问同事项目的进展。其他选项是干扰项，询问不相关的信息或项目阶段。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在晨会上询问同事项目进展"
       }
     },
     {
-      "id": "workplace_041_sub_1_choice_2",
+      "id": "workplace_041_sub_1_qa_1_choice_1",
       "subSceneId": "workplace_041_sub_1",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "workplace_041_sub_1_qa_1",
         "type": "choice",
-        "qaId": "workplace_041_sub_1_qa_2",
-        "speakerText": "Can you send me the draft by noon?",
-        "speakerTextCn": "你中午前能把初稿发我吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll try to send it.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Yes, I'll email it to you by 11:45.",
+            "text": "Hey, how's the client report coming along?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Did you finish the client report yesterday?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I'm busy right now.",
+            "text": "Can you send me the client report?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Maybe tomorrow.",
+            "text": "Who is responsible for the client report?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案给出了明确的时间承诺（11:45），符合‘承诺时间要具体’的要求。选项A和D缺乏承诺感，选项C态度消极，都不符合职场专业回应标准。"
+        "explanation": "正确答案询问进展状态，符合晨会中自然、开放式的跟进方式。干扰项1是封闭式提问，假设已完成，不符合进展询问场景；干扰项2直接要求发送报告，忽略了进展沟通；干扰项3询问责任人，偏离了当前关注的进度主题。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在晨会上，你想礼貌地询问同事关于客户报告的进展情况"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "What’s the status on the quarterly analytics?",
-        "speakerTextCn": "季度数据分析的进展如何？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了专业术语（data cleaning, running models）并给出明确时间节点，体现专业性和主动性。选项A太模糊，选项C和D推卸责任，均不符合晨会汇报的积极沟通原则。"
+        "explanation": "正确答案使用了专业术语（data cleaning, running models）并给出明确时间节点，体现专业性和主动性。选项A太模糊，选项C和D推卸责任，均不符合晨会汇报的积极沟通原则。",
+        "speakerText": "What’s the status on the quarterly analytics?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "季度数据分析的进展如何？"
       }
     }
   ]

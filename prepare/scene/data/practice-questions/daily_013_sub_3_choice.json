@@ -2,9 +2,78 @@
   "subSceneId": "daily_013_sub_3",
   "subSceneName": "办理续借",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:16:53.122Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.538Z",
   "questions": [
+    {
+      "id": "daily_013_sub_3_qa_2_choice_1",
+      "subSceneId": "daily_013_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_013_sub_3_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What if the system says 'Cannot renew'?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I renew my books online?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How many times can I renew a book?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I can't renew, what should I do?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案询问系统提示‘无法续借’时的应对方式，符合场景中用户对异常情况的关切。选项2是已由工作人员回答过的问题，属于重复提问；选项3询问续借次数，与异常处理无关；选项4表达不自然且语法不完整，缺少引导性结构，不符合地道英语提问习惯。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户询问续借服务，工作人员回答是否可以在线操作。用户想进一步了解如果系统提示无法续借时该如何处理。"
+      }
+    },
+    {
+      "id": "daily_013_sub_3_qa_1_choice_1",
+      "subSceneId": "daily_013_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_013_sub_3_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I renew my books online?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How do I renew my books?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I renew my books by phone?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do I need to come to the library to renew my books?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是Can I renew my books online？因为这个问题直接询问是否可以在线续借，符合场景需求。其他选项不正确，因为它们没有直接询问是否可以在线续借。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户询问续借服务，工作人员回答是否可以在线操作"
+      }
+    },
     {
       "id": "daily_013_sub_3_choice_1",
       "subSceneId": "daily_013_sub_3",
@@ -12,9 +81,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "你在图书馆借了两本书，快到期了，想在线续借但不确定具体步骤，于是问工作人员。",
-        "speakerText": "I'm not sure how to renew my books online. Can you guide me?",
-        "speakerTextCn": "我不确定怎么在线续借，你能指导我一下吗？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +103,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案提供了清晰、具体的在线续借操作步骤，符合场景需求。选项2虽然正确但偏离了'在线'这一关键前提；选项3是推脱责任，不专业；选项4误解了续借的含义，属于答非所问。"
+        "situation": "你在图书馆借了两本书，快到期了，想在线续借但不确定具体步骤，于是问工作人员。",
+        "explanation": "正确答案提供了清晰、具体的在线续借操作步骤，符合场景需求。选项2虽然正确但偏离了'在线'这一关键前提；选项3是推脱责任，不专业；选项4误解了续借的含义，属于答非所问。",
+        "speakerText": "I'm not sure how to renew my books online. Can you guide me?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我不确定怎么在线续借，你能指导我一下吗？"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "你尝试在线续借图书，系统提示'Cannot renew'，你向工作人员求助，想知道原因。",
-        "speakerText": "The system won't let me renew my book. Why is that?",
-        "speakerTextCn": "系统不让我续借这本书，这是为什么？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确解释了系统提示'Cannot renew'的最常见原因——他人预约，符合真实场景。选项2和3是错误归因，缺乏普遍性；选项4是敷衍回答，未解决用户疑问。"
+        "situation": "你尝试在线续借图书，系统提示'Cannot renew'，你向工作人员求助，想知道原因。",
+        "explanation": "正确答案准确解释了系统提示'Cannot renew'的最常见原因——他人预约，符合真实场景。选项2和3是错误归因，缺乏普遍性；选项4是敷衍回答，未解决用户疑问。",
+        "speakerText": "The system won't let me renew my book. Why is that?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "系统不让我续借这本书，这是为什么？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "你刚借完书，想确认是否可以续借，于是问工作人员：'Do all books qualify for renewal?'",
-        "speakerText": "Do all books qualify for renewal?",
-        "speakerTextCn": "所有的书都能续借吗？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确说明了续借的例外情况（参考书和被预约的书），信息全面且符合图书馆常规规则。选项2过于绝对，不符合事实；选项3是错误限制；选项4推卸责任，不符合高效服务原则。"
+        "situation": "你刚借完书，想确认是否可以续借，于是问工作人员：'Do all books qualify for renewal?'",
+        "explanation": "正确答案准确说明了续借的例外情况（参考书和被预约的书），信息全面且符合图书馆常规规则。选项2过于绝对，不符合事实；选项3是错误限制；选项4推卸责任，不符合高效服务原则。",
+        "speakerText": "Do all books qualify for renewal?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "所有的书都能续借吗？"
       }
     }
   ]

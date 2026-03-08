@@ -2,28 +2,29 @@
   "subSceneId": "social_076_sub_2",
   "subSceneName": "询问职业",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:42:50.048Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.660Z",
   "questions": [
     {
-      "id": "social_076_sub_2_speaking_1",
+      "id": "social_076_sub_2_qa_1_speaking_1",
       "subSceneId": "social_076_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "social_076_sub_2_qa_1",
-        "speakerText": "So what do you do for work?",
-        "speakerTextCn": "那你平时是做什么工作的？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在社交聚会或职场新环境中，你想礼貌地了解对方的工作领域，以建立初步交流。",
         "expectedAnswers": [
-          "I'm a teacher. What about you?",
-          "I work in healthcare — it’s demanding but rewarding. And you?",
-          "I’m a freelance writer. I love the flexibility!"
+          "So what do you do for work?",
+          "What kind of work do you do?",
+          "Could you tell me about your job?",
+          "What field are you in?"
         ],
         "evaluationCriteria": [
-          "是否准确回应职业身份（使用职业名词或行业术语）",
-          "是否使用了恰当的句型结构（如 I'm... / I work in...）",
-          "是否在回答后反问对方以保持对话平衡"
+          "意图达成度：是否正确表达了询问对方职业的意图",
+          "语言准确性：语法结构和用词是否正确",
+          "表达自然度：是否符合英语母语者日常交流习惯",
+          "关键词覆盖：是否使用了与'职业'相关的关键词如'work', 'job', 'field'"
         ]
       }
     },
@@ -33,9 +34,10 @@
       "type": "speaking",
       "order": 2,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "What’s your line of work?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "你的工作领域是什么？",
         "expectedAnswers": [
           "I'm in sales. How about you?",
@@ -55,9 +57,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "How do you spend your workdays?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "你平时工作日都做些什么？",
         "expectedAnswers": [
           "I'm a project manager, so I coordinate teams and attend meetings all day.",

@@ -2,8 +2,7 @@
   "subSceneId": "daily_022_sub_2",
   "subSceneName": "询问品种",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:17:47.896Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.589Z",
   "questions": [
     {
       "id": "daily_022_sub_2_choice_1",
@@ -12,9 +11,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "A person is considering getting a puppy and wants to know if a Beagle is suitable for a small home with children.",
-        "speakerText": "Are Beagles good with kids? And do they shed a lot?",
-        "speakerTextCn": "比格犬适合有孩子的人家吗？它们掉毛多吗？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +33,81 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确回应了两个问题：是否适合孩子（friendly with kids）和掉毛情况（shed moderately），并给出实用建议（brush weekly）。干扰项1是答非所问，转移话题到其他犬种；干扰项2只强调了吠叫，忽略了孩子和掉毛的核心问题；干扰项3错误地描述了比格犬的性格（实际活跃爱动）。"
+        "situation": "A person is considering getting a puppy and wants to know if a Beagle is suitable for a small home with children.",
+        "explanation": "正确答案准确回应了两个问题：是否适合孩子（friendly with kids）和掉毛情况（shed moderately），并给出实用建议（brush weekly）。干扰项1是答非所问，转移话题到其他犬种；干扰项2只强调了吠叫，忽略了孩子和掉毛的核心问题；干扰项3错误地描述了比格犬的性格（实际活跃爱动）。",
+        "speakerText": "Are Beagles good with kids? And do they shed a lot?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "比格犬适合有孩子的人家吗？它们掉毛多吗？"
+      }
+    },
+    {
+      "id": "daily_022_sub_2_qa_1_choice_1",
+      "subSceneId": "daily_022_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_022_sub_2_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How loud are Cavalier King Charles dogs?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "What is the price of a Cavalier King Charles dog?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do Cavalier King Charles dogs need a lot of exercise?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Cavalier King Charles dogs are quiet, right?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接询问品种的叫声大小，符合公寓居住者对噪音敏感的核心需求。选项2询问价格，与环境适应性无关；选项3询问运动量，虽相关但非本场景重点；选项4是推测性陈述而非提问，不符合主动咨询的交际目的。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客住在公寓，想了解某种犬类是否适合在安静环境中饲养，需要询问该品种的叫声大小。"
+      }
+    },
+    {
+      "id": "daily_022_sub_2_qa_2_choice_1",
+      "subSceneId": "daily_022_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_022_sub_2_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do they need a lot of exercise?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much does it cost?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Are they friendly with kids?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "They need exercise?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Do they need a lot of exercise?' 是针对宠物运动需求的自然提问，符合场景中询问品种特性的目的。干扰项 'How much does it cost?' 关注价格，与运动需求无关；'Are they friendly with kids?' 虽合理但偏离了运动这一核心点；'They need exercise?' 是语法不完整的陈述句，不符合提问规范。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在宠物店想了解某种宠物的日常需求，特别是关于运动量方面，以便决定是否适合自己的生活方式。"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "Someone lives in a high-rise apartment and is thinking about adopting a Ragdoll cat. They want to know if it’s active or needs lots of space.",
-        "speakerText": "Are Ragdolls super active? Do they need a big place to run around?",
-        "speakerTextCn": "布偶猫特别活跃吗？它们需要很大的空间跑动吗？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确回应了活跃度和空间需求，使用口语化表达 'laid-back' 和 'lounging on laps'，并给出适合公寓的结论。干扰项1错误地将布偶猫比作狗，需要散步和围栏，完全不符合事实；干扰项2只提到抓家具，偏离了核心问题；干扰项3回避问题，转而谈论价格，属于答非所问。"
+        "situation": "Someone lives in a high-rise apartment and is thinking about adopting a Ragdoll cat. They want to know if it’s active or needs lots of space.",
+        "explanation": "正确答案准确回应了活跃度和空间需求，使用口语化表达 'laid-back' 和 'lounging on laps'，并给出适合公寓的结论。干扰项1错误地将布偶猫比作狗，需要散步和围栏，完全不符合事实；干扰项2只提到抓家具，偏离了核心问题；干扰项3回避问题，转而谈论价格，属于答非所问。",
+        "speakerText": "Are Ragdolls super active? Do they need a big place to run around?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "布偶猫特别活跃吗？它们需要很大的空间跑动吗？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "A student is looking for a low-maintenance pet for their dorm room and asks about hamsters.",
-        "speakerText": "Are hamsters noisy at night? And do they smell bad?",
-        "speakerTextCn": "仓鼠晚上吵吗？它们有异味吗？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案全面回应了两个问题：夜间噪音（mostly quiet）和异味（需定期清洁），并提供实用建议。干扰项1是答非所问，转向推荐其他宠物；干扰项2夸大了噪音（always running），不符合实际情况；干扰项3给出错误解决方案（多喂食），违背基本宠物护理常识。"
+        "situation": "A student is looking for a low-maintenance pet for their dorm room and asks about hamsters.",
+        "explanation": "正确答案全面回应了两个问题：夜间噪音（mostly quiet）和异味（需定期清洁），并提供实用建议。干扰项1是答非所问，转向推荐其他宠物；干扰项2夸大了噪音（always running），不符合实际情况；干扰项3给出错误解决方案（多喂食），违背基本宠物护理常识。",
+        "speakerText": "Are hamsters noisy at night? And do they smell bad?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "仓鼠晚上吵吗？它们有异味吗？"
       }
     }
   ]

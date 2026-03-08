@@ -2,9 +2,78 @@
   "subSceneId": "workplace_033_sub_1",
   "subSceneName": "询问邮件状态",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:22:04.319Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.362Z",
   "questions": [
+    {
+      "id": "workplace_033_sub_1_qa_1_choice_1",
+      "subSceneId": "workplace_033_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "workplace_033_sub_1_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hey, did you get a chance to send the project update email?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "你已经发了邮件吗?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "What is the project update email?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'm waiting for the project update email.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "答案解析：正确答案\"Hey, did you get a chance to send the project update email?\"是最合适的询问语句，因为它礼貌并且明确询问对方是否已发送邮件。其他选项不正确，因为\"你已经发了邮件吗?\"太直接，没有礼貌；\"What is the project update email?\"询问了错误的信息；\"I'm waiting for the project update email.\"表达的是自己的情况，而不是询问对方的状态。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "场景提示：用户询问，服务方/工作人员回应邮件发送情况"
+      }
+    },
+    {
+      "id": "workplace_033_sub_1_qa_2_choice_1",
+      "subSceneId": "workplace_033_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "workplace_033_sub_1_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Just checking in—was the email to the client sent?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "你有发邮件给客户吗?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "我想知道你是否发出了邮件",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "我还没收到邮件，你发了吗?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "答案解析：正确答案“Just checking in—was the email to the client sent?”是礼貌询问对方是否已发送项目进度邮件。选项2“你有发邮件给客户吗？”理解偏差型，表达不自然。选项3“我想知道你是否发出了邮件”理解偏差型，表达不自然。选项4“我还没收到邮件，你发了吗？”理解偏差型，表达不自然。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "询问邮件状态，服务方/工作人员回应邮件发送情况"
+      }
+    },
     {
       "id": "workplace_033_sub_1_choice_1",
       "subSceneId": "workplace_033_sub_1",
@@ -12,9 +81,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "你和同事在茶水间偶遇，对方想确认你是否已发送本周的团队周报邮件，语气友好但不随意。",
-        "speakerText": "Hi, just wanted to check if you've sent out the weekly team report email?",
-        "speakerTextCn": "嗨，想确认一下你发了本周团队周报邮件了吗？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +103,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确回应了对方的询问，说明当前状态（未发送）和明确的后续行动（一小时内发送），语气礼貌且专业。干扰项1是推卸责任，不符合职场协作；干扰项3与事实矛盾（若已发送应说明时间，但题干暗示尚未发送）；干扰项4态度对抗，不恰当。"
+        "situation": "你和同事在茶水间偶遇，对方想确认你是否已发送本周的团队周报邮件，语气友好但不随意。",
+        "explanation": "正确答案准确回应了对方的询问，说明当前状态（未发送）和明确的后续行动（一小时内发送），语气礼貌且专业。干扰项1是推卸责任，不符合职场协作；干扰项3与事实矛盾（若已发送应说明时间，但题干暗示尚未发送）；干扰项4态度对抗，不恰当。",
+        "speakerText": "Hi, just wanted to check if you've sent out the weekly team report email?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨，想确认一下你发了本周团队周报邮件了吗？"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "你正在给主管发邮件跟进项目进度，想礼貌询问他是否已将客户要求的项目摘要邮件发出。",
-        "speakerText": "Could you please let me know if the project summary email to the client has been sent?",
-        "speakerTextCn": "您能否告知一下，发给客户的项目摘要邮件是否已经发出？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案清晰确认邮件已发送，并补充了关键细节（已附更新预算），符合正式场合的完整回应。干扰项1推卸责任，不专业；干扰项3是承诺未来动作，但问题问的是是否已发送；干扰项4完全否认责任，态度不当。"
+        "situation": "你正在给主管发邮件跟进项目进度，想礼貌询问他是否已将客户要求的项目摘要邮件发出。",
+        "explanation": "正确答案清晰确认邮件已发送，并补充了关键细节（已附更新预算），符合正式场合的完整回应。干扰项1推卸责任，不专业；干扰项3是承诺未来动作，但问题问的是是否已发送；干扰项4完全否认责任，态度不当。",
+        "speakerText": "Could you please let me know if the project summary email to the client has been sent?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "您能否告知一下，发给客户的项目摘要邮件是否已经发出？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "你在Slack上向项目协调员发消息，想确认她是否已发送客户验收的最终版邮件，语气礼貌且高效。",
-        "speakerText": "Hey, just checking in—has the final version of the client acceptance email been sent?",
-        "speakerTextCn": "嗨，顺口问下，客户验收的最终版邮件发了吗？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接确认邮件已发送，并提供具体时间与附件信息，体现专业与高效。干扰项1虽诚实但未回应是否已发送（只说‘还没做’），答非所问；干扰项3推卸责任且模糊；干扰项4转移焦点，不礼貌且不解决问题。"
+        "situation": "你在Slack上向项目协调员发消息，想确认她是否已发送客户验收的最终版邮件，语气礼貌且高效。",
+        "explanation": "正确答案直接确认邮件已发送，并提供具体时间与附件信息，体现专业与高效。干扰项1虽诚实但未回应是否已发送（只说‘还没做’），答非所问；干扰项3推卸责任且模糊；干扰项4转移焦点，不礼貌且不解决问题。",
+        "speakerText": "Hey, just checking in—has the final version of the client acceptance email been sent?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨，顺口问下，客户验收的最终版邮件发了吗？"
       }
     }
   ]

@@ -2,20 +2,70 @@
   "subSceneId": "study_abroad_110_sub_3",
   "subSceneName": "申请流程",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:29:29.761Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.000Z",
   "questions": [
+    {
+      "id": "study_abroad_110_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "study_abroad_110_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示：填写下学期转专业的截止日期",
+        "qaId": "study_abroad_110_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "下学期",
+            "options": [
+              "下学期",
+              "转专业申请",
+              "截止日期",
+              "流程步骤"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "场景提示：用户询问转专业流程，服务方/工作人员解释流程",
+        "knowledgePoint": "转专业申请流程和截止日期",
+        "responseTemplate": "转专业申请的截止日期是___"
+      }
+    },
+    {
+      "id": "study_abroad_110_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "study_abroad_110_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示，帮助用户回忆",
+        "qaId": "study_abroad_110_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "填个表",
+            "options": [
+              "填个表",
+              "写一篇文章",
+              "去面试",
+              "交一笔钱"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户询问转专业申请流程",
+        "knowledgePoint": "转专业申请流程",
+        "responseTemplate": "那具体流程是啥？我只需填写___吗？"
+      }
+    },
     {
       "id": "study_abroad_110_sub_3_fill_blank_1",
       "subSceneId": "study_abroad_110_sub_3",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "这是申请转专业时必须提交的正式书面说明，表达你的动机和目标。",
         "type": "fill_blank",
-        "situation": "你打算转专业，向学姐咨询申请流程，想知道需要准备哪些材料。",
-        "speakerText": "I'm thinking about switching my major. What documents do I need to prepare?",
-        "speakerTextCn": "我打算转专业，需要准备哪些材料？",
-        "responseTemplate": "You'll need to submit a ___ and get approval from your current advisor.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +78,12 @@
             ]
           }
         ],
-        "hint": "这是申请转专业时必须提交的正式书面说明，表达你的动机和目标。",
-        "knowledgePoint": "申请流程中的核心文件表达"
+        "situation": "你打算转专业，向学姐咨询申请流程，想知道需要准备哪些材料。",
+        "speakerText": "I'm thinking about switching my major. What documents do I need to prepare?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我打算转专业，需要准备哪些材料？",
+        "knowledgePoint": "申请流程中的核心文件表达",
+        "responseTemplate": "You'll need to submit a ___ and get approval from your current advisor."
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "针对竞争激烈的专业，表达‘提前’提交的建议常用短语。",
         "type": "fill_blank",
-        "situation": "你担心错过转专业申请时间，想确认是否建议提前提交，以增加成功率。",
-        "speakerText": "I know there’s a deadline, but should I submit earlier if I’m applying to a competitive program?",
-        "speakerTextCn": "我知道有截止日期，但如果申请热门专业，我应该提前提交吗？",
-        "responseTemplate": "Yes, it’s better to apply ___ to improve your chances.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "针对竞争激烈的专业，表达‘提前’提交的建议常用短语。",
-        "knowledgePoint": "申请策略中的时间建议表达"
+        "situation": "你担心错过转专业申请时间，想确认是否建议提前提交，以增加成功率。",
+        "speakerText": "I know there’s a deadline, but should I submit earlier if I’m applying to a competitive program?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我知道有截止日期，但如果申请热门专业，我应该提前提交吗？",
+        "knowledgePoint": "申请策略中的时间建议表达",
+        "responseTemplate": "Yes, it’s better to apply ___ to improve your chances."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "当某步骤是强制性要求时，使用表示义务的模态动词。",
         "type": "fill_blank",
-        "situation": "你不确定转专业是否需要系主任面谈，想确认是否必须完成这一步。",
-        "speakerText": "Is meeting with the department chair required for the transfer?",
-        "speakerTextCn": "转专业必须见系主任吗？",
-        "responseTemplate": "Yes, you ___ meet with them before your application can be reviewed.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "当某步骤是强制性要求时，使用表示义务的模态动词。",
-        "knowledgePoint": "表达强制性要求的语法结构"
+        "situation": "你不确定转专业是否需要系主任面谈，想确认是否必须完成这一步。",
+        "speakerText": "Is meeting with the department chair required for the transfer?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "转专业必须见系主任吗？",
+        "knowledgePoint": "表达强制性要求的语法结构",
+        "responseTemplate": "Yes, you ___ meet with them before your application can be reviewed."
+      }
+    },
+    {
+      "id": "study_abroad_110_sub_3_pq_6",
+      "subSceneId": "study_abroad_110_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "学校通常要求正式的书面同意，而不是口头确认",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "written",
+            "options": [
+              "written",
+              "oral",
+              "verbal",
+              "informal"
+            ]
+          }
+        ],
+        "template": "Before submitting your application, make sure you’ve secured ___ approval from your current advisor.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景高频词：written approval（书面批准）"
       }
     }
   ]

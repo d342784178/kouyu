@@ -2,77 +2,76 @@
   "subSceneId": "study_abroad_108_sub_1",
   "subSceneName": "预约咨询",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:54:10.095Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.958Z",
   "questions": [
     {
-      "id": "study_abroad_108_sub_1_choice_1",
+      "id": "study_abroad_108_sub_1_qa_1_choice_1",
       "subSceneId": "study_abroad_108_sub_1",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "study_abroad_108_sub_1_qa_1",
-        "speakerText": "Hi, I'm calling to book a slot for my graduation checklist meeting.",
-        "speakerTextCn": "你好，我想预约一个毕业清单面谈的时间。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Can I reschedule my flight for next week?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Could I make an appointment for my graduation meeting?",
+            "text": "Hi, I'm calling to book a slot for my graduation checklist meeting.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "When is the best time to graduate?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I need to submit my thesis by Friday.",
+            "text": "Can you tell me what I need to do for graduation?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Do you have any open slots for a party?",
+            "text": "I need a meeting about graduation.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Could I make an appointment for my graduation meeting?' 是对预约场景的恰当表达，与原句语义一致。其他选项分别涉及航班、论文截止日和派对，与预约学术顾问无关，属于语境错误。"
+        "explanation": "正确答案准确表达了预约意图，使用了礼貌且符合场景的表达方式。干扰项1是询问毕业时间，偏离了预约请求的核心；干扰项2是询问毕业要求，属于信息咨询而非预约；干扰项3表达不完整且不够礼貌，缺乏明确的预约动作。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "学生想预约学术顾问进行毕业事项面谈，需要礼貌且清晰地提出预约请求。"
       }
     },
     {
-      "id": "study_abroad_108_sub_1_choice_2",
+      "id": "study_abroad_108_sub_1_qa_2_choice_1",
       "subSceneId": "study_abroad_108_sub_1",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "study_abroad_108_sub_1_qa_2",
-        "speakerText": "You'll need to bring your transcript and thesis outline.",
-        "speakerTextCn": "你得带上成绩单和论文提纲。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Should I bring my ID card and passport?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you mean the draft version or the final proposal?",
+            "text": "What documents should I bring for the meeting?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "When will the meeting be scheduled?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I already sent you my grades last month.",
+            "text": "Can you help me write my thesis outline?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can I just email them instead?",
+            "text": "I need to bring my transcript and thesis outline.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Do you mean the draft version or the final proposal?' 体现了对材料版本的合理确认，符合原对话中追问细节的策略。其他选项要么偏离材料要求（如身份证），要么是单方面陈述而非确认，不符合‘明确要求’的沟通目标。"
+        "explanation": "正确答案询问需要携带的材料，符合预约时确认准备事项的交际需求。选项2只问时间，未涉及材料准备；选项3请求代写论文，超出顾问职责范围；选项4是陈述句而非提问，不符合预约对话中主动询问的语用规则。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "学生预约学术顾问面谈毕业事宜，希望确认需要准备哪些材料。"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I'm trying to schedule my graduation review. Do you have availability next week?",
-        "speakerTextCn": "我想预约毕业审核，下周有空位吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案提供两个具体可选时间，符合预约场景中‘提供选项提高效率’的策略。选项1推诿责任，选项3偏离问题，选项4虽为事实但未提供替代方案，不符合积极回应原则。"
+        "explanation": "正确答案提供两个具体可选时间，符合预约场景中‘提供选项提高效率’的策略。选项1推诿责任，选项3偏离问题，选项4虽为事实但未提供替代方案，不符合积极回应原则。",
+        "speakerText": "I'm trying to schedule my graduation review. Do you have availability next week?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我想预约毕业审核，下周有空位吗？"
       }
     }
   ]

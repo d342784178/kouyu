@@ -2,77 +2,76 @@
   "subSceneId": "study_abroad_099_sub_1",
   "subSceneName": "初次咨询",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:49:49.804Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.854Z",
   "questions": [
     {
-      "id": "study_abroad_099_sub_1_choice_1",
+      "id": "study_abroad_099_sub_1_qa_1_choice_1",
       "subSceneId": "study_abroad_099_sub_1",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "study_abroad_099_sub_1_qa_1",
-        "speakerText": "Hi, I'm new here and I'd like to apply for on-campus housing. What options do you have?",
-        "speakerTextCn": "你好，我是新生，想申请校内宿舍，有什么房型？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "I want a single room with a private bathroom, if possible.",
+            "text": "Hi, I'm new here and I'd like to apply for on-campus housing. What options do you have?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I need a room near the cafeteria.",
+            "text": "Do you have dorms? I need one.",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Can you give me a discount?",
+            "text": "How much does it cost to live off-campus?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "When does the semester start?",
+            "text": "I want a room. When can I move in?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了对方关于房型的问题，并表达了具体偏好，符合'主动提出偏好，提高申请成功率'的使用说明。其他选项偏离主题：B关注位置而非房型，C询问折扣（不相关），D询问开学时间（无关信息）。"
+        "explanation": "正确答案礼貌地介绍了自己并明确询问宿舍选项，符合初次咨询的语境。选项2过于简略且缺乏礼貌；选项3偏离了校内住宿的主题；选项4假设已确定住宿类型，未先询问可用选项，不符合逻辑顺序。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你是一名新生，第一次来到学校，想向住宿办公室咨询可用的宿舍类型，你需要礼貌地打招呼并询问有哪些住宿选择。"
       }
     },
     {
-      "id": "study_abroad_099_sub_1_choice_2",
+      "id": "study_abroad_099_sub_1_qa_2_choice_1",
       "subSceneId": "study_abroad_099_sub_1",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "study_abroad_099_sub_1_qa_2",
-        "speakerText": "We've got singles, doubles, and suites. Singles are most popular right now.",
-        "speakerTextCn": "我们有单人间、双人间和套房，目前单人间最抢手。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Can I get on the waitlist for a single? I'm happy to pay extra.",
+            "text": "What types of dorm rooms do you have available?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I don't care about the room type, just give me anything.",
+            "text": "How much does a single room cost?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Are suites cheaper than singles?",
+            "text": "Can I get a suite next semester?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can I bring my pet?",
+            "text": "Do you have any vacancies?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案体现了'根据情况灵活调整需求'的策略，主动请求候补并愿意加价，是积极应对短缺的合理回应。B虽然态度随和但缺乏主动性，C和D与当前情境无关（价格和宠物未被提及）。"
+        "explanation": "正确答案询问宿舍类型，符合初次咨询时了解选项的需求。干扰项1聚焦价格，属于过早深入细节；干扰项2假设学生已决定要套房，不符合初次咨询的开放性；干扰项3只问空房，未涉及类型信息，回答无法覆盖场景需求。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "学生第一次联系住宿办公室，想了解可供选择的宿舍类型"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I'm interested in on-campus housing. Could you tell me about the room types and availability?",
-        "speakerTextCn": "我对校内住宿感兴趣，能告诉我有哪些房型和 Availability 吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案清晰表达了偏好（双人间）但保持灵活性（愿意接受单人间），符合初次咨询的礼貌与策略性表达。B要求泳池（校内宿舍通常无），C转向校外住宿（偏离主题），D要求全家入住（不符合学生宿舍性质）。"
+        "explanation": "正确答案清晰表达了偏好（双人间）但保持灵活性（愿意接受单人间），符合初次咨询的礼貌与策略性表达。B要求泳池（校内宿舍通常无），C转向校外住宿（偏离主题），D要求全家入住（不符合学生宿舍性质）。",
+        "speakerText": "I'm interested in on-campus housing. Could you tell me about the room types and availability?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我对校内住宿感兴趣，能告诉我有哪些房型和 Availability 吗？"
       }
     }
   ]

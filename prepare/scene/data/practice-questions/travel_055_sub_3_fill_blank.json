@@ -2,20 +2,97 @@
   "subSceneId": "travel_055_sub_3",
   "subSceneName": "确认方向",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:29:50.788Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.024Z",
   "questions": [
+    {
+      "id": "travel_055_sub_3_qa_3_fill_blank_1",
+      "subSceneId": "travel_055_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "礼貌地打招呼后，可以直接提出具体问题",
+        "qaId": "travel_055_sub_3_qa_3",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "the exit",
+            "options": [
+              "the exit",
+              "the restroom",
+              "the restaurant",
+              "the hotel"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在询问方向时，应先礼貌地打招呼，然后提出具体问题",
+        "knowledgePoint": "提问句型",
+        "responseTemplate": "Hello, where can I find ___?"
+      }
+    },
+    {
+      "id": "travel_055_sub_3_qa_4_fill_blank_1",
+      "subSceneId": "travel_055_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "礼貌地打招呼，然后提出具体问题",
+        "qaId": "travel_055_sub_3_qa_4",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "the nearest subway station is",
+            "options": [
+              "the nearest subway station is",
+              "the best restaurant is",
+              "the nearest hotel is",
+              "the best shopping mall is"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在询问方向时，应先礼貌地打招呼，然后提出具体问题。",
+        "knowledgePoint": "确认方向",
+        "responseTemplate": "Hello, can you tell me where___?"
+      }
+    },
+    {
+      "id": "travel_055_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "travel_055_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "礼貌地打招呼后，应该提出具体的问题",
+        "qaId": "travel_055_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "how to get to the city center",
+            "options": [
+              "how to get to the city center",
+              "where is the nearest restaurant",
+              "what time is it now",
+              "how much does it cost"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "询问方向时，应先礼貌地打招呼，然后提出具体问题。",
+        "knowledgePoint": "确认方向时的提问句型",
+        "responseTemplate": "Hello! Can you tell me _______________ and do I need to turn left or right after the post office?"
+      }
+    },
     {
       "id": "travel_055_sub_3_fill_blank_1",
       "subSceneId": "travel_055_sub_3",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "当你需要确认转弯方向时，常用这个结构询问左转还是右转。",
         "type": "fill_blank",
-        "situation": "你在陌生城市问路，对方告诉你往前走，但你不确定是否该转弯，于是再次确认方向。",
-        "speakerText": "Just keep walking until you see the bank, then ______.",
-        "speakerTextCn": "一直往前走，直到看到银行，然后______。",
-        "responseTemplate": "Do I turn left or right?",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +105,39 @@
             ]
           }
         ],
-        "hint": "当你需要确认转弯方向时，常用这个结构询问左转还是右转。",
-        "knowledgePoint": "确认方向的询问句型"
+        "situation": "你在陌生城市问路，对方告诉你往前走，但你不确定是否该转弯，于是再次确认方向。",
+        "speakerText": "Just keep walking until you see the bank, then ______.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "一直往前走，直到看到银行，然后______。",
+        "knowledgePoint": "确认方向的询问句型",
+        "responseTemplate": "Do I turn left or right?"
+      }
+    },
+    {
+      "id": "travel_055_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "travel_055_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "礼貌打招呼后，应该提出具体的问题",
+        "qaId": "travel_055_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "离这儿远吗",
+            "options": [
+              "你好，我找不到路了",
+              "离这儿远吗",
+              "这是哪儿",
+              "我想去超市"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在询问方向时，应先礼貌地打招呼，然后提出具体问题。",
+        "knowledgePoint": "提问句型",
+        "responseTemplate": "你好，请问___?"
       }
     },
     {
@@ -38,11 +146,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "当被要求返回时，用这个短语确认你理解了正确的动作。",
         "type": "fill_blank",
-        "situation": "你走错了路，对方提醒你该转身，你为了确保理解正确，再次确认动作。",
-        "speakerText": "You need to turn around and go back. So I should ______?",
-        "speakerTextCn": "你需要转身往回走。所以我应该______？",
-        "responseTemplate": "turn around and walk back",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +160,12 @@
             ]
           }
         ],
-        "hint": "当被要求返回时，用这个短语确认你理解了正确的动作。",
-        "knowledgePoint": "纠正方向的动词短语"
+        "situation": "你走错了路，对方提醒你该转身，你为了确保理解正确，再次确认动作。",
+        "speakerText": "You need to turn around and go back. So I should ______?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你需要转身往回走。所以我应该______？",
+        "knowledgePoint": "纠正方向的动词短语",
+        "responseTemplate": "turn around and walk back"
       }
     },
     {
@@ -65,11 +174,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "当对方说‘不用转弯’时，用这个短语确认是否完全不需要转向。",
         "type": "fill_blank",
-        "situation": "你问路后，对方说‘一直走就行’，你为确认是否需要转弯，礼貌地再次确认。",
-        "speakerText": "You're good, just keep going. So I don't need to ______ at all?",
-        "speakerTextCn": "没问题，一直走就行。所以我根本不需要______？",
-        "responseTemplate": "turn left or right",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +188,64 @@
             ]
           }
         ],
-        "hint": "当对方说‘不用转弯’时，用这个短语确认是否完全不需要转向。",
-        "knowledgePoint": "确认是否需要转向的否定疑问"
+        "situation": "你问路后，对方说‘一直走就行’，你为确认是否需要转弯，礼貌地再次确认。",
+        "speakerText": "You're good, just keep going. So I don't need to ______ at all?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "没问题，一直走就行。所以我根本不需要______？",
+        "knowledgePoint": "确认是否需要转向的否定疑问",
+        "responseTemplate": "turn left or right"
+      }
+    },
+    {
+      "id": "travel_055_sub_3_pq_5",
+      "subSceneId": "travel_055_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "表示‘一直走’的固定搭配",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "going",
+            "options": [
+              "going",
+              "walk",
+              "run",
+              "turn"
+            ]
+          }
+        ],
+        "template": "You don't need to turn — just keep ___ straight.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定表达 keep going"
+      }
+    },
+    {
+      "id": "travel_055_sub_3_pq_6",
+      "subSceneId": "travel_055_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "根据语境判断方向，后文提到银行在右边，说明转弯方向",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "right",
+            "options": [
+              "right",
+              "left",
+              "back",
+              "up"
+            ]
+          }
+        ],
+        "template": "Turn ___ at the traffic lights, then you'll see the bank on your right.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "方向指示词（left/right）"
       }
     }
   ]

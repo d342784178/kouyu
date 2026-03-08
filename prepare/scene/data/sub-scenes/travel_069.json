@@ -1,19 +1,26 @@
 {
   "sceneId": "travel_069",
   "sceneName": "租车还车",
+  "exportedAt": "2026-03-08T15:31:54.896Z",
   "subScenes": [
     {
       "id": "travel_069_sub_1",
+      "sceneId": "travel_069",
       "name": "问候还车",
       "description": "到达还车点，与工作人员打招呼",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_069_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi there! You're back with the rental car?",
-          "speakerTextCn": "嗨！你把租的车开回来了？",
-          "responses": [
+          "subSceneId": "travel_069_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hi there! You're back with the rental car?",
+          "triggerTextCn": "嗨！你把租的车开回来了？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Yeah, I'm returning the car from last week.",
               "text_cn": "是的，我来还上周租的车。",
@@ -30,22 +37,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用简短回应快速进入主题"
+          "usageNote": "用简短回应快速进入主题",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         }
       ]
     },
     {
       "id": "travel_069_sub_2",
+      "sceneId": "travel_069",
       "name": "检查车况",
       "description": "确认油量和车身损伤情况",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_069_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "The tank's about half full—did you refill it?",
-          "speakerTextCn": "油箱大概一半满，你加过油吗？",
-          "responses": [
+          "subSceneId": "travel_069_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "The tank's about half full—did you refill it?",
+          "triggerTextCn": "油箱大概一半满，你加过油吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Yeah, I filled it up before returning.",
               "text_cn": "加满了，我回来前加的油。",
@@ -62,14 +78,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "如实说明油量情况避免纠纷"
+          "usageNote": "如实说明油量情况避免纠纷",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "travel_069_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "There's a small scratch on the driver's side door—did you notice that?",
-          "speakerTextCn": "驾驶座门上有道小划痕，你注意到了吗？",
-          "responses": [
+          "subSceneId": "travel_069_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "There's a small scratch on the driver's side door—did you notice that?",
+          "triggerTextCn": "驾驶座门上有道小划痕，你注意到了吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I'm sorry, I didn't see it when I picked it up.",
               "text_cn": "抱歉，取车时我没注意到。",
@@ -86,22 +109,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "区分新旧损伤，保留证据"
+          "usageNote": "区分新旧损伤，保留证据",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "travel_069_sub_3",
+      "sceneId": "travel_069",
       "name": "交接钥匙与收据",
       "description": "归还钥匙并索要还车收据",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_069_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Here's your key—everything looks good on our end.",
-          "speakerTextCn": "这是��的钥匙，我们这边检查没问题。",
-          "responses": [
+          "subSceneId": "travel_069_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Here's your key—everything looks good on our end.",
+          "triggerTextCn": "这是��的钥匙，我们这边检查没问题。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Great! Could I get a receipt, please?",
               "text_cn": "太好了！能给我一张收据吗？",
@@ -118,22 +150,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "主动索要收据，保留凭证"
+          "usageNote": "主动索要收据，保留凭证",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         }
       ]
     },
     {
       "id": "travel_069_sub_4",
+      "sceneId": "travel_069",
       "name": "确认费用与道别",
       "description": "确认无额外费用后礼貌道别",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_069_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "No extra charges—your card was only charged for the base rate.",
-          "speakerTextCn": "没有额外费用，只扣了基础租金。",
-          "responses": [
+          "subSceneId": "travel_069_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "No extra charges—your card was only charged for the base rate.",
+          "triggerTextCn": "没有额外费用，只扣了基础租金。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Perfect! Thanks so much for your help.",
               "text_cn": "太好了！非常感谢你的帮助。",
@@ -150,14 +191,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "确认无争议后表达感谢"
+          "usageNote": "确认无争议后表达感谢",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "travel_069_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Have a safe trip home!",
-          "speakerTextCn": "回家路上注意安全！",
-          "responses": [
+          "subSceneId": "travel_069_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Have a safe trip home!",
+          "triggerTextCn": "回家路上注意安全！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Thanks, you too! See you next time!",
               "text_cn": "谢谢，你也是！下次见！",
@@ -174,7 +222,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "简短礼貌道别，留下好印象"
+          "usageNote": "简短礼貌道别，留下好印象",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

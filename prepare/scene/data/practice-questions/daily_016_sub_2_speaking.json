@@ -2,50 +2,52 @@
   "subSceneId": "daily_016_sub_2",
   "subSceneName": "确认价格",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:41:21.380Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.556Z",
   "questions": [
     {
-      "id": "daily_016_sub_2_speaking_1",
+      "id": "daily_016_sub_2_qa_2_speaking_1",
       "subSceneId": "daily_016_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "daily_016_sub_2_qa_2",
         "type": "speaking",
-        "qaId": "daily_016_sub_2_qa_1",
-        "speakerText": "How much is the juice and the sandwich?",
-        "speakerTextCn": "橙汁和三明治多少钱？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在结账时听到店员报出商品价格，希望确认最终总价是否正确",
         "expectedAnswers": [
-          "The juice is $2.50 and the sandwich is $4. That's $6.50 total.",
-          "Juice: $2.50, sandwich: $4. Six fifty, please.",
-          "Two fifty for the juice, four for the sandwich — so six fifty altogether."
+          "So that's $6.50?",
+          "Just to confirm, the total is $6.50?",
+          "Does that come to $6.50 altogether?",
+          "I think that’s $6.50 — is that right?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确回答了单品价格并给出总价",
-          "语言准确性：使用正确货币格式和语法结构",
-          "表达自然度：符合口语习惯，避免冗长或模糊表达"
+          "意图达成度：是否明确表达了确认总价的意图",
+          "语言准确性：语法结构正确，数字和货币单位使用无误",
+          "表达自然度：符合日常英语口语习惯，语气礼貌自然",
+          "关键词覆盖：使用了'price', 'total', 或数字货币表达等场景关键词"
         ]
       }
     },
     {
-      "id": "daily_016_sub_2_speaking_2",
+      "id": "daily_016_sub_2_qa_1_speaking_1",
       "subSceneId": "daily_016_sub_2",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "daily_016_sub_2_qa_1",
         "type": "speaking",
-        "qaId": "daily_016_sub_2_qa_2",
-        "speakerText": "So that's $6.50?",
-        "speakerTextCn": "所以是6块5吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客询问橙汁和三明治的价格，服务方/工作人员需要回答。",
         "expectedAnswers": [
-          "Yeah, that's right.",
-          "Yep, you got it.",
-          "Exactly. That's the total."
+          "How much is the juice and the sandwich?",
+          "What is the total price of the juice and the sandwich?",
+          "How much will the juice and the sandwich cost me?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确确认金额无误，消除顾客疑虑",
-          "语言准确性：使用恰当的口语确认词，无语法错误",
-          "表达自然度：简洁、自然，符合日常服务对话习惯"
+          "意图达成度：是否正确表达了询问价格的意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
@@ -55,9 +57,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "What's the total for the coffee and the muffin?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "咖啡和松饼总共多少钱？",
         "expectedAnswers": [
           "Coffee is $3, muffin is $2.25. That comes to $5.25.",

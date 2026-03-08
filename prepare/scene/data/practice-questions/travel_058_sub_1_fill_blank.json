@@ -2,8 +2,7 @@
   "subSceneId": "travel_058_sub_1",
   "subSceneName": "问候与确认",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:30:06.270Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.081Z",
   "questions": [
     {
       "id": "travel_058_sub_1_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "用简洁的肯定回答确认预订归属，常用结构是 'it is'",
         "type": "fill_blank",
-        "situation": "在租车柜台，工作人员核对预订信息时，询问是否为本人预订。",
-        "speakerText": "Is this reservation under your name?",
-        "speakerTextCn": "这个预订是用您的名字下的吗？",
-        "responseTemplate": "Yes, ___",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "用简洁的肯定回答确认预订归属，常用结构是 'it is'",
-        "knowledgePoint": "确认归属的简洁应答结构"
+        "situation": "在租车柜台，工作人员核对预订信息时，询问是否为本人预订。",
+        "speakerText": "Is this reservation under your name?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这个预订是用您的名字下的吗？",
+        "knowledgePoint": "确认归属的简洁应答结构",
+        "responseTemplate": "Yes, ___"
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "纠正姓名时，使用 'Actually' 开头，后接正确全名",
         "type": "fill_blank",
-        "situation": "工作人员说预订姓名与您实际姓名不符，您需要礼貌纠正。",
-        "speakerText": "The reservation is under Robert Smith.",
-        "speakerTextCn": "预订姓名是罗伯特·史密斯。",
-        "responseTemplate": "Actually, my name is ___",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "纠正姓名时，使用 'Actually' 开头，后接正确全名",
-        "knowledgePoint": "礼貌纠正信息的表达结构"
+        "situation": "工作人员说预订姓名与您实际姓名不符，您需要礼貌纠正。",
+        "speakerText": "The reservation is under Robert Smith.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "预订姓名是罗伯特·史密斯。",
+        "knowledgePoint": "礼貌纠正信息的表达结构",
+        "responseTemplate": "Actually, my name is ___"
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "在确认信息时，常用 'Yes' 开头，简洁回应并重复 'that's right' 加强确认",
         "type": "fill_blank",
-        "situation": "工作人员确认预订后，询问您是否需要确认车辆类型。",
-        "speakerText": "Just to confirm, you booked a mid-size sedan, correct?",
-        "speakerTextCn": "确认一下，您预订的是中型轿车，对吗？",
-        "responseTemplate": "___, that's right.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "在确认信息时，常用 'Yes' 开头，简洁回应并重复 'that's right' 加强确认",
-        "knowledgePoint": "确认性回应的常用句式"
+        "situation": "工作人员确认预订后，询问您是否需要确认车辆类型。",
+        "speakerText": "Just to confirm, you booked a mid-size sedan, correct?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "确认一下，您预订的是中型轿车，对吗？",
+        "knowledgePoint": "确认性回应的常用句式",
+        "responseTemplate": "___, that's right."
+      }
+    },
+    {
+      "id": "travel_058_sub_1_pq_4",
+      "subSceneId": "travel_058_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "租车柜台通常先确认姓氏，用于查找预订记录",
+        "qaId": "travel_058_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "last",
+            "options": [
+              "last",
+              "first",
+              "full",
+              "given"
+            ]
+          }
+        ],
+        "template": "Hi there! Can I get your ___ name for the reservation?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景高频词汇（last name）"
+      }
+    },
+    {
+      "id": "travel_058_sub_1_pq_5",
+      "subSceneId": "travel_058_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "这是系统显示的预订名，可能与实际不符，需核对",
+        "qaId": "travel_058_sub_1_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "John",
+            "options": [
+              "John",
+              "Jian",
+              "Wang",
+              "Mike"
+            ]
+          }
+        ],
+        "template": "You've got a compact car reserved under ___ Wang. Is that right?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景核心句型（reserved under...）"
+      }
+    },
+    {
+      "id": "travel_058_sub_1_pq_6",
+      "subSceneId": "travel_058_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "当预订名与实际不符时，用 'Actually' 开头礼貌纠正",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Jian",
+            "options": [
+              "Jian",
+              "John",
+              "Wang",
+              "Mike"
+            ]
+          }
+        ],
+        "template": "Actually, my first name is ___ , not John. Could you check again?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景功能表达（纠正信息）"
       }
     }
   ]

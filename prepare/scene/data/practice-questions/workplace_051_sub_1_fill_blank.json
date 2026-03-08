@@ -2,20 +2,43 @@
   "subSceneId": "workplace_051_sub_1",
   "subSceneName": "问候与开场",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:33:41.315Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.561Z",
   "questions": [
+    {
+      "id": "workplace_051_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "workplace_051_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "请填写正确的动作词",
+        "qaId": "workplace_051_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "book",
+            "options": [
+              "预订",
+              "租用",
+              "使用",
+              "安排"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "场景提示：用户通常先发起询问，服务方随后提供帮助",
+        "knowledgePoint": "问候与开场，使用动词",
+        "responseTemplate": "Hi, could you help me ___ a meeting room?"
+      }
+    },
     {
       "id": "workplace_051_sub_1_fill_blank_1",
       "subSceneId": "workplace_051_sub_1",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "这是对礼貌请求的标准积极回应，表达愿意帮忙",
         "type": "fill_blank",
-        "situation": "你在公司前台，一位同事走过来想预订会议室，礼貌地向你求助。",
-        "speakerText": "Hi, could you help me book a meeting room?",
-        "speakerTextCn": "嗨，你能帮我预订个会议室吗？",
-        "responseTemplate": "___! What time and room size do you need?",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,12 @@
             ]
           }
         ],
-        "hint": "这是对礼貌请求的标准积极回应，表达愿意帮忙",
-        "knowledgePoint": "礼貌回应请求的固定表达"
+        "situation": "你在公司前台，一位同事走过来想预订会议室，礼貌地向你求助。",
+        "speakerText": "Hi, could you help me book a meeting room?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨，你能帮我预订个会议室吗？",
+        "knowledgePoint": "礼貌回应请求的固定表达",
+        "responseTemplate": "___! What time and room size do you need?"
       }
     },
     {
@@ -38,11 +65,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "回应对方的请求时，用这个短语表示乐意协助并自然过渡到下一步询问",
         "type": "fill_blank",
-        "situation": "一位客户来到办公室，想安排一个会议空间，你主动询问需求。",
-        "speakerText": "I'm looking to reserve a meeting room today.",
-        "speakerTextCn": "我想今天预订一个会议室。",
-        "responseTemplate": "___! How many people will be attending?",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +79,12 @@
             ]
           }
         ],
-        "hint": "回应对方的请求时，用这个短语表示乐意协助并自然过渡到下一步询问",
-        "knowledgePoint": "积极回应并引导对话的礼貌表达"
+        "situation": "一位客户来到办公室，想安排一个会议空间，你主动询问需求。",
+        "speakerText": "I'm looking to reserve a meeting room today.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我想今天预订一个会议室。",
+        "knowledgePoint": "积极回应并引导对话的礼貌表达",
+        "responseTemplate": "___! How many people will be attending?"
       }
     },
     {
@@ -65,11 +93,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "这是对非正式请求的自然、友好且专业的回应方式",
         "type": "fill_blank",
-        "situation": "你正在接待来访的合作伙伴，对方希望安排一个小型会议，你准备提供帮助。",
-        "speakerText": "Do you think you could help me find a room for a quick meeting?",
-        "speakerTextCn": "你能帮我找间房间开个简短会议吗？",
-        "responseTemplate": "___! I'll check what's available right away.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +107,64 @@
             ]
           }
         ],
-        "hint": "这是对非正式请求的自然、友好且专业的回应方式",
-        "knowledgePoint": "非正式但专业的回应请求的常用短语"
+        "situation": "你正在接待来访的合作伙伴，对方希望安排一个小型会议，你准备提供帮助。",
+        "speakerText": "Do you think you could help me find a room for a quick meeting?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你能帮我找间房间开个简短会议吗？",
+        "knowledgePoint": "非正式但专业的回应请求的常用短语",
+        "responseTemplate": "___! I'll check what's available right away."
+      }
+    },
+    {
+      "id": "workplace_051_sub_1_pq_5",
+      "subSceneId": "workplace_051_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "预订会议室的常用动词",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "reserve",
+            "options": [
+              "reserve",
+              "buy",
+              "find",
+              "see"
+            ]
+          }
+        ],
+        "template": "I'd like to ___ a conference room for tomorrow.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "reserve a room（会议预订核心动词搭配）"
+      }
+    },
+    {
+      "id": "workplace_051_sub_1_pq_6",
+      "subSceneId": "workplace_051_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "询问会议安排时的关键信息",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "time",
+            "options": [
+              "time",
+              "place",
+              "person",
+              "price"
+            ]
+          }
+        ],
+        "template": "What ___ and room size do you need?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "time and room size（会议室预订核心询问要素）"
       }
     }
   ]

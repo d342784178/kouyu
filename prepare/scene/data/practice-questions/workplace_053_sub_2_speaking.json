@@ -2,50 +2,52 @@
   "subSceneId": "workplace_053_sub_2",
   "subSceneName": "请求派送",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:19:28.283Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.581Z",
   "questions": [
     {
-      "id": "workplace_053_sub_2_speaking_1",
+      "id": "workplace_053_sub_2_qa_2_speaking_1",
       "subSceneId": "workplace_053_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "workplace_053_sub_2_qa_2",
         "type": "speaking",
-        "qaId": "workplace_053_sub_2_qa_1",
-        "speakerText": "Can you drop this off at my desk? Thanks!",
-        "speakerTextCn": "能帮我把这送到我工位吗？谢谢！",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你需要向前台人员请求派送一个快递包裹，快递包裹非常重要，请帮助你确定前台人员是否能够完成这个服务",
         "expectedAnswers": [
-          "Sure, I'll bring it over right away.",
-          "Of course! I'll take it to your desk now.",
-          "Will do — just let me finish this email first."
+          "Could you send this to Marketing? It's urgent.",
+          "能帮我把这送到市场部吗？很急。",
+          "Can you deliver this package to the Marketing department as soon as possible?",
+          "可以帮我把快递包裹送到市场部吗？这很急"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否明确回应了派送请求",
-          "语言准确性：语法正确，用词恰当",
-          "表达自然度：符合职场口语习惯，语气礼貌"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
     {
-      "id": "workplace_053_sub_2_speaking_2",
+      "id": "workplace_053_sub_2_qa_1_speaking_1",
       "subSceneId": "workplace_053_sub_2",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "workplace_053_sub_2_qa_1",
         "type": "speaking",
-        "qaId": "workplace_053_sub_2_qa_2",
-        "speakerText": "Could you send this to Marketing? It's urgent.",
-        "speakerTextCn": "能帮我把这送到市场部吗？很急。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在办公室前台，需要向前台工作人员询问是否可以帮忙把快递送到你工作的位置",
         "expectedAnswers": [
-          "On it! I'll hand-deliver it within five minutes.",
-          "I'll get it to them ASAP — do you need a receipt?",
-          "I need the department code, but I'll take it right over."
+          "Can you drop this off at my desk? Thanks!",
+          "能帮我把这送到我工位吗？谢谢！",
+          "Could you deliver this package to my office? Thank you!"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否回应了紧急需求并提供可行方案",
-          "语言准确性：使用了恰当的职场表达如 'ASAP', 'hand-deliver'",
-          "关键词覆盖：是否包含 'urgent', 'send', 'Marketing' 相关词"
+          "意图达成度：正确表达了询问意图",
+          "语言准确性：语法和用词正确",
+          "表达自然度：符合英语口语习惯",
+          "关键词覆盖：使用了场景关键词"
         ]
       }
     },
@@ -55,9 +57,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I have a package for IT. Can you deliver it to their floor?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我有个给IT部的包裹，能送到他们楼层吗？",
         "expectedAnswers": [
           "Sure, I'll take it up to the 5th floor for you.",

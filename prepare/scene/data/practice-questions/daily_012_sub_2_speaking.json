@@ -2,52 +2,51 @@
   "subSceneId": "daily_012_sub_2",
   "subSceneName": "询问设施",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:37:22.564Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.529Z",
   "questions": [
     {
-      "id": "daily_012_sub_2_speaking_1",
+      "id": "daily_012_sub_2_qa_2_speaking_1",
       "subSceneId": "daily_012_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "daily_012_sub_2_qa_2",
         "type": "speaking",
-        "qaId": "daily_012_sub_2_qa_1",
-        "speakerText": "We’ve got cardio machines, free weights, and a yoga studio. Oh, and we offer free towel service and showers.",
-        "speakerTextCn": "我们有有氧器械、自由重量区和瑜伽室，还提供免费毛巾和淋浴。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想问健身房关于设备和附加服务的信息",
         "expectedAnswers": [
-          "Do you have a pool?",
-          "Is there a personal trainer available?",
-          "Are the showers available 24 hours?"
+          "We've got certified trainers — you can book sessions for $25/hour. And no, no pool, but we've got a great sauna.",
+          "你们这里有认证教练吗？我想知道费用是多少？",
+          "你们健身房里有什么设备？有桑拿吗？"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否准确询问了设施或服务",
-          "语言准确性：语法和用词是否正确，是否使用了 'Do you have...?' 结构",
-          "表达自然度：是否符合日常英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词如 pool, trainer, showers"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
     {
-      "id": "daily_012_sub_2_speaking_2",
+      "id": "daily_012_sub_2_qa_1_speaking_1",
       "subSceneId": "daily_012_sub_2",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "daily_012_sub_2_qa_1",
         "type": "speaking",
-        "qaId": "daily_012_sub_2_qa_2",
-        "speakerText": "We’ve got certified trainers — you can book sessions for $25/hour. And no, no pool, but we’ve got a great sauna.",
-        "speakerTextCn": "我们有认证教练，25美元一小时，没有泳池，但有很棒的桑拿。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "例如：'What kind of equipment do you have?'",
         "expectedAnswers": [
-          "I’ll try the sauna first, maybe book a trainer next week.",
-          "Sauna’s cool — do you offer any discounts on sessions?",
-          "I’m not sure about the trainer, but I’d love to use the sauna."
+          "What kind of equipment does your gym have?",
+          "Can you tell me about the facilities and equipment here?",
+          "What are the available machines and facilities in your gym?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否合理回应了教练和桑拿信息",
-          "语言准确性：是否正确使用了 I’ll / I might 等表达意愿的结构",
-          "表达自然度：是否避免生硬或翻译腔，符合母语者表达习惯",
-          "关键词覆盖：是否使用了 sauna, trainer, book a session 等关键词"
+          "意图达成度：正确表达询问意图",
+          "语言准确性：语法和用词正确",
+          "表达自然度：符合英语口语习惯",
+          "关键词覆盖：使用了场景关键词"
         ]
       }
     },
@@ -57,9 +56,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "We provide 24/7 access, locker rentals, and complimentary protein shakes after workouts.",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我们提供24小时开放、储物柜租赁和免费的健身后蛋白质奶昔。",
         "expectedAnswers": [
           "Are the lockers included in the membership, or is there a fee?",

@@ -1,19 +1,26 @@
 {
   "sceneId": "workplace_052",
   "sceneName": "文件复印",
+  "exportedAt": "2026-03-08T15:31:54.922Z",
   "subScenes": [
     {
       "id": "workplace_052_sub_1",
+      "sceneId": "workplace_052",
       "name": "礼貌问候",
       "description": "新员工向同事打招呼并请求帮助",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_052_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hey, could you help me out real quick?",
-          "speakerTextCn": "嘿，能帮个忙吗？",
-          "responses": [
+          "subSceneId": "workplace_052_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hey, could you help me out real quick?",
+          "triggerTextCn": "嘿，能帮个忙吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务方/工作人员通常会在用户提问后提供帮助",
+          "followUps": [
             {
               "text": "Of course! What do you need?",
               "text_cn": "当然！需要什么？",
@@ -30,22 +37,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用轻松语气开启求助，避免太正式"
+          "usageNote": "用轻松语气开启求助，避免太正式",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         }
       ]
     },
     {
       "id": "workplace_052_sub_2",
+      "sceneId": "workplace_052",
       "name": "询问操作",
       "description": "请教复印机如何使用和设置",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_052_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "I'm new here—how do I make copies? I'm not sure how to use this machine.",
-          "speakerTextCn": "我是新人，怎么复印啊？我不太会用这台机器。",
-          "responses": [
+          "subSceneId": "workplace_052_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'm new here—how do I make copies? I'm not sure how to use this machine.",
+          "triggerTextCn": "我是新人，怎么复印啊？我不太会用这台机器。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务方/工作人员随后提供解答",
+          "followUps": [
             {
               "text": "No problem! Just press the big green button first.",
               "text_cn": "别担心，先按那个大绿键。",
@@ -62,14 +78,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用具体动作词引导，避免抽象说明"
+          "usageNote": "用具体动作词引导，避免抽象说明",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         },
         {
           "id": "workplace_052_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Can I set it to double-sided? I need to save paper.",
-          "speakerTextCn": "能设成双面复印吗？我想省纸。",
-          "responses": [
+          "subSceneId": "workplace_052_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can I set it to double-sided? I need to save paper.",
+          "triggerTextCn": "能设成双面复印吗？我想省纸。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务方/工作人员随后提供解答",
+          "followUps": [
             {
               "text": "Yep, just tap 'Duplex' on the screen.",
               "text_cn": "能，点屏幕上的‘双面’就行。",
@@ -86,22 +109,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "确认功能时，优先用肯定句增强信心"
+          "usageNote": "确认功能时，优先用肯定句增强信心",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     },
     {
       "id": "workplace_052_sub_3",
+      "sceneId": "workplace_052",
       "name": "确认数量与取件",
       "description": "确认复印份数并提醒取走文件",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_052_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "How many copies do you want? I'll set it for you.",
-          "speakerTextCn": "你要复印多少份？我帮你设。",
-          "responses": [
+          "subSceneId": "workplace_052_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "How many copies do you want? I'll set it for you.",
+          "triggerTextCn": "你要复印多少份？我帮你设。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Five, please—and make sure it’s not too dark.",
               "text_cn": "五份，别太深了。",
@@ -118,14 +150,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "明确数量时，搭配需求细节更自然"
+          "usageNote": "明确数量时，搭配需求细节更自然",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 4
         },
         {
           "id": "workplace_052_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Alright, it’s done! Don’t forget to grab your copies.",
-          "speakerTextCn": "好了，印完了！别忘了拿走你的文件。",
-          "responses": [
+          "subSceneId": "workplace_052_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Alright, it’s done! Don’t forget to grab your copies.",
+          "triggerTextCn": "好了，印完了！别忘了拿走你的文件。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Thanks so much—I really appreciate it!",
               "text_cn": "太感谢了，真的帮大忙了！",
@@ -142,22 +181,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "道谢时用具体表达更显真诚"
+          "usageNote": "道谢时用具体表达更显真诚",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 5
         }
       ]
     },
     {
       "id": "workplace_052_sub_4",
+      "sceneId": "workplace_052",
       "name": "礼貌道别",
       "description": "完成复印后友好结束对话",
+      "order": 4,
       "estimatedMinutes": 3,
       "qaPairs": [
         {
           "id": "workplace_052_sub_4_qa_1",
-          "qaType": "listen_only",
-          "speakerText": "Thanks again for showing me how to use the copier!",
-          "speakerTextCn": "再次谢谢你教我用复印机！",
-          "responses": [
+          "subSceneId": "workplace_052_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thanks again for showing me how to use the copier!",
+          "triggerTextCn": "再次谢谢你教我用复印机！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Anytime! Just holler if you need help again.",
               "text_cn": "随时找我，有需要再喊我。",
@@ -174,7 +222,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "道别时用开放句式鼓励后续求助"
+          "usageNote": "道别时用开放句式鼓励后续求助",
+          "audioUrl": null,
+          "learnRequirement": "listen_only",
+          "order": 6
         }
       ]
     }

@@ -40,6 +40,18 @@ interface TestAnalysis {
     fluency: number
     fluencyExplanation?: string
   }
+  // 发音评估详细维度（新增）
+  pronunciationDetails?: {
+    accuracyScore: number
+    fluencyScore: number
+    prosodyScore: number
+    completenessScore: number
+    problemWords: Array<{
+      word: string
+      score: number
+      errorType?: string
+    }>
+  }
   transcript: Message[]
   audioUrl?: string
   suggestions: string[]
@@ -650,7 +662,7 @@ export default function TestAnalysis({ sceneId, testId, conversation, rounds, on
 
                     {/* 展开详情 */}
                     <AnimatePresence>
-                      {isExpanded && dim.explanation && (
+                      {isExpanded && (
                         <motion.div
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: 'auto', opacity: 1 }}
@@ -659,7 +671,75 @@ export default function TestAnalysis({ sceneId, testId, conversation, rounds, on
                         >
                           <div className="p-5">
                             <h5 className="text-sm font-medium text-slate-700 mb-2">详细分析</h5>
-                            <p className="text-sm text-slate-600 leading-relaxed">{dim.explanation}</p>
+                            {dim.explanation && (
+                              <p className="text-sm text-slate-600 leading-relaxed mb-4">{dim.explanation}</p>
+                            )}
+                            
+                            {/* 发音评估详细维度展示 */}
+                            {dim.key === 'pronunciation' && analysis.pronunciationDetails && (
+                              <div className="mt-4 space-y-3">
+                                <h6 className="text-xs font-medium text-slate-500">发音评估详情</h6>
+                                <div className="grid grid-cols-2 gap-3">
+                                  <div className="bg-white rounded-lg p-3 border border-slate-100">
+                                    <div className="text-xs text-slate-500 mb-1">准确度</div>
+                                    <div className="flex items-baseline gap-1">
+                                      <span className="text-lg font-bold text-blue-600">{analysis.pronunciationDetails.accuracyScore}</span>
+                                      <span className="text-xs text-slate-400">分</span>
+                                    </div>
+                                  </div>
+                                  <div className="bg-white rounded-lg p-3 border border-slate-100">
+                                    <div className="text-xs text-slate-500 mb-1">流畅度</div>
+                                    <div className="flex items-baseline gap-1">
+                                      <span className="text-lg font-bold text-green-600">{analysis.pronunciationDetails.fluencyScore}</span>
+                                      <span className="text-xs text-slate-400">分</span>
+                                    </div>
+                                  </div>
+                                  <div className="bg-white rounded-lg p-3 border border-slate-100">
+                                    <div className="text-xs text-slate-500 mb-1">韵律度</div>
+                                    <div className="flex items-baseline gap-1">
+                                      <span className="text-lg font-bold text-yellow-600">{analysis.pronunciationDetails.prosodyScore}</span>
+                                      <span className="text-xs text-slate-400">分</span>
+                                    </div>
+                                  </div>
+                                  <div className="bg-white rounded-lg p-3 border border-slate-100">
+                                    <div className="text-xs text-slate-500 mb-1">完整度</div>
+                                    <div className="flex items-baseline gap-1">
+                                      <span className="text-lg font-bold text-purple-600">{analysis.pronunciationDetails.completenessScore}</span>
+                                      <span className="text-xs text-slate-400">分</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                                {/* 问题单词列表 */}
+                                {analysis.pronunciationDetails.problemWords.length > 0 && (
+                                  <div className="mt-4">
+                                    <h6 className="text-xs font-medium text-slate-500 mb-2">需重点练习的单词</h6>
+                                    <div className="flex flex-wrap gap-2">
+                                      {analysis.pronunciationDetails.problemWords.slice(0, 6).map((word, i) => (
+                                        <div 
+                                          key={i}
+                                          className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white rounded-full border border-slate-200 text-xs"
+                                        >
+                                          <span className="font-medium text-slate-700">{word.word}</span>
+                                          <span className={`font-bold ${
+                                            word.score >= 60 ? 'text-orange-500' : 'text-red-500'
+                                          }`}>
+                                            {word.score}分
+                                          </span>
+                                          {word.errorType && word.errorType !== 'None' && (
+                                            <span className="text-slate-400">
+                                              ({word.errorType === 'Mispronunciation' ? '发音错误' : 
+                                                word.errorType === 'Omission' ? '遗漏' : 
+                                                word.errorType === 'Insertion' ? '多余' : ''})
+                                            </span>
+                                          )}
+                                        </div>
+                                      ))}
+                                    </div>
+                                  </div>
+                                )}
+                              </div>
+                            )}
                           </div>
                         </motion.div>
                       )}

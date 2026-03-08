@@ -2,8 +2,7 @@
   "subSceneId": "travel_075_sub_1",
   "subSceneName": "问候与开场",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:31:36.553Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.331Z",
   "questions": [
     {
       "id": "travel_075_sub_1_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "当对方表示愿意帮忙时，你应接着询问具体操作地点。",
         "type": "fill_blank",
-        "situation": "乘客在车站向工作人员礼貌打招呼，询问如何购买车票",
-        "speakerText": "Good morning! I'm new here. Could you help me with buying a ticket?",
-        "speakerTextCn": "早上好！我是新手，能帮帮我买票吗？",
-        "responseTemplate": "Sure! ___",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "当对方表示愿意帮忙时，你应接着询问具体操作地点。",
-        "knowledgePoint": "礼貌请求帮助后的自然跟进问句"
+        "situation": "乘客在车站向工作人员礼貌打招呼，询问如何购买车票",
+        "speakerText": "Good morning! I'm new here. Could you help me with buying a ticket?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "早上好！我是新手，能帮帮我买票吗？",
+        "knowledgePoint": "礼貌请求帮助后的自然跟进问句",
+        "responseTemplate": "Sure! ___"
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "在确认对方愿意协助后，直接询问你需要的具体信息。",
         "type": "fill_blank",
-        "situation": "乘客在机场服务台前微笑问候，想了解登机口信息",
-        "speakerText": "Hi there! I'm looking for my gate. Do you have a moment to help?",
-        "speakerTextCn": "你好！我在找我的登机口，您有时间帮我一下吗？",
-        "responseTemplate": "Of course! ___",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "在确认对方愿意协助后，直接询问你需要的具体信息。",
-        "knowledgePoint": "请求协助后精准提出核心问题"
+        "situation": "乘客在机场服务台前微笑问候，想了解登机口信息",
+        "speakerText": "Hi there! I'm looking for my gate. Do you have a moment to help?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你好！我在找我的登机口，您有时间帮我一下吗？",
+        "knowledgePoint": "请求协助后精准提出核心问题",
+        "responseTemplate": "Of course! ___"
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "工作人员常通过反问来判断你是否需要进一步指导。",
         "type": "fill_blank",
-        "situation": "乘客在火车站向工作人员微笑致意，想确认是否需要提前预订座位",
-        "speakerText": "Hello! I'd like to take the train today. Is it necessary to book in advance?",
-        "speakerTextCn": "您好！我想今天坐火车，有必要提前预订吗？",
-        "responseTemplate": "It depends. ___",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "工作人员常通过反问来判断你是否需要进一步指导。",
-        "knowledgePoint": "回应条件性建议时的自然回应结构"
+        "situation": "乘客在火车站向工作人员微笑致意，想确认是否需要提前预订座位",
+        "speakerText": "Hello! I'd like to take the train today. Is it necessary to book in advance?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "您好！我想今天坐火车，有必要提前预订吗？",
+        "knowledgePoint": "回应条件性建议时的自然回应结构",
+        "responseTemplate": "It depends. ___"
+      }
+    },
+    {
+      "id": "travel_075_sub_1_pq_4",
+      "subSceneId": "travel_075_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "询问发车时间时的关键词",
+        "qaId": "travel_075_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "departure",
+            "options": [
+              "departure",
+              "arrival",
+              "waiting",
+              "boarding"
+            ]
+          }
+        ],
+        "template": "Could you tell me the ___ time for Shanghai?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定搭配：departure time（发车时间）"
+      }
+    },
+    {
+      "id": "travel_075_sub_1_pq_5",
+      "subSceneId": "travel_075_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "表示目的地的介词",
+        "qaId": "travel_075_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "at",
+              "from"
+            ]
+          }
+        ],
+        "template": "Yes, when's the next bus ___ Shanghai?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "介词搭配：bus to [destination]（去某地的车）"
+      }
+    },
+    {
+      "id": "travel_075_sub_1_pq_6",
+      "subSceneId": "travel_075_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "描述班车发车的常用动词",
+        "qaId": "travel_075_sub_1_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "leaves",
+            "options": [
+              "leaves",
+              "arrives",
+              "stops",
+              "departs"
+            ]
+          }
+        ],
+        "template": "The next bus ___ at 3:30 PM.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配：leave (for) 表示发车"
       }
     }
   ]

@@ -2,20 +2,43 @@
   "subSceneId": "social_091_sub_3",
   "subSceneName": "讨论功能",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:26:55.730Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.773Z",
   "questions": [
+    {
+      "id": "social_091_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "social_091_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问对方使用某产品的理由时，常用 'Why do you use ___?' 结构",
+        "qaId": "social_091_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Threads",
+            "options": [
+              "Threads",
+              "do you use Threads",
+              "you use Threads",
+              "using Threads"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户询问对方是否使用某个功能或产品，并表达对其必要性的疑问",
+        "knowledgePoint": "提问句型：询问使用原因的固定结构",
+        "responseTemplate": "Why do you use ___?"
+      }
+    },
     {
       "id": "social_091_sub_3_fill_blank_1",
       "subSceneId": "social_091_sub_3",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "表达某个平台更适合某种用途时，常用 'better suited for'。",
         "type": "fill_blank",
-        "situation": "你和朋友在聊社交媒体应用，对方问你为什么选择Instagram而不是TikTok来分享生活。",
-        "speakerText": "Why do you prefer Instagram over TikTok for sharing your daily life?",
-        "speakerTextCn": "你为什么更喜欢用Instagram而不是TikTok来分享日常生活？",
-        "responseTemplate": "I like it because it's ___ for showing photos and stories, and it feels more personal.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,49 @@
             ]
           }
         ],
-        "hint": "表达某个平台更适合某种用途时，常用 'better suited for'。",
-        "knowledgePoint": "表达功能适配性"
+        "situation": "你和朋友在聊社交媒体应用，对方问你为什么选择Instagram而不是TikTok来分享生活。",
+        "speakerText": "Why do you prefer Instagram over TikTok for sharing your daily life?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你为什么更喜欢用Instagram而不是TikTok来分享日常生活？",
+        "knowledgePoint": "表达功能适配性",
+        "responseTemplate": "I like it because it's ___ for showing photos and stories, and it feels more personal."
+      }
+    },
+    {
+      "id": "social_091_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "social_091_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "请根据场景提示填写正确的内容",
+        "qaId": "social_091_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Reels",
+            "options": [
+              "Stories",
+              "Reels",
+              "IGTV",
+              "Live"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "新滤镜",
+            "options": [
+              "新滤镜",
+              "背景音乐",
+              "表情包",
+              "语音聊天"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你可以问我关于社交媒体APP的实用功能吗？",
+        "knowledgePoint": "使用提问句型询问对方是否使用某个功能或产品",
+        "responseTemplate": "我想问一下你用过___吗？我很喜欢它的___"
       }
     },
     {
@@ -38,11 +102,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "强调某个平台在特定用途上更有效时，用 'more effective for'。",
         "type": "fill_blank",
-        "situation": "同事问你为什么坚持用LinkedIn而不是其他社交平台来建立职业联系。",
-        "speakerText": "Why do you stick with LinkedIn? Isn't it just for job postings?",
-        "speakerTextCn": "你为什么坚持用LinkedIn？它不就是找工作的平台吗？",
-        "responseTemplate": "It's ___ for networking with professionals and sharing career insights.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +116,12 @@
             ]
           }
         ],
-        "hint": "强调某个平台在特定用途上更有效时，用 'more effective for'。",
-        "knowledgePoint": "对比平台功能优势"
+        "situation": "同事问你为什么坚持用LinkedIn而不是其他社交平台来建立职业联系。",
+        "speakerText": "Why do you stick with LinkedIn? Isn't it just for job postings?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你为什么坚持用LinkedIn？它不就是找工作的平台吗？",
+        "knowledgePoint": "对比平台功能优势",
+        "responseTemplate": "It's ___ for networking with professionals and sharing career insights."
       }
     },
     {
@@ -65,11 +130,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "表达某平台在某用途上非常合适时，常用 'perfect for'。",
         "type": "fill_blank",
-        "situation": "你妹妹问你为什么用Pinterest而不是Instagram来找灵感，你解释原因。",
-        "speakerText": "Why do you use Pinterest instead of Instagram for finding ideas?",
-        "speakerTextCn": "你为什么用Pinterest而不是Instagram来找灵感？",
-        "responseTemplate": "Because it's ___ for collecting and organizing visual ideas without the noise.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +144,38 @@
             ]
           }
         ],
-        "hint": "表达某平台在某用途上非常合适时，常用 'perfect for'。",
-        "knowledgePoint": "表达功能契合度"
+        "situation": "你妹妹问你为什么用Pinterest而不是Instagram来找灵感，你解释原因。",
+        "speakerText": "Why do you use Pinterest instead of Instagram for finding ideas?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你为什么用Pinterest而不是Instagram来找灵感？",
+        "knowledgePoint": "表达功能契合度",
+        "responseTemplate": "Because it's ___ for collecting and organizing visual ideas without the noise."
+      }
+    },
+    {
+      "id": "social_091_sub_3_pq_6",
+      "subSceneId": "social_091_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表达目的时，常用 'use... to do...' 结构",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "with",
+              "at"
+            ]
+          }
+        ],
+        "template": "I post on TikTok mainly ___ reach younger audiences for my business.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词不定式表目的（use to do）"
       }
     }
   ]

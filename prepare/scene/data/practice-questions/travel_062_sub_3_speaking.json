@@ -2,52 +2,53 @@
   "subSceneId": "travel_062_sub_3",
   "subSceneName": "确认票价与时间",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:05:24.511Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.136Z",
   "questions": [
     {
-      "id": "travel_062_sub_3_speaking_1",
+      "id": "travel_062_sub_3_qa_2_speaking_1",
       "subSceneId": "travel_062_sub_3",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "travel_062_sub_3_qa_2",
         "type": "speaking",
-        "qaId": "travel_062_sub_3_qa_1",
-        "speakerText": "How much is the entrance fee for the museum?",
-        "speakerTextCn": "博物馆门票多少钱？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在参观景点前，想确认门票价格和开放时间，以便安排行程。",
         "expectedAnswers": [
-          "It's $10 for adults, and kids under 12 get in free.",
-          "Ten dollars. And it's free on Sundays.",
-          "Free! No charge at all."
+          "How much is the admission fee?",
+          "What are the opening and closing hours?",
+          "Do you close earlier on weekends?",
+          "Is there a different price for students or children?"
         ],
         "evaluationCriteria": [
-          "意图达成度：准确回答了票价信息",
-          "语言准确性：语法正确，无严重错误",
-          "表达自然度：使用了口语化表达如 'get in free' 或 'No charge at all'",
-          "关键词覆盖：使用了 'entrance fee', 'adults', 'free', 'kids/children' 等场景关键词"
+          "意图达成度：是否正确表达了询问票价或时间的意图",
+          "语言准确性：语法和用词是否正确，无明显错误",
+          "表达自然度：是否符合英语母语者日常对话习惯",
+          "关键词覆盖：是否使用了场景关键词如 admission fee, opening hours, weekends"
         ]
       }
     },
     {
-      "id": "travel_062_sub_3_speaking_2",
+      "id": "travel_062_sub_3_qa_1_speaking_1",
       "subSceneId": "travel_062_sub_3",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "travel_062_sub_3_qa_1",
         "type": "speaking",
-        "qaId": "travel_062_sub_3_qa_2",
-        "speakerText": "Do they close early on weekends?",
-        "speakerTextCn": "周末会早关吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客想了解某个景点的门票价格和开放时间，需要向工作人员提问",
         "expectedAnswers": [
-          "Yes, they close at 5 p.m. on Saturdays and Sundays.",
-          "No, same as weekdays — open until 7 p.m. every day.",
-          "Actually, they stay open later on weekends."
+          "How much is the entrance fee?",
+          "What are the opening hours and ticket prices?",
+          "Could you tell me how much the ticket costs and when the place opens?",
+          "Do you know the price for admission and the daily opening times?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确回应是否早关及具体时间",
-          "语言准确性：正确使用时间表达和动词时态",
-          "表达自然度：使用了口语缩略如 'till' 或 'stay open'",
-          "关键词覆盖：使用了 'close early', 'weekends', 'Saturdays/Sundays', 'open until' 等核心表达"
+          "意图达成度：是否明确询问了票价和/或开放时间",
+          "语言准确性：语法结构正确，用词恰当",
+          "表达自然度：符合日常英语口语习惯，语气礼貌自然",
+          "关键词覆盖：使用了如 entrance fee, ticket price, opening hours, admission 等场景关键词"
         ]
       }
     },
@@ -57,9 +58,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "What are the opening hours on holidays?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "节假日的开放时间是什么？",
         "expectedAnswers": [
           "They're open from 10 a.m. to 6 p.m., just like regular days.",

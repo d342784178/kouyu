@@ -2,8 +2,7 @@
   "subSceneId": "social_083_sub_4",
   "subSceneName": "礼貌道别确认",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:26:31.266Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.717Z",
   "questions": [
     {
       "id": "social_083_sub_4_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "用一个肯定、积极的词表达确定出席，语气要热情",
         "type": "fill_blank",
-        "situation": "朋友邀请你参加周末聚会，你已答应，对方在结束对话前想确认你一定会出席。",
-        "speakerText": "So you're still good for this weekend, right?",
-        "speakerTextCn": "所以你周末还是能来，对吧？",
-        "responseTemplate": "___, I wouldn't miss it!",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,39 @@
             ]
           }
         ],
-        "hint": "用一个肯定、积极的词表达确定出席，语气要热情",
-        "knowledgePoint": "礼貌确认出席的肯定表达"
+        "situation": "朋友邀请你参加周末聚会，你已答应，对方在结束对话前想确认你一定会出席。",
+        "speakerText": "So you're still good for this weekend, right?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "所以你周末还是能来，对吧？",
+        "knowledgePoint": "礼貌确认出席的肯定表达",
+        "responseTemplate": "___, I wouldn't miss it!"
+      }
+    },
+    {
+      "id": "social_083_sub_4_qa_2_fill_blank_1",
+      "subSceneId": "social_083_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "表示具体某一天时，英语中通常用 'on' 加日期",
+        "qaId": "social_083_sub_4_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "on Saturday",
+            "options": [
+              "on Saturday",
+              "at Saturday",
+              "in Saturday",
+              "Saturday"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在结束对话前确认对方是否接受邀请，并礼貌道别",
+        "knowledgePoint": "介词与具体日期的搭配",
+        "responseTemplate": "Great! See you ___ then — don't be late!"
       }
     },
     {
@@ -38,11 +65,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "用简短、口语化的表达表示收到信息，同时加上感谢更显礼貌",
         "type": "fill_blank",
-        "situation": "同事邀请你参加团队晚餐，你已接受邀请，对方最后提醒你别忘了，你需要礼貌回应并表达感谢。",
-        "speakerText": "Don't forget — we're all counting on you!",
-        "speakerTextCn": "别忘了啊，我们都指望你来了！",
-        "responseTemplate": "___, thanks for including me!",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +79,12 @@
             ]
           }
         ],
-        "hint": "用简短、口语化的表达表示收到信息，同时加上感谢更显礼貌",
-        "knowledgePoint": "确认信息并表达感谢的礼貌回应"
+        "situation": "同事邀请你参加团队晚餐，你已接受邀请，对方最后提醒你别忘了，你需要礼貌回应并表达感谢。",
+        "speakerText": "Don't forget — we're all counting on you!",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "别忘了啊，我们都指望你来了！",
+        "knowledgePoint": "确认信息并表达感谢的礼貌回应",
+        "responseTemplate": "___, thanks for including me!"
       }
     },
     {
@@ -65,11 +93,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "回应对方的道别用语时，重复对方的表达并加上感谢最自然",
         "type": "fill_blank",
-        "situation": "你答应参加一个小型聚会，对方在结束对话时说再见，你需要回应并表达期待和感谢。",
-        "speakerText": "Alright, see you there!",
-        "speakerTextCn": "好的，那儿见！",
-        "responseTemplate": "___, and thanks again for the invite!",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +107,64 @@
             ]
           }
         ],
-        "hint": "回应对方的道别用语时，重复对方的表达并加上感谢最自然",
-        "knowledgePoint": "礼貌道别时的回应与致谢结构"
+        "situation": "你答应参加一个小型聚会，对方在结束对话时说再见，你需要回应并表达期待和感谢。",
+        "speakerText": "Alright, see you there!",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "好的，那儿见！",
+        "knowledgePoint": "礼貌道别时的回应与致谢结构",
+        "responseTemplate": "___, and thanks again for the invite!"
+      }
+    },
+    {
+      "id": "social_083_sub_4_pq_4",
+      "subSceneId": "social_083_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "确认出席时重复关键信息（如时间）更显认真",
+        "qaId": "social_083_sub_4_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "8pm",
+            "options": [
+              "8pm",
+              "tomorrow",
+              "the park",
+              "my house"
+            ]
+          }
+        ],
+        "template": "I'll be there at ___ on Saturday — thanks again!",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "重复关键信息以示确认（场景核心表达）"
+      }
+    },
+    {
+      "id": "social_083_sub_4_pq_6",
+      "subSceneId": "social_083_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表达感激的正式且自然的动词",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "appreciate",
+            "options": [
+              "appreciate",
+              "like",
+              "want",
+              "need"
+            ]
+          }
+        ],
+        "template": "Thanks so much for inviting me — I really ___ it!",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配 'appreciate it'（表达感谢）"
       }
     }
   ]

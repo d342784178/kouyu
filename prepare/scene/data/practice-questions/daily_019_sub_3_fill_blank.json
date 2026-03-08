@@ -2,20 +2,43 @@
   "subSceneId": "daily_019_sub_3",
   "subSceneName": "定制需求",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:24:27.372Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.577Z",
   "questions": [
+    {
+      "id": "daily_019_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "daily_019_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "当顾客提出定制需求时，最自然的确认方式是用一般疑问句询问对方是否能实现",
+        "qaId": "daily_019_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Can you do that?",
+            "options": [
+              "Can you do that?",
+              "Do you do that?",
+              "You can do that?",
+              "Is it possible to do that?"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客提出个性化定制要求，等待服务方回应是否可以满足需求",
+        "knowledgePoint": "请求确认服务可行性的提问句型",
+        "responseTemplate": "___"
+      }
+    },
     {
       "id": "daily_019_sub_3_fill_blank_1",
       "subSceneId": "daily_019_sub_3",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "当对方提出定制要求后，回应通常先确认可行，再询问是否需要其他附加项。",
         "type": "fill_blank",
-        "situation": "顾客在定制一款生日蛋糕，希望修改口味和装饰，并询问是否额外收费。",
-        "speakerText": "Could I have chocolate instead of vanilla? And maybe add some edible flowers on top?",
-        "speakerTextCn": "能换成巧克力味吗？再加一些可食用的花做装饰？",
-        "responseTemplate": "Of course! That’s an additional $5. ______?",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,49 @@
             ]
           }
         ],
-        "hint": "当对方提出定制要求后，回应通常先确认可行，再询问是否需要其他附加项。",
-        "knowledgePoint": "回应定制请求并主动提供附加服务"
+        "situation": "顾客在定制一款生日蛋糕，希望修改口味和装饰，并询问是否额外收费。",
+        "speakerText": "Could I have chocolate instead of vanilla? And maybe add some edible flowers on top?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "能换成巧克力味吗？再加一些可食用的花做装饰？",
+        "knowledgePoint": "回应定制请求并主动提供附加服务",
+        "responseTemplate": "Of course! That’s an additional $5. ______?"
+      }
+    },
+    {
+      "id": "daily_019_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "daily_019_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "使用 'Can you make it with...' 表达替换请求，用 'include' 表达添加请求",
+        "qaId": "daily_019_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "make it with pink roses",
+            "options": [
+              "make it with pink roses",
+              "change it to pink roses",
+              "use pink roses for it",
+              "do it with pink roses"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "include a little teddy bear",
+            "options": [
+              "include a little teddy bear",
+              "add a small teddy bear",
+              "put a teddy bear in it",
+              "have a teddy bear with it"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想修改定制产品的某些元素，希望服务方确认是否可以替换或添加内容",
+        "knowledgePoint": "表达定制修改的礼貌请求句型",
+        "responseTemplate": "Can you ___ instead? And maybe ___?"
       }
     },
     {
@@ -38,11 +102,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "在确认定制内容后，顾客常会自然追问配送或交付相关事宜。",
         "type": "fill_blank",
-        "situation": "顾客定制一个礼品盒，要求更换包装颜色并添加手写贺卡，对方确认后，顾客想确认是否包含配送。",
-        "speakerText": "I’d like the box in blue, and can you write 'Happy Anniversary' on the card?",
-        "speakerTextCn": "我想把盒子换成蓝色，贺卡上能写‘周年快乐’吗？",
-        "responseTemplate": "Absolutely! That’s included. ______?",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +116,12 @@
             ]
           }
         ],
-        "hint": "在确认定制内容后，顾客常会自然追问配送或交付相关事宜。",
-        "knowledgePoint": "在定制确认后询问交付方式"
+        "situation": "顾客定制一个礼品盒，要求更换包装颜色并添加手写贺卡，对方确认后，顾客想确认是否包含配送。",
+        "speakerText": "I’d like the box in blue, and can you write 'Happy Anniversary' on the card?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我想把盒子换成蓝色，贺卡上能写‘周年快乐’吗？",
+        "knowledgePoint": "在定制确认后询问交付方式",
+        "responseTemplate": "Absolutely! That’s included. ______?"
       }
     },
     {
@@ -65,11 +130,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "当定制涉及感官体验（如香味、质地）时，服务方常会提议先试用确认。",
         "type": "fill_blank",
-        "situation": "顾客想定制一款香水，要求调整香调并减少容量，店员回应后，顾客希望确认最终效果是否符合预期。",
-        "speakerText": "Can you make it less sweet and in a smaller bottle?",
-        "speakerTextCn": "能调得不那么甜，用小一点的瓶子吗？",
-        "responseTemplate": "We can do that. ______?",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +144,12 @@
             ]
           }
         ],
-        "hint": "当定制涉及感官体验（如香味、质地）时，服务方常会提议先试用确认。",
-        "knowledgePoint": "针对个性化感官需求提供确认性建议"
+        "situation": "顾客想定制一款香水，要求调整香调并减少容量，店员回应后，顾客希望确认最终效果是否符合预期。",
+        "speakerText": "Can you make it less sweet and in a smaller bottle?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "能调得不那么甜，用小一点的瓶子吗？",
+        "knowledgePoint": "针对个性化感官需求提供确认性建议",
+        "responseTemplate": "We can do that. ______?"
       }
     }
   ]

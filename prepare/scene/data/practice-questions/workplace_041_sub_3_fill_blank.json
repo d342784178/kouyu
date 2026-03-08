@@ -2,20 +2,43 @@
   "subSceneId": "workplace_041_sub_3",
   "subSceneName": "任务优先级确认",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:32:47.447Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.452Z",
   "questions": [
+    {
+      "id": "workplace_041_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "workplace_041_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "根据情况给出建议",
+        "qaId": "workplace_041_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "两个",
+            "options": [
+              "一个",
+              "两个",
+              "三个",
+              "四个"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "与主管确认任务优先级以避免冲突",
+        "knowledgePoint": "表达任务优先级",
+        "responseTemplate": "我这周有___截止日，能帮我定下哪个先做吗?"
+      }
+    },
     {
       "id": "workplace_041_sub_3_fill_blank_1",
       "subSceneId": "workplace_041_sub_3",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "提出优先级时，用 'Let's prioritize...' 开头，并主动承担另一项任务",
         "type": "fill_blank",
-        "situation": "你正在处理两个项目，想确认哪个应该优先完成，同时提出一个合理的分工建议",
-        "speakerText": "I'm juggling the quarterly review and the client proposal—could we decide which one to focus on first?",
-        "speakerTextCn": "我正在同时处理季度回顾和客户提案，我们能决定哪个先做吗？",
-        "responseTemplate": "Let's prioritize the ___ first—I can take care of the other one.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,39 @@
             ]
           }
         ],
-        "hint": "提出优先级时，用 'Let's prioritize...' 开头，并主动承担另一项任务",
-        "knowledgePoint": "主动提出优先级方案并承担替代任务"
+        "situation": "你正在处理两个项目，想确认哪个应该优先完成，同时提出一个合理的分工建议",
+        "speakerText": "I'm juggling the quarterly review and the client proposal—could we decide which one to focus on first?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我正在同时处理季度回顾和客户提案，我们能决定哪个先做吗？",
+        "knowledgePoint": "主动提出优先级方案并承担替代任务",
+        "responseTemplate": "Let's prioritize the ___ first—I can take care of the other one."
+      }
+    },
+    {
+      "id": "workplace_041_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "workplace_041_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示：你专注什么工作，服务方会负责团队同步会吗？",
+        "qaId": "workplace_041_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "the report",
+            "options": [
+              "报告",
+              "项目",
+              "团队",
+              "会议"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "确认任务优先级以避免冲突",
+        "knowledgePoint": "口语表达：提问句型",
+        "responseTemplate": "If I focus on ___, can you handle the team sync?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "当接受分工时，用动词明确表示你会完成该任务，并给出明确动作",
         "type": "fill_blank",
-        "situation": "你和主管同时被分配了两个任务，你想确认是否可以由你负责其中一个，以便对方专注更重要的事",
-        "speakerText": "If I take the budget spreadsheet, could you handle the presentation slides?",
-        "speakerTextCn": "如果我负责预算表格，你能处理演示文稿吗？",
-        "responseTemplate": "That works—I'll ___ the spreadsheet and send you the draft by noon.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "当接受分工时，用动词明确表示你会完成该任务，并给出明确动作",
-        "knowledgePoint": "接受分工并承诺具体行动"
+        "situation": "你和主管同时被分配了两个任务，你想确认是否可以由你负责其中一个，以便对方专注更重要的事",
+        "speakerText": "If I take the budget spreadsheet, could you handle the presentation slides?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "如果我负责预算表格，你能处理演示文稿吗？",
+        "knowledgePoint": "接受分工并承诺具体行动",
+        "responseTemplate": "That works—I'll ___ the spreadsheet and send you the draft by noon."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "当建议推迟任务时，使用 'reschedule' 或 'push back' 表达时间调整",
         "type": "fill_blank",
-        "situation": "你发现两个任务时间冲突，想确认主管是否可以调整其中一个的截止时间",
-        "speakerText": "The team update and the vendor contract are both due this Friday—would it be possible to shift one?",
-        "speakerTextCn": "团队更新和供应商合同都定在周五截止，有没有可能调整其中一个？",
-        "responseTemplate": "We should ___ the team update to next Monday—it’s less time-sensitive.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "当建议推迟任务时，使用 'reschedule' 或 'push back' 表达时间调整",
-        "knowledgePoint": "提议调整任务时间以缓解冲突"
+        "situation": "你发现两个任务时间冲突，想确认主管是否可以调整其中一个的截止时间",
+        "speakerText": "The team update and the vendor contract are both due this Friday—would it be possible to shift one?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "团队更新和供应商合同都定在周五截止，有没有可能调整其中一个？",
+        "knowledgePoint": "提议调整任务时间以缓解冲突",
+        "responseTemplate": "We should ___ the team update to next Monday—it’s less time-sensitive."
+      }
+    },
+    {
+      "id": "workplace_041_sub_3_pq_6",
+      "subSceneId": "workplace_041_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表示‘推迟任务’的常用短语",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "push",
+            "options": [
+              "push",
+              "move",
+              "skip",
+              "delete"
+            ]
+          }
+        ],
+        "template": "Could we ___ the internal task to next week?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "任务延期惯用表达（push to next week）"
       }
     }
   ]

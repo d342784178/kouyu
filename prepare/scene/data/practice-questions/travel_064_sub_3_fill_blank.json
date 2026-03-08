@@ -2,8 +2,7 @@
   "subSceneId": "travel_064_sub_3",
   "subSceneName": "确认取件时间",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:30:45.334Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.157Z",
   "questions": [
     {
       "id": "travel_064_sub_3_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "询问是否需要提前告知工作人员你将前来取件",
         "type": "fill_blank",
-        "situation": "旅客在酒店前台寄存行李后，想确认取件时是否需要提前通知或预约",
-        "speakerText": "Your bags will be held here until you're ready to collect them.",
-        "speakerTextCn": "您的行李会在这里保管，直到您准备领取。",
-        "responseTemplate": "Do I need to ___ before coming back?",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "询问是否需要提前告知工作人员你将前来取件",
-        "knowledgePoint": "确认取件流程中的必要步骤"
+        "situation": "旅客在酒店前台寄存行李后，想确认取件时是否需要提前通知或预约",
+        "speakerText": "Your bags will be held here until you're ready to collect them.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "您的行李会在这里保管，直到您准备领取。",
+        "knowledgePoint": "确认取件流程中的必要步骤",
+        "responseTemplate": "Do I need to ___ before coming back?"
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "询问是否可以延长寄存时间",
         "type": "fill_blank",
-        "situation": "旅客担心行李寄存时间过长，想确认是否可以延迟取件或延长寄存期限",
-        "speakerText": "We keep luggage for up to seven days at no extra charge.",
-        "speakerTextCn": "我们免费为您保管行李最多七天。",
-        "responseTemplate": "What if I can't pick them up within that time? Can I ___?",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "询问是否可以延长寄存时间",
-        "knowledgePoint": "询问服务的灵活性或延期选项"
+        "situation": "旅客担心行李寄存时间过长，想确认是否可以延迟取件或延长寄存期限",
+        "speakerText": "We keep luggage for up to seven days at no extra charge.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们免费为您保管行李最多七天。",
+        "knowledgePoint": "询问服务的灵活性或延期选项",
+        "responseTemplate": "What if I can't pick them up within that time? Can I ___?"
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "确认身份证明文件是否足够，避免携带不必要的材料",
         "type": "fill_blank",
-        "situation": "旅客准备取行李，但不确定是否需要携带所有寄存时提供的文件",
-        "speakerText": "To collect your items, please bring the tag and a form of identification.",
-        "speakerTextCn": "领取行李时，请携带行李标签和身份证明。",
-        "responseTemplate": "Is my ___ enough, or do I need the original receipt too?",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "确认身份证明文件是否足够，避免携带不必要的材料",
-        "knowledgePoint": "确认取件所需凭证的范围"
+        "situation": "旅客准备取行李，但不确定是否需要携带所有寄存时提供的文件",
+        "speakerText": "To collect your items, please bring the tag and a form of identification.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "领取行李时，请携带行李标签和身份证明。",
+        "knowledgePoint": "确认取件所需凭证的范围",
+        "responseTemplate": "Is my ___ enough, or do I need the original receipt too?"
+      }
+    },
+    {
+      "id": "travel_064_sub_3_pq_4",
+      "subSceneId": "travel_064_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "对方提到的取件时间范围",
+        "qaId": "travel_064_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "before midnight",
+            "options": [
+              "before midnight",
+              "after noon",
+              "at 8 AM",
+              "by Friday"
+            ]
+          }
+        ],
+        "template": "I'd like to pick up my bags ___ tomorrow.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "时间表达（before midnight）"
+      }
+    },
+    {
+      "id": "travel_064_sub_3_pq_5",
+      "subSceneId": "travel_064_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "取件时必须出示的纸质凭证",
+        "qaId": "travel_064_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "receipt",
+            "options": [
+              "receipt",
+              "ticket",
+              "reservation",
+              "booking"
+            ]
+          }
+        ],
+        "template": "To collect my luggage, I need to show my ___ and ID.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "核心凭证词汇（receipt）"
+      }
+    },
+    {
+      "id": "travel_064_sub_3_pq_6",
+      "subSceneId": "travel_064_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "取件的常用动词搭配",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "pick up",
+            "options": [
+              "pick up",
+              "check in",
+              "drop off",
+              "pay for"
+            ]
+          }
+        ],
+        "template": "Could I ___ my bags in the evening?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配（pick up luggage）"
       }
     }
   ]

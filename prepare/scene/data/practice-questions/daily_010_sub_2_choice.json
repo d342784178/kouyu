@@ -2,8 +2,7 @@
   "subSceneId": "daily_010_sub_2",
   "subSceneName": "核对衣物",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:16:23.423Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.512Z",
   "questions": [
     {
       "id": "daily_010_sub_2_choice_1",
@@ -12,9 +11,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "在服装店取货时，店员拿着你的订单和打包好的衣物，逐项核对数量。",
-        "speakerText": "I have two jackets, four T-shirts, and one pair of jeans for you. Does that match your order?",
-        "speakerTextCn": "我这里有两件夹克、四件T恤和一条牛仔裤，和您的订单一致吗？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +33,81 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是A，因为它自然、礼貌地确认了物品齐全，符合核对场景的交际目标。B是提出新需求，答非所问；C是错误指责，语气不恰当；D态度生硬，不符合服务场景的礼貌规范。"
+        "situation": "在服装店取货时，店员拿着你的订单和打包好的衣物，逐项核对数量。",
+        "explanation": "正确答案是A，因为它自然、礼貌地确认了物品齐全，符合核对场景的交际目标。B是提出新需求，答非所问；C是错误指责，语气不恰当；D态度生硬，不符合服务场景的礼貌规范。",
+        "speakerText": "I have two jackets, four T-shirts, and one pair of jeans for you. Does that match your order?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我这里有两件夹克、四件T恤和一条牛仔裤，和您的订单一致吗？"
+      }
+    },
+    {
+      "id": "daily_010_sub_2_qa_2_choice_1",
+      "subSceneId": "daily_010_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_010_sub_2_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I check the order again?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "What's the price of this item?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have any discounts today?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Is this the right store for my purchase?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案\"Can I check the order again?\"是因为它正确反映了顾客询问衣物数量的需求。其他选项不符合场景需求，例如询问价格、折扣或是否是正确店铺。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客询问衣物数量，工作人员回答"
+      }
+    },
+    {
+      "id": "daily_010_sub_2_qa_1_choice_1",
+      "subSceneId": "daily_010_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_010_sub_2_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "You've got 3 shirts, 2 pants, and 1 towel, right?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much do these clothes cost?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you give me a discount on these items?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have more towels?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接复现了场景中核对数量的核心表达，使用确认句式 'right?' 符合口语习惯。干扰项1询问价格，与核对数量无关；干扰项2请求折扣，偏离核对任务；干扰项3询问是否有更多毛巾，属于扩展需求而非确认当前订单内容。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "店员正在核对订单中的衣物数量，顾客想确认所准备的衣物种类和数量是否与订单一致。"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "店员在核对衣物时发现少了一件衬衫，主动向顾客道歉并解释。",
-        "speakerText": "I'm so sorry, I missed one of your shirts—it's right here. Thanks for your patience.",
-        "speakerTextCn": "非常抱歉，我漏掉了一件您的衬衫，这就给您拿来。谢谢您的耐心。",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是A，它以礼貌和感激的方式回应对方的道歉，符合服务场景中的社交礼仪。B指责对方，语气冲突；C和D态度冷漠，缺乏基本礼貌，不符合高频真实对话。"
+        "situation": "店员在核对衣物时发现少了一件衬衫，主动向顾客道歉并解释。",
+        "explanation": "正确答案是A，它以礼貌和感激的方式回应对方的道歉，符合服务场景中的社交礼仪。B指责对方，语气冲突；C和D态度冷漠，缺乏基本礼貌，不符合高频真实对话。",
+        "speakerText": "I'm so sorry, I missed one of your shirts—it's right here. Thanks for your patience.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "非常抱歉，我漏掉了一件您的衬衫，这就给您拿来。谢谢您的耐心。"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "顾客取衣服时，店员说：'You ordered three sweaters, but I only see two in the bag.'",
-        "speakerText": "You ordered three sweaters, but I only see two in the bag.",
-        "speakerTextCn": "您订了三件毛衣，但我只在包里看到两件。",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是A，���承认店员的发现并主动配合解决问题，是成熟、合作的回应。B情绪化且不合理；C放弃权利，不符合常理；D仅质疑但未配合查找，表达不完整。A最符合实际沟通中的理性与礼貌。"
+        "situation": "顾客取衣服时，店员说：'You ordered three sweaters, but I only see two in the bag.'",
+        "explanation": "正确答案是A，���承认店员的发现并主动配合解决问题，是成熟、合作的回应。B情绪化且不合理；C放弃权利，不符合常理；D仅质疑但未配合查找，表达不完整。A最符合实际沟通中的理性与礼貌。",
+        "speakerText": "You ordered three sweaters, but I only see two in the bag.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "您订了三件毛衣，但我只在包里看到两件。"
       }
     }
   ]

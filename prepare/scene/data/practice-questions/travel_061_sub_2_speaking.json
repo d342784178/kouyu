@@ -2,29 +2,29 @@
   "subSceneId": "travel_061_sub_2",
   "subSceneName": "说明需求",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:05:23.691Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.116Z",
   "questions": [
     {
-      "id": "travel_061_sub_2_speaking_1",
+      "id": "travel_061_sub_2_qa_1_speaking_1",
       "subSceneId": "travel_061_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "travel_061_sub_2_qa_1",
-        "speakerText": "Sure! How many people and what time?",
-        "speakerTextCn": "好的！几位？几点？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客正在预订餐厅或服务，服务人员已表示可以安排，顾客需要进一步询问具体的人数、时间和特殊要求。",
         "expectedAnswers": [
-          "Three people at 7 PM, and a quiet table would be great.",
-          "We're four people, coming at 8:30 PM. If possible, we'd prefer a seat away from the kitchen.",
-          "Five guests, 7:45. Any table is fine, thanks!"
+          "Great! How many people will be coming, and what time would you prefer?",
+          "Could you let me know the number of guests and the preferred time?",
+          "Just to confirm, how many people and what time? Any special requests?",
+          "Sure, I can help with that. How many people are in your party, and when would you like to book?"
         ],
         "evaluationCriteria": [
-          "意图达成度：准确回应人数和时间",
-          "语言准确性：语法正确，时间表达规范（如 7:30 PM）",
-          "表达自然度：使用了礼貌表达如 'if possible', 'would be great'",
-          "关键词覆盖：包含人数、时间、特殊要求"
+          "意图达成度：是否明确询问了人数、时间和特殊要求",
+          "语言准确性：语法结构正确，时态和用词恰当",
+          "表达自然度：符合英语口语习惯，语气礼貌自然",
+          "关键词覆盖：包含 'people', 'time', 和可选的 'special requests' 等场景关键词"
         ]
       }
     },
@@ -34,9 +34,10 @@
       "type": "speaking",
       "order": 2,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "We're planning a small gathering. Can you help us reserve a space?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我们计划举办一个小聚会，能帮忙预订场地吗？",
         "expectedAnswers": [
           "Sure! How many people, and what time would you like?",
@@ -57,9 +58,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "We need a table for six, but we also have a guest who uses a wheelchair.",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我们需要一张六人桌，但我们有一位使用轮椅的客人。",
         "expectedAnswers": [
           "We need a table for six, and we require wheelchair-accessible seating.",

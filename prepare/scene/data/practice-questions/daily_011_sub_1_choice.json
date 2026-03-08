@@ -2,9 +2,78 @@
   "subSceneId": "daily_011_sub_1",
   "subSceneName": "问候与需求",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:16:09.697Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.519Z",
   "questions": [
+    {
+      "id": "daily_011_sub_1_qa_2_choice_1",
+      "subSceneId": "daily_011_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_011_sub_1_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I've had this cough for three days, and it's worse at night.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you have any medicine for coughs?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I think I need something for my cold.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much does cough medicine cost?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确描述了症状持续时间和加重情况，符合顾客主动发起对话并提供关键信息的自然交流方式。干扰项1虽然语法正确，但仅泛泛询问药品，未提供症状细节，不利于药剂师判断；干扰项2使用模糊的‘cold’而非具体症状‘cough’，信息不精准；干扰项3只关注价格，未说明需求背景，不符合医疗咨询的常规流程。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客进入药店，想向药剂师描述自己的咳嗽症状并寻求建议"
+      }
+    },
+    {
+      "id": "daily_011_sub_1_qa_1_choice_1",
+      "subSceneId": "daily_011_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_011_sub_1_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hi, I need something for a cough.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "我想买点东西，谢谢.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "您有任何推荐的药物吗?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "我需要一个盒子.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 \"Hi, I need something for a cough.\"，因为它直接表达了顾客的需求。选项 2 是不正确的，因为它没有明确说明需要什么。选项 3 是理解偏差型，顾客并没有明确说明需要什么药物。选项 4 是表达不当型，因为它没有任何关系到药物的需求。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客进入药店，需要购买药物"
+      }
+    },
     {
       "id": "daily_011_sub_1_choice_1",
       "subSceneId": "daily_011_sub_1",
@@ -12,9 +81,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "顾客走进药店，想买缓解鼻塞的非处方药，但不确定该选哪种产品。",
-        "speakerText": "Hi, I've got a really stuffy nose and I'm not sure what to get.",
-        "speakerTextCn": "嗨，我鼻塞得很厉害，不知道该买什么。",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +103,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了顾客的鼻塞需求，并主动询问药剂师推荐方向（喷雾或药片），符合高频表达习惯。干扰项1是建议非药物方法，答非所问；干扰项3转移话题到头痛，理解偏差；干扰项4询问纸巾，完全误解了买药意图。"
+        "situation": "顾客走进药店，想买缓解鼻塞的非处方药，但不确定该选哪种产品。",
+        "explanation": "正确答案直接回应了顾客的鼻塞需求，并主动询问药剂师推荐方向（喷雾或药片），符合高频表达习惯。干扰项1是建议非药物方法，答非所问；干扰项3转移话题到头痛，理解偏差；干扰项4询问纸巾，完全误解了买药意图。",
+        "speakerText": "Hi, I've got a really stuffy nose and I'm not sure what to get.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨，我鼻塞得很厉害，不知道该买什么。"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "顾客因过敏性鼻炎反复发作，想买抗组胺药，但不确定是否需要处方。",
-        "speakerText": "I get allergic sneezing every spring. Is there something over-the-counter that helps?",
-        "speakerTextCn": "我每年春天都因过敏打喷嚏，有没有非处方药可以缓解？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案精准回应了顾客关于非处方药的疑问，提供具体药品名称并确认无需处方，符合专业且自然的表达。干扰项1建议就医，虽合理但未直接回答问题；干扰项3偏离主题，闲聊季节喜好；干扰项4混淆了过敏与感冒，理解错误。"
+        "situation": "顾客因过敏性鼻炎反复发作，想买抗组胺药，但不确定是否需要处方。",
+        "explanation": "正确答案精准回应了顾客关于非处方药的疑问，提供具体药品名称并确认无需处方，符合专业且自然的表达。干扰项1建议就医，虽合理但未直接回答问题；干扰项3偏离主题，闲聊季节喜好；干扰项4混淆了过敏与感冒，理解错误。",
+        "speakerText": "I get allergic sneezing every spring. Is there something over-the-counter that helps?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我每年春天都因过敏打喷嚏，有没有非处方药可以缓解？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "顾客喉咙痛三天，想找缓解疼痛的含片，但不确定是选润喉糖还是消炎药片。",
-        "speakerText": "My throat hurts when I swallow, and it’s been three days. What do you recommend?",
-        "speakerTextCn": "我吞咽时喉咙痛，已经三天了，你推荐什么？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了症状，并提供两种常见选项（含片和消炎药片）供顾客选择，符合药剂师专业且高效的推荐模式。干扰项1是泛泛建议，未提供具体产品；干扰项3分享个人经验，不具专业性；干扰项4质疑症状性质，偏离顾客明确需求。"
+        "situation": "顾客喉咙痛三天，想找缓解疼痛的含片，但不确定是选润喉糖还是消炎药片。",
+        "explanation": "正确答案直接回应了症状，并提供两种常见选项（含片和消炎药片）供顾客选择，符合药剂师专业且高效的推荐模式。干扰项1是泛泛建议，未提供具体产品；干扰项3分享个人经验，不具专业性；干扰项4质疑症状性质，偏离顾客明确需求。",
+        "speakerText": "My throat hurts when I swallow, and it’s been three days. What do you recommend?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我吞咽时喉咙痛，已经三天了，你推荐什么？"
       }
     }
   ]

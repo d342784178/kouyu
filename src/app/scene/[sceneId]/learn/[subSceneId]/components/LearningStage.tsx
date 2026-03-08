@@ -2,7 +2,7 @@ import { useState, useCallback, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useAudio } from '@/hooks/useAudio'
 import SpeakingPracticeEmpty from './SpeakingPracticeEmpty'
-import type { QAPair, QAResponse } from '@/types'
+import type { QAPair, FollowUp } from '@/types'
 
 // ============================================================
 // 类型定义
@@ -17,8 +17,20 @@ interface QAPairPracticeState {
 // 子组件：QA 类型标签
 // ============================================================
 
-function QATypeTag({ qaType }: { qaType: string }) {
-  if (qaType === 'must_speak') {
+function QATypeTag({ learnRequirement }: { learnRequirement: string }) {
+  if (learnRequirement === 'speak_trigger') {
+    return (
+      <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-purple-50 text-purple-600 text-xs font-medium">
+        <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M9 12h6" />
+          <path d="M12 9v6" />
+        </svg>
+        <span className="ml-1">需要会问</span>
+      </span>
+    )
+  }
+  if (learnRequirement === 'speak_followup') {
     return (
       <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 text-xs font-medium">
         <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -160,7 +172,7 @@ interface QAPairCardProps {
   practiceState: QAPairPracticeState
   onToggleExpand: () => void
   onAnswerPracticeCompleted: (answerIndex: number) => void
-  /** 当前正在播放的音频 URL（用于同步播放状态） */
+  onTriggerPracticeCompleted?: () => void
   playingUrl: string | null
   isAudioLoading: boolean
   onPlayAudio: (url: string) => void
@@ -173,13 +185,20 @@ function QAPairCard({
   practiceState,
   onToggleExpand,
   onAnswerPracticeCompleted,
+  onTriggerPracticeCompleted,
   playingUrl,
   isAudioLoading,
   onPlayAudio,
 }: QAPairCardProps) {
-  const responses = parseResponses(qaPair.responses)
+  const followUps = parseFollowUps(qaPair.followUps)
   const { isExpanded, answerPracticeCompleted } = practiceState
-  const isMustSpeak = qaPair.qaType === 'must_speak'
+  const dialogueMode = qaPair.dialogueMode
+  const learnRequirement = qaPair.learnRequirement
+
+  const isUserResponds = dialogueMode === 'user_responds'
+  const isUserAsks = dialogueMode === 'user_asks'
+  const needSpeakTrigger = learnRequirement === 'speak_trigger'
+  const needSpeakFollowup = learnRequirement === 'speak_followup'
 
   return (
     <motion.div
@@ -188,7 +207,6 @@ function QAPairCard({
       transition={{ duration: 0.25, delay: index * 0.05 }}
       className="bg-white rounded-card shadow-card border border-gray-100"
     >
-      {/* 折叠头部（点击展开/收起） */}
       <div
         role="button"
         tabIndex={0}
@@ -198,35 +216,59 @@ function QAPairCard({
         aria-expanded={isExpanded}
       >
         <div className="flex items-start gap-3">
-          {/* 序号 */}
           <div className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5 bg-gray-100 text-gray-500">
             {index + 1}
           </div>
 
-          {/* 文本内容 */}
           <div className="flex-1 min-w-0">
-            <div className="flex items-center justify-between mb-1">
-              <p className="text-sm font-semibold text-gray-900 leading-snug">
-                {qaPair.speakerText}
-              </p>
-              {/* 音频播放按钮 */}
-              {qaPair.audioUrl && (
-                <AudioButton
-                  audioUrl={qaPair.audioUrl}
-                  label="播放对方说的话"
-                  isPlaying={playingUrl === qaPair.audioUrl}
-                  isLoading={isAudioLoading && playingUrl === qaPair.audioUrl}
-                  onToggle={() => onPlayAudio(qaPair.audioUrl!)}
-                />
-              )}
-            </div>
-            <p className="text-xs text-gray-400 leading-snug mb-2">
-              {qaPair.speakerTextCn}
-            </p>
-            <QATypeTag qaType={qaPair.qaType} />
+            {isUserResponds ? (
+              <>
+                <p className="text-xs text-gray-400 mb-1">对方说：</p>
+                <div className="flex items-center justify-between mb-1">
+                  <p className="text-sm font-semibold text-gray-900 leading-snug">
+                    {qaPair.triggerText}
+                  </p>
+                  {qaPair.audioUrl && (
+                    <AudioButton
+                      audioUrl={qaPair.audioUrl}
+                      label="播放对方说的话"
+                      isPlaying={playingUrl === qaPair.audioUrl}
+                      isLoading={isAudioLoading && playingUrl === qaPair.audioUrl}
+                      onToggle={() => onPlayAudio(qaPair.audioUrl!)}
+                    />
+                  )}
+                </div>
+                <p className="text-xs text-gray-400 leading-snug mb-2">
+                  {qaPair.triggerTextCn}
+                </p>
+              </>
+            ) : (
+              <>
+                {qaPair.scenarioHint && (
+                  <p className="text-xs text-purple-500 mb-1 font-medium">{qaPair.scenarioHintCn || qaPair.scenarioHint}</p>
+                )}
+                <div className="flex items-center justify-between mb-1">
+                  <p className="text-sm font-semibold text-gray-900 leading-snug">
+                    {qaPair.triggerText}
+                  </p>
+                  {qaPair.audioUrl && (
+                    <AudioButton
+                      audioUrl={qaPair.audioUrl}
+                      label="播放问句"
+                      isPlaying={playingUrl === qaPair.audioUrl}
+                      isLoading={isAudioLoading && playingUrl === qaPair.audioUrl}
+                      onToggle={() => onPlayAudio(qaPair.audioUrl!)}
+                    />
+                  )}
+                </div>
+                <p className="text-xs text-gray-400 leading-snug mb-2">
+                  {qaPair.triggerTextCn}
+                </p>
+              </>
+            )}
+            <QATypeTag learnRequirement={qaPair.learnRequirement} />
           </div>
 
-          {/* 展开/收起箭头 */}
           <motion.div
             animate={{ rotate: isExpanded ? 180 : 0 }}
             transition={{ duration: 0.2 }}
@@ -239,7 +281,6 @@ function QAPairCard({
         </div>
       </div>
 
-      {/* 展开内容 */}
       <AnimatePresence>
         {isExpanded && (
           <motion.div
@@ -250,46 +291,103 @@ function QAPairCard({
             className="px-4 pb-4"
           >
             <div className="border-t border-gray-100 pt-4">
-              <h3 className="text-sm font-semibold text-gray-900 mb-3">你可以这样回应</h3>
-
-              <div className="space-y-3">
-                {responses.map((resp, i) => (
-                  <div key={i} className="bg-gray-50 rounded-lg p-3">
+              {isUserResponds ? (
+                <>
+                  <h3 className="text-sm font-semibold text-gray-900 mb-3">你可以这样回应</h3>
+                  <div className="space-y-3">
+                    {followUps.map((followUp, i) => (
+                      <div key={i} className="bg-gray-50 rounded-lg p-3">
+                        <div className="flex items-start gap-3">
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium text-gray-900">{followUp.text}</p>
+                            <p className="text-xs text-gray-400 mt-0.5">{followUp.text_cn}</p>
+                          </div>
+                          {followUp.audio_url && (
+                            <AudioButton
+                              audioUrl={followUp.audio_url}
+                              label={`播放回应 ${i + 1}`}
+                              isPlaying={playingUrl === followUp.audio_url}
+                              isLoading={isAudioLoading && playingUrl === followUp.audio_url}
+                              onToggle={() => followUp.audio_url && onPlayAudio(followUp.audio_url)}
+                            />
+                          )}
+                        </div>
+                        {needSpeakFollowup && (
+                          <div className="mt-3">
+                            <SpeakingPracticeEmpty
+                              subSceneId={subSceneId}
+                              qaId={qaPair.id}
+                              answerIndex={i}
+                              answerText={followUp.text}
+                              answerTextCn={followUp.text_cn}
+                              isCompleted={answerPracticeCompleted[i]}
+                              onCompleted={() => onAnswerPracticeCompleted(i)}
+                            />
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <>
+                  <h3 className="text-sm font-semibold text-gray-900 mb-3">你应该这样问</h3>
+                  <div className="bg-purple-50 rounded-lg p-3 mb-4">
                     <div className="flex items-start gap-3">
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-gray-900">{resp.text}</p>
-                        <p className="text-xs text-gray-400 mt-0.5">{resp.text_cn}</p>
+                        <p className="text-sm font-medium text-gray-900">{qaPair.triggerText}</p>
+                        <p className="text-xs text-gray-400 mt-0.5">{qaPair.triggerTextCn}</p>
                       </div>
-                      {/* 回应音频按钮 */}
-                      {resp.audio_url && (
+                      {qaPair.audioUrl && (
                         <AudioButton
-                          audioUrl={resp.audio_url}
-                          label={`播放回应 ${i + 1}`}
-                          isPlaying={playingUrl === resp.audio_url}
-                          isLoading={isAudioLoading && playingUrl === resp.audio_url}
-                          onToggle={() => resp.audio_url && onPlayAudio(resp.audio_url)}
+                          audioUrl={qaPair.audioUrl}
+                          label="播放问句"
+                          isPlaying={playingUrl === qaPair.audioUrl}
+                          isLoading={isAudioLoading && playingUrl === qaPair.audioUrl}
+                          onToggle={() => onPlayAudio(qaPair.audioUrl!)}
                         />
                       )}
                     </div>
-                    {/* 开口练习 - 放在每个回答下方 */}
-                    {isMustSpeak && (
+                    {needSpeakTrigger && onTriggerPracticeCompleted && (
                       <div className="mt-3">
                         <SpeakingPracticeEmpty
                           subSceneId={subSceneId}
                           qaId={qaPair.id}
-                          answerIndex={i}
-                          answerText={resp.text}
-                          answerTextCn={resp.text_cn}
-                          isCompleted={answerPracticeCompleted[i]}
-                          onCompleted={() => onAnswerPracticeCompleted(i)}
+                          answerIndex={-1}
+                          answerText={qaPair.triggerText}
+                          answerTextCn={qaPair.triggerTextCn}
+                          isCompleted={practiceState.answerPracticeCompleted[-1] || false}
+                          onCompleted={onTriggerPracticeCompleted}
                         />
                       </div>
                     )}
                   </div>
-                ))}
-              </div>
 
-              {/* 学习提示 */}
+                  <h3 className="text-sm font-semibold text-gray-900 mb-3">可能的回答</h3>
+                  <div className="space-y-3">
+                    {followUps.map((followUp, i) => (
+                      <div key={i} className="bg-gray-50 rounded-lg p-3">
+                        <div className="flex items-start gap-3">
+                          <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium text-gray-900">{followUp.text}</p>
+                            <p className="text-xs text-gray-400 mt-0.5">{followUp.text_cn}</p>
+                          </div>
+                          {followUp.audio_url && (
+                            <AudioButton
+                              audioUrl={followUp.audio_url}
+                              label={`播放回答 ${i + 1}`}
+                              isPlaying={playingUrl === followUp.audio_url}
+                              isLoading={isAudioLoading && playingUrl === followUp.audio_url}
+                              onToggle={() => followUp.audio_url && onPlayAudio(followUp.audio_url)}
+                            />
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
+
               {qaPair.usageNote && (
                 <div className="mt-4 px-3 py-2 rounded-lg bg-blue-50 border border-blue-100 flex items-start gap-2">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4F7CF0" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -321,39 +419,10 @@ interface LearningStageProps {
   onProceed?: () => void
 }
 
-/** 安全解析 responses JSON 字段 */
-function parseResponses(raw: unknown): QAResponse[] {
+/** 安全解析 followUps JSON 字段 */
+function parseFollowUps(raw: unknown): FollowUp[] {
   if (Array.isArray(raw)) {
-    // 检查数组中的对象是否包含必要的字段
-    return raw.map(item => {
-      if (typeof item === 'object' && item !== null) {
-        return {
-          text: (item as any).text || (item as any).english || (item as any).answer || '',
-          text_cn: (item as any).text_cn || (item as any).chinese || (item as any).answer_cn || '',
-          audio_url: (item as any).audio_url || (item as any).audio || ''
-        }
-      }
-      return { text: '', text_cn: '', audio_url: '' }
-    })
-  }
-  if (typeof raw === 'string') {
-    try {
-      const parsed = JSON.parse(raw)
-      if (Array.isArray(parsed)) {
-        return parsed.map(item => {
-          if (typeof item === 'object' && item !== null) {
-            return {
-              text: (item as any).text || (item as any).english || (item as any).answer || '',
-              text_cn: (item as any).text_cn || (item as any).chinese || (item as any).answer_cn || '',
-              audio_url: (item as any).audio_url || (item as any).audio || ''
-            }
-          }
-          return { text: '', text_cn: '', audio_url: '' }
-        })
-      }
-    } catch {
-      return []
-    }
+    return raw as FollowUp[]
   }
   return []
 }
@@ -448,6 +517,20 @@ export default function LearningStage({ qaPairs, subSceneId, failedQaIds = [], o
     }))
   }, [])
 
+  // ---- 触发句开口练习完成（user_asks 模式） ----
+  const handleTriggerPracticeCompleted = useCallback((qaId: string) => {
+    setPracticeStates((prev) => ({
+      ...prev,
+      [qaId]: {
+        ...prev[qaId],
+        answerPracticeCompleted: {
+          ...prev[qaId].answerPracticeCompleted,
+          [-1]: true,
+        },
+      },
+    }))
+  }, [])
+
   // ---- 播放音频 ----
   const handlePlayAudio = useCallback(
     (url: string) => {
@@ -501,6 +584,7 @@ export default function LearningStage({ qaPairs, subSceneId, failedQaIds = [], o
             practiceState={practiceStates[qa.id] ?? { isExpanded: false, answerPracticeCompleted: {} }}
             onToggleExpand={() => handleToggleExpand(qa.id)}
             onAnswerPracticeCompleted={(answerIndex) => handleAnswerPracticeCompleted(qa.id, answerIndex)}
+            onTriggerPracticeCompleted={() => handleTriggerPracticeCompleted(qa.id)}
             playingUrl={playingUrl}
             isAudioLoading={isLoading}
             onPlayAudio={handlePlayAudio}

@@ -2,50 +2,51 @@
   "subSceneId": "daily_027_sub_4",
   "subSceneName": "了解保修",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:41:59.362Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.633Z",
   "questions": [
     {
-      "id": "daily_027_sub_4_speaking_1",
+      "id": "daily_027_sub_4_qa_2_speaking_1",
       "subSceneId": "daily_027_sub_4",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "daily_027_sub_4_qa_2",
         "type": "speaking",
-        "qaId": "daily_027_sub_4_qa_1",
-        "speakerText": "Standard warranty is 2 years — covers motor and battery defects.",
-        "speakerTextCn": "标准保修两年，涵盖电机和电池故障。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想了解一款电钻的保修政策，想知道哪些情况在保修范围内，是否可以购买延保服务。",
         "expectedAnswers": [
-          "What about if I drop it? Is that covered?",
-          "Does this include accidental damage like cracking the screen?",
-          "So if I spill coffee on it, it's not included?"
+          "What's covered under the warranty?",
+          "Does the warranty include accidental damage or just manufacturing defects?",
+          "Can I buy an extended warranty, and how much does it cost?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确追问意外损坏是否包含",
-          "语言准确性：语法正确，使用恰当的疑问句结构",
-          "表达自然度：符合日常口语习惯，使用如'what about...'或'so if...'等自然衔接"
+          "意图达成度：是否明确询问了保修范围或延保选项",
+          "语言准确性：语法结构正确，用词恰当",
+          "表达自然度：符合日常英语口语习惯，不生硬"
         ]
       }
     },
     {
-      "id": "daily_027_sub_4_speaking_2",
+      "id": "daily_027_sub_4_qa_1_speaking_1",
       "subSceneId": "daily_027_sub_4",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "daily_027_sub_4_qa_1",
         "type": "speaking",
-        "qaId": "daily_027_sub_4_qa_2",
-        "speakerText": "Nope — only manufacturer defects. You can buy extended warranty for $15.",
-        "speakerTextCn": "不包，只包出厂缺陷。加15美元可延保。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想了解这款电钻的保修政策，包括保修时长和覆盖范围。",
         "expectedAnswers": [
-          "I think I'll pass — I'm careful with my stuff.",
-          "Can I pay for the extension with a credit card?",
-          "Thanks, but I'll skip it. I don't want to spend extra."
+          "What's the warranty period for this drill?",
+          "Does the warranty cover the motor and battery?",
+          "How long does the warranty last, and what parts are included?",
+          "Could you tell me what's covered under the standard warranty?"
         ],
         "evaluationCriteria": [
-          "意图达成度：清晰表达拒绝延保或询问支付方式",
-          "语言准确性：语法正确，使用恰当的拒绝表达（pass/skip）",
-          "表达自然度：加入个人理由（如'I'm careful'）使回应更真实可信"
+          "意图达成度：是否明确询问了保修时长或覆盖范围",
+          "语言准确性：语法正确，用词恰当，无重大错误",
+          "表达自然度：符合日常英语口语习惯，不生硬或书面化",
+          "关键词覆盖：使用了 warranty, cover, motor, battery, period 等场景关键词中的至少两个"
         ]
       }
     },
@@ -55,9 +56,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "The warranty doesn't cover damage from unauthorized repairs.",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "保修不涵盖因非授权维修造成的损坏。",
         "expectedAnswers": [
           "So if I take it to a local shop, I'll lose coverage?",

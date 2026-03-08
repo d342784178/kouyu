@@ -2,77 +2,76 @@
   "subSceneId": "travel_062_sub_4",
   "subSceneName": "索取地图与道别",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:05:12.178Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.137Z",
   "questions": [
     {
-      "id": "travel_062_sub_4_choice_1",
+      "id": "travel_062_sub_4_qa_1_choice_1",
       "subSceneId": "travel_062_sub_4",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "travel_062_sub_4_qa_1",
-        "speakerText": "Could I get a free map of the city?",
-        "speakerTextCn": "能给我一张免费城市地图吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Sure, I'll buy you one.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Of course! Here’s one with all the top spots marked.",
+            "text": "Could I get a free map of the city?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "You give me a map, right?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I don’t have one, ask the police.",
+            "text": "I want to buy a map from you.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "You need to pay $5 for it.",
+            "text": "Do you have any maps available?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了礼貌且符合语境的回应，符合 'Could I get...' 的请求场景。选项1错误地表示要购买地图，与 'free map' 矛盾；选项3和4缺乏礼貌且不符合服务人员的典型回应。"
+        "explanation": "正确答案 \"Could I get a free map of the city?\" 是一种礼貌的提问，表达了游客的需求。干扰项 \"You give me a map, right?\" 表示不礼貌的语气， \"I want to buy a map from you.\" 表示不必要的表述， \"Do you have any maps available?\" 表示理解偏差，不明确表达了游客的需求",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在旅游，需要地图来导航城市，主动向地图员工询问地图"
       }
     },
     {
-      "id": "travel_062_sub_4_choice_2",
+      "id": "travel_062_sub_4_qa_2_choice_1",
       "subSceneId": "travel_062_sub_4",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "travel_062_sub_4_qa_2",
-        "speakerText": "Thanks so much! You've been super helpful.",
-        "speakerTextCn": "太感谢了！你帮了大忙。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Okay, see you later.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Anytime! Have an amazing trip!",
+            "text": "Thanks so much! You've been super helpful.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "你这个人真的很傻!",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Yeah, whatever.",
+            "text": "你知道附近有一个好吃的餐厅吗?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I didn't do anything special.",
+            "text": "再见！谢谢你的帮助！",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案回应了感谢并表达了美好祝愿，符合服务场景的礼貌结束语。选项1过于冷淡；选项3不礼貌；选项4贬低了自己的帮助，不符合英语文化中积极回应感谢的习惯。"
+        "explanation": "正确答案因为它礼貌地结束了对话并表达了感谢。选项2因为它使用了不恰当的语言。选项3因为它改变了对话的目的。选项4因为它虽然表达了感谢，但没有使用\"Thanks so much\"这句话",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在向当地人索取地图并准备离开，需要礼貌地结束对话"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Do you have a map I could take with me?",
-        "speakerTextCn": "你有我可以带走的地图吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案礼貌地提供地图并附加有用信息，符合场景需求。选项1直接拒绝，不友好；选项3反问显得不耐烦；选项4虽然合理，但未直接回应索取请求，不符合 'must_speak' 的即时服务要求。"
+        "explanation": "正确答案礼貌地提供地图并附加有用信息，符合场景需求。选项1直接拒绝，不友好；选项3反问显得不耐烦；选项4虽然合理，但未直接回应索取请求，不符合 'must_speak' 的即时服务要求。",
+        "speakerText": "Do you have a map I could take with me?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你有我可以带走的地图吗？"
       }
     }
   ]

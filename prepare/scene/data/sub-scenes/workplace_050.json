@@ -1,19 +1,26 @@
 {
   "sceneId": "workplace_050",
   "sceneName": "设备报修",
+  "exportedAt": "2026-03-08T15:31:54.920Z",
   "subScenes": [
     {
       "id": "workplace_050_sub_1",
+      "sceneId": "workplace_050",
       "name": "报修发起",
       "description": "员工发现电脑故障，联系IT支持",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_050_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hey, can you help? My laptop's totally frozen.",
-          "speakerTextCn": "嘿，能帮个忙吗？我的笔记本彻底卡死了。",
-          "responses": [
+          "subSceneId": "workplace_050_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hey, can you help? My laptop's totally frozen.",
+          "triggerTextCn": "嘿，能帮个忙吗？我的笔记本彻底卡死了。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_asks 模式，服务方/工作人员应迅速响应并提供帮助。",
+          "followUps": [
             {
               "text": "Sure, I'm on it. What's the error message?",
               "text_cn": "当然，我马上看。有什么错误提示吗？",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用口语化表达快速说明故障，避免啰嗦"
+          "usageNote": "用口语化表达快速说明故障，避免啰嗦",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "workplace_050_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "It won't boot up—just shows a black screen after the Apple logo.",
-          "speakerTextCn": "开机不了，苹果标志后就黑屏了。",
-          "responses": [
+          "subSceneId": "workplace_050_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "It won't boot up—just shows a black screen after the Apple logo.",
+          "triggerTextCn": "开机不了，苹果标志后就黑屏了。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_asks 模式，服务方/工作人员应迅速响应并提供帮助。",
+          "followUps": [
             {
               "text": "Have you tried holding the power button for 10 seconds?",
               "text_cn": "试过长按电源键10秒吗？",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "回应时先问简单排查步骤，体现专业性"
+          "usageNote": "回应时先问简单排查步骤，体现专业性",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_050_sub_2",
+      "sceneId": "workplace_050",
       "name": "初步排查",
       "description": "IT人员指导用户做基础检查",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_050_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Try unplugging it, then press and hold the power button for 15 secs.",
-          "speakerTextCn": "先拔掉电源，再长按电源键15秒。",
-          "responses": [
+          "subSceneId": "workplace_050_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Try unplugging it, then press and hold the power button for 15 secs.",
+          "triggerTextCn": "先拔掉电源，再长按电源键15秒。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户描述故障，等待技术人员指导",
+          "followUps": [
             {
               "text": "Done. Still black screen. What now?",
               "text_cn": "弄了，还是黑屏。接下来呢？",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用户需反馈操作结果，便于IT判断故障等级"
+          "usageNote": "用户需反馈操作结果，便于IT判断故障等级",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "workplace_050_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Is the charger light on? Any fan noise?",
-          "speakerTextCn": "充电器灯亮吗？有风扇声吗？",
-          "responses": [
+          "subSceneId": "workplace_050_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Is the charger light on? Any fan noise?",
+          "triggerTextCn": "充电器灯亮吗？有风扇声吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户描述故障，等待技术人员指导",
+          "followUps": [
             {
               "text": "Charger's lit, but no fan sound at all.",
               "text_cn": "充电灯亮，但一点风扇声都没有。",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "回答需具体，避免模糊词如'maybe'或'kinda'"
+          "usageNote": "回答需具体，避免模糊词如'maybe'或'kinda'",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_050_sub_3",
+      "sceneId": "workplace_050",
       "name": "确认维修",
       "description": "IT确认需上门维修并约定时间",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_050_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Looks like a hardware issue. I'll send a tech to your desk.",
-          "speakerTextCn": "看起来是硬件问题，我派技术员去你工位。",
-          "responses": [
+          "subSceneId": "workplace_050_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Looks like a hardware issue. I'll send a tech to your desk.",
+          "triggerTextCn": "看起来是硬件问题，我派技术员去你工位。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Can you come this afternoon? I'm in a meeting till 3.",
               "text_cn": "下午能来吗？我3点前都在开会。",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "主动提出可用时间段，提高沟通效率"
+          "usageNote": "主动提出可用时间段，提高沟通效率",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "workplace_050_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Tech will be there at 3:30. Should take under an hour.",
-          "speakerTextCn": "技术员3点半到，一小时内能搞定。",
-          "responses": [
+          "subSceneId": "workplace_050_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Tech will be there at 3:30. Should take under an hour.",
+          "triggerTextCn": "技术员3点半到，一小时内能搞定。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Perfect, I'll be here. Thanks a lot!",
               "text_cn": "太好了，我等你，太感谢了！",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "确认时间后需表达感谢或说明准备动作"
+          "usageNote": "确认时间后需表达感谢或说明准备动作",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_050_sub_4",
+      "sceneId": "workplace_050",
       "name": "结束道别",
       "description": "对话自然结束，保持礼貌",
+      "order": 4,
       "estimatedMinutes": 3,
       "qaPairs": [
         {
           "id": "workplace_050_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Alright, I'll update you if anything changes.",
-          "speakerTextCn": "好的，有变化我会再通知你。",
-          "responses": [
+          "subSceneId": "workplace_050_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Alright, I'll update you if anything changes.",
+          "triggerTextCn": "好的，有变化我会再通知你。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Appreciate it! Have a good one!",
               "text_cn": "太感谢了！你也是！",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "结尾用简短感谢或确认时间收尾最自然"
+          "usageNote": "结尾用简短感谢或确认时间收尾最自然",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "workplace_050_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "No problem—hope it gets fixed quick!",
-          "speakerTextCn": "不客气，希望快点修好！",
-          "responses": [
+          "subSceneId": "workplace_050_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "No problem—hope it gets fixed quick!",
+          "triggerTextCn": "不客气，希望快点修好！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Me too. I've got a deadline today!",
               "text_cn": "我也是，我今天有截止日期！",
@@ -222,7 +284,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "可补充个人需求，让对话更真实"
+          "usageNote": "可补充个人需求，让对话更真实",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

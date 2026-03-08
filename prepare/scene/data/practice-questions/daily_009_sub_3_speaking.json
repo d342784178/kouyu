@@ -2,52 +2,51 @@
   "subSceneId": "daily_009_sub_3",
   "subSceneName": "支付与索要收据",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:36:39.492Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.507Z",
   "questions": [
     {
-      "id": "daily_009_sub_3_speaking_1",
+      "id": "daily_009_sub_3_qa_1_speaking_1",
       "subSceneId": "daily_009_sub_3",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "daily_009_sub_3_qa_1",
-        "speakerText": "I'll pay with cash. Can I get a receipt?",
-        "speakerTextCn": "我用现金支付，能给我收据吗？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在完成加油后，主动询问如何支付和是否需要收据。",
         "expectedAnswers": [
-          "Sure thing. Here you go!",
-          "Of course! Do you want it printed or emailed?",
-          "Absolutely. I'll print one for you right away."
+          "I'll pay inside. Can I get a receipt?",
+          "I'd like to pay with cash. Do I need a receipt?",
+          "Can I pay inside and get a receipt?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确回应了收据请求",
-          "语言准确性：语法正确，无明显错误",
-          "表达自然度：使用了服务场景常用表达如 'Sure thing' 或 'Of course'",
-          "关键词覆盖：包含 'receipt' 或 'print/email' 等关键词"
+          "意图达成度：是否正确表达了询问支付方式和收据的意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
     {
-      "id": "daily_009_sub_3_speaking_2",
+      "id": "daily_009_sub_3_qa_2_speaking_1",
       "subSceneId": "daily_009_sub_3",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "daily_009_sub_3_qa_2",
-        "speakerText": "I'm paying by card. No receipt, thanks.",
-        "speakerTextCn": "我刷卡支付，不用收据了，谢谢。",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在完成加油后，需要选择支付方式并决定是否索要收据，你应该如何自然地表达你的选择？",
         "expectedAnswers": [
-          "All set! Have a nice day!",
-          "Done! Thanks for your business!",
-          "Cool. Drive safe!"
+          "I'll pay with card, and no receipt needed, thanks.",
+          "Can I pay by card? And could you skip the receipt, please?",
+          "I'm paying with my card—no receipt, please.",
+          "Card payment, please. I don't need a receipt, but thanks for asking."
         ],
         "evaluationCriteria": [
-          "意图达成度：正确接受顾客拒绝收据的请求",
-          "语言准确性：语法正确，用词恰当",
-          "表达自然度：使用了地道的道别语，如 'All set!' 或 'Have a nice day!'",
-          "关键词覆盖：包含服务结束的礼貌用语"
+          "意图达成度：是否清晰表达了支付方式和不需要收据的意愿",
+          "语言准确性：语法正确，用词恰当，无明显错误",
+          "表达自然度：符合英语母语者在加油站的日常表达习惯"
         ]
       }
     },
@@ -57,9 +56,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I'd like to pay with my phone. Can I get a digital receipt?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我想用手机支付，能给我电子收据吗？",
         "expectedAnswers": [
           "Of course! I'll email it to you right away.",

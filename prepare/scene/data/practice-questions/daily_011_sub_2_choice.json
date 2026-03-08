@@ -2,9 +2,43 @@
   "subSceneId": "daily_011_sub_2",
   "subSceneName": "询问药效与用法",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:16:39.924Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.521Z",
   "questions": [
+    {
+      "id": "daily_011_sub_2_qa_2_choice_1",
+      "subSceneId": "daily_011_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_011_sub_2_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Will it make me tired?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much does it cost?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "What's the expiration date?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Is it good for my cold?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案\"Will it make me tired?\"是合适的提问，因为它直接询问药品是否会导致疲劳。其他选项不合适，因为它们询问了药品的价格、过期日期或与其他健康状况的相关性，然而这些信息并不是本场景的主要关注点。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在药店询问药品的效果和用法"
+      }
+    },
     {
       "id": "daily_011_sub_2_choice_1",
       "subSceneId": "daily_011_sub_2",
@@ -12,9 +46,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "你在药房取药时，药师给你一盒新药，你不确定它是否能缓解头痛以及是否需要饭后服用。",
-        "speakerText": "This is for headaches, isn't it? Should I take it with food?",
-        "speakerTextCn": "这个是治头痛的吧？需要饭后吃吗？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +68,46 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确回应了两个问题：确认药效（治头痛）和服用方式（空腹服用）并补充安全提示（避免饮酒）。干扰项1误解了药效（说成治发烧），干扰项2表达模糊且未回答关键问题，干扰项3虽积极但缺乏关键信息且不专业。"
+        "situation": "你在药房取药时，药师给你一盒新药，你不确定它是否能缓解头痛以及是否需要饭后服用。",
+        "explanation": "正确答案准确回应了两个问题：确认药效（治头痛）和服用方式（空腹服用）并补充安全提示（避免饮酒）。干扰项1误解了药效（说成治发烧），干扰项2表达模糊且未回答关键问题，干扰项3虽积极但缺乏关键信息且不专业。",
+        "speakerText": "This is for headaches, isn't it? Should I take it with food?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这个是治头痛的吧？需要饭后吃吗？"
+      }
+    },
+    {
+      "id": "daily_011_sub_2_qa_1_choice_1",
+      "subSceneId": "daily_011_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_011_sub_2_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "This one's for coughs, right? How often do I take it?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "What is the side effect of this medicine?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you tell me the price of this medicine?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How long does it take to work?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 \"This one's for coughs, right? How often do I take it?\"。其他选项虽然都是合理的问题，但与场景提示不符，或者没有提到药效与用法。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "询问药品功能与服用方法"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "你正在服用一种新处方药，朋友问你是否会有嗜睡的副作用，以及是否影响日常工作。",
-        "speakerText": "Will this make you drowsy during the day? Can I still work normally?",
-        "speakerTextCn": "这个会让我白天犯困吗？我还能正常工作吗？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确承认可能的副作用（轻度嗜睡），并提供实用建议（前几日避免重体力任务），符合安全用药原则。干扰项1完全否认副作用，有误导风险；干扰项2仅说明服用时间，未回应核心担忧；干扰项3转移话题，未回答是否影响工作。"
+        "situation": "你正在服用一种新处方药，朋友问你是否会有嗜睡的副作用，以及是否影响日常工作。",
+        "explanation": "正确答案准确承认可能的副作用（轻度嗜睡），并提供实用建议（前几日避免重体力任务），符合安全用药原则。干扰项1完全否认副作用，有误导风险；干扰项2仅说明服用时间，未回应核心担忧；干扰项3转移话题，未回答是否影响工作。",
+        "speakerText": "Will this make you drowsy during the day? Can I still work normally?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这个会让我白天犯困吗？我还能正常工作吗？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "你从药店拿到止痛药，想确认它是否适合儿童服用，以及一天最多能吃几次。",
-        "speakerText": "Can my 10-year-old take this? And how many times a day?",
-        "speakerTextCn": "我10岁的孩子能吃这个吗？一天最多吃几次？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确拒绝儿童使用并提供替代方案，符合药品安全规范。干扰项1擅自建议儿童剂量，有严重安全隐患；干扰项2错误地假设成人剂量可直接用于儿童；干扰项3用无关信息（不是治咳嗽）推断适用性，逻辑错误。"
+        "situation": "你从药店拿到止痛药，想确认它是否适合儿童服用，以及一天最多能吃几次。",
+        "explanation": "正确答案明确拒绝儿童使用并提供替代方案，符合药品安全规范。干扰项1擅自建议儿童剂量，有严重安全隐患；干扰项2错误地假设成人剂量可直接用于儿童；干扰项3用无关信息（不是治咳嗽）推断适用性，逻辑错误。",
+        "speakerText": "Can my 10-year-old take this? And how many times a day?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我10岁的孩子能吃这个吗？一天最多吃几次？"
       }
     }
   ]

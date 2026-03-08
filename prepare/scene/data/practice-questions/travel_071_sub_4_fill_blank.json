@@ -2,20 +2,70 @@
   "subSceneId": "travel_071_sub_4",
   "subSceneName": "索取发票",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:31:11.797Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.266Z",
   "questions": [
+    {
+      "id": "travel_071_sub_4_qa_1_fill_blank_1",
+      "subSceneId": "travel_071_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "礼貌索要发票或收据用于报销",
+        "qaId": "travel_071_sub_4_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "receipt",
+            "options": [
+              "票据",
+              "收据",
+              "发票",
+              "账单"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "索取发票",
+        "knowledgePoint": "表达式索取发票",
+        "responseTemplate": "Could I get a _____ for my expenses?"
+      }
+    },
+    {
+      "id": "travel_071_sub_4_qa_2_fill_blank_1",
+      "subSceneId": "travel_071_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "请填写公司名称",
+        "qaId": "travel_071_sub_4_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "ABC Corp.",
+            "options": [
+              "本公司名称",
+              "公司名单",
+              "我的公司名称",
+              "公司名称列表"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客提出需求，服务方回应",
+        "knowledgePoint": "提问句型，表达需求",
+        "responseTemplate": "Can you put my company name on it? It's___"
+      }
+    },
     {
       "id": "travel_071_sub_4_fill_blank_1",
       "subSceneId": "travel_071_sub_4",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "常用表达：emailed 或 printed，表示发送方式",
         "type": "fill_blank",
-        "situation": "你在餐厅吃完饭后，想礼貌地向服务员索取发票用于公司报销",
-        "speakerText": "Could I please get a receipt for this meal?",
-        "speakerTextCn": "我能要一张这顿饭的收据吗？",
-        "responseTemplate": "Of course! Would you like it ___?",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +78,12 @@
             ]
           }
         ],
-        "hint": "常用表达：emailed 或 printed，表示发送方式",
-        "knowledgePoint": "礼貌索取发票时的常用动词短语"
+        "situation": "你在餐厅吃完饭后，想礼貌地向服务员索取发票用于公司报销",
+        "speakerText": "Could I please get a receipt for this meal?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我能要一张这顿饭的收据吗？",
+        "knowledgePoint": "礼貌索取发票时的常用动词短语",
+        "responseTemplate": "Of course! Would you like it ___?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "直接说 'the name'，避免使用完整句式如 'My company is...'",
         "type": "fill_blank",
-        "situation": "你在酒店前台办理退房，需要收据用于财务报销，想请对方写上公司名称",
-        "speakerText": "Could you include the company name on the receipt?",
-        "speakerTextCn": "能请你在收据上写上公司名称吗？",
-        "responseTemplate": "Sure! Just tell me ___.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "直接说 'the name'，避免使用完整句式如 'My company is...'",
-        "knowledgePoint": "简洁表达公司名称的正确方式"
+        "situation": "你在酒店前台办理退房，需要收据用于财务报销，想请对方写上公司名称",
+        "speakerText": "Could you include the company name on the receipt?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "能请你在收据上写上公司名称吗？",
+        "knowledgePoint": "简洁表达公司名称的正确方式",
+        "responseTemplate": "Sure! Just tell me ___."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "常用表达：printed 或 emailed，表示提供方式",
         "type": "fill_blank",
-        "situation": "你在便利店结账后，想礼貌地要一张收据，但不确定是否默认提供",
-        "speakerText": "Do you happen to have a receipt I could take?",
-        "speakerTextCn": "你们有收据可以给我吗？",
-        "responseTemplate": "Absolutely! Would you like it ___?",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,48 @@
             ]
           }
         ],
-        "hint": "常用表达：printed 或 emailed，表示提供方式",
-        "knowledgePoint": "提供收据时的礼貌回应结构"
+        "situation": "你在便利店结账后，想礼貌地要一张收据，但不确定是否默认提供",
+        "speakerText": "Do you happen to have a receipt I could take?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你们有收据可以给我吗？",
+        "knowledgePoint": "提供收据时的礼貌回应结构",
+        "responseTemplate": "Absolutely! Would you like it ___?"
+      }
+    },
+    {
+      "id": "travel_071_sub_4_pq_6",
+      "subSceneId": "travel_071_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "第一空：泛指一张收据；第二空：电子方式交付收据的常用动词",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a",
+            "options": [
+              "a",
+              "the",
+              "an",
+              "some"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "send",
+            "options": [
+              "send",
+              "give",
+              "take",
+              "bring"
+            ]
+          }
+        ],
+        "template": "I'd like ___ receipt for reimbursement. Could you ___ it to me by email?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配（send by email）与冠词用法"
       }
     }
   ]

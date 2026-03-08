@@ -2,8 +2,7 @@
   "subSceneId": "workplace_033_sub_3",
   "subSceneName": "提出替代方案",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:32:03.569Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.367Z",
   "questions": [
     {
       "id": "workplace_033_sub_3_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "表示‘转换格式’时，最准确的动词是哪个？",
         "type": "fill_blank",
-        "situation": "对方无法打开你发送的PPT文件，建议改用PDF格式以便兼容所有设备。",
-        "speakerText": "I can't open the PPT file on my phone—it just crashes. Could you send it as a PDF instead?",
-        "speakerTextCn": "我在手机上打不开PPT文件，总是崩溃。你能改发PDF吗？",
-        "responseTemplate": "I'll ___ it as a PDF and send it over right away.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,76 @@
             ]
           }
         ],
-        "hint": "表示‘转换格式’时，最准确的动词是哪个？",
-        "knowledgePoint": "表达格式转换的动词"
+        "situation": "对方无法打开你发送的PPT文件，建议改用PDF格式以便兼容所有设备。",
+        "speakerText": "I can't open the PPT file on my phone—it just crashes. Could you send it as a PDF instead?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我在手机上打不开PPT文件，总是崩溃。你能改发PDF吗？",
+        "knowledgePoint": "表达格式转换的动词",
+        "responseTemplate": "I'll ___ it as a PDF and send it over right away."
+      }
+    },
+    {
+      "id": "workplace_033_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "workplace_033_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "请提供其他发送方式或格式",
+        "qaId": "workplace_033_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "xlsx",
+            "options": [
+              "pdf",
+              "txt",
+              "doc",
+              "xlsx"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "csv",
+            "options": [
+              "docx",
+              "xls",
+              "ppt",
+              "csv"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户在邮件中提出问题，等待服务方/工作人员回答",
+        "knowledgePoint": "提出替代方案",
+        "responseTemplate": "I can't open the ___ file—it says it's corrupted. Any chance you can resend as ___?"
+      }
+    },
+    {
+      "id": "workplace_033_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "workplace_033_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "PDF太大发不了，能改用其他方式吗？",
+        "qaId": "workplace_033_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Google Drive",
+            "options": [
+              "Dropbox",
+              "OneDrive",
+              "Google Drive",
+              "Microsoft SharePoint"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户在邮件中提出问题，等待服务方/工作人员回答",
+        "knowledgePoint": "提出替代方案",
+        "responseTemplate": "The PDF file is too big to send—can I share it via ___ instead?"
       }
     },
     {
@@ -38,11 +102,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "为确保对方能顺利打开，你应该设置什么权限？",
         "type": "fill_blank",
-        "situation": "你发送的压缩包太大，对方建议改用云盘分享，你同意并说明权限设置。",
-        "speakerText": "The ZIP file is too large—could you upload it to Dropbox and share the link?",
-        "speakerTextCn": "ZIP文件太大了，你能上传到Dropbox然后分享链接吗？",
-        "responseTemplate": "Sure, I'll upload it to Dropbox and set the link to ___.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +116,12 @@
             ]
           }
         ],
-        "hint": "为确保对方能顺利打开，你应该设置什么权限？",
-        "knowledgePoint": "云盘分享权限的标准表达"
+        "situation": "你发送的压缩包太大，对方建议改用云盘分享，你同意并说明权限设置。",
+        "speakerText": "The ZIP file is too large—could you upload it to Dropbox and share the link?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "ZIP文件太大了，你能上传到Dropbox然后分享链接吗？",
+        "knowledgePoint": "云盘分享权限的标准表达",
+        "responseTemplate": "Sure, I'll upload it to Dropbox and set the link to ___."
       }
     },
     {
@@ -65,11 +130,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "在提供替代方案后，为了减少后续沟通，你应该用哪个词表达‘确认是否有效’？",
         "type": "fill_blank",
-        "situation": "对方收到的文档格式不兼容，你提议改用Word文档，同时主动提出检查是否能正常打开。",
-        "speakerText": "I can't edit this .docx file—it’s locked. Do you have it in .rtf?",
-        "speakerTextCn": "我无法编辑这个.docx文件，它是锁定的。你有RTF格式的吗？",
-        "responseTemplate": "I'll resend it as an RTF file and ___ it works for you.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +144,38 @@
             ]
           }
         ],
-        "hint": "在提供替代方案后，为了减少后续沟通，你应该用哪个词表达‘确认是否有效’？",
-        "knowledgePoint": "主动确认解决方案有效性的表达"
+        "situation": "对方收到的文档格式不兼容，你提议改用Word文档，同时主动提出检查是否能正常打开。",
+        "speakerText": "I can't edit this .docx file—it’s locked. Do you have it in .rtf?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我无法编辑这个.docx文件，它是锁定的。你有RTF格式的吗？",
+        "knowledgePoint": "主动确认解决方案有效性的表达",
+        "responseTemplate": "I'll resend it as an RTF file and ___ it works for you."
+      }
+    },
+    {
+      "id": "workplace_033_sub_3_pq_6",
+      "subSceneId": "workplace_033_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "职场中常用的云文件共享平台",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Google Drive",
+            "options": [
+              "Google Drive",
+              "WhatsApp",
+              "Facebook",
+              "Instagram"
+            ]
+          }
+        ],
+        "template": "The file is too large for email—would you mind if I send it via ___ instead?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "职场常用文件共享平台名称"
       }
     }
   ]

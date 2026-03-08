@@ -2,20 +2,43 @@
   "subSceneId": "daily_029_sub_1",
   "subSceneName": "打招呼询问",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:25:58.148Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.643Z",
   "questions": [
+    {
+      "id": "daily_029_sub_1_qa_2_fill_blank_1",
+      "subSceneId": "daily_029_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填写提问的关键部分",
+        "qaId": "daily_029_sub_1_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "batteries",
+            "options": [
+              "电池",
+              "盒子",
+              "包装",
+              "价格"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "家长进店后向店员礼貌问候并询问玩具位置",
+        "knowledgePoint": "提问句型和关键词汇",
+        "responseTemplate": "Thanks! And do you have any with __________ included?"
+      }
+    },
     {
       "id": "daily_029_sub_1_fill_blank_1",
       "subSceneId": "daily_029_sub_1",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "回想一下，积木通常和哪些类型的玩具放在一起？",
         "type": "fill_blank",
-        "situation": "一位家长走进玩具店，想礼貌地询问儿童积木的位置，以便帮孩子挑选礼物。",
-        "speakerText": "Hi, could you help me find the building blocks?",
-        "speakerTextCn": "你好，你能帮我找一下积木吗？",
-        "responseTemplate": "Of course! They're in the ___ section.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,39 @@
             ]
           }
         ],
-        "hint": "回想一下，积木通常和哪些类型的玩具放在一起？",
-        "knowledgePoint": "使用场景相关名词短语描述商品区域"
+        "situation": "一位家长走进玩具店，想礼貌地询问儿童积木的位置，以便帮孩子挑选礼物。",
+        "speakerText": "Hi, could you help me find the building blocks?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你好，你能帮我找一下积木吗？",
+        "knowledgePoint": "使用场景相关名词短语描述商品区域",
+        "responseTemplate": "Of course! They're in the ___ section."
+      }
+    },
+    {
+      "id": "daily_029_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "daily_029_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "注意句型结构：Do you know where + 名词 + are?",
+        "qaId": "daily_029_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "action figures",
+            "options": [
+              "action figures",
+              "toys where",
+              "where are the toys",
+              "action figures where"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "家长进店后想礼貌地询问玩具的位置，需要使用一个常见的询问句型",
+        "knowledgePoint": "询问位置的礼貌提问句型",
+        "responseTemplate": "Hi there! Do you know where the ___ are?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "乐高常与哪种需要动手动脑的玩具相邻摆放？",
         "type": "fill_blank",
-        "situation": "家长在店中看到多个玩具区，想确认乐高系列是否在主要货架上，于是礼貌询问店员。",
-        "speakerText": "Is the LEGO range around here?",
-        "speakerTextCn": "乐高系列在这附近吗？",
-        "responseTemplate": "Yes, it's right next to the ___.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "乐高常与哪种需要动手动脑的玩具相邻摆放？",
-        "knowledgePoint": "使用常见商品组合关系表达位置"
+        "situation": "家长在店中看到多个玩具区，想确认乐高系列是否在主要货架上，于是礼貌询问店员。",
+        "speakerText": "Is the LEGO range around here?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "乐高系列在这附近吗？",
+        "knowledgePoint": "使用常见商品组合关系表达位置",
+        "responseTemplate": "Yes, it's right next to the ___."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "在英语中，表示‘随附’的标准表达是什么？",
         "type": "fill_blank",
-        "situation": "家长想确认某个玩具是否包含电池，以便直接购买，避免回家后还要另买。",
-        "speakerText": "Do these come with batteries included?",
-        "speakerTextCn": "这些是包含电池的吗？",
-        "responseTemplate": "Yes, they ___ batteries included.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "在英语中，表示‘随附’的标准表达是什么？",
-        "knowledgePoint": "正确使用固定搭配 'come with' 表达随附物品"
+        "situation": "家长想确认某个玩具是否包含电池，以便直接购买，避免回家后还要另买。",
+        "speakerText": "Do these come with batteries included?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这些是包含电池的吗？",
+        "knowledgePoint": "正确使用固定搭配 'come with' 表达随附物品",
+        "responseTemplate": "Yes, they ___ batteries included."
+      }
+    },
+    {
+      "id": "daily_029_sub_1_pq_6",
+      "subSceneId": "daily_029_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "在指特定通道时，英语中通常用定冠词",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "the",
+            "options": [
+              "the",
+              "a",
+              "this",
+              "my"
+            ]
+          }
+        ],
+        "template": "Could you please point me to ___ aisle for the stuffed animals?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "定冠词 the 用于特指位置（固定表达）"
       }
     }
   ]

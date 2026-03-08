@@ -1,19 +1,26 @@
 {
   "sceneId": "workplace_047",
   "sceneName": "调休申请",
+  "exportedAt": "2026-03-08T15:31:54.917Z",
   "subScenes": [
     {
       "id": "workplace_047_sub_1",
+      "sceneId": "workplace_047",
       "name": "礼貌问候",
       "description": "员工向经理打招呼并开启调休话题",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_047_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hey Alex, got a minute?",
-          "speakerTextCn": "嘿，亚历克斯，有空吗？",
-          "responses": [
+          "subSceneId": "workplace_047_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hey Alex, got a minute?",
+          "triggerTextCn": "嘿，亚历克斯，有空吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_responds 模式，场景可能是服务方主动询问用户是否有需求。",
+          "followUps": [
             {
               "text": "Sure, what's up?",
               "text_cn": "当然，什么事？",
@@ -30,22 +37,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用简短提问开启对话，自然不突兀"
+          "usageNote": "用简短提问开启对话，自然不突兀",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         }
       ]
     },
     {
       "id": "workplace_047_sub_2",
+      "sceneId": "workplace_047",
       "name": "提出请求",
       "description": "员工说明调休需求及原因",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_047_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "I'd like to take a day off next Wednesday.",
-          "speakerTextCn": "我想下周三请一天假。",
-          "responses": [
+          "subSceneId": "workplace_047_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'd like to take a day off next Wednesday.",
+          "triggerTextCn": "我想下周三请一天假。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：经理作为服务方回应员工的休假请求。",
+          "followUps": [
             {
               "text": "Could I take next Wednesday off? I've got a doctor's appointment.",
               "text_cn": "我能请下周三假吗？我有医生预约。",
@@ -62,22 +78,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用I'd like或I need礼貌表达请求"
+          "usageNote": "用I'd like或I need礼貌表达请求",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         }
       ]
     },
     {
       "id": "workplace_047_sub_3",
+      "sceneId": "workplace_047",
       "name": "确认安排",
       "description": "经理确认工作交接与批准",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_047_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Will your tasks be covered?",
-          "speakerTextCn": "你的工作有人接手吗？",
-          "responses": [
+          "subSceneId": "workplace_047_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "Will your tasks be covered?",
+          "triggerTextCn": "你的工作有人接手吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_asks 模式，提供场景提示（中文）",
+          "followUps": [
             {
               "text": "Yes, I'll finish the report before Friday and ask Sam to handle the client call.",
               "text_cn": "没问题，我周五前交报告，让萨姆接客户电话。",
@@ -94,14 +119,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "明确说明工作交接，增加批准几率"
+          "usageNote": "明确说明工作交接，增加批准几率",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "workplace_047_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Approved! Just send me the form.",
-          "speakerTextCn": "批准了！把申请表发我一下。",
-          "responses": [
+          "subSceneId": "workplace_047_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "Approved! Just send me the form.",
+          "triggerTextCn": "批准了！把申请表发我一下。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_asks 模式，提供场景提示（中文）",
+          "followUps": [
             {
               "text": "Great, I'll email it right away!",
               "text_cn": "太好了，我马上发邮件！",
@@ -118,22 +150,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "收到批准后立即确认行动，显专业"
+          "usageNote": "收到批准后立即确认行动，显专业",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_047_sub_4",
+      "sceneId": "workplace_047",
       "name": "礼貌道别",
       "description": "员工感谢并结束对话",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_047_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Thanks for letting me take the day off.",
-          "speakerTextCn": "谢谢您同意我请假。",
-          "responses": [
+          "subSceneId": "workplace_047_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thanks for letting me take the day off.",
+          "triggerTextCn": "谢谢您同意我请假。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "No problem, have a good one!",
               "text_cn": "不客气，好好休息！",
@@ -150,7 +191,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "道别时表达感谢，留下好印象"
+          "usageNote": "道别时表达感谢，留下好印象",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         }
       ]
     }

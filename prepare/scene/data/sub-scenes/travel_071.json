@@ -1,19 +1,26 @@
 {
   "sceneId": "travel_071",
   "sceneName": "酒店退房",
+  "exportedAt": "2026-03-08T15:31:54.898Z",
   "subScenes": [
     {
       "id": "travel_071_sub_1",
+      "sceneId": "travel_071",
       "name": "问候退房",
       "description": "客人向前台礼貌提出退房请求",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_071_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Good morning! I'd like to check out today.",
-          "speakerTextCn": "早上好！我想今天退房。",
-          "responses": [
+          "subSceneId": "travel_071_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Good morning! I'd like to check out today.",
+          "triggerTextCn": "早上好！我想今天退房。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：顾客通常先提出需求，如退房、询问等。",
+          "followUps": [
             {
               "text": "Sure, I can help with that. Could I have your room number?",
               "text_cn": "当然，我来帮您。能告诉我房号吗？",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用I'd like to check out最自然，别说I want"
+          "usageNote": "用I'd like to check out最自然，别说I want",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "travel_071_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I'm in room 412. Can I get my bill now?",
-          "speakerTextCn": "我住412房，能现在给我账单吗？",
-          "responses": [
+          "subSceneId": "travel_071_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'm in room 412. Can I get my bill now?",
+          "triggerTextCn": "我住412房，能现在给我账单吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：顾客通常先提出需求，如退房、询问等。",
+          "followUps": [
             {
               "text": "Absolutely, I'll pull up your account right away.",
               "text_cn": "当然，我马上调出您的账单。",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "问账单用Can I get...最礼貌实用"
+          "usageNote": "问账单用Can I get...最礼貌实用",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "travel_071_sub_2",
+      "sceneId": "travel_071",
       "name": "核对设施",
       "description": "确认房间物品是否完好，有无损坏",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_071_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Did you use the minibar or damage anything?",
-          "speakerTextCn": "您用过迷你吧或弄坏东西了吗？",
-          "responses": [
+          "subSceneId": "travel_071_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Did you use the minibar or damage anything?",
+          "triggerTextCn": "您用过迷你吧或弄坏东西了吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "No, I didn't touch anything. Everything's fine.",
               "text_cn": "没有，我什么都没碰，一切正常。",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用I didn't touch anything表达无损坏"
+          "usageNote": "用I didn't touch anything表达无损坏",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "travel_071_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "The TV remote's battery is dead, sorry.",
-          "speakerTextCn": "电视遥控器电池没电了，不好意思。",
-          "responses": [
+          "subSceneId": "travel_071_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "The TV remote's battery is dead, sorry.",
+          "triggerTextCn": "电视遥控器电池没电了，不好意思。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "No worries, we'll replace it. No extra charge.",
               "text_cn": "别担心，我们会换，不收费。",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "道歉用My bad或Sorry，别用I am sorry太正式"
+          "usageNote": "道歉用My bad或Sorry，别用I am sorry太正式",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "travel_071_sub_3",
+      "sceneId": "travel_071",
       "name": "支付确认",
       "description": "选择支付方式并确认金额",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_071_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Your total is $189.50. How'd you like to pay?",
-          "speakerTextCn": "总计189.5美元，您想怎么付？",
-          "responses": [
+          "subSceneId": "travel_071_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Your total is $189.50. How'd you like to pay?",
+          "triggerTextCn": "总计189.5美元，您想怎么付？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I'll pay with my credit card, please.",
               "text_cn": "我用信用卡支付。",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "How'd you like to pay?是标准问法，别改"
+          "usageNote": "How'd you like to pay?是标准问法，别改",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "travel_071_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "The card's declined. Can you try another one?",
-          "speakerTextCn": "卡被拒了，能换一张吗？",
-          "responses": [
+          "subSceneId": "travel_071_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "The card's declined. Can you try another one?",
+          "triggerTextCn": "卡被拒了，能换一张吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Sure, here's my other card.",
               "text_cn": "当然，这是另一张卡。",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用I'll pay cash instead表达切换方式"
+          "usageNote": "用I'll pay cash instead表达切换方式",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "travel_071_sub_4",
+      "sceneId": "travel_071",
       "name": "索取发票",
       "description": "礼貌索要发票或收据用于报销",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_071_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Could I get a receipt for my expenses?",
-          "speakerTextCn": "能给我一张报销用的收据吗？",
-          "responses": [
+          "subSceneId": "travel_071_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "Could I get a receipt for my expenses?",
+          "triggerTextCn": "能给我一张报销用的收据吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客提出需求，服务方回应",
+          "followUps": [
             {
               "text": "Of course! I'll email it or print it for you.",
               "text_cn": "当然！可以发邮件或打印给您。",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Could I get...最得体，别用Give me"
+          "usageNote": "用Could I get...最得体，别用Give me",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "travel_071_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Can you put my company name on it? It's ABC Corp.",
-          "speakerTextCn": "能写上我公司名字吗？是ABC公司。",
-          "responses": [
+          "subSceneId": "travel_071_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can you put my company name on it? It's ABC Corp.",
+          "triggerTextCn": "能写上我公司名字吗？是ABC公司。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客提出需求，服务方回应",
+          "followUps": [
             {
               "text": "No problem, I'll add ABC Corp. right away.",
               "text_cn": "没问题，马上加上ABC公司。",
@@ -222,22 +284,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "直接说公司名，别用My company is..."
+          "usageNote": "直接说公司名，别用My company is...",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "travel_071_sub_5",
+      "sceneId": "travel_071",
       "name": "道别离店",
       "description": "完成手续后礼貌告别并感谢",
+      "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_071_sub_5_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "All set! Have a great trip home!",
-          "speakerTextCn": "搞定啦！祝您回家旅途愉快！",
-          "responses": [
+          "subSceneId": "travel_071_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "All set! Have a great trip home!",
+          "triggerTextCn": "搞定啦！祝您回家旅途愉快！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Thanks so much! You've been wonderful.",
               "text_cn": "太感谢了！你们服务真好。",
@@ -254,14 +325,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Thanks so much表达真诚感谢"
+          "usageNote": "用Thanks so much表达真诚感谢",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "travel_071_sub_5_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Hope to see you again soon!",
-          "speakerTextCn": "希望很快再见到您！",
-          "responses": [
+          "subSceneId": "travel_071_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hope to see you again soon!",
+          "triggerTextCn": "希望很快再见到您！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I definitely will! Thanks again.",
               "text_cn": "我一定会再来的！再次感谢。",
@@ -278,7 +356,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用I definitely will表达明确回访意愿"
+          "usageNote": "用I definitely will表达明确回访意愿",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

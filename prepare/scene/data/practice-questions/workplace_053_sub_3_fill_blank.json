@@ -2,8 +2,7 @@
   "subSceneId": "workplace_053_sub_3",
   "subSceneName": "确认签字",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:34:05.298Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.582Z",
   "questions": [
     {
       "id": "workplace_053_sub_3_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "对方明确要求写全名，你应确认会遵守这个要求。",
         "type": "fill_blank",
-        "situation": "快递员要求你在签收单上签名，你确认后准备签名，但想确认是否需要写全名。",
-        "speakerText": "Please sign here, and include your full name.",
-        "speakerTextCn": "请在这里签名，并写上你的全名。",
-        "responseTemplate": "I'll sign ___",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "对方明确要求写全名，你应确认会遵守这个要求。",
-        "knowledgePoint": "确认签名要求的回应表达"
+        "situation": "快递员要求你在签收单上签名，你确认后准备签名，但想确认是否需要写全名。",
+        "speakerText": "Please sign here, and include your full name.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "请在这里签名，并写上你的全名。",
+        "knowledgePoint": "确认签名要求的回应表达",
+        "responseTemplate": "I'll sign ___"
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "当无法或不便手写时，询问替代签名方式是常见需求。",
         "type": "fill_blank",
-        "situation": "前台让你签收快递，但你不确定是否需要手写签名，想询问是否可以使用电子签名。",
-        "speakerText": "We need your signature to complete the delivery.",
-        "speakerTextCn": "我们需要你的签名来完成派送。",
-        "responseTemplate": "Could I sign ___ instead?",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "当无法或不便手写时，询问替代签名方式是常见需求。",
-        "knowledgePoint": "请求替代签名方式的礼貌表达"
+        "situation": "前台让你签收快递，但你不确定是否需要手写签名，想询问是否可以使用电子签名。",
+        "speakerText": "We need your signature to complete the delivery.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们需要你的签名来完成派送。",
+        "knowledgePoint": "请求替代签名方式的礼貌表达",
+        "responseTemplate": "Could I sign ___ instead?"
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "对方明确要求两种签名形式，你需要完整回应两项内容。",
         "type": "fill_blank",
-        "situation": "快递员指着签收单说需要签名，你准备签字，但想确认是否需要同时写姓名首字母和全名。",
-        "speakerText": "Sign here — initials and full name, please.",
-        "speakerTextCn": "在这里签名——请写上姓氏首字母和全名。",
-        "responseTemplate": "Okay, I'll put ___ and ___",
         "blanks": [
           {
             "index": 0,
@@ -92,8 +90,90 @@
             ]
           }
         ],
-        "hint": "对方明确要求两种签名形式，你需要完整回应两项内容。",
-        "knowledgePoint": "回应多重签名要求的结构化表达"
+        "situation": "快递员指着签收单说需要签名，你准备签字，但想确认是否需要同时写姓名首字母和全名。",
+        "speakerText": "Sign here — initials and full name, please.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "在这里签名——请写上姓氏首字母和全名。",
+        "knowledgePoint": "回应多重签名要求的结构化表达",
+        "responseTemplate": "Okay, I'll put ___ and ___"
+      }
+    },
+    {
+      "id": "workplace_053_sub_3_pq_4",
+      "subSceneId": "workplace_053_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "询问是否可以用电子方式签名的常用表达",
+        "qaId": "workplace_053_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "digitally",
+            "options": [
+              "digitally",
+              "electronically",
+              "by phone",
+              "with ink"
+            ]
+          }
+        ],
+        "template": "Can I sign ___ instead?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定表达：sign digitally（电子签名）"
+      }
+    },
+    {
+      "id": "workplace_053_sub_3_pq_5",
+      "subSceneId": "workplace_053_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "签名时通常要求写姓氏首字母",
+        "qaId": "workplace_053_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "initials",
+            "options": [
+              "initials",
+              "nickname",
+              "phone number",
+              "email"
+            ]
+          }
+        ],
+        "template": "You need to sign here with your ___ and full name.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景核心词汇：initials（首字母缩写）"
+      }
+    },
+    {
+      "id": "workplace_053_sub_3_pq_6",
+      "subSceneId": "workplace_053_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "签收前确认快递类型的关键词",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "registered",
+            "options": [
+              "registered",
+              "express",
+              "personal",
+              "bulk"
+            ]
+          }
+        ],
+        "template": "Is this ___ mail? I need to know before I sign.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景功能表达：registered mail（挂号信）"
       }
     }
   ]

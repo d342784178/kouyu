@@ -2,20 +2,97 @@
   "subSceneId": "daily_001_sub_2",
   "subSceneName": "询问推荐",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:04.038Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.432Z",
   "questions": [
+    {
+      "id": "daily_001_sub_2_qa_4_fill_blank_1",
+      "subSceneId": "daily_001_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "您需要先来点开胃菜或者汤吗?",
+        "qaId": "daily_001_sub_2_qa_4",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "appetizers",
+            "options": [
+              "appetizers",
+              "desserts",
+              "main courses",
+              "drinks"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客询问服务员今天的推荐菜",
+        "knowledgePoint": "询问推荐",
+        "responseTemplate": "Would you like to start with any ___ or soup?"
+      }
+    },
+    {
+      "id": "daily_001_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "daily_001_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "用户想要了解今天有什么推荐的菜",
+        "qaId": "daily_001_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "order",
+            "options": [
+              "eat",
+              "drink",
+              "order",
+              "serve"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客询问服务员今天的推荐菜",
+        "knowledgePoint": "提问句型",
+        "responseTemplate": "What's good to order today?"
+      }
+    },
+    {
+      "id": "daily_001_sub_2_qa_3_fill_blank_1",
+      "subSceneId": "daily_001_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "请问一下服务员今天推荐的菜",
+        "qaId": "daily_001_sub_2_qa_3",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "today",
+            "options": [
+              "today",
+              "this week",
+              "last night",
+              "over the weekend"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客询问服务员今天的推荐菜",
+        "knowledgePoint": "询问推荐",
+        "responseTemplate": "What do you recommend___"
+      }
+    },
     {
       "id": "daily_001_sub_2_fill_blank_1",
       "subSceneId": "daily_001_sub_2",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "表达个人推荐时，常用 'I'd go for...' 结构",
         "type": "fill_blank",
-        "situation": "顾客在餐厅询问今日推荐菜品，服务员正在介绍特色菜",
-        "speakerText": "What would you recommend today?",
-        "speakerTextCn": "今天你推荐什么菜？",
-        "responseTemplate": "I'd ___ the lemon herb chicken — it's our most popular dish.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +105,39 @@
             ]
           }
         ],
-        "hint": "表达个人推荐时，常用 'I'd go for...' 结构",
-        "knowledgePoint": "推荐表达：I'd go for..."
+        "situation": "顾客在餐厅询问今日推荐菜品，服务员正在介绍特色菜",
+        "speakerText": "What would you recommend today?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "今天你推荐什么菜？",
+        "knowledgePoint": "推荐表达：I'd go for...",
+        "responseTemplate": "I'd ___ the lemon herb chicken — it's our most popular dish."
+      }
+    },
+    {
+      "id": "daily_001_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "daily_001_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "使用提问句型表达对推荐菜的询问",
+        "qaId": "daily_001_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "什么",
+            "options": [
+              "什么",
+              "有没有",
+              "推荐一下",
+              "你推荐"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客询问服务员今天的推荐菜",
+        "knowledgePoint": "口语表达：询问推荐",
+        "responseTemplate": "今天有推荐的菜吗，我想知道___"
       }
     },
     {
@@ -38,11 +146,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "自然回应存在性需求时，常用 'we have' 表示提供",
         "type": "fill_blank",
-        "situation": "顾客询问是否有适合素食者的菜品，服务员回应菜品选项",
-        "speakerText": "Do you have anything for someone who doesn't eat meat?",
-        "speakerTextCn": "有适合不吃肉的人的菜品吗？",
-        "responseTemplate": "Yes, we ___ a quinoa bowl and grilled vegetable platter.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +160,12 @@
             ]
           }
         ],
-        "hint": "自然回应存在性需求时，常用 'we have' 表示提供",
-        "knowledgePoint": "存在性表达：we have"
+        "situation": "顾客询问是否有适合素食者的菜品，服务员回应菜品选项",
+        "speakerText": "Do you have anything for someone who doesn't eat meat?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "有适合不吃肉的人的菜品吗？",
+        "knowledgePoint": "存在性表达：we have",
+        "responseTemplate": "Yes, we ___ a quinoa bowl and grilled vegetable platter."
       }
     },
     {
@@ -65,11 +174,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "表达最终决定点某道菜时，常用 'I'll go with...'",
         "type": "fill_blank",
-        "situation": "服务员介绍了一道素食主菜，顾客确认自己的饮食偏好并决定点餐",
-        "speakerText": "The lentil curry is vegan and really flavorful.",
-        "speakerTextCn": "扁豆咖喱是纯素食的，味道很棒。",
-        "responseTemplate": "That's perfect — I'm vegan. I'll ___ the curry.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +188,38 @@
             ]
           }
         ],
-        "hint": "表达最终决定点某道菜时，常用 'I'll go with...'",
-        "knowledgePoint": "点餐决定表达：I'll go with..."
+        "situation": "服务员介绍了一道素食主菜，顾客确认自己的饮食偏好并决定点餐",
+        "speakerText": "The lentil curry is vegan and really flavorful.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "扁豆咖喱是纯素食的，味道很棒。",
+        "knowledgePoint": "点餐决定表达：I'll go with...",
+        "responseTemplate": "That's perfect — I'm vegan. I'll ___ the curry."
+      }
+    },
+    {
+      "id": "daily_001_sub_2_pq_6",
+      "subSceneId": "daily_001_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "常用推荐菜品，强调新鲜",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "pasta",
+            "options": [
+              "pasta",
+              "steak",
+              "soup",
+              "bread"
+            ]
+          }
+        ],
+        "template": "Try the ___ — it's fresh and made daily.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "Try + 食物（推荐菜品的简洁表达）"
       }
     }
   ]

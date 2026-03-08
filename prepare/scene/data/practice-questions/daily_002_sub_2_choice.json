@@ -2,9 +2,43 @@
   "subSceneId": "daily_002_sub_2",
   "subSceneName": "确认计量单位",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:15:29.512Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.443Z",
   "questions": [
+    {
+      "id": "daily_002_sub_2_qa_2_choice_1",
+      "subSceneId": "daily_002_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_002_sub_2_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How much does this bag of apples weigh?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much is this bag of apples?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you sell apples by the bag?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What's the price per kilo?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案询问的是这袋苹果的重量，直接帮助判断计量单位。选项2询问价格，与确认单位无关；选项3虽然相关，但只确认销售方式，未获取具体重量信息，无法直接判断；选项4假设已知按公斤卖，但顾客尚未确认计量单位，逻辑前置。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在超市看到一袋苹果，想确认这袋苹果是按重量卖还是按袋卖，因此需要询问这袋苹果的具体重量。"
+      }
+    },
     {
       "id": "daily_002_sub_2_choice_1",
       "subSceneId": "daily_002_sub_2",
@@ -12,9 +46,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "你在超市挑选大米，售货员问你是否需要按袋买还是按重量称重，你想确认计价方式以便决定买多少。",
-        "speakerText": "Are these bags of rice sold by the bag or by the pound?",
-        "speakerTextCn": "这些大米是按袋卖还是按磅卖？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +68,46 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了对方关于计价单位的询问，明确说明是按袋卖且每袋重量。干扰项1是答非所问（直接下单但未回答问题），干扰项2是无关促销信息，干扰项3是完全不相关的请求，均未回应核心问题。"
+        "situation": "你在超市挑选大米，售货员问你是否需要按袋买还是按重量称重，你想确认计价方式以便决定买多少。",
+        "explanation": "正确答案直接回应了对方关于计价单位的询问，明确说明是按袋卖且每袋重量。干扰项1是答非所问（直接下单但未回答问题），干扰项2是无关促销信息，干扰项3是完全不相关的请求，均未回应核心问题。",
+        "speakerText": "Are these bags of rice sold by the bag or by the pound?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这些大米是按袋卖还是按磅卖？"
+      }
+    },
+    {
+      "id": "daily_002_sub_2_qa_1_choice_1",
+      "subSceneId": "daily_002_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_002_sub_2_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is this yogurt sold by the pound or by the container?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "你有多少个苹果?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "这个酸奶好吗?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "该商品多少钱?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案\"Is this yogurt sold by the pound or by the container?\"正确，因为它直接询问了商品的计量单位。其他选项不正确，因为它们没有解决计量单位的问题，或者提出了与场景无关的问题",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在超市寻找商品时，需要了解商品的计量单位"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "你在农贸市场买土豆，摊主指着一堆散装土豆问你打算怎么买，你想确认是按袋预包装还是按重量称重。",
-        "speakerText": "Do you want the potatoes by the bag or by weight?",
-        "speakerTextCn": "你想要按袋买还是按重量称？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确选择按袋购买并补充了每袋重量，完整回应了对方的单位确认问题。干扰项1是反向提问价格，干扰项2是无关赞美，干扰项3是支付方式，均未直接回答计价单位问题。"
+        "situation": "你在农贸市场买土豆，摊主指着一堆散装土豆问你打算怎么买，你想确认是按袋预包装还是按重量称重。",
+        "explanation": "正确答案明确选择按袋购买并补充了每袋重量，完整回应了对方的单位确认问题。干扰项1是反向提问价格，干扰项2是无关赞美，干扰项3是支付方式，均未直接回答计价单位问题。",
+        "speakerText": "Do you want the potatoes by the bag or by weight?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你想要按袋买还是按重量称？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "你在便利店想买花生，店员问你是否要买预包装的还是散装称重的，你希望确认预包装的规格。",
-        "speakerText": "Are the peanuts sold in pre-packaged bags or by the ounce?",
-        "speakerTextCn": "花生是按预包装袋卖还是按盎司称重？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案清晰说明了预包装的规格并做出购买决定，精准回应了单位确认问题。干扰项1是偏好描述，干扰项2是询问单价（未回应单位选择），干扰项3是口味问题，均未正确回应核心问题。"
+        "situation": "你在便利店想买花生，店员问你是否要买预包装的还是散装称重的，你希望确认预包装的规格。",
+        "explanation": "正确答案清晰说明了预包装的规格并做出购买决定，精准回应了单位确认问题。干扰项1是偏好描述，干扰项2是询问单价（未回应单位选择），干扰项3是口味问题，均未正确回应核心问题。",
+        "speakerText": "Are the peanuts sold in pre-packaged bags or by the ounce?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "花生是按预包装袋卖还是按盎司称重？"
       }
     }
   ]

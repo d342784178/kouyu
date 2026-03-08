@@ -2,20 +2,70 @@
   "subSceneId": "workplace_049_sub_5",
   "subSceneName": "安排交接",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:33:27.486Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.552Z",
   "questions": [
+    {
+      "id": "workplace_049_sub_5_qa_2_fill_blank_1",
+      "subSceneId": "workplace_049_sub_5",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "回忆文件的存放位置",
+        "qaId": "workplace_049_sub_5_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "shared folder",
+            "options": [
+              "公司文件夹",
+              "个人电脑",
+              "共享文件夾",
+              "公司硬盘"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工提出请求，经理作为服务方回应",
+        "knowledgePoint": "工作交接中文件存放的表达",
+        "responseTemplate": "I'll make sure to leave all files in the ___ and update the status."
+      }
+    },
+    {
+      "id": "workplace_049_sub_5_qa_1_fill_blank_1",
+      "subSceneId": "workplace_049_sub_5",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "在出差期间有人接手工作",
+        "qaId": "workplace_049_sub_5_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "cover my client calls",
+            "options": [
+              "接我的客户电话",
+              "处理我的文件",
+              "做我的报告",
+              "查我的数据"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工提出请求，经理作为服务方回应",
+        "knowledgePoint": "口语表达：提问句型",
+        "responseTemplate": "我下周不在，你能帮我___?"
+      }
+    },
     {
       "id": "workplace_049_sub_5_fill_blank_1",
       "subSceneId": "workplace_049_sub_5",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "Ask for the necessary documents or information to prepare properly.",
         "type": "fill_blank",
-        "situation": "Your colleague is leaving for a short trip and asks you to take over their weekly team meeting. You want to confirm what materials you need to prepare.",
-        "speakerText": "I'll be away this week, so could you lead the team meeting?",
-        "speakerTextCn": "我这周不在，你能主持团队会议吗？",
-        "responseTemplate": "I can do that, but could you ___?",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +78,12 @@
             ]
           }
         ],
-        "hint": "Ask for the necessary documents or information to prepare properly.",
-        "knowledgePoint": "请求交接资料的礼貌表达"
+        "situation": "Your colleague is leaving for a short trip and asks you to take over their weekly team meeting. You want to confirm what materials you need to prepare.",
+        "speakerText": "I'll be away this week, so could you lead the team meeting?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我这周不在，你能主持团队会议吗？",
+        "knowledgePoint": "请求交接资料的礼貌表达",
+        "responseTemplate": "I can do that, but could you ___?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "Show you'll take action after receiving the materials.",
         "type": "fill_blank",
-        "situation": "Your coworker is handing over a pending project and mentions they've updated the shared drive. You want to acknowledge their effort and confirm you'll follow up.",
-        "speakerText": "I've put all the latest documents in the shared folder and marked the open items.",
-        "speakerTextCn": "我已经把最新文件放进了共享文件夹，并标注了待办事项。",
-        "responseTemplate": "Thanks for organizing this — I'll ___ and keep you posted.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "Show you'll take action after receiving the materials.",
-        "knowledgePoint": "回应他人准备工作的积极确认"
+        "situation": "Your coworker is handing over a pending project and mentions they've updated the shared drive. You want to acknowledge their effort and confirm you'll follow up.",
+        "speakerText": "I've put all the latest documents in the shared folder and marked the open items.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我已经把最新文件放进了共享文件夹，并标注了待办事项。",
+        "knowledgePoint": "回应他人准备工作的积极确认",
+        "responseTemplate": "Thanks for organizing this — I'll ___ and keep you posted."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "Offer limited help to show willingness while setting boundaries.",
         "type": "fill_blank",
-        "situation": "You're taking over a colleague's tasks while they're away, but you're already overloaded. You need to politely decline while offering a partial solution.",
-        "speakerText": "Can you handle my reports while I'm out?",
-        "speakerTextCn": "我出去的时候你能帮我处理报告吗？",
-        "responseTemplate": "I'm stretched thin right now, but I ___ if you send me the template.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "Offer limited help to show willingness while setting boundaries.",
-        "knowledgePoint": "礼貌婉拒并提供替代方案"
+        "situation": "You're taking over a colleague's tasks while they're away, but you're already overloaded. You need to politely decline while offering a partial solution.",
+        "speakerText": "Can you handle my reports while I'm out?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我出去的时候你能帮我处理报告吗？",
+        "knowledgePoint": "礼貌婉拒并提供替代方案",
+        "responseTemplate": "I'm stretched thin right now, but I ___ if you send me the template."
+      }
+    },
+    {
+      "id": "workplace_049_sub_5_pq_6",
+      "subSceneId": "workplace_049_sub_5",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "交接时主动说明你将如何整理资料",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "upload",
+            "options": [
+              "upload",
+              "print",
+              "delete",
+              "copy"
+            ]
+          }
+        ],
+        "template": "I'll ___ all documents in the shared folder before I leave.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "交接场景核心动词搭配（upload files to shared folder）"
       }
     }
   ]

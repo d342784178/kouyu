@@ -2,42 +2,41 @@
   "subSceneId": "travel_070_sub_3",
   "subSceneName": "查询空位",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:09:49.520Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.251Z",
   "questions": [
     {
-      "id": "travel_070_sub_3_choice_1",
+      "id": "travel_070_sub_3_qa_1_choice_1",
       "subSceneId": "travel_070_sub_3",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "travel_070_sub_3_qa_1",
-        "speakerText": "We have openings on the 15th at 10 a.m. or the 16th at 3 p.m.",
-        "speakerTextCn": "15号上午10点或16号下午3点有空位。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'd prefer the 16th at 3 p.m. because I'm free in the afternoon.",
+            "text": "Could you tell me what available times you have?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Can I have the 14th at 9 a.m. instead?",
+            "text": "Do you have any flights on the 15th?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Both times are fine, but I need to check my calendar.",
+            "text": "I want to book a flight now.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I don't need a slot, thanks.",
+            "text": "What time is it now?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案表达了明确偏好，符合'优先表达明确偏好'的使用说明。选项2直接要求更早时间，但未先确认现有选项是否可接受，不符合优先表达偏好原则。选项3态度模糊，未明确选择。选项4完全拒绝服务，与场景目的不符。"
+        "explanation": "正确答案询问的是可用时间，符合乘客希望了解空位的意图。选项2只限定在15号，范围过窄，不符合开放性询问的要求。选项3是陈述句，不是提问，无法引导客服提供信息。选项4与航班空位完全无关，属于理解偏差。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "乘客想了解有哪些可用的航班时间，客服提供了两个选项，乘客需要提出一个自然且符合场景的询问来获取这些信息。"
       }
     },
     {
@@ -46,10 +45,8 @@
       "type": "choice",
       "order": 2,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "We have availability on the 20th at 11 a.m. or the 21st at 9 a.m.",
-        "speakerTextCn": "20号上午11点或21号上午9点有空位。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +69,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案清晰表达了偏好并说明理由，符合场景要求。选项2跳过现有选项直接要求更早时间，未先确认偏好。选项3拖延决策，不符合主动沟通原则。选项4要求双预约，不符合实际服务流程。"
+        "explanation": "正确答案清晰表达了偏好并说明理由，符合场景要求。选项2跳过现有选项直接要求更早时间，未先确认偏好。选项3拖延决策，不符合主动沟通原则。选项4要求双预约，不符合实际服务流程。",
+        "speakerText": "We have availability on the 20th at 11 a.m. or the 21st at 9 a.m.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "20号上午11点或21号上午9点有空位。"
       }
     },
     {
@@ -81,10 +81,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "We can schedule you for the 22nd at 2 p.m. or the 23rd at 11 a.m.",
-        "speakerTextCn": "我们可以在22号下午2点或23号上午11点为您安排。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +105,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确接受一个选项并给出合理理由。选项2语气生硬，要求未提供的日期，不符合礼貌协商原则。选项3表达模糊，缺乏主动性。选项4提前询问变更，偏离当前确认空位的对话重点。"
+        "explanation": "正确答案明确接受一个选项并给出合理理由。选项2语气生硬，要求未提供的日期，不符合礼貌协商原则。选项3表达模糊，缺乏主动性。选项4提前询问变更，偏离当前确认空位的对话重点。",
+        "speakerText": "We can schedule you for the 22nd at 2 p.m. or the 23rd at 11 a.m.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们可以在22号下午2点或23号上午11点为您安排。"
       }
     }
   ]

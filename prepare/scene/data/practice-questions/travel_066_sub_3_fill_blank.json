@@ -2,20 +2,53 @@
   "subSceneId": "travel_066_sub_3",
   "subSceneName": "确认金额和钞票面额",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:30:49.027Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.184Z",
   "questions": [
+    {
+      "id": "travel_066_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "travel_066_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "使用 mostly 和 with a few 来描述金额和钞票面额",
+        "qaId": "travel_066_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "hundreds",
+            "options": [
+              "hundreds",
+              "fifties",
+              "tens",
+              "ones"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "fifties",
+            "options": [
+              "fifties",
+              "hundreds",
+              "tens",
+              "ones"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "确认金额和钞票面额",
+        "knowledgePoint": "口语表达：确认金额和钞票面额",
+        "responseTemplate": "Can I get mostly ___, with a few ___ for small purchases?"
+      }
+    },
     {
       "id": "travel_066_sub_3_fill_blank_1",
       "subSceneId": "travel_066_sub_3",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "用 'mostly' 或 'with a few' 表达主次搭配，注意面额用复数形式",
         "type": "fill_blank",
-        "situation": "在银行兑换外币时，你想换一定金额，并希望主要用大面额钞票，同时搭配少量小面额用于日常开销",
-        "speakerText": "I'd like to exchange $300, please.",
-        "speakerTextCn": "我想换300美元，谢谢。",
-        "responseTemplate": "Sure. Would you like it in ___?",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +61,39 @@
             ]
           }
         ],
-        "hint": "用 'mostly' 或 'with a few' 表达主次搭配，注意面额用复数形式",
-        "knowledgePoint": "表达钞票面额的主次搭配结构"
+        "situation": "在银行兑换外币时，你想换一定金额，并希望主要用大面额钞票，同时搭配少量小面额用于日常开销",
+        "speakerText": "I'd like to exchange $300, please.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我想换300美元，谢谢。",
+        "knowledgePoint": "表达钞票面额的主次搭配结构",
+        "responseTemplate": "Sure. Would you like it in ___?"
+      }
+    },
+    {
+      "id": "travel_066_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "travel_066_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "服务方需要确认你的需求",
+        "qaId": "travel_066_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "$500",
+            "options": [
+              "$100",
+              "$500",
+              "$1000",
+              "$2000"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想换几张钞票，总额是多少?",
+        "knowledgePoint": "询问金额和钞票面额",
+        "responseTemplate": "我想换___美元，谢谢。"
       }
     },
     {
@@ -38,11 +102,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "注意 'mostly + 复数面额 + with a few + 复数面额' 的标准搭配结构",
         "type": "fill_blank",
-        "situation": "你在兑换点要求换钱，对方确认金额后询问你希望的钞票组合，你希望大部分是50元面额，少量10元用于零钱",
-        "speakerText": "That’s 280 euros. How would you like that divided?",
-        "speakerTextCn": "这是280欧元，你希望怎么分配面额？",
-        "responseTemplate": "I'd prefer ___.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +116,12 @@
             ]
           }
         ],
-        "hint": "注意 'mostly + 复数面额 + with a few + 复数面额' 的标准搭配结构",
-        "knowledgePoint": "使用 'mostly... with a few...' 结构表达钞票组合偏好"
+        "situation": "你在兑换点要求换钱，对方确认金额后询问你希望的钞票组合，你希望大部分是50元面额，少量10元用于零钱",
+        "speakerText": "That’s 280 euros. How would you like that divided?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这是280欧元，你希望怎么分配面额？",
+        "knowledgePoint": "使用 'mostly... with a few...' 结构表达钞票组合偏好",
+        "responseTemplate": "I'd prefer ___."
       }
     },
     {
@@ -65,11 +130,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "当完全希望一种面额时，用 'all in + 复数面额' 最自然",
         "type": "fill_blank",
-        "situation": "你到外币兑换处想换500美元，希望尽量用100元面额，避免过多小钞",
-        "speakerText": "I'd like to exchange $500, please.",
-        "speakerTextCn": "我想换500美元，谢谢。",
-        "responseTemplate": "Alright. Would you like ___?",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +144,48 @@
             ]
           }
         ],
-        "hint": "当完全希望一种面额时，用 'all in + 复数面额' 最自然",
-        "knowledgePoint": "表达完全偏好单一钞票面额的句型"
+        "situation": "你到外币兑换处想换500美元，希望尽量用100元面额，避免过多小钞",
+        "speakerText": "I'd like to exchange $500, please.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我想换500美元，谢谢。",
+        "knowledgePoint": "表达完全偏好单一钞票面额的句型",
+        "responseTemplate": "Alright. Would you like ___?"
+      }
+    },
+    {
+      "id": "travel_066_sub_3_pq_6",
+      "subSceneId": "travel_066_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表达‘大部分…再配少量…’时的固定搭配",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "mostly",
+            "options": [
+              "mostly",
+              "mainly",
+              "almost",
+              "mostly of"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "a few",
+            "options": [
+              "a few",
+              "some",
+              "many",
+              "several"
+            ]
+          }
+        ],
+        "template": "Can I get ___ hundreds and ___ twenties? I need smaller bills for the market.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "mostly + with a few...（主次搭配表达）"
       }
     }
   ]

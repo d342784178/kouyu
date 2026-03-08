@@ -2,42 +2,41 @@
   "subSceneId": "social_094_sub_3",
   "subSceneName": "话题转换",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:48:29.294Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.802Z",
   "questions": [
     {
-      "id": "social_094_sub_3_choice_1",
+      "id": "social_094_sub_3_qa_1_choice_1",
       "subSceneId": "social_094_sub_3",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "social_094_sub_3_qa_1",
-        "speakerText": "Besides work, what do you do to unwind?",
-        "speakerTextCn": "除了工作，你平时怎么放松？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "I work overtime every day to get promoted.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "I'm into hiking—last weekend I hit the Blue Ridge trail.",
+            "text": "Besides work, what do you like to do to relax?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "What time do you usually finish work?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "My boss is really strict about deadlines.",
+            "text": "Do you like your job?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I don't have time for anything outside work.",
+            "text": "I love hiking. Do you?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了具体细节（hiking + Blue Ridge trail）来生动回应放松方式，符合场景要求。选项1和3仍聚焦工作，未实现话题转换；选项4消极且缺乏情感连接，不符合建立关系的目标。"
+        "explanation": "正确选项自然引导话题从工作转向个人放松方式，符合建立情感连接的目的。干扰项1仅询问下班时间，仍停留在工作范畴；干扰项2直接评价工作，可能引发负面讨论；干扰项3是自我分享而非提问，不符合主动引导对话的要求。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在社交场合，你想从工作话题自然过渡到对方的兴趣爱好，建立更轻松的情感连接"
       }
     },
     {
@@ -46,10 +45,8 @@
       "type": "choice",
       "order": 2,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I’ve been meaning to try that new yoga studio. Do you do anything to relax after a long day?",
-        "speakerTextCn": "我一直想试试那家新瑜伽馆。你下班后做什么放松吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +69,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案用具体行为（scroll through phone）自然回应了放松话题，虽简单但真实，符合口语习惯。选项2和3偏离主题，选项4是新话题跳跃，未回应对方问题。"
+        "explanation": "正确答案用具体行为（scroll through phone）自然回应了放松话题，虽简单但真实，符合口语习惯。选项2和3偏离主题，选项4是新话题跳跃，未回应对方问题。",
+        "speakerText": "I’ve been meaning to try that new yoga studio. Do you do anything to relax after a long day?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我一直想试试那家新瑜伽馆。你下班后做什么放松吗？"
       }
     },
     {
@@ -81,10 +81,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I just got back from a weekend camping trip. How about you? What’s your go-to way to recharge?",
-        "speakerTextCn": "我刚从一次周末露营回来。你呢？你通常怎么恢复精力？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +105,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案用具体爱好（baking sourdough）回应并延续了轻松话题，体现情感连接。选项2回到工作，选项3否定对方兴趣，选项4强行转移话题，都不符合建立共鸣的目标。"
+        "explanation": "正确答案用具体爱好（baking sourdough）回应并延续了轻松话题，体现情感连接。选项2回到工作，选项3否定对方兴趣，选项4强行转移话题，都不符合建立共鸣的目标。",
+        "speakerText": "I just got back from a weekend camping trip. How about you? What’s your go-to way to recharge?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我刚从一次周末露营回来。你呢？你通常怎么恢复精力？"
       }
     }
   ]

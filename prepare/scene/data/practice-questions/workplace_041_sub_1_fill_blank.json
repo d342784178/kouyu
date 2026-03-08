@@ -2,8 +2,7 @@
   "subSceneId": "workplace_041_sub_1",
   "subSceneName": "晨会进度汇报",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:32:56.744Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.447Z",
   "questions": [
     {
       "id": "workplace_041_sub_1_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "用具体百分比或进度描述，避免模糊表达如 'good' 或 'fine'",
         "type": "fill_blank",
-        "situation": "在晨会上，经理询问你负责的市场调研项目进展，你需要简要汇报当前状态和下一步计划。",
-        "speakerText": "How's the market research project coming along?",
-        "speakerTextCn": "市场调研项目进展如何？",
-        "responseTemplate": "I'm ___—just finalizing the data analysis before sharing the summary.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,66 @@
             ]
           }
         ],
-        "hint": "用具体百分比或进度描述，避免模糊表达如 'good' 或 'fine'",
-        "knowledgePoint": "使用具体进度表达回应工作状态"
+        "situation": "在晨会上，经理询问你负责的市场调研项目进展，你需要简要汇报当前状态和下一步计划。",
+        "speakerText": "How's the market research project coming along?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "市场调研项目进展如何？",
+        "knowledgePoint": "使用具体进度表达回应工作状态",
+        "responseTemplate": "I'm ___—just finalizing the data analysis before sharing the summary."
+      }
+    },
+    {
+      "id": "workplace_041_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "workplace_041_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "这里需要一个名词短语，表示被询问的工作内容，结构是 'how's + [名词短语] + coming along?'",
+        "qaId": "workplace_041_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "the task",
+            "options": [
+              "the task",
+              "is the task",
+              "the task is",
+              "what about the task"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在晨会上，你想礼貌地询问同事某个工作任务的进展状况",
+        "knowledgePoint": "询问工作进展的常用句型",
+        "responseTemplate": "Hey, how's ___ coming along?"
+      }
+    },
+    {
+      "id": "workplace_041_sub_1_qa_2_fill_blank_1",
+      "subSceneId": "workplace_041_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "请根据场景提示选择合适的词语",
+        "qaId": "workplace_041_sub_1_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "draft",
+            "options": [
+              "计划",
+              "进度",
+              "报告",
+              "资料"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在晨会上询问项目进展",
+        "knowledgePoint": "时间表达",
+        "responseTemplate": "Can you send me the ___ by tomorrow?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "表达条件性承诺时，使用表示前提的连接词",
         "type": "fill_blank",
-        "situation": "同事问你是否能按时提交产品原型的测试报告，你需要明确承诺时间并说明前提条件。",
-        "speakerText": "Can you get me the test report by end of day?",
-        "speakerTextCn": "你能在今天下班前把测试报告给我吗？",
-        "responseTemplate": "Yes, I'll send it over by 5 PM, ___ I get the final logs from the QA team.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "表达条件性承诺时，使用表示前提的连接词",
-        "knowledgePoint": "用条件句表达承诺的依赖关系"
+        "situation": "同事问你是否能按时提交产品原型的测试报告，你需要明确承诺时间并说明前提条件。",
+        "speakerText": "Can you get me the test report by end of day?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你能在今天下班前把测试报告给我吗？",
+        "knowledgePoint": "用条件句表达承诺的依赖关系",
+        "responseTemplate": "Yes, I'll send it over by 5 PM, ___ I get the final logs from the QA team."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "明确指出你需要的具体支持，而非泛泛说 '帮助'",
         "type": "fill_blank",
-        "situation": "团队负责人让你汇报当前任务的阻塞点，你需要说明卡点并请求支持。",
-        "speakerText": "What's holding up the user onboarding update?",
-        "speakerTextCn": "用户注册流程更新哪里卡住了？",
-        "responseTemplate": "I'm waiting on the API access from the backend team—I need ___ to move forward.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "明确指出你需要的具体支持，而非泛泛说 '帮助'",
-        "knowledgePoint": "清晰表达障碍与所需支持"
+        "situation": "团队负责人让你汇报当前任务的阻塞点，你需要说明卡点并请求支持。",
+        "speakerText": "What's holding up the user onboarding update?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "用户注册流程更新哪里卡住了？",
+        "knowledgePoint": "清晰表达障碍与所需支持",
+        "responseTemplate": "I'm waiting on the API access from the backend team—I need ___ to move forward."
+      }
+    },
+    {
+      "id": "workplace_041_sub_1_pq_6",
+      "subSceneId": "workplace_041_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "在完成前做最后润色的常用动词",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "polishing",
+            "options": [
+              "polishing",
+              "writing",
+              "printing",
+              "reading"
+            ]
+          }
+        ],
+        "template": "I'm currently ___ the final slides before sending.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配：polish slides（场景惯用搭配）"
       }
     }
   ]

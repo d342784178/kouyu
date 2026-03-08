@@ -2,50 +2,53 @@
   "subSceneId": "daily_028_sub_2",
   "subSceneName": "询问商品位置",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:42:10.507Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.638Z",
   "questions": [
     {
-      "id": "daily_028_sub_2_speaking_1",
+      "id": "daily_028_sub_2_qa_1_speaking_1",
       "subSceneId": "daily_028_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "daily_028_sub_2_qa_1",
-        "speakerText": "Do you have those spiral notebooks in blue?",
-        "speakerTextCn": "你们有蓝色的活页笔记本吗？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在文具店想找笔记本和笔的具体位置，想向店员询问蓝色活页笔记本和黑色签字笔放在哪里。",
         "expectedAnswers": [
-          "Yeah, they're on the second shelf.",
-          "Let me check for you — I'll be right back.",
-          "Sorry, we're out of blue ones, but we have black or green."
+          "Where can I find the blue spiral notebooks?",
+          "Could you tell me where the black pens and blue notebooks are?",
+          "I'm looking for blue spiral notebooks and black pens—could you point me to them?",
+          "Are the blue notebooks and black pens on this aisle?"
         ],
         "evaluationCriteria": [
-          "是否准确回应了库存状态（有/无/待查）",
-          "是否使用了场景关键词如 'spiral notebooks', 'blue', 'shelf'",
-          "表达是否自然、符合日常口语习惯"
+          "意图达成度：是否明确询问了笔记本和笔的具体位置",
+          "语言准确性：语法结构正确，用词恰当",
+          "表达自然度：符合英语日常购物场景的口语习惯",
+          "关键词覆盖：使用了 'blue spiral notebooks', 'black pens', 'where' 或相关位置表达"
         ]
       }
     },
     {
-      "id": "daily_028_sub_2_speaking_2",
+      "id": "daily_028_sub_2_qa_2_speaking_1",
       "subSceneId": "daily_028_sub_2",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "daily_028_sub_2_qa_2",
-        "speakerText": "And where are the pens?",
-        "speakerTextCn": "笔在哪儿？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在商店里想找到笔记本和笔的具体摆放位置，需要向店员提问。",
         "expectedAnswers": [
-          "Right next to the notebooks, on the left.",
-          "Down the aisle, second rack on the right.",
-          "Over there — you can't miss them."
+          "Where can I find the notebooks and pens?",
+          "Could you tell me where the pens and notebooks are?",
+          "Where are the pens and notebooks located?",
+          "Do you know where I can pick up the pens and notebooks?"
         ],
         "evaluationCriteria": [
-          "是否清晰指明了具体位置",
-          "是否使用了方向词如 'next to', 'down the aisle', 'on the left/right'",
-          "表达是否简洁自然，符合真实对话节奏"
+          "意图达成度：是否明确询问了笔记本和笔的位置",
+          "语言准确性：语法结构正确，用词恰当",
+          "表达自然度：符合日常英语口语习惯，语气礼貌自然",
+          "关键词覆盖：使用了'notebooks'和'pens'等场景关键词"
         ]
       }
     },
@@ -55,9 +58,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Hi, I'm looking for a notebook and some pens. Can you help me?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "你好，我在找一本笔记本和一些笔，你能帮我吗？",
         "expectedAnswers": [
           "Sure! Notebooks are on the second shelf, and pens are right next to them.",

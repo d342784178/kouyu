@@ -2,8 +2,7 @@
   "subSceneId": "workplace_033_sub_4",
   "subSceneName": "确认抄送与格式",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:32:05.134Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.368Z",
   "questions": [
     {
       "id": "workplace_033_sub_4_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "表达‘应该被加入’时，用‘should be included’结构，空格处填入被添加的人员角色",
         "type": "fill_blank",
-        "situation": "你收到一封工作邮件，对方询问是否已将相关人员加入抄送列表，你需要确认并提出调整建议。",
-        "speakerText": "I've CC'd the team on this—did I miss anyone important?",
-        "speakerTextCn": "我已经把团队抄送了，有没有漏掉重要的人？",
-        "responseTemplate": "Actually, ___ should be included—they're handling the approval process.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,76 @@
             ]
           }
         ],
-        "hint": "表达‘应该被加入’时，用‘should be included’结构，空格处填入被添加的人员角色",
-        "knowledgePoint": "添加抄送人员的礼貌建议表达"
+        "situation": "你收到一封工作邮件，对方询问是否已将相关人员加入抄送列表，你需要确认并提出调整建议。",
+        "speakerText": "I've CC'd the team on this—did I miss anyone important?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我已经把团队抄送了，有没有漏掉重要的人？",
+        "knowledgePoint": "添加抄送人员的礼貌建议表达",
+        "responseTemplate": "Actually, ___ should be included—they're handling the approval process."
+      }
+    },
+    {
+      "id": "workplace_033_sub_4_qa_1_fill_blank_1",
+      "subSceneId": "workplace_033_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "确认抄送对象是否正确",
+        "qaId": "workplace_033_sub_4_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Linda and Mark",
+            "options": [
+              "Linda",
+              "Mark",
+              "John",
+              "David"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "Linda and Mark",
+            "options": [
+              "Linda",
+              "Mark",
+              "John",
+              "David"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "确认邮件抄送对象和附件格式是否正确",
+        "knowledgePoint": "提问句型和抄送人确认",
+        "responseTemplate": "Just sent the update—CC'd___and___, right?"
+      }
+    },
+    {
+      "id": "workplace_033_sub_4_qa_2_fill_blank_1",
+      "subSceneId": "workplace_033_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "请确认附件格式是否正确",
+        "qaId": "workplace_033_sub_4_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "docx",
+            "options": [
+              "docx",
+              "pdf",
+              "jpg",
+              "xlsx"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "确认邮件抄送对象和附件格式是否正确",
+        "knowledgePoint": "提问句型和语法结构",
+        "responseTemplate": "The attachment is in .___—should I convert it to PDF for consistency?"
       }
     },
     {
@@ -38,11 +102,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "说明保留原格式的原因时，空格处应填入需要编辑的群体角色",
         "type": "fill_blank",
-        "situation": "同事询问你是否需要将报告附件从 Word 转为 PDF，你需要根据使用场景说明是否需要转换。",
-        "speakerText": "Should I change the file to PDF? It's currently a .docx.",
-        "speakerTextCn": "我应该把文件改成PDF吗？现在是.docx格式。",
-        "responseTemplate": "No, keep it as .docx—___ will need to make edits before finalizing.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +116,12 @@
             ]
           }
         ],
-        "hint": "说明保留原格式的原因时，空格处应填入需要编辑的群体角色",
-        "knowledgePoint": "根据用途说明文件格式选择的理由"
+        "situation": "同事询问你是否需要将报告附件从 Word 转为 PDF，你需要根据使用场景说明是否需要转换。",
+        "speakerText": "Should I change the file to PDF? It's currently a .docx.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我应该把文件改成PDF吗？现在是.docx格式。",
+        "knowledgePoint": "根据用途说明文件格式选择的理由",
+        "responseTemplate": "No, keep it as .docx—___ will need to make edits before finalizing."
       }
     },
     {
@@ -65,11 +130,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "表达‘移除某人’时，最自然的动词是‘remove’，避免使用‘delete’或‘cut’等不准确搭配",
         "type": "fill_blank",
-        "situation": "你刚发送一封邮件，对方提醒你可能抄送了错误的人，你需要确认并立即修正。",
-        "speakerText": "Wait—did you CC the finance lead? They weren't supposed to see this draft.",
-        "speakerTextCn": "等等，你抄送了财务负责人吗？他们不该看到这个草稿。",
-        "responseTemplate": "You're right, ___ him now and resend.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +144,38 @@
             ]
           }
         ],
-        "hint": "表达‘移除某人’时，最自然的动词是‘remove’，避免使用‘delete’或‘cut’等不准确搭配",
-        "knowledgePoint": "纠正抄送错误的动词使用"
+        "situation": "你刚发送一封邮件，对方提醒你可能抄送了错误的人，你需要确认并立即修正。",
+        "speakerText": "Wait—did you CC the finance lead? They weren't supposed to see this draft.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "等等，你抄送了财务负责人吗？他们不该看到这个草稿。",
+        "knowledgePoint": "纠正抄送错误的动词使用",
+        "responseTemplate": "You're right, ___ him now and resend."
+      }
+    },
+    {
+      "id": "workplace_033_sub_4_pq_6",
+      "subSceneId": "workplace_033_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "描述文件格式转换的准确动词",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "converted",
+            "options": [
+              "converted",
+              "changed",
+              "updated",
+              "sent"
+            ]
+          }
+        ],
+        "template": "I've ___ the attachment as PDF and CC'd the new team members.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配：convert to（格式转换固定搭配）"
       }
     }
   ]

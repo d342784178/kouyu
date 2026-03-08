@@ -2,20 +2,43 @@
   "subSceneId": "daily_002_sub_1",
   "subSceneName": "找商品位置",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:05.391Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.441Z",
   "questions": [
+    {
+      "id": "daily_002_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "daily_002_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问商品所在区域时，常用 'where can I find the...' 结构，后面接名词短语表示区域",
+        "qaId": "daily_002_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "dairy section",
+            "options": [
+              "dairy section",
+              "dairy's section",
+              "section of dairy",
+              "where is dairy"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在超市寻找牛奶和燕麦片，想询问工作人员这些商品在哪个区域",
+        "knowledgePoint": "询问位置的礼貌提问句型",
+        "responseTemplate": "Excuse me, where can I find the ___?"
+      }
+    },
     {
       "id": "daily_002_sub_1_fill_blank_1",
       "subSceneId": "daily_002_sub_1",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "燕麦片通常和早餐谷物放在一起，属于早餐区。",
         "type": "fill_blank",
-        "situation": "你在超市想找燕麦片，但不确定它在哪个区域，于是向店员询问。",
-        "speakerText": "Excuse me, could you tell me where I can find the oatmeal?",
-        "speakerTextCn": "不好意思，您能告诉我燕麦片在哪里吗？",
-        "responseTemplate": "It's in the ___ section, next to the breakfast cereals.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,49 @@
             ]
           }
         ],
-        "hint": "燕麦片通常和早餐谷物放在一起，属于早餐区。",
-        "knowledgePoint": "商品区域的常见表达（如 breakfast, dairy, snack）"
+        "situation": "你在超市想找燕麦片，但不确定它在哪个区域，于是向店员询问。",
+        "speakerText": "Excuse me, could you tell me where I can find the oatmeal?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "不好意思，您能告诉我燕麦片在哪里吗？",
+        "knowledgePoint": "商品区域的常见表达（如 breakfast, dairy, snack）",
+        "responseTemplate": "It's in the ___ section, next to the breakfast cereals."
+      }
+    },
+    {
+      "id": "daily_002_sub_1_qa_2_fill_blank_1",
+      "subSceneId": "daily_002_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "请根据场景提示填写正确的商品名称和区域名称",
+        "qaId": "daily_002_sub_1_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "almond milk",
+            "options": [
+              "牛奶",
+              "燕麦片",
+              "苹果片",
+              "橙汁"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "refrigerated",
+            "options": [
+              "冷藏区",
+              "热卖区",
+              "生活区",
+              "休息区"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在超市寻找商品时，需要询问工作人员商品位置",
+        "knowledgePoint": "提问句型结构",
+        "responseTemplate": "Do you have ___ in the ___ section?"
       }
     },
     {
@@ -38,11 +102,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "牛奶属于乳制品，通常放在冷藏区的乳制品区。",
         "type": "fill_blank",
-        "situation": "你想找低脂牛奶，但不确定它在冷藏区的哪个位置，于是向店员求助。",
-        "speakerText": "Hi, I'm looking for low-fat milk. Could you point me to the right aisle?",
-        "speakerTextCn": "你好，我在找低脂牛奶，能告诉我该去哪个通道吗？",
-        "responseTemplate": "Sure, it's in the ___ section, on the middle shelf.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +116,12 @@
             ]
           }
         ],
-        "hint": "牛奶属于乳制品，通常放在冷藏区的乳制品区。",
-        "knowledgePoint": "商品分类的常用区域名称（如 dairy, produce, bakery）"
+        "situation": "你想找低脂牛奶，但不确定它在冷藏区的哪个位置，于是向店员求助。",
+        "speakerText": "Hi, I'm looking for low-fat milk. Could you point me to the right aisle?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你好，我在找低脂牛奶，能告诉我该去哪个通道吗？",
+        "knowledgePoint": "商品分类的常用区域名称（如 dairy, produce, bakery）",
+        "responseTemplate": "Sure, it's in the ___ section, on the middle shelf."
       }
     },
     {
@@ -65,11 +130,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "植物基饮品（如杏仁奶）通常有专门的分类区域，不和传统乳制品混放。",
         "type": "fill_blank",
-        "situation": "你和朋友一起购物，想确认杏仁奶是否和普通牛奶放在一起，于是询问店员。",
-        "speakerText": "Is almond milk kept with the regular milk, or is it somewhere else?",
-        "speakerTextCn": "杏仁奶是和普通牛奶放在一起，还是在别的地方？",
-        "responseTemplate": "It's usually in the ___ aisle, near the plant-based drinks.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +144,38 @@
             ]
           }
         ],
-        "hint": "植物基饮品（如杏仁奶）通常有专门的分类区域，不和传统乳制品混放。",
-        "knowledgePoint": "新兴商品分类的表达（如 plant-based, organic）"
+        "situation": "你和朋友一起购物，想确认杏仁奶是否和普通牛奶放在一起，于是询问店员。",
+        "speakerText": "Is almond milk kept with the regular milk, or is it somewhere else?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "杏仁奶是和普通牛奶放在一起，还是在别的地方？",
+        "knowledgePoint": "新兴商品分类的表达（如 plant-based, organic）",
+        "responseTemplate": "It's usually in the ___ aisle, near the plant-based drinks."
+      }
+    },
+    {
+      "id": "daily_002_sub_1_pq_6",
+      "subSceneId": "daily_002_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "常用于推荐特殊商品区域，如健康食品",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "organic",
+            "options": [
+              "organic",
+              "frozen",
+              "dairy",
+              "bakery"
+            ]
+          }
+        ],
+        "template": "Try the ___ aisle, aisle 5.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "商品区域类型表达（organic aisle）"
       }
     }
   ]

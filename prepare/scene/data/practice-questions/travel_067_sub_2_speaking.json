@@ -2,52 +2,53 @@
   "subSceneId": "travel_067_sub_2",
   "subSceneName": "询问必要性",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:08:47.367Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.204Z",
   "questions": [
     {
-      "id": "travel_067_sub_2_speaking_1",
+      "id": "travel_067_sub_2_qa_2_speaking_1",
       "subSceneId": "travel_067_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "travel_067_sub_2_qa_2",
         "type": "speaking",
-        "qaId": "travel_067_sub_2_qa_1",
-        "speakerText": "Do I really need travel insurance? I mean, it's just a short trip to Japan.",
-        "speakerTextCn": "我真的需要买旅游保险吗？只是去日本短途旅行。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "一位旅客在购买旅行产品时，想知道是否必须购买保险，以及保险具体覆盖哪些内容。",
         "expectedAnswers": [
-          "Absolutely! Even short trips can have unexpected issues like flight delays or lost luggage.",
-          "It's not required, but I'd still get it—medical costs abroad can be really high.",
-          "You might be fine without it, but insurance gives you peace of mind for emergencies."
+          "Do I really need to buy insurance?",
+          "What does the basic insurance plan cover?",
+          "Is insurance mandatory, and what’s included in it?",
+          "Could you explain what the coverage includes and if it's required?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否回应了对方的疑虑并提供合理建议",
-          "语言准确性：语法正确，用词恰当，无中式英语",
-          "表达自然度：使用口语化表达，如 'I'd still get it' 或 'peace of mind'",
-          "关键词覆盖：是否包含 'flight delays', 'lost luggage', 'medical emergencies' 等核心词"
+          "意图达成度：是否明确询问了保险的必要性或强制性",
+          "语言准确性：语法结构正确，用词恰当",
+          "表达自然度：符合英语母语者在服务场景中的口语习惯",
+          "关键词覆盖：使用了'insurance', 'cover', 'required/mandatory'等场景关键词"
         ]
       }
     },
     {
-      "id": "travel_067_sub_2_speaking_2",
+      "id": "travel_067_sub_2_qa_1_speaking_1",
       "subSceneId": "travel_067_sub_2",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "travel_067_sub_2_qa_1",
         "type": "speaking",
-        "qaId": "travel_067_sub_2_qa_2",
-        "speakerText": "What does the basic plan cover?",
-        "speakerTextCn": "基础计划都保什么？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "旅客正在考虑是否需要购买旅行保险，他/她计划去日本进行一次短途旅行，想确认保险是否必要以及具体覆盖哪些内容。",
         "expectedAnswers": [
-          "It covers medical emergencies, trip cancellations, and lost baggage — all the big stuff.",
-          "Mainly medical help and if you have to cancel your trip. Baggage loss too, usually.",
-          "You're covered for hospital visits, flight delays, and if your luggage doesn't arrive."
+          "Do I really need travel insurance for a short trip to Japan?",
+          "Is travel insurance necessary in this case, or can I skip it since it's just a brief visit?",
+          "What does the travel insurance cover, and is it mandatory even for a short trip?",
+          "I'm only going to Japan for a few days—would you still recommend getting insurance?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否清晰列出核心保障内容，不遗漏关键项目",
-          "语言准确性：正确使用名词短语和动词搭配，如 'trip cancellations', 'lost baggage'",
-          "表达自然度：使用口语缩略表达如 'all the big stuff' 或 'usually' 增强真实感",
-          "关键词覆盖：是否包含 'medical emergencies', 'trip cancellations', 'lost baggage' 中至少两个"
+          "意图达成度：是否明确表达了对保险必要性的疑问",
+          "语言准确性：语法结构正确，用词恰当，无重大错误",
+          "表达自然度：符合英语母语者日常对话习惯，语气得体",
+          "关键词覆盖：使用了 'travel insurance', 'short trip', 'Japan' 等场景关键词"
         ]
       }
     },
@@ -57,9 +58,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I'm on a tight budget. Can I skip travel insurance?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我预算很紧，我能不买旅游保险吗？",
         "expectedAnswers": [
           "I understand budget concerns, but even basic insurance is cheap compared to a medical emergency abroad.",

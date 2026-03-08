@@ -2,8 +2,7 @@
   "subSceneId": "daily_022_sub_3",
   "subSceneName": "确认价格与细节",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:24:56.557Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.591Z",
   "questions": [
     {
       "id": "daily_022_sub_3_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "回答时需明确价格和是否包含服务，避免歧义",
         "type": "fill_blank",
-        "situation": "顾客在家具店看中一张沙发，想确认价格是否包含送货和安装服务",
-        "speakerText": "I like this sofa. How much is it? Does the price include delivery and assembly?",
-        "speakerTextCn": "我喜欢这张沙发。多少钱？价格包含送货和安装吗？",
-        "responseTemplate": "It's ___",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,66 @@
             ]
           }
         ],
-        "hint": "回答时需明确价格和是否包含服务，避免歧义",
-        "knowledgePoint": "询问并确认价格是否包含附加服务"
+        "situation": "顾客在家具店看中一张沙发，想确认价格是否包含送货和安装服务",
+        "speakerText": "I like this sofa. How much is it? Does the price include delivery and assembly?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我喜欢这张沙发。多少钱？价格包含送货和安装吗？",
+        "knowledgePoint": "询问并确认价格是否包含附加服务",
+        "responseTemplate": "It's ___"
+      }
+    },
+    {
+      "id": "daily_022_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "daily_022_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问可能性或能力时，常用 'Can' 表示 '能否' 做某事",
+        "qaId": "daily_022_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Can",
+            "options": [
+              "Could",
+              "Will",
+              "Do",
+              "May"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想确认购买后是否能立即取走商品，需要询问相关条件",
+        "knowledgePoint": "情态动词在询问购买条件中的正确使用",
+        "responseTemplate": "___ I take it home today?"
+      }
+    },
+    {
+      "id": "daily_022_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "daily_022_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问某事是否包含在内，用一般现在时的疑问句结构，主语是单数第三人称",
+        "qaId": "daily_022_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Does",
+            "options": [
+              "Is",
+              "Do",
+              "Are",
+              "Does"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想了解宠物的价格以及是否包含基本医疗服务",
+        "knowledgePoint": "一般现在时疑问句结构（Does + 主语 + 动词原形）",
+        "responseTemplate": "___ the price include vaccinations?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "确认服务是否包含时，使用 'are included' 或 'are extra' 明确说明",
         "type": "fill_blank",
-        "situation": "顾客在花店想买一束花作为礼物，询问是否包含包装和贺卡",
-        "speakerText": "This bouquet is beautiful. What’s the price? Does it come with wrapping and a card?",
-        "speakerTextCn": "这束花真漂亮。多少钱？包含包装和贺卡吗？",
-        "responseTemplate": "It's ___",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "确认服务是否包含时，使用 'are included' 或 'are extra' 明确说明",
-        "knowledgePoint": "确认商品是否包含配套服务"
+        "situation": "顾客在花店想买一束花作为礼物，询问是否包含包装和贺卡",
+        "speakerText": "This bouquet is beautiful. What’s the price? Does it come with wrapping and a card?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这束花真漂亮。多少钱？包含包装和贺卡吗？",
+        "knowledgePoint": "确认商品是否包含配套服务",
+        "responseTemplate": "It's ___"
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "区分包含与额外收费的服务，使用 'are included' 和 'are extra' 是关键",
         "type": "fill_blank",
-        "situation": "顾客在健身房咨询月卡，想知道是否包含私人教练课程和 locker 使用",
-        "speakerText": "I’m interested in the monthly membership. Does it include personal training sessions and locker access?",
-        "speakerTextCn": "我对月卡感兴趣。它包含私人教练课程和储物柜使用吗？",
-        "responseTemplate": "The membership is ___",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "区分包含与额外收费的服务，使用 'are included' 和 'are extra' 是关键",
-        "knowledgePoint": "区分基础服务与附加收费项目"
+        "situation": "顾客在健身房咨询月卡，想知道是否包含私人教练课程和 locker 使用",
+        "speakerText": "I’m interested in the monthly membership. Does it include personal training sessions and locker access?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我对月卡感兴趣。它包含私人教练课程和储物柜使用吗？",
+        "knowledgePoint": "区分基础服务与附加收费项目",
+        "responseTemplate": "The membership is ___"
+      }
+    },
+    {
+      "id": "daily_022_sub_3_pq_6",
+      "subSceneId": "daily_022_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "宠物购买中常见的附加服务",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "vaccinations",
+            "options": [
+              "vaccinations",
+              "training",
+              "grooming",
+              "insurance"
+            ]
+          }
+        ],
+        "template": "Does the price include ___ and delivery?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景高频词汇（服务包含项）"
       }
     }
   ]

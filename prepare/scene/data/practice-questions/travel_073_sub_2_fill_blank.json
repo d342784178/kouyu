@@ -2,20 +2,70 @@
   "subSceneId": "travel_073_sub_2",
   "subSceneName": "询问目的地",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:31:21.077Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.300Z",
   "questions": [
+    {
+      "id": "travel_073_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "travel_073_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示，帮助用户回忆",
+        "qaId": "travel_073_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Green Park",
+            "options": [
+              "火车站",
+              "地铁站",
+              "公交车站",
+              "火车总站"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "询问目的地，例如去地铁站",
+        "knowledgePoint": "口语表达",
+        "responseTemplate": "Excuse me, could you tell me how to get to ___?"
+      }
+    },
+    {
+      "id": "travel_073_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "travel_073_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "使用 'how to get to' 后接目的地，注意结构完整性和礼貌表达",
+        "qaId": "travel_073_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "the nearest station",
+            "options": [
+              "where is the station",
+              "how can I find the station",
+              "the nearest station",
+              "can you show me the station"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在地铁站问路，想了解如何到达某个站点，需要礼貌地询问方向",
+        "knowledgePoint": "礼貌询问方向的句型结构",
+        "responseTemplate": "Excuse me, could you tell me how to get to ___?"
+      }
+    },
     {
       "id": "travel_073_sub_2_fill_blank_1",
       "subSceneId": "travel_073_sub_2",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "当你想表达目的地时，常用结构是 'I'm trying to get to ___'，后面直接接站点名称。",
         "type": "fill_blank",
-        "situation": "你在地铁站向工作人员询问前往某个目的地的路线，需要明确说出你要去的站点名称。",
-        "speakerText": "Excuse me, I'm trying to get to ___.",
-        "speakerTextCn": "打扰一下，我正要去___。",
-        "responseTemplate": "Excuse me, I'm trying to get to ___.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +78,12 @@
             ]
           }
         ],
-        "hint": "当你想表达目的地时，常用结构是 'I'm trying to get to ___'，后面直接接站点名称。",
-        "knowledgePoint": "表达目的地的常用句型"
+        "situation": "你在地铁站向工作人员询问前往某个目的地的路线，需要明确说出你要去的站点名称。",
+        "speakerText": "Excuse me, I'm trying to get to ___.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "打扰一下，我正要去___。",
+        "knowledgePoint": "表达目的地的常用句型",
+        "responseTemplate": "Excuse me, I'm trying to get to ___."
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "询问列车是否前往某站时，标准表达是 'Does this train go to ___?'，空格处填目的地站名。",
         "type": "fill_blank",
-        "situation": "你正在地铁站询问方向，想确认列车是否开往你目的站，需要清楚说出你要去的站名。",
-        "speakerText": "Does this train go to ___?",
-        "speakerTextCn": "这趟车是去___的吗？",
-        "responseTemplate": "Does this train go to ___?",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "询问列车是否前往某站时，标准表达是 'Does this train go to ___?'，空格处填目的地站名。",
-        "knowledgePoint": "确认列车方向的询问句型"
+        "situation": "你正在地铁站询问方向，想确认列车是否开往你目的站，需要清楚说出你要去的站名。",
+        "speakerText": "Does this train go to ___?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这趟车是去___的吗？",
+        "knowledgePoint": "确认列车方向的询问句型",
+        "responseTemplate": "Does this train go to ___?"
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "表达你在寻找某个地点时，常用 'I'm looking for ___'，后面直接接目的地名称。",
         "type": "fill_blank",
-        "situation": "你向路人问路，想表达自己要去的目的地，需要自然说出站名。",
-        "speakerText": "I'm looking for ___.",
-        "speakerTextCn": "我在找___。",
-        "responseTemplate": "I'm looking for ___.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "表达你在寻找某个地点时，常用 'I'm looking for ___'，后面直接接目的地名称。",
-        "knowledgePoint": "表达寻找目的地的日常表达"
+        "situation": "你向路人问路，想表达自己要去的目的地，需要自然说出站名。",
+        "speakerText": "I'm looking for ___.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我在找___。",
+        "knowledgePoint": "表达寻找目的地的日常表达",
+        "responseTemplate": "I'm looking for ___."
+      }
+    },
+    {
+      "id": "travel_073_sub_2_pq_6",
+      "subSceneId": "travel_073_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表达对方向的误解时常用对比词",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "west",
+            "options": [
+              "west",
+              "east",
+              "south",
+              "up"
+            ]
+          }
+        ],
+        "template": "I thought it went ___ — is it really north?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "方向对比表达（I thought it went...）"
       }
     }
   ]

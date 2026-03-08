@@ -1,19 +1,26 @@
 {
   "sceneId": "daily_029",
   "sceneName": "玩具店买玩具",
+  "exportedAt": "2026-03-08T15:31:54.858Z",
   "subScenes": [
     {
       "id": "daily_029_sub_1",
+      "sceneId": "daily_029",
       "name": "打招呼询问",
       "description": "家长进店后向店员礼貌问候并询问玩具位置",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_029_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi there! Do you know where the action figures are?",
-          "speakerTextCn": "你好！你知道动作玩偶在哪儿吗？",
-          "responses": [
+          "subSceneId": "daily_029_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hi there! Do you know where the action figures are?",
+          "triggerTextCn": "你好！你知道动作玩偶在哪儿吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_responds 模式，工作人员可能会先打招呼",
+          "followUps": [
             {
               "text": "Sure! They're down aisle 3, next to the dolls.",
               "text_cn": "当然！在3号通道，玩偶旁边。",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用简单方向词引导用户表达位置"
+          "usageNote": "用简单方向词引导用户表达位置",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_029_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Thanks! And do you have any with batteries included?",
-          "speakerTextCn": "谢谢！有带电池的吗？",
-          "responses": [
+          "subSceneId": "daily_029_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Thanks! And do you have any with batteries included?",
+          "triggerTextCn": "谢谢！有带电池的吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_responds 模式，工作人员可能会先打招呼",
+          "followUps": [
             {
               "text": "Most do! This one comes with 4 AA batteries.",
               "text_cn": "大多数都有！这个配了4节AA电池。",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "强调‘batteries included’关键表达"
+          "usageNote": "强调‘batteries included’关键表达",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_029_sub_2",
+      "sceneId": "daily_029",
       "name": "询价确认",
       "description": "家长询问价格并确认是否符合预算",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_029_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "How much is this robot?",
-          "speakerTextCn": "这个机器人多少钱？",
-          "responses": [
+          "subSceneId": "daily_029_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "How much is this robot?",
+          "triggerTextCn": "这个机器人多少钱？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问价格，服务方回答",
+          "followUps": [
             {
               "text": "It's $24.99. It's on sale today!",
               "text_cn": "24.99美元，今天打折！",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "训练用buck/price表达价格的口语习惯"
+          "usageNote": "训练用buck/price表达价格的口语习惯",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_029_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "That's a bit over my budget. Do you have anything cheaper?",
-          "speakerTextCn": "有点超预算了，有便宜点的吗？",
-          "responses": [
+          "subSceneId": "daily_029_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "That's a bit over my budget. Do you have anything cheaper?",
+          "triggerTextCn": "有点超预算了，有便宜点的吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问价格，服务方回答",
+          "followUps": [
             {
               "text": "How about this one? It's $15 and still super fun.",
               "text_cn": "这个怎么样？15美元，也很有趣。",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "引导用户用‘cheaper’表达价格比较"
+          "usageNote": "引导用户用‘cheaper’表达价格比较",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_029_sub_3",
+      "sceneId": "daily_029",
       "name": "支付方式",
       "description": "家长确认付款方式并完成结账",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_029_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "I'll take this one. Can I pay with card?",
-          "speakerTextCn": "我就要这个了，能刷卡吗？",
-          "responses": [
+          "subSceneId": "daily_029_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'll take this one. Can I pay with card?",
+          "triggerTextCn": "我就要这个了，能刷卡吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务方可能回答：Yes, you can. 或 We accept cards.",
+          "followUps": [
             {
               "text": "Sure! Tap or insert—it's got NFC.",
               "text_cn": "当然！刷卡或插卡，支持NFC。",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "强调‘tap/insert/swipe’等支付动词"
+          "usageNote": "强调‘tap/insert/swipe’等支付动词",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_029_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Do you accept Apple Pay?",
-          "speakerTextCn": "你们支持苹果支付吗？",
-          "responses": [
+          "subSceneId": "daily_029_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you accept Apple Pay?",
+          "triggerTextCn": "你们支持苹果支付吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务方可能回答：Yes, you can. 或 We accept cards.",
+          "followUps": [
             {
               "text": "Yep! Just hold your phone near the reader.",
               "text_cn": "支持！把手机靠近读卡器就行。",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "训练用户询问新型支付方式"
+          "usageNote": "训练用户询问新型支付方式",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_029_sub_4",
+      "sceneId": "daily_029",
       "name": "礼貌道别",
       "description": "完成购买后家长与店员礼貌告别",
+      "order": 4,
       "estimatedMinutes": 3,
       "qaPairs": [
         {
           "id": "daily_029_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Thanks so much for your help!",
-          "speakerTextCn": "非常感谢你的帮助！",
-          "responses": [
+          "subSceneId": "daily_029_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thanks so much for your help!",
+          "triggerTextCn": "非常感谢你的帮助！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "You're welcome! Have a great day!",
               "text_cn": "不客气！祝你今天愉快！",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "练习感谢与回应的自然口语模式"
+          "usageNote": "练习感谢与回应的自然口语模式",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_029_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I'll be back next week for my kid's birthday!",
-          "speakerTextCn": "我下周还会来，给我孩子买生日礼物！",
-          "responses": [
+          "subSceneId": "daily_029_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "I'll be back next week for my kid's birthday!",
+          "triggerTextCn": "我下周还会来，给我孩子买生日礼物！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Awesome! We'll have new stuff in then!",
               "text_cn": "太好了！到时会有新品！",
@@ -222,7 +284,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "鼓励用户表达未来计划，增强对话延续性"
+          "usageNote": "鼓励用户表达未来计划，增强对话延续性",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

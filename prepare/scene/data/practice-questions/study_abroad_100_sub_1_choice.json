@@ -2,42 +2,41 @@
   "subSceneId": "study_abroad_100_sub_1",
   "subSceneName": "初次问候",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:50:14.169Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.863Z",
   "questions": [
     {
-      "id": "study_abroad_100_sub_1_choice_1",
+      "id": "study_abroad_100_sub_1_qa_1_choice_1",
       "subSceneId": "study_abroad_100_sub_1",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "study_abroad_100_sub_1_qa_1",
-        "speakerText": "Hi there! You're here for course advising, right?",
-        "speakerTextCn": "嗨！你是来选课咨询的吧？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yeah, I'm new here and need help picking classes for next semester.",
+            "text": "Hi there! You're here for course advising, right?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I'm looking for the library, do you know where it is?",
+            "text": "What courses are you taking this semester?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "I'm fine, thanks for asking.",
+            "text": "Can you fill out this form?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can you tell me the schedule for tomorrow?",
+            "text": "I'm the advisor, who are you?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确回应了对方关于选课咨询的提问，并自然带出需求。其他选项要么完全无关（找图书馆），要么是回应问候而非问题（‘I'm fine’），或询问无关信息（明天的安排），不符合场景意图。"
+        "explanation": "正确答案通过友好问候和开放式确认（'right?'）自然开启对话，符合初次寒暄场景。选项2过早聚焦课程细节，未建立基本互动；选项3是命令式指令，缺乏礼貌和情境适应性；选项4语气生硬，不符合英语文化中先建立关系再询问的沟通习惯。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "学生第一次见到学术顾问，顾问需要友好开场并确认学生的来意"
       }
     },
     {
@@ -46,10 +45,8 @@
       "type": "choice",
       "order": 2,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Welcome to campus! How can I help you today?",
-        "speakerTextCn": "欢迎来到校园！今天有什么可以帮你的吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +69,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了礼貌且符合场景的表达‘I'd like some advice on...’，明确表达选课咨询需求。其他选项要么抱怨（食堂太贵），要么询问无关信息（宿舍地图），或表达情绪而非请求帮助，偏离顾问咨询的核心目的。"
+        "explanation": "正确答案使用了礼貌且符合场景的表达‘I'd like some advice on...’，明确表达选课咨询需求。其他选项要么抱怨（食堂太贵），要么询问无关信息（宿舍地图），或表达情绪而非请求帮助，偏离顾问咨询的核心目的。",
+        "speakerText": "Welcome to campus! How can I help you today?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "欢迎来到校园！今天有什么可以帮你的吗？"
       }
     },
     {
@@ -81,10 +81,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Hi, I'm your academic advisor. What brings you here?",
-        "speakerTextCn": "嗨，我是你的学术顾问。你来这里是有什么事吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +105,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了顾问的问题，清晰说明来意（选课安排），符合初次问候场景。其他选项或涉及无关事务（缴费、等朋友），或偏离主题（好奇顾问的工作），不符合学术顾问咨询的语境。"
+        "explanation": "正确答案直接回应了顾问的问题，清晰说明来意（选课安排），符合初次问候场景。其他选项或涉及无关事务（缴费、等朋友），或偏离主题（好奇顾问的工作），不符合学术顾问咨询的语境。",
+        "speakerText": "Hi, I'm your academic advisor. What brings you here?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨，我是你的学术顾问。你来这里是有什么事吗？"
       }
     }
   ]

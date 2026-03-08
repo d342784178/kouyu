@@ -1,19 +1,26 @@
 {
   "sceneId": "daily_008",
   "sceneName": "寄快递",
+  "exportedAt": "2026-03-08T15:31:54.842Z",
   "subScenes": [
     {
       "id": "daily_008_sub_1",
+      "sceneId": "daily_008",
       "name": "打招呼咨询",
       "description": "顾客向工作人员问候并询问寄快递服务",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_008_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi there! Can you help me send a package?",
-          "speakerTextCn": "嗨！你能帮我寄个包裹吗？",
-          "responses": [
+          "subSceneId": "daily_008_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hi there! Can you help me send a package?",
+          "triggerTextCn": "嗨！你能帮我寄个包裹吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_asks 模式，服务方/工作人员应礼貌回应并提供帮助",
+          "followUps": [
             {
               "text": "Of course! Where you sending it?",
               "text_cn": "当然可以！寄到哪儿？",
@@ -30,22 +37,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "常用开头句，适合初学者模仿"
+          "usageNote": "常用开头句，适合初学者模仿",
+          "audioUrl": "COS:/qa/questions/daily_008_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         }
       ]
     },
     {
       "id": "daily_008_sub_2",
+      "sceneId": "daily_008",
       "name": "说明目的地",
       "description": "顾客告知包裹寄送地址和国家",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_008_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "I need to send this to Tokyo, Japan.",
-          "speakerTextCn": "我要寄到日本东京。",
-          "responses": [
+          "subSceneId": "daily_008_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "I need to send this to Tokyo, Japan.",
+          "triggerTextCn": "我要寄到日本东京。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Got it. Is it a box or an envelope?",
               "text_cn": "好的，是纸箱还是信封？",
@@ -62,14 +78,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "明确地址是计算运费的关键"
+          "usageNote": "明确地址是计算运费的关键",
+          "audioUrl": "COS:/qa/questions/daily_008_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         },
         {
           "id": "daily_008_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Do you need the full address?",
-          "speakerTextCn": "你需要完整地址吗？",
-          "responses": [
+          "subSceneId": "daily_008_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you need the full address?",
+          "triggerTextCn": "你需要完整地址吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Yeah, just the zip code and street name’s fine.",
               "text_cn": "对，有邮编和街道名就行。",
@@ -86,22 +109,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "根据对方要求决定提供信息详略"
+          "usageNote": "根据对方要求决定提供信息详略",
+          "audioUrl": "COS:/qa/questions/daily_008_sub_2_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_008_sub_3",
+      "sceneId": "daily_008",
       "name": "询问运费和方式",
       "description": "顾客询问不同快递方式的价格和时效",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_008_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "How much for standard shipping and express?",
-          "speakerTextCn": "普通快递和特快多少钱？",
-          "responses": [
+          "subSceneId": "daily_008_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "How much for standard shipping and express?",
+          "triggerTextCn": "普通快递和特快多少钱？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问快递费用和方式，服务方提供信息",
+          "followUps": [
             {
               "text": "Standard’s $15, express is $35 — arrives in 3 days.",
               "text_cn": "普通15刀，特快35刀，3天到。",
@@ -118,14 +150,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "对比价格时用but连接更自然"
+          "usageNote": "对比价格时用but连接更自然",
+          "audioUrl": "COS:/qa/questions/daily_008_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 4
         },
         {
           "id": "daily_008_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Can I get it there by Friday?",
-          "speakerTextCn": "能周五前送到吗？",
-          "responses": [
+          "subSceneId": "daily_008_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can I get it there by Friday?",
+          "triggerTextCn": "能周五前送到吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问快递费用和方式，服务方提供信息",
+          "followUps": [
             {
               "text": "Express can, standard won’t make it.",
               "text_cn": "特快可以，普通送不到。",
@@ -142,22 +181,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用won’t / can’t 表达否定更地道"
+          "usageNote": "用won’t / can’t 表达否定更地道",
+          "audioUrl": "COS:/qa/questions/daily_008_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 5
         }
       ]
     },
     {
       "id": "daily_008_sub_4",
+      "sceneId": "daily_008",
       "name": "确认收件信息",
       "description": "工作人员核对寄送信息并确认最终选择",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_008_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "So you want express to Tokyo, right?",
-          "speakerTextCn": "你要选特快寄东京，对吧？",
-          "responses": [
+          "subSceneId": "daily_008_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "So you want express to Tokyo, right?",
+          "triggerTextCn": "你要选特快寄东京，对吧？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Yep, that’s the one.",
               "text_cn": "对，就选这个。",
@@ -174,14 +222,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Yep/Right更口语化，适合日常"
+          "usageNote": "用Yep/Right更口语化，适合日常",
+          "audioUrl": "COS:/qa/questions/daily_008_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 6
         },
         {
           "id": "daily_008_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Here’s your receipt and tracking number.",
-          "speakerTextCn": "这是你的收据和追踪号。",
-          "responses": [
+          "subSceneId": "daily_008_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Here’s your receipt and tracking number.",
+          "triggerTextCn": "这是你的收据和追踪号。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Thanks! I’ll text the number to the receiver.",
               "text_cn": "谢谢！我发追踪号给收件人。",
@@ -198,22 +253,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "回应时加动作描述更真实"
+          "usageNote": "回应时加动作描述更真实",
+          "audioUrl": "COS:/qa/questions/daily_008_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 7
         }
       ]
     },
     {
       "id": "daily_008_sub_5",
+      "sceneId": "daily_008",
       "name": "道别离开",
       "description": "顾客感谢工作人员并礼貌告别",
+      "order": 5,
       "estimatedMinutes": 3,
       "qaPairs": [
         {
           "id": "daily_008_sub_5_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "All set! Have a great day!",
-          "speakerTextCn": "搞定啦！祝你今天愉快！",
-          "responses": [
+          "subSceneId": "daily_008_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "All set! Have a great day!",
+          "triggerTextCn": "搞定啦！祝你今天愉快！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "You too! Thanks a lot!",
               "text_cn": "你也是！非常感谢！",
@@ -230,7 +294,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "道别用You too!最自然实用"
+          "usageNote": "道别用You too!最自然实用",
+          "audioUrl": "COS:/qa/questions/daily_008_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 8
         }
       ]
     }

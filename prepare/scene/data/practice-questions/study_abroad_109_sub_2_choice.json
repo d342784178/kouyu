@@ -2,42 +2,41 @@
   "subSceneId": "study_abroad_109_sub_2",
   "subSceneName": "询问流程",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:06:27.961Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.975Z",
   "questions": [
     {
-      "id": "study_abroad_109_sub_2_choice_1",
+      "id": "study_abroad_109_sub_2_qa_1_choice_1",
       "subSceneId": "study_abroad_109_sub_2",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "study_abroad_109_sub_2_qa_1",
-        "speakerText": "How do I get it processed? Do I need a form?",
-        "speakerTextCn": "怎么申请？需要填表吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Just tell me how many copies and if you need them sealed.",
+            "text": "Do I need a form?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "You should call the registrar's office.",
+            "text": "What is the deadline for application?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "I'll email you the form later.",
+            "text": "How long does it take to get the results?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "You need to pay a fee first.",
+            "text": "Where can I submit my application?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是 'Just tell me how many copies and if you need them sealed.'，因为它直接回应了对方关于流程的疑问，并用简洁方式引导对方提供必要信息，符合场景中‘无需填表’的高效回应模式。其他选项虽然语法正确，但要么转移责任（call the office），要么假设必须填表或付费，与原对话中‘no form needed’矛盾。"
+        "explanation": "正确答案是 'Do I need a form?'，因为这个问题直接询问了申请过程中的一个关键环节。其他选项虽然可能与申请过程有关，但并没有直接回答用户的核心问题。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想知道申请成绩单的具体流程"
       }
     },
     {
@@ -46,10 +45,8 @@
       "type": "choice",
       "order": 2,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I need an official transcript for my university application. What should I do?",
-        "speakerTextCn": "我需要一份官方成绩单用于大学申请，我该怎么做？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +69,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用了场景核心表达 'Just let me know...'，这是一种直接、高效且礼貌的流程引导方式，符合官方办事人员的典型回应。其他选项要么不现实（自己打印），要么不专业（等待下学期），要么信息不完整（仅要学号），无法完成正式流程。"
+        "explanation": "正确答案使用了场景核心表达 'Just let me know...'，这是一种直接、高效且礼貌的流程引导方式，符合官方办事人员的典型回应。其他选项要么不现实（自己打印），要么不专业（等待下学期），要么信息不完整（仅要学号），无法完成正式流程。",
+        "speakerText": "I need an official transcript for my university application. What should I do?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我需要一份官方成绩单用于大学申请，我该怎么做？"
       }
     },
     {
@@ -81,10 +81,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Can I request a transcript without visiting the office?",
-        "speakerTextCn": "我可以在不去办公室的情况下申请成绩单吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +105,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案延续了‘Just tell me...’的高效沟通模式，明确指出所需信息（学号、份数、是否密封），符合现代学校远程办理流程。选项B过于绝对，与许多学校支持在线申请的事实不符；C不专业；D虽然合理，但未直接回应‘是否可以不去办公室’的核心问题，缺乏行动引导。"
+        "explanation": "正确答案延续了‘Just tell me...’的高效沟通模式，明确指出所需信息（学号、份数、是否密封），符合现代学校远程办理流程。选项B过于绝对，与许多学校支持在线申请的事实不符；C不专业；D虽然合理，但未直接回应‘是否可以不去办公室’的核心问题，缺乏行动引导。",
+        "speakerText": "Can I request a transcript without visiting the office?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我可以在不去办公室的情况下申请成绩单吗？"
       }
     }
   ]

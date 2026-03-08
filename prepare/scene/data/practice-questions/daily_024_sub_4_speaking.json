@@ -2,29 +2,29 @@
   "subSceneId": "daily_024_sub_4",
   "subSceneName": "确认价格",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:40:52.391Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.609Z",
   "questions": [
     {
-      "id": "daily_024_sub_4_speaking_1",
+      "id": "daily_024_sub_4_qa_1_speaking_1",
       "subSceneId": "daily_024_sub_4",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "daily_024_sub_4_qa_1",
-        "speakerText": "How much will this cost?",
-        "speakerTextCn": "这些要多少钱？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客拿着一件需要干洗的衣物，想了解具体费用，向店员询问价格。",
         "expectedAnswers": [
-          "Is it $15 per shirt? I have four of them.",
-          "Could you tell me the total? I’d like to pay now.",
-          "I have three blouses and two suits — what’s the full amount?"
+          "How much will this cost?",
+          "What’s the price for dry cleaning this item?",
+          "Could you tell me how much it costs to dry clean this?",
+          "Do you know how much the dry cleaning will be for this piece?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否明确询问或确认总价",
-          "语言准确性：语法和用词是否正确，如使用 'per' 或 'total'",
-          "表达自然度：是否符合日常口语习惯，语气是否礼貌",
-          "关键词覆盖：是否使用 'per', 'total', 'amount', 'cost' 等场景关键词"
+          "意图达成度：是否正确表达了询问干洗费用的意图",
+          "语言准确性：语法结构和用词是否正确",
+          "表达自然度：是否符合日常英语口语习惯",
+          "关键词覆盖：是否包含 'dry cleaning', 'cost', 'price' 等场景关键词"
         ]
       }
     },
@@ -34,9 +34,10 @@
       "type": "speaking",
       "order": 2,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "What’s the price for dry cleaning these items?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "这些衣服干洗多少钱？",
         "expectedAnswers": [
           "It’s $10 per blouse and $25 per suit. That’s $85 in total.",
@@ -57,9 +58,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I’d like to get these dry cleaned. Can you give me a quote?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我想干洗这些衣服，能给我个报价吗？",
         "expectedAnswers": [
           "Sure! That’s $14 per shirt and $35 per coat. With five shirts and two coats, it’s $140 total.",

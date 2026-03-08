@@ -2,52 +2,53 @@
   "subSceneId": "daily_010_sub_2",
   "subSceneName": "核对衣物",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:36:43.241Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.514Z",
   "questions": [
     {
-      "id": "daily_010_sub_2_speaking_1",
+      "id": "daily_010_sub_2_qa_2_speaking_1",
       "subSceneId": "daily_010_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "daily_010_sub_2_qa_2",
         "type": "speaking",
-        "qaId": "daily_010_sub_2_qa_1",
-        "speakerText": "You've got 3 shirts, 2 pants, and 1 towel, right?",
-        "speakerTextCn": "您有3件衬衫、2条裤子和1条毛巾，对吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在商店买了一件衣服，店员准备交给你，但是你想核对一下衣物数量与订单是否一致。请问店员衣物数量是多少?",
         "expectedAnswers": [
-          "Yep, that's all.",
-          "Wait, I'm missing one shirt.",
-          "Yes, perfect. Thanks!"
+          "Let me double-check... Oh, here it is! Sorry for the mix-up.",
+          "我再核对一下…哦，在这呢！抱歉搞错了。",
+          "你可以告诉我一下衣物数量吗？我想确认一下订单和实际衣物数量是否一致。",
+          "衣物数量是多少？我想核对一下订单和实际衣物数量是否一致。"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否准确回应了数量核对（确认或指出错误）",
-          "语言准确性：语法和用词是否正确，如使用 'missing' 或 'perfect' 正确",
-          "表达自然度：是否使用了口语化表达（如 'Yep'）而非生硬结构",
-          "关键词覆盖：是否包含场景关键词如 'shirt', 'pants', 'towel' 或 'missing'"
+          "意图达成度：是否正确表达了询问衣物数量的意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
     {
-      "id": "daily_010_sub_2_speaking_2",
+      "id": "daily_010_sub_2_qa_1_speaking_1",
       "subSceneId": "daily_010_sub_2",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "daily_010_sub_2_qa_1",
         "type": "speaking",
-        "qaId": "daily_010_sub_2_qa_2",
-        "speakerText": "Let me double-check... Oh, here it is! Sorry for the mix-up.",
-        "speakerTextCn": "我再核对一下…哦，在这呢！抱歉搞错了。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "店员正在核对顾客订单中的衣物数量，你需要确认订单上的物品和数量是否正确。",
         "expectedAnswers": [
-          "No problem, thanks for checking.",
-          "It's okay, I appreciate it.",
-          "Thanks for sorting it out!"
+          "Just to confirm, we have 3 shirts, 2 pairs of pants, and 1 towel, right?",
+          "Can you check if the order includes 3 shirts, 2 pants, and a towel?",
+          "Is it correct that the order has three shirts, two pants, and one towel?",
+          "Could you verify we’ve got the right count: three shirts, two pants, and one towel?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否礼貌回应了对方的道歉和补救行为",
-          "语言准确性：是否使用了正确结构如 'I appreciate it' 或 'thanks for...' ",
-          "表达自然度：是否避免了生硬或不礼貌回应（如 'Just give it to me'）",
-          "关键词覆盖：是否包含 'checking', 'mix-up', 'thanks', 'appreciate' 等场景关键词"
+          "意图达成度：是否准确表达了核对衣物数量的意图",
+          "语言准确性：语法、复数形式（如pants/pairs of pants）和冠词使用是否正确",
+          "表达自然度：是否符合英语母语者在零售场景中的常用表达方式",
+          "关键词覆盖：是否包含场景关键词如shirts, pants, towel, count/verify/confirm"
         ]
       }
     },
@@ -57,9 +58,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I'm verifying your order: 2 jackets, 3 sweaters, and 1 scarf. Does that match?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我正在核对您的订单：2件夹克、3件毛衣和1条围巾。与您订单一致吗？",
         "expectedAnswers": [
           "Yes, that's correct.",

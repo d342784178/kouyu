@@ -2,77 +2,76 @@
   "subSceneId": "workplace_049_sub_1",
   "subSceneName": "提出申请",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:19:01.500Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.544Z",
   "questions": [
     {
-      "id": "workplace_049_sub_1_choice_1",
+      "id": "workplace_049_sub_1_qa_1_choice_1",
       "subSceneId": "workplace_049_sub_1",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "workplace_049_sub_1_qa_1",
-        "speakerText": "Hey Mike, got a minute?",
-        "speakerTextCn": "嘿，迈克，有空吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "What do you want?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Sure, what's up?",
+            "text": "Hey Mike, got a minute?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Mike, 我想请假出差",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I'm busy right now.",
+            "text": "Mike，出差申请准备好了吗?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Why are you asking?",
+            "text": "Mike，什么时候有空？",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Sure, what's up?' 是礼貌且轻松的回应，符合职场中开启非正式对话的语境。其他选项要么过于生硬（What do you want?），要么直接拒绝（I'm busy right now.），要么带有防御性（Why are you asking?），都不符合原对话中友好、开放的语气。"
+        "explanation": "正确答案\"Hey Mike, got a minute?\"是因为在这个场景中，员工需要礼貌地询问经理是否有空，这样才能开始提出出差请求。其他选项不符合场景需求或表达不自然。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工向经理礼貌提出出差请求"
       }
     },
     {
-      "id": "workplace_049_sub_1_choice_2",
+      "id": "workplace_049_sub_1_qa_2_choice_1",
       "subSceneId": "workplace_049_sub_1",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "workplace_049_sub_1_qa_2",
-        "speakerText": "I'd like to apply for a business trip to Shanghai next week.",
-        "speakerTextCn": "我想申请下周去上海出差。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "I need to go to Shanghai.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "That sounds good. What's the purpose?",
+            "text": "I'd like to apply for a business trip to Shanghai next week.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "I'd like to apply for a business trip to New York next year.",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "You can't go next week.",
+            "text": "I'd like to know when you are free to go out for lunch.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I'll book your ticket.",
+            "text": "I'd like to apply for a vacation to Hawaii this weekend.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'That sounds good. What's the purpose?' 是经理对出差申请的标准专业回应，既表示认可，又进一步询问细节。选项 A 缺乏礼貌和回应结构；C 是直接拒绝，不符合积极沟通原则；D 是提前行动，但经理应先确认需求再行动。"
+        "explanation": "正确答案是 \"I'd like to apply for a business trip to Shanghai next week.\"，因为它符合场景的描述。其他选项中的问题不符合场景或表达不自然。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想申请去哪里出差？"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I'm planning to attend the client meeting in Tokyo. Could I request a business trip next month?",
-        "speakerTextCn": "我计划参加下个月在东京的客户会议，可以申请出差吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'That’s a good idea. Could you send me the itinerary and budget estimate?' 是专业、支持性的回应，既肯定申请，又要求必要信息，符合职场规范。选项 A 太随意，缺乏流程；C 带有主观否定；D 超越了经理职责，应由员工先提交信息。"
+        "explanation": "正确答案 'That’s a good idea. Could you send me the itinerary and budget estimate?' 是专业、支持性的回应，既肯定申请，又要求必要信息，符合职场规范。选项 A 太随意，缺乏流程；C 带有主观否定；D 超越了经理职责，应由员工先提交信息。",
+        "speakerText": "I'm planning to attend the client meeting in Tokyo. Could I request a business trip next month?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我计划参加下个月在东京的客户会议，可以申请出差吗？"
       }
     }
   ]

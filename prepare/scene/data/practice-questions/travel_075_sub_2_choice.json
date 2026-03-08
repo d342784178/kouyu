@@ -1,78 +1,77 @@
 {
   "subSceneId": "travel_075_sub_2",
-  "subSceneName": "行李规定",
+  "subSceneName": "询问班次时间",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:15:25.258Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.334Z",
   "questions": [
     {
-      "id": "travel_075_sub_2_choice_1",
+      "id": "travel_075_sub_2_qa_1_choice_1",
       "subSceneId": "travel_075_sub_2",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "travel_075_sub_2_qa_1",
-        "speakerText": "Do you know the baggage policy? We allow one large suitcase and one small carry-on.",
-        "speakerTextCn": "您知道行李规定吗？每人可免费托运一件大行李和一件小随身包。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Can I bring three carry-ons? I really need them.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "What’s the size limit for the carry-on?",
+            "text": "What is the departure time?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Do you have any snacks available?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I’ll pay for an extra suitcase.",
+            "text": "Is this bus going to the airport?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Do you have a locker for bags?",
+            "text": "How much does the ticket cost?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案询问了随身包的尺寸限制，这是行李政策中常见且相关的跟进问题。选项1试图增加随身包数量，但未回应政策确认；选项3提前讨论付费，与当前信息不匹配；选项4与行李政策无关，属于无关提问。"
+        "explanation": "正确答案\"What is the departure time?\"是正确的，因为它询问了班次时间。其他选项不符合场景，询问了不相关的问题。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "您正在询问班次时间及是否准点"
       }
     },
     {
-      "id": "travel_075_sub_2_choice_2",
+      "id": "travel_075_sub_2_qa_2_choice_1",
       "subSceneId": "travel_075_sub_2",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "travel_075_sub_2_qa_2",
-        "speakerText": "The large suitcase can’t exceed 20 kg. Extra bags cost $10 each.",
-        "speakerTextCn": "大行李不得超过20公斤，额外行李每件10美元。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Is the fee per kilogram or per bag?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "I’ll make sure my bag is under 20 kg. Thanks!",
+            "text": "What's the maximum weight for a large suitcase?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "How much does it cost to check in a bag?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Can I split the weight between two bags?",
+            "text": "What's the policy on carrying pets on the plane?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Do you accept credit cards for baggage fees?",
+            "text": "Can I pay for extra luggage at the gate?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案表明乘客理解并承诺遵守重量限制，是符合语境的积极回应。选项1质疑收费单位，但对话已明确是‘per bag’；选项3涉及重量分配，属于政策外延伸；选项4询问支付方式，与当前信息无关。"
+        "explanation": "正确答案\"What's the maximum weight for a large suitcase?\"符合场景需求，询问行李重量限制。其他选项不符合场景需求或表达不自然。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在机场柜台询问行李的重量限制和额外行李的费用"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "We allow one checked bag up to 23 kg and one personal item. Oversized bags require approval.",
-        "speakerTextCn": "我们允许一件最多23公斤的托运行李和一件随身物品。超大行李需提前申请。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案询问‘personal item’的定义，这是政策中模糊但关键的信息点。选项1假设大旅行袋可作为随身物品，可能违反规定；选项3是针对重��的反应，但未涉及‘personal item’的疑问；选项4是无关的实用建议，非政策确认。"
+        "explanation": "正确答案询问‘personal item’的定义，这是政策中模糊但关键的信息点。选项1假设大旅行袋可作为随身物品，可能违反规定；选项3是针对重��的反应，但未涉及‘personal item’的疑问；选项4是无关的实用建议，非政策确认。",
+        "speakerText": "We allow one checked bag up to 23 kg and one personal item. Oversized bags require approval.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们允许一件最多23公斤的托运行李和一件随身物品。超大行李需提前申请。"
       }
     }
   ]

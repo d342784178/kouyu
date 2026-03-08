@@ -1,19 +1,26 @@
 {
   "sceneId": "daily_024",
   "sceneName": "干洗店送衣",
+  "exportedAt": "2026-03-08T15:31:54.854Z",
   "subScenes": [
     {
       "id": "daily_024_sub_1",
+      "sceneId": "daily_024",
       "name": "打招呼问候",
       "description": "顾客进店，店员礼貌问候",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_024_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi there! How can I help you today?",
-          "speakerTextCn": "您好！今天有什么可以帮您的？",
-          "responses": [
+          "subSceneId": "daily_024_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hi there! How can I help you today?",
+          "triggerTextCn": "您好！今天有什么可以帮您的？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Hi! I need to get these clothes dry cleaned.",
               "text_cn": "嗨！我想把这些衣服送去干洗。",
@@ -30,22 +37,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Hi/Hey开头更自然，别太正式"
+          "usageNote": "用Hi/Hey开头更自然，别太正式",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         }
       ]
     },
     {
       "id": "daily_024_sub_2",
+      "sceneId": "daily_024",
       "name": "说明污渍",
       "description": "顾客指出衣物上的具体污渍",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_024_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "These shirts have wine stains on the collar.",
-          "speakerTextCn": "这些衬衫领子上有红酒渍。",
-          "responses": [
+          "subSceneId": "daily_024_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "These shirts have wine stains on the collar.",
+          "triggerTextCn": "这些衬衫领子上有红酒渍。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Yeah, the wine stain’s pretty bad—can you get it out?",
               "text_cn": "是啊，红酒渍挺重的，能洗掉吗？",
@@ -62,22 +78,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用具体部位+污渍类型，更清晰"
+          "usageNote": "用具体部位+污渍类型，更清晰",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_024_sub_3",
+      "sceneId": "daily_024",
       "name": "确认取衣时间",
       "description": "顾客询问何时能取回衣物",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_024_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "When can I pick them up?",
-          "speakerTextCn": "我什么时候能来取？",
-          "responses": [
+          "subSceneId": "daily_024_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "When can I pick them up?",
+          "triggerTextCn": "我什么时候能来取？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务方/工作人员需提供具体时间信息",
+          "followUps": [
             {
               "text": "Can I get them by Thursday? I need them for a meeting.",
               "text_cn": "我周四能取吗？我有个会议要用。",
@@ -94,22 +119,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "加理由让请求更合理，如‘我有会议’"
+          "usageNote": "加理由让请求更合理，如‘我有会议’",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_024_sub_4",
+      "sceneId": "daily_024",
       "name": "确认价格",
       "description": "顾客询问干洗费用",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_024_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "How much will this cost?",
-          "speakerTextCn": "这些要多少钱？",
-          "responses": [
+          "subSceneId": "daily_024_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "How much will this cost?",
+          "triggerTextCn": "这些要多少钱？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务方/工作人员需提供价格信息",
+          "followUps": [
             {
               "text": "Is it $15 per shirt? I’ve got five of them.",
               "text_cn": "每件15美元吗？我有五件。",
@@ -126,22 +160,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "问总价比问单价更实用"
+          "usageNote": "问总价比问单价更实用",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 4
         }
       ]
     },
     {
       "id": "daily_024_sub_5",
+      "sceneId": "daily_024",
       "name": "道别离店",
       "description": "顾客确认后礼貌告别",
+      "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_024_sub_5_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Great, thanks! I’ll pick them up on Thursday.",
-          "speakerTextCn": "太好了，谢谢！我周四来取。",
-          "responses": [
+          "subSceneId": "daily_024_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Great, thanks! I’ll pick them up on Thursday.",
+          "triggerTextCn": "太好了，谢谢！我周四来取。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Thanks a lot! Have a nice day!",
               "text_cn": "太感谢了！祝你今天愉快！",
@@ -158,7 +201,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "道别时加具体时间更显礼貌"
+          "usageNote": "道别时加具体时间更显礼貌",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 5
         }
       ]
     }

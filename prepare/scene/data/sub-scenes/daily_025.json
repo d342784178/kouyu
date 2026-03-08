@@ -1,19 +1,26 @@
 {
   "sceneId": "daily_025",
   "sceneName": "报刊亭买杂志",
+  "exportedAt": "2026-03-08T15:31:54.855Z",
   "subScenes": [
     {
       "id": "daily_025_sub_1",
+      "sceneId": "daily_025",
       "name": "打招呼问货",
       "description": "顾客询问报刊亭是否有最新杂志",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_025_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hey, got the new National Geographic?",
-          "speakerTextCn": "嘿，有最新一期《国家地理》吗？",
-          "responses": [
+          "subSceneId": "daily_025_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hey, got the new National Geographic?",
+          "triggerTextCn": "嘿，有最新一期《国家地理》吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务方/工作人员需确认是否有货并回应",
+          "followUps": [
             {
               "text": "Yeah, right here. Want one?",
               "text_cn": "有，在这儿呢，要一本吗？",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用简短口语问货，别用完整句子"
+          "usageNote": "用简短口语问货，别用完整句子",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_025_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I'd like one, please. How much?",
-          "speakerTextCn": "我想要一本，多少钱？",
-          "responses": [
+          "subSceneId": "daily_025_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'd like one, please. How much?",
+          "triggerTextCn": "我想要一本，多少钱？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务方/工作人员需确认是否有货并回应",
+          "followUps": [
             {
               "text": "Three bucks.",
               "text_cn": "三美元。",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "直接问价，别加‘Can you tell me?’"
+          "usageNote": "直接问价，别加‘Can you tell me?’",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_025_sub_2",
+      "sceneId": "daily_025",
       "name": "加购饮料",
       "description": "顾客顺带问有没有饮料可买",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_025_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "You got any soda or water?",
-          "speakerTextCn": "有汽水或水吗？",
-          "responses": [
+          "subSceneId": "daily_025_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "You got any soda or water?",
+          "triggerTextCn": "有汽水或水吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问是否有饮料，服务方回应",
+          "followUps": [
             {
               "text": "Sure, water's $1.50.",
               "text_cn": "有，水1.5美元。",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用‘You got...?’问有无，更自然"
+          "usageNote": "用‘You got...?’问有无，更自然",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_025_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I'll take a Coke then. Total?",
-          "speakerTextCn": "那我来瓶可乐，总共多少？",
-          "responses": [
+          "subSceneId": "daily_025_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'll take a Coke then. Total?",
+          "triggerTextCn": "那我来瓶可乐，总共多少？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问是否有饮料，服务方回应",
+          "followUps": [
             {
               "text": "That's $4.50 all together.",
               "text_cn": "一共4.5美元。",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用‘Total?’简洁结账，别啰嗦"
+          "usageNote": "用‘Total?’简洁结账，别啰嗦",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_025_sub_3",
+      "sceneId": "daily_025",
       "name": "确认付款",
       "description": "顾客付钱，摊主找零并道别",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_025_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Here's five.",
-          "speakerTextCn": "给你五块钱。",
-          "responses": [
+          "subSceneId": "daily_025_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Here's five.",
+          "triggerTextCn": "给你五块钱。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Thanks! Here's your change — 50 cents.",
               "text_cn": "谢谢！找你50美分。",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "付钱后说‘Here's...’自然又简洁"
+          "usageNote": "付钱后说‘Here's...’自然又简洁",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_025_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Thanks! See you tomorrow!",
-          "speakerTextCn": "谢谢！明天见！",
-          "responses": [
+          "subSceneId": "daily_025_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thanks! See you tomorrow!",
+          "triggerTextCn": "谢谢！明天见！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Sure thing! Catch you later!",
               "text_cn": "没问题！回头见！",
@@ -166,7 +212,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "道别用口语短句，别用‘Goodbye’"
+          "usageNote": "道别用口语短句，别用‘Goodbye’",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

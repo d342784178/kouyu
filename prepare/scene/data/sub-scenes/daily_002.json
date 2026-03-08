@@ -1,19 +1,26 @@
 {
   "sceneId": "daily_002",
   "sceneName": "超市购物",
+  "exportedAt": "2026-03-08T15:31:54.838Z",
   "subScenes": [
     {
       "id": "daily_002_sub_1",
+      "sceneId": "daily_002",
       "name": "找商品位置",
       "description": "询问牛奶和燕麦片在哪个区域",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_002_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Excuse me, where can I find the dairy section?",
-          "speakerTextCn": "不好意思，请问乳制品区在哪里？",
-          "responses": [
+          "subSceneId": "daily_002_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Excuse me, where can I find the dairy section?",
+          "triggerTextCn": "不好意思，请问乳制品区在哪里？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客在超市寻找商品时，需要询问工作人员商品位置",
+          "followUps": [
             {
               "text": "It's down the aisle to the left, next to the eggs.",
               "text_cn": "在左边过道，挨着鸡蛋那边。",
@@ -30,14 +37,21 @@
               "audio_url": "COS:/qa/responses/daily_002_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于询问商品具体位置"
+          "usageNote": "用于询问商品具体位置",
+          "audioUrl": "COS:/qa/questions/daily_002_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_002_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Do you have almond milk in the refrigerated section?",
-          "speakerTextCn": "冷藏区有杏仁奶吗？",
-          "responses": [
+          "subSceneId": "daily_002_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you have almond milk in the refrigerated section?",
+          "triggerTextCn": "冷藏区有杏仁奶吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客在超市寻找商品时，需要询问工作人员商品位置",
+          "followUps": [
             {
               "text": "Yes, it's on the bottom shelf, next to the soy milk.",
               "text_cn": "有，在最下层，挨着豆浆。",
@@ -54,22 +68,31 @@
               "audio_url": "COS:/qa/responses/daily_002_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "确认特定商品是否在售"
+          "usageNote": "确认特定商品是否在售",
+          "audioUrl": "COS:/qa/questions/daily_002_sub_1_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_002_sub_2",
+      "sceneId": "daily_002",
       "name": "确认计量单位",
       "description": "确认商品是按公斤还是按袋卖",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_002_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Is this yogurt sold by the pound or by the container?",
-          "speakerTextCn": "这个酸奶是按磅卖还是按盒卖？",
-          "responses": [
+          "subSceneId": "daily_002_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Is this yogurt sold by the pound or by the container?",
+          "triggerTextCn": "这个酸奶是按磅卖还是按盒卖？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客在超市寻找商品时，需要了解商品的计量单位，因此先提问。",
+          "followUps": [
             {
               "text": "It's sold by the container — each one is 16 ounces.",
               "text_cn": "按盒卖，每盒16盎司。",
@@ -86,14 +109,21 @@
               "audio_url": "COS:/qa/responses/daily_002_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "确认商品计价单位"
+          "usageNote": "确认商品计价单位",
+          "audioUrl": "COS:/qa/questions/daily_002_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_002_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "How much does this bag of apples weigh?",
-          "speakerTextCn": "这袋苹果有多重？",
-          "responses": [
+          "subSceneId": "daily_002_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "How much does this bag of apples weigh?",
+          "triggerTextCn": "这袋苹果有多重？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客在超市寻找商品时，需要了解商品的计量单位，因此先提问。",
+          "followUps": [
             {
               "text": "It's exactly 2 pounds — the scale shows it.",
               "text_cn": "正好两磅，秤上显示了。",
@@ -110,22 +140,31 @@
               "audio_url": "COS:/qa/responses/daily_002_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "询问散装商品重量"
+          "usageNote": "询问散装商品重量",
+          "audioUrl": "COS:/qa/questions/daily_002_sub_2_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_002_sub_3",
+      "sceneId": "daily_002",
       "name": "询问促销活动",
       "description": "确认商品是否有折扣或赠品",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_002_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Is there a special deal on bread today?",
-          "speakerTextCn": "今天面包有促销吗？",
-          "responses": [
+          "subSceneId": "daily_002_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "Is there a special deal on bread today?",
+          "triggerTextCn": "今天面包有促销吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问，工作人员回答促销详情",
+          "followUps": [
             {
               "text": "Yes! Buy one, get one half off — it's on the end cap.",
               "text_cn": "有！买一送半价，在端架上。",
@@ -142,14 +181,21 @@
               "audio_url": "COS:/qa/responses/daily_002_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "询问商品促销信息"
+          "usageNote": "询问商品促销信息",
+          "audioUrl": "COS:/qa/questions/daily_002_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_002_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Do you have any coupons for cereal?",
-          "speakerTextCn": "有麦片的优惠券吗？",
-          "responses": [
+          "subSceneId": "daily_002_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you have any coupons for cereal?",
+          "triggerTextCn": "有麦片的优惠券吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问，工作人员回答促销详情",
+          "followUps": [
             {
               "text": "They're at the front near the checkout — grab one!",
               "text_cn": "收银台附近有，自己拿一份！",
@@ -166,22 +212,31 @@
               "audio_url": "COS:/qa/responses/daily_002_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "索取或确认优惠券"
+          "usageNote": "索取或确认优惠券",
+          "audioUrl": "COS:/qa/questions/daily_002_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_002_sub_4",
+      "sceneId": "daily_002",
       "name": "找收银台",
       "description": "询问最近的收银台在哪里",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_002_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Where's the nearest checkout counter?",
-          "speakerTextCn": "最近的收银台在哪里？",
-          "responses": [
+          "subSceneId": "daily_002_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "Where's the nearest checkout counter?",
+          "triggerTextCn": "最近的收银台在哪里？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问，工作人员指引",
+          "followUps": [
             {
               "text": "Right at the front, just past the magazines.",
               "text_cn": "就在前面，杂志区后面。",
@@ -198,14 +253,21 @@
               "audio_url": "COS:/qa/responses/daily_002_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "询问收银台位置"
+          "usageNote": "询问收银台位置",
+          "audioUrl": "COS:/qa/questions/daily_002_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_002_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Which line is moving fastest right now?",
-          "speakerTextCn": "现在哪条队伍最快？",
-          "responses": [
+          "subSceneId": "daily_002_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "Which line is moving fastest right now?",
+          "triggerTextCn": "现在哪条队伍最快？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问，工作人员指引",
+          "followUps": [
             {
               "text": "The self-checkout — only two people ahead.",
               "text_cn": "自助结账，前面只有两人。",
@@ -222,7 +284,10 @@
               "audio_url": "COS:/qa/responses/daily_002_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "选择最有效率的结账队伍"
+          "usageNote": "选择最有效率的结账队伍",
+          "audioUrl": "COS:/qa/questions/daily_002_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     }

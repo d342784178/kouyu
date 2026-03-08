@@ -1,19 +1,26 @@
 {
   "sceneId": "travel_062",
   "sceneName": "景点咨询",
+  "exportedAt": "2026-03-08T15:31:54.891Z",
   "subScenes": [
     {
       "id": "travel_062_sub_1",
+      "sceneId": "travel_062",
       "name": "问候与开场",
       "description": "游客向咨询员礼貌打招呼并说明来意",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_062_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi there! I'm new in town and looking for must-see spots.",
-          "speakerTextCn": "嗨！我是刚到这儿的，想找必去的景点。",
-          "responses": [
+          "subSceneId": "travel_062_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hi there! I'm new in town and looking for must-see spots.",
+          "triggerTextCn": "嗨！我是刚到这儿的，想找必去的景点。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "游客询问，服务方提供信息",
+          "followUps": [
             {
               "text": "Sure! I'd love to help. What kind of places do you like?",
               "text_cn": "当然！我很乐意帮忙。你喜欢哪种类型的地方？",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用I'm new in town自然引出需求"
+          "usageNote": "用I'm new in town自然引出需求",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "travel_062_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I'd really appreciate some recommendations — I only have two days.",
-          "speakerTextCn": "我特别需要一些建议，我只有两天时间。",
-          "responses": [
+          "subSceneId": "travel_062_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'd really appreciate some recommendations — I only have two days.",
+          "triggerTextCn": "我特别需要一些建议，我只有两天时间。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "游客询问，服务方提供信息",
+          "followUps": [
             {
               "text": "No problem! I'll pick the top 3 based on your time.",
               "text_cn": "没问题！我按你的时间选前三个。",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用I'd appreciate表达礼貌请求"
+          "usageNote": "用I'd appreciate表达礼貌请求",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "travel_062_sub_2",
+      "sceneId": "travel_062",
       "name": "询问推荐与距离",
       "description": "游客确认景点推荐并询问交通距离",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_062_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Is the Old Town far from here? Can I walk?",
-          "speakerTextCn": "老城区离这儿远吗？能走过去吗？",
-          "responses": [
+          "subSceneId": "travel_062_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Is the Old Town far from here? Can I walk?",
+          "triggerTextCn": "老城区离这儿远吗？能走过去吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "工作人员在顾客提问后提供信息和建议。",
+          "followUps": [
             {
               "text": "Only 15 mins on foot — it's super close!",
               "text_cn": "步行15分钟就到，超近的！",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Can I walk?自然确认步行可行性"
+          "usageNote": "用Can I walk?自然确认步行可行性",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "travel_062_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "What about the mountain view spot? Is it worth the trip?",
-          "speakerTextCn": "那个观山景点值得专程去吗？",
-          "responses": [
+          "subSceneId": "travel_062_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "What about the mountain view spot? Is it worth the trip?",
+          "triggerTextCn": "那个观山景点值得专程去吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "工作人员在顾客提问后提供信息和建议。",
+          "followUps": [
             {
               "text": "Absolutely! Best sunset view in the city — but it’s 30 mins by bus.",
               "text_cn": "绝对值得！全城最佳日落，但要坐30分钟公交。",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Is it worth the trip?评估性价比"
+          "usageNote": "用Is it worth the trip?评估性价比",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "travel_062_sub_3",
+      "sceneId": "travel_062",
       "name": "确认票价与时间",
       "description": "游客了解门票价格和开放时间",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_062_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "How much is the entrance fee for the museum?",
-          "speakerTextCn": "博物馆门票多少钱？",
-          "responses": [
+          "subSceneId": "travel_062_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "How much is the entrance fee for the museum?",
+          "triggerTextCn": "博物馆门票多少钱？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客/旅客询问，工作人员回答",
+          "followUps": [
             {
               "text": "It's $12 for adults, but under 18s are free!",
               "text_cn": "成人12美元，18岁以下免费！",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用How much is...直接问价格"
+          "usageNote": "用How much is...直接问价格",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "travel_062_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Do they close early on weekends?",
-          "speakerTextCn": "周末会早关吗？",
-          "responses": [
+          "subSceneId": "travel_062_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do they close early on weekends?",
+          "triggerTextCn": "周末会早关吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客/旅客询问，工作人员回答",
+          "followUps": [
             {
               "text": "Nah, same hours — open till 7pm daily.",
               "text_cn": "不会，每天开到晚上7点。",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Do they close early?确认特殊时间"
+          "usageNote": "用Do they close early?确认特殊时间",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "travel_062_sub_4",
+      "sceneId": "travel_062",
       "name": "索取地图与道别",
       "description": "游客请求地图并礼貌结束对话",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_062_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Could I get a free map of the city?",
-          "speakerTextCn": "能给我一张免费城市地图吗？",
-          "responses": [
+          "subSceneId": "travel_062_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "Could I get a free map of the city?",
+          "triggerTextCn": "能给我一张免费城市地图吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "适用于游客需要信息时主动发起询问的场景",
+          "followUps": [
             {
               "text": "Of course! Here’s one with all the top spots marked.",
               "text_cn": "当然！这张标了所有热门景点。",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Could I get...礼貌索取物品"
+          "usageNote": "用Could I get...礼貌索取物品",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "travel_062_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Thanks so much! You've been super helpful.",
-          "speakerTextCn": "太感谢了！你帮了大忙。",
-          "responses": [
+          "subSceneId": "travel_062_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "Thanks so much! You've been super helpful.",
+          "triggerTextCn": "太感谢了！你帮了大忙。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "适用于游客需要信息时主动发起询问的场景",
+          "followUps": [
             {
               "text": "Anytime! Have an amazing trip!",
               "text_cn": "随时来！玩得开心！",
@@ -222,7 +284,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Thanks so much表达真诚感谢"
+          "usageNote": "用Thanks so much表达真诚感谢",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     }

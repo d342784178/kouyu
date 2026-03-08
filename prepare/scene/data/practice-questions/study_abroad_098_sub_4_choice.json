@@ -2,42 +2,41 @@
   "subSceneId": "study_abroad_098_sub_4",
   "subSceneName": "讨论��预订",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:49:08.875Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.850Z",
   "questions": [
     {
-      "id": "study_abroad_098_sub_4_choice_1",
+      "id": "study_abroad_098_sub_4_qa_1_choice_1",
       "subSceneId": "study_abroad_098_sub_4",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "study_abroad_098_sub_4_qa_1",
-        "speakerText": "Can I book a study room for my group? How far ahead do I need to reserve?",
-        "speakerTextCn": "我能预订小组讨论室吗？要提前多久订？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "You can only book it in person at the front desk.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "You can book online up to a week in advance.",
+            "text": "Can I book a study room for my group? How far ahead do I need to reserve?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Do you have study rooms available?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "You must reserve at least a month ahead for group rooms.",
+            "text": "I want to book a room tomorrow.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Group rooms are not available for booking—they're first come, first served.",
+            "text": "How much does it cost to rent a study room?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是 'You can book online up to a week in advance.'，这与参考回应一致，强调了在线预订和提前一周的时效性。其他选项错误：第一个限制了预订方式，第二个夸大了提前时间，第四个完全否认了预订可能性，均不符合实际场景。"
+        "explanation": "正确答案同时询问了预订可能性和提前时间，符合场景需求。选项2只确认房间是否存在，未涉及预订流程；选项3假设已决定时间，但未询问预订规则；选项4聚焦价格，而场景核心是预订流程和时间要求。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想预订一个供小组使用的讨论室，但不确定流程和提前预订的时间要求，你需要向工作人员提出一个恰当的问题来获取这些信息。"
       }
     },
     {
@@ -46,10 +45,8 @@
       "type": "choice",
       "order": 2,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I need to reserve a discussion room for five people tomorrow. Is that possible?",
-        "speakerTextCn": "我需要为五个人预订明天的讨论室，可以吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +69,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案强调 'same-day bookings are allowed'，符合参考回应中 'Same day’s okay, but book early.' 的核心信息。干扰项错误地设定了提前要求、身份限制或额外收费，这些在原对话中均未提及。"
+        "explanation": "正确答案强调 'same-day bookings are allowed'，符合参考回应中 'Same day’s okay, but book early.' 的核心信息。干扰项错误地设定了提前要求、身份限制或额外收费，这些在原对话中均未提及。",
+        "speakerText": "I need to reserve a discussion room for five people tomorrow. Is that possible?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我需要为五个人预订明天的讨论室，可以吗？"
       }
     },
     {
@@ -81,10 +81,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "How do I actually book the room? Is there a website or app?",
-        "speakerTextCn": "我该怎么实际预订？有网站或应用吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +105,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Just go to the library portal—book it like a flight!' 直接引用参考回应，强调在线平台和类比订票的���捷性。其他选项指向错误的部门或过时的方式，不符合现代校园服务流程。"
+        "explanation": "正确答案 'Just go to the library portal—book it like a flight!' 直接引用参考回应，强调在线平台和类比订票的���捷性。其他选项指向错误的部门或过时的方式，不符合现代校园服务流程。",
+        "speakerText": "How do I actually book the room? Is there a website or app?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我该怎么实际预订？有网站或应用吗？"
       }
     }
   ]

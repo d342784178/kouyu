@@ -2,20 +2,43 @@
   "subSceneId": "workplace_053_sub_2",
   "subSceneName": "请求派送",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:33:54.470Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.580Z",
   "questions": [
+    {
+      "id": "workplace_053_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "workplace_053_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示，帮助用户回忆",
+        "qaId": "workplace_053_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "市场部",
+            "options": [
+              "市场部",
+              "财务部",
+              "行政部",
+              "研发部"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "适用于顾客询问服务提供者是否可以完成某项服务",
+        "knowledgePoint": "请求派送",
+        "responseTemplate": "能帮我把这送到___吗？很急。"
+      }
+    },
     {
       "id": "workplace_053_sub_2_fill_blank_1",
       "subSceneId": "workplace_053_sub_2",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "表示‘送到某处’的常用短语，常用于职场请求帮助",
         "type": "fill_blank",
-        "situation": "员工在前台拿了一个快递，想请前台帮忙送到自己的办公室",
-        "speakerText": "Could you ______ this to my office? I'm in a meeting right now.",
-        "speakerTextCn": "你能把这送到我办公室吗？我现在在开会。",
-        "responseTemplate": "Could you ______ this to my office? I'm in a meeting right now.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,39 @@
             ]
           }
         ],
-        "hint": "表示‘送到某处’的常用短语，常用于职场请求帮助",
-        "knowledgePoint": "高频请求表达：drop off + 物品 + to 地点"
+        "situation": "员工在前台拿了一个快递，想请前台帮忙送到自己的办公室",
+        "speakerText": "Could you ______ this to my office? I'm in a meeting right now.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你能把这送到我办公室吗？我现在在开会。",
+        "knowledgePoint": "高频请求表达：drop off + 物品 + to 地点",
+        "responseTemplate": "Could you ______ this to my office? I'm in a meeting right now."
+      }
+    },
+    {
+      "id": "workplace_053_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "workplace_053_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "请回忆如何询问服务提供者",
+        "qaId": "workplace_053_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "desk",
+            "options": [
+              "桌子",
+              "办公室",
+              "工位",
+              "门口"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在前台咨询服务时，需要向服务员提出一个请求",
+        "knowledgePoint": "口语表达：请求派送",
+        "responseTemplate": "Can you drop this off at my ___? Thanks!"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "强调紧急时，表达‘亲自送过去’的地道说法",
         "type": "fill_blank",
-        "situation": "员工需要紧急把文件送到财务部，向前台求助",
-        "speakerText": "This is urgent — could you ______ it to Finance? I'll owe you one.",
-        "speakerTextCn": "这个很紧急，你能把它送到财务部吗？我欠你一个人情。",
-        "responseTemplate": "This is urgent — could you ______ it to Finance? I'll owe you one.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "强调紧急时，表达‘亲自送过去’的地道说法",
-        "knowledgePoint": "紧急请求中的精准动词：hand-deliver"
+        "situation": "员工需要紧急把文件送到财务部，向前台求助",
+        "speakerText": "This is urgent — could you ______ it to Finance? I'll owe you one.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这个很紧急，你能把它送到财务部吗？我欠你一个人情。",
+        "knowledgePoint": "紧急请求中的精准动词：hand-deliver",
+        "responseTemplate": "This is urgent — could you ______ it to Finance? I'll owe you one."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "用于礼貌请求时，'mind + 动名词'结构后接的动作需用动名词形式",
         "type": "fill_blank",
-        "situation": "员工想请前台把包裹放在同事的工位上，但不确定对方是否方便",
-        "speakerText": "Would you mind ______ this to Sarah's desk? No rush, just when you get a chance.",
-        "speakerTextCn": "你介意把这个放到莎拉的工位上吗？不急，你有空的时候就行。",
-        "responseTemplate": "Would you mind ______ this to Sarah's desk? No rush, just when you get a chance.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "用于礼貌请求时，'mind + 动名词'结构后接的动作需用动名词形式",
-        "knowledgePoint": "礼貌请求结构：Would you mind + V-ing"
+        "situation": "员工想请前台把包裹放在同事的工位上，但不确定对方是否方便",
+        "speakerText": "Would you mind ______ this to Sarah's desk? No rush, just when you get a chance.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你介意把这个放到莎拉的工位上吗？不急，你有空的时候就行。",
+        "knowledgePoint": "礼貌请求结构：Would you mind + V-ing",
+        "responseTemplate": "Would you mind ______ this to Sarah's desk? No rush, just when you get a chance."
+      }
+    },
+    {
+      "id": "workplace_053_sub_2_pq_6",
+      "subSceneId": "workplace_053_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表达‘请求派送’时，常用动词是 send 或 drop off",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "send",
+            "options": [
+              "send",
+              "give",
+              "carry",
+              "mail"
+            ]
+          }
+        ],
+        "template": "I'd like to ___ this to the Sales team. Could you help?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景核心句型（I'd like to send...）"
       }
     }
   ]

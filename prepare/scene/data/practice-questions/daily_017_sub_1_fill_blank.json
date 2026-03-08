@@ -2,8 +2,7 @@
   "subSceneId": "daily_017_sub_1",
   "subSceneName": "打招呼问候",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:58.702Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.560Z",
   "questions": [
     {
       "id": "daily_017_sub_1_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "回应对方的问候时，用简短礼貌的感谢语最自然，避免重复对方的话或回答无关内容。",
         "type": "fill_blank",
-        "situation": "顾客走进一家咖啡店，店员微笑着主动打招呼，顾客需要礼貌回应并开启对话",
-        "speakerText": "Good morning! Welcome to Brew & Co!",
-        "speakerTextCn": "早上好！欢迎光临Brew & Co！",
-        "responseTemplate": "___, I'm just looking around for now.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,66 @@
             ]
           }
         ],
-        "hint": "回应对方的问候时，用简短礼貌的感谢语最自然，避免重复对方的话或回答无关内容。",
-        "knowledgePoint": "日常问候中的礼貌回应"
+        "situation": "顾客走进一家咖啡店，店员微笑着主动打招呼，顾客需要礼貌回应并开启对话",
+        "speakerText": "Good morning! Welcome to Brew & Co!",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "早上好！欢迎光临Brew & Co！",
+        "knowledgePoint": "日常问候中的礼貌回应",
+        "responseTemplate": "___, I'm just looking around for now."
+      }
+    },
+    {
+      "id": "daily_017_sub_1_qa_2_fill_blank_1",
+      "subSceneId": "daily_017_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "这是英语中常见的非正式问候语，用于轻松开启对话",
+        "qaId": "daily_017_sub_1_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "How's it going?",
+            "options": [
+              "How are you doing?",
+              "What's your name?",
+              "Do you have apples?",
+              "Can I help you?"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客走进水果店，想用礼貌的方式向店员打招呼并开启对话",
+        "knowledgePoint": "日常问候句型",
+        "responseTemplate": "___"
+      }
+    },
+    {
+      "id": "daily_017_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "daily_017_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "用户主动询问水果店是否有特定水果",
+        "qaId": "daily_017_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "apples",
+            "options": [
+              "apples",
+              "oranges",
+              "bananas",
+              "grapes"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客进店与店员礼貌打招呼",
+        "knowledgePoint": "口语表达-询问水果",
+        "responseTemplate": "Hi there! Got any fresh ___ today?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "在非正式场合，'Pretty good'或'Can't complain'比单纯说'Fine'更自然，且搭配反问更显礼貌。",
         "type": "fill_blank",
-        "situation": "顾客进入一家书店，店员微笑问候：'How's your day going?'，顾客希望友好回应并反问以保持对话流畅",
-        "speakerText": "How's your day going?",
-        "speakerTextCn": "你今天过得怎么样？",
-        "responseTemplate": "___! How about you?",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "在非正式场合，'Pretty good'或'Can't complain'比单纯说'Fine'更自然，且搭配反问更显礼貌。",
-        "knowledgePoint": "自然回应问候并反问的表达方式"
+        "situation": "顾客进入一家书店，店员微笑问候：'How's your day going?'，顾客希望友好回应并反问以保持对话流畅",
+        "speakerText": "How's your day going?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你今天过得怎么样？",
+        "knowledgePoint": "自然回应问候并反问的表达方式",
+        "responseTemplate": "___! How about you?"
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "当对方主动提供帮助时，用'Sure!'或'Of course!'表示礼貌接受问候，即使暂时不需要帮助，也保持友好态度。",
         "type": "fill_blank",
-        "situation": "顾客走进一家花店，店员热情地说：'Hi there! Can I help you today?'，顾客想先简单回应再说明意图",
-        "speakerText": "Hi there! Can I help you today?",
-        "speakerTextCn": "嗨！今天需要帮忙吗？",
-        "responseTemplate": "___, I'm just browsing for now.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "当对方主动提供帮助时，用'Sure!'或'Of course!'表示礼貌接受问候，即使暂时不需要帮助，也保持友好态度。",
-        "knowledgePoint": "接受问候并委婉拒绝即时帮助的表达"
+        "situation": "顾客走进一家花店，店员热情地说：'Hi there! Can I help you today?'，顾客想先简单回应再说明意图",
+        "speakerText": "Hi there! Can I help you today?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨！今天需要帮忙吗？",
+        "knowledgePoint": "接受问候并委婉拒绝即时帮助的表达",
+        "responseTemplate": "___, I'm just browsing for now."
+      }
+    },
+    {
+      "id": "daily_017_sub_1_pq_6",
+      "subSceneId": "daily_017_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "问候语中询问近况的标准表达",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "How are you",
+            "options": [
+              "How are you",
+              "What are you",
+              "Where are you",
+              "Why are you"
+            ]
+          }
+        ],
+        "template": "Good afternoon! ___ doing today?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "问候句型 How are you doing?（日常问候核心句型）"
       }
     }
   ]

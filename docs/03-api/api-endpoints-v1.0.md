@@ -1,7 +1,7 @@
 # 语习集 - API接口文档
 
-> 版本: v1.6
-> 最后更新: 2026-03-01
+> 版本: v1.7
+> 最后更新: 2026-03-08
 > 优先级: P1
 > 阅读时间: 30分钟
 
@@ -839,6 +839,7 @@ interface GuidedRoleplayEvaluateRequest {
 
 | 版本 | 日期 | 变更内容 | 作者 |
 |------|------|----------|------|
+| v1.7 | 2026-03-08 | 更新 QA_Pair 字段名：speakerText→triggerText, responses→followUps, qaType→learnRequirement；新增 dialogueMode, triggerSpeakerRole, scenarioHintCn 字段 | AI |
 | v1.6 | 2026-03-01 | 新增 /api/guided-roleplay/evaluate 接口；修正 /api/shadowing/evaluate 请求格式（PCM 原始数据）；补充场景测试新题型说明；更新接口概览表 | AI |
 | v1.5 | 2026-07-11 | 更新 /api/scenes/[id]/sub-scenes 响应格式，新增 scene 字段（含 name/description/category/difficulty），场景不存在时返回 404 | AI |
 | v1.4 | 2026-07-10 | 新增子场景API文档（/api/scenes/[id]/sub-scenes、/api/sub-scenes/[subSceneId] 及其子路由） | AI |
@@ -908,12 +909,15 @@ interface GuidedRoleplayEvaluateRequest {
     {
       "id": "qa_001",
       "subSceneId": "sub_001",
-      "speakerText": "How many bags are you checking?",
-      "speakerTextCn": "您要托运几件行李？",
-      "responses": [
+      "dialogueMode": "user_responds",
+      "triggerText": "How many bags are you checking?",
+      "triggerTextCn": "您要托运几件行李？",
+      "triggerSpeakerRole": "staff",
+      "scenarioHintCn": "在机场办理登机手续时",
+      "followUps": [
         { "text": "Just one.", "text_cn": "只有一件。", "audio_url": "COS:/..." }
       ],
-      "qaType": "must_speak",
+      "learnRequirement": "speak_followup",
       "order": 1
     }
   ],
@@ -964,8 +968,9 @@ interface GuidedRoleplayEvaluateRequest {
     {
       "type": "speaking",
       "qaId": "qa_003",
-      "speakerText": "Do you have any fragile items?",
-      "speakerTextCn": "您有易碎物品吗？"
+      "dialogueMode": "user_responds",
+      "triggerText": "Do you have any fragile items?",
+      "triggerTextCn": "您有易碎物品吗？"
     }
   ]
 }
@@ -1017,7 +1022,7 @@ interface GuidedRoleplayEvaluateRequest {
 |------|------|------|
 | pass | boolean | 用户回应是否通过语义匹配 |
 | nextQaIndex | number | 下一个待处理的 QA_Pair 索引 |
-| aiMessage | string? | 下一条 speaker_text 或完成提示 |
+| aiMessage | string? | 下一条 trigger_text 或完成提示 |
 | isComplete | boolean | 是否所有 QA_Pair 已完成 |
 
 #### 错误码

@@ -2,8 +2,7 @@
   "subSceneId": "daily_009_sub_2",
   "subSceneName": "确认油号和价格",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:25.010Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.505Z",
   "questions": [
     {
       "id": "daily_009_sub_2_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "注意口语中数字和货币的简洁表达方式，常用 'three seventy-nine' 和 'fifty bucks'",
         "type": "fill_blank",
-        "situation": "顾客在加油站准备加油，向工作人员确认油号并询问单价",
-        "speakerText": "I'll take mid-grade, please. How much per gallon?",
-        "speakerTextCn": "我要加中档油，请问每加仑多少钱？",
-        "responseTemplate": "It's ___ per gallon. Total'll be around ___.",
         "blanks": [
           {
             "index": 0,
@@ -38,8 +34,12 @@
             ]
           }
         ],
-        "hint": "注意口语中数字和货币的简洁表达方式，常用 'three seventy-nine' 和 'fifty bucks'",
-        "knowledgePoint": "口语中货币和数量的自然表达方式"
+        "situation": "顾客在加油站准备加油，向工作人员确认油号并询问单价",
+        "speakerText": "I'll take mid-grade, please. How much per gallon?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我要加中档油，请问每加仑多少钱？",
+        "knowledgePoint": "口语中货币和数量的自然表达方式",
+        "responseTemplate": "It's ___ per gallon. Total'll be around ___."
       }
     },
     {
@@ -48,11 +48,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "比较价格时用 'a bit higher' 更自然，额外费用常用 'bucks' 表达",
         "type": "fill_blank",
-        "situation": "顾客想加最高标号的油，但不确定是否需要额外付费，向工作人员确认",
-        "speakerText": "I'd like premium. Is that more expensive than regular?",
-        "speakerTextCn": "我想加高级油，这比普通油贵吗？",
-        "responseTemplate": "Yes, it's ___ than regular. You're looking at ___ extra.",
         "blanks": [
           {
             "index": 0,
@@ -75,8 +72,12 @@
             ]
           }
         ],
-        "hint": "比较价格时用 'a bit higher' 更自然，额外费用常用 'bucks' 表达",
-        "knowledgePoint": "表达价格差异的常用口语结构"
+        "situation": "顾客想加最高标号的油，但不确定是否需要额外付费，向工作人员确认",
+        "speakerText": "I'd like premium. Is that more expensive than regular?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我想加高级油，这比普通油贵吗？",
+        "knowledgePoint": "表达价格差异的常用口语结构",
+        "responseTemplate": "Yes, it's ___ than regular. You're looking at ___ extra."
       }
     },
     {
@@ -85,11 +86,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "加油站付款方式通常有两种：加油机上付或进店付，常用 'at the pump' 和 'inside'",
         "type": "fill_blank",
-        "situation": "顾客已经选定油号，准备让工作人员加满，询问是否需要提前付款",
-        "speakerText": "Okay, fill it up. Do I pay before or after?",
-        "speakerTextCn": "好的，加满吧。我该先付还是后付？",
-        "responseTemplate": "You can pay ___ or ___ after.",
         "blanks": [
           {
             "index": 0,
@@ -112,8 +110,100 @@
             ]
           }
         ],
-        "hint": "加油站付款方式通常有两种：加油机上付或进店付，常用 'at the pump' 和 'inside'",
-        "knowledgePoint": "加油站付款流程的常见表达方式"
+        "situation": "顾客已经选定油号，准备让工作人员加满，询问是否需要提前付款",
+        "speakerText": "Okay, fill it up. Do I pay before or after?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "好的，加满吧。我该先付还是后付？",
+        "knowledgePoint": "加油站付款流程的常见表达方式",
+        "responseTemplate": "You can pay ___ or ___ after."
+      }
+    },
+    {
+      "id": "daily_009_sub_2_pq_4",
+      "subSceneId": "daily_009_sub_2",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "美国加油时常用的容量单位",
+        "qaId": "daily_009_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "gallon",
+            "options": [
+              "gallon",
+              "liter",
+              "tank",
+              "minute"
+            ]
+          }
+        ],
+        "template": "Regular's fine. How much per ___?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景高频词汇（容量单位）"
+      }
+    },
+    {
+      "id": "daily_009_sub_2_pq_5",
+      "subSceneId": "daily_009_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "表示在某个设备或地点付款的固定搭配",
+        "qaId": "daily_009_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "at",
+            "options": [
+              "at",
+              "on",
+              "in",
+              "by"
+            ]
+          }
+        ],
+        "template": "You can pay ___ the pump or inside.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "介词搭配（pay at the pump）"
+      }
+    },
+    {
+      "id": "daily_009_sub_2_pq_6",
+      "subSceneId": "daily_009_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "选择油号和询问单价的常用表达",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "premium",
+            "options": [
+              "premium",
+              "regular",
+              "diesel",
+              "ethanol"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "price",
+            "options": [
+              "price",
+              "cost",
+              "fee",
+              "rate"
+            ]
+          }
+        ],
+        "template": "I'll take ___ octane. What's the ___ per gallon?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景核心句型（I'll take ___ / What's the price?）"
       }
     }
   ]

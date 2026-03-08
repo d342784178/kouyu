@@ -1,7 +1,7 @@
 # 语习集 - 数据库设计
 
-> 版本: v1.4
-> 最后更新: 2026-03-01
+> 版本: v1.5
+> 最后更新: 2026-03-08
 > 优先级: P1
 > 阅读时间: 20分钟
 
@@ -324,12 +324,16 @@ export const subScenes = pgTable('sub_scenes', {
 export const qaPairs = pgTable('qa_pairs', {
   id: text('id').primaryKey(),                                    // 格式: {sub_scene_id}_qa_{n}
   subSceneId: text('sub_scene_id').notNull().references(() => subScenes.id),
-  speakerText: text('speaker_text').notNull(),
-  speakerTextCn: text('speaker_text_cn').notNull(),
-  responses: jsonb('responses').notNull(),                        // QAResponse[]
+  dialogueMode: text('dialogue_mode').notNull(),                  // 'user_responds' | 'user_asks'
+  triggerText: text('trigger_text').notNull(),                    // 触发文本（英文）
+  triggerTextCn: text('trigger_text_cn').notNull(),               // 触发文本（中文）
+  triggerSpeakerRole: text('trigger_speaker_role'),               // 触发说话人角色
+  scenarioHint: text('scenario_hint'),                            // 场景提示（英文）
+  scenarioHintCn: text('scenario_hint_cn'),                       // 场景提示（中文）
+  followUps: jsonb('follow_ups').notNull(),                       // FollowUp[]
   usageNote: text('usage_note'),
   audioUrl: text('audio_url'),
-  qaType: text('qa_type').notNull(),                              // 'listen_only' | 'must_speak'
+  learnRequirement: text('learn_requirement').notNull(),          // 'listen_only' | 'must_speak'
   order: integer('order').notNull(),
   createdAt: text('created_at').default(sql`CURRENT_TIMESTAMP`),
   updatedAt: text('updated_at').default(sql`CURRENT_TIMESTAMP`),
@@ -342,21 +346,44 @@ export const qaPairs = pgTable('qa_pairs', {
 |------|------|------|------|
 | `id` | text | ✅ | 主键，格式：`{sub_scene_id}_qa_{n}`，如 `daily_001_sub_1_qa_1` |
 | `sub_scene_id` | text | ✅ | 关联的子场景ID，外键 |
-| `speaker_text` | text | ✅ | 对方说的话（英文） |
-| `speaker_text_cn` | text | ✅ | 对方说的话（中文） |
-| `responses` | jsonb | ✅ | 用户回应表达数组，见下方格式说明 |
+| `dialogue_mode` | text | ✅ | 对话模式：`user_responds`（用户回应）或 `user_asks`（用户提问） |
+| `trigger_text` | text | ✅ | 触发文本（英文），根据模式不同含义不同 |
+| `trigger_text_cn` | text | ✅ | 触发文本（中文翻译） |
+| `trigger_speaker_role` | text | - | 触发说话人的角色，如 "服务员"、"店员" |
+| `scenario_hint` | text | - | 场景提示（英文），帮助用户理解语境 |
+| `scenario_hint_cn` | text | - | 场景提示（中文翻译） |
+| `follow_ups` | jsonb | ✅ | 后续表达数组，见下方格式说明 |
 | `usage_note` | text | - | 使用说明 |
-| `audio_url` | text | - | speaker_text 的真人音频（`COS:/...` 格式） |
-| `qa_type` | text | ✅ | 问答类型：`listen_only`（听懂就好）或 `must_speak`（需要会说） |
+| `audio_url` | text | - | trigger_text 的真人音频（`COS:/...` 格式） |
+| `learn_requirement` | text | ✅ | 学习要求：`listen_only`（听懂就好）或 `must_speak`（需要会说） |
 | `order` | integer | ✅ | 在子场景中的排序，从1开始 |
 | `created_at` | text | - | 创建时间 |
 | `updated_at` | text | - | 更新时间 |
 
-### responses 字段格式
+### 对话模式说明
+
+`dialogue_mode` 字段定义了问答对的交互模式：
+
+| 模式 | 值 | 说明 | 触发文本含义 |
+|------|-----|------|-------------|
+| 用户回应 | `user_responds` | 服务方先说话，用户需要回应 | 服务方说的话（如服务员的问题） |
+| 用户提问 | `user_asks` | 用户先提问，服务方回答 | 用户应该问的问题 |
+
+**user_responds 模式示例：**
+- 场景：餐厅点餐
+- 服务员说："Would you like to see the menu?"
+- 用户需要回应：选择看菜单或直接点餐
+
+**user_asks 模式示例：**
+- 场景：酒店入住
+- 用户应该问："What time is breakfast served?"
+- 前台回答相关内容
+
+### follow_ups 字段格式
 
 ```typescript
-interface QAResponse {
-  text: string;       // 英文回应表达
+interface FollowUp {
+  text: string;       // 英文表达
   text_cn: string;    // 中文翻译
   audio_url?: string; // 该表达的音频（COS:/... 格式）
 }
@@ -377,6 +404,65 @@ interface QAResponse {
     "audio_url": "COS:/scene/sub_scenes/daily_001_sub_1_qa_1_resp2.mp3"
   }
 ]
+```
+
+### 完整示例数据
+
+**user_responds 模式示例：**
+
+```json
+{
+  "id": "daily_001_sub_1_qa_1",
+  "sub_scene_id": "daily_001_sub_1",
+  "dialogue_mode": "user_responds",
+  "trigger_text": "Would you like to see the menu?",
+  "trigger_text_cn": "您想看菜单吗？",
+  "trigger_speaker_role": "服务员",
+  "scenario_hint": "The waiter is offering you a menu at a restaurant.",
+  "scenario_hint_cn": "服务员在餐厅给你提供菜单。",
+  "follow_ups": [
+    {
+      "text": "Yes, please.",
+      "text_cn": "好的，谢谢。",
+      "audio_url": "COS:/scene/sub_scenes/daily_001_sub_1_qa_1_resp1.mp3"
+    },
+    {
+      "text": "No thanks, I already know what I want.",
+      "text_cn": "不用了，我已经知道想要什么了。",
+      "audio_url": "COS:/scene/sub_scenes/daily_001_sub_1_qa_1_resp2.mp3"
+    }
+  ],
+  "usage_note": "这是餐厅进店后的常见对话，可以根据是否需要看菜单来选择回应。",
+  "audio_url": "COS:/scene/sub_scenes/daily_001_sub_1_qa_1_trigger.mp3",
+  "learn_requirement": "must_speak",
+  "order": 1
+}
+```
+
+**user_asks 模式示例：**
+
+```json
+{
+  "id": "travel_001_sub_2_qa_3",
+  "sub_scene_id": "travel_001_sub_2",
+  "dialogue_mode": "user_asks",
+  "trigger_text": "What time is breakfast served?",
+  "trigger_text_cn": "早餐几点供应？",
+  "trigger_speaker_role": null,
+  "scenario_hint": "You want to know the breakfast hours at your hotel.",
+  "scenario_hint_cn": "你想知道酒店的早餐时间。",
+  "follow_ups": [
+    {
+      "text": "Breakfast is served from 7 to 10 am.",
+      "text_cn": "早餐供应时间是早上7点到10点。",
+      "audio_url": "COS:/scene/sub_scenes/travel_001_sub_2_qa_3_resp1.mp3"
+    }
+  ],
+  "usage_note": "在酒店入住时询问早餐时间是常见需求。",
+  "audio_url": "COS:/scene/sub_scenes/travel_001_sub_2_qa_3_trigger.mp3",
+  "learn_requirement": "must_speak",
+  "order": 3
+}
 ```
 
 ### 关联关系
@@ -643,6 +729,7 @@ CREATE INDEX idx_scenes_search ON scenes USING gin(to_tsvector('chinese', name |
 
 | 版本 | 日期 | 变更内容 | 作者 |
 |------|------|----------|------|
+| v1.5 | 2026-03-08 | 重构 qa_pairs 表字段：新增 dialogue_mode/trigger_speaker_role/scenario_hint 字段；重命名 speaker_text→trigger_text、responses→follow_ups、qa_type→learn_requirement；添加对话模式说明和完整示例 | AI |
 | v1.4 | 2026-03-01 | 补充 scene_tests.type 新增题型（fill_blank/guided_roleplay/vocab_activation）；更新字段值规范表 | AI |
 | v1.3 | 2026-07-30 | 新增 sub_scenes 和 qa_pairs 表定义（v2场景学习增强功能） | AI |
 | v1.2 | 2026-02-25 | 补充dialogue analysis字段格式说明，包括formality字段可选值 | AI |

@@ -2,8 +2,7 @@
   "subSceneId": "workplace_037_sub_1",
   "subSceneName": "会议开场",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:32:12.171Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.402Z",
   "questions": [
     {
       "id": "workplace_037_sub_1_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "用简洁有力的短语确认音频清晰，这是英语会议中最常见的回应方式",
         "type": "fill_blank",
-        "situation": "会议主持人开始会议，确认所有参会者是否已加入并能正常听到声音",
-        "speakerText": "Hi team, welcome to the meeting—can everyone hear me clearly?",
-        "speakerTextCn": "大家好，欢迎参加本次会议，大家都能听清我吗？",
-        "responseTemplate": "___",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "用简洁有力的短语确认音频清晰，这是英语会议中最常见的回应方式",
-        "knowledgePoint": "高频确认性回应表达"
+        "situation": "会议主持人开始会议，确认所有参会者是否已加入并能正常听到声音",
+        "speakerText": "Hi team, welcome to the meeting—can everyone hear me clearly?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "大家好，欢迎参加本次会议，大家都能听清我吗？",
+        "knowledgePoint": "高频确认性回应表达",
+        "responseTemplate": "___"
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "汇报参会状态时，应说明整体情况并指出具体异常（如静音、未连接）",
         "type": "fill_blank",
-        "situation": "会议主持人询问是否有成员未连接或遇到技术问题",
-        "speakerText": "Just a quick check—are there anyone having trouble joining?",
-        "speakerTextCn": "快速确认一下，有人遇到连接问题吗？",
-        "responseTemplate": "___",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "汇报参会状态时，应说明整体情况并指出具体异常（如静音、未连接）",
-        "knowledgePoint": "参会状态汇报结构"
+        "situation": "会议主持人询问是否有成员未连接或遇到技术问题",
+        "speakerText": "Just a quick check—are there anyone having trouble joining?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "快速确认一下，有人遇到连接问题吗？",
+        "knowledgePoint": "参会状态汇报结构",
+        "responseTemplate": "___"
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "用最简洁的表达表明已准备就绪，避免冗长回答",
         "type": "fill_blank",
-        "situation": "主持人准备进入议程前，再次确认所有人已准备就绪",
-        "speakerText": "Before we begin, let’s make sure everyone’s ready—anyone need a moment?",
-        "speakerTextCn": "在开始前，确认大家都准备好了——有人需要一点时间吗？",
-        "responseTemplate": "___",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "用最简洁的表达表明已准备就绪，避免冗长回答",
-        "knowledgePoint": "会议准备状态的标准化回应"
+        "situation": "主持人准备进入议程前，再次确认所有人已准备就绪",
+        "speakerText": "Before we begin, let’s make sure everyone’s ready—anyone need a moment?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "在开始前，确认大家都准备好了——有人需要一点时间吗？",
+        "knowledgePoint": "会议准备状态的标准化回应",
+        "responseTemplate": "___"
+      }
+    },
+    {
+      "id": "workplace_037_sub_1_pq_4",
+      "subSceneId": "workplace_037_sub_1",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "主���人常用短语，用于确认音频是否正常",
+        "qaId": "workplace_037_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "okay",
+            "options": [
+              "okay",
+              "well",
+              "fine",
+              "good"
+            ]
+          }
+        ],
+        "template": "Hey everyone, thanks for joining—can you all hear me ___?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定表达：hear me okay（确认音频）"
+      }
+    },
+    {
+      "id": "workplace_037_sub_1_pq_5",
+      "subSceneId": "workplace_037_sub_1",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "主持人询问是否有参会者未连接时的常用词",
+        "qaId": "workplace_037_sub_1_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "missing",
+            "options": [
+              "missing",
+              "late",
+              "absent",
+              "away"
+            ]
+          }
+        ],
+        "template": "Just checking in—anyone ___ from the call?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景核心词汇：missing（未连接）"
+      }
+    },
+    {
+      "id": "workplace_037_sub_1_pq_6",
+      "subSceneId": "workplace_037_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "描述某人静音时的固定搭配",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "on",
+            "options": [
+              "on",
+              "in",
+              "at",
+              "by"
+            ]
+          }
+        ],
+        "template": "I'm here, and Sarah's ___ mute.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定搭配：be on mute（静音状态）"
       }
     }
   ]

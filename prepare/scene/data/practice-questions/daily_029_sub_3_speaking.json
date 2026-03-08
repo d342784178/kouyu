@@ -2,50 +2,53 @@
   "subSceneId": "daily_029_sub_3",
   "subSceneName": "支付方式",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:42:29.713Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.647Z",
   "questions": [
     {
-      "id": "daily_029_sub_3_speaking_1",
+      "id": "daily_029_sub_3_qa_1_speaking_1",
       "subSceneId": "daily_029_sub_3",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "daily_029_sub_3_qa_1",
-        "speakerText": "I'll take this one. Can I pay with card?",
-        "speakerTextCn": "我就要这个了，能刷卡吗？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "家长在商店结账时，已经选好商品，想要确认是否可以使用银行卡支付。",
         "expectedAnswers": [
-          "Sure! Just tap or insert your card.",
-          "Of course! We accept both card and cash.",
-          "Yeah, swipe it on the reader — it's contactless."
+          "I'll take this. Can I pay with a card?",
+          "Do you accept credit cards for this?",
+          "Is it possible to pay by card instead of cash?",
+          "Could I use my debit card to pay for this?"
         ],
         "evaluationCriteria": [
-          "意图达成度：正确回应了刷卡请求，未拒绝或转移话题",
-          "语言准确性：使用了正确的支付动词（tap/insert/swipe）和术语（card/contactless）",
-          "表达自然度：语调自然，符合日常口语节奏，无生硬翻译痕迹"
+          "意图达成度：是否明确表达了想用银行卡支付的意图",
+          "语言准确性：语法结构正确，冠词和介词使用无误",
+          "表达自然度：符合日常英语口语习惯，语气得体",
+          "关键词覆盖：使用了'card', 'pay', 'accept'等场景关键词"
         ]
       }
     },
     {
-      "id": "daily_029_sub_3_speaking_2",
+      "id": "daily_029_sub_3_qa_2_speaking_1",
       "subSceneId": "daily_029_sub_3",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "daily_029_sub_3_qa_2",
-        "speakerText": "Do you accept Apple Pay?",
-        "speakerTextCn": "你们支持苹果支付吗？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "家长在结账时想确认商家是否支持移动支付方式，以便选择最方便的付款方式。",
         "expectedAnswers": [
-          "Yes! Just hold your phone near the reader.",
-          "Sorry, we don’t support Apple Pay yet, but we’re working on it.",
-          "We do! It’s quick and secure — go ahead."
+          "Do you accept Apple Pay?",
+          "Can I pay with Apple Pay?",
+          "Do you take digital payments like Apple Pay?",
+          "Is Apple Pay an option here?"
         ],
         "evaluationCriteria": [
-          "意图达成度：清晰回应是否支持Apple Pay，不回避问题",
-          "语言准确性：使用了正确术语（Apple Pay, reader）和恰当动词（hold, go ahead）",
-          "表达自然度：语气礼貌、符合服务场景，使用口语化表达如'go ahead'或'working on it'"
+          "意图达成度：是否明确询问了Apple Pay支付方式",
+          "语言准确性：语法结构正确，用词恰当",
+          "表达自然度：符合日常英语口语习惯",
+          "关键词覆盖：使用了'Apple Pay'或相关数字支付关键词"
         ]
       }
     },
@@ -55,9 +58,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I'm paying with Google Pay. Is that fine?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我用谷歌支付，可以吗？",
         "expectedAnswers": [
           "Absolutely! Just tap your phone on the terminal.",

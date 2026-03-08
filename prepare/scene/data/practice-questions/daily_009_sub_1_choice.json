@@ -2,9 +2,43 @@
   "subSceneId": "daily_009_sub_1",
   "subSceneName": "打招呼请求加油",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:16:05.958Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.503Z",
   "questions": [
+    {
+      "id": "daily_009_sub_1_qa_2_choice_1",
+      "subSceneId": "daily_009_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_009_sub_1_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'd like to fill up, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you have gasoline?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much is the fuel?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you help me?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'I'd like to fill up, please.'直接、礼貌地表达了加满油的需求，符合加油站服务场景。选项'Do you have gasoline?'是询问是否有油，而非提出服务请求；'How much is the fuel?'关注价格而非需求，不符合先提出需求的场景逻辑；'Can you help me?'过于笼统，未说明具体需求，不够明确自然。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客走进加油站，准备向员工提出加油需求，希望礼貌且清晰地表达想加满油"
+      }
+    },
     {
       "id": "daily_009_sub_1_choice_1",
       "subSceneId": "daily_009_sub_1",
@@ -12,9 +46,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "顾客走进加油站，向员工打招呼并说明需要加油，但未说明油品类型，员工需要确认需求",
-        "speakerText": "Hi, can you help me with gas?",
-        "speakerTextCn": "嗨，你能帮我加点油吗？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +68,46 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了顾客的加油请求，并自然引导确认油品类型，符合加油站高频对话模式。干扰项1是答非所问（询问会员卡），干扰项2是错误信息（声称没油），干扰项3是误解意图（询问预算而非油品）"
+        "situation": "顾客走进加油站，向员工打招呼并说明需要加油，但未说明油品类型，员工需要确认需求",
+        "explanation": "正确答案直接回应了顾客的加油请求，并自然引导确认油品类型，符合加油站高频对话模式。干扰项1是答非所问（询问会员卡），干扰项2是错误信息（声称没油），干扰项3是误解意图（询问预算而非油品）",
+        "speakerText": "Hi, can you help me with gas?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨，你能帮我加点油吗？"
+      }
+    },
+    {
+      "id": "daily_009_sub_1_qa_1_choice_1",
+      "subSceneId": "daily_009_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_009_sub_1_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hey there! Can I get some gas, please?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Hi! 我想买点东西",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "嘿！你们有加油服务吗？",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "您好！我需要一些汽油吗？",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案\"Hey there! Can I get some gas, please?\"符合场景需求，直接表达了顾客的需求。其他选项不正确，因为它们没有直接表达需求，或者表达不自然",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客向加油站员工打招呼并说明需要加油"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "顾客刚停好车，走向加油站员工，用轻松语气说想加满油，但未指定油品",
-        "speakerText": "Hey, I need to fill up, please.",
-        "speakerTextCn": "嘿，我想加满油，谢谢。",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用口语化缩写 'Got it' 并立即确认油品类型，符合高频对话习惯。干扰项1是提供无关服务（检查轮胎），干扰项2是提前行动未获确认（直接开始加油），干扰项3是过早询问支付方式（应在确认油品后）"
+        "situation": "顾客刚停好车，走向加油站员工，用轻松语气说想加满油，但未指定油品",
+        "explanation": "正确答案使用口语化缩写 'Got it' 并立即确认油品类型，符合高频对话习惯。干扰项1是提供无关服务（检查轮胎），干扰项2是提前行动未获确认（直接开始加油），干扰项3是过早询问支付方式（应在确认油品后）",
+        "speakerText": "Hey, I need to fill up, please.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嘿，我想加满油，谢谢。"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "顾客在加油站排队时对员工微笑并说需要加油，语气礼貌但简洁",
-        "speakerText": "Hi, I'd like some gas.",
-        "speakerTextCn": "嗨，我想加点油。",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案用简洁自然的 'No problem' 回应，并用口语化 'What grade?' 确认油品，符合日常服务场景。干扰项1是假设顾客需要柴油（未提及车型），干扰项2是要求移动车辆（与当前请求无关），干扰项3是泛泛致谢（未回应核心需求）"
+        "situation": "顾客在加油站排队时对员工微笑并说需要加油，语气礼貌但简洁",
+        "explanation": "正确答案用简洁自然的 'No problem' 回应，并用口语化 'What grade?' 确认油品，符合日常服务场景。干扰项1是假设顾客需要柴油（未提及车型），干扰项2是要求移动车辆（与当前请求无关），干扰项3是泛泛致谢（未回应核心需求）",
+        "speakerText": "Hi, I'd like some gas.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嗨，我想加点油。"
       }
     }
   ]

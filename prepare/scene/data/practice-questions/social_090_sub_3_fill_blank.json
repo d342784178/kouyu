@@ -2,8 +2,7 @@
   "subSceneId": "social_090_sub_3",
   "subSceneName": "进入正题",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:27:44.984Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.764Z",
   "questions": [
     {
       "id": "social_090_sub_3_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "当对方提出温和过渡到正题时，常用礼貌且积极的回应来表示同意。",
         "type": "fill_blank",
-        "situation": "在会议开始时，同事想自然地转向讨论项目进展，避免突兀地切入主题。",
-        "speakerText": "Before we dive into the rest of the agenda, could we quickly review the current project status?",
-        "speakerTextCn": "在我们进入议程其他部分之前，我们能快速回顾一下当前项目进展吗？",
-        "responseTemplate": "___, I've prepared a quick summary for you.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,66 @@
             ]
           }
         ],
-        "hint": "当对方提出温和过渡到正题时，常用礼貌且积极的回应来表示同意。",
-        "knowledgePoint": "自然过渡到正题时的礼貌回应"
+        "situation": "在会议开始时，同事想自然地转向讨论项目进展，避免突兀地切入主题。",
+        "speakerText": "Before we dive into the rest of the agenda, could we quickly review the current project status?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "在我们进入议程其他部分之前，我们能快速回顾一下当前项目进展吗？",
+        "knowledgePoint": "自然过渡到正题时的礼貌回应",
+        "responseTemplate": "___, I've prepared a quick summary for you."
+      }
+    },
+    {
+      "id": "social_090_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "social_090_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示，帮助用户回忆",
+        "qaId": "social_090_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "report",
+            "options": [
+              "项目",
+              "报告",
+              "计划",
+              "任务"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户提出问题，等待对方回答",
+        "knowledgePoint": "提问句型和工作或计划讨论主题",
+        "responseTemplate": "Anyway, I wanted to check in about the ___, got time to go over it?"
+      }
+    },
+    {
+      "id": "social_090_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "social_090_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "用户在讨论工作或计划时，自然过渡到具体问题",
+        "qaId": "social_090_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "the new project",
+            "options": [
+              "the new project",
+              "our team's performance",
+              "the company's strategy",
+              "the meeting's outcome"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户提出问题，等待对方回答",
+        "knowledgePoint": "转换话题和提问句型",
+        "responseTemplate": "So, what's your take on _______________?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "当对方用 'anyway' 或类似表达过渡到工作话题时，常用 'actually' 引出自己的想法。",
         "type": "fill_blank",
-        "situation": "你和同事在茶水间偶遇，对方想把话题从闲聊转向工作计划，但不想显得太直接。",
-        "speakerText": "Anyway, have you had a chance to think about how we’re handling the upcoming rollout?",
-        "speakerTextCn": "对了，你有空想想我们怎么处理即将到来的发布吗？",
-        "responseTemplate": "___, I was actually thinking we could adjust the timeline to avoid conflicts.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "当对方用 'anyway' 或类似表达过渡到工作话题时，常用 'actually' 引出自己的想法。",
-        "knowledgePoint": "使用过渡词自然表达个人观点"
+        "situation": "你和同事在茶水间偶遇，对方想把话题从闲聊转向工作计划，但不想显得太直接。",
+        "speakerText": "Anyway, have you had a chance to think about how we’re handling the upcoming rollout?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "对了，你有空想想我们怎么处理即将到来的发布吗？",
+        "knowledgePoint": "使用过渡词自然表达个人观点",
+        "responseTemplate": "___, I was actually thinking we could adjust the timeline to avoid conflicts."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "当对方明确引导讨论进入新主题时，常用肯定性短语表示认同并顺势提出建议。",
         "type": "fill_blank",
-        "situation": "在团队周会上，主持人想把讨论从上周总结转向本周重点任务。",
-        "speakerText": "That covers last week. Now, let’s shift focus to what we need to prioritize this week.",
-        "speakerTextCn": "上周的情况就这些。现在，让我们把重点转向本周需要优先处理的事项。",
-        "responseTemplate": "___, I think the client feedback loop should be our top item.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "当对方明确引导讨论进入新主题时，常用肯定性短语表示认同并顺势提出建议。",
-        "knowledgePoint": "对主题转换表示认同并贡献观点"
+        "situation": "在团队周会上，主持人想把讨论从上周总结转向本周重点任务。",
+        "speakerText": "That covers last week. Now, let’s shift focus to what we need to prioritize this week.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "上周的情况就这些。现在，让我们把重点转向本周需要优先处理的事项。",
+        "knowledgePoint": "对主题转换表示认同并贡献观点",
+        "responseTemplate": "___, I think the client feedback loop should be our top item."
+      }
+    },
+    {
+      "id": "social_090_sub_3_pq_6",
+      "subSceneId": "social_090_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "用于自然过渡到新话题的常用短语",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "shift",
+            "options": [
+              "shift",
+              "change",
+              "turn",
+              "move"
+            ]
+          }
+        ],
+        "template": "Let’s ___ gears—I’d like to discuss the project timeline.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "惯用搭配：shift gears（转到新话题）"
       }
     }
   ]

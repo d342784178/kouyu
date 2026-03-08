@@ -1,19 +1,26 @@
 {
   "sceneId": "daily_001",
   "sceneName": "餐厅点餐",
+  "exportedAt": "2026-03-08T15:31:54.835Z",
   "subScenes": [
     {
       "id": "daily_001_sub_1",
+      "sceneId": "daily_001",
       "name": "入座问候",
       "description": "服务员引导入座并问候",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_001_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi there! Table for one?",
-          "speakerTextCn": "您好！一位吗？",
-          "responses": [
+          "subSceneId": "daily_001_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hi there! Table for one?",
+          "triggerTextCn": "您好！一位吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：顾客主动询问，服务方回应",
+          "followUps": [
             {
               "text": "Yeah, just me, thanks.",
               "text_cn": "对，就我一个，谢谢。",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用简短回答确认人数，语气自然"
+          "usageNote": "用简短回答确认人数，语气自然",
+          "audioUrl": "COS:/qa/questions/daily_001_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_001_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Would you prefer a window seat or a booth?",
-          "speakerTextCn": "您喜欢靠窗的座位还是卡座？",
-          "responses": [
+          "subSceneId": "daily_001_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Would you prefer a window seat or a booth?",
+          "triggerTextCn": "您喜欢靠窗的座位还是卡座？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：顾客主动询问，服务方回应",
+          "followUps": [
             {
               "text": "A window seat would be great, thank you.",
               "text_cn": "靠窗的座位很好，谢谢。",
@@ -49,14 +63,21 @@
               "audio_url": "COS:/qa/responses/daily_001_sub_1_qa_2_response1.mp3"
             }
           ],
-          "usageNote": "询问座位偏好的常见表达"
+          "usageNote": "询问座位偏好的常见表达",
+          "audioUrl": "COS:/qa/questions/daily_001_sub_1_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
         },
         {
           "id": "daily_001_sub_1_qa_3",
-          "qaType": "must_speak",
-          "speakerText": "Here are your menus. Can I get you something to drink while you look?",
-          "speakerTextCn": "这是菜单。您看菜单的时候需要先来点饮料吗？",
-          "responses": [
+          "subSceneId": "daily_001_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Here are your menus. Can I get you something to drink while you look?",
+          "triggerTextCn": "这是菜单。您看菜单的时候需要先来点饮料吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：顾客主动询问，服务方回应",
+          "followUps": [
             {
               "text": "Just water for now, please.",
               "text_cn": "先来杯水就好，谢谢。",
@@ -73,36 +94,52 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "服务员递菜单时的常见问法"
+          "usageNote": "服务员递菜单时的常见问法",
+          "audioUrl": "COS:/qa/questions/daily_001_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         },
         {
           "id": "daily_001_sub_1_qa_4",
-          "qaType": "listen_only",
-          "speakerText": "Take your time. I'll be back in a few minutes to take your order.",
-          "speakerTextCn": "不着急，我过几分钟再来给您点餐。",
-          "responses": [
+          "subSceneId": "daily_001_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Take your time. I'll be back in a few minutes to take your order.",
+          "triggerTextCn": "不着急，我过几分钟再来给您点餐。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：顾客主动询问，服务方回应",
+          "followUps": [
             {
               "text": "Thank you, we'll be ready soon.",
               "text_cn": "谢谢，我们很快就好。",
               "audio_url": "COS:/qa/responses/daily_001_sub_1_qa_4_response0.mp3"
             }
           ],
-          "usageNote": "服务员离开时的礼貌用语"
+          "usageNote": "服务员离开时的礼貌用语",
+          "audioUrl": "COS:/qa/questions/daily_001_sub_1_qa_4.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 4
         }
       ]
     },
     {
       "id": "daily_001_sub_2",
+      "sceneId": "daily_001",
       "name": "询问推荐",
       "description": "顾客询问今日特色或推荐菜",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_001_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "What's good today?",
-          "speakerTextCn": "今天有什么推荐的吗？",
-          "responses": [
+          "subSceneId": "daily_001_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "What's good today?",
+          "triggerTextCn": "今天有什么推荐的吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问服务员今天的推荐菜",
+          "followUps": [
             {
               "text": "I'd go for the grilled salmon — it's amazing!",
               "text_cn": "我选烤三文鱼，超棒的！",
@@ -119,14 +156,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用I'd go for...表达个人推荐"
+          "usageNote": "用I'd go for...表达个人推荐",
+          "audioUrl": "COS:/qa/questions/daily_001_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_001_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Any vegetarian options?",
-          "speakerTextCn": "有素食选项吗？",
-          "responses": [
+          "subSceneId": "daily_001_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Any vegetarian options?",
+          "triggerTextCn": "有素食选项吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问服务员今天的推荐菜",
+          "followUps": [
             {
               "text": "Yeah, we got a veggie stir-fry and salad.",
               "text_cn": "有，有素炒和沙拉。",
@@ -143,14 +187,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用we got/we have自然回应需求"
+          "usageNote": "用we got/we have自然回应需求",
+          "audioUrl": "COS:/qa/questions/daily_001_sub_2_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
         },
         {
           "id": "daily_001_sub_2_qa_3",
-          "qaType": "must_speak",
-          "speakerText": "We also have a vegetarian option — the mushroom risotto. It's very popular.",
-          "speakerTextCn": "我们还有素食选项——蘑菇烩饭，也很受欢迎。",
-          "responses": [
+          "subSceneId": "daily_001_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "We also have a vegetarian option — the mushroom risotto. It's very popular.",
+          "triggerTextCn": "我们还有素食选项——蘑菇烩饭，也很受欢迎。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问服务员今天的推荐菜",
+          "followUps": [
             {
               "text": "Perfect, I'm vegetarian. I'll go with the risotto.",
               "text_cn": "太好了，我是素食者。我要烩饭。",
@@ -162,14 +213,21 @@
               "audio_url": "COS:/qa/responses/daily_001_sub_2_qa_3_response1.mp3"
             }
           ],
-          "usageNote": "介绍素食选项"
+          "usageNote": "介绍素食选项",
+          "audioUrl": "COS:/qa/questions/daily_001_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         },
         {
           "id": "daily_001_sub_2_qa_4",
-          "qaType": "must_speak",
-          "speakerText": "Would you like to start with any appetizers or soup?",
-          "speakerTextCn": "您需要先来点开胃菜或者汤吗？",
-          "responses": [
+          "subSceneId": "daily_001_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Would you like to start with any appetizers or soup?",
+          "triggerTextCn": "您需要先来点开胃菜或者汤吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问服务员今天的推荐菜",
+          "followUps": [
             {
               "text": "Yes, we'll share the Caesar salad to start.",
               "text_cn": "好的，我们先来一份凯撒沙拉分着吃。",
@@ -181,22 +239,31 @@
               "audio_url": "COS:/qa/responses/daily_001_sub_2_qa_4_response1.mp3"
             }
           ],
-          "usageNote": "询问是否需要前菜"
+          "usageNote": "询问是否需要前菜",
+          "audioUrl": "COS:/qa/questions/daily_001_sub_2_qa_4.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 4
         }
       ]
     },
     {
       "id": "daily_001_sub_3",
+      "sceneId": "daily_001",
       "name": "点餐确认",
       "description": "顾客点餐，服务员复述确认",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_001_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "So you'd like the salmon with rice and steamed broccoli?",
-          "speakerTextCn": "您要点三文鱼配米饭和西兰花，对吗？",
-          "responses": [
+          "subSceneId": "daily_001_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "So you'd like the salmon with rice and steamed broccoli?",
+          "triggerTextCn": "您要点三文鱼配米饭和西兰花，对吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Yep, that's right!",
               "text_cn": "对，没错！",
@@ -213,14 +280,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用Yep或Yes确认，或礼貌修改"
+          "usageNote": "用Yep或Yes确认，或礼貌修改",
+          "audioUrl": "COS:/qa/questions/daily_001_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_001_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Would you like a drink with that?",
-          "speakerTextCn": "需要配饮料吗？",
-          "responses": [
+          "subSceneId": "daily_001_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like a drink with that?",
+          "triggerTextCn": "需要配饮料吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I'll take a glass of water, thanks.",
               "text_cn": "来杯水就好，谢谢。",
@@ -237,14 +311,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用I'll take...或No thanks自然回应"
+          "usageNote": "用I'll take...或No thanks自然回应",
+          "audioUrl": "COS:/qa/questions/daily_001_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         },
         {
           "id": "daily_001_sub_3_qa_3",
-          "qaType": "must_speak",
-          "speakerText": "Your total comes to $68.50. How would you like to pay?",
-          "speakerTextCn": "您的总消费是68.50美元。您想怎么付款？",
-          "responses": [
+          "subSceneId": "daily_001_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Your total comes to $68.50. How would you like to pay?",
+          "triggerTextCn": "您的总消费是68.50美元。您想怎么付款？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I'll pay by credit card.",
               "text_cn": "我用信用卡付。",
@@ -256,36 +337,52 @@
               "audio_url": "COS:/qa/responses/daily_001_sub_3_qa_3_response1.mp3"
             }
           ],
-          "usageNote": "告知金额并询问付款方式"
+          "usageNote": "告知金额并询问付款方式",
+          "audioUrl": "COS:/qa/questions/daily_001_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         },
         {
           "id": "daily_001_sub_3_qa_4",
-          "qaType": "listen_only",
-          "speakerText": "Thank you so much! Have a wonderful evening. Please come again!",
-          "speakerTextCn": "非常感谢！祝您晚上愉快，欢迎再次光临！",
-          "responses": [
+          "subSceneId": "daily_001_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thank you so much! Have a wonderful evening. Please come again!",
+          "triggerTextCn": "非常感谢！祝您晚上愉快，欢迎再次光临！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Thank you! We'll definitely be back.",
               "text_cn": "谢谢！我们一定会再来的。",
               "audio_url": "COS:/qa/responses/daily_001_sub_3_qa_4_response0.mp3"
             }
           ],
-          "usageNote": "服务员道别的礼貌用语"
+          "usageNote": "服务员道别的礼貌用语",
+          "audioUrl": "COS:/qa/questions/daily_001_sub_3_qa_4.mp3",
+          "learnRequirement": "listen_only",
+          "order": 4
         }
       ]
     },
     {
       "id": "daily_001_sub_4",
+      "sceneId": "daily_001",
       "name": "请求结账",
       "description": "用餐结束请求结账",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_001_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "How was everything?",
-          "speakerTextCn": "饭菜还合口味吗？",
-          "responses": [
+          "subSceneId": "daily_001_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "How was everything?",
+          "triggerTextCn": "饭菜还合口味吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "It was delicious, thanks!",
               "text_cn": "很好吃，谢谢！",
@@ -302,14 +399,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "先夸再提结账，更礼貌"
+          "usageNote": "先夸再提结账，更礼貌",
+          "audioUrl": "COS:/qa/questions/daily_001_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_001_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Can I get the bill, please?",
-          "speakerTextCn": "可以结账吗？",
-          "responses": [
+          "subSceneId": "daily_001_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Can I get the bill, please?",
+          "triggerTextCn": "可以结账吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Sure, I'll bring it right away.",
               "text_cn": "好的，马上给您。",
@@ -326,7 +430,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "直接说Can I get...最常用"
+          "usageNote": "直接说Can I get...最常用",
+          "audioUrl": "COS:/qa/questions/daily_001_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

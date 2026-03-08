@@ -2,20 +2,43 @@
   "subSceneId": "social_093_sub_1",
   "subSceneName": "破冰开场",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:27:47.345Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.790Z",
   "questions": [
+    {
+      "id": "social_093_sub_1_qa_2_fill_blank_1",
+      "subSceneId": "social_093_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "用一个概括性短语描述对方正在读的书类型，引出共鸣",
+        "qaId": "social_093_sub_1_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a novel by Haruki Murakami",
+            "options": [
+              "a novel by Haruki Murakami",
+              "what book is that",
+              "the author's name",
+              "if you like reading"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在咖啡馆看到对方正在读一本书，想以此为话题开启轻松对话",
+        "knowledgePoint": "基于观察的自然提问句型",
+        "responseTemplate": "You're reading ___? I just finished one!"
+      }
+    },
     {
       "id": "social_093_sub_1_fill_blank_1",
       "subSceneId": "social_093_sub_1",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "先感谢对方的赞美，再自然补充一点个人感受",
         "type": "fill_blank",
-        "situation": "你在咖啡馆等朋友时，注意到旁边有人在用一款设计独特的笔记本，想自然开启对话",
-        "speakerText": "I love your notebook—where did you get it?",
-        "speakerTextCn": "我超喜欢你的笔记本——你在哪买的？",
-        "responseTemplate": "___, it’s my favorite for sketching!",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,39 @@
             ]
           }
         ],
-        "hint": "先感谢对方的赞美，再自然补充一点个人感受",
-        "knowledgePoint": "礼貌回应 + 表达个人体验"
+        "situation": "你在咖啡馆等朋友时，注意到旁边有人在用一款设计独特的笔记本，想自然开启对话",
+        "speakerText": "I love your notebook—where did you get it?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我超喜欢你的笔记本——你在哪买的？",
+        "knowledgePoint": "礼貌回应 + 表达个人体验",
+        "responseTemplate": "___, it’s my favorite for sketching!"
+      }
+    },
+    {
+      "id": "social_093_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "social_093_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "用过去时疑问句表达对已完成动作的赞叹与询问",
+        "qaId": "social_093_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "did you make it",
+            "options": [
+              "did you make it",
+              "you made it",
+              "is it made by you",
+              "can you make it"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在咖啡馆看到一杯精致的拉花咖啡，想礼貌地向制作人表达赞叹并询问是否是对方制作的，开启对话。",
+        "knowledgePoint": "使用过去时疑问句表达对具体行为的赞叹与询问",
+        "responseTemplate": "Hey, that latte art’s amazing—___?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "用肯定回答 + 说明持续性行为来建立真实感",
         "type": "fill_blank",
-        "situation": "你在公园长椅上休息，看到一位陌生人正在喂鸽子，手里拿着一小袋面包，想用观察开启对话",
-        "speakerText": "Those pigeons love you! Do you come here often?",
-        "speakerTextCn": "这些鸽子好喜欢你啊！你常来这儿吗？",
-        "responseTemplate": "___, they’re the reason I come every Sunday.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "用肯定回答 + 说明持续性行为来建立真实感",
-        "knowledgePoint": "用习惯性行为回应观察性提问"
+        "situation": "你在公园长椅上休息，看到一位陌生人正在喂鸽子，手里拿着一小袋面包，想用观察开启对话",
+        "speakerText": "Those pigeons love you! Do you come here often?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这些鸽子好喜欢你啊！你常来这儿吗？",
+        "knowledgePoint": "用习惯性行为回应观察性提问",
+        "responseTemplate": "___, they’re the reason I come every Sunday."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "用简短共鸣表达认同，避免过度解释",
         "type": "fill_blank",
-        "situation": "你在图书馆安静看书，注意到对面的人正在读一本你也很喜欢的摄影集，想自然搭话",
-        "speakerText": "That’s the same book I’ve been flipping through all week!",
-        "speakerTextCn": "这正是我这周一直在翻的那本书！",
-        "responseTemplate": "___, the lighting in these photos is unreal.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "用简短共鸣表达认同，避免过度解释",
-        "knowledgePoint": "用简短共鸣句强化共同兴趣"
+        "situation": "你在图书馆安静看书，注意到对面的人正在读一本你也很喜欢的摄影集，想自然搭话",
+        "speakerText": "That’s the same book I’ve been flipping through all week!",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这正是我这周一直在翻的那本书！",
+        "knowledgePoint": "用简短共鸣句强化共同兴趣",
+        "responseTemplate": "___, the lighting in these photos is unreal."
+      }
+    },
+    {
+      "id": "social_093_sub_1_pq_6",
+      "subSceneId": "social_093_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "描述‘观看’展览的常用搭配",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "looking at",
+            "options": [
+              "looking at",
+              "looking for",
+              "looking after",
+              "looking through"
+            ]
+          }
+        ],
+        "template": "I saw you ___ the new exhibit—what did you think of it?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定表达：look at an exhibit（观看展览）"
       }
     }
   ]

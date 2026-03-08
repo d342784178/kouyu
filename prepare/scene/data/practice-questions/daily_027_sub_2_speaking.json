@@ -2,52 +2,53 @@
   "subSceneId": "daily_027_sub_2",
   "subSceneName": "询问功能",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:41:43.842Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.629Z",
   "questions": [
     {
-      "id": "daily_027_sub_2_speaking_1",
+      "id": "daily_027_sub_2_qa_2_speaking_1",
       "subSceneId": "daily_027_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "daily_027_sub_2_qa_2",
         "type": "speaking",
-        "qaId": "daily_027_sub_2_qa_1",
-        "speakerText": "This one’s got a 20V battery — lasts about 90 mins on a charge.",
-        "speakerTextCn": "这款是20伏电池，充一次能用90分钟。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在购买一款电动工具，想了解它的电池续航时间和功率等关键功能，需要向销售员提问。",
         "expectedAnswers": [
-          "90 minutes? Okay.",
-          "Does it come with two batteries? I hate waiting to recharge.",
-          "How long’s the runtime? I'm drilling over 50 holes in this job."
+          "How long does the battery last on a single charge?",
+          "What's the power output and runtime of this tool?",
+          "Does it have multiple speed settings and an LED light?",
+          "Can you tell me about the battery life and any special features like lighting or speed controls?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否针对续航时间提出合理追问或反馈",
-          "语言准确性：语法正确，无明显错误",
-          "表达自然度：符合日常口语节奏，避免机械背诵",
-          "关键词覆盖：使用了runtime、recharge、battery等场景词"
+          "意图达成度：是否明确询问了电池续航或功率等关键功能",
+          "语言准确性：语法结构正确，用词恰当",
+          "表达自然度：符合日常英语对话习惯，不生硬",
+          "关键词覆盖：使用了battery,续航, power, LED, speed等场景关键词"
         ]
       }
     },
     {
-      "id": "daily_027_sub_2_speaking_2",
+      "id": "daily_027_sub_2_qa_1_speaking_1",
       "subSceneId": "daily_027_sub_2",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "daily_027_sub_2_qa_1",
         "type": "speaking",
-        "qaId": "daily_027_sub_2_qa_2",
-        "speakerText": "It also has a 2-speed setting and a built-in LED light.",
-        "speakerTextCn": "它还有两档调速和内置LED灯。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客正在查看一款电动工具，想了解它的电池续航时间和功率参数，你需要主动询问相关功能信息。",
         "expectedAnswers": [
-          "Perfect! The LED’s a game-changer for dark corners.",
-          "Nice, but do I really need two speeds?",
-          "LED light? That’s useful — I often work in basements."
+          "How long does the battery last on a single charge?",
+          "What’s the battery voltage and runtime?",
+          "Can you tell me the battery life and power output?",
+          "How many minutes of use can I get from one full charge?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否对功能点表达偏好、质疑或认可",
-          "语言准确性：正确使用了‘game-changer’等表达",
-          "表达自然度：语气自然，有真实对话感",
-          "关键词覆盖：使用了LED、2-speed、built-in等关键词"
+          "意图达成度：是否明确询问了电池续航或功率参数",
+          "语言准确性：语法结构正确，用词恰当",
+          "表达自然度：符合日常英语口语习惯，无生硬表达",
+          "关键词覆盖：使用了 battery, charge, runtime, voltage 或 power 等场景关键词"
         ]
       }
     },
@@ -57,9 +58,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "The tool delivers 650 inch-pounds of torque and runs for 3 hours on a single charge.",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "这款工具提供650英寸磅的扭矩，单次充电可运行3小时。",
         "expectedAnswers": [
           "650 inch-pounds? That’s solid for heavy-duty work.",

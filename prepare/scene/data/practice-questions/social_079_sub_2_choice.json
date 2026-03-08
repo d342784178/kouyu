@@ -2,42 +2,41 @@
   "subSceneId": "social_079_sub_2",
   "subSceneName": "询问计划",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:43:57.277Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.683Z",
   "questions": [
     {
-      "id": "social_079_sub_2_choice_1",
+      "id": "social_079_sub_2_qa_1_choice_1",
       "subSceneId": "social_079_sub_2",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "social_079_sub_2_qa_1",
-        "speakerText": "What're you up to today?",
-        "speakerTextCn": "今天有什么安排呀？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'm going to the office to finish my report.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "I'm having dinner with my family, then a small party!",
+            "text": "What're you up to today?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Do you have a birthday party today?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I need to buy a new phone.",
+            "text": "How old are you today?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can you help me with my homework?",
+            "text": "What did you do yesterday?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'I'm having dinner with my family, then a small party!' 是对 'What're you up to today?' 的自然口语回应，符合询问日常安排的语境。其他选项要么是陈述任务（如去办公室、买手机），要么是请求帮助，都不符合回应闲聊式询问的语用习惯。"
+        "explanation": "正确答案 'What're you up to today?' 是朋友间自然询问当天安排的地道表达，符合生日当天关心计划的语境。干扰项 'Do you have a birthday party today?' 假设了有派对，限制了回答范围；'How old are you today?' 询问年龄，与计划无关；'What did you do yesterday?' 问的是过去，而场景关注的是当天安排。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你和朋友关系很好，今天是他生日，你想自然地问他今天有什么计划，表达关心但不显得太正式。"
       }
     },
     {
@@ -46,10 +45,8 @@
       "type": "choice",
       "order": 2,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Any plans for your birthday this year?",
-        "speakerTextCn": "今年生日有什么计划吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +69,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'I think I'll stay home and watch movies.' 直接回应了关于生日计划的询问，表达自然且符合场景。其他选项与生日无关，属于无关信息或请求，不符合语境。"
+        "explanation": "正确答案 'I think I'll stay home and watch movies.' 直接回应了关于生日计划的询问，表达自然且符合场景。其他选项与生日无关，属于无关信息或请求，不符合语境。",
+        "speakerText": "Any plans for your birthday this year?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "今年生日有什么计划吗？"
       }
     },
     {
@@ -81,10 +81,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "How are you planning to celebrate your birthday?",
-        "speakerTextCn": "你打算怎么庆祝生日呢？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +105,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'I'm thinking of going out for dinner and maybe a concert.' 完整回应了关于庆祝方式的询问，使用了计划表达 'I'm thinking of...'，自然且完整。其他选项只提供事实（如月份）或偏好（如喜欢的食物），或转移话题（邀请对方），未直接回答问题。"
+        "explanation": "正确答案 'I'm thinking of going out for dinner and maybe a concert.' 完整回应了关于庆祝方式的询问，使用了计划表达 'I'm thinking of...'，自然且完整。其他选项只提供事实（如月份）或偏好（如喜欢的食物），或转移话题（邀请对方），未直接回答问题。",
+        "speakerText": "How are you planning to celebrate your birthday?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你打算怎么庆祝生日呢？"
       }
     }
   ]

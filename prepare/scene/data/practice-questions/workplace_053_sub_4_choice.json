@@ -2,77 +2,76 @@
   "subSceneId": "workplace_053_sub_4",
   "subSceneName": "寄送需求",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:19:33.231Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.583Z",
   "questions": [
     {
-      "id": "workplace_053_sub_4_choice_1",
+      "id": "workplace_053_sub_4_qa_2_choice_1",
       "subSceneId": "workplace_053_sub_4",
       "type": "choice",
       "order": 1,
       "content": {
+        "qaId": "workplace_053_sub_4_qa_2",
         "type": "choice",
-        "qaId": "workplace_053_sub_4_qa_1",
-        "speakerText": "Can you ship this overnight to Boston? It's fragile.",
-        "speakerTextCn": "能帮我加急寄到波士顿吗？易碎品。",
         "options": [
           {
             "id": "opt_1",
-            "text": "We can use standard shipping, it's cheaper.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "We can do FedEx Priority, $45.",
+            "text": "What is the latest time I can send this package?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "How long does it take to deliver a package to a client?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I'm sorry, we don't ship to Boston.",
+            "text": "Can you help me pack this package?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "You should deliver it yourself.",
+            "text": "Do you have any discounts on shipping?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'We can do FedEx Priority, $45.' 是对加急和易碎物品的合理回应，提供专业快递方案。其他选项均不恰当：第一个忽略易碎需求，第三个错误否认服务范围，第四个完全不专业。"
+        "explanation": "正确答案为 \"What is the latest time I can send this package?\"，因为用户询问最晚的寄送时间。其他选项不正确，因为它们不符合场景的需求：\"How long does it take to deliver a package to a client?\" 是一个关于配送时间的询问，而不是寄送时间；\"Can you help me pack this package?\" 是关于包装的询问，而不是寄送时间；\"Do you have any discounts on shipping?\" 是关于折扣的询问，而不是寄送时间。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户询问快递服务，服务方提供解答"
       }
     },
     {
-      "id": "workplace_053_sub_4_choice_2",
+      "id": "workplace_053_sub_4_qa_1_choice_1",
       "subSceneId": "workplace_053_sub_4",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "workplace_053_sub_4_qa_1",
         "type": "choice",
-        "qaId": "workplace_053_sub_4_qa_2",
-        "speakerText": "I need to send this to a client tomorrow — any cut-off time?",
-        "speakerTextCn": "我明天要寄给客户，最晚几点能寄？",
         "options": [
           {
             "id": "opt_1",
-            "text": "We don't accept packages on weekdays.",
+            "text": "Can you ship this to Boston overnight?",
             "isCorrect": false
           },
           {
             "id": "opt_2",
-            "text": "Cut-off's 3 PM for same-day shipping.",
-            "isCorrect": true
+            "text": "How much does it cost to ship to Boston?",
+            "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "You can send it anytime — we ship 24/7.",
-            "isCorrect": false
+            "text": "能帮我加急寄到波士顿吗？易碎品。",
+            "isCorrect": true
           },
           {
             "id": "opt_4",
-            "text": "Just drop it off at the post office.",
+            "text": "Can you ship this to New York?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Cut-off's 3 PM for same-day shipping.' 准确回应了截止时间问题，符合职场寄送场景。第一个选项错误否定服务日，第三个夸大服务范围，第四个推卸责任，均不符合专业回应标准。"
+        "explanation": "正确答案是 opt_3，因为它符合场景需求，表达了用户的寄送需求。其他选项不正确，可能是因为理解偏差或表达不当。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户询问快递服务，服务方提供解答。"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I'm sending this package internationally. Do you offer tracking and insurance?",
-        "speakerTextCn": "我要寄一个国际包裹，你们提供追踪和保险服务吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案提供具体服务信息（追踪+保险+价格），符合专业回应。第一个选项错误否认国际服务，第三个轻率不专业，第四个虚假承诺免费，均不符合实际业务场景。"
+        "explanation": "正确答案提供具体服务信息（追踪+保险+价格），符合专业回应。第一个选项错误否认国际服务，第三个轻率不专业，第四个虚假承诺免费，均不符合实际业务场景。",
+        "speakerText": "I'm sending this package internationally. Do you offer tracking and insurance?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我要寄一个国际包裹，你们提供追踪和保险服务吗？"
       }
     }
   ]

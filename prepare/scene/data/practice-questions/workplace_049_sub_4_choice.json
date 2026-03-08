@@ -2,77 +2,76 @@
   "subSceneId": "workplace_049_sub_4",
   "subSceneName": "确认预算",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:19:05.938Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.549Z",
   "questions": [
     {
-      "id": "workplace_049_sub_4_choice_1",
+      "id": "workplace_049_sub_4_qa_2_choice_1",
       "subSceneId": "workplace_049_sub_4",
       "type": "choice",
       "order": 1,
       "content": {
+        "qaId": "workplace_049_sub_4_qa_2",
         "type": "choice",
-        "qaId": "workplace_049_sub_4_qa_1",
-        "speakerText": "What's the max daily allowance for hotels and meals?",
-        "speakerTextCn": "住宿和餐饮的每日上限是多少？",
         "options": [
           {
             "id": "opt_1",
-            "text": "It's $150/day — receipts required.",
+            "text": "What's the daily limit for meals?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "You can spend as much as you want, just submit the receipts.",
+            "text": "How do I get reimbursed for my expenses?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "The company doesn't cover meals, only hotels.",
+            "text": "Can I have a car rental for my trip?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Ask your manager for approval before spending.",
+            "text": "What's the maximum amount I can spend on a hotel room?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了每日上限和收据要求，符合公司报销政策。选项2忽略了限额，选项3错误地排除了餐饮，选项4虽合理但未回答具体额度，属于回避问题。"
+        "explanation": "答案解析：正确答案是\"What's the daily limit for meals?\"，因为它符合场景需求，询问每日住宿和餐饮预算上限。其他选项不正确，因为它们不符合场景需求或询问了不相关的信息。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "确认差旅费用报销流程和额度"
       }
     },
     {
-      "id": "workplace_049_sub_4_choice_2",
+      "id": "workplace_049_sub_4_qa_1_choice_1",
       "subSceneId": "workplace_049_sub_4",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "workplace_049_sub_4_qa_1",
         "type": "choice",
-        "qaId": "workplace_049_sub_4_qa_2",
-        "speakerText": "I'll need to book a flight too — any preferred airline?",
-        "speakerTextCn": "我还得订机票，有指定航司吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Use Delta — we've got a corporate deal.",
+            "text": "What's the max daily allowance for hotels and meals?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Book whatever flight you like — no one checks.",
+            "text": "Can you give me a list of all the allowed expenses?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "You must fly with Emirates for international trips.",
+            "text": "How long does it take to process a reimbursement request?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Call the travel agency and tell them to pick the most expensive.",
+            "text": "Do you have any discounts for business travelers?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案指出公司协议航司，符合企业差旅政策。选项2鼓励随意选择，违反报销流程；选项3错误指定非公司合作航司；选项4与节约成本原则相悖。"
+        "explanation": "答案解析：正确答案询问住宿和餐饮的每日上限，这是确认差旅费用报销流程和额度的关键信息。干扰项\"Can you give me a list of all the allowed expenses?\"询问的是允许的所有费用清单，这与场景提示不符；\"How long does it take to process a reimbursement request?\"询问的是处理报销请求的时间，这与场景提示无关；\"Do you have any discounts for business travelers?\"询问的是商务旅行者是否有折扣，这与场景提示也无关。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "确认差旅费用报销流程和额度"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I'm planning a three-day trip next month — what’s the policy on incidental expenses like taxis?",
-        "speakerTextCn": "我下个月要出差三天，关于出租车等杂费的报销政策是什么？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确限定了杂费额度和收据要求，符合规范。选项2过于宽松，易导致滥用；选项3完全禁止不合理；选项4违反财务流程，无预批和记录。"
+        "explanation": "正确答案明确限定了杂费额度和收据要求，符合规范。选项2过于宽松，易导致滥用；选项3完全禁止不合理；选项4违反财务流程，无预批和记录。",
+        "speakerText": "I'm planning a three-day trip next month — what’s the policy on incidental expenses like taxis?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我下个月要出差三天，关于出租车等杂费的报销政策是什么？"
       }
     }
   ]

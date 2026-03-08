@@ -25,6 +25,15 @@ export async function GET(
         content.template = content.responseTemplate
         delete content.responseTemplate
       }
+      // 处理字段名称映射：speakerText -> triggerText, speakerTextCn -> triggerTextCn
+      if (content.speakerText) {
+        content.triggerText = content.speakerText
+        delete content.speakerText
+      }
+      if (content.speakerTextCn) {
+        content.triggerTextCn = content.speakerTextCn
+        delete content.speakerTextCn
+      }
       return content as PracticeQuestion
     })
 

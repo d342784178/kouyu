@@ -2,8 +2,7 @@
   "subSceneId": "study_abroad_110_sub_2",
   "subSceneName": "学分确认",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:29:51.778Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.997Z",
   "questions": [
     {
       "id": "study_abroad_110_sub_2_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "询问课程是否能算作选修学分时，常用表达是 'would that count as...?'",
         "type": "fill_blank",
-        "situation": "学生在咨询学分转移政策时，提到自己在原学校修过一门艺术史课程，想确认是否能抵免当前专业的选修学分。",
-        "speakerText": "I took Art History at my previous university—___?",
-        "speakerTextCn": "我在之前的大学修过艺术史课程——这些能算作你们专业的选修学分吗？",
-        "responseTemplate": "I'm not sure, but if you send me the syllabus, I can check if it matches our elective requirements. ___",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,66 @@
             ]
           }
         ],
-        "hint": "询问课程是否能算作选修学分时，常用表达是 'would that count as...?'",
-        "knowledgePoint": "表达学分抵免的请求"
+        "situation": "学生在咨询学分转移政策时，提到自己在原学校修过一门艺术史课程，想确认是否能抵免当前专业的选修学分。",
+        "speakerText": "I took Art History at my previous university—___?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我在之前的大学修过艺术史课程——这些能算作你们专业的选修学分吗？",
+        "knowledgePoint": "表达学分抵免的请求",
+        "responseTemplate": "I'm not sure, but if you send me the syllabus, I can check if it matches our elective requirements. ___"
+      }
+    },
+    {
+      "id": "study_abroad_110_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "study_abroad_110_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示：请根据场景信息回忆关键词",
+        "qaId": "study_abroad_110_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "design basics",
+            "options": [
+              "选项1：计算机编程",
+              "选项2：设计基础",
+              "选项3：语言学",
+              "选项4：历史学"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "场景提示：用户提出问题，服务方/工作人员回答",
+        "knowledgePoint": "考察的知识点：提问句型",
+        "responseTemplate": "What if I took a _______________ course this summer? Would that help me skip intro classes?"
+      }
+    },
+    {
+      "id": "study_abroad_110_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "study_abroad_110_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "请填写用户提出的具体课程名称",
+        "qaId": "study_abroad_110_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Calc I and Intro to Psychology",
+            "options": [
+              "微积分一和心理学导论",
+              "线性代数和计算机编程",
+              "图形设计原理和摄影艺术",
+              "数据分析和人工智能"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "场景提示：用户提出问题，服务方/工作人员回答",
+        "knowledgePoint": "转学分确认",
+        "responseTemplate": "I’ve taken ___ and ___—will those count toward the Graphic Design program?"
       }
     },
     {
@@ -38,10 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "表达‘能否替代’时，正式且自然的结构是 'Could it be used to substitute for...?'",
         "type": "fill_blank",
-        "situation": "学生计划转学分，想确认之前修过的统计学课程能否替代当前专业的必修课，但不确定具体流程。",
-        "speakerText": "I completed a statistics course last semester. ___ to substitute for the required stats class here?",
-        "speakerTextCn": "我上学期修过一门统计学课程。这能用来替代你们这里要求的统计课吗？",
         "blanks": [
           {
             "index": 0,
@@ -54,7 +106,10 @@
             ]
           }
         ],
-        "hint": "表达‘能否替代’时，正式且自然的结构是 'Could it be used to substitute for...?'",
+        "situation": "学生计划转学分，想确认之前修过的统计学课程能否替代当前专业的必修课，但不确定具体流程。",
+        "speakerText": "I completed a statistics course last semester. ___ to substitute for the required stats class here?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我上学期修过一门统计学课程。这能用来替代你们这里要求的统计课吗？",
         "knowledgePoint": "请求课程替代的正式表达"
       }
     },
@@ -64,10 +119,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "表达‘如果符合要求’时，最自然且专业的说法是 'If it meets the requirements'",
         "type": "fill_blank",
-        "situation": "学生希望确认自己在海外修的编程入门课是否符合本校的学分转移标准，主动提出可以提供课程大纲。",
-        "speakerText": "I took an introductory programming course abroad. ___ and I can send you the syllabus to review.",
-        "speakerTextCn": "我在国外修过一门编程入门课。如果它符合要求，我可以把课程大纲发给你审核。",
         "blanks": [
           {
             "index": 0,
@@ -80,8 +133,37 @@
             ]
           }
         ],
-        "hint": "表达‘如果符合要求’时，最自然且专业的说法是 'If it meets the requirements'",
+        "situation": "学生希望确认自己在海外修的编程入门课是否符合本校的学分转移标准，主动提出可以提供课程大纲。",
+        "speakerText": "I took an introductory programming course abroad. ___ and I can send you the syllabus to review.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我在国外修过一门编程入门课。如果它符合要求，我可以把课程大纲发给你审核。",
         "knowledgePoint": "主动提供解决方案的条件表达"
+      }
+    },
+    {
+      "id": "study_abroad_110_sub_2_pq_6",
+      "subSceneId": "study_abroad_110_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "请求发送课程大纲的常用动词",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "send",
+            "options": [
+              "send",
+              "give",
+              "show",
+              "bring"
+            ]
+          }
+        ],
+        "template": "Could you please ___ me the syllabus so I can see if it matches our course outline?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "请求文件的惯用搭配：send me the syllabus"
       }
     }
   ]

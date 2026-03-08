@@ -1,19 +1,26 @@
 {
   "sceneId": "daily_020",
   "sceneName": "眼镜店配眼镜",
+  "exportedAt": "2026-03-08T15:31:54.852Z",
   "subScenes": [
     {
       "id": "daily_020_sub_1",
+      "sceneId": "daily_020",
       "name": "进店问候",
       "description": "店员迎接顾客并询问需求",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_020_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi there! How can I help you today?",
-          "speakerTextCn": "您好！今天有什么可以帮您的？",
-          "responses": [
+          "subSceneId": "daily_020_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hi there! How can I help you today?",
+          "triggerTextCn": "您好！今天有什么可以帮您的？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I need a new pair of glasses, my prescription's expired.",
               "text_cn": "我需要配副新眼镜，我的验光单过期了。",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用口语缩写表达需求更自然"
+          "usageNote": "用口语缩写表达需求更自然",
+          "audioUrl": "COS:/qa/questions/daily_020_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_020_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Got it! Do you have your current prescription with you?",
-          "speakerTextCn": "好的！您带了旧验光单吗？",
-          "responses": [
+          "subSceneId": "daily_020_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Got it! Do you have your current prescription with you?",
+          "triggerTextCn": "好的！您带了旧验光单吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Yeah, I've got it right here.",
               "text_cn": "有，在这儿呢。",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "根据实际情况选择是否预约检查"
+          "usageNote": "根据实际情况选择是否预约检查",
+          "audioUrl": "COS:/qa/questions/daily_020_sub_1_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_020_sub_2",
+      "sceneId": "daily_020",
       "name": "挑选镜框",
       "description": "店员推荐镜框材质与款式",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_020_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "We've got lightweight titanium frames — super comfy for all-day wear.",
-          "speakerTextCn": "我们有轻巧的钛合金镜框，整天戴都很舒服。",
-          "responses": [
+          "subSceneId": "daily_020_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "We've got lightweight titanium frames — super comfy for all-day wear.",
+          "triggerTextCn": "我们有轻巧的钛合金镜框，整天戴都很舒服。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客可能表示对某种镜框感兴趣或询问镜框材质",
+          "followUps": [
             {
               "text": "I'd prefer something more stylish — any metal options with color?",
               "text_cn": "我想要更时尚的，有带颜色的金属款吗？",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "明确表达偏好：材质/颜色/风格"
+          "usageNote": "明确表达偏好：材质/颜色/风格",
+          "audioUrl": "COS:/qa/questions/daily_020_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_020_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "These acetate frames are popular — they're durable and come in 8 colors.",
-          "speakerTextCn": "这些醋酸纤维镜框很火，耐用，有8种颜色。",
-          "responses": [
+          "subSceneId": "daily_020_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "These acetate frames are popular — they're durable and come in 8 colors.",
+          "triggerTextCn": "这些醋酸纤维镜框很火，耐用，有8种颜色。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客可能表示对某种镜框感兴趣或询问镜框材质",
+          "followUps": [
             {
               "text": "Can I try on the navy blue one?",
               "text_cn": "我能试戴深蓝色的吗？",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "试戴前先确认颜色和价格"
+          "usageNote": "试戴前先确认颜色和价格",
+          "audioUrl": "COS:/qa/questions/daily_020_sub_2_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_020_sub_3",
+      "sceneId": "daily_020",
       "name": "镜片功能咨询",
       "description": "询问镜片是否含防蓝光、抗反射等功能",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_020_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "You're on the computer a lot, right? You should add blue light protection.",
-          "speakerTextCn": "你经常用电脑吧？建议加防蓝光镀膜。",
-          "responses": [
+          "subSceneId": "daily_020_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "You're on the computer a lot, right? You should add blue light protection.",
+          "triggerTextCn": "你经常用电脑吧？建议加防蓝光镀膜。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Yes, please! Does it cost extra?",
               "text_cn": "要的！要加钱吗？",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "根据使用场景决定是否加功能"
+          "usageNote": "根据使用场景决定是否加功能",
+          "audioUrl": "COS:/qa/questions/daily_020_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_020_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "The anti-glare coating also helps with night driving.",
-          "speakerTextCn": "抗反射镀膜还能改善夜间开车视线。",
-          "responses": [
+          "subSceneId": "daily_020_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "The anti-glare coating also helps with night driving.",
+          "triggerTextCn": "抗反射镀膜还能改善夜间开车视线。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I drive at night — add it!",
               "text_cn": "我晚上开车，加上！",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "明确功能叠加时的额外费用"
+          "usageNote": "明确功能叠加时的额外费用",
+          "audioUrl": "COS:/qa/questions/daily_020_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_020_sub_4",
+      "sceneId": "daily_020",
       "name": "价格与取货",
       "description": "确认总价与取镜时间",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_020_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "So your total's $249 with the blue light and anti-glare coatings.",
-          "speakerTextCn": "加上防蓝光和抗反射，总共249美元。",
-          "responses": [
+          "subSceneId": "daily_020_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "So your total's $249 with the blue light and anti-glare coatings.",
+          "triggerTextCn": "加上防蓝光和抗反射，总共249美元。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Sounds good — I'll take it!",
               "text_cn": "行，就买这个了！",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "价格高时可礼貌询问分期或优惠"
+          "usageNote": "价格高时可礼貌询问分期或优惠",
+          "audioUrl": "COS:/qa/questions/daily_020_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_020_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "They'll be ready in 5 to 7 business days — can you pick them up next Thursday?",
-          "speakerTextCn": "5到7个工作日后做好，下周四来取可以吗？",
-          "responses": [
+          "subSceneId": "daily_020_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "They'll be ready in 5 to 7 business days — can you pick them up next Thursday?",
+          "triggerTextCn": "5到7个工作日后做好，下周四来取可以吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Thursday's perfect — I'll be here!",
               "text_cn": "周���正好，我一定来！",
@@ -222,22 +284,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "取货时间需确认并主动承诺"
+          "usageNote": "取货时间需确认并主动承诺",
+          "audioUrl": "COS:/qa/questions/daily_020_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_020_sub_5",
+      "sceneId": "daily_020",
       "name": "告别离店",
       "description": "店员送别，顾客道谢离开",
+      "order": 5,
       "estimatedMinutes": 3,
       "qaPairs": [
         {
           "id": "daily_020_sub_5_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Thanks so much! We'll call you when they're ready.",
-          "speakerTextCn": "谢谢！镜做好了我们打电话通知您。",
-          "responses": [
+          "subSceneId": "daily_020_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thanks so much! We'll call you when they're ready.",
+          "triggerTextCn": "谢谢！镜做好了我们打电话通知您。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Appreciate it! See you Thursday!",
               "text_cn": "太感谢了！周四见！",
@@ -254,14 +325,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "告别语要带具体时间更显真诚"
+          "usageNote": "告别语要带具体时间更显真诚",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_020_sub_5_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Don't forget to bring your ID when you pick them up!",
-          "speakerTextCn": "取镜时别忘了带身份证！",
-          "responses": [
+          "subSceneId": "daily_020_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Don't forget to bring your ID when you pick them up!",
+          "triggerTextCn": "取镜时别忘了带身份证！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Got it, thanks again!",
               "text_cn": "记住了，再谢啦！",
@@ -278,7 +356,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "重要提醒后用简短回应确认"
+          "usageNote": "重要提醒后用简短回应确认",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

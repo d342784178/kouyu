@@ -2,8 +2,7 @@
   "subSceneId": "daily_006_sub_3",
   "subSceneName": "存款与确认",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:25:24.615Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.478Z",
   "questions": [
     {
       "id": "daily_006_sub_3_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "使用 'I'll put in' 表达主动存款意愿，后面接金额表达，不要用疑问句或动名词结构。",
         "type": "fill_blank",
-        "situation": "客户在银行柜台办理开户手续，柜员确认客户想存入的金额作为初始余额。",
-        "speakerText": "How much would you like to deposit as your opening balance?",
-        "speakerTextCn": "您想存多少作为初始余额？",
-        "responseTemplate": "I'll put in ___",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "使用 'I'll put in' 表达主动存款意愿，后面接金额表达，不要用疑问句或动名词结构。",
-        "knowledgePoint": "主动存款的常用表达结构"
+        "situation": "客户在银行柜台办理开户手续，柜员确认客户想存入的金额作为初始余额。",
+        "speakerText": "How much would you like to deposit as your opening balance?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "您想存多少作为初始余额？",
+        "knowledgePoint": "主动存款的常用表达结构",
+        "responseTemplate": "I'll put in ___"
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "礼貌请求额外服务时，使用 'Can I get...' 是最自然、最常用的表达方式。",
         "type": "fill_blank",
-        "situation": "柜员告知客户账户已开立，客户想确认是否能立即获取电子版账户信息以便使用移动银行。",
-        "speakerText": "Your account has been activated. The physical card will be mailed within a week.",
-        "speakerTextCn": "您的账户已激活，实体卡将在一周内寄出。",
-        "responseTemplate": "Thanks! ___ a digital version right away?",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "礼貌请求额外服务时，使用 'Can I get...' 是最自然、最常用的表达方式。",
-        "knowledgePoint": "礼貌请求服务的常用句型"
+        "situation": "柜员告知客户账户已开立，客户想确认是否能立即获取电子版账户信息以便使用移动银行。",
+        "speakerText": "Your account has been activated. The physical card will be mailed within a week.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "您的账户已激活，实体卡将在一周内寄出。",
+        "knowledgePoint": "礼貌请求服务的常用句型",
+        "responseTemplate": "Thanks! ___ a digital version right away?"
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "在确认信息时，口语中最简洁自然的回应是 'Got it'，比 'I understand' 更符合日常对话习惯。",
         "type": "fill_blank",
-        "situation": "客户完成存款后，柜员重复账户信息以确认无误，客户需要简单回应表示确认。",
-        "speakerText": "So just to confirm, your account number is ending in 1095, and you've deposited $500 as the opening balance.",
-        "speakerTextCn": "所以确认一下，您的账号以1095结尾，您存入了500美元作为初始余额。",
-        "responseTemplate": "___, that's correct.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "在确认信息时，口语中最简洁自然的回应是 'Got it'，比 'I understand' 更符合日常对话习惯。",
-        "knowledgePoint": "日常确认信息的简洁回应表达"
+        "situation": "客户完成存款后，柜员重复账户信息以确认无误，客户需要简单回应表示确认。",
+        "speakerText": "So just to confirm, your account number is ending in 1095, and you've deposited $500 as the opening balance.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "所以确认一下，您的账号以1095结尾，您存入了500美元作为初始余额。",
+        "knowledgePoint": "日常确认信息的简洁回应表达",
+        "responseTemplate": "___, that's correct."
+      }
+    },
+    {
+      "id": "daily_006_sub_3_pq_4",
+      "subSceneId": "daily_006_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "表达意愿时使用固定搭配",
+        "qaId": "daily_006_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to",
+            "options": [
+              "to",
+              "for",
+              "with",
+              "at"
+            ]
+          }
+        ],
+        "template": "I'd like ___ deposit $500 as my opening balance.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "would like to do（预约/存款场景核心句型）"
+      }
+    },
+    {
+      "id": "daily_006_sub_3_pq_5",
+      "subSceneId": "daily_006_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "与'card will arrive by mail'相对的服务请求",
+        "qaId": "daily_006_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "digital",
+            "options": [
+              "digital",
+              "physical",
+              "paper",
+              "printed"
+            ]
+          }
+        ],
+        "template": "Could you please email me a ___ copy of my account details?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "数字服务相关词汇（digital copy）"
+      }
+    },
+    {
+      "id": "daily_006_sub_3_pq_6",
+      "subSceneId": "daily_006_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "场景中强调的主动存款动词搭配",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "put",
+            "options": [
+              "put",
+              "give",
+              "send",
+              "take"
+            ]
+          }
+        ],
+        "template": "I'll ___ in $800 to open the account.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "put in（存款场景核心动词搭配）"
       }
     }
   ]

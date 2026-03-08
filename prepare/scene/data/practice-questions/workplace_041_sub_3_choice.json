@@ -2,77 +2,76 @@
   "subSceneId": "workplace_041_sub_3",
   "subSceneName": "任务优先级确认",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:17:46.582Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.451Z",
   "questions": [
     {
-      "id": "workplace_041_sub_3_choice_1",
+      "id": "workplace_041_sub_3_qa_1_choice_1",
       "subSceneId": "workplace_041_sub_3",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "workplace_041_sub_3_qa_1",
-        "speakerText": "I've got two deadlines this week—can we prioritize which one to tackle first?",
-        "speakerTextCn": "我这周有两个截止日，能帮我定下哪个先做吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "I don't know, you decide.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Definitely do the client deliverable first—it's due Thursday.",
+            "text": "Can you tell me which deadline is more important to focus on first?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "I need to finish both tasks by the end of the week, what's the plan?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Maybe we should ignore one of them.",
+            "text": "Can you help me with the deadline for next week?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can you do both for me?",
+            "text": "I'm not sure which task to do first, can you make the decision for me?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案提供了明确的优先级建议并附带截止日期，符合主动提出选项的使用说明。其他选项要么推卸责任（I don't know），要么不专业（ignore one），或不合理地要求对方代劳（Can you do both for me?）。"
+        "explanation": "正确答案是 'Can you tell me which deadline is more important to focus on first?'，因为它直接询问了主管关于任务优先级的建议。其他选项不正确，因为它们没有明确询问优先级或没有提供足够的信息来获得有价值的建议。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "与主管确认任务优先级以避免冲突"
       }
     },
     {
-      "id": "workplace_041_sub_3_choice_2",
+      "id": "workplace_041_sub_3_qa_2_choice_1",
       "subSceneId": "workplace_041_sub_3",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "workplace_041_sub_3_qa_2",
-        "speakerText": "If I focus on the report, can you handle the team sync?",
-        "speakerTextCn": "如果我专注写报告，你能负责团队同步会吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'm too busy, find someone else.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Absolutely—I'll book the room and send the agenda.",
+            "text": "If I focus on the report, can you handle the team sync?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Can you help me write the report?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I guess so, if you really need me to.",
+            "text": "What is the deadline for the team sync?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Why don't you do it instead?",
+            "text": "Can you take over the entire project?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案体现了主动承担后续动作，符合使用说明。其他选项要么态度消极（I'm too busy），要么语气勉强（I guess so），或推诿责任（Why don't you do it?），不符合职场协作的积极表达。"
+        "explanation": "正确答案是\"If I focus on the report, can you handle the team sync?\"，因为它明确询问了主管是否能负责团队同步会。其他选项不正确，因为它们没有明确询问优先级或冲突问题。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "与主管确认任务优先级以避免冲突"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I'm juggling the quarterly review and the client proposal—what should I tackle first?",
-        "speakerTextCn": "我同时在处理季度评审和客户提案，我该先做哪个？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确给出了优先级依据（更紧的截止日），并主动建议行动方向，符合任务优先级确认的沟通原则。其他选项要么缺乏专业性（whichever you feel like），要么态度恶劣（it's your job anyway），或提出不现实的解决方案（skip the review）。"
+        "explanation": "正确答案明确给出了优先级依据（更紧的截止日），并主动建议行动方向，符合任务优先级确认的沟通原则。其他选项要么缺乏专业性（whichever you feel like），要么态度恶劣（it's your job anyway），或提出不现实的解决方案（skip the review）。",
+        "speakerText": "I'm juggling the quarterly review and the client proposal—what should I tackle first?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我同时在处理季度评审和客户提案，我该先做哪个？"
       }
     }
   ]

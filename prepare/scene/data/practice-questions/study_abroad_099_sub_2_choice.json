@@ -2,77 +2,76 @@
   "subSceneId": "study_abroad_099_sub_2",
   "subSceneName": "费用确认",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:50:52.032Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.856Z",
   "questions": [
     {
-      "id": "study_abroad_099_sub_2_choice_1",
+      "id": "study_abroad_099_sub_2_qa_1_choice_1",
       "subSceneId": "study_abroad_099_sub_2",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "study_abroad_099_sub_2_qa_1",
-        "speakerText": "The single room's $850/month. That includes WiFi, utilities, and cleaning.",
-        "speakerTextCn": "单人间每月850美元，含网费、水电和保洁。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Does the price include breakfast and laundry?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Does that cover laundry too? I don't wanna pay extra.",
+            "text": "How much is the monthly rent for a single room, and what's included?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Do you have any discounts for long-term stays?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "How much is the rent for a double room?",
+            "text": "Is the single room available next week?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Can I pay in cash instead of bank transfer?",
+            "text": "What time is check-in?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Does that cover laundry too? I don't wanna pay extra.' 是对服务范围的合理追问，符合场景中确认包含项的核心目的。选项1添加了未提及的'breakfast'，偏离原信息；选项3询问双人间价格，与当前单人间信息无关；选项4询问支付方式，属于付款方式问题，而非费用包含内容。"
+        "explanation": "正确答案直接询问租金和包含内容，符合场景需求。干扰项分别询问折扣（无关）、可用性（偏离重点）和入住时间（完全无关），均未触及费用与设施的核心信息。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想知道单人间的月租金以及包含哪些设施和服务"
       }
     },
     {
-      "id": "study_abroad_099_sub_2_choice_2",
+      "id": "study_abroad_099_sub_2_qa_2_choice_1",
       "subSceneId": "study_abroad_099_sub_2",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "study_abroad_099_sub_2_qa_2",
-        "speakerText": "Deposit's $300, refundable when you move out clean.",
-        "speakerTextCn": "押金300美元，搬走时房间干净就退。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Can I pay the deposit next month?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Wait, do I pay monthly or upfront?",
+            "text": "What's the monthly rent for a single room, and what amenities are included?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Do you have any rooms available next week?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Is the room pet-friendly?",
+            "text": "How much is the deposit and when do I get it back?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "What time can I check in?",
+            "text": "Can I bring a pet to the room?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Wait, do I pay monthly or upfront?' 是对付款方式的合理追问，紧扣押金支付方式的核心信息。选项1询问延迟支付押金，不符合常规流程；选项3和4分别询问宠物政策和入住时间，与押金支付方式无关。"
+        "explanation": "正确答案询问了月租和包含的设施，完全符合‘费用确认’场景的核心需求。选项2只问房间可用性，与费用无关；选项3只问押金，忽略了租金和设施；选项4问宠物政策，属于无关信息。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想知道单人房的费用以及是否包含水电、网络等设施，还有押金政策。"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "The monthly rent is $900, and it includes water, electricity, and internet.",
-        "speakerTextCn": "月租900美元，包含水、电和网络。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Does that include a washing machine and weekly cleaning?' 是对服务范围的合理延伸追问，符合费用确认场景中核实包含项的核心目标。选项1、3、4分别涉及解约、折扣和停车，虽相关但不属于‘费用包含内容’的核心询问范畴。"
+        "explanation": "正确答案 'Does that include a washing machine and weekly cleaning?' 是对服务范围的合理延伸追问，符合费用确认场景中核实包含项的核心目标。选项1、3、4分别涉及解约、折扣和停车，虽相关但不属于‘费用包含内容’的核心询问范畴。",
+        "speakerText": "The monthly rent is $900, and it includes water, electricity, and internet.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "月租900美元，包含水、电和网络。"
       }
     }
   ]

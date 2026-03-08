@@ -2,20 +2,43 @@
   "subSceneId": "social_093_sub_2",
   "subSceneName": "确认兴趣",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:27:04.199Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.793Z",
   "questions": [
+    {
+      "id": "social_093_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "social_093_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "用简洁的短语表达‘也是同一杯吗？’，避免完整句子结构",
+        "qaId": "social_093_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Same order",
+            "options": [
+              "Same order",
+              "Do you order the same",
+              "You order the same",
+              "Is it the same drink"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想确认服务人员是否每天来，并且点的饮品是否相同，以此延伸话题建立共同点",
+        "knowledgePoint": "口语中省略结构的使用",
+        "responseTemplate": "You come here every day? ___?"
+      }
+    },
     {
       "id": "social_093_sub_2_fill_blank_1",
       "subSceneId": "social_093_sub_2",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "用表达喜爱或认同的短语回应，强调个人兴趣",
         "type": "fill_blank",
-        "situation": "你在咖啡馆遇到一位常客，对方注意到你总在周末带同一本书，想确认你是否也是这本书的爱好者。",
-        "speakerText": "I always see you reading that same novel on weekends. Are you into it?",
-        "speakerTextCn": "我总在周末看到你读同一本小说。你也喜欢这本书吗？",
-        "responseTemplate": "Yes, I've read it twice already—___!",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,49 @@
             ]
           }
         ],
-        "hint": "用表达喜爱或认同的短语回应，强调个人兴趣",
-        "knowledgePoint": "表达兴趣一致性"
+        "situation": "你在咖啡馆遇到一位常客，对方注意到你总在周末带同一本书，想确认你是否也是这本书的爱好者。",
+        "speakerText": "I always see you reading that same novel on weekends. Are you into it?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我总在周末看到你读同一本小说。你也喜欢这本书吗？",
+        "knowledgePoint": "表达兴趣一致性",
+        "responseTemplate": "Yes, I've read it twice already—___!"
+      }
+    },
+    {
+      "id": "social_093_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "social_093_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "用一个通用词指代物品，另一个通用词指代地点，避免具体名词",
+        "qaId": "social_093_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "item",
+            "options": [
+              "thing",
+              "item",
+              "stuff",
+              "object"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "place",
+            "options": [
+              "store",
+              "place",
+              "shop",
+              "location"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想确认服务方是否也对某件物品有共同兴趣，以延伸话题建立连接",
+        "knowledgePoint": "使用通用词汇构建确认共同点的口语提问句型",
+        "responseTemplate": "You got that ___ from the same ___?"
       }
     },
     {
@@ -38,11 +102,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "用描述体验或感受的短语表达认同，而非具体细节",
         "type": "fill_blank",
-        "situation": "你在健身房看到一位陌生人总用同样的运动装备，他主动问你是否也喜欢这个品牌。",
-        "speakerText": "You’ve got the same sneakers I wear. Do you like this brand too?",
-        "speakerTextCn": "你穿的运动鞋和我一样。你也喜欢这个品牌吗？",
-        "responseTemplate": "Absolutely—___ and they last forever.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +116,12 @@
             ]
           }
         ],
-        "hint": "用描述体验或感受的短语表达认同，而非具体细节",
-        "knowledgePoint": "确认共同兴趣"
+        "situation": "你在健身房看到一位陌生人总用同样的运动装备，他主动问你是否也喜欢这个品牌。",
+        "speakerText": "You’ve got the same sneakers I wear. Do you like this brand too?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你穿的运动鞋和我一样。你也喜欢这个品牌吗？",
+        "knowledgePoint": "确认共同兴趣",
+        "responseTemplate": "Absolutely—___ and they last forever."
       }
     },
     {
@@ -65,11 +130,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "用表达内在动机或情感共鸣的短语，而非时间或原因",
         "type": "fill_blank",
-        "situation": "你在图书馆偶遇一位常客，发现他正在读你最近也在看的传记，他笑着问你是不是也喜欢这类书。",
-        "speakerText": "You’re reading that biography too? Do you usually read these kinds of books?",
-        "speakerTextCn": "你也读这本传记？你平时常读这类书吗？",
-        "responseTemplate": "I really do—___ and find them inspiring.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +144,38 @@
             ]
           }
         ],
-        "hint": "用表达内在动机或情感共鸣的短语，而非时间或原因",
-        "knowledgePoint": "延伸话题建立情感连接"
+        "situation": "你在图书馆偶遇一位常客，发现他正在读你最近也在看的传记，他笑着问你是不是也喜欢这类书。",
+        "speakerText": "You’re reading that biography too? Do you usually read these kinds of books?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你也读这本传记？你平时常读这类书吗？",
+        "knowledgePoint": "延伸话题建立情感连接",
+        "responseTemplate": "I really do—___ and find them inspiring."
+      }
+    },
+    {
+      "id": "social_093_sub_2_pq_6",
+      "subSceneId": "social_093_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "填入一种具体兴趣类型，如小说、音乐、运动等，让对话有共鸣点",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "fantasy",
+            "options": [
+              "fantasy",
+              "expensive",
+              "heavy",
+              "old"
+            ]
+          }
+        ],
+        "template": "I’ve been reading ______ books lately—have you tried any?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景核心句型（用具体兴趣名词确认共同点）"
       }
     }
   ]

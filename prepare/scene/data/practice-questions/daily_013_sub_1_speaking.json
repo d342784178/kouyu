@@ -2,52 +2,51 @@
   "subSceneId": "daily_013_sub_1",
   "subSceneName": "打招呼咨询",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:38:10.086Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.536Z",
   "questions": [
     {
-      "id": "daily_013_sub_1_speaking_1",
+      "id": "daily_013_sub_1_qa_2_speaking_1",
       "subSceneId": "daily_013_sub_1",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "daily_013_sub_1_qa_2",
         "type": "speaking",
-        "qaId": "daily_013_sub_1_qa_1",
-        "speakerText": "Hi there! Can you help me with borrowing books?",
-        "speakerTextCn": "嗨！你能帮我一下借书的事吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在图书馆第一次借书，想礼貌地向管理员询问借书流程，包括能借多少本书、借多久以及是否需要办卡。",
         "expectedAnswers": [
-          "Of course! How can I assist you?",
-          "Sure! I'd be happy to help. What would you like to know?",
-          "Absolutely! I'll be glad to guide you through the process."
+          "Hi, I'm new here. Could you tell me how the borrowing process works?",
+          "Excuse me, I'd like to borrow some books. What do I need to know about the lending rules?",
+          "Could you please guide me through borrowing books? I'm not sure how many I can take out or for how long.",
+          "I'm a first-time visitor. What are the steps to borrow books, and is there a limit on the number?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确表示愿意提供帮助，而非拒绝或回避",
-          "语言准确性：使用正确的礼貌用语和语法结构（如 I'd be happy to）",
-          "表达自然度：语气友好，符合服务场景的口语习惯",
-          "关键词覆盖：使用了 assist/help/guide 等服务类关键词"
+          "意图达成度：是否明确表达了询问借书流程的意图",
+          "语言准确性：语法结构正确，用词恰当，无明显错误",
+          "表达自然度：符合英语口语习惯，语气礼貌得体",
+          "关键词覆盖：使用了'borrow', 'process', 'rules', 'limit'等场景关键词"
         ]
       }
     },
     {
-      "id": "daily_013_sub_1_speaking_2",
+      "id": "daily_013_sub_1_qa_1_speaking_1",
       "subSceneId": "daily_013_sub_1",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "daily_013_sub_1_qa_1",
         "type": "speaking",
-        "qaId": "daily_013_sub_1_qa_2",
-        "speakerText": "I'm new here. How many books can I borrow?",
-        "speakerTextCn": "我是新手，我能借几本书？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "场景提示：用户在图书馆需要借书时，主动向管理员询问流程",
         "expectedAnswers": [
-          "You can borrow up to five books at once. You can also renew them if you need more time.",
-          "The limit is five books per person, but renewal is allowed once per item.",
-          "Five books total — and don’t worry, you can extend the due date online."
+          "Hi, can you tell me how to borrow a book?",
+          "Excuse me, could you help me with the borrowing process?",
+          "Hi there! Can you tell me how to borrow a book?"
         ],
         "evaluationCriteria": [
-          "意图达成度：准确回答数量并补充续借信息",
-          "语言准确性：使用 up to, renew, extend 等正确术语",
-          "表达自然度：口语化但专业，避免生硬或命令式语气",
-          "关键词覆盖：包含 borrow, limit, renew, book 等核心词汇"
+          "意图达成度：是否正确表达了询问借书流程的意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯"
         ]
       }
     },
@@ -57,9 +56,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I'd like to know if I can borrow e-books too.",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我想知道我能不能借电子书。",
         "expectedAnswers": [
           "Yes, absolutely! We offer e-books through our library app. Just download it and log in with your card.",

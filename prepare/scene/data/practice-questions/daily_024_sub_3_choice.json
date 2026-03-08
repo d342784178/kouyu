@@ -2,9 +2,43 @@
   "subSceneId": "daily_024_sub_3",
   "subSceneName": "确认取衣时间",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:17:56.393Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.606Z",
   "questions": [
+    {
+      "id": "daily_024_sub_3_qa_1_choice_1",
+      "subSceneId": "daily_024_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_024_sub_3_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "When can I pick them up?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much does it cost to dry clean these?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you hurry up with my clothes?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I want my clothes now.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'When can I pick them up?' 是礼貌且符合场景的提问，直接询问取衣时间。干扰项1询问价格，与取衣时间无关；干扰项2语气不礼貌且是催促而非提问；干扰项3是陈述句而非问题，不符合交际需求。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在洗衣店询问何时可以取回自己的衣物，需要向工作人员提出一个恰当的问题来获取具体取衣时间。"
+      }
+    },
     {
       "id": "daily_024_sub_3_choice_1",
       "subSceneId": "daily_024_sub_3",
@@ -12,9 +46,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "顾客在洗衣店取衣服时，想知道最快什么时候能取回，因为第二天要参加重要面试。",
-        "speakerText": "When can I pick up my clothes?",
-        "speakerTextCn": "我什么时候能取衣服？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +68,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应取衣时间并给出合理理由（面试），符合高频表达习惯。干扰项1是答非所问（问折扣），干扰项2虽涉及加急但表达生硬且未明确时间，干扰项3是无关赞美，未解决核心问题。"
+        "situation": "顾客在洗衣店取衣服时，想知道最快什么时候能取回，因为第二天要参加重要面试。",
+        "explanation": "正确答案直接回应取衣时间并给出合理理由（面试），符合高频表达习惯。干扰项1是答非所问（问折扣），干扰项2虽涉及加急但表达生硬且未明确时间，干扰项3是无关赞美，未解决核心问题。",
+        "speakerText": "When can I pick up my clothes?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我什么时候能取衣服？"
       }
     },
     {
@@ -47,9 +82,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "顾客周末要带孩子去公园玩，想确认衣服是否能在周六前取到，因为孩子的衣服需要搭配外出服装。",
-        "speakerText": "When will my laundry be ready?",
-        "speakerTextCn": "我的衣服什么时候能好？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +104,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确询问周六是否可行，并给出合理理由（孩子户外活动），符合日常沟通逻辑。干扰项1是问价格，干扰项2是放弃取衣，干扰项3是问营业时间，均未回应取衣时间需求。"
+        "situation": "顾客周末要带孩子去公园玩，想确认衣服是否能在周六前取到，因为孩子的衣服需要搭配外出服装。",
+        "explanation": "正确答案明确询问周六是否可行，并给出合理理由（孩子户外活动），符合日常沟通逻辑。干扰项1是问价格，干扰项2是放弃取衣，干扰项3是问营业时间，均未回应取衣时间需求。",
+        "speakerText": "When will my laundry be ready?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我的衣服什么时候能好？"
       }
     },
     {
@@ -82,9 +118,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "顾客周一要出差，急需取回干洗的西装，想确认是否能在当天上午拿到，以免耽误行程。",
-        "speakerText": "Can I collect my suit today?",
-        "speakerTextCn": "我今天能取走西装吗？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +140,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接提出具体时间要求（上午11点前）并说明紧急原因（下午航班），是自然且高效的表达。干扰项1问配送服务（偏离当前问题），干扰项2放弃当天取衣，干扰项3是无关表扬，均未有效回应核心需求。"
+        "situation": "顾客周一要出差，急需取回干洗的西装，想确认是否能在当天上午拿到，以免耽误行程。",
+        "explanation": "正确答案直接提出具体时间要求（上午11点前）并说明紧急原因（下午航班），是自然且高效的表达。干扰项1问配送服务（偏离当前问题），干扰项2放弃当天取衣，干扰项3是无关表扬，均未有效回应核心需求。",
+        "speakerText": "Can I collect my suit today?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我今天能取走西装吗？"
       }
     }
   ]

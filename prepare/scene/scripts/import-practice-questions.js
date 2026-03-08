@@ -6,9 +6,10 @@
  *   node prepare/new_scene/scripts/import-practice-questions.js [选项]
  *
  * 选项：
- *   --subScene <id>   只导入指定子场景（不传则导入所有）
- *   --type <type>     只导入指定题型：choice, fill_blank, speaking（不传则导入所有）
- *   --force           先删除已有数据再导入
+ *   --subScene <id>       只导入指定子场景（不传则导入所有）
+ *   --type <type>         只导入指定题型：choice, fill_blank, speaking（不传则导入所有）
+ *   --dialogueMode <mode> 只导入指定对话模式：user_responds, user_asks（不传则导入所有）
+ *   --force               先删除已有数据再导入
  *
  * 示例：
  *   # 导入所有数据
@@ -16,6 +17,9 @@
  *
  *   # 只导入填空题
  *   node prepare/new_scene/scripts/import-practice-questions.js --type fill_blank
+ *
+ *   # 只导入 user_asks 模式的练习题
+ *   node prepare/new_scene/scripts/import-practice-questions.js --dialogueMode user_asks
  *
  *   # 只导入指定子场景的选择题
  *   node prepare/new_scene/scripts/import-practice-questions.js --subScene travel_072_sub_1 --type choice
@@ -60,12 +64,19 @@ const DATA_DIR = path.resolve(__dirname, '../data/practice-questions')
 const args = process.argv.slice(2)
 const subSceneFilter = args.includes('--subScene') ? args[args.indexOf('--subScene') + 1] : null
 const typeFilter = args.includes('--type') ? args[args.indexOf('--type') + 1] : null
+const dialogueModeFilter = args.includes('--dialogueMode') ? args[args.indexOf('--dialogueMode') + 1] : null
 const isForce = args.includes('--force')
 
 const VALID_TYPES = ['choice', 'fill_blank', 'speaking']
+const VALID_DIALOGUE_MODES = ['user_responds', 'user_asks']
 
 if (typeFilter && !VALID_TYPES.includes(typeFilter)) {
   console.error(`无效的题型: ${typeFilter}，有效选项: ${VALID_TYPES.join(', ')}`)
+  process.exit(1)
+}
+
+if (dialogueModeFilter && !VALID_DIALOGUE_MODES.includes(dialogueModeFilter)) {
+  console.error(`无效的对话模式: ${dialogueModeFilter}，有效选项: ${VALID_DIALOGUE_MODES.join(', ')}`)
   process.exit(1)
 }
 
@@ -77,6 +88,7 @@ async function importData() {
   console.log('=== 练习题数据导入脚本 ===')
   console.log(`模式: ${isForce ? '强制覆盖（先删除后导入）' : '增量导入'}`)
   console.log(`题型过滤: ${typeFilter || '全部'}`)
+  console.log(`对话模式过滤: ${dialogueModeFilter || '全部'}`)
 
   if (!DATABASE_URL) {
     console.error('DATABASE_URL 未配置，请在 .env.local 中设置')
@@ -148,7 +160,7 @@ async function importData() {
 
     try {
       const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
-      const questions = data.questions || []
+      let questions = data.questions || []
 
       if (questions.length === 0) {
         console.log(`⏭ 跳过（无题目）: ${fileName}`)
@@ -158,11 +170,32 @@ async function importData() {
         return
       }
 
+      // 应用对话模式过滤
+      if (dialogueModeFilter) {
+        questions = questions.filter(q => q.content?.dialogueMode === dialogueModeFilter)
+        if (questions.length === 0) {
+          console.log(`⏭ 跳过（无匹配对话模式）: ${fileName}`)
+          skipCount++
+          activeCount--
+          processedCount++
+          return
+        }
+      }
+
       // 检查是否已有该子场景该类型的数据
-      const existingResult = await sql`
-        SELECT COUNT(*) as count FROM sub_scene_practice_questions 
-        WHERE sub_scene_id = ${subSceneId} AND type = ${questionType}
-      `
+      let existingResult
+      if (dialogueModeFilter) {
+        existingResult = await sql`
+          SELECT COUNT(*) as count FROM sub_scene_practice_questions 
+          WHERE sub_scene_id = ${subSceneId} AND type = ${questionType}
+            AND content->>'dialogueMode' = ${dialogueModeFilter}
+        `
+      } else {
+        existingResult = await sql`
+          SELECT COUNT(*) as count FROM sub_scene_practice_questions 
+          WHERE sub_scene_id = ${subSceneId} AND type = ${questionType}
+        `
+      }
       const existingCount = existingResult[0]?.count || 0
 
       if (existingCount > 0 && !isForce) {
@@ -175,10 +208,18 @@ async function importData() {
 
       // 强制模式下先删除该子场景该类型的数据
       if (isForce && existingCount > 0) {
-        await sql`
-          DELETE FROM sub_scene_practice_questions 
-          WHERE sub_scene_id = ${subSceneId} AND type = ${questionType}
-        `
+        if (dialogueModeFilter) {
+          await sql`
+            DELETE FROM sub_scene_practice_questions 
+            WHERE sub_scene_id = ${subSceneId} AND type = ${questionType}
+              AND content->>'dialogueMode' = ${dialogueModeFilter}
+          `
+        } else {
+          await sql`
+            DELETE FROM sub_scene_practice_questions 
+            WHERE sub_scene_id = ${subSceneId} AND type = ${questionType}
+          `
+        }
       }
 
       // 批量插入

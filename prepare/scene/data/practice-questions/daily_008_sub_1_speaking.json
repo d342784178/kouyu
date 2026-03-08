@@ -2,29 +2,27 @@
   "subSceneId": "daily_008_sub_1",
   "subSceneName": "打招呼咨询",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:35:31.387Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.494Z",
   "questions": [
     {
-      "id": "daily_008_sub_1_speaking_1",
+      "id": "daily_008_sub_1_qa_1_speaking_1",
       "subSceneId": "daily_008_sub_1",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "daily_008_sub_1_qa_1",
-        "speakerText": "Hi there! Can you help me send a package?",
-        "speakerTextCn": "嗨！你能帮我寄个包裹吗？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你走进邮局，想寄个包裹给朋友。你需要向工作人员问候并询问寄快递服务。请你礼貌地打招呼并询问如何寄送包裹。",
         "expectedAnswers": [
-          "Of course! Where are you sending it?",
-          "Sure thing! Just tell me the destination.",
-          "Absolutely! Could you please provide the recipient's address and the country?"
+          "Hi, can you help me send a package?",
+          "Hello, can I ask for help with sending a package?",
+          "Hi there, can you assist me with shipping a package?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否明确表示愿意提供帮助并引导对方提供必要信息",
-          "语言准确性：语法正确，动词和介词使用恰当",
-          "表达自然度：是否符合英语口语习惯，避免生硬翻译",
-          "关键词覆盖：是否使用了 'send', 'package', 'destination', 'where' 等场景关键词"
+          "意图达成度：是否正确表达了询问寄快递服务的意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯"
         ]
       }
     },
@@ -34,9 +32,10 @@
       "type": "speaking",
       "order": 2,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Hello, I'd like to mail something international. Can you help?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "你好，我想寄一个国际包裹，你能帮忙吗？",
         "expectedAnswers": [
           "Of course! I can help with that. What's the address and country?",
@@ -57,9 +56,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Hi, I need to send a parcel. Do you offer express delivery?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "嗨，我需要寄一个包裹，你们有特快服务吗？",
         "expectedAnswers": [
           "Yes, we do! We have express and standard options. Where are you sending it?",

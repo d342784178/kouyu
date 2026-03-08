@@ -2,20 +2,70 @@
   "subSceneId": "study_abroad_097_sub_2",
   "subSceneName": "核心论点追问",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:27:39.375Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.837Z",
   "questions": [
+    {
+      "id": "study_abroad_097_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "study_abroad_097_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "在讨论研究结果时，如何确保样本的代表性？",
+        "qaId": "study_abroad_097_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "AI improves student engagement",
+            "options": [
+              "AI improves teacher satisfaction",
+              "students' learning outcomes increase",
+              "AI helps with grading",
+              "AI reduces student stress"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "教授针对学生的研究主张进行追问",
+        "knowledgePoint": "核心论点追问",
+        "responseTemplate": "You claim ___ but your sample's only from one place. How do you justify generalizing?"
+      }
+    },
+    {
+      "id": "study_abroad_097_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "study_abroad_097_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "注意这里需要直接使用名词短语，不需要冠词或动名词形式",
+        "qaId": "study_abroad_097_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "qualitative interviews",
+            "options": [
+              "qualitative interviews",
+              "the qualitative interviews",
+              "using qualitative interviews",
+              "qualitative interview"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "教授针对研究方法的核心选择提出质疑，希望学生解释为何采用某种方法而非另一种",
+        "knowledgePoint": "提问句型中的核心名词短语使用",
+        "responseTemplate": "Why did you choose ___ over ___?"
+      }
+    },
     {
       "id": "study_abroad_097_sub_2_fill_blank_1",
       "subSceneId": "study_abroad_097_sub_2",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "承认局限后，需用研究发现与更广泛背景的关联来支撑普遍性",
         "type": "fill_blank",
-        "situation": "教授在学术答辩中质疑研究结论的普遍性，要求研究者解释其发现为何适用于更广泛群体。",
-        "speakerText": "Your findings are based on a narrow group of participants. How can you claim these results apply more broadly?",
-        "speakerTextCn": "你的发现基于一个狭窄的参与者群体，你如何声称这些结果具有更广泛的适用性？",
-        "responseTemplate": "I recognize the scope is limited, but ___",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +78,12 @@
             ]
           }
         ],
-        "hint": "承认局限后，需用研究发现与更广泛背景的关联来支撑普遍性",
-        "knowledgePoint": "承认局限 + 数据/模式支撑普遍性"
+        "situation": "教授在学术答辩中质疑研究结论的普遍性，要求研究者解释其发现为何适用于更广泛群体。",
+        "speakerText": "Your findings are based on a narrow group of participants. How can you claim these results apply more broadly?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你的发现基于一个狭窄的参与者群体，你如何声称这些结果具有更广泛的适用性？",
+        "knowledgePoint": "承认局限 + 数据/模式支撑普遍性",
+        "responseTemplate": "I recognize the scope is limited, but ___"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "解释方法选择时，需紧扣研究目标，而非主观偏好或操作困难",
         "type": "fill_blank",
-        "situation": "评审专家询问为何未采用量化方法，而选择定性分析来探究学习者态度变化。",
-        "speakerText": "Why didn't you use a standardized questionnaire to measure attitudes more objectively?",
-        "speakerTextCn": "你为何不使用标准化问卷来更客观地测量态度变化？",
-        "responseTemplate": "A questionnaire would have measured surface-level responses, but ___",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "解释方法选择时，需紧扣研究目标，而非主观偏好或操作困难",
-        "knowledgePoint": "用研究目标解释方法选择"
+        "situation": "评审专家询问为何未采用量化方法，而选择定性分析来探究学习者态度变化。",
+        "speakerText": "Why didn't you use a standardized questionnaire to measure attitudes more objectively?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你为何不使用标准化问卷来更客观地测量态度变化？",
+        "knowledgePoint": "用研究目标解释方法选择",
+        "responseTemplate": "A questionnaire would have measured surface-level responses, but ___"
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "面对因果质疑时，需提供证据说明排除了干扰变量或突出了核心变量的作用",
         "type": "fill_blank",
-        "situation": "导师质疑研究中提出的因果关系，要求说明如何排除其他可能影响因素。",
-        "speakerText": "You link the intervention directly to improved outcomes, but what about other variables like prior experience or instructor style?",
-        "speakerTextCn": "你将干预直接与结果改善联系起来，但其他变量如先前经验或教师风格呢？",
-        "responseTemplate": "While those factors could play a role, ___",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "面对因果质疑时，需提供证据说明排除了干扰变量或突出了核心变量的作用",
-        "knowledgePoint": "回应因果质疑：通过对照或控制变量强化因果推��"
+        "situation": "导师质疑研究中提出的因果关系，要求说明如何排除其他可能影响因素。",
+        "speakerText": "You link the intervention directly to improved outcomes, but what about other variables like prior experience or instructor style?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你将干预直接与结果改善联系起来，但其他变量如先前经验或教师风格呢？",
+        "knowledgePoint": "回应因果质疑：通过对照或控制变量强化因果推��",
+        "responseTemplate": "While those factors could play a role, ___"
+      }
+    },
+    {
+      "id": "study_abroad_097_sub_2_pq_6",
+      "subSceneId": "study_abroad_097_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表达方法与研究目标的契合，常用搭配是 'suited the goal'",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "suited",
+            "options": [
+              "suited",
+              "fit",
+              "matched",
+              "aligned"
+            ]
+          }
+        ],
+        "template": "Qualitative methods better ___ the exploratory nature of this research.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配：suit + noun（方法与目标匹配）"
       }
     }
   ]

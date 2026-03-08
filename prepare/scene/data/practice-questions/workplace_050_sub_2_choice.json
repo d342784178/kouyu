@@ -2,77 +2,76 @@
   "subSceneId": "workplace_050_sub_2",
   "subSceneName": "初步排查",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:19:06.537Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.555Z",
   "questions": [
     {
-      "id": "workplace_050_sub_2_choice_1",
+      "id": "workplace_050_sub_2_qa_2_choice_1",
       "subSceneId": "workplace_050_sub_2",
       "type": "choice",
       "order": 1,
       "content": {
+        "qaId": "workplace_050_sub_2_qa_2",
         "type": "choice",
-        "qaId": "workplace_050_sub_2_qa_1",
-        "speakerText": "Try unplugging it, then press and hold the power button for 15 secs.",
-        "speakerTextCn": "先拔掉电源，再长按电源键15秒。",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll do that right away.",
-            "isCorrect": true
+            "text": "Is the computer turning on?",
+            "isCorrect": false
           },
           {
             "id": "opt_2",
-            "text": "Can you send me a new one?",
+            "text": "What is the problem with the computer?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "I think it's broken.",
-            "isCorrect": false
+            "text": "Is the charger light on? Any fan noise?",
+            "isCorrect": true
           },
           {
             "id": "opt_4",
-            "text": "I don't know how to do that.",
+            "text": "Can you fix my computer now?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'I'll do that right away.' 是对指令的积极回应，符合IT指导场景中用户应反馈执行意愿的标准。选项2是直接要求更换设备，过早跳过排查步骤；选项3是主观判断，未按指示操作；选项4是推卸责任，不符合协作解决问题的语境。"
+        "explanation": "答案解析：正确答案\"Is the charger light on? Any fan noise?\"是针对故障排查的合适问题，其他选项与场景不符或不合适",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户描述故障，等待技术人员指导"
       }
     },
     {
-      "id": "workplace_050_sub_2_choice_2",
+      "id": "workplace_050_sub_2_qa_1_choice_1",
       "subSceneId": "workplace_050_sub_2",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "workplace_050_sub_2_qa_1",
         "type": "choice",
-        "qaId": "workplace_050_sub_2_qa_2",
-        "speakerText": "Is the charger light on? Any fan noise?",
-        "speakerTextCn": "充电器灯亮吗？有风扇声吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "It might be working, I'm not sure.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "The charger light is on, but I don't hear any fan noise.",
+            "text": "Try unplugging it, then press and hold the power button for 15 seconds.",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Can you send me the manual?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "It's too noisy, I think something's wrong.",
+            "text": "What's your phone number so I can call you back?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I tried turning it on, but nothing happened.",
+            "text": "Is there a way to fix it without unplugging it?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'The charger light is on, but I don't hear any fan noise.' 提供了明确、具体的观察信息，符合场景要求避免模糊词（如 'maybe', 'kinda'）。选项1使用了 'might' 和 'not sure'，属于模糊回应；选项3和4偏离了问题焦点，未分别回答两个关键点。"
+        "explanation": "正确答案是Try unplugging it, then press and hold the power button for 15 seconds，因为这是针对故障的基础检查步骤。选项2、3和4都是不相关的问题，干扰了用户对故障排查的理解。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户描述故障，等待技术人员指导"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Have you tried connecting it to a different power outlet?",
-        "speakerTextCn": "你试过换一个电源插座吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案清晰回应了操作动作（switched to another outlet）和结果（screen still won't turn on），符合初步排查中‘执行+反馈’的沟通逻辑。选项1是逃避行为，选项3是过早猜测原因，选项4是放弃协作，均不符合IT支持流程。"
+        "explanation": "正确答案清晰回应了操作动作（switched to another outlet）和结果（screen still won't turn on），符合初步排查中‘执行+反馈’的沟通逻辑。选项1是逃避行为，选项3是过早猜测原因，选项4是放弃协作，均不符合IT支持流程。",
+        "speakerText": "Have you tried connecting it to a different power outlet?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你试过换一个电源插座吗？"
       }
     }
   ]

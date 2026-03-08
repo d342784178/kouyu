@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getSubSceneById, getQAPairsBySubSceneId } from '@/lib/db/sub-scenes'
 import { callLLMForScene } from '@/lib/llm'
-import type { ReviewRequest, ReviewResponse, ReviewHighlight, QAResponse } from '@/types'
+import type { ReviewRequest, ReviewResponse, ReviewHighlight, FollowUp } from '@/types'
 
 // 禁用 Next.js 数据缓存
 export const dynamic = 'force-dynamic'
@@ -49,10 +49,10 @@ export async function POST(
       if (!qa) return null
 
       // 获取参考回应
-      const responses: QAResponse[] = Array.isArray(qa.responses)
-        ? (qa.responses as QAResponse[])
+      const followUps: FollowUp[] = Array.isArray(qa.followUps)
+        ? (qa.followUps as FollowUp[])
         : []
-      const referenceText = responses.map(r => r.text).join(' / ')
+      const referenceText = followUps.map(r => r.text).join(' / ')
 
       try {
         const messages = [
@@ -70,7 +70,7 @@ export async function POST(
           {
             role: 'user' as const,
             content: `场景：${subScene.name}
-对方说：${qa.speakerText}（${qa.speakerTextCn}）
+对方说：${qa.triggerText}（${qa.triggerTextCn}）
 参考回应：${referenceText}
 用户实际说的：${entry.userText}
 

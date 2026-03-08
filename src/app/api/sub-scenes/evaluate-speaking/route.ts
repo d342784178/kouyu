@@ -23,8 +23,8 @@ export async function POST(request: NextRequest) {
     const prompt = `你是英语口语评测专家。请评测用户的英语口语回答是否正确。
 
 对话场景：
-- 对方说：${context?.speakerText || expectedAnswer}
-- 对方说（中文）：${context?.speakerTextCn || ''}
+- 对方说：${context?.triggerText || expectedAnswer}
+- 对方说（中文）：${context?.triggerTextCn || ''}
 
 用户的回答：${userAnswer}
 

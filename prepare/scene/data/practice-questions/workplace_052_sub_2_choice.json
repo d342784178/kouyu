@@ -2,77 +2,76 @@
   "subSceneId": "workplace_052_sub_2",
   "subSceneName": "询问操作",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:19:23.347Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.571Z",
   "questions": [
     {
-      "id": "workplace_052_sub_2_choice_1",
+      "id": "workplace_052_sub_2_qa_2_choice_1",
       "subSceneId": "workplace_052_sub_2",
       "type": "choice",
       "order": 1,
       "content": {
+        "qaId": "workplace_052_sub_2_qa_2",
         "type": "choice",
-        "qaId": "workplace_052_sub_2_qa_1",
-        "speakerText": "I'm new here—how do I make copies? I'm not sure how to use this machine.",
-        "speakerTextCn": "我是新人，怎么复印啊？我不太会用这台机器。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Just press the big green button first.",
+            "text": "Can I set it to double-sided?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "You should call the IT department for help.",
+            "text": "How much does this machine cost?",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "Read the manual carefully before using it.",
+            "text": "Can you help me with the paper jam?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "You need to log in with your employee ID first.",
+            "text": "Do you have any other machines available?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Just press the big green button first.' 是直接、具体的动作指导，符合场景中‘用具体动作词引导’的要求。其他选项虽然语法正确，但过于抽象或不切实际，不符合快速指导新人使用设备的语境。"
+        "explanation": "正确答案是 Can I set it to double-sided？因为它询问了如何设置双面复印，这是为了省纸。其他选项不符合场景需求或表达不当。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在询问复印机使用和设置的方法，希望能省纸"
       }
     },
     {
-      "id": "workplace_052_sub_2_choice_2",
+      "id": "workplace_052_sub_2_qa_1_choice_1",
       "subSceneId": "workplace_052_sub_2",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "workplace_052_sub_2_qa_1",
         "type": "choice",
-        "qaId": "workplace_052_sub_2_qa_2",
-        "speakerText": "Can I set it to double-sided? I need to save paper.",
-        "speakerTextCn": "能设成双面复印吗？我想省纸。",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yep, just tap 'Duplex' on the screen.",
+            "text": "How do I use this copier?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "I don't think this machine supports double-sided.",
+            "text": "这个机器能打印吗？",
             "isCorrect": false
           },
           {
             "id": "opt_3",
-            "text": "You can try, but it might jam the paper.",
+            "text": "I need help with the scanner, please.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "You need to ask the manager for permission.",
+            "text": "这是什么机器？",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Yep, just tap 'Duplex' on the screen.' 是积极肯定的回应，符合‘优先用肯定句增强信心’的要求。其他选项要么否定功能、制造焦虑，要么引入不必要的流程，不符合高效指导的原则。"
+        "explanation": "正确答案：'How do I use this copier?' 是一个直接的问题，表达了使用复印机的需求。其他选项不正确，因为它们没有直接问到复印机的使用问题，或者是询问其他功能（打印、扫描）或机器的名称。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在一家办公室的复印机前，想要知道如何使用它，"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "How do I change the paper size? The machine is printing too small.",
-        "speakerTextCn": "怎么改纸张大小？机器打印出来的太小了。",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案提供清晰、具体的操作步骤，符合场景中‘指导操作’的核心目标。其他选项要么是无效的万能解决方案，要么错误地归因于硬件问题，缺乏实用指导价值。"
+        "explanation": "正确答案提供清晰、具体的操作步骤，符合场景中‘指导操作’的核心目标。其他选项要么是无效的万能解决方案，要么错误地归因于硬件问题，缺乏实用指导价值。",
+        "speakerText": "How do I change the paper size? The machine is printing too small.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "怎么改纸张大小？机器打印出来的太小了。"
       }
     }
   ]

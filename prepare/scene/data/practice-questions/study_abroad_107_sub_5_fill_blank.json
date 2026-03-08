@@ -2,20 +2,43 @@
   "subSceneId": "study_abroad_107_sub_5",
   "subSceneName": "询问校园活动",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:29:01.404Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.957Z",
   "questions": [
+    {
+      "id": "study_abroad_107_sub_5_qa_2_fill_blank_1",
+      "subSceneId": "study_abroad_107_sub_5",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问活动是否存在以及地点，使用 'if there are any...' 和 'where they're held' 结构",
+        "qaId": "study_abroad_107_sub_5_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "if there are any welcome events and where they're held",
+            "options": [
+              "if there are any welcome events and where they're held",
+              "what time the event starts and who organizes it",
+              "how many students will attend and what to bring",
+              "if the event is free and if I need to register"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "新生询问校园内是否有欢迎活动及其地点",
+        "knowledgePoint": "询问活动存在性与地点的提问句型",
+        "responseTemplate": "Could you tell me ___?"
+      }
+    },
     {
       "id": "study_abroad_107_sub_5_fill_blank_1",
       "subSceneId": "study_abroad_107_sub_5",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "询问活动是否对所有新生开放，使用 'Is it open to...' 结构",
         "type": "fill_blank",
-        "situation": "你刚到校园，听说有新生欢迎活动，想确认是否所有新生都可以参加，以及是否需要提前报名。",
-        "speakerText": "There's a welcome event for new students this week.",
-        "speakerTextCn": "这周有个为新生举办的欢迎活动。",
-        "responseTemplate": "___? I don't want to miss it if I'm eligible.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,39 @@
             ]
           }
         ],
-        "hint": "询问活动是否对所有新生开放，使用 'Is it open to...' 结构",
-        "knowledgePoint": "询问参与资格的常用表达"
+        "situation": "你刚到校园，听说有新生欢迎活动，想确认是否所有新生都可以参加，以及是否需要提前报名。",
+        "speakerText": "There's a welcome event for new students this week.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这周有个为新生举办的欢迎活动。",
+        "knowledgePoint": "询问参与资格的常用表达",
+        "responseTemplate": "___? I don't want to miss it if I'm eligible."
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_5_qa_1_fill_blank_1",
+      "subSceneId": "study_abroad_107_sub_5",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问事件的时间和地点时，宾语从句需用陈述语序",
+        "qaId": "study_abroad_107_sub_5_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "the welcome party is",
+            "options": [
+              "the welcome party is",
+              "is the welcome party",
+              "the welcome party will be",
+              "where the welcome party"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "新生询问活动时间和地点",
+        "knowledgePoint": "宾语从句的语序结构",
+        "responseTemplate": "Could you tell me when and where ___?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "表达自己不符合条件但想参与，使用 'Can I join even if I'm not...' 结构",
         "type": "fill_blank",
-        "situation": "你听到校园里有个语言交流活动，想确认自己即使不是该项目的学生是否也能参加。",
-        "speakerText": "We're having a language exchange every Thursday.",
-        "speakerTextCn": "我们每周四有语言交流活动。",
-        "responseTemplate": "___? I'm not in the program but I'd love to join.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "表达自己不符合条件但想参与，使用 'Can I join even if I'm not...' 结构",
-        "knowledgePoint": "表达非目标群体参与意愿的礼貌询问"
+        "situation": "你听到校园里有个语言交流活动，想确认自己即使不是该项目的学生是否也能参加。",
+        "speakerText": "We're having a language exchange every Thursday.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们每周四有语言交流活动。",
+        "knowledgePoint": "表达非目标群体参与意愿的礼貌询问",
+        "responseTemplate": "___? I'm not in the program but I'd love to join."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "询问活动氛围是否友好、无压力，使用 'Is it relaxed and...?' 结构",
         "type": "fill_blank",
-        "situation": "你听说有个新生聚会，想了解活动氛围是否轻松，是否适合性格内向的人参加。",
-        "speakerText": "It's a casual gathering to help new students get to know each other.",
-        "speakerTextCn": "这是一个帮助新生互相认识的轻松聚会。",
-        "responseTemplate": "___? I'm a little quiet and don't want to feel out of place.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "询问活动氛围是否友好、无压力，使用 'Is it relaxed and...?' 结构",
-        "knowledgePoint": "询问活动氛围与舒适度的表达"
+        "situation": "你听说有个新生聚会，想了解活动氛围是否轻松，是否适合性格内向的人参加。",
+        "speakerText": "It's a casual gathering to help new students get to know each other.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这是一个帮助新生互相认识的轻松聚会。",
+        "knowledgePoint": "询问活动氛围与舒适度的表达",
+        "responseTemplate": "___? I'm a little quiet and don't want to feel out of place."
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_5_pq_6",
+      "subSceneId": "study_abroad_107_sub_5",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "询问地点时的常用代词指代",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "it",
+            "options": [
+              "it",
+              "that",
+              "this",
+              "there"
+            ]
+          }
+        ],
+        "template": "Could you tell me where ___ is?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "代词指代（it 指代前面提到的活动）"
       }
     }
   ]

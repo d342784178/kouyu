@@ -2,29 +2,29 @@
   "subSceneId": "study_abroad_098_sub_2",
   "subSceneName": "借阅规则",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:52:58.842Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.848Z",
   "questions": [
     {
-      "id": "study_abroad_098_sub_2_speaking_1",
+      "id": "study_abroad_098_sub_2_qa_1_speaking_1",
       "subSceneId": "study_abroad_098_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "study_abroad_098_sub_2_qa_1",
-        "speakerText": "How many books can I check out at once, and how long can I keep 'em?",
-        "speakerTextCn": "我一次能借几本书？能借多久？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在图书馆咨询处，想了解一次可以借多少本书以及借阅期限是多久，请主动向工作人员提问。",
         "expectedAnswers": [
-          "You can borrow up to 10 books for four weeks, and you can renew them if no one else needs them.",
-          "Ten books, four weeks — easy! Renewals are allowed.",
-          "You're allowed 10 books total, with a 28-day loan period. Just bring them back on time!"
+          "How many books can I borrow at one time?",
+          "How long can I keep the books before I need to return them?",
+          "Could you tell me the limit on the number of books I can check out and how long I can keep them?",
+          "What’s the policy for borrowing books—how many can I take out and for how long?"
         ],
         "evaluationCriteria": [
-          "意图达成度：准确回答了借阅数量和期限两个问题",
-          "语言准确性：语法正确，使用了场景关键词如 'borrow', 'renew', 'loan period'",
-          "表达自然度：使用了口语缩略形式（如 'four weeks' 而非 'twenty-eight days'）或自然语气",
-          "关键词覆盖：至少包含 'books', 'weeks/days', 'renew' 中的两个"
+          "意图达成度：是否明确询问了借阅数量和期限两个关键信息",
+          "语言准确性：语法结构正确，动词和时态使用恰当",
+          "表达自然度：符合英语口语习惯，语气礼貌得体",
+          "关键词覆盖：使用了'borrow/check out', 'number of books', 'how long', 'return/keep'等场景关键词"
         ]
       }
     },
@@ -34,9 +34,10 @@
       "type": "speaking",
       "order": 2,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Can I renew my books if I need more time?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "如果我需要更多时间，我可以续借吗？",
         "expectedAnswers": [
           "Yes, you can renew them once, as long as no one else has requested them.",
@@ -57,9 +58,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "What if I lose a book? Do I have to pay for it?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "如果我弄丢了书，我需要赔钱吗？",
         "expectedAnswers": [
           "Yes, you'll need to pay the replacement cost — usually the price of the book.",

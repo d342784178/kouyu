@@ -2,52 +2,51 @@
   "subSceneId": "daily_017_sub_1",
   "subSceneName": "打招呼问候",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:38:37.058Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.561Z",
   "questions": [
     {
-      "id": "daily_017_sub_1_speaking_1",
+      "id": "daily_017_sub_1_qa_1_speaking_1",
       "subSceneId": "daily_017_sub_1",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "daily_017_sub_1_qa_1",
-        "speakerText": "Hi there! Got any fresh apples today?",
-        "speakerTextCn": "嗨！今天有新鲜苹果吗？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你走进水果店，店员正在摆放新鲜水果，你想询问店员今天有哪些新鲜水果",
         "expectedAnswers": [
-          "Yeah, we just got a big shipment!",
-          "Sure do! We've got Fuji and Gala.",
-          "Of course! Fresh apples are in aisle three."
+          "Hi, do you have any fresh apples today?",
+          "Excuse me, are there any new apples in stock?",
+          "Hello, do you have any fresh apples or pears today?"
         ],
         "evaluationCriteria": [
-          "意图达成度：明确回应了有新鲜苹果，不否定或回避问题",
-          "语言准确性：语法正确，使用恰当的口语表达（如 Yeah/Sure do）",
-          "表达自然度：符合服务场景的友好、非正式但礼貌的语气",
-          "关键词覆盖：使用了 fresh, shipment, 或具体品种（如 Fuji）等场景关键词"
+          "意图达成度：是否正确表达了询问新鲜水果的意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯"
         ]
       }
     },
     {
-      "id": "daily_017_sub_1_speaking_2",
+      "id": "daily_017_sub_1_qa_2_speaking_1",
       "subSceneId": "daily_017_sub_1",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "daily_017_sub_1_qa_2",
-        "speakerText": "How's it going?",
-        "speakerTextCn": "最近怎么样？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客走进水果店，想要礼貌地与店员打招呼并开启对话",
         "expectedAnswers": [
-          "Pretty good, thanks! You?",
-          "Can't complain! How about you?",
-          "Not bad! How's your day going?"
+          "Hi there! How's it going?",
+          "Hello! Doing well today?",
+          "Good morning! Any new fruits in today?",
+          "Hey! How's everything going?"
         ],
         "evaluationCriteria": [
-          "意图达成度：正面回应问候并反问对方，体现互动礼貌",
-          "语言准确性：使用正确口语结构，如 'Can't complain' 或 'You?'",
-          "表达自然度：符合日常对话节奏，不生硬或过度正式",
-          "关键词覆盖：使用了 'pretty good', 'can't complain', 'how about you' 等高频问候表达"
+          "意图达成度：是否自然地表达了问候并开启对话",
+          "语言准确性：语法和时态使用正确，无明显错误",
+          "表达自然度：符合英语母语者日常打招呼的口语习惯",
+          "关键词覆盖：使用了问候语或相关社交用语"
         ]
       }
     },
@@ -57,9 +56,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Welcome to our store! How are you today?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "欢迎光临！你今天怎么样？",
         "expectedAnswers": [
           "I'm doing great, thanks! How about you?",

@@ -2,9 +2,78 @@
   "subSceneId": "daily_027_sub_4",
   "subSceneName": "了解保修",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:18:46.493Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.632Z",
   "questions": [
+    {
+      "id": "daily_027_sub_4_qa_1_choice_1",
+      "subSceneId": "daily_027_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_027_sub_4_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What does the warranty cover and how long does it last?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much does it cost to extend the warranty?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is the warranty available in my country?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get a refund if it breaks?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案询问保修范围和期限，直接对应场景需求。干扰项1聚焦延保费用，偏离基础政策了解；干扰项2关注地域有效性，非当前核心问题；干扰项3询问退款，混淆了保修与退货政策。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客：这个电钻的保修政策是怎样的？"
+      }
+    },
+    {
+      "id": "daily_027_sub_4_qa_2_choice_1",
+      "subSceneId": "daily_027_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_027_sub_4_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What does the warranty cover?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much does the drill cost?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I return this if I don't like it?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you offer any discounts?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'What does the warranty cover?' 直接询问保修范围，符合场景需求。干扰项 'How much does the drill cost?' 考察价格而非保修；'Can I return this if I don't like it?' 混淆了退货政策与保修；'Do you offer any discounts?' 偏离主题，询问优惠而非保障条款。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想了解这款电钻的保修范围和条件，准备向店员提问。"
+      }
+    },
     {
       "id": "daily_027_sub_4_choice_1",
       "subSceneId": "daily_027_sub_4",
@@ -12,9 +81,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "你在电子产品商店购买了一台新耳机，销售员告知标准保修为一年，仅覆盖制造缺陷。你担心日常使用中可能意外损坏，想确认是否包含这种情况。",
-        "speakerText": "The standard warranty is one year and only covers manufacturing defects like faulty wiring or speaker malfunction.",
-        "speakerTextCn": "标准保修一年，仅涵盖制造缺陷，比如线路故障或扬声器失灵。",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +103,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确追问意外损坏是否在保修范围内，符合场景核心任务——确认保修边界。干扰项1是询问退款，偏离保修范围；干扰项2是无关的购买行为；干扰项3是询问电池续航，完全答非所问。"
+        "situation": "你在电子产品商店购买了一台新耳机，销售员告知标准保修为一年，仅覆盖制造缺陷。你担心日常使用中可能意外损坏，想确认是否包含这种情况。",
+        "explanation": "正确答案准确追问意外损坏是否在保修范围内，符合场景核心任务——确认保修边界。干扰项1是询问退款，偏离保修范围；干扰项2是无关的购买行为；干扰项3是询问电池续航，完全答非所问。",
+        "speakerText": "The standard warranty is one year and only covers manufacturing defects like faulty wiring or speaker malfunction.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "标准保修一年，仅涵盖制造缺陷，比如线路故障或扬声器失灵。"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "销售员建议你花20美元购买延保服务，覆盖意外损坏。你考虑后决定不购买，但想礼貌地拒绝并说明原因。",
-        "speakerText": "For $20, you can extend your warranty to cover drops, spills, and other accidental damage.",
-        "speakerTextCn": "支付20美元，您可以延长保修期，覆盖摔落、泼溅和其他意外损坏。",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案自然拒绝并给出合理理由，符合高频表达习惯。干扰项1是试图延迟付款，误解了对方提议；干扰项2是转向其他产品，偏离主题；干扰项3是错误地认为意外损坏已包含，属于理解偏差。"
+        "situation": "销售员建议你花20美元购买延保服务，覆盖意外损坏。你考虑后决定不购买，但想礼貌地拒绝并说明原因。",
+        "explanation": "正确答案自然拒绝并给出合理理由，符合高频表达习惯。干扰项1是试图延迟付款，误解了对方提议；干扰项2是转向其他产品，偏离主题；干扰项3是错误地认为意外损坏已包含，属于理解偏差。",
+        "speakerText": "For $20, you can extend your warranty to cover drops, spills, and other accidental damage.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "支付20美元，您可以延长保修期，覆盖摔落、泼溅和其他意外损坏。"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "你刚买了一台智能音箱，收到邮件说保修期为18个月，但仅限于软件故障和硬件缺陷。你想确认是否包括因高温导致的损坏。",
-        "speakerText": "Your warranty covers software glitches and hardware defects for 18 months. It doesn’t cover damage from extreme temperatures.",
-        "speakerTextCn": "您的保修涵盖18个月内的软件故障和硬件缺陷，但不包括极端温度造成的损坏。",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确确认高温损坏是否被排除，精准回应保修范围的核心疑问。干扰项1是询问退货政策，与保修无关；干扰项2是单纯表达感谢，未确认关键信息；干扰项3是询问促销，完全偏离主题。"
+        "situation": "你刚买了一台智能音箱，收到邮件说保修期为18个月，但仅限于软件故障和硬件缺陷。你想确认是否包括因高温导致的损坏。",
+        "explanation": "正确答案明确确认高温损坏是否被排除，精准回应保修范围的核心疑问。干扰项1是询问退货政策，与保修无关；干扰项2是单纯表达感谢，未确认关键信息；干扰项3是询问促销，完全偏离主题。",
+        "speakerText": "Your warranty covers software glitches and hardware defects for 18 months. It doesn’t cover damage from extreme temperatures.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "您的保修涵盖18个月内的软件故障和硬件缺陷，但不包括极端温度造成的损坏。"
       }
     }
   ]

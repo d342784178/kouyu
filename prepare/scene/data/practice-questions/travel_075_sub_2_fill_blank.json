@@ -2,20 +2,70 @@
   "subSceneId": "travel_075_sub_2",
   "subSceneName": "询问班次时间",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:31:35.371Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.335Z",
   "questions": [
+    {
+      "id": "travel_075_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "travel_075_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示，帮助你回忆",
+        "qaId": "travel_075_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "准时",
+            "options": [
+              "准时",
+              "晚点",
+              "提前",
+              "不知道"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想询问的班次时间是否准点",
+        "knowledgePoint": "使用提问句型，询问班次时间信息",
+        "responseTemplate": "班次时间是否___"
+      }
+    },
+    {
+      "id": "travel_075_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "travel_075_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示：填写你要询问的班次类型",
+        "qaId": "travel_075_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "flight",
+            "options": [
+              "飞机",
+              "火车",
+              "公交",
+              "汽车"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "您正在询问班次时间，工作人员可以提供帮助。",
+        "knowledgePoint": "口语表达-询问班次时间",
+        "responseTemplate": "What is the departure time for the ___?"
+      }
+    },
     {
       "id": "travel_075_sub_2_fill_blank_1",
       "subSceneId": "travel_075_sub_2",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "表达‘发车时间’时，常用 'the next departure' 或 'the train leaves' 结构",
         "type": "fill_blank",
-        "situation": "乘客在车站询问下一班火车的发车时间及是否准时",
-        "speakerText": "Could you tell me when the next train leaves?",
-        "speakerTextCn": "您能告诉我下一班火车什么时候发车吗？",
-        "responseTemplate": "It departs at ___",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +78,12 @@
             ]
           }
         ],
-        "hint": "表达‘发车时间’时，常用 'the next departure' 或 'the train leaves' 结构",
-        "knowledgePoint": "询问和表达交通工具发车时间的常用表达"
+        "situation": "乘客在车站询问下一班火车的发车时间及是否准时",
+        "speakerText": "Could you tell me when the next train leaves?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "您能告诉我下一班火车什么时候发车吗？",
+        "knowledgePoint": "询问和表达交通工具发车时间的常用表达",
+        "responseTemplate": "It departs at ___"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "描述交通工具准点时，常用 'generally punctual' 或 'usually on time' 表达",
         "type": "fill_blank",
-        "situation": "乘客担心班次是否准时，向工作人员确认准点情况",
-        "speakerText": "Is this train usually on time?",
-        "speakerTextCn": "这趟车通常准点吗？",
-        "responseTemplate": "Yes, it's ___",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "描述交通工具准点时，常用 'generally punctual' 或 'usually on time' 表达",
-        "knowledgePoint": "表达交通工具准点性的标准说法"
+        "situation": "乘客担心班次是否准时，向工作人员确认准点情况",
+        "speakerText": "Is this train usually on time?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这趟车通常准点吗？",
+        "knowledgePoint": "表达交通工具准点性的标准说法",
+        "responseTemplate": "Yes, it's ___"
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "表达‘按时刻表运行’时，标准说法是 'running on schedule'",
         "type": "fill_blank",
-        "situation": "乘客想确认是否有延误，向工作人员核实班次状态",
-        "speakerText": "Has there been any delay for this service?",
-        "speakerTextCn": "这趟车有延误吗？",
-        "responseTemplate": "No, it's ___",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "表达‘按时刻表运行’时，标准说法是 'running on schedule'",
-        "knowledgePoint": "描述班次正常运行的地道表达"
+        "situation": "乘客想确认是否有延误，向工作人员核实班次状态",
+        "speakerText": "Has there been any delay for this service?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这趟车有延误吗？",
+        "knowledgePoint": "描述班次正常运行的地道表达",
+        "responseTemplate": "No, it's ___"
+      }
+    },
+    {
+      "id": "travel_075_sub_2_pq_6",
+      "subSceneId": "travel_075_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表达‘每件’费用的固定搭配",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "each",
+            "options": [
+              "each",
+              "every",
+              "per day",
+              "in total"
+            ]
+          }
+        ],
+        "template": "Extra bags cost $10 ___.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定表达：each 表示单位计价"
       }
     }
   ]

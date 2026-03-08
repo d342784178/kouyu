@@ -2,52 +2,49 @@
   "subSceneId": "social_090_sub_1",
   "subSceneName": "连接测试",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:46:27.402Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.761Z",
   "questions": [
     {
-      "id": "social_090_sub_1_speaking_1",
+      "id": "social_090_sub_1_qa_2_speaking_1",
       "subSceneId": "social_090_sub_1",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "social_090_sub_1_qa_2",
         "type": "speaking",
-        "qaId": "social_090_sub_1_qa_1",
-        "speakerText": "Hey, can you hear me okay? The audio's a bit crackly.",
-        "speakerTextCn": "嘿，你能听清吗？声音有点沙沙的。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "场景提示：用户通常在视频通话开始时进行连接测试，检查音视频是否正常，确认连接稳定",
         "expectedAnswers": [
-          "I can hear you, but it’s a bit fuzzy. Can you lower your mic gain?",
-          "The audio is a little unclear—maybe try turning down your input volume?",
-          "I'm hearing you, but there's some background noise. Could you check your mic settings?"
+          "Your video's frozen—can you check your camera?",
+          "我看到了你的视频，但它好像卡住了，你能检查下摄像头吗?",
+          "你的视频为什么会卡住呢？能检查下摄像头吗？"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否识别并回应了音频问题",
-          "语言准确性：语法正确，用词恰当（如fuzzy, mic gain）",
-          "表达自然度：符合日常口语习惯，不生硬",
-          "关键词覆盖：使用了audio/fuzzy/mic gain等场景关键词"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯"
         ]
       }
     },
     {
-      "id": "social_090_sub_1_speaking_2",
+      "id": "social_090_sub_1_qa_1_speaking_1",
       "subSceneId": "social_090_sub_1",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "social_090_sub_1_qa_1",
         "type": "speaking",
-        "qaId": "social_090_sub_1_qa_2",
-        "speakerText": "Your video's frozen—can you check your camera?",
-        "speakerTextCn": "你的视频卡住了，能检查下摄像头吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在视频通话开始时进行连接测试，确认音视频是否正常",
         "expectedAnswers": [
-          "Sorry! My camera was off—I just turned it on.",
-          "It's on, but my internet's slow. I'm closing some tabs to free up bandwidth.",
-          "I'll restart my camera app right away."
+          "Hey, can you hear me okay? The audio's a bit crackly.",
+          "嘿，你能听到声音吗？声音有点沙沙的。",
+          "Hi, can you hear me clearly? I'm experiencing some audio issues."
         ],
         "evaluationCriteria": [
-          "意图达成度：是否主动排查并回应视频问题",
-          "语言准确性：使用了camera/bandwidth/turn on等正确术语",
-          "表达自然度：语气礼貌，有行动导向",
-          "关键词覆盖：包含camera, frozen, bandwidth, turn on等核心词"
+          "意图达成度：是否正确表达了询问音视频连接问题的意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯"
         ]
       }
     },
@@ -57,9 +54,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "The call keeps dropping—what should I do?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "通话总是断线，我该怎么办？",
         "expectedAnswers": [
           "Try restarting your router—it often fixes connection drops.",

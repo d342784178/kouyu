@@ -2,20 +2,43 @@
   "subSceneId": "daily_013_sub_3",
   "subSceneName": "办理续借",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:42.641Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.539Z",
   "questions": [
+    {
+      "id": "daily_013_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "daily_013_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示，帮助用户回忆",
+        "qaId": "daily_013_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "在线续借",
+            "options": [
+              "在线续借",
+              "电话续借",
+              "现场续借",
+              "邮寄续借"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户询问续借服务，工作人员回答是否可以在线操作。",
+        "knowledgePoint": "续借服务的在线操作",
+        "responseTemplate": "我能___我的书籍吗?"
+      }
+    },
     {
       "id": "daily_013_sub_3_fill_blank_1",
       "subSceneId": "daily_013_sub_3",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "这是续借操作中最关键的按钮名称，通常在账户页面的图书列表旁。",
         "type": "fill_blank",
-        "situation": "你在图书馆网站上尝试续借图书，但不确定操作流程，向工作人员确认步骤。",
-        "speakerText": "I'm trying to renew my books on the website, but I'm not sure where to click. Can you help?",
-        "speakerTextCn": "我正在网站上尝试续借图书，但不确定该点哪里，能帮帮我吗？",
-        "responseTemplate": "Sure, just log in to your account and look for the ___ button.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,39 @@
             ]
           }
         ],
-        "hint": "这是续借操作中最关键的按钮名称，通常在账户页面的图书列表旁。",
-        "knowledgePoint": "核心操作动词与功能按钮表达"
+        "situation": "你在图书馆网站上尝试续借图书，但不确定操作流程，向工作人员确认步骤。",
+        "speakerText": "I'm trying to renew my books on the website, but I'm not sure where to click. Can you help?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我正在网站上尝试续借图书，但不确定该点哪里，能帮帮我吗？",
+        "knowledgePoint": "核心操作动词与功能按钮表达",
+        "responseTemplate": "Sure, just log in to your account and look for the ___ button."
+      }
+    },
+    {
+      "id": "daily_013_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "daily_013_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "当询问假设情况的结果时，常用 'What if... then?' 结构",
+        "qaId": "daily_013_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "then?",
+            "options": [
+              "then?",
+              "now?",
+              "so?",
+              "right?"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户询问续借服务，工作人员回答是否可以在线操作，用户想进一步确认如果系统不允许续借该怎么办",
+        "knowledgePoint": "假设性提问句型",
+        "responseTemplate": "What if the system says 'Cannot renew'___"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "图书馆术语中，当别人想借你正在看的书时，会使用哪个词来表示‘预约’？",
         "type": "fill_blank",
-        "situation": "你尝试续借时系统提示失败，想了解原因并确认是否能再次尝试。",
-        "speakerText": "The system said I can't renew this book. Why is that?",
-        "speakerTextCn": "系统说我不能续借这本书，这是为什么？",
-        "responseTemplate": "It means someone else has placed a ___ on it. You'll need to return it by the due date.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "图书馆术语中，当别人想借你正在看的书时，会使用哪个词来表示‘预约’？",
-        "knowledgePoint": "图书馆专用术语：hold 的正确使用"
+        "situation": "你尝试续借时系统提示失败，想了解原因并确认是否能再次尝试。",
+        "speakerText": "The system said I can't renew this book. Why is that?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "系统说我不能续借这本书，这是为什么？",
+        "knowledgePoint": "图书馆专用术语：hold 的正确使用",
+        "responseTemplate": "It means someone else has placed a ___ on it. You'll need to return it by the due date."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "无论通过哪种方式续借，系统都会检查是否有他人预约了这本书，这个关键词是什么？",
         "type": "fill_blank",
-        "situation": "你问工作人员是否可以电话续借，因为不熟悉网站操作。",
-        "speakerText": "Is it possible to renew my books by phone instead?",
-        "speakerTextCn": "我可以通过电话续借吗？因为我不太熟悉网站操作。",
-        "responseTemplate": "You can, but only if there are no ___ on the items.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "无论通过哪种方式续借，系统都会检查是否有他人预约了这本书，这个关键词是什么？",
-        "knowledgePoint": "续借前提条件的表达结构"
+        "situation": "你问工作人员是否可以电话续借，因为不熟悉网站操作。",
+        "speakerText": "Is it possible to renew my books by phone instead?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我可以通过电话续借吗？因为我不太熟悉网站操作。",
+        "knowledgePoint": "续借前提条件的表达结构",
+        "responseTemplate": "You can, but only if there are no ___ on the items."
+      }
+    },
+    {
+      "id": "daily_013_sub_3_pq_6",
+      "subSceneId": "daily_013_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表示‘只要…就…’的条件表达",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "as long as",
+            "options": [
+              "as long as",
+              "even if",
+              "because",
+              "unless"
+            ]
+          }
+        ],
+        "template": "You can renew your books online ___ you haven't reached your renewal limit.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "条件表达（as long as）"
       }
     }
   ]

@@ -1,19 +1,26 @@
 {
   "sceneId": "workplace_033",
   "sceneName": "职场邮件沟通",
+  "exportedAt": "2026-03-08T15:31:54.903Z",
   "subScenes": [
     {
       "id": "workplace_033_sub_1",
+      "sceneId": "workplace_033",
       "name": "询问邮件状态",
       "description": "礼貌询问对方是否已发送项目进度邮件",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_033_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hey, did you get a chance to send the project update email?",
-          "speakerTextCn": "嘿，你有空发项目更新邮件了吗？",
-          "responses": [
+          "subSceneId": "workplace_033_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hey, did you get a chance to send the project update email?",
+          "triggerTextCn": "嘿，你有空发项目更新邮件了吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户询问，服务方/工作人员回应邮件发送情况。",
+          "followUps": [
             {
               "text": "I haven't sent it yet—I'm still finalizing the numbers.",
               "text_cn": "我还没发，正在最后核对数据。",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用非正式语气拉近距离，适合同级同事"
+          "usageNote": "用非正式语气拉近距离，适合同级同事",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "workplace_033_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Just checking in—was the email to the client sent?",
-          "speakerTextCn": "顺口问下，给客户的邮件发了吗？",
-          "responses": [
+          "subSceneId": "workplace_033_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Just checking in—was the email to the client sent?",
+          "triggerTextCn": "顺口问下，给客户的邮件发了吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户询问，服务方/工作人员回应邮件发送情况。",
+          "followUps": [
             {
               "text": "I'm still waiting on Sarah's input—I'll send it after her review.",
               "text_cn": "等Sarah反馈，她审完我就发。",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "正式场合用‘checking in’更得体"
+          "usageNote": "正式场合用‘checking in’更得体",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_033_sub_2",
+      "sceneId": "workplace_033",
       "name": "解释延迟原因",
       "description": "礼貌说明邮件延迟发送的合理原因",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_033_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Sorry I haven't sent the report—my laptop crashed last night.",
-          "speakerTextCn": "抱歉没发报告，我昨晚电脑崩了。",
-          "responses": [
+          "subSceneId": "workplace_033_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Sorry I haven't sent the report—my laptop crashed last night.",
+          "triggerTextCn": "抱歉没发报告，我昨晚电脑崩了。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "No worries—just resend it when you can. We've got time.",
               "text_cn": "没事，有空重发就行，还来得及。",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用‘No worries’缓解对方压力，适合非正式场景"
+          "usageNote": "用‘No worries’缓解对方压力，适合非正式场景",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "workplace_033_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I apologize for the delay—the client changed the requirements again.",
-          "speakerTextCn": "很抱歉延迟了，客户又改了需求。",
-          "responses": [
+          "subSceneId": "workplace_033_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "I apologize for the delay—the client changed the requirements again.",
+          "triggerTextCn": "很抱歉延迟了，客户又改了需求。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "That's understandable. Please update me once it's sent.",
               "text_cn": "能理解，发了记得告诉我一声。",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "正式回应需体现支持与跟进意识"
+          "usageNote": "正式回应需体现支持与跟进意识",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_033_sub_3",
+      "sceneId": "workplace_033",
       "name": "提出替代方案",
       "description": "因附件问题提供其他发送方式或格式",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_033_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "The PDF file is too big to send—can I share it via Google Drive instead?",
-          "speakerTextCn": "PDF太大发不了，能改用Google Drive吗？",
-          "responses": [
+          "subSceneId": "workplace_033_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "The PDF file is too big to send—can I share it via Google Drive instead?",
+          "triggerTextCn": "PDF太大发不了，能改用Google Drive吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户在邮件中提出问题，等待服务方/工作人员回答",
+          "followUps": [
             {
               "text": "Sure! Just send me the link and set it to 'Anyone with link can view'.",
               "text_cn": "可以，发链接，设成‘任何人可查看’。",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "提供方案时，主动说明权限设置更专业"
+          "usageNote": "提供方案时，主动说明权限设置更专业",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "workplace_033_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I can't open the .xlsx file—it says it's corrupted. Any chance you can resend as .csv?",
-          "speakerTextCn": "打不开xlsx文件，提示损坏，能重发成csv吗？",
-          "responses": [
+          "subSceneId": "workplace_033_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "I can't open the .xlsx file—it says it's corrupted. Any chance you can resend as .csv?",
+          "triggerTextCn": "打不开xlsx文件，提示损坏，能重发成csv吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户在邮件中提出问题，等待服务方/工作人员回答",
+          "followUps": [
             {
               "text": "I'll resend it as CSV right away—thanks for flagging this!",
               "text_cn": "马上重发CSV，谢谢提醒！",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "先解决再确认，避免重复沟通"
+          "usageNote": "先解决再确认，避免重复沟通",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_033_sub_4",
+      "sceneId": "workplace_033",
       "name": "确认抄送与格式",
       "description": "确认邮件抄送对象和附件格式是否正确",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_033_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Just sent the update—CC'd Linda and Mark, right?",
-          "speakerTextCn": "刚发了更新，抄送了Linda和Mark对吧？",
-          "responses": [
+          "subSceneId": "workplace_033_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "Just sent the update—CC'd Linda and Mark, right?",
+          "triggerTextCn": "刚发了更新，抄送了Linda和Mark对吧？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户询问抄送人是否正确，服务方/工作人员确认或纠正",
+          "followUps": [
             {
               "text": "Yes, but please also add Priya—she needs the data for the meeting.",
               "text_cn": "对，但别忘了加Priya，她要开会用数据。",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "确认抄送时，直接指出需增删人员更高效"
+          "usageNote": "确认抄送时，直接指出需增删人员更高效",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "workplace_033_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "The attachment is in .docx—should I convert it to PDF for consistency?",
-          "speakerTextCn": "附件是.docx格式，要转成PDF统一格式吗？",
-          "responses": [
+          "subSceneId": "workplace_033_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "The attachment is in .docx—should I convert it to PDF for consistency?",
+          "triggerTextCn": "附件是.docx格式，要转成PDF统一格式吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户询问抄送人是否正确，服务方/工作人员确认或纠正",
+          "followUps": [
             {
               "text": "Yes, please—our templates are all PDF now.",
               "text_cn": "要的，现在模板都统一用PDF。",
@@ -222,22 +284,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "说明格式选择依据，减少后续争议"
+          "usageNote": "说明格式选择依据，减少后续争议",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_033_sub_5",
+      "sceneId": "workplace_033",
       "name": "结束沟通",
       "description": "礼貌收尾并确认后续跟进方式",
+      "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_033_sub_5_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Alright, I've sent everything—let me know if you need anything else.",
-          "speakerTextCn": "好了，都发了，有需要随时说。",
-          "responses": [
+          "subSceneId": "workplace_033_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Alright, I've sent everything—let me know if you need anything else.",
+          "triggerTextCn": "好了，都发了，有需要随时说。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Thanks! I'll review it by tomorrow and get back to you.",
               "text_cn": "谢谢，我明天看完再回复你。",
@@ -254,14 +325,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "简短回应适合快节奏办公场景"
+          "usageNote": "简短回应适合快节奏办公场景",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "workplace_033_sub_5_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Just confirming—we're all set on the email? No changes needed?",
-          "speakerTextCn": "确认一下，邮件没问题了吧？不需要改了？",
-          "responses": [
+          "subSceneId": "workplace_033_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Just confirming—we're all set on the email? No changes needed?",
+          "triggerTextCn": "确认一下，邮件没问题了吧？不需要改了？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Perfect—everything looks good. Thanks for your help!",
               "text_cn": "完美，都很好，谢谢你帮忙！",
@@ -278,7 +356,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用‘all clear’简洁收尾，适合确认型对话"
+          "usageNote": "用‘all clear’简洁收尾，适合确认型对话",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

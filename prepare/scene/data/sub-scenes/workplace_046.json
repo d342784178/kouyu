@@ -1,19 +1,26 @@
 {
   "sceneId": "workplace_046",
   "sceneName": "加班申请",
+  "exportedAt": "2026-03-08T15:31:54.916Z",
   "subScenes": [
     {
       "id": "workplace_046_sub_1",
+      "sceneId": "workplace_046",
       "name": "礼貌开场",
       "description": "向主管礼貌打招呼并切入加班话题",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_046_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hey Alex, got a quick minute?",
-          "speakerTextCn": "嘿，亚历克斯，有空聊两句吗？",
-          "responses": [
+          "subSceneId": "workplace_046_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hey Alex, got a quick minute?",
+          "triggerTextCn": "嘿，亚历克斯，有空聊两句吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：适用于顾客询问服务人员是否方便交谈的情况。",
+          "followUps": [
             {
               "text": "Sure, what's up?",
               "text_cn": "当然，怎么了？",
@@ -30,22 +37,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用简短问句自然开启对话"
+          "usageNote": "用简短问句自然开启对话",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         }
       ]
     },
     {
       "id": "workplace_046_sub_2",
+      "sceneId": "workplace_046",
       "name": "说明原因",
       "description": "清晰说明需要加班的理由",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_046_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "I'm behind on the client report and it's due tomorrow.",
-          "speakerTextCn": "客户报告拖了，明天就要交。",
-          "responses": [
+          "subSceneId": "workplace_046_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "I'm behind on the client report and it's due tomorrow.",
+          "triggerTextCn": "客户报告拖了，明天就要交。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "I'd really appreciate it if I could work late today to finish it.",
               "text_cn": "我想申请今天加班赶完它。",
@@ -62,22 +78,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用‘I'd appreciate’更显礼貌"
+          "usageNote": "用‘I'd appreciate’更显礼貌",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_046_sub_3",
+      "sceneId": "workplace_046",
       "name": "确认时长",
       "description": "预估加班时间并征求同意",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_046_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "I think I'll need about two extra hours.",
-          "speakerTextCn": "我估计需要加两个小时。",
-          "responses": [
+          "subSceneId": "workplace_046_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "I think I'll need about two extra hours.",
+          "triggerTextCn": "我估计需要加两个小时。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "That works for me—just let me know when you're done.",
               "text_cn": "没问题，做完告诉我一声。",
@@ -94,22 +119,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "明确时间更易获批准"
+          "usageNote": "明确时间更易获批准",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "workplace_046_sub_4",
+      "sceneId": "workplace_046",
       "name": "确认补偿",
       "description": "礼貌询问加班补偿政策",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_046_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Just to confirm, will this count as overtime pay or time off?",
-          "speakerTextCn": "确认下，这算加班费还是调休？",
-          "responses": [
+          "subSceneId": "workplace_046_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "Just to confirm, will this count as overtime pay or time off?",
+          "triggerTextCn": "确认下，这算加班费还是调休？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：员工向主管询问加班后的补偿方式",
+          "followUps": [
             {
               "text": "It'll be paid as overtime—HR's policy hasn't changed.",
               "text_cn": "算加班费，HR政策没变。",
@@ -126,22 +160,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用‘just to confirm’显得专业"
+          "usageNote": "用‘just to confirm’显得专业",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 4
         }
       ]
     },
     {
       "id": "workplace_046_sub_5",
+      "sceneId": "workplace_046",
       "name": "结束对话",
       "description": "感谢批准并礼貌道别",
+      "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_046_sub_5_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Awesome, thanks for letting me stay late.",
-          "speakerTextCn": "太好了，谢谢批准我加班。",
-          "responses": [
+          "subSceneId": "workplace_046_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Awesome, thanks for letting me stay late.",
+          "triggerTextCn": "太好了，谢谢批准我加班。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "No problem, good luck with the report!",
               "text_cn": "不客气，报告加油！",
@@ -158,7 +201,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "结尾感谢提升职场印象"
+          "usageNote": "结尾感谢提升职场印象",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 5
         }
       ]
     }

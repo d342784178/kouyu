@@ -2,77 +2,76 @@
   "subSceneId": "social_083_sub_1",
   "subSceneName": "打招呼邀请",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:45:07.269Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.710Z",
   "questions": [
     {
-      "id": "social_083_sub_1_choice_1",
+      "id": "social_083_sub_1_qa_1_choice_1",
       "subSceneId": "social_083_sub_1",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "social_083_sub_1_qa_1",
-        "speakerText": "Hey! What's up this weekend?",
-        "speakerTextCn": "嘿！这周末有什么安排？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "I have a meeting at 9 AM.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Not much, just chillin'. You got something planned?",
+            "text": "Hey! What's up this weekend?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Are you free on Saturday?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Could we reschedule our appointment?",
+            "text": "I'm having a party this weekend, come!",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I'm busy all weekend, sorry.",
+            "text": "Do you like parties?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Not much, just chillin'. You got something planned?' 是朋友间轻松自然的回应，符合口语习惯。其他选项要么太正式（如 reschedule appointment），要么太消极（如 I'm busy），不符合邀请场景的轻松氛围。"
+        "explanation": "正确答案 'Hey! What's up this weekend?' 是自然、开放式的打招呼方式，为后续邀请留出空间。干扰项 'Are you free on Saturday?' 过于直接，未建立轻松氛围；'I'm having a party this weekend, come!' 是陈述句而非提问，缺乏互动性；'Do you like parties?' 偏离了当下情境，转向偏好询问而非计划探讨。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你和朋友在校园里偶遇，想自然地打招呼并邀请对方参加你这周末的派对，你该先问什么来开启话题？"
       }
     },
     {
-      "id": "social_083_sub_1_choice_2",
+      "id": "social_083_sub_1_qa_2_choice_1",
       "subSceneId": "social_083_sub_1",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "social_083_sub_1_qa_2",
-        "speakerText": "Actually, I'm throwing a small party Saturday night — wanna come?",
-        "speakerTextCn": "其实我周六晚上办个小派对，来吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'll think about it and get back to you.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Yes! I'd love to! What time?",
+            "text": "Actually, I'm throwing a small party Saturday night — wanna come?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Do you have any plans for the weekend?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Is it a formal event?",
+            "text": "I'm having a party, come if you want.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I need to check my calendar first.",
+            "text": "Are you free on Saturday? I need help moving.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Yes! I'd love to! What time?' 表达了热情明确的接受，符合邀请场景的积极回应标准。其他选项含糊其辞（如 think about it）或过于正式（如 check my calendar），削弱了朋友间自然互动的氛围。"
+        "explanation": "正确答案直接自然地发出邀请，符合朋友间轻松的语气。选项2只是询问计划，未引出邀请；选项3语气生硬，缺乏社交润滑；选项4完全偏离派对主题，是另一个请求。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户询问对方周末计划，引出邀请话题"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Hey, how’s it going? Any plans for Friday?",
-        "speakerTextCn": "嘿，最近怎么样？周五有安排吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'Not much, just relaxing. You up for something?' 是朋友间自然开启邀请的典型表达，语气轻松且开放。其他选项要么是工作场景用语（如 meeting），要么是消极拒绝，不符合朋友间邀约的语境。"
+        "explanation": "正确答案 'Not much, just relaxing. You up for something?' 是朋友间自然开启邀请的典型表达，语气轻松且开放。其他选项要么是工作场景用语（如 meeting），要么是消极拒绝，不符合朋友间邀约的语境。",
+        "speakerText": "Hey, how’s it going? Any plans for Friday?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嘿，最近怎么样？周五有安排吗？"
       }
     }
   ]

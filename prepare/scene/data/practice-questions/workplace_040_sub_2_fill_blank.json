@@ -2,8 +2,7 @@
   "subSceneId": "workplace_040_sub_2",
   "subSceneName": "进度汇报",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:32:47.205Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.436Z",
   "questions": [
     {
       "id": "workplace_040_sub_2_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "用具体比例表达进展，避免模糊词汇如 'good' 或 'a lot'",
         "type": "fill_blank",
-        "situation": "在周会中，经理询问你负责的市场推广活动进展，你需要简明汇报当前状态和关键成果。",
-        "speakerText": "How's the digital campaign progressing this week?",
-        "speakerTextCn": "这周数字营销活动进展如何？",
-        "responseTemplate": "We've reached ___ of our goal—significantly better than last week.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,66 @@
             ]
           }
         ],
-        "hint": "用具体比例表达进展，避免模糊词汇如 'good' 或 'a lot'",
-        "knowledgePoint": "用数据支撑进度汇报"
+        "situation": "在周会中，经理询问你负责的市场推广活动进展，你需要简明汇报当前状态和关键成果。",
+        "speakerText": "How's the digital campaign progressing this week?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这周数字营销活动进展如何？",
+        "knowledgePoint": "用数据支撑进度汇报",
+        "responseTemplate": "We've reached ___ of our goal—significantly better than last week."
+      }
+    },
+    {
+      "id": "workplace_040_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "workplace_040_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "请回忆项目进展汇报中常见的问题",
+        "qaId": "workplace_040_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "major",
+            "options": [
+              "主要",
+              "关键",
+              "主要的",
+              "关键的"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "项目进展中遇到的主要障碍是什么？",
+        "knowledgePoint": "口语表达和项目进展汇报",
+        "responseTemplate": "有什么___阻碍拖慢进度吗？"
+      }
+    },
+    {
+      "id": "workplace_040_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "workplace_040_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "客户入驻项目的进展情况",
+        "qaId": "workplace_040_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "client onboarding",
+            "options": [
+              "client onboarding",
+              "team building",
+              "project management",
+              "product launch"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "您想询问客户入驻项目的进展情况",
+        "knowledgePoint": "口语表达：询问项目进展",
+        "responseTemplate": "So how's the _______________ project coming along?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "说明问题时要带出你正在采取的行动，体现解决问题的态度",
         "type": "fill_blank",
-        "situation": "团队领导关心你负责的系统升级项目是否有延误风险，你需要如实反馈当前障碍并体现主动性。",
-        "speakerText": "Are there any issues holding up the system upgrade?",
-        "speakerTextCn": "有什么问题阻碍了系统升级吗？",
-        "responseTemplate": "There’s a slight delay with the security patch, but we’re ___ to resolve it by Friday.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "说明问题时要带出你正在采取的行动，体现解决问题的态度",
-        "knowledgePoint": "问题反馈 + 主动解决倾向"
+        "situation": "团队领导关心你负责的系统升级项目是否有延误风险，你需要如实反馈当前障碍并体现主动性。",
+        "speakerText": "Are there any issues holding up the system upgrade?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "有什么问题阻碍了系统升级吗？",
+        "knowledgePoint": "问题反馈 + 主动解决倾向",
+        "responseTemplate": "There’s a slight delay with the security patch, but we’re ___ to resolve it by Friday."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "用适度的限定词表达仍有改进空间的部分，避免全盘否定或过度乐观",
         "type": "fill_blank",
-        "situation": "你向主管汇报客户支持流程优化项目的整体状态，需要概括性总结当前成效和剩余挑战。",
-        "speakerText": "What’s the overall status of the support workflow improvement?",
-        "speakerTextCn": "客户支持流程优化的整体状态如何？",
-        "responseTemplate": "We’ve improved response times significantly, though ___ still need attention.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "用适度的限定词表达仍有改进空间的部分，避免全盘否定或过度乐观",
-        "knowledgePoint": "平衡肯定成果与指出待改进点"
+        "situation": "你向主管汇报客户支持流程优化项目的整体状态，需要概括性总结当前成效和剩余挑战。",
+        "speakerText": "What’s the overall status of the support workflow improvement?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "客户支持流程优化的整体状态如何？",
+        "knowledgePoint": "平衡肯定成果与指出待改进点",
+        "responseTemplate": "We’ve improved response times significantly, though ___ still need attention."
+      }
+    },
+    {
+      "id": "workplace_040_sub_2_pq_6",
+      "subSceneId": "workplace_040_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "表达基本达成目标但仍有小缺口时的常用措辞",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "most",
+            "options": [
+              "most",
+              "all",
+              "none",
+              "some"
+            ]
+          }
+        ],
+        "template": "We’ve hit ___ of our KPIs, just behind on two clients.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景功能表达（用 most 表达接近完成）"
       }
     }
   ]

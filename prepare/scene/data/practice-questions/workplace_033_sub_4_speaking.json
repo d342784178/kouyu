@@ -2,50 +2,50 @@
   "subSceneId": "workplace_033_sub_4",
   "subSceneName": "确认抄送与格式",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:17:20.401Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.369Z",
   "questions": [
     {
-      "id": "workplace_033_sub_4_speaking_1",
+      "id": "workplace_033_sub_4_qa_2_speaking_1",
       "subSceneId": "workplace_033_sub_4",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "workplace_033_sub_4_qa_2",
         "type": "speaking",
-        "qaId": "workplace_033_sub_4_qa_1",
-        "speakerText": "I just sent the project update—CC'd Rachel and Ben, right?",
-        "speakerTextCn": "我刚发了项目更新，抄送了Rachel和Ben，对吧？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "确认邮件抄送对象和附件格式是否正确",
         "expectedAnswers": [
-          "Yes, but please add Sam—he’s leading the next phase.",
-          "Actually, Ben is on leave—could you replace him with his deputy?",
-          "Got it, added Sam and removed Ben."
+          "附件是.docx格式，要转成PDF统一格式吗？",
+          "我看到附件是.docx格式，应该转成PDF吗？",
+          "附件是.docx格式，是否需要统一成PDF格式？"
         ],
         "evaluationCriteria": [
-          "是否准确识别并回应抄送名单的调整需求",
-          "是否使用礼貌请求（please）或专业表达（replace with）",
-          "是否使用场景关键词如CC, add, remove, replace"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
     {
-      "id": "workplace_033_sub_4_speaking_2",
+      "id": "workplace_033_sub_4_qa_1_speaking_1",
       "subSceneId": "workplace_033_sub_4",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "workplace_033_sub_4_qa_1",
         "type": "speaking",
-        "qaId": "workplace_033_sub_4_qa_2",
-        "speakerText": "The report is attached as a .docx—should I convert it to PDF?",
-        "speakerTextCn": "报告附件是.docx格式，我需要转成PDF吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "刚发了更新，抄送了Linda和Mark对吧？",
         "expectedAnswers": [
-          "Yes, please—our templates are all PDF now for consistency.",
-          "No, keep it as .docx since the team needs to edit it.",
-          "I’ve already converted it to PDF and resent it."
+          "Yes, you CC'd Linda and Mark.",
+          "That's correct, I CC'd Linda and Mark.",
+          "Yes, Linda and Mark are CC'd on the update."
         ],
         "evaluationCriteria": [
-          "是否明确说明格式选择的依据（政策/使用需求/已完成操作）",
-          "是否使用关键词如convert, PDF, docx, consistency, editing",
-          "是否表达自然，符合职场口语节奏"
+          "意图达成度：是否正确表达了询问抄送人是否正确的意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯"
         ]
       }
     },
@@ -55,9 +55,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I’m sending the contract draft—CC’d Legal and Accounting, and attached the Word file.",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我正在发送合同草案，抄送了法务和财务，并附上了Word文件。",
         "expectedAnswers": [
           "Good, but please also CC HR and convert the file to PDF.",

@@ -2,20 +2,53 @@
   "subSceneId": "workplace_054_sub_2",
   "subSceneName": "申领物品",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:33:57.257Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.588Z",
   "questions": [
+    {
+      "id": "workplace_054_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "workplace_054_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "请根据场景提示填写正确的办公用品",
+        "qaId": "workplace_054_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "pens",
+            "options": [
+              "pens",
+              "notebooks",
+              "tape",
+              "paper"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "notepads",
+            "options": [
+              "pens",
+              "notebooks",
+              "tape",
+              "paper"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工正在说明所需办公用品的数量",
+        "knowledgePoint": "口语表达：询问办公用品的数量",
+        "responseTemplate": "I'd like to grab some ___ and ___."
+      }
+    },
     {
       "id": "workplace_054_sub_2_fill_blank_1",
       "subSceneId": "workplace_054_sub_2",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "使用具体数量词让请求更清晰，避免模糊表达",
         "type": "fill_blank",
-        "situation": "员工在办公用品领取处请求领取日常办公材料，需要说明所需物品及大致数量",
-        "speakerText": "Could I get some printer paper, staples, and highlighters?",
-        "speakerTextCn": "我可以领一些打印纸、订书钉和荧光笔吗？",
-        "responseTemplate": "I'd like ___.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +61,12 @@
             ]
           }
         ],
-        "hint": "使用具体数量词让请求更清晰，避免模糊表达",
-        "knowledgePoint": "使用具体数量词表达物品需求"
+        "situation": "员工在办公用品领取处请求领取日常办公材料，需要说明所需物品及大致数量",
+        "speakerText": "Could I get some printer paper, staples, and highlighters?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我可以领一些打印纸、订书钉和荧光笔吗？",
+        "knowledgePoint": "使用具体数量词表达物品需求",
+        "responseTemplate": "I'd like ___."
       }
     },
     {
@@ -38,11 +75,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "用 'the basics' 表达仅需基础数量，避免过度索取",
         "type": "fill_blank",
-        "situation": "员工向行政人员说明需要补充团队共享的办公用品，强调基础需求",
-        "speakerText": "We're running low on pens and sticky notes. Can we restock?",
-        "speakerTextCn": "我们的笔和便利贴快用完了，能补一些吗？",
-        "responseTemplate": "Just ___ for now.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +89,12 @@
             ]
           }
         ],
-        "hint": "用 'the basics' 表达仅需基础数量，避免过度索取",
-        "knowledgePoint": "使用 'the basics' 表达最小必要需求"
+        "situation": "员工向行政人员说明需要补充团队共享的办公用品，强调基础需求",
+        "speakerText": "We're running low on pens and sticky notes. Can we restock?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我们的笔和便利贴快用完了，能补一些吗？",
+        "knowledgePoint": "使用 'the basics' 表达最小必要需求",
+        "responseTemplate": "Just ___ for now."
       }
     },
     {
@@ -65,11 +103,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "用明确的数量词（a pair of, two, five）让需求清晰，减少沟通成本",
         "type": "fill_blank",
-        "situation": "员工在领取办公用品时，希望明确表达所需物品及数量，避免行政人员反复确认",
-        "speakerText": "I need some folders, scissors, and glue sticks.",
-        "speakerTextCn": "我需要一些文件夹、剪刀和胶棒。",
-        "responseTemplate": "I'd like ___.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +117,38 @@
             ]
           }
         ],
-        "hint": "用明确的数量词（a pair of, two, five）让需求清晰，减少沟通成本",
-        "knowledgePoint": "使用量词精确表达物品数量"
+        "situation": "员工在领取办公用品时，希望明确表达所需物品及数量，避免行政人员反复确认",
+        "speakerText": "I need some folders, scissors, and glue sticks.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我需要一些文件夹、剪刀和胶棒。",
+        "knowledgePoint": "使用量词精确表达物品数量",
+        "responseTemplate": "I'd like ___."
+      }
+    },
+    {
+      "id": "workplace_054_sub_2_pq_6",
+      "subSceneId": "workplace_054_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "口语中表示‘只要基础的’常用表达",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "basics",
+            "options": [
+              "basics",
+              "essentials",
+              "items",
+              "supplies"
+            ]
+          }
+        ],
+        "template": "Just the ___: 3 pens and 5 pads.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景惯用表达（just the basics）"
       }
     }
   ]

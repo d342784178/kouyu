@@ -2,8 +2,7 @@
   "subSceneId": "daily_029_sub_3",
   "subSceneName": "支付方式",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:25:47.675Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.647Z",
   "questions": [
     {
       "id": "daily_029_sub_3_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "回答支持移动支付时，常用动词是 tap，搭配 your phone",
         "type": "fill_blank",
-        "situation": "家长在超市结账时，想用移动支付完成付款，向收银员确认是否支持该方式。",
-        "speakerText": "I'd like to pay with Google Pay. ______?",
-        "speakerTextCn": "我想用谷歌支付，可以吗？",
-        "responseTemplate": "______",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,66 @@
             ]
           }
         ],
-        "hint": "回答支持移动支付时，常用动词是 tap，搭配 your phone",
-        "knowledgePoint": "移动支付方式的确认表达"
+        "situation": "家长在超市结账时，想用移动支付完成付款，向收银员确认是否支持该方式。",
+        "speakerText": "I'd like to pay with Google Pay. ______?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我想用谷歌支付，可以吗？",
+        "knowledgePoint": "移动支付方式的确认表达",
+        "responseTemplate": "______"
+      }
+    },
+    {
+      "id": "daily_029_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "daily_029_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问是否接受某种支付方式时，使用 'Do you accept + 支付方式' 结构",
+        "qaId": "daily_029_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Apple Pay",
+            "options": [
+              "Apple Pay",
+              "if you can pay Apple Pay",
+              "Apple Paying",
+              "for Apple Pay"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "家长在结账时想确认商家是否支持移动支付方式",
+        "knowledgePoint": "询问支付方式的通用提问句型",
+        "responseTemplate": "Do you accept ___?"
+      }
+    },
+    {
+      "id": "daily_029_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "daily_029_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问支付方式时，常用 'pay with' 后接支付工具，如 card, cash",
+        "qaId": "daily_029_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "card",
+            "options": [
+              "cash",
+              "card",
+              "the money",
+              "bank"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "家长决定购买商品后，想确认是否可以使用信用卡支付",
+        "knowledgePoint": "支付方式的提问句型",
+        "responseTemplate": "I'll take this one. Can I pay with ___?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "银行卡支付常用表达：insert（插卡）或 swipe（刷卡）",
         "type": "fill_blank",
-        "situation": "家长在便利店结账，收银员询问支付方式，家长想用银行卡但不确定是否支持。",
-        "speakerText": "Can I pay with debit card? ______?",
-        "speakerTextCn": "我可以用借记卡付款吗？可以吗？",
-        "responseTemplate": "______",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "银行卡支付常用表达：insert（插卡）或 swipe（刷卡）",
-        "knowledgePoint": "银行卡支付方式的动词使用"
+        "situation": "家长在便利店结账，收银员询问支付方式，家长想用银行卡但不确定是否支持。",
+        "speakerText": "Can I pay with debit card? ______?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我可以用借记卡付款吗？可以吗？",
+        "knowledgePoint": "银行卡支付方式的动词使用",
+        "responseTemplate": "______"
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "支付宝支付通常通过扫描二维码完成，动词用 scan",
         "type": "fill_blank",
-        "situation": "家长在药店结账，收银员问是否用电子支付，家长想确认是否支持支付宝。",
-        "speakerText": "Do you accept Alipay? ______?",
-        "speakerTextCn": "你们支持支付宝吗？",
-        "responseTemplate": "______",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "支付宝支付通常通过扫描二维码完成，动词用 scan",
-        "knowledgePoint": "国际电子支付方式的回应表达"
+        "situation": "家长在药店结账，收银员问是否用电子支付，家长想确认是否支持支付宝。",
+        "speakerText": "Do you accept Alipay? ______?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你们支持支付宝吗？",
+        "knowledgePoint": "国际电子支付方式的回应表达",
+        "responseTemplate": "______"
+      }
+    },
+    {
+      "id": "daily_029_sub_3_pq_6",
+      "subSceneId": "daily_029_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "完成交易的核心动词，与支付方式搭配",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "pay",
+            "options": [
+              "pay",
+              "buy",
+              "send",
+              "transfer"
+            ]
+          }
+        ],
+        "template": "I'd like to ___ this with my phone.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "支付场景核心动词（pay with...）"
       }
     }
   ]

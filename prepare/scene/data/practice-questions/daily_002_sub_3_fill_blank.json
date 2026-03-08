@@ -2,20 +2,70 @@
   "subSceneId": "daily_002_sub_3",
   "subSceneName": "询问促销活动",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:02.680Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.448Z",
   "questions": [
+    {
+      "id": "daily_002_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "daily_002_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "询问促销活动的商品",
+        "qaId": "daily_002_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "什么",
+            "options": [
+              "什么",
+              "有",
+              "没有",
+              "哪里"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "询问促销活动",
+        "knowledgePoint": "提问句型",
+        "responseTemplate": "今天_____有折扣吗？"
+      }
+    },
+    {
+      "id": "daily_002_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "daily_002_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "这里需要一个表示优惠凭证的名词，常用于询问促销工具",
+        "qaId": "daily_002_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "coupons",
+            "options": [
+              "coupons",
+              "discounts",
+              "gifts",
+              "sales"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想了解当前商品是否有折扣或赠品活动",
+        "knowledgePoint": "询问促销活动的常用句型结构",
+        "responseTemplate": "Do you have any ___ for this product?"
+      }
+    },
     {
       "id": "daily_002_sub_3_fill_blank_1",
       "subSceneId": "daily_002_sub_3",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "表达促销活动常用 'buy one get one free' 或 '20% off' 等结构",
         "type": "fill_blank",
-        "situation": "顾客在超市想确认某款洗发水是否有优惠活动",
-        "speakerText": "Is there any promotion on this shampoo?",
-        "speakerTextCn": "这款洗发水有促销活动吗？",
-        "responseTemplate": "Yes, we're offering ___ right now.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +78,12 @@
             ]
           }
         ],
-        "hint": "表达促销活动常用 'buy one get one free' 或 '20% off' 等结构",
-        "knowledgePoint": "促销活动表达"
+        "situation": "顾客在超市想确认某款洗发水是否有优惠活动",
+        "speakerText": "Is there any promotion on this shampoo?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这款洗发水有促销活动吗？",
+        "knowledgePoint": "促销活动表达",
+        "responseTemplate": "Yes, we're offering ___ right now."
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "询问赠品时常用 'get a free [item]' 结构",
         "type": "fill_blank",
-        "situation": "顾客在便利店询问饮料是否附赠礼品",
-        "speakerText": "Do you give any free gifts with this drink?",
-        "speakerTextCn": "买这款饮料会送赠品吗？",
-        "responseTemplate": "Yes, you get ___ when you buy two.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "询问赠品时常用 'get a free [item]' 结构",
-        "knowledgePoint": "赠品表达"
+        "situation": "顾客在便利店询问饮料是否附赠礼品",
+        "speakerText": "Do you give any free gifts with this drink?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "买这款饮料会送赠品吗？",
+        "knowledgePoint": "赠品表达",
+        "responseTemplate": "Yes, you get ___ when you buy two."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "使用积分兑换折扣时，核心表达是 'apply your points'",
         "type": "fill_blank",
-        "situation": "顾客想确认是否能用会员积分兑换折扣",
-        "speakerText": "Can I use my loyalty points for a discount on this item?",
-        "speakerTextCn": "我可以用会员积分换这个商品的折扣吗？",
-        "responseTemplate": "Yes, you can apply ___ at checkout.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "使用积分兑换折扣时，核心表达是 'apply your points'",
-        "knowledgePoint": "会员积分使用表达"
+        "situation": "顾客想确认是否能用会员积分兑换折扣",
+        "speakerText": "Can I use my loyalty points for a discount on this item?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我可以用会员积分换这个商品的折扣吗？",
+        "knowledgePoint": "会员积分使用表达",
+        "responseTemplate": "Yes, you can apply ___ at checkout."
+      }
+    },
+    {
+      "id": "daily_002_sub_3_pq_6",
+      "subSceneId": "daily_002_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "使用会员App享受折扣的常见动作是扫码",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "scan",
+            "options": [
+              "scan",
+              "buy",
+              "download",
+              "install"
+            ]
+          }
+        ],
+        "template": "You can get 10% off if you ___ the loyalty app.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景惯用搭配（scan the app）"
       }
     }
   ]

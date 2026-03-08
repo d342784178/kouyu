@@ -2,9 +2,43 @@
   "subSceneId": "daily_002_sub_4",
   "subSceneName": "找收银台",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:15:01.013Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.449Z",
   "questions": [
+    {
+      "id": "daily_002_sub_4_qa_2_choice_1",
+      "subSceneId": "daily_002_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_002_sub_4_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Where is the cashier?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "What is the price of this product?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you help me find the restroom?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have any discounts today?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 \"Where is the cashier?\"，因为它直接询问了最近的收银台在哪里。其他选项不正确，因为它们询问了不同的信息：产品价格、卫生间的位置或当天的折扣。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在商场中，顾客询问工作人员最近的收银台在哪里"
+      }
+    },
     {
       "id": "daily_002_sub_4_choice_1",
       "subSceneId": "daily_002_sub_4",
@@ -12,9 +46,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "你在超市购物后，想尽快找到收银台结账，但不确定位置，于是向一位店员询问。",
-        "speakerText": "Could you tell me where the nearest checkout counter is?",
-        "speakerTextCn": "你能告诉我最近的收银台在哪里吗？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +68,46 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了对方询问的位置信息，符合日常交流习惯。干扰项1是答非所问（回答了牛奶位置），干扰项2是误解意图（询问会员卡与位置无关），干扰项3虽然相关但回答的是效率问题而非位置，偏离了核心问题。"
+        "situation": "你在超市购物后，想尽快找到收银台结账，但不确定位置，于是向一位店员询问。",
+        "explanation": "正确答案直接回应了对方询问的位置信息，符合日常交流习惯。干扰项1是答非所问（回答了牛奶位置），干扰项2是误解意图（询问会员卡与位置无关），干扰项3虽然相关但回答的是效率问题而非位置，偏离了核心问题。",
+        "speakerText": "Could you tell me where the nearest checkout counter is?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你能告诉我最近的收银台在哪里吗？"
+      }
+    },
+    {
+      "id": "daily_002_sub_4_qa_1_choice_1",
+      "subSceneId": "daily_002_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_002_sub_4_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Where's the nearest checkout counter?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you have a checkout counter?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much does it cost to check out?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you tell me where the checkout is?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Where's the nearest checkout counter?' 直接、自然地询问最近的收银台位置，符合场景需求。干扰项1 'Do you have a checkout counter?' 误解了场景，假设收银台是否存在；干扰项2 'How much does it cost to check out?' 询问费用而非位置，偏离核心需求；干扰项3 'Can you tell me where the checkout is?' 语法正确但不够精准，未强调 'nearest'，在大型场所中可能不够明确，因此不如正确选项专业。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在超市里想找到最近的收银台，需要向工作人员提问。"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "你在大型购物中心购物，手推车里装满商品，想快速找到收银台，于是问路过的工作人员。",
-        "speakerText": "Where can I find a checkout lane nearby?",
-        "speakerTextCn": "附近哪里能找到收银通道？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确给出了收银台的具体位置，符合询问意图。干扰项1是建议自助结账，属于答非所问；干扰项2是推脱责任，不提供帮助；干扰项3描述结账流程，未回答位置问题，均偏离核心需求。"
+        "situation": "你在大型购物中心购物，手推车里装满商品，想快速找到收银台，于是问路过的工作人员。",
+        "explanation": "正确答案明确给出了收银台的具体位置，符合询问意图。干扰项1是建议自助结账，属于答非所问；干扰项2是推脱责任，不提供帮助；干扰项3描述结账流程，未回答位置问题，均偏离核心需求。",
+        "speakerText": "Where can I find a checkout lane nearby?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "附近哪里能找到收银通道？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "你在便利店结账前发现找不到收银台，于是向正在整理货架的店员礼貌询问。",
-        "speakerText": "Excuse me, where is the checkout counter?",
-        "speakerTextCn": "不好意思，请问收银台在哪里？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "���确答案直接、清晰地指出收银台位置，是该情境下最自然的回应。干扰项1是提供支付方式（无关），干扰项2是告知关门时间（无关），干扰项3是试图转移话题，均未回应位置询问，属于典型答非所问。"
+        "situation": "你在便利店结账前发现找不到收银台，于是向正在整理货架的店员礼貌询问。",
+        "explanation": "���确答案直接、清晰地指出收银台位置，是该情境下最自然的回应。干扰项1是提供支付方式（无关），干扰项2是告知关门时间（无关），干扰项3是试图转移话题，均未回应位置询问，属于典型答非所问。",
+        "speakerText": "Excuse me, where is the checkout counter?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "不好意思，请问收银台在哪里？"
       }
     }
   ]

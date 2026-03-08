@@ -1,19 +1,26 @@
 {
   "sceneId": "study_abroad_100",
   "sceneName": "选课咨询",
+  "exportedAt": "2026-03-08T15:31:54.878Z",
   "subScenes": [
     {
       "id": "study_abroad_100_sub_1",
+      "sceneId": "study_abroad_100",
       "name": "初次问候",
       "description": "学生与顾问开场寒暄并说明来意",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "study_abroad_100_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi there! You're here for course advising, right?",
-          "speakerTextCn": "嗨！你是来选课咨询的吧？",
-          "responses": [
+          "subSceneId": "study_abroad_100_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hi there! You're here for course advising, right?",
+          "triggerTextCn": "嗨！你是来选课咨询的吧？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_responds 模式，工作人员应先打招呼并询问用户目的",
+          "followUps": [
             {
               "text": "Yeah, I'm new here and need help picking classes for next semester.",
               "text_cn": "对，我是新生，想请教你下学期选课。",
@@ -30,22 +37,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用简短回应开场，自然带出需求"
+          "usageNote": "用简短回应开场，自然带出需求",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         }
       ]
     },
     {
       "id": "study_abroad_100_sub_2",
+      "sceneId": "study_abroad_100",
       "name": "询问先修课",
       "description": "学生确认目标课程是否有前置要求",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "study_abroad_100_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Have you taken Intro to Psychology before? It's a prereq for Psych 301.",
-          "speakerTextCn": "你上过心理学导论吗？这是心理学301的先修课。",
-          "responses": [
+          "subSceneId": "study_abroad_100_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Have you taken Intro to Psychology before? It's a prereq for Psych 301.",
+          "triggerTextCn": "你上过心理学导论吗？这是心理学301的先修课。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户询问课程先修要求",
+          "followUps": [
             {
               "text": "No, I haven't — can I still enroll if I take it this term?",
               "text_cn": "没上过，如果这学期一起修行吗？",
@@ -62,22 +78,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "直接问先修课，避免选错课"
+          "usageNote": "直接问先修课，避免选错课",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         }
       ]
     },
     {
       "id": "study_abroad_100_sub_3",
+      "sceneId": "study_abroad_100",
       "name": "探讨课程难度",
       "description": "学生了解课程工作量与挑战程度",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "study_abroad_100_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Econ 202 is known to be super heavy on readings and weekly papers.",
-          "speakerTextCn": "经济学202阅读量大，每周都有论文。",
-          "responses": [
+          "subSceneId": "study_abroad_100_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Econ 202 is known to be super heavy on readings and weekly papers.",
+          "triggerTextCn": "经济学202阅读量大，每周都有论文。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Oh no, I'm already swamped with my writing class — should I skip it?",
               "text_cn": "天啊，我写作课已经忙死了，要不别选？",
@@ -94,22 +119,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "表达自身时间状况，合理评估课程负担"
+          "usageNote": "表达自身时间状况，合理评估课程负担",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         }
       ]
     },
     {
       "id": "study_abroad_100_sub_4",
+      "sceneId": "study_abroad_100",
       "name": "确认截止日期",
       "description": "学生核实选课最终期限与加退课规则",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "study_abroad_100_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "You've got until Friday at 5 PM to add or drop courses without penalty.",
-          "speakerTextCn": "你周五下午5点前都能免费加退课。",
-          "responses": [
+          "subSceneId": "study_abroad_100_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "You've got until Friday at 5 PM to add or drop courses without penalty.",
+          "triggerTextCn": "你周五下午5点前都能免费加退课。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "例如：'Can I know the deadline for adding or dropping courses?'",
+          "followUps": [
             {
               "text": "Perfect — I'll finalize my schedule by Thursday night.",
               "text_cn": "太好了，我周四晚上就定下来。",
@@ -126,22 +160,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "明确截止日，避免错过关键时间点"
+          "usageNote": "明确截止日，避免错过关键时间点",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         }
       ]
     },
     {
       "id": "study_abroad_100_sub_5",
+      "sceneId": "study_abroad_100",
       "name": "道别确认",
       "description": "结束咨询，确认下一步行动与感谢顾问",
+      "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "study_abroad_100_sub_5_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "So you're all set with your four classes? Anything else I can help with?",
-          "speakerTextCn": "你四门课都定好了吗？还有别的需要帮忙的吗？",
-          "responses": [
+          "subSceneId": "study_abroad_100_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "So you're all set with your four classes? Anything else I can help with?",
+          "triggerTextCn": "你四门课都定好了吗？还有别的需要帮忙的吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Yep, I'm good! Thanks so much for your help — you saved me!",
               "text_cn": "搞定啦！太感谢你了，你救了我一命！",
@@ -158,7 +201,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "礼貌道别，可请求书面确认"
+          "usageNote": "礼貌道别，可请求书面确认",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         }
       ]
     }

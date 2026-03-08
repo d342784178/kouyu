@@ -2,50 +2,51 @@
   "subSceneId": "workplace_045_sub_2",
   "subSceneName": "描述问题",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:18:18.725Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.509Z",
   "questions": [
     {
-      "id": "workplace_045_sub_2_speaking_1",
+      "id": "workplace_045_sub_2_qa_1_speaking_1",
       "subSceneId": "workplace_045_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "workplace_045_sub_2_qa_1",
-        "speakerText": "The printer's jammed again—I've tried restarting it, but it won't print.",
-        "speakerTextCn": "打印机又卡纸了，我重启过，还是打不出。",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你遇到了打印机故障的问题，需要同事帮助解决",
         "expectedAnswers": [
-          "Did you check the paper tray?",
-          "Let me take a look—I've fixed this before.",
-          "Hmm, I've had the same problem last week."
+          "打印机又卡纸了，我重启过，还是打不出。",
+          "我重启了打印机，但它还是不能正常工作，能否帮忙看看?",
+          "打印机卡纸了，重启后也没用，能否帮忙排查一下问题?"
         ],
         "evaluationCriteria": [
-          "是否正确回应了打印机卡纸的问题",
-          "是否使用了 'I've tried...' 或类似表达体现已尝试操作",
-          "是否使用了场景关键词如 'paper tray', 'jammed', 'restart'"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
     {
-      "id": "workplace_045_sub_2_speaking_2",
+      "id": "workplace_045_sub_2_qa_2_speaking_1",
       "subSceneId": "workplace_045_sub_2",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "workplace_045_sub_2_qa_2",
-        "speakerText": "It shows 'Paper Jam' on the screen, and the red light's flashing.",
-        "speakerTextCn": "屏幕上显示‘卡纸’，红灯一直在闪。",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你遇到打印机故障，需要同事帮助解决问题",
         "expectedAnswers": [
-          "Open the back panel—there's probably paper stuck inside.",
-          "Oh no, not again! I'll fix it right away.",
-          "Have you tried removing the paper from the feed rollers?"
+          "我的打印机出了问题，屏幕上显示‘卡纸’，红灯一直在闪，需要你的帮助",
+          "打印机显示‘卡纸’，红灯闪烁，能麻烦你来看看吗？",
+          "我的打印机卡纸了，红灯一直闪，能帮我修复一下吗？"
         ],
         "evaluationCriteria": [
-          "是否准确回应了 'Paper Jam' 和红灯闪烁的故障描述",
-          "是否使用了正确的维修动作词汇如 'open', 'remove', 'check'",
-          "是否使用了符合语境的口语表达如 'Oh no, not again!' 或 'right away'"
+          "意图达成度：正确表达了询问意图",
+          "语言准确性：语法和用词正确",
+          "表达自然度：符合英语口语习惯",
+          "关键词覆盖：使用了‘卡纸’和‘红灯’等关键词"
         ]
       }
     },
@@ -55,9 +56,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I cleared the paper path, but the error message is still on.",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我已经清理了纸路，但错误信息还在。",
         "expectedAnswers": [
           "Try turning the printer off and on again.",

@@ -2,9 +2,43 @@
   "subSceneId": "daily_025_sub_1",
   "subSceneName": "打招呼问货",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:18:11.630Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.612Z",
   "questions": [
+    {
+      "id": "daily_025_sub_1_qa_2_choice_1",
+      "subSceneId": "daily_025_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_025_sub_1_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do you have the latest magazine?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'd like one, please. How much?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is this magazine expensive?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you give me a discount?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 'Do you have the latest magazine?'，因为这是在确认商品是否存在之前的合理提问。干扰项1 'I'd like one, please. How much?' 是在确认有货后的下一步提问，不符合当前场景顺序；干扰项2 'Is this magazine expensive?' 假设已有商品且关注价格高低，偏离了确认库存的核心需求；干扰项3 'Can you give me a discount?' 是在购买阶段才可能提出的问题，与当前确认货品的场景无关。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在报刊亭想买一本最新杂志，需要先确认是否有货并询问价格"
+      }
+    },
     {
       "id": "daily_025_sub_1_choice_1",
       "subSceneId": "daily_025_sub_1",
@@ -12,9 +46,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "顾客在便利店门口的报刊架前，想买一本最新一期的《时代》周刊，向店员询问是否有货。",
-        "speakerText": "Hey, got the new Time?",
-        "speakerTextCn": "嘿，有最新一期《时代》吗？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +68,46 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回应了是否有货，并指明位置，符合口语问货场景的自然回应。干扰项1是答非所问（不知道货品位置），干扰项2是转移话题（建议买别的），干扰项3是提前回答价格（但问题只问是否有货）"
+        "situation": "顾客在便利店门口的报刊架前，想买一本最新一期的《时代》周刊，向店员询问是否有货。",
+        "explanation": "正确答案直接回应了是否有货，并指明位置，符合口语问货场景的自然回应。干扰项1是答非所问（不知道货品位置），干扰项2是转移话题（建议买别的），干扰项3是提前回答价格（但问题只问是否有货）",
+        "speakerText": "Hey, got the new Time?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "嘿，有最新一期《时代》吗？"
+      }
+    },
+    {
+      "id": "daily_025_sub_1_qa_1_choice_1",
+      "subSceneId": "daily_025_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_025_sub_1_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hey, got the new National Geographic?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you have any magazines about science?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is this the latest issue of National Geographic?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Where can I buy National Geographic?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 'Hey, got the new National Geographic?'，这是口语中自然、简洁且符合场景的提问方式。干扰项1 'Do you have any magazines about science?' 过于宽泛，未指明具体杂志；干扰项2 'Is this the latest issue...' 假设对方手中已有杂志，不符合顾客询问库存的语境；干扰项3 'Where can I buy...' 询问购买地点而非是否有货，偏离核心需求。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在报刊亭想询问是否有最新一期的《国家地理》杂志，需要以自然、口语化的方式提问。"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "顾客在地铁站旁的报刊亭看到店员正整理杂志，想确认是否有刚到的《经济学人》。",
-        "speakerText": "Got the new Economist?",
-        "speakerTextCn": "有最新一期《经济学人》吗？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是典型口语回应，表示要确认库存，符合实际工作场景。干扰项1是提前回答价格（未被问到），干扰项2是表达个人偏好（无关），干扰项3是用正式句式提问，不符合口语问货的简洁风格"
+        "situation": "顾客在地铁站旁的报刊亭看到店员正整理杂志，想确认是否有刚到的《经济学人》。",
+        "explanation": "正确答案是典型口语回应，表示要确认库存，符合实际工作场景。干扰项1是提前回答价格（未被问到），干扰项2是表达个人偏好（无关），干扰项3是用正式句式提问，不符合口语问货的简洁风格",
+        "speakerText": "Got the new Economist?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "有最新一期《经济学人》吗？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "顾客在社区报亭看到新杂志上架，想确认是否有《人物》杂志的最新一期。",
-        "speakerText": "Any new People?",
-        "speakerTextCn": "有新一期《人物》吗？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是常见且自然的缺货回应，符合高频口语场景。干扰项1是顾客自己表达需求（答非所问），干扰项2是反问价格（未被问到），干扰项3是重复确认杂志内容（误解了问题意图）"
+        "situation": "顾客在社区报亭看到新杂志上架，想确认是否有《人物》杂志的最新一期。",
+        "explanation": "正确答案是常见且自然的缺货回应，符合高频口语场景。干扰项1是顾客自己表达需求（答非所问），干扰项2是反问价格（未被问到），干扰项3是重复确认杂志内容（误解了问题意图）",
+        "speakerText": "Any new People?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "有新一期《人物》吗？"
       }
     }
   ]

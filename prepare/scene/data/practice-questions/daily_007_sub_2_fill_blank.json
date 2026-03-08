@@ -2,20 +2,43 @@
   "subSceneId": "daily_007_sub_2",
   "subSceneName": "预约意图",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:25:22.710Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.484Z",
   "questions": [
+    {
+      "id": "daily_007_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "daily_007_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "填空提示：在这周的某一天。",
+        "qaId": "daily_007_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "haircut",
+            "options": [
+              "理发",
+              "修脚",
+              "美甲",
+              "购物"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客通常先提出预约需求，服务方再回应。",
+        "knowledgePoint": "预约意图",
+        "responseTemplate": "我想预约一个___。"
+      }
+    },
     {
       "id": "daily_007_sub_2_fill_blank_1",
       "subSceneId": "daily_007_sub_2",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "表达预约服务时，常用动词是 book，搭配 appointment 或 haircut",
         "type": "fill_blank",
-        "situation": "你在理发店前台，想预约一次简单的发型修剪服务，礼貌地表达你的意图。",
-        "speakerText": "I'd like to ___ a haircut this week.",
-        "speakerTextCn": "我想这周预约一次理发。",
-        "responseTemplate": "I'd like to ___ a haircut this week.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +51,12 @@
             ]
           }
         ],
-        "hint": "表达预约服务时，常用动词是 book，搭配 appointment 或 haircut",
-        "knowledgePoint": "预约意图的礼貌表达结构"
+        "situation": "你在理发店前台，想预约一次简单的发型修剪服务，礼貌地表达你的意图。",
+        "speakerText": "I'd like to ___ a haircut this week.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我想这周预约一次理发。",
+        "knowledgePoint": "预约意图的礼貌表达结构",
+        "responseTemplate": "I'd like to ___ a haircut this week."
       }
     },
     {
@@ -38,11 +65,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "在请求预约时，could I + book 是自然且礼貌的表达方式",
         "type": "fill_blank",
-        "situation": "你走进理发店，想预约一次理发，但不确定对方是否接受预约，用礼貌方式提出请求。",
-        "speakerText": "Could I ___ a haircut sometime this week?",
-        "speakerTextCn": "我能否这周预约一次理发？",
-        "responseTemplate": "Could I ___ a haircut sometime this week?",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +79,12 @@
             ]
           }
         ],
-        "hint": "在请求预约时，could I + book 是自然且礼貌的表达方式",
-        "knowledgePoint": "预约请求的委婉句型"
+        "situation": "你走进理发店，想预约一次理发，但不确定对方是否接受预约，用礼貌方式提出请求。",
+        "speakerText": "Could I ___ a haircut sometime this week?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我能否这周预约一次理发？",
+        "knowledgePoint": "预约请求的委婉句型",
+        "responseTemplate": "Could I ___ a haircut sometime this week?"
       }
     },
     {
@@ -65,11 +93,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "当表达‘打算做某事’时，look to + book 是常见搭配，用于预约服务",
         "type": "fill_blank",
-        "situation": "你打电话给理发店，想预约服务，但不想直接说‘我要剪头发’，而是用更自然的日常表达。",
-        "speakerText": "Hi, I'm looking to ___ a trim this week.",
-        "speakerTextCn": "你好，我这周想预约一次修整发型。",
-        "responseTemplate": "Hi, I'm looking to ___ a trim this week.",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +107,64 @@
             ]
           }
         ],
-        "hint": "当表达‘打算做某事’时，look to + book 是常见搭配，用于预约服务",
-        "knowledgePoint": "日常预约表达的动词搭配"
+        "situation": "你打电话给理发店，想预约服务，但不想直接说‘我要剪头发’，而是用更自然的日常表达。",
+        "speakerText": "Hi, I'm looking to ___ a trim this week.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你好，我这周想预约一次修整发型。",
+        "knowledgePoint": "日常预约表达的动词搭配",
+        "responseTemplate": "Hi, I'm looking to ___ a trim this week."
+      }
+    },
+    {
+      "id": "daily_007_sub_2_pq_5",
+      "subSceneId": "daily_007_sub_2",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "预约服务时常用的动词",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "schedule",
+            "options": [
+              "schedule",
+              "pay",
+              "find",
+              "buy"
+            ]
+          }
+        ],
+        "template": "Could you help me ___ an appointment for a trim?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配（schedule an appointment）"
+      }
+    },
+    {
+      "id": "daily_007_sub_2_pq_6",
+      "subSceneId": "daily_007_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "预约理发服务的常用动词",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "book",
+            "options": [
+              "book",
+              "make",
+              "cut",
+              "get"
+            ]
+          }
+        ],
+        "template": "I'd like to ___ a haircut for next Thursday.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定搭配（book a haircut）"
       }
     }
   ]

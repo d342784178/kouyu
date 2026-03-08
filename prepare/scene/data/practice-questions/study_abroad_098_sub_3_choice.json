@@ -2,42 +2,41 @@
   "subSceneId": "study_abroad_098_sub_3",
   "subSceneName": "电子资源",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:49:31.247Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.848Z",
   "questions": [
     {
-      "id": "study_abroad_098_sub_3_choice_1",
+      "id": "study_abroad_098_sub_3_qa_1_choice_1",
       "subSceneId": "study_abroad_098_sub_3",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "study_abroad_098_sub_3_qa_1",
-        "speakerText": "I can't access the ProQuest database. What should I do?",
-        "speakerTextCn": "我无法访问ProQuest数据库，该怎么办？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Just type the website URL directly into your browser.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Use your student ID and campus password through the library's proxy link.",
+            "text": "I can't access the JSTOR database—do I need a special login?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Can you tell me what JSTOR is?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "You need to pay a fee to unlock access to ProQuest.",
+            "text": "How many journals are in JSTOR?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Ask your professor to send you the articles directly.",
+            "text": "I need to log in to JSTOR.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案强调通过图书馆代理链接使用学号和校园密码登录，这是访问付费数据库的标准流程。选项1忽略了认证步骤，选项3错误地暗示需付费，选项4虽可能有效但不是官方推荐的访问方式。"
+        "explanation": "正确答案直接表达了访问失败的困境并询问是否需要特殊登录，符合场景中‘遇到问题发起咨询’的需求。选项2误解了场景，用户已知JSTOR是什么；选项3关注数据库内容而非访问问题；选项4只是陈述需求，未提出明确问题，缺乏互动性。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你尝试访问JSTOR数据库但无法登录，想向图书馆工作人员咨询是否需要特殊账号或权限。"
       }
     },
     {
@@ -46,10 +45,8 @@
       "type": "choice",
       "order": 2,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I tried logging into ScienceDirect but it keeps saying 'access denied'. Why?",
-        "speakerTextCn": "我尝试登录ScienceDirect，但一直显示'访问被拒绝'，为什么？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +69,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案指出必须通过大学图书馆门户登录才能获得授权访问。选项1是技术误解，选项3是错误事实，选项4混淆了访问方式（通常无需安装软件）。"
+        "explanation": "正确答案指出必须通过大学图书馆门户登录才能获得授权访问。选项1是技术误解，选项3是错误事实，选项4混淆了访问方式（通常无需安装软件）。",
+        "speakerText": "I tried logging into ScienceDirect but it keeps saying 'access denied'. Why?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我尝试登录ScienceDirect，但一直显示'访问被拒绝'，为什么？"
       }
     },
     {
@@ -81,10 +81,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Can I download journal articles from home?",
-        "speakerTextCn": "我能在家里下载期刊文章吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +105,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案强调通过图书馆远程访问系统（如VPN或代理）可在校外访问资源。选项1和4错误地限制了访问权限，选项3忽略了学校已购买的订阅权限。"
+        "explanation": "正确答案强调通过图书馆远程访问系统（如VPN或代理）可在校外访问资源。选项1和4错误地限制了访问权限，选项3忽略了学校已购买的订阅权限。",
+        "speakerText": "Can I download journal articles from home?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我能在家里下载期刊文章吗？"
       }
     }
   ]

@@ -2,8 +2,7 @@
   "subSceneId": "workplace_053_sub_1",
   "subSceneName": "询问包裹",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:33:54.416Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.578Z",
   "questions": [
     {
       "id": "workplace_053_sub_1_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "前台通常需要你的名字来查找快递，而不是地址或密码",
         "type": "fill_blank",
-        "situation": "员工在前台询问是否有自己的快递，但不确定寄件平台或具体信息",
-        "speakerText": "Hi, could you check if there's a package for me?",
-        "speakerTextCn": "你好，你能查一下有没有我的快递吗？",
-        "responseTemplate": "Sure, I'll look it up. Could you give me your ___?",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,66 @@
             ]
           }
         ],
-        "hint": "前台通常需要你的名字来查找快递，而不是地址或密码",
-        "knowledgePoint": "日常询问包裹时的核心身份确认词"
+        "situation": "员工在前台询问是否有自己的快递，但不确定寄件平台或具体信息",
+        "speakerText": "Hi, could you check if there's a package for me?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你好，你能查一下有没有我的快递吗？",
+        "knowledgePoint": "日常询问包裹时的核心身份确认词",
+        "responseTemplate": "Sure, I'll look it up. Could you give me your ___?"
+      }
+    },
+    {
+      "id": "workplace_053_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "workplace_053_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "适用于询问服务情况或请求帮助时使用的句型",
+        "qaId": "workplace_053_sub_1_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "packages",
+            "options": [
+              "消息",
+              "信息",
+              "快递",
+              "包裹"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "询问服务情况或请求帮助时使用的句型",
+        "knowledgePoint": "询问快递",
+        "responseTemplate": "Hey, any ___ for me today?"
+      }
+    },
+    {
+      "id": "workplace_053_sub_1_qa_2_fill_blank_1",
+      "subSceneId": "workplace_053_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "在询问包裹时，可以直接问公司名称",
+        "qaId": "workplace_053_sub_1_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Amazon",
+            "options": [
+              "Amazon",
+              "Walmart",
+              "UPS",
+              "FedEx"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "询问包裹",
+        "knowledgePoint": "提问句型",
+        "responseTemplate": "Is there a package from ___ with my name on it?"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "表示‘在当天结束前到达’，用 by the day 最自然",
         "type": "fill_blank",
-        "situation": "员工想确认快递是否已到达，但不确定是否有人签收",
-        "speakerText": "Has anything come in under my name yet?",
-        "speakerTextCn": "有寄给我的东西到了吗？",
-        "responseTemplate": "Let me check... Hmm, not yet, but it should arrive ___ the day.",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "表示‘在当天结束前到达’，用 by the day 最自然",
-        "knowledgePoint": "表达预计到达时间的常用介词搭配"
+        "situation": "员工想确认快递是否已到达，但不确定是否有人签收",
+        "speakerText": "Has anything come in under my name yet?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "有寄给我的东西到了吗？",
+        "knowledgePoint": "表达预计到达时间的常用介词搭配",
+        "responseTemplate": "Let me check... Hmm, not yet, but it should arrive ___ the day."
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "前台通常通过姓氏确认包裹归属，而不是卡号或验证码",
         "type": "fill_blank",
-        "situation": "员工看到快递柜有类似自己的包裹，想确认是否是自己的",
-        "speakerText": "Is this one for me? It looks like my package.",
-        "speakerTextCn": "这个是我的吗？看起来像我的快递。",
-        "responseTemplate": "I'll need to verify — could you spell your ___?",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "前台通常通过姓氏确认包裹归属，而不是卡号或验证码",
-        "knowledgePoint": "身份核验时最常用的个人信息请求方式"
+        "situation": "员工看到快递柜有类似自己的包裹，想确认是否是自己的",
+        "speakerText": "Is this one for me? It looks like my package.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "这个是我的吗？看起来像我的快递。",
+        "knowledgePoint": "身份核验时最常用的个人信息请求方式",
+        "responseTemplate": "I'll need to verify — could you spell your ___?"
+      }
+    },
+    {
+      "id": "workplace_053_sub_1_pq_6",
+      "subSceneId": "workplace_053_sub_1",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "前台通常通过什么方式查询包裹信息？",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "the system",
+            "options": [
+              "the system",
+              "the desk",
+              "the file",
+              "the box"
+            ]
+          }
+        ],
+        "template": "Could you please check ___ if there's a package under my name?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景核心动词搭配（check the system）"
       }
     }
   ]

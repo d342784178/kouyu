@@ -2,29 +2,97 @@
   "subSceneId": "travel_055_sub_1",
   "subSceneName": "礼貌打招呼",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:53:23.246Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.015Z",
   "questions": [
     {
-      "id": "travel_055_sub_1_speaking_1",
+      "id": "travel_055_sub_1_qa_1_speaking_1",
       "subSceneId": "travel_055_sub_1",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "travel_055_sub_1_qa_1",
-        "speakerText": "Excuse me, could I ask for a quick favor?",
-        "speakerTextCn": "不好意思，能麻烦您一下吗？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你需要礼貌地打断路人，表达请求帮助",
         "expectedAnswers": [
-          "Of course, what can I help you with?",
-          "Sure, go ahead.",
-          "Of course! Is there something you need help with?"
+          "Excuse me, could I ask for a quick favor?",
+          "Sorry to bother you, can I ask something?",
+          "Hey, could I ask for a minute of your time?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否回应了对方的礼貌请求并表示愿意帮助",
-          "语言准确性：语法正确，使用了恰当的礼貌表达",
-          "表达自然度：语气友好，符合日常口语习惯",
-          "关键词覆盖：是否使用了 'help', 'ask', 'favor' 等场景关键词"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯"
+        ]
+      }
+    },
+    {
+      "id": "travel_055_sub_1_qa_4_speaking_1",
+      "subSceneId": "travel_055_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "qaId": "travel_055_sub_1_qa_4",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在陌生城市迷路了，需要向一位路人礼貌地求助问路。请用自然、礼貌的方式开口打断对方并提出请求。",
+        "expectedAnswers": [
+          "Excuse me, could you help me with directions?",
+          "I'm sorry to bother you, but could you tell me how to get to the nearest subway station?",
+          "Hi there, would you mind giving me a quick direction? I'm a bit lost.",
+          "Pardon me, I'm trying to find my way — could you point me in the right direction?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达了请求帮助的意图",
+          "语言准确性：语法和用词是否正确，无明显错误",
+          "表达自然度：是否符合英语母语者日常礼貌打断的口语习惯",
+          "关键词覆盖：是否使用了'excuse me', 'could you', 'help', 'direction'等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_055_sub_1_qa_2_speaking_1",
+      "subSceneId": "travel_055_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "qaId": "travel_055_sub_1_qa_2",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "您需要礼貌地打断路人，表达请求寻找地铁站的方向。请问路人一个合适的问题。",
+        "expectedAnswers": [
+          "Excuse me, can you tell me which way to the nearest subway station?",
+          "Hi, I'm looking for the subway station. Could you point me in the right direction?",
+          "Sorry to bother you, but could you tell me where the nearest subway station is?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：正确表达了寻找地铁站的方向的询问意图",
+          "语言准确性：语法和用词正确",
+          "表达自然度：符合英语口语习惯",
+          "关键词覆盖：使用了场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_055_sub_1_qa_3_speaking_1",
+      "subSceneId": "travel_055_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "qaId": "travel_055_sub_1_qa_3",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在路上，需要向路人请路，但他们正在快速走过去。你需要礼貌地打断他们，表达请求。",
+        "expectedAnswers": [
+          "Excuse me, sorry to interrupt, I'm a bit lost.",
+          "Sorry, I'm not sure where I am either. Could you help me?",
+          "Sorry to bother you, but I'm not sure which way to go. Could you point me in the right direction?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
@@ -34,9 +102,10 @@
       "type": "speaking",
       "order": 2,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Hi, sorry to interrupt, but could you tell me how to get to the airport?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "嗨，不好意思打扰一下，您能告诉我怎么去机场吗？",
         "expectedAnswers": [
           "No problem, the airport is about 10 minutes by taxi.",
@@ -57,9 +126,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Excuse me, I hope I'm not disturbing you — could you point me to the nearest pharmacy?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "不好意思，希望没有打扰您——您能告诉我最近的药房在哪里吗？",
         "expectedAnswers": [
           "Not at all! There's one just around the corner on the left.",

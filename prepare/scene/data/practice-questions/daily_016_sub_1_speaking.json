@@ -2,50 +2,50 @@
   "subSceneId": "daily_016_sub_1",
   "subSceneName": "打招呼询问",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:38:17.921Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.554Z",
   "questions": [
     {
-      "id": "daily_016_sub_1_speaking_1",
+      "id": "daily_016_sub_1_qa_2_speaking_1",
       "subSceneId": "daily_016_sub_1",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "daily_016_sub_1_qa_2",
         "type": "speaking",
-        "qaId": "daily_016_sub_1_qa_1",
-        "speakerText": "Hey, you got any orange juice?",
-        "speakerTextCn": "嘿，你们有橙汁吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客进店问候并询问商品有无",
         "expectedAnswers": [
-          "Yeah, we do. It's in the fridge.",
-          "We've got it right over there by the drinks.",
-          "Sorry, we're out of orange juice today."
+          "Do you have the chicken sandwich?",
+          "And do you have the chicken sandwich?",
+          "Excuse me, do you have chicken sandwiches?"
         ],
         "evaluationCriteria": [
-          "是否明确回应了是否有货（是/否）",
-          "是否使用了场景关键词如 'got any', 'in the fridge', 'out of'",
-          "表达是否自然、符合口语习惯，避免机械背诵"
+          "意图达成度：正确表达了询问意图",
+          "语言准确性：语法和用词正确",
+          "表达自然度：符合英语口语习惯",
+          "关键词覆盖：使用了场景关键词"
         ]
       }
     },
     {
-      "id": "daily_016_sub_1_speaking_2",
+      "id": "daily_016_sub_1_qa_1_speaking_1",
       "subSceneId": "daily_016_sub_1",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "daily_016_sub_1_qa_1",
         "type": "speaking",
-        "qaId": "daily_016_sub_1_qa_2",
-        "speakerText": "And do you have the chicken sandwich?",
-        "speakerTextCn": "那鸡肉三明治有吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客通常先发起询问，如询问商品信息或价格",
         "expectedAnswers": [
-          "Yep, right next to the salads.",
-          "Not today, sorry—we just ran out.",
-          "We have it, but it's on the special menu today."
+          "Excuse me, do you have any new arrivals?",
+          "Hey, do you have any fresh orange juice?",
+          "Hi, can you tell me if you have any discounts on your products?"
         ],
         "evaluationCriteria": [
-          "是否清晰说明商品是否存在",
-          "是否使用了场景高频回应词如 'Yep', 'right next to', 'ran out'",
-          "语气是否礼貌且自然，避免生硬或冗长"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯"
         ]
       }
     },
@@ -55,9 +55,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Hi, do you have any fresh bread today?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "你好，今天有新鲜面包吗？",
         "expectedAnswers": [
           "Yes, we do! It's fresh from the oven just now.",

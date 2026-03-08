@@ -1,19 +1,26 @@
 {
   "sceneId": "daily_027",
   "sceneName": "五金店买工具",
+  "exportedAt": "2026-03-08T15:31:54.856Z",
   "subScenes": [
     {
       "id": "daily_027_sub_1",
+      "sceneId": "daily_027",
       "name": "打招呼询问",
       "description": "进店问候并说明需要购买电钻",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_027_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hey there! How's it going? Can I help you find something today?",
-          "speakerTextCn": "嗨！最近怎么样？今天需要帮忙找什么吗？",
-          "responses": [
+          "subSceneId": "daily_027_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hey there! How's it going? Can I help you find something today?",
+          "triggerTextCn": "嗨！最近怎么样？今天需要帮忙找什么吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Hi! I'm looking for a cordless drill, any recommendations?",
               "text_cn": "嗨！我在找一把无绳电钻，有推荐的吗？",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用口语缩写更自然，别太正式"
+          "usageNote": "用口语缩写更自然，别太正式",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_027_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Sure thing! We've got a few models — are you DIYing or doing professional work?",
-          "speakerTextCn": "当然！我们有几款，你是自己用还是专业施工？",
-          "responses": [
+          "subSceneId": "daily_027_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Sure thing! We've got a few models — are you DIYing or doing professional work?",
+          "triggerTextCn": "当然！我们有几款，你是自己用还是专业施工？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Just for home projects — fixing shelves and stuff.",
               "text_cn": "就家里用，修修架子之类的。",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "根据用途选词，别笼统说‘用’"
+          "usageNote": "根据用途选词，别笼统说‘用’",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_027_sub_2",
+      "sceneId": "daily_027",
       "name": "询问功能",
       "description": "询问电池续航和功率等关键参数",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_027_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "This one’s got a 20V battery — lasts about 90 mins on a charge.",
-          "speakerTextCn": "这款是20伏电池，充一次能用90分钟。",
-          "responses": [
+          "subSceneId": "daily_027_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "This one’s got a 20V battery — lasts about 90 mins on a charge.",
+          "triggerTextCn": "这款是20伏电池，充一次能用90分钟。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问产品功能，如电池续航",
+          "followUps": [
             {
               "text": "Cool! Does it come with two batteries? I hate waiting to recharge.",
               "text_cn": "不错！配两个电池吗？我不想等充电。",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用具体需求提问，如‘打多少孔’"
+          "usageNote": "用具体需求提问，如‘打多少孔’",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_027_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "It also has a 2-speed setting and a built-in LED light.",
-          "speakerTextCn": "它还有两档调速和内置LED灯。",
-          "responses": [
+          "subSceneId": "daily_027_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "It also has a 2-speed setting and a built-in LED light.",
+          "triggerTextCn": "它还有两档调速和内置LED灯。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问产品功能，如电池续航",
+          "followUps": [
             {
               "text": "Perfect! The LED’s a game-changer for dark corners.",
               "text_cn": "太棒了！LED灯对暗角太有用了。",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "表达偏好时用‘game-changer’等生动词"
+          "usageNote": "表达偏好时用‘game-changer’等生动词",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_027_sub_3",
+      "sceneId": "daily_027",
       "name": "确认库存与价格",
       "description": "确认是否有货并询问能否打折",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_027_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "We’ve got one left in stock — it’s $129.",
-          "speakerTextCn": "只剩一台了，129美元。",
-          "responses": [
+          "subSceneId": "daily_027_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "We’ve got one left in stock — it’s $129.",
+          "triggerTextCn": "只剩一台了，129美元。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Can you knock off $10? I’ll take it right now.",
               "text_cn": "能便宜10块吗？我现在就买。",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "提价时带理由，如‘马上买’更易成功"
+          "usageNote": "提价时带理由，如‘马上买’更易成功",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_027_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I can do $119 if you grab it today — no warranty extension though.",
-          "speakerTextCn": "今天买的话119，但不延保。",
-          "responses": [
+          "subSceneId": "daily_027_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "I can do $119 if you grab it today — no warranty extension though.",
+          "triggerTextCn": "今天买的话119，但不延保。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Deal! I’ll take it. What’s the warranty?",
               "text_cn": "成交！我买了。保修多久？",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "接受折扣时立即确认，避免犹豫"
+          "usageNote": "接受折扣时立即确认，避免犹豫",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_027_sub_4",
+      "sceneId": "daily_027",
       "name": "了解保修",
       "description": "确认保修范围和条件",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_027_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Standard warranty is 2 years — covers motor and battery defects.",
-          "speakerTextCn": "标准保修两年，涵盖电机和电池故障。",
-          "responses": [
+          "subSceneId": "daily_027_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "Standard warranty is 2 years — covers motor and battery defects.",
+          "triggerTextCn": "标准保修两年，涵盖电机和电池故障。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客：这个电钻的保修政策是怎样的？",
+          "followUps": [
             {
               "text": "What if I drop it and crack the housing? Covered?",
               "text_cn": "要是摔裂外壳了，算吗？",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "追问意外情况，避免售后纠纷"
+          "usageNote": "追问意外情况，避免售后纠纷",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_027_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Nope — only manufacturer defects. You can buy extended warranty for $15.",
-          "speakerTextCn": "不包，只包出厂缺陷。加15美元可延保。",
-          "responses": [
+          "subSceneId": "daily_027_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "Nope — only manufacturer defects. You can buy extended warranty for $15.",
+          "triggerTextCn": "不包，只包出厂缺陷。加15美元可延保。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客：这个电钻的保修政策是怎样的？",
+          "followUps": [
             {
               "text": "Nah, I'm good. I'll just be careful.",
               "text_cn": "不用了，我会小心的。",
@@ -222,22 +284,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "拒绝时加理由，显得更自然"
+          "usageNote": "拒绝时加理由，显得更自然",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_027_sub_5",
+      "sceneId": "daily_027",
       "name": "结账道别",
       "description": "完成付款并礼貌告别",
+      "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_027_sub_5_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Alright, I'll ring you up. Cash or card?",
-          "speakerTextCn": "好的，我给你结账。现金还是刷卡？",
-          "responses": [
+          "subSceneId": "daily_027_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Alright, I'll ring you up. Cash or card?",
+          "triggerTextCn": "好的，我给你结账。现金还是刷卡？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Card, please. Thanks so much for your help!",
               "text_cn": "刷卡，谢谢你的帮助！",
@@ -254,14 +325,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "道谢能提升服务体验，别只说付款方式"
+          "usageNote": "道谢能提升服务体验，别只说付款方式",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_027_sub_5_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Here's your receipt and the drill. Have a great day!",
-          "speakerTextCn": "这是收据和电钻，祝你今天愉快！",
-          "responses": [
+          "subSceneId": "daily_027_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Here's your receipt and the drill. Have a great day!",
+          "triggerTextCn": "这是收据和电钻，祝你今天愉快！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Thanks! You're awesome. See you next time!",
               "text_cn": "谢谢！你太棒了，下次见！",
@@ -278,7 +356,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "告别语带情绪更显真诚，别只说‘拜’"
+          "usageNote": "告别语带情绪更显真诚，别只说‘拜’",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     }

@@ -2,28 +2,29 @@
   "subSceneId": "study_abroad_100_sub_2",
   "subSceneName": "询问先修课",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:53:46.598Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.867Z",
   "questions": [
     {
-      "id": "study_abroad_100_sub_2_speaking_1",
+      "id": "study_abroad_100_sub_2_qa_1_speaking_1",
       "subSceneId": "study_abroad_100_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "study_abroad_100_sub_2_qa_1",
-        "speakerText": "Have you taken Intro to Psychology before? It's a prereq for Psych 301.",
-        "speakerTextCn": "你上过心理学导论吗？这是心理学301的先修课。",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想选修一门高级课程，但不确定是否需要先修课程，因此向教授或学长询问该课程的先修要求。",
         "expectedAnswers": [
-          "No, I haven't. Can I take it this term and still enroll in Psych 301?",
-          "I completed it last year, so I meet the requirement.",
-          "Actually, I'm not sure — could you remind me what the prerequisite is?"
+          "Is there a prerequisite for this course?",
+          "Do I need to take any other course before enrolling in this one?",
+          "What courses should I complete before taking this class?",
+          "Could you tell me if Psych 301 requires any prior coursework?"
         ],
         "evaluationCriteria": [
-          "是否准确回应先修课问题（是否上过、是否可补修）",
-          "是否使用场景关键词如 'prereq', 'enroll', 'take it'",
-          "表达是否自然，符合口语习惯，无明显语法错误"
+          "意图达成度：是否明确询问了课程的先修要求",
+          "语言准确性：语法结构正确，用词恰当",
+          "表达自然度：符合英语母语者日常交流习惯",
+          "关键词覆盖：使用了prerequisite、prior coursework、before taking等场景关键词"
         ]
       }
     },
@@ -33,9 +34,10 @@
       "type": "speaking",
       "order": 2,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I'm interested in signing up for Data Structures. Do I need to take any other course first?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我想报名数据结构课，我需要先修其他课程吗？",
         "expectedAnswers": [
           "Yes, you need to have passed Introduction to Programming.",
@@ -55,9 +57,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I want to register for Advanced Biology. What’s the requirement before I can enroll?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我想注册高级生物学，我注册前需要满足什么条件？",
         "expectedAnswers": [
           "You need to have finished Basic Biology and Chemistry.",

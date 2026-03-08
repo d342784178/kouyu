@@ -2,28 +2,28 @@
   "subSceneId": "travel_070_sub_1",
   "subSceneName": "开场致意",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:14:24.158Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.248Z",
   "questions": [
     {
-      "id": "travel_070_sub_1_speaking_1",
+      "id": "travel_070_sub_1_qa_1_speaking_1",
       "subSceneId": "travel_070_sub_1",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "travel_070_sub_1_qa_1",
-        "speakerText": "Hi, this is Lisa Chen calling about my flight.",
-        "speakerTextCn": "您好，我是Lisa Chen，想咨询我的航班。",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "客服接听电话后，请问用户姓名和航班信息",
         "expectedAnswers": [
-          "I'm calling to reschedule my flight due to an emergency.",
-          "Could you help me change my flight? Something urgent came up.",
-          "I need to adjust my flight plans — there's been a family emergency."
+          "Hi, this is Lisa Chen calling about my flight.",
+          "Hello, I'm calling about my flight.",
+          "Hi, I'm Lisa Chen. I'd like to inquire about my flight."
         ],
         "evaluationCriteria": [
-          "意图达成度：是否明确表达了改签航班的需求",
-          "语言准确性：语法和用词是否正确，是否使用了恰当的表达如 'due to' 或 'because of'",
-          "表达自然度：是否符合英语母语者在紧急情况下的口语习惯，避免生硬或冗长"
+          "意图达成度：正确表达了询问航班信息的意图",
+          "语言准确性：语法和用词正确",
+          "表达自然度：符合英语口语习惯",
+          "关键词覆盖：使用了姓名和航班关键词"
         ]
       }
     },
@@ -33,9 +33,10 @@
       "type": "speaking",
       "order": 2,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Hello, this is Mark Johnson. I'm calling about my reservation.",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "您好，我是Mark Johnson，我打电话是关于我的预订。",
         "expectedAnswers": [
           "I'd like to cancel my booking because my trip has been postponed.",
@@ -55,9 +56,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Hi, this is Anna from Toronto. I'm calling regarding my upcoming trip.",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "您好，我是来自多伦多的Anna，我打电话是关于我即将出行的行程。",
         "expectedAnswers": [
           "I'd like to request a window seat for my flight.",

@@ -2,8 +2,7 @@
   "subSceneId": "daily_023_sub_4",
   "subSceneName": "支付道别",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:25:05.181Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.601Z",
   "questions": [
     {
       "id": "daily_023_sub_4_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "直接用支付方式单词回答，无需完整句子",
         "type": "fill_blank",
-        "situation": "摄影师完成拍摄后告诉你费用，并询问支付方式，你需要明确选择支付方式并表达感谢。",
-        "speakerText": "That'll be $25. Cash or card?",
-        "speakerTextCn": "一共25美元，现金还是刷卡？",
-        "responseTemplate": "___, please.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "直接用支付方式单词回答，无需完整句子",
-        "knowledgePoint": "支付方式的简洁回应"
+        "situation": "摄影师完成拍摄后告诉你费用，并询问支付方式，你需要明确选择支付方式并表达感谢。",
+        "speakerText": "That'll be $25. Cash or card?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "一共25美元，现金还是刷卡？",
+        "knowledgePoint": "支付方式的简洁回应",
+        "responseTemplate": "___, please."
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "日常口语中，'Thanks' 比 'Thank you' 更自然简洁",
         "type": "fill_blank",
-        "situation": "工作人员告诉你照片将在几分钟后准备好，你需要礼貌道别并表达感谢。",
-        "speakerText": "Your photos will be ready in a few minutes.",
-        "speakerTextCn": "你的照片几分钟后就能准备好。",
-        "responseTemplate": "___ for your help!",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "日常口语中，'Thanks' 比 'Thank you' 更自然简洁",
-        "knowledgePoint": "道别时表达感谢的常用语"
+        "situation": "工作人员告诉你照片将在几分钟后准备好，你需要礼貌道别并表达感谢。",
+        "speakerText": "Your photos will be ready in a few minutes.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你的照片几分钟后就能准备好。",
+        "knowledgePoint": "道别时表达感谢的常用语",
+        "responseTemplate": "___ for your help!"
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "在非正式服务场景中，'See you later' 比 'Goodbye' 更自然亲切",
         "type": "fill_blank",
-        "situation": "你完成付款后，对方确认收到款项并说'一切顺利'，你需要用自然的方式告别离开。",
-        "speakerText": "All set! Have a great day.",
-        "speakerTextCn": "搞定啦！祝你今天愉快。",
-        "responseTemplate": "___!",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "在非正式服务场景中，'See you later' 比 'Goodbye' 更自然亲切",
-        "knowledgePoint": "日常道别用语的选择"
+        "situation": "你完成付款后，对方确认收到款项并说'一切顺利'，你需要用自然的方式告别离开。",
+        "speakerText": "All set! Have a great day.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "搞定啦！祝你今天愉快。",
+        "knowledgePoint": "日常道别用语的选择",
+        "responseTemplate": "___!"
+      }
+    },
+    {
+      "id": "daily_023_sub_4_pq_4",
+      "subSceneId": "daily_023_sub_4",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "支付方式的常见选项，与cash并列",
+        "qaId": "daily_023_sub_4_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "card",
+            "options": [
+              "card",
+              "cash",
+              "check",
+              "bank"
+            ]
+          }
+        ],
+        "template": "That'll be $15. Cash or ___?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "支付方式核心词汇（cash/card）"
+      }
+    },
+    {
+      "id": "daily_023_sub_4_pq_5",
+      "subSceneId": "daily_023_sub_4",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "对方表达感谢时，最自然的回应之一",
+        "qaId": "daily_023_sub_4_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Thanks",
+            "options": [
+              "Thanks",
+              "Goodbye",
+              "See",
+              "Hello"
+            ]
+          }
+        ],
+        "template": "Your photos are ready in 10 minutes. ___ you!",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "服务结束时的感谢回应（Thanks）"
+      }
+    },
+    {
+      "id": "daily_023_sub_4_pq_6",
+      "subSceneId": "daily_023_sub_4",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "告别时的常用短语，表示‘待会儿见’",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "See",
+            "options": [
+              "See",
+              "Look",
+              "Call",
+              "Meet"
+            ]
+          }
+        ],
+        "template": "I'll pick them up later. ___ you later!",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "道别固定表达（See you later）"
       }
     }
   ]

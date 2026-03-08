@@ -2,52 +2,52 @@
   "subSceneId": "travel_074_sub_2",
   "subSceneName": "询问时间与车次",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:14:25.780Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.315Z",
   "questions": [
     {
-      "id": "travel_074_sub_2_speaking_1",
+      "id": "travel_074_sub_2_qa_2_speaking_1",
       "subSceneId": "travel_074_sub_2",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "travel_074_sub_2_qa_2",
         "type": "speaking",
-        "qaId": "travel_074_sub_2_qa_1",
-        "speakerText": "When's the next train to Nanjing?",
-        "speakerTextCn": "下一班去南京的车什么时候开？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想知道下一班火车的发车时间和车次类型",
         "expectedAnswers": [
-          "Is there one around 3 PM?",
-          "Any high-speed trains after 2:30?",
-          "What's the next departure time?"
+          "Excuse me, what's the departure time and train type of the next train?",
+          "Hi, can you tell me the departure time and train type of the next train?",
+          "What's the schedule and train type of the next train?"
         ],
         "evaluationCriteria": [
-          "意图达成度：准确回应了询问发车时间的需求",
-          "语言准确性：语法正确，无明显错误",
-          "表达自然度：使用了around/after等模糊表达，符合口语习惯",
-          "关键词覆盖：包含train/time/high-speed等场景关键词"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
     {
-      "id": "travel_074_sub_2_speaking_2",
+      "id": "travel_074_sub_2_qa_1_speaking_1",
       "subSceneId": "travel_074_sub_2",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "travel_074_sub_2_qa_1",
         "type": "speaking",
-        "qaId": "travel_074_sub_2_qa_2",
-        "speakerText": "We have a train at 4:20 PM — it's a high-speed service, about 5 hours.",
-        "speakerTextCn": "有一班下午4:20的车，是高铁，大约5小时。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在火车站想乘坐去北京的火车，但不确定发车时间和车次类型，需要向工作人员询问下一班车的信息。",
         "expectedAnswers": [
-          "Perfect! How much is the fare?",
-          "That works. What's the price?",
-          "Great, I'll take it. Can I pay now?"
+          "When's the next train to Beijing?",
+          "What time does the next train to Beijing leave?",
+          "Could you tell me the departure time and type of the next train to Beijing?",
+          "Is there a train going to Beijing soon? I'd like to know the schedule and train type."
         ],
         "evaluationCriteria": [
-          "意图达成度：正确表达了满意并自然过渡到价格询问",
-          "语言准确性：使用了地道表达如Perfect/That works，语法无误",
-          "表达自然度：符合真实对话节奏，避免只说'OK'",
-          "关键词覆盖：包含fare/price等核心词汇"
+          "意图达成度：是否明确询问了发车时间和车次类型",
+          "语言准确性：语法结构正确，时态使用恰当",
+          "表达自然度：符合英语口语习惯，语气礼貌得体",
+          "关键词覆盖：使用了 'train', 'Beijing', 'next', 'time' 或 'departure' 等场景关键词"
         ]
       }
     },
@@ -57,9 +57,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Do you have any trains to Guangzhou before 12 PM?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "有中午前去广州的火车吗？",
         "expectedAnswers": [
           "Yes, there's one around 11:15 AM.",

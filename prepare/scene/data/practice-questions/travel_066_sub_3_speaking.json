@@ -2,50 +2,51 @@
   "subSceneId": "travel_066_sub_3",
   "subSceneName": "确认金额和钞票面额",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:08:25.083Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.185Z",
   "questions": [
     {
-      "id": "travel_066_sub_3_speaking_1",
+      "id": "travel_066_sub_3_qa_2_speaking_1",
       "subSceneId": "travel_066_sub_3",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "travel_066_sub_3_qa_2",
         "type": "speaking",
-        "qaId": "travel_066_sub_3_qa_1",
-        "speakerText": "I'd like to exchange $500, please.",
-        "speakerTextCn": "我想换500美元，谢谢。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "服务员正在处理您的交易，您想确认一下可以换多少钞票，适合于小额消费",
         "expectedAnswers": [
-          "Okay, that's 460 euros after the fee. Do you want hundreds or fifties?",
-          "Got it. 460 euros. Mostly in hundreds?",
-          "500? Alright, I'll give you 460 euros. What denomination do you prefer?"
+          "Can I get mostly hundreds, with a few fifties for small purchases?",
+          "能给我多张一百元的钞票再加几张五十元吗?",
+          "可以给我一些一百元的钞票和一些五十元的钞票吗?"
         ],
         "evaluationCriteria": [
-          "是否准确计算并告知扣费后的金额（如460欧元）",
-          "是否使用了礼貌表达（如I'd like, Could you）",
-          "是否询问了钞票面额（hundreds/fifties）"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
     {
-      "id": "travel_066_sub_3_speaking_2",
+      "id": "travel_066_sub_3_qa_1_speaking_1",
       "subSceneId": "travel_066_sub_3",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "travel_066_sub_3_qa_1",
         "type": "speaking",
-        "qaId": "travel_066_sub_3_qa_2",
-        "speakerText": "Can I get mostly hundreds, with a few fifties for small purchases?",
-        "speakerTextCn": "能 mostly 给100元，再配几张50元用于小额消费吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "服务方回应询问金额和钞票面额，用户需要询问确认金额和钞票面额",
         "expectedAnswers": [
-          "Sure thing! 4 x 100 and 2 x 50?",
-          "No problem — 400 in hundreds, 60 in fifties?",
-          "Of course. That's 400 in hundreds and 60 in fifties. Perfect for tips and snacks."
+          "What denominations will I get for $500, please?",
+          "I'd like to confirm the $500 exchange, what bills will I receive?",
+          "Can you tell me the denominations for the $500 exchange?"
         ],
         "evaluationCriteria": [
-          "是否准确回应了‘mostly’和‘a few’的需求",
-          "是否使用了口语化确认句式（如Sure thing, No problem）",
-          "是否使用了正确的面额表达（hundreds/fifties）和数字搭配"
+          "意图达成度：是否正确表达了询问确认金额和钞票面额的意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
@@ -55,9 +56,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I'd like to exchange $200. Could I get mostly fifties, with a couple of tens for coffee and buses?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我想换200美元，能 mostly 给50元，再配几张10元用于咖啡和公交吗？",
         "expectedAnswers": [
           "Sure! 4 x 50 and 2 x 10?",

@@ -1,19 +1,26 @@
 {
   "sceneId": "daily_013",
   "sceneName": "图书馆借书",
+  "exportedAt": "2026-03-08T15:31:54.846Z",
   "subScenes": [
     {
       "id": "daily_013_sub_1",
+      "sceneId": "daily_013",
       "name": "打招呼咨询",
       "description": "向管理员礼貌询问借书流程",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_013_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hi there! Can you help me with borrowing books?",
-          "speakerTextCn": "嗨！你能帮我一下借书的事吗？",
-          "responses": [
+          "subSceneId": "daily_013_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hi there! Can you help me with borrowing books?",
+          "triggerTextCn": "嗨！你能帮我一下借书的事吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户在图书馆需要借书时，主动向管理员询问流程",
+          "followUps": [
             {
               "text": "Sure! I'd love to help. What do you need to know?",
               "text_cn": "当然！我很乐意帮忙。你想知道什么？",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用礼貌用语开启对话，别直接问问题"
+          "usageNote": "用礼貌用语开启对话，别直接问问题",
+          "audioUrl": "COS:/qa/questions/daily_013_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_013_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I'm new here. How many books can I borrow?",
-          "speakerTextCn": "我是新手，我能借几本书？",
-          "responses": [
+          "subSceneId": "daily_013_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'm new here. How many books can I borrow?",
+          "triggerTextCn": "我是新手，我能借几本书？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户在图书馆需要借书时，主动向管理员询问流程",
+          "followUps": [
             {
               "text": "You can borrow up to 5 books at a time.",
               "text_cn": "一次最多能借5本。",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "回答要包含数量+可续借信息，更实用"
+          "usageNote": "回答要包含数量+可续借信息，更实用",
+          "audioUrl": "COS:/qa/questions/daily_013_sub_1_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_013_sub_2",
+      "sceneId": "daily_013",
       "name": "确认借期",
       "description": "了解借书期限和逾期后果",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_013_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "How long can I keep the books?",
-          "speakerTextCn": "书能借多久？",
-          "responses": [
+          "subSceneId": "daily_013_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "How long can I keep the books?",
+          "triggerTextCn": "书能借多久？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户询问借书期限，管理员回答",
+          "followUps": [
             {
               "text": "You've got 2 weeks. After that, you'll get fined.",
               "text_cn": "两周，超期要罚款。",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "回答需包含期限+罚款，避免用户误判"
+          "usageNote": "回答需包含期限+罚款，避免用户误判",
+          "audioUrl": "COS:/qa/questions/daily_013_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_013_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "What if I can't return them on time?",
-          "speakerTextCn": "如果还不了怎么办？",
-          "responses": [
+          "subSceneId": "daily_013_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "What if I can't return them on time?",
+          "triggerTextCn": "如果还不了怎么办？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户询问借书期限，管理员回答",
+          "followUps": [
             {
               "text": "You can renew them online if no one's waiting.",
               "text_cn": "没人预约就能在线续借。",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "强调续借条件，避免用户误以为能无限续"
+          "usageNote": "强调续借条件，避免用户误以为能无限续",
+          "audioUrl": "COS:/qa/questions/daily_013_sub_2_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_013_sub_3",
+      "sceneId": "daily_013",
       "name": "办理续借",
       "description": "询问并确认续借操作方式",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_013_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Can I renew my books online?",
-          "speakerTextCn": "我能在线续借吗？",
-          "responses": [
+          "subSceneId": "daily_013_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can I renew my books online?",
+          "triggerTextCn": "我能在线续借吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户询问续借服务，工作人员回答是否可以在线操作。",
+          "followUps": [
             {
               "text": "Yep! Just log in to your account and click 'Renew'.",
               "text_cn": "能！登录账户点‘续借’就行。",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "回答要包含具体操作步骤，方便用户执行"
+          "usageNote": "回答要包含具体操作步骤，方便用户执行",
+          "audioUrl": "COS:/qa/questions/daily_013_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "daily_013_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "What if the system says 'Cannot renew'?",
-          "speakerTextCn": "如果系统显示‘无法续借’怎么办？",
-          "responses": [
+          "subSceneId": "daily_013_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "What if the system says 'Cannot renew'?",
+          "triggerTextCn": "如果系统显示‘无法续借’怎么办？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：用户询问续借服务，工作人员回答是否可以在线操作。",
+          "followUps": [
             {
               "text": "Someone else requested it. You gotta return it.",
               "text_cn": "有人预约了，得还回去。",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "解释‘无法续借’的真实原因，避免误解"
+          "usageNote": "解释‘无法续借’的真实原因，避免误解",
+          "audioUrl": "COS:/qa/questions/daily_013_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "daily_013_sub_4",
+      "sceneId": "daily_013",
       "name": "道别结束",
       "description": "礼貌道别并确认信息无误",
+      "order": 4,
       "estimatedMinutes": 3,
       "qaPairs": [
         {
           "id": "daily_013_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Thanks so much! So, 5 books, 2 weeks, can renew online?",
-          "speakerTextCn": "太感谢了！就是5本、两周、能在线续借，对吧？",
-          "responses": [
+          "subSceneId": "daily_013_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thanks so much! So, 5 books, 2 weeks, can renew online?",
+          "triggerTextCn": "太感谢了！就是5本、两周、能在线续借，对吧？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Exactly! Have a great day reading!",
               "text_cn": "没错！祝你阅读愉快！",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "复述关键点可避免误解，提升沟通效率"
+          "usageNote": "复述关键点可避免误解，提升沟通效率",
+          "audioUrl": "COS:/qa/questions/daily_013_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "daily_013_sub_4_qa_2",
-          "qaType": "listen_only",
-          "speakerText": "I'll see you next week!",
-          "speakerTextCn": "我下周再来！",
-          "responses": [
+          "subSceneId": "daily_013_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "I'll see you next week!",
+          "triggerTextCn": "我下周再来！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "See you then! Bring your library card!",
               "text_cn": "到时候见！记得带借书卡！",
@@ -222,7 +284,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "道别时可加提示，强化关键信息记忆"
+          "usageNote": "道别时可加提示，强化关键信息记忆",
+          "audioUrl": "COS:/qa/questions/daily_013_sub_4_qa_2.mp3",
+          "learnRequirement": "listen_only",
+          "order": 2
         }
       ]
     }

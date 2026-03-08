@@ -2,77 +2,76 @@
   "subSceneId": "study_abroad_103_sub_2",
   "subSceneName": "方法追问",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T14:53:17.372Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.896Z",
   "questions": [
     {
-      "id": "study_abroad_103_sub_2_choice_1",
+      "id": "study_abroad_103_sub_2_qa_1_choice_1",
       "subSceneId": "study_abroad_103_sub_2",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "study_abroad_103_sub_2_qa_1",
-        "speakerText": "Why didn’t you use regression analysis instead of thematic coding?",
-        "speakerTextCn": "你为什么不用回归分析，而选了主题编码？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "Regression is too simple for our data.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Thematic coding better captured nuanced qualitative insights that stats might miss.",
+            "text": "Why didn’t you use regression analysis instead of thematic coding?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "What is thematic coding?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I didn’t know how to run regression.",
+            "text": "Can you explain how you collected your data?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "Regression is outdated in social science research.",
+            "text": "Did you consider using regression analysis?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确回应了方法选择的合理性，强调质性洞察的价值，符合学术表达规范。干扰项要么贬低自己能力（opt_3），要么无根据地否定回归分析（opt_1, opt_4），均不符合专业回应原则。"
+        "explanation": "正确答案直接质疑方法选择的替代性，精准针对‘方法合理性’的追问场景。选项2是基础概念提问，不符合深入追问的要求；选项3聚焦数据收集，偏离方法比较的核心；选项4虽相关但语气委婉且未形成对比，缺乏批判性追问的力度。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在审阅一篇质性研究论文，作者使用了主题编码分析数据。你想了解为什么作者没有选择更量化的回归分析方法，因此需要提出一个恰当的问题来追问其方法选择的合理性。"
       }
     },
     {
-      "id": "study_abroad_103_sub_2_choice_2",
+      "id": "study_abroad_103_sub_2_qa_2_choice_1",
       "subSceneId": "study_abroad_103_sub_2",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "choice",
         "qaId": "study_abroad_103_sub_2_qa_2",
-        "speakerText": "How’d you handle coder bias in qualitative analysis?",
-        "speakerTextCn": "你在质性分析中怎么处理编码者偏见？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "We just trusted our instincts.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "We did inter-coder reliability checks with Cohen’s Kappa and resolved disagreements via peer review.",
+            "text": "How did you ensure coder consistency in your thematic analysis?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Why did you choose this particular theme?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "Bias doesn’t exist in our study.",
+            "text": "Did you use software to code the data?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "We asked the participants to code their own responses.",
+            "text": "How many participants were in your study?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案展示了具体、可验证的质性研究质量控制方法。干扰项要么回避问题（opt_1）、否认问题存在（opt_3），要么提出不切实际的方案（opt_4），均缺乏学术严谨性。"
+        "explanation": "正确答案询问编码一致性，直接针对方法的严谨性与偏见控制，符合‘方法追问’场景。选项2只问主题选择理由，未触及方法可靠性；选项3关注工具使用，偏离偏见控制核心；选项4询问样本量，属于研究设计而非方法合理性追问。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "学生正在解释他们如何选择质性研究中的主题编码，你需要追问其方法的合理性，特别是如何避免主观偏见的影响。"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Why did you choose semi-structured interviews over surveys for this study?",
-        "speakerTextCn": "你为什么为这项研究选择半结构化访谈而不是问卷调查？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案清晰说明方法选择的学术依据——深度探索个人叙事。干扰项基于主观感受（opt_1）、能力不足（opt_3）或错误经济假设（opt_4），均未体现研究设计的合理性。"
+        "explanation": "正确答案清晰说明方法选择的学术依据——深度探索个人叙事。干扰项基于主观感受（opt_1）、能力不足（opt_3）或错误经济假设（opt_4），均未体现研究设计的合理性。",
+        "speakerText": "Why did you choose semi-structured interviews over surveys for this study?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你为什么为这项研究选择半结构化访谈而不是问卷调查？"
       }
     }
   ]

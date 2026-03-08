@@ -1,19 +1,26 @@
 {
   "sceneId": "workplace_035",
   "sceneName": "请假申请",
+  "exportedAt": "2026-03-08T15:31:54.904Z",
   "subScenes": [
     {
       "id": "workplace_035_sub_1",
+      "sceneId": "workplace_035",
       "name": "礼貌开场",
       "description": "员工向经理礼貌提出请假请求",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_035_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hey Mike, got a minute?",
-          "speakerTextCn": "嗨，迈克，有空吗？",
-          "responses": [
+          "subSceneId": "workplace_035_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hey Mike, got a minute?",
+          "triggerTextCn": "嗨，迈克，有空吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_asks 模式，经理接下来可能会回应是否有时间讨论请假事宜。",
+          "followUps": [
             {
               "text": "Sure, what's up?",
               "text_cn": "当然，什么事？",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用轻松语气开场，避免突兀"
+          "usageNote": "用轻松语气开场，避免突兀",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "workplace_035_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I'd like to request some time off next week.",
-          "speakerTextCn": "我想申请下周请几天假。",
-          "responses": [
+          "subSceneId": "workplace_035_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'd like to request some time off next week.",
+          "triggerTextCn": "我想申请下周请几天假。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_asks 模式，经理接下来可能会回应是否有时间讨论请假事宜。",
+          "followUps": [
             {
               "text": "I'm sorry to hear that. What's the reason?",
               "text_cn": "听到这个有点遗憾，是什么原因？",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "直接说明意图，避免绕弯子"
+          "usageNote": "直接说明意图，避免绕弯子",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_035_sub_2",
+      "sceneId": "workplace_035",
       "name": "说明原因",
       "description": "清晰解释请假原因，体现责任感",
+      "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_035_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "I need to take care of a family emergency — my mom's in the hospital.",
-          "speakerTextCn": "我得处理个家庭紧急情况，我妈住院了。",
-          "responses": [
+          "subSceneId": "workplace_035_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "I need to take care of a family emergency — my mom's in the hospital.",
+          "triggerTextCn": "我得处理个家庭紧急情况，我妈住院了。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Oh no, I'm so sorry. Hope she gets better soon.",
               "text_cn": "天啊，真遗憾，希望她早日康复。",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "简明说明原因，不夸张不隐瞒"
+          "usageNote": "简明说明原因，不夸张不隐瞒",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "workplace_035_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I'm really sorry to ask, but I need 3 days — from Monday to Wednesday.",
-          "speakerTextCn": "很抱歉提出，但我需要请三天，周一到周三。",
-          "responses": [
+          "subSceneId": "workplace_035_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "I'm really sorry to ask, but I need 3 days — from Monday to Wednesday.",
+          "triggerTextCn": "很抱歉提出，但我需要请三天，周一到周三。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "No problem, I'll mark it in the system.",
               "text_cn": "没问题，我帮你登记。",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "明确天数，主动配合调整"
+          "usageNote": "明确天数，主动配合调整",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_035_sub_3",
+      "sceneId": "workplace_035",
       "name": "安排交接",
       "description": "主动提出工作交接方案，减轻经理负担",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_035_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "I've already updated the project tracker and briefed Sarah on my tasks.",
-          "speakerTextCn": "我已经更新了项目进度表，并跟莎拉交代了手头工作。",
-          "responses": [
+          "subSceneId": "workplace_035_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "I've already updated the project tracker and briefed Sarah on my tasks.",
+          "triggerTextCn": "我已经更新了项目进度表，并跟莎拉交代了手头工作。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "That's awesome — you're a lifesaver.",
               "text_cn": "太棒了，你真是救场王。",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "提前准备交接，体现专业度"
+          "usageNote": "提前准备交接，体现专业度",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "workplace_035_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I'll be available by email for anything critical.",
-          "speakerTextCn": "如果有紧急事，我随时在线回复邮件。",
-          "responses": [
+          "subSceneId": "workplace_035_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "I'll be available by email for anything critical.",
+          "triggerTextCn": "如果有紧急事，我随时在线回复邮件。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Perfect. Don't overdo it though — rest up!",
               "text_cn": "很好，但别太拼，好好休息！",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "表明可联系性，但强调休息优先"
+          "usageNote": "表明可联系性，但强调休息优先",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_035_sub_4",
+      "sceneId": "workplace_035",
       "name": "确认与道别",
       "description": "确认请假获批，礼貌结束对话",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_035_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "So, it's all approved then?",
-          "speakerTextCn": "那我的请假是批准了吗？",
-          "responses": [
+          "subSceneId": "workplace_035_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "So, it's all approved then?",
+          "triggerTextCn": "那我的请假是批准了吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_asks 模式，提供场景提示（中文）",
+          "followUps": [
             {
               "text": "Yep, it's in the system. Enjoy your time with your mom.",
               "text_cn": "嗯，已登记，陪妈妈好好休息。",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "确认批准，避免误解"
+          "usageNote": "确认批准，避免误解",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "workplace_035_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "Thanks so much for understanding. I really appreciate it.",
-          "speakerTextCn": "非常感谢你的理解，真的很感激。",
-          "responses": [
+          "subSceneId": "workplace_035_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "Thanks so much for understanding. I really appreciate it.",
+          "triggerTextCn": "非常感谢你的理解，真的很感激。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_asks 模式，提供场景提示（中文）",
+          "followUps": [
             {
               "text": "Of course, family comes first.",
               "text_cn": "当然，家人最重要。",
@@ -222,7 +284,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "表达感谢，强化良好印象"
+          "usageNote": "表达感谢，强化良好印象",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     }

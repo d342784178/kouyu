@@ -2,52 +2,51 @@
   "subSceneId": "social_092_sub_1",
   "subSceneName": "初次打招呼",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:47:01.935Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.782Z",
   "questions": [
     {
-      "id": "social_092_sub_1_speaking_1",
+      "id": "social_092_sub_1_qa_1_speaking_1",
       "subSceneId": "social_092_sub_1",
       "type": "speaking",
       "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "social_092_sub_1_qa_1",
-        "speakerText": "Hi there! You're the new neighbor, right?",
-        "speakerTextCn": "嗨！你是新搬来的邻居吧？",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在楼道里遇到一位新搬来的邻居，想友好地打招呼并确认对方身份，可以询问对方的名字或表达欢迎。",
         "expectedAnswers": [
-          "Yeah, I just moved in last week. Nice to meet you!",
-          "Yes, I'm Alex. Hope I'm not disturbing anyone!",
-          "Yep! I'm Jamie. Looking forward to getting to know everyone."
+          "Hi! I'm your neighbor on the second floor. You must be the new person who just moved in?",
+          "Hey there! Welcome to the building! I'm Alex — what's your name?",
+          "Hi! I noticed you just moved in. I live right across the hall — nice to meet you!",
+          "Hello! I hope you're settling in well. I'm your neighbor — mind if I ask your name?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否明确确认自己是新邻居",
-          "语言准确性：语法和用词是否正确，如使用了 'Nice to meet you' 等恰当表达",
-          "表达自然度：语气是否轻松友好，符合日常口语习惯",
-          "关键词覆盖：是否使用了 'new neighbor', 'moved in', 'meet' 等场景关键词"
+          "意图达成度：是否正确表达了问候和确认对方是新邻居的意图",
+          "语言准确性：语法和用词是否正确，无明显错误",
+          "表达自然度：是否符合英语母语者日常打招呼的口语习惯",
+          "关键词覆盖：是否使用了 'new neighbor', 'move in', 'name' 等场景关键词"
         ]
       }
     },
     {
-      "id": "social_092_sub_1_speaking_2",
+      "id": "social_092_sub_1_qa_2_speaking_1",
       "subSceneId": "social_092_sub_1",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
-        "type": "speaking",
         "qaId": "social_092_sub_1_qa_2",
-        "speakerText": "I'm Lisa. Welcome to the building!",
-        "speakerTextCn": "我是丽莎，欢迎入住！",
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在楼道遇到新邻居，想问候他们。他们看起来很不熟悉这个地方，想知道他们的名字或更多关于他们的信息。",
         "expectedAnswers": [
-          "Thanks, Lisa! I'm really excited to be here.",
-          "Appreciate it! I'm Ben.",
-          "That's so kind of you! I'm Taylor."
+          "What's your name?",
+          "Welcome to the building! Can I help you with anything?",
+          "Hi, how do you like our building so far?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否对欢迎表示感谢并回应身份",
-          "语言准确性：是否正确使用了感谢表达和人名",
-          "表达自然度：语气是否真诚、口语化，避免生硬或机械",
-          "关键词覆盖：是否使用了 'thanks', 'welcome', 'I'm' 等核心表达"
+          "意图达成度：是否正确表达了询问邻居信息的意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯"
         ]
       }
     },
@@ -57,9 +56,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Hey, I'm your neighbor on the 3rd floor. I noticed you're moving in — need any help?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "嘿，我是三楼的邻居，看到你在搬东西，需要帮忙吗？",
         "expectedAnswers": [
           "Oh, thanks so much! I'm Sam. I think I'm okay for now, but I'll let you know if I need a hand!",

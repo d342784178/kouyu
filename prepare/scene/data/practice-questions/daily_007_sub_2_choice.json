@@ -2,8 +2,7 @@
   "subSceneId": "daily_007_sub_2",
   "subSceneName": "预约意图",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:15:47.985Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.483Z",
   "questions": [
     {
       "id": "daily_007_sub_2_choice_1",
@@ -12,9 +11,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "你走进一家理发店，想预约下周的理发服务，向店员表达你的意图。",
-        "speakerText": "I'd like to book a haircut for next week.",
-        "speakerTextCn": "我想预约下周的理发。",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +33,46 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是回应预约请求的标准服务用语，用于进一步确认时间安排。干扰项1是答非所问，只是重复自己的需求；干扰项2是询问价格，偏离了预约意图；干扰项3是表达风格偏好，未回应预约请求。"
+        "situation": "你走进一家理发店，想预约下周的理发服务，向店员表达你的意图。",
+        "explanation": "正确答案是回应预约请求的标准服务用语，用于进一步确认时间安排。干扰项1是答非所问，只是重复自己的需求；干扰项2是询问价格，偏离了预约意图；干扰项3是表达风格偏好，未回应预约请求。",
+        "speakerText": "I'd like to book a haircut for next week.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我想预约下周的理发。"
+      }
+    },
+    {
+      "id": "daily_007_sub_2_qa_1_choice_1",
+      "subSceneId": "daily_007_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_007_sub_2_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'd like to book a haircut for this week.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "What time do you open?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much does a haircut cost?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you give me a massage?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 I'd like to book a haircut for this week，因为它符合场景中的预约需求。其他选项不符合预约需求，或者是询问不相关的信息。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想预约理发服务，通常需要先提出预约需求。"
       }
     },
     {
@@ -47,9 +82,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "你打电话给理发店，想预约一个简单的修剪，但不确定对方是否听清你的需求。",
-        "speakerText": "Hi, I'm calling to book a trim for Thursday afternoon.",
-        "speakerTextCn": "你好，我想预约周四下午的修剪。",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +104,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是服务人员在收到预约后自然的下一步回应，用于收集必要信息。干扰项1是补充个人偏好，偏离了预约确认流程；干扰项2是询问优惠，属于无关信息；干扰项3是擅自更改时间，误解了对方意图。"
+        "situation": "你打电话给理发店，想预约一个简单的修剪，但不确定对方是否听清你的需求。",
+        "explanation": "正确答案是服务人员在收到预约后自然的下一步回应，用于收集必要信息。干扰项1是补充个人偏好，偏离了预约确认流程；干扰项2是询问优惠，属于无关信息；干扰项3是擅自更改时间，误解了对方意图。",
+        "speakerText": "Hi, I'm calling to book a trim for Thursday afternoon.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你好，我想预约周四下午的修剪。"
       }
     },
     {
@@ -82,9 +118,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "你在理发店前台，想预约一个周末的理发，但不确定该用什么表达更自然。",
-        "speakerText": "Could I schedule a haircut for Saturday?",
-        "speakerTextCn": "我可以预约周六的理发吗？",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +140,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案是服务人员对预约请求的标准回应，体现专业性和服务流程。干扰项1是重复自己的意愿，未回应对方；干扰项2是询问促销，属于额外信息；干扰项3是表达延迟需求，与预约意图无关。"
+        "situation": "你在理发店前台，想预约一个周末的理发，但不确定该用什么表达更自然。",
+        "explanation": "正确答案是服务人员对预约请求的标准回应，体现专业性和服务流程。干扰项1是重复自己的意愿，未回应对方；干扰项2是询问促销，属于额外信息；干扰项3是表达延迟需求，与预约意图无关。",
+        "speakerText": "Could I schedule a haircut for Saturday?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我可以预约周六的理发吗？"
       }
     }
   ]

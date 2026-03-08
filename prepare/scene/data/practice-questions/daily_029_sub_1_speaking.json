@@ -2,50 +2,52 @@
   "subSceneId": "daily_029_sub_1",
   "subSceneName": "打招呼询问",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T14:42:27.259Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.644Z",
   "questions": [
     {
-      "id": "daily_029_sub_1_speaking_1",
+      "id": "daily_029_sub_1_qa_2_speaking_1",
       "subSceneId": "daily_029_sub_1",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "daily_029_sub_1_qa_2",
         "type": "speaking",
-        "qaId": "daily_029_sub_1_qa_1",
-        "speakerText": "Hi there! Do you know where the action figures are?",
-        "speakerTextCn": "你好！你知道动作玩偶在哪儿吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚进店，店员微笑打招呼，问候你。现在你想知道店里有没有带电池的玩具，你应该问什么?",
         "expectedAnswers": [
-          "Sure! They're in aisle 3, next to the dolls.",
-          "Aisle 3, just past the puzzles.",
-          "Over there by the toy cars!"
+          "Thanks! And do you have any with batteries included?",
+          "谢谢！有带电池的玩具吗？",
+          "你好，店里有带电池的玩具吗？",
+          "谢谢！有带电池的吗？"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否明确指出了玩具的位置",
-          "语言准确性：使用了正确的方位词（aisle, next to, past）",
-          "表达自然度：语气礼貌，符合服务场景口语习惯"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
     {
-      "id": "daily_029_sub_1_speaking_2",
+      "id": "daily_029_sub_1_qa_1_speaking_1",
       "subSceneId": "daily_029_sub_1",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "daily_029_sub_1_qa_1",
         "type": "speaking",
-        "qaId": "daily_029_sub_1_qa_2",
-        "speakerText": "Thanks! And do you have any with batteries included?",
-        "speakerTextCn": "谢谢！有带电池的吗？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "家长走进玩具店，想礼貌地向店员询问动作玩偶的摆放位置。",
         "expectedAnswers": [
-          "Most do! This one comes with 4 AA batteries.",
-          "Yes, check the box—it says 'batteries included'.",
-          "I'm not sure, let me check for you."
+          "Hi there! Do you know where the action figures are?",
+          "Hello, could you tell me where I can find the action figures?",
+          "Excuse me, where are the action figures located?",
+          "Hi, I'm looking for action figures—could you point me in the right direction?"
         ],
         "evaluationCriteria": [
-          "意图达成度：是否回应了 'batteries included' 的关键询问",
-          "语言准确性：正确使用了 'batteries included' 短语和语法结构",
-          "表达自然度：使用了口语化表达（如 'Most do!'、'let me check'）"
+          "意图达成度：是否明确询问了动作玩偶的位置",
+          "语言准确性：语法正确，用词恰当，无明显错误",
+          "表达自然度：符合英语日常口语习惯，语气礼貌得体"
         ]
       }
     },
@@ -55,9 +57,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "Good morning! Could you help me find the remote-controlled cars?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "早上好！你能帮我找找遥控汽车吗？",
         "expectedAnswers": [
           "Of course! They're in aisle 4, near the racing track.",

@@ -2,8 +2,7 @@
   "subSceneId": "daily_003_sub_3",
   "subSceneName": "询问价格",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:23:03.104Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.457Z",
   "questions": [
     {
       "id": "daily_003_sub_3_fill_blank_1",
@@ -11,11 +10,8 @@
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "当店员问你是否带走时，用 'sit here' 表示在店内消费，用 'to go' 表示打包带走。",
         "type": "fill_blank",
-        "situation": "你在咖啡店点完饮品后，店员告诉你总价，并询问你是想在这里喝还是带走。",
-        "speakerText": "That'll be $8.50. For here or to go?",
-        "speakerTextCn": "一共8块5，这里喝还是带走？",
-        "responseTemplate": "I'd like to ___.",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +24,12 @@
             ]
           }
         ],
-        "hint": "当店员问你是否带走时，用 'sit here' 表示在店内消费，用 'to go' 表示打包带走。",
-        "knowledgePoint": "表达消费方式（堂食/外带）"
+        "situation": "你在咖啡店点完饮品后，店员告诉你总价，并询问你是想在这里喝还是带走。",
+        "speakerText": "That'll be $8.50. For here or to go?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "一共8块5，这里喝还是带走？",
+        "knowledgePoint": "表达消费方式（堂食/外带）",
+        "responseTemplate": "I'd like to ___."
       }
     },
     {
@@ -38,11 +38,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "询问支付方式时，常用 'Can I pay with...' 加上支付方式名称，如信用卡、移动支付等。",
         "type": "fill_blank",
-        "situation": "你刚点完餐，收银员告知总价后，你想知道是否可以使用移动支付。",
-        "speakerText": "Your total is $12. How would you like to pay?",
-        "speakerTextCn": "总计12块，你打算怎么支付？",
-        "responseTemplate": "Can I pay with ___?",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +52,12 @@
             ]
           }
         ],
-        "hint": "询问支付方式时，常用 'Can I pay with...' 加上支付方式名称，如信用卡、移动支付等。",
-        "knowledgePoint": "询问支付方式"
+        "situation": "你刚点完餐，收银员告知总价后，你想知道是否可以使用移动支付。",
+        "speakerText": "Your total is $12. How would you like to pay?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "总计12块，你打算怎么支付？",
+        "knowledgePoint": "询问支付方式",
+        "responseTemplate": "Can I pay with ___?"
       }
     },
     {
@@ -65,11 +66,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "在确认总价时，常需确认是否包含税费，'include tax' 是地道表达。",
         "type": "fill_blank",
-        "situation": "你准备结账时，店员说总价后，你想确认是否包含税费，避免误解。",
-        "speakerText": "That comes to $15.40.",
-        "speakerTextCn": "总共是15块4。",
-        "responseTemplate": "Does that include ___?",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +80,90 @@
             ]
           }
         ],
-        "hint": "在确认总价时，常需确认是否包含税费，'include tax' 是地道表达。",
-        "knowledgePoint": "确认价格是否含税"
+        "situation": "你准备结账时，店员说总价后，你想确认是否包含税费，避免误解。",
+        "speakerText": "That comes to $15.40.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "总共是15块4。",
+        "knowledgePoint": "确认价格是否含税",
+        "responseTemplate": "Does that include ___?"
+      }
+    },
+    {
+      "id": "daily_003_sub_3_pq_4",
+      "subSceneId": "daily_003_sub_3",
+      "type": "fill_blank",
+      "order": 4,
+      "content": {
+        "hint": "询问是否外带的标准表达",
+        "qaId": "daily_003_sub_3_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "to go",
+            "options": [
+              "to go",
+              "to here",
+              "for take",
+              "for out"
+            ]
+          }
+        ],
+        "template": "That'll be $5.20. For here or ___?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "固定搭配：for here or to go"
+      }
+    },
+    {
+      "id": "daily_003_sub_3_pq_5",
+      "subSceneId": "daily_003_sub_3",
+      "type": "fill_blank",
+      "order": 5,
+      "content": {
+        "hint": "支付方式的正确介词搭配",
+        "qaId": "daily_003_sub_3_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "with",
+            "options": [
+              "with",
+              "by",
+              "using",
+              "for"
+            ]
+          }
+        ],
+        "template": "Can I pay ___ Apple Pay?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "动词搭配：pay with + 支付方式"
+      }
+    },
+    {
+      "id": "daily_003_sub_3_pq_6",
+      "subSceneId": "daily_003_sub_3",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "询问价格的最常用词",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "price",
+            "options": [
+              "price",
+              "cost",
+              "fee",
+              "bill"
+            ]
+          }
+        ],
+        "template": "Could you tell me the ___ for this item?",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景高频词汇：price（价格）"
       }
     }
   ]

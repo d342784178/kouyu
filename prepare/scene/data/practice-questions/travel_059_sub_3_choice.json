@@ -2,77 +2,76 @@
   "subSceneId": "travel_059_sub_3",
   "subSceneName": "确认开放时间与服务",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:07:14.610Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.099Z",
   "questions": [
     {
-      "id": "travel_059_sub_3_choice_1",
+      "id": "travel_059_sub_3_qa_2_choice_1",
       "subSceneId": "travel_059_sub_3",
       "type": "choice",
       "order": 1,
       "content": {
+        "qaId": "travel_059_sub_3_qa_2",
         "type": "choice",
-        "qaId": "travel_059_sub_3_qa_1",
-        "speakerText": "What time does it close today?",
-        "speakerTextCn": "今天几点关门？",
         "options": [
           {
             "id": "opt_1",
-            "text": "It opens at 9 AM.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "It closes at 6 PM. Last entry at 5:30.",
+            "text": "Does the ticket include a guided tour?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "What time do you close?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "We're closed on Mondays.",
+            "text": "Can I book a tour tomorrow?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "The ticket costs $20.",
+            "text": "How much is the ticket?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案准确回应了关门时间及最晚入场时间，符合场景需求。其他选项分别回答了开门时间、闭馆日和票价，均未回应问题核心。"
+        "explanation": "正确答案询问门票是否包含导览服务，直接对应场景核心需求。干扰项1只问关闭时间，忽略导览服务；干扰项2假设游客要预约，但场景是确认现有服务内容；干扰项4询问票价，与开放时间及导览服务无关。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在景点售票处想确认开放时间以及门票是否包含导览服务"
       }
     },
     {
-      "id": "travel_059_sub_3_choice_2",
+      "id": "travel_059_sub_3_qa_1_choice_1",
       "subSceneId": "travel_059_sub_3",
       "type": "choice",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "travel_059_sub_3_qa_1",
         "type": "choice",
-        "qaId": "travel_059_sub_3_qa_2",
-        "speakerText": "Does the ticket include a guided tour?",
-        "speakerTextCn": "门票包含导览吗？",
         "options": [
           {
             "id": "opt_1",
-            "text": "Yes, it's included in the price.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "No, but you can book one for $10 extra.",
+            "text": "What time does it close today?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Is it open every day?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "The museum is very popular.",
+            "text": "How much is the entrance fee?",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I don't know, ask someone else.",
+            "text": "Do you have a guide?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案明确说明不包含但提供付费选项，是标准且有帮助的回应。A选项错误地声称包含，C和D未提供有用信息，不符合有效沟通原则。"
+        "explanation": "正确答案询问具体关门时间，符合场景中确认开放时间的核心需求。干扰项1询问是否每日开放，偏离了‘今天’的时间焦点；干扰项2询问票价，与开放时间及导览服务无关；干扰项3表达不完整，未说明是免费导览还是需要预约，语义模糊且不符合自然口语习惯。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在参观景点前，想确认今天的开放结束时间以及是否提供免费导览服务"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "Is there a free guided tour available today?",
-        "speakerTextCn": "今天有免费导览吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案符合参考对话中'Free tour at 10 AM. Just show up.'的表达，提供具体时间且说明无需预约。B选项时间错误，A和D完全否定或收费，与事实不符。"
+        "explanation": "正确答案符合参考对话中'Free tour at 10 AM. Just show up.'的表达，提供具体时间且说明无需预约。B选项时间错误，A和D完全否定或收费，与事实不符。",
+        "speakerText": "Is there a free guided tour available today?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "今天有免费导览吗？"
       }
     }
   ]

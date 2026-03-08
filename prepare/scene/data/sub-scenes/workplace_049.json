@@ -1,19 +1,26 @@
 {
   "sceneId": "workplace_049",
   "sceneName": "出差申请",
+  "exportedAt": "2026-03-08T15:31:54.919Z",
   "subScenes": [
     {
       "id": "workplace_049_sub_1",
+      "sceneId": "workplace_049",
       "name": "提出申请",
       "description": "员工向经理礼貌提出出差请求",
+      "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_049_sub_1_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "Hey Mike, got a minute?",
-          "speakerTextCn": "嘿，迈克，有空吗？",
-          "responses": [
+          "subSceneId": "workplace_049_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hey Mike, got a minute?",
+          "triggerTextCn": "嘿，迈克，有空吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_responds 模式，迈克会先回应是否有空。",
+          "followUps": [
             {
               "text": "Sure, what's up?",
               "text_cn": "当然，什么事？",
@@ -30,14 +37,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用轻松语气开启对话，避免突兀"
+          "usageNote": "用轻松语气开启对话，避免突兀",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "workplace_049_sub_1_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I'd like to apply for a business trip to Shanghai next week.",
-          "speakerTextCn": "我想申请下周去上海出差。",
-          "responses": [
+          "subSceneId": "workplace_049_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'd like to apply for a business trip to Shanghai next week.",
+          "triggerTextCn": "我想申请下周去上海出差。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "如果是 user_responds 模式，迈克会先回应是否有空。",
+          "followUps": [
             {
               "text": "That sounds good. What's the purpose?",
               "text_cn": "不错啊，目的是什么？",
@@ -54,22 +68,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "申请时直接说明目的，避免模糊"
+          "usageNote": "申请时直接说明目的，避免模糊",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_049_sub_2",
+      "sceneId": "workplace_049",
       "name": "说明目的",
       "description": "清晰阐述出差的必要性和目标",
+      "order": 2,
       "estimatedMinutes": 6,
       "qaPairs": [
         {
           "id": "workplace_049_sub_2_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "We need to meet the client face-to-face to finalize the contract.",
-          "speakerTextCn": "我们需要当面和客户敲定合同。",
-          "responses": [
+          "subSceneId": "workplace_049_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "We need to meet the client face-to-face to finalize the contract.",
+          "triggerTextCn": "我们需要当面和客户敲定合同。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Makes sense — they've been delaying emails.",
               "text_cn": "有道理，他们一直拖邮件。",
@@ -86,14 +109,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "用具体理由增强说服力，避免空话"
+          "usageNote": "用具体理由增强说服力，避免空话",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "workplace_049_sub_2_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "The client said they won't sign unless we show up in person.",
-          "speakerTextCn": "客户说，除非我们亲自到场，否则不签合同。",
-          "responses": [
+          "subSceneId": "workplace_049_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "The client said they won't sign unless we show up in person.",
+          "triggerTextCn": "客户说，除非我们亲自到场，否则不签合同。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Alright, that's a solid reason.",
               "text_cn": "行，这理由很充分。",
@@ -110,22 +140,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "强调对方明确要求，提升申请可信度"
+          "usageNote": "强调对方明确要求，提升申请可信度",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_049_sub_3",
+      "sceneId": "workplace_049",
       "name": "协商时间",
       "description": "讨论并确认出差的具体日期和时长",
+      "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_049_sub_3_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "I'm thinking of leaving Monday and coming back Thursday.",
-          "speakerTextCn": "我打算周一出发，周四回来。",
-          "responses": [
+          "subSceneId": "workplace_049_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "I'm thinking of leaving Monday and coming back Thursday.",
+          "triggerTextCn": "我打算周一出发，周四回来。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "Thursday's fine, but can you come back Wed?",
               "text_cn": "周四行，但能周三回来吗？",
@@ -142,14 +181,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "提出时间建议后，主动询问对方意见"
+          "usageNote": "提出时间建议后，主动询问对方意见",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "workplace_049_sub_3_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I can fly out Sunday night if that helps.",
-          "speakerTextCn": "如果需要，我周日晚上就飞过去。",
-          "responses": [
+          "subSceneId": "workplace_049_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "I can fly out Sunday night if that helps.",
+          "triggerTextCn": "如果需要，我周日晚上就飞过去。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": null,
+          "followUps": [
             {
               "text": "That’s helpful — thanks for being flexible.",
               "text_cn": "这样更好，谢谢你灵活安排。",
@@ -166,22 +212,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "主动调整时间体现合作态度"
+          "usageNote": "主动调整时间体现合作态度",
+          "audioUrl": null,
+          "learnRequirement": "speak_followup",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_049_sub_4",
+      "sceneId": "workplace_049",
       "name": "确认预算",
       "description": "确认差旅费用报销流程和额度",
+      "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_049_sub_4_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "What's the max daily allowance for hotels and meals?",
-          "speakerTextCn": "住宿和餐饮的每日上限是多少？",
-          "responses": [
+          "subSceneId": "workplace_049_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "What's the max daily allowance for hotels and meals?",
+          "triggerTextCn": "住宿和餐饮的每日上限是多少？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：服务方/工作人员需提供准确的每日住宿和餐饮预算上限。",
+          "followUps": [
             {
               "text": "It's $150/day — receipts required.",
               "text_cn": "每天150美元，要保留收据。",
@@ -198,14 +253,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "主动询问标准，避免报销被拒"
+          "usageNote": "主动询问标准，避免报销被拒",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "workplace_049_sub_4_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I'll need to book a flight too — any preferred airline?",
-          "speakerTextCn": "我还得订机票，有指定航司吗？",
-          "responses": [
+          "subSceneId": "workplace_049_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'll need to book a flight too — any preferred airline?",
+          "triggerTextCn": "我还得订机票，有指定航司吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：服务方/工作人员需提供准确的每日住宿和餐饮预算上限。",
+          "followUps": [
             {
               "text": "Use Delta — we've got a corporate deal.",
               "text_cn": "用达美航空，公司有协议价。",
@@ -222,22 +284,31 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "提前确认流程，避免事后麻烦"
+          "usageNote": "提前确认流程，避免事后麻烦",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     },
     {
       "id": "workplace_049_sub_5",
+      "sceneId": "workplace_049",
       "name": "安排交接",
       "description": "确保工作在出差期间有人接手",
+      "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "workplace_049_sub_5_qa_1",
-          "qaType": "must_speak",
-          "speakerText": "I'll be out next week, so can you cover my client calls?",
-          "speakerTextCn": "我下周不在，你能帮我接客户电话吗？",
-          "responses": [
+          "subSceneId": "workplace_049_sub_5",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'll be out next week, so can you cover my client calls?",
+          "triggerTextCn": "我下周不在，你能帮我接客户电话吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：员工提出请求，经理作为服务方回应",
+          "followUps": [
             {
               "text": "I can handle them, but can you send me the notes?",
               "text_cn": "我可以，但你能发我备注吗？",
@@ -254,14 +325,21 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "交接时提供具体资料，减少对方负担"
+          "usageNote": "交接时提供具体资料，减少对方负担",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 1
         },
         {
           "id": "workplace_049_sub_5_qa_2",
-          "qaType": "must_speak",
-          "speakerText": "I'll leave all files in the shared folder and update the status.",
-          "speakerTextCn": "我会把文件放共享文件夹，更新状态。",
-          "responses": [
+          "subSceneId": "workplace_049_sub_5",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'll leave all files in the shared folder and update the status.",
+          "triggerTextCn": "我会把文件放共享文件夹，更新状态。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "场景提示：员工提出请求，经理作为服务方回应",
+          "followUps": [
             {
               "text": "Perfect, that makes things easy.",
               "text_cn": "太好了，这样就省事了。",
@@ -278,7 +356,10 @@
               "audio_url": ""
             }
           ],
-          "usageNote": "主动说明准备动作，体现责任感"
+          "usageNote": "主动说明准备动作，体现责任感",
+          "audioUrl": null,
+          "learnRequirement": "speak_trigger",
+          "order": 2
         }
       ]
     }

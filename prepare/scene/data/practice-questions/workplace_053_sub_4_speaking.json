@@ -2,50 +2,52 @@
   "subSceneId": "workplace_053_sub_4",
   "subSceneName": "寄送需求",
   "questionType": "speaking",
-  "generatedAt": "2026-03-02T15:19:33.231Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.584Z",
   "questions": [
     {
-      "id": "workplace_053_sub_4_speaking_1",
+      "id": "workplace_053_sub_4_qa_2_speaking_1",
       "subSceneId": "workplace_053_sub_4",
       "type": "speaking",
       "order": 1,
       "content": {
+        "qaId": "workplace_053_sub_4_qa_2",
         "type": "speaking",
-        "qaId": "workplace_053_sub_4_qa_1",
-        "speakerText": "Can you ship this overnight to Boston? It's fragile.",
-        "speakerTextCn": "能帮我加急寄到波士顿吗？易碎品。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "场景提示：用户询问快递服务，服务方提供解答。员工说明寄快递的具体要求",
         "expectedAnswers": [
-          "We can do FedEx Priority for $45. Do you have the box and label ready?",
-          "Sure, we'll use overnight shipping with extra padding — it's $45.",
-          "I'll arrange FedEx Priority and add fragile handling. The cost is $45."
+          "I need to send this to a client tomorrow — any cut-off time?",
+          "我明天要寄给客户，最晚几点能寄?",
+          "What's the deadline for sending this package to a client tomorrow?"
         ],
         "evaluationCriteria": [
-          "是否回应了加急和易碎需求",
-          "是否使用了场景关键词（FedEx Priority, fragile, box, label）",
-          "表达是否自然、符合职场口语习惯"
+          "意图达成度：是否正确表达了询问意图",
+          "语言准确性：语法和用词是否正确",
+          "表达自然度：是否符合英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词"
         ]
       }
     },
     {
-      "id": "workplace_053_sub_4_speaking_2",
+      "id": "workplace_053_sub_4_qa_1_speaking_1",
       "subSceneId": "workplace_053_sub_4",
       "type": "speaking",
-      "order": 2,
+      "order": 1,
       "content": {
+        "qaId": "workplace_053_sub_4_qa_1",
         "type": "speaking",
-        "qaId": "workplace_053_sub_4_qa_2",
-        "speakerText": "I need to send this to a client tomorrow — any cut-off time?",
-        "speakerTextCn": "我明天要寄给客户，最晚几点能寄？",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "场景提示：用户询问快递服务，服务方提供解答。",
         "expectedAnswers": [
-          "The cut-off is 3 PM for same-day shipping. If you miss it, I can hold it and send first thing tomorrow.",
-          "We close at 3 PM — after that, packages go out the next day.",
-          "You're just in time! If you bring it by 3 PM, we'll ship it today."
+          "Can you ship this overnight to Boston? It's fragile.",
+          "能帮我加急寄到波士顿吗？易碎品。",
+          "Can you expedite the shipping to Boston because this item is fragile?",
+          "能不能加急寄到波士顿？这件东西很容易碎。"
         ],
         "evaluationCriteria": [
-          "是否准确提供截止时间或替代方案",
-          "是否使用场景关键词（cut-off, same-day shipping, hold, send tomorrow）",
-          "是否体现服务意识和主动解决方案"
+          "意图达成度：正确表达了询问意图",
+          "语言准确性：语法和用词正确",
+          "表达自然度：符合英语口语习惯",
+          "关键词覆盖：使用了场景关键词"
         ]
       }
     },
@@ -55,9 +57,10 @@
       "type": "speaking",
       "order": 3,
       "content": {
-        "type": "speaking",
         "qaId": null,
+        "type": "speaking",
         "speakerText": "I'm sending this package to Germany. Do you handle international shipments?",
+        "dialogueMode": "user_responds",
         "speakerTextCn": "我要寄一个包裹到德国，你们处理国际快递吗？",
         "expectedAnswers": [
           "Yes, we ship worldwide. We recommend DHL Express — it takes 3–5 days and includes tracking.",

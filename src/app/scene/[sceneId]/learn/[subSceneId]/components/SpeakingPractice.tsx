@@ -4,7 +4,7 @@ import { useState, useRef, useCallback, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { getAudioUrl } from '@/lib/audioUrl'
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
-import type { QAResponse, PronunciationAssessmentResult, WordFeedback } from '@/types'
+import type { FollowUp, PronunciationAssessmentResult, WordFeedback } from '@/types'
 
 type PracticeState =
   | 'idle'
@@ -19,7 +19,7 @@ type PracticeState =
   | 'requesting_permission'
 
 interface SpeakingPracticeProps {
-  responses: QAResponse[]
+  responses: FollowUp[]
   demoAudioUrl: string
   onCompleted: () => void
   isCompleted?: boolean

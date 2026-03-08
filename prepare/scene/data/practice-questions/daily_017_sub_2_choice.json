@@ -2,9 +2,78 @@
   "subSceneId": "daily_017_sub_2",
   "subSceneName": "询问价格与种类",
   "questionType": "choice",
-  "generatedAt": "2026-03-03T14:17:11.322Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.561Z",
   "questions": [
+    {
+      "id": "daily_017_sub_2_qa_2_choice_1",
+      "subSceneId": "daily_017_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_017_sub_2_qa_2",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How much do the ripe mangoes cost, and do you have any?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you sell apples?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "The mangoes look good.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I have two mangoes?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案同时询问了价格和种类，符合场景需求。选项2偏离了芒果的主题；选项3是陈述句，不是提问；选项4假设了购买意愿，但未先确认价格和可得性。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在水果摊前想了解芒果的价格以及是否有熟的芒果可选"
+      }
+    },
+    {
+      "id": "daily_017_sub_2_qa_1_choice_1",
+      "subSceneId": "daily_017_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "daily_017_sub_2_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How much are these strawberries, and what other fruits do you have?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you sell strawberries?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I want some strawberries, please.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Are the strawberries fresh?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案同时询问了价格和可选种类，符合场景需求。干扰项1仅确认是否售卖，未涉及价格或种类；干扰项2是陈述句而非提问，不符合交际目标；干扰项3只关注新鲜度，偏离了价格和种类的核心需求。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在水果摊前想了解草莓的价格以及还有哪些其他水果可选"
+      }
+    },
     {
       "id": "daily_017_sub_2_choice_1",
       "subSceneId": "daily_017_sub_2",
@@ -12,9 +81,6 @@
       "order": 1,
       "content": {
         "type": "choice",
-        "situation": "你在超市水果区想买苹果，想知道不同品种的价格和是否有有机选项。",
-        "speakerText": "Hi, I'm looking for apples. Do you have any Granny Smiths, and how much are they?",
-        "speakerTextCn": "你好，我想买苹果。你们有格兰尼史密斯苹果吗？多少钱一磅？",
         "options": [
           {
             "id": "opt_1",
@@ -37,7 +103,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接回答了两个问题：是否有Granny Smith苹果以及价格，并补充了有机选项，符合顾客完整需求。干扰项1答非所问（转卖香蕉），干扰项2误解意图（推荐其他水果），干扰项3回避当前问题（说明天特价，未提供当前信息）。"
+        "situation": "你在超市水果区想买苹果，想知道不同品种的价格和是否有有机选项。",
+        "explanation": "正确答案直接回答了两个问题：是否有Granny Smith苹果以及价格，并补充了有机选项，符合顾客完整需求。干扰项1答非所问（转卖香蕉），干扰项2误解意图（推荐其他水果），干扰项3回避当前问题（说明天特价，未提供当前信息）。",
+        "speakerText": "Hi, I'm looking for apples. Do you have any Granny Smiths, and how much are they?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你好，我想买苹果。你们有格兰尼史密斯苹果吗？多少钱一磅？"
       }
     },
     {
@@ -47,9 +117,6 @@
       "order": 2,
       "content": {
         "type": "choice",
-        "situation": "你在农贸市场想买梨，想知道有哪些品种以及哪种最便宜。",
-        "speakerText": "What kinds of pears do you have? And which one’s the least expensive?",
-        "speakerTextCn": "你们有哪些品种的梨？哪个最便宜？",
         "options": [
           {
             "id": "opt_1",
@@ -72,7 +139,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案完整回答了两个问题：列出所有品种，并明确指出最便宜的选项及价格。干扰项1是个人陈述，与问题无关；干扰项3虽然提供价格，但未回答‘有哪些品种’，且只提一种，不完整；干扰项4直接否认有梨，与事实不符（假设摊位有梨）。"
+        "situation": "你在农贸市场想买梨，想知道有哪些品种以及哪种最便宜。",
+        "explanation": "正确答案完整回答了两个问题：列出所有品种，并明确指出最便宜的选项及价格。干扰项1是个人陈述，与问题无关；干扰项3虽然提供价格，但未回答‘有哪些品种’，且只提一种，不完整；干扰项4直接否认有梨，与事实不符（假设摊位有梨）。",
+        "speakerText": "What kinds of pears do you have? And which one’s the least expensive?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你们有哪些品种的梨？哪个最便宜？"
       }
     },
     {
@@ -82,9 +153,6 @@
       "order": 3,
       "content": {
         "type": "choice",
-        "situation": "你在便利店想买几颗香蕉，但不确定是否成熟，于是询问店员有哪些选择。",
-        "speakerText": "Do you have bananas? I need some that aren’t too green but not too ripe either.",
-        "speakerTextCn": "你们有香蕉吗？我需要一些不太绿但也不太熟的。",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +175,11 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案不仅确认有香蕉，还精准描述了顾客想要的成熟度（微黄带少许褐斑），符合口语中自然、具体的回应方式。干扰项1只报价格，忽略成熟度需求；干扰项2直接说没货，未尝试满足需求；干扰项3虽然提到两种选项，但未主动推荐符合要求的，显得敷衍。"
+        "situation": "你在便利店想买几颗香蕉，但不确定是否成熟，于是询问店员有哪些选择。",
+        "explanation": "正确答案不仅确认有香蕉，还精准描述了顾客想要的成熟度（微黄带少许褐斑），符合口语中自然、具体的回应方式。干扰项1只报价格，忽略成熟度需求；干扰项2直接说没货，未尝试满足需求；干扰项3虽然提到两种选项，但未主动推荐符合要求的，显得敷衍。",
+        "speakerText": "Do you have bananas? I need some that aren’t too green but not too ripe either.",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你们有香蕉吗？我需要一些不太绿但也不太熟的。"
       }
     }
   ]

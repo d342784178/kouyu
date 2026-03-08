@@ -2,77 +2,76 @@
   "subSceneId": "travel_071_sub_1",
   "subSceneName": "问候退房",
   "questionType": "choice",
-  "generatedAt": "2026-03-02T15:10:23.064Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:57.257Z",
   "questions": [
     {
-      "id": "travel_071_sub_1_choice_1",
+      "id": "travel_071_sub_1_qa_2_choice_1",
       "subSceneId": "travel_071_sub_1",
       "type": "choice",
       "order": 1,
       "content": {
-        "type": "choice",
-        "qaId": "travel_071_sub_1_qa_1",
-        "speakerText": "Good morning! I'd like to check out today.",
-        "speakerTextCn": "早上好！我想今天退房。",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "I want to check out today.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Good morning! I'd like to check out today.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_3",
-            "text": "Can I leave now?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I need to check out, please.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案使用 'I'd like to check out'，这是酒店场景中最礼貌自然的表达。选项1使用 'I want'，虽然语法正确，但在服务场景中显得生硬不礼貌。选项3 'Can I leave now?' 过于随意，不符合酒店专业语境。选项4 'I need to check out' 虽可接受，但不如 'I'd like to' 礼貌标准。"
-      }
-    },
-    {
-      "id": "travel_071_sub_1_choice_2",
-      "subSceneId": "travel_071_sub_1",
-      "type": "choice",
-      "order": 2,
-      "content": {
-        "type": "choice",
         "qaId": "travel_071_sub_1_qa_2",
-        "speakerText": "I'm in room 412. Can I get my bill now?",
-        "speakerTextCn": "我住412房，能现在给我账单吗？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
-            "text": "I'm in room 412. Could you give me my bill?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
             "text": "I'm in room 412. Can I get my bill now?",
             "isCorrect": true
           },
           {
+            "id": "opt_2",
+            "text": "Can you tell me what time checkout is?",
+            "isCorrect": false
+          },
+          {
             "id": "opt_3",
-            "text": "I'm in room 412. When will I get my bill?",
+            "text": "I want my money back.",
             "isCorrect": false
           },
           {
             "id": "opt_4",
-            "text": "I'm in room 412. Give me my bill.",
+            "text": "Room 412, please.",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案使用 'Can I get my bill now?'，这是最礼貌且实用的表达方式。选项1 'Could you give me...' 虽然礼貌，但不够口语化，且不是标准回应中的推荐句型。选项3是询问时间而非直接请求，语义不匹配。选项4是命令式语气，不符合酒店服务场景的礼貌规范。"
+        "explanation": "正确答案直接表达了退房需求并礼貌请求账单，符合场景。选项2询问退房时间，虽相关但未提出结账请求；选项3表达错误，‘要回钱’不符合酒店退房语境；选项4表达不完整，缺乏明确请求，显得生硬且不自然。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在酒店前台准备退房，需要礼貌地请求结账并领取账单。"
+      }
+    },
+    {
+      "id": "travel_071_sub_1_qa_1_choice_1",
+      "subSceneId": "travel_071_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "qaId": "travel_071_sub_1_qa_1",
+        "type": "choice",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Good morning! I'd like to check out today.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I get my bill now?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "When can I leave the room?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I want to check out.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了礼貌的开场白和标准表达 'I'd like to check out today'，符合酒店服务场景的礼仪。选项2只问账单，未明确退房意图；选项3语气生硬且聚焦时间而非请求；选项4缺少礼貌用语，显得突兀不专业。",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在酒店前台礼貌地提出退房请求，需要选择最恰当的表达方式。"
       }
     },
     {
@@ -81,10 +80,8 @@
       "type": "choice",
       "order": 3,
       "content": {
-        "type": "choice",
         "qaId": null,
-        "speakerText": "I'd like to check out, please. Could you tell me the total amount?",
-        "speakerTextCn": "我想退房，请问总费用是多少？",
+        "type": "choice",
         "options": [
           {
             "id": "opt_1",
@@ -107,7 +104,10 @@
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案 'I'll print your receipt in a moment' 是专业、礼貌且符合服务场景的回应。选项2态度消极，不符合前台职业规范。选项3是客人抱怨，不是前台回应。选项4是粗鲁驱赶，完全违背服务礼仪。"
+        "explanation": "正确答案 'I'll print your receipt in a moment' 是专业、礼貌且符合服务场景的回应。选项2态度消极，不符合前台职业规范。选项3是客人抱怨，不是前台回应。选项4是粗鲁驱赶，完全违背服务礼仪。",
+        "speakerText": "I'd like to check out, please. Could you tell me the total amount?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "我想退房，请问总费用是多少？"
       }
     }
   ]

@@ -2,20 +2,70 @@
   "subSceneId": "daily_025_sub_2",
   "subSceneName": "加购饮料",
   "questionType": "fill_blank",
-  "generatedAt": "2026-03-03T14:25:41.082Z",
-  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "exportedAt": "2026-03-08T15:38:56.615Z",
   "questions": [
+    {
+      "id": "daily_025_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "daily_025_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "口语中常用 'You got...' 表示 '你有...'，比 'Do you have...' 更自然",
+        "qaId": "daily_025_sub_2_qa_1",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "got",
+            "options": [
+              "have",
+              "do have",
+              "are having",
+              "has"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在结账时顺口询问店员是否有饮料可买",
+        "knowledgePoint": "口语中非正式提问句型的使用",
+        "responseTemplate": "You ___ any soda or water?"
+      }
+    },
+    {
+      "id": "daily_025_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "daily_025_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "hint": "在疑问句中表示‘任何’时，用any；drinks用复数更自然，因为是泛指",
+        "qaId": "daily_025_sub_2_qa_2",
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "any drinks",
+            "options": [
+              "some drinks",
+              "a drink",
+              "drinks",
+              "any drink"
+            ]
+          }
+        ],
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在结账时顺带询问是否有饮料可买，想用自然的英语表达这一请求",
+        "knowledgePoint": "疑问句中不定量词的正确使用",
+        "responseTemplate": "Do you have ___?"
+      }
+    },
     {
       "id": "daily_025_sub_2_fill_blank_1",
       "subSceneId": "daily_025_sub_2",
       "type": "fill_blank",
       "order": 1,
       "content": {
+        "hint": "当被问到是否有饮料时，常用 'Sure, we've got...' 或 'We've got...' 来正面回应",
         "type": "fill_blank",
-        "situation": "在便利店结账时，顾客想顺便买瓶饮料，向店员询问是否有饮料可选",
-        "speakerText": "Do you have any drinks?",
-        "speakerTextCn": "你们有饮料吗？",
-        "responseTemplate": "___",
         "blanks": [
           {
             "index": 0,
@@ -28,8 +78,12 @@
             ]
           }
         ],
-        "hint": "当被问到是否有饮料时，常用 'Sure, we've got...' 或 'We've got...' 来正面回应",
-        "knowledgePoint": "日常询问与回应有无商品的自然表达"
+        "situation": "在便利店结账时，顾客想顺便买瓶饮料，向店员询问是否有饮料可选",
+        "speakerText": "Do you have any drinks?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你们有饮料吗？",
+        "knowledgePoint": "日常询问与回应有无商品的自然表达",
+        "responseTemplate": "___"
       }
     },
     {
@@ -38,11 +92,8 @@
       "type": "fill_blank",
       "order": 2,
       "content": {
+        "hint": "当被问总价时，常用 'That's ___ total.' 或直接说数字 + 'total' 来简洁回应",
         "type": "fill_blank",
-        "situation": "顾客选好一瓶矿泉水后，想确认总价，礼貌地向收银员询问",
-        "speakerText": "How much is that together?",
-        "speakerTextCn": "加起来多少钱？",
-        "responseTemplate": "___",
         "blanks": [
           {
             "index": 0,
@@ -55,8 +106,12 @@
             ]
           }
         ],
-        "hint": "当被问总价时，常用 'That's ___ total.' 或直接说数字 + 'total' 来简洁回应",
-        "knowledgePoint": "结账时询问和回应总价的常用句型"
+        "situation": "顾客选好一瓶矿泉水后，想确认总价，礼貌地向收银员询问",
+        "speakerText": "How much is that together?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "加起来多少钱？",
+        "knowledgePoint": "结账时询问和回应总价的常用句型",
+        "responseTemplate": "___"
       }
     },
     {
@@ -65,11 +120,8 @@
       "type": "fill_blank",
       "order": 3,
       "content": {
+        "hint": "当被问到具体种类时，应列出可用选项，常用 'We have...' 结构",
         "type": "fill_blank",
-        "situation": "店员告知只剩汽水，顾客想确认可选种类，礼貌地追问",
-        "speakerText": "What kinds of soda do you have?",
-        "speakerTextCn": "你们有什么口味的汽水？",
-        "responseTemplate": "___",
         "blanks": [
           {
             "index": 0,
@@ -82,8 +134,38 @@
             ]
           }
         ],
-        "hint": "当被问到具体种类时，应列出可用选项，常用 'We have...' 结构",
-        "knowledgePoint": "回应商品选项的清晰列举表达"
+        "situation": "店员告知只剩汽水，顾客想确认可选种类，礼貌地追问",
+        "speakerText": "What kinds of soda do you have?",
+        "dialogueMode": "user_responds",
+        "speakerTextCn": "你们有什么口味的汽水？",
+        "knowledgePoint": "回应商品选项的清晰列举表达",
+        "responseTemplate": "___"
+      }
+    },
+    {
+      "id": "daily_025_sub_2_pq_6",
+      "subSceneId": "daily_025_sub_2",
+      "type": "fill_blank",
+      "order": 6,
+      "content": {
+        "hint": "当只有汽水可选时，店员常用此句型",
+        "qaId": null,
+        "type": "fill_blank",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "soda",
+            "options": [
+              "soda",
+              "water",
+              "tea",
+              "juice"
+            ]
+          }
+        ],
+        "template": "Only ___ left — Coke or Fanta.",
+        "dialogueMode": "user_responds",
+        "knowledgePoint": "场景惯用搭配（Only ___ left — 用于说明库存有限）"
       }
     }
   ]
