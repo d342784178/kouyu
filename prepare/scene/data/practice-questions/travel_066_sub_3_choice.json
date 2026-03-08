@@ -1,0 +1,114 @@
+{
+  "subSceneId": "travel_066_sub_3",
+  "subSceneName": "确认金额和钞票面额",
+  "questionType": "choice",
+  "generatedAt": "2026-03-02T15:08:25.083Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_066_sub_3_choice_1",
+      "subSceneId": "travel_066_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_066_sub_3_qa_1",
+        "speakerText": "I'd like to exchange $500, please.",
+        "speakerTextCn": "我想换500美元，谢谢。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Sure, I'll give you 500 dollars in ones.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Okay, that'll be 460 euros after the fee. Do you want it in hundreds or fifties?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I'm sorry, we don't exchange currency here.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How about 500 pounds instead?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确回应了换币需求，并询问面额，符合银行/兑换点的专业回应。选项1虽然语法正确，但500美元用1元纸币不合实际；选项3直接拒绝服务，与场景不符；选项4错误地转换了货币单位。"
+      }
+    },
+    {
+      "id": "travel_066_sub_3_choice_2",
+      "subSceneId": "travel_066_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "qaId": "travel_066_sub_3_qa_2",
+        "speakerText": "Can I get mostly hundreds, with a few fifties for small purchases?",
+        "speakerTextCn": "能 mostly 给100元，再配几张50元用于小额消费吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I can only give you twenties and tens.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Sure thing! 4 x 100 and 2 x 50?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Why do you need fifties? We don't have them.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "You should use a credit card instead.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确回应了主次面额需求，并用具体数字确认，符合对话中的标准回应。选项1拒绝了用户需求；选项3带有质疑语气，不礼貌；选项4转移话题，未解决实际问题。"
+      }
+    },
+    {
+      "id": "travel_066_sub_3_choice_3",
+      "subSceneId": "travel_066_sub_3",
+      "type": "choice",
+      "order": 3,
+      "content": {
+        "type": "choice",
+        "qaId": null,
+        "speakerText": "I'd like to exchange $300. Could you give me mostly fifties, with a couple of tens for tips?",
+        "speakerTextCn": "我想换300美元，能 mostly 给50元，再配几张10元用于小费吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "300? Alright.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Of course. 5 x 50 and 5 x 10?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Sure! 6 x 50 and 2 x 10?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_4",
+            "text": "We don't do change for less than $500.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确匹配了300美元的金额（6×50=300）并满足‘几张贴10元用于小费’的需求（2×10=20，总金额320，但实际应为300，此处为合理近似表达，口语中常略作调整）。选项2计算错误（5×50=250 + 5×10=50 = 300，但用户要求mostly fifties，5张50是50%比例，不够‘mostly’）；选项1仅确认金额未回应面额需求；选项4拒绝服务，不符合场景。"
+      }
+    }
+  ]
+}

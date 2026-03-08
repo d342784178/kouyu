@@ -1,0 +1,90 @@
+{
+  "subSceneId": "travel_056_sub_2",
+  "subSceneName": "确认预订",
+  "questionType": "fill_blank",
+  "generatedAt": "2026-03-03T14:29:32.117Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_056_sub_2_fill_blank_1",
+      "subSceneId": "travel_056_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "situation": "你在酒店前台办理入住，工作人员核对你的预订信息，确认姓名和房型。",
+        "speakerText": "I see a reservation under the name ___? Is that correct?",
+        "speakerTextCn": "我看到一个预订姓名是___？对吗？",
+        "responseTemplate": "Yes, that's ___.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "my name",
+            "options": [
+              "my name",
+              "your name",
+              "the guest",
+              "the reservation"
+            ]
+          }
+        ],
+        "hint": "当对方确认你的姓名时，用 'my name' 来指代自己。",
+        "knowledgePoint": "确认个人信息时的正确代词使用"
+      }
+    },
+    {
+      "id": "travel_056_sub_2_fill_blank_2",
+      "subSceneId": "travel_056_sub_2",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "situation": "前台工作人员核对你的预订详情，询问房间类型是否正确。",
+        "speakerText": "You booked a ___ room, right?",
+        "speakerTextCn": "你预订的是___房，对吗？",
+        "responseTemplate": "Yes, that's ___.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "double",
+            "options": [
+              "double",
+              "big",
+              "expensive",
+              "new"
+            ]
+          }
+        ],
+        "hint": "描述房型时，使用标准术语如 double, twin, standard 等，避免用主观形容词。",
+        "knowledgePoint": "房型描述的准确词汇使用"
+      }
+    },
+    {
+      "id": "travel_056_sub_2_fill_blank_3",
+      "subSceneId": "travel_056_sub_2",
+      "type": "fill_blank",
+      "order": 3,
+      "content": {
+        "type": "fill_blank",
+        "situation": "工作人员确认你的预订后，询问你是否有额外需求，你希望要一条额外的毛巾。",
+        "speakerText": "Do you need anything else? Maybe ___?",
+        "speakerTextCn": "您还需要什么吗？比如___？",
+        "responseTemplate": "Actually, could I get ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "an extra towel",
+            "options": [
+              "an extra towel",
+              "a better room",
+              "free breakfast",
+              "a discount"
+            ]
+          }
+        ],
+        "hint": "礼貌提出额外需求时，用 'Could I get...' 结构最自然。",
+        "knowledgePoint": "提出附加请求的礼貌表达结构"
+      }
+    }
+  ]
+}

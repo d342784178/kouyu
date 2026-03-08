@@ -1,0 +1,90 @@
+{
+  "subSceneId": "daily_030_sub_3",
+  "subSceneName": "询问价格",
+  "questionType": "fill_blank",
+  "generatedAt": "2026-03-03T14:25:58.939Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_030_sub_3_fill_blank_1",
+      "subSceneId": "daily_030_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "situation": "顾客在服装店看中一件衬衫，店员告知原价并说明正在打七五折。",
+        "speakerText": "This shirt is $60, but we're offering 25% off today.",
+        "speakerTextCn": "这件衬衫原价60美元，但今天有25%的折扣。",
+        "responseTemplate": "So it's ___ now?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "45 dollars",
+            "options": [
+              "45 dollars",
+              "60 dollars",
+              "35 percent off",
+              "a good price"
+            ]
+          }
+        ],
+        "hint": "听到折扣后，需要计算并确认最终价格，使用 'So it's ___ now?' 结构",
+        "knowledgePoint": "计算并确认折扣后价格的表达"
+      }
+    },
+    {
+      "id": "daily_030_sub_3_fill_blank_2",
+      "subSceneId": "daily_030_sub_3",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "situation": "顾客在超市想买一箱牛奶，店员说原价是12美元，但今天买一送一。",
+        "speakerText": "The milk is $12 for a carton, but we have buy one, get one free today.",
+        "speakerTextCn": "一箱牛奶12美元，但今天买一送一。",
+        "responseTemplate": "That means I get two for ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "12 dollars",
+            "options": [
+              "12 dollars",
+              "6 dollars",
+              "24 dollars",
+              "half price"
+            ]
+          }
+        ],
+        "hint": "买一送一意味着两件总价等于一件价格，用 'I get two for ___?' 确认价值",
+        "knowledgePoint": "理解买赠优惠并确认实际支付金额"
+      }
+    },
+    {
+      "id": "daily_030_sub_3_fill_blank_3",
+      "subSceneId": "daily_030_sub_3",
+      "type": "fill_blank",
+      "order": 3,
+      "content": {
+        "type": "fill_blank",
+        "situation": "顾客在电子产品店询问耳机价格，店员说原价150美元，但有限时优惠，减30美元。",
+        "speakerText": "These headphones are $150, but we're giving a $30 discount this week.",
+        "speakerTextCn": "这款耳机原价150美元，但本周有30美元的优惠。",
+        "responseTemplate": "So the final price is ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "120 dollars",
+            "options": [
+              "120 dollars",
+              "30 dollars",
+              "150 dollars",
+              "a big saving"
+            ]
+          }
+        ],
+        "hint": "听到固定金额折扣时，需用 'So the final price is ___?' 确认减后金额",
+        "knowledgePoint": "计算固定金额折扣后的最终价格"
+      }
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "subSceneId": "travel_070_sub_4",
+  "subSceneName": "确认费用",
+  "questionType": "speaking",
+  "generatedAt": "2026-03-02T15:13:30.685Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_070_sub_4_speaking_1",
+      "subSceneId": "travel_070_sub_4",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_070_sub_4_qa_1",
+        "speakerText": "There's a $75 change fee, but no fare difference.",
+        "speakerTextCn": "改签费75美元，票价没差价。",
+        "expectedAnswers": [
+          "I'll pay with my card ending in 4421.",
+          "Okay, I'll use the card on file.",
+          "75 bucks? Can I use PayPal to avoid the card fee?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确回应了支付方式，没有忽略费用信息",
+          "语言准确性：语法正确，使用了场景关键词如'card ending in'或'PayPal'",
+          "表达自然度：符合口语习惯，语气得体，不生硬",
+          "关键词覆盖：至少使用一个支付方式相关词汇（card, PayPal, on file）"
+        ]
+      }
+    },
+    {
+      "id": "travel_070_sub_4_speaking_2",
+      "subSceneId": "travel_070_sub_4",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_070_sub_4_qa_2",
+        "speakerText": "The fee will be charged to your card on file.",
+        "speakerTextCn": "费用将从您登记的卡片扣款。",
+        "expectedAnswers": [
+          "Yes, that’s fine — just make sure it’s processed.",
+          "Great, please send me a receipt after it’s done.",
+          "Got it, but double-check that the right card is used."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：确认扣款并提出合理要求（如收据、核对卡片）",
+          "语言准确性：使用了'processed', 'receipt', 'double-check'等准确表达",
+          "表达自然度：语气礼貌、符合客服对话场景，无命令式语气",
+          "关键词覆盖：包含至少一个确认或处理类关键词（processed, receipt, confirm）"
+        ]
+      }
+    },
+    {
+      "id": "travel_070_sub_4_speaking_3",
+      "subSceneId": "travel_070_sub_4",
+      "type": "speaking",
+      "order": 3,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "The change fee is $75. We can charge it to your saved payment method.",
+        "speakerTextCn": "改签费是75美元，我们可以从您保存的支付方式中扣款。",
+        "expectedAnswers": [
+          "Sounds good — go ahead and charge it.",
+          "Could you please confirm the amount before charging?",
+          "I’d like to switch to Apple Pay if possible."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰回应扣款请求，或提出合理替代方案",
+          "语言准确性：使用了恰当的动词短语如'go ahead', 'switch to', 'confirm the amount'",
+          "表达自然度：语调自然，符合真实对话节奏，无机械背诵感",
+          "关键词覆盖：包含至少一个支付方式或确认类表达（charge, switch to, confirm）"
+        ]
+      }
+    }
+  ]
+}

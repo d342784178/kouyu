@@ -1,0 +1,90 @@
+{
+  "subSceneId": "travel_064_sub_2",
+  "subSceneName": "询问收费标准",
+  "questionType": "fill_blank",
+  "generatedAt": "2026-03-03T14:30:23.334Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_064_sub_2_fill_blank_1",
+      "subSceneId": "travel_064_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "situation": "旅客在机场行李寄存处询问收费规则，工作人员说明按件计费，但未说明是否包含额外服务。",
+        "speakerText": "The fee is per bag, and includes basic security checks.",
+        "speakerTextCn": "费用按每件行李计算，包含基本安检服务。",
+        "responseTemplate": "Does that ___ insurance or lost item protection?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "cover",
+            "options": [
+              "include",
+              "cover",
+              "have",
+              "offer"
+            ]
+          }
+        ],
+        "hint": "询问是否包含某项服务时，常用动词 cover 表示‘涵盖’",
+        "knowledgePoint": "询问服务范围的常用表达"
+      }
+    },
+    {
+      "id": "travel_064_sub_2_fill_blank_2",
+      "subSceneId": "travel_064_sub_2",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "situation": "旅客想确认寄存费用是否随时间递增，工作人员解释计费方式为固定费率，不分时段。",
+        "speakerText": "We don't increase the price based on how long you leave it.",
+        "speakerTextCn": "我们不会根据寄存时间长短增加费用。",
+        "responseTemplate": "So the cost is the same whether I leave it for a few hours or ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "several days",
+            "options": [
+              "a week",
+              "several days",
+              "overnight",
+              "next month"
+            ]
+          }
+        ],
+        "hint": "对比短时间与长时间寄存时，常用 'whether...or...' 结构，后半部分用表示较长时间的短语",
+        "knowledgePoint": "对比计费方式的表达结构"
+      }
+    },
+    {
+      "id": "travel_064_sub_2_fill_blank_3",
+      "subSceneId": "travel_064_sub_2",
+      "type": "fill_blank",
+      "order": 3,
+      "content": {
+        "type": "fill_blank",
+        "situation": "旅客看到标价牌后不确定是否包含多件行李的折扣，向工作人员确认。",
+        "speakerText": "The rate is listed per item, but we do offer a reduction for multiple bags.",
+        "speakerTextCn": "价格是按每件列出的，但我们对多件行李有优惠。",
+        "responseTemplate": "Could you tell me how much the ___ is for three bags?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "discount",
+            "options": [
+              "price",
+              "discount",
+              "charge",
+              "fee"
+            ]
+          }
+        ],
+        "hint": "当提到‘优惠’时，最准确的词是 discount，而非 price 或 fee",
+        "knowledgePoint": "表达折扣的正确词汇"
+      }
+    }
+  ]
+}

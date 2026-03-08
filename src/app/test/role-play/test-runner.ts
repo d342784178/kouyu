@@ -33,8 +33,7 @@ export async function runRolePlayTest(
           testCase.aiRole,
           testCase.userRole,
           testCase.dialogueGoal,
-          testCase.difficultyLevel,
-          testCase.conversationHistory
+          testCase.difficultyLevel
         )
       : generateInitiatePrompt(
           testCase.scene,

@@ -1,5 +1,10 @@
 import { defineConfig, devices } from '@playwright/test'
 
+// 开发服务器地址，优先读取环境变量，默认 3001
+const devServerUrl = process.env.TEST_BASE_URL || 'http://localhost:3001'
+// 如果设置了 TEST_BASE_URL，跳过 webServer 自动启动
+const useExistingServer = !!process.env.TEST_BASE_URL
+
 export default defineConfig({
   testDir: './tests/e2e',
   fullyParallel: true,
@@ -12,7 +17,7 @@ export default defineConfig({
     ['json', { outputFile: 'tests/e2e/test-results.json' }],
   ],
   use: {
-    baseURL: process.env.TEST_BASE_URL || 'http://localhost:3000',
+    baseURL: devServerUrl,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
@@ -27,10 +32,13 @@ export default defineConfig({
       use: { ...devices['Pixel 5'] },
     },
   ],
-  webServer: {
-    command: 'pnpm dev',
-    url: 'http://localhost:3000',
-    reuseExistingServer: !process.env.CI,
-    timeout: 120 * 1000,
-  },
+  // 未设置 TEST_BASE_URL 时才自动启动开发服务器
+  ...(useExistingServer ? {} : {
+    webServer: {
+      command: 'pnpm dev',
+      url: 'http://localhost:3001',
+      reuseExistingServer: true,
+      timeout: 120 * 1000,
+    },
+  }),
 })

@@ -1,0 +1,78 @@
+{
+  "subSceneId": "daily_030_sub_3",
+  "subSceneName": "询问价格",
+  "questionType": "speaking",
+  "generatedAt": "2026-03-02T14:42:46.019Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_030_sub_3_speaking_1",
+      "subSceneId": "daily_030_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_030_sub_3_qa_1",
+        "speakerText": "These are $89. We've got a 20% off sale this week.",
+        "speakerTextCn": "这双89美元，这周打八折。",
+        "expectedAnswers": [
+          "So it's $71.20? I'll take them!",
+          "That's a good deal. I'll take one.",
+          "Hmm, can you give me an extra 5% off?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确回应了折扣价格或表达了购买/议价意图",
+          "语言准确性：价格计算是否正确，语法是否无误",
+          "表达自然度：是否使用了口语化表达如 'I'll take 'em!' 或 'Hmm...' ",
+          "关键词覆盖：是否使用了 discount, price, sale, take 等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_030_sub_3_speaking_2",
+      "subSceneId": "daily_030_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "This bag is $120, but we're having a 30% off promotion today.",
+        "speakerTextCn": "这个包120美元，今天有七折促销。",
+        "expectedAnswers": [
+          "So it's $84? Perfect, I'll buy it.",
+          "Can you throw in a free gift with it?",
+          "I'll think about it—I might get it on sale next month."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否回应了折扣价格或表达了购买、议价或犹豫态度",
+          "语言准确性：数字计算、时态和用词是否正确",
+          "表达自然度：是否使用了符合日常对话的语气和连接词",
+          "关键词覆盖：是否使用了 promotion, discount, buy, sale 等关键词"
+        ]
+      }
+    },
+    {
+      "id": "daily_030_sub_3_speaking_3",
+      "subSceneId": "daily_030_sub_3",
+      "type": "speaking",
+      "order": 3,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "The watch costs $200, but if you buy two, you get 40% off the second one.",
+        "speakerTextCn": "这块手表200美元，如果买两块，第二块打六折。",
+        "expectedAnswers": [
+          "So two would be $320? I'll take both!",
+          "Wait, let me calculate... that's $200 + $120 = $320. Got it!",
+          "Is the discount only for the same model?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确理解并回应了组合折扣规则",
+          "语言准确性：是否正确计算并表达总价，语法是否规范",
+          "表达自然度：是否使用了思考性表达如 'Wait, let me calculate...' 或自然停顿",
+          "关键词覆盖：是否使用了 discount, buy two, second one, total 等关键词"
+        ]
+      }
+    }
+  ]
+}

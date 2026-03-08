@@ -36,6 +36,7 @@ export default function ActiveChatView({
   currentRound,
   maxRounds,
   isRecording,
+  isRecognizing,
   isGeneratingResponse,
   playingMessageIndex,
   error,
@@ -74,28 +75,12 @@ export default function ActiveChatView({
   }
 
   return (
-    <div className="flex flex-col h-full bg-white">
-      {/* 顶部导航栏 - 简化设计 */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100 bg-white">
-        {onBack && (
-          <button
-            onClick={onBack}
-            className="flex items-center gap-1 text-gray-500 hover:text-[#4F7CF0] transition-colors px-2 py-1 -ml-2 rounded-lg hover:bg-gray-50"
-          >
-            <ChevronLeft className="h-5 w-5" />
-            <span className="text-sm font-medium">返回角色选择</span>
-          </button>
-        )}
-        <div className="flex-1 text-center">
-          <span className="text-base font-semibold text-gray-800">对话练习</span>
-        </div>
-        <div className="w-24" />
-      </div>
+    <div className="flex flex-col h-[calc(100vh-150px)] bg-[#F5F6FA] px-6">
 
       {/* 对话区域 - 可滚动 */}
       <div
         ref={scrollContainerRef}
-        className="flex-1 overflow-y-auto px-4 py-4 space-y-5"
+        className="flex-1 overflow-y-auto  py-6 space-y-5 min-h-0"
       >
         {messages.length === 0 ? (
           <div className="flex items-center justify-center h-full text-[#6B7280] text-sm">
@@ -111,16 +96,16 @@ export default function ActiveChatView({
                 transition={{ duration: 0.3 }}
                 className={`flex ${message.role === 'assistant' ? 'justify-start' : 'justify-end'}`}
               >
-                <div className="max-w-[80%]">
+                <div className="max-w-[85%]">
                   {/* 角色标签 */}
                   <div className={`text-[10px] mb-1 ${message.role === 'assistant' ? 'text-gray-400' : 'text-right text-gray-400'}`}>
                     {message.role === 'assistant' ? 'AI 助手' : '我'}
                   </div>
                   
-                  <div className={`px-4 py-3 rounded-2xl text-sm shadow-sm ${
+                  <div className={`px-5 py-4 rounded-2xl text-sm shadow-sm transition-all duration-300 ${
                     message.role === 'assistant' 
-                      ? 'bg-white border border-gray-100 text-[#1F2937] rounded-bl-md' 
-                      : 'bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white rounded-br-md'
+                      ? 'bg-white border border-gray-100 text-[#1F2937] rounded-bl-md hover:shadow-md' 
+                      : 'bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white rounded-br-md shadow-md hover:shadow-lg'
                   }`}>
                     <p className="leading-relaxed">{message.content}</p>
                   </div>
@@ -128,13 +113,13 @@ export default function ActiveChatView({
                   {/* 播放按钮放在气泡下方 */}
                   {message.audioUrl && message.role === 'assistant' && (
                     <button
-                      className="mt-2 text-xs flex items-center text-[#4F7CF0] hover:text-[#7B5FE8] transition-colors"
+                      className="mt-3 text-xs flex items-center text-[#4F7CF0] hover:text-[#7B5FE8] transition-colors font-medium px-3 py-1.5 rounded-full bg-blue-50 hover:bg-blue-100"
                       onClick={() => onPlayAudio(message.audioUrl!, index)}
                     >
                       {playingMessageIndex === index ? (
-                        <Pause className="h-3 w-3 mr-1" />
+                        <Pause className="h-3.5 w-3.5 mr-1" />
                       ) : (
-                        <Play className="h-3 w-3 mr-1" />
+                        <Play className="h-3.5 w-3.5 mr-1" />
                       )}
                       {playingMessageIndex === index ? '暂停' : '播放'}
                     </button>
@@ -170,26 +155,22 @@ export default function ActiveChatView({
             animate={{ opacity: 1, y: 0 }}
             className="flex justify-start"
           >
-            <div className="max-w-[80%] px-4 py-3 rounded-2xl bg-[#EEF2FF] text-[#1F2937] rounded-bl-md">
-              <div className="flex items-center space-x-1.5">
-                <div className="animate-bounce">
-                  <div className="w-1.5 h-1.5 bg-[#4F7CF0] rounded-full"></div>
+            <div className="max-w-[85%] px-4 py-3 rounded-2xl bg-white border border-gray-100 text-[#1F2937] rounded-bl-md shadow-sm">
+              <div className="flex items-center space-x-2">
+                <div className="flex space-x-1">
+                  <div className="w-2 h-2 bg-[#4F7CF0] rounded-full animate-bounce" style={{ animationDelay: '0s' }}></div>
+                  <div className="w-2 h-2 bg-[#4F7CF0] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                  <div className="w-2 h-2 bg-[#4F7CF0] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                 </div>
-                <div className="animate-bounce" style={{ animationDelay: '0.1s' }}>
-                  <div className="w-1.5 h-1.5 bg-[#4F7CF0] rounded-full"></div>
-                </div>
-                <div className="animate-bounce" style={{ animationDelay: '0.2s' }}>
-                  <div className="w-1.5 h-1.5 bg-[#4F7CF0] rounded-full"></div>
-                </div>
-                <span className="text-xs text-[#4F7CF0] ml-1">AI 正在输入...</span>
+                <span className="text-xs text-[#4F7CF0] font-medium">AI 正在输入...</span>
               </div>
             </div>
           </motion.div>
         )}
       </div>
 
-      {/* 底部固定区域 */}
-      <div className="border-t border-gray-100 bg-white px-4 py-3 pb-safe">
+      {/* 底部固定控制栏 - pb-16 留出底部导航栏空间 */}
+      <div className="shrink-0  border-t border-gray-100 px-2 py-3 pb-4">
         {/* 轮次显示 */}
         <div className="text-center text-xs text-gray-500 mb-3">
           第 {currentRound} / {maxRounds} 轮
@@ -228,7 +209,7 @@ export default function ActiveChatView({
                   value={textInput}
                   onChange={(e) => setTextInput(e.target.value)}
                   placeholder="请输入英文回复..."
-                  className="flex-1 h-11 px-4 rounded-full border border-gray-200 focus:outline-none focus:border-[#4F7CF0] focus:ring-2 focus:ring-[#4F7CF0]/20 bg-gray-50 text-sm"
+                  className="flex-1 h-12 px-5 w-64 rounded-full border border-gray-200 focus:outline-none focus:border-[#4F7CF0] focus:ring-2 focus:ring-[#4F7CF0]/20 bg-white text-sm shadow-sm"
                   disabled={isGeneratingResponse}
                   onKeyDown={(e) => {
                     if (e.key === 'Enter' && textInput.trim()) {
@@ -238,49 +219,56 @@ export default function ActiveChatView({
                 />
                 <motion.button
                   whileTap={{ scale: 0.95 }}
-                  className="h-11 w-11 bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white rounded-full flex items-center justify-center disabled:bg-gray-300"
+                  className="h-12 w-12 bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white rounded-full flex items-center justify-center disabled:bg-gray-300 shadow-md hover:shadow-lg"
                   onClick={handleSendText}
                   disabled={isGeneratingResponse}
                 >
-                  <Send className="h-4 w-4" />
+                  <Send className="h-5 w-5" />
                 </motion.button>
                 <motion.button
                   whileTap={{ scale: 0.95 }}
-                  className="h-11 w-11 bg-gray-100 text-[#1F2937] rounded-full flex items-center justify-center disabled:bg-gray-100"
+                  className="h-12 w-12 bg-white text-[#1F2937] rounded-full flex items-center justify-center disabled:bg-gray-100 shadow-md border border-gray-200 hover:bg-gray-50"
                   onClick={() => setShowTextInput(false)}
                   disabled={isGeneratingResponse}
                 >
-                  <Mic className="h-4 w-4" />
+                  <Mic className="h-5 w-5 text-gray-600" />
                 </motion.button>
               </div>
             ) : (
-              <div className="flex items-center gap-2">
+              <div className="flex items-center justify-center gap-3">
                 <motion.button
                   whileTap={{ scale: 0.98 }}
-                  className={`flex-1 h-12 rounded-full font-semibold text-sm transition-all shadow-md flex items-center justify-center gap-2 ${
+                  className={`h-12 px-24 rounded-full font-semibold text-sm transition-all shadow-lg flex items-center justify-center gap-2 whitespace-nowrap ${
                     isRecording
-                      ? 'bg-[#EF4444] text-white shadow-lg shadow-red-200'
+                      ? 'bg-[#EF4444] text-white shadow-red-200 hover:bg-red-600'
+                      : isRecognizing
+                      ? 'bg-gray-400 text-white cursor-wait'
                       : isGeneratingResponse
                       ? 'bg-gray-300 text-gray-500 cursor-not-allowed shadow-none'
-                      : 'bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white hover:shadow-lg'
+                      : 'bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white hover:shadow-xl'
                   }`}
                   onClick={isRecording ? onStopRecording : onStartRecording}
-                  disabled={isGeneratingResponse}
+                  disabled={isGeneratingResponse || isRecognizing}
                 >
                   {isRecording ? (
                     <>
                       <RecordingWaveform isRecording={true} />
-                      <span>停止录音</span>
+                      <span className="whitespace-nowrap">停止录音</span>
+                    </>
+                  ) : isRecognizing ? (
+                    <>
+                      <LoadingSpinner size="sm" variant="primary" className="border-white/30 border-t-white" />
+                      <span className="whitespace-nowrap">识别中...</span>
                     </>
                   ) : isGeneratingResponse ? (
                     <>
                       <LoadingSpinner size="sm" variant="primary" className="border-white/30 border-t-white" />
-                      <span>AI 思考中...</span>
+                      <span className="whitespace-nowrap">AI 思考中...</span>
                     </>
                   ) : (
                     <>
-                      <Mic className="h-4 w-4" />
-                      <span>开始录音</span>
+                      <Mic className="h-5 w-5 shrink-0" />
+                      <span className="whitespace-nowrap">开始录音</span>
                     </>
                   )}
                 </motion.button>
@@ -288,11 +276,11 @@ export default function ActiveChatView({
                 {/* 文本输入备用 */}
                 <motion.button
                   whileTap={{ scale: 0.95 }}
-                  className="h-12 w-12 bg-gray-100 text-[#1F2937] rounded-full flex items-center justify-center disabled:bg-gray-100 hover:bg-gray-200 transition-colors"
+                  className="h-12 w-12 bg-white text-[#1F2937] rounded-full flex items-center justify-center disabled:bg-gray-100 hover:bg-gray-50 transition-colors shadow-md border border-gray-200"
                   onClick={() => setShowTextInput(true)}
                   disabled={isGeneratingResponse}
                 >
-                  <Keyboard className="h-4 w-4" />
+                  <Keyboard className="h-5 w-12 text-gray-600" />
                 </motion.button>
               </div>
             )}

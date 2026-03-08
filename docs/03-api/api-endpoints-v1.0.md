@@ -1,7 +1,7 @@
 # 语习集 - API接口文档
 
-> 版本: v1.1
-> 最后更新: 2026-02-24
+> 版本: v1.6
+> 最后更新: 2026-03-01
 > 优先级: P1
 > 阅读时间: 30分钟
 
@@ -21,6 +21,9 @@
 - [短语API](#短语api)
 - [开放式测试API](#开放式测试api)
 - [音频API](#音频api)
+- [跟读评测API](#跟读评测api)
+- [填空测试API](#填空测试api)
+- [情景再现评测API](#情景再现评测api)
 - [错误码](#错误码)
 
 ---
@@ -33,7 +36,11 @@
 | 短语 | `/api/phrases` | 短语列表、详情 |
 | 开放式测试 | `/api/open-test` | 对话初始化、交互、分析 |
 | 音频 | `/api/audio` | 音频代理、语音生成 |
+| 语音识别 | `/api/speech` | 语音识别、发音评估（Azure Speech SDK） |
+| 跟读评测 | `/api/shadowing` | 发音评测（Microsoft Speech SDK） |
 | 填空测试 | `/api/fill-blank` | 填空题评估 |
+| 情景再现评测 | `/api/guided-roleplay` | 情景再现题评测（GLM-4-Flash） |
+| 子场景 | `/api/sub-scenes` | 子场景详情、练习题、AI对话、对话后处理 |
 
 ---
 
@@ -244,6 +251,9 @@ interface Pagination {
 | `choice` | 选择题 |
 | `qa` | 问答题 |
 | `open_dialogue` | 开放式对话测试 |
+| `fill_blank` | 填空题（Pattern Drill） |
+| `guided_roleplay` | 情景再现题 |
+| `vocab_activation` | 词汇激活题 |
 
 ---
 
@@ -517,19 +527,156 @@ interface SpeechRequest {
 
 ---
 
+## 跟读评测API
+
+### POST /api/shadowing/evaluate
+
+对用户跟读录音进行发音评测，调用 Microsoft Cognitive Services Speech SDK 返回逐词评分。
+
+#### 请求体
+
+`Content-Type: multipart/form-data`
+
+| 字段 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| audio | File (Blob) | 是 | 用户录音文件，格式为原始 PCM（16kHz 单声道 16bit） |
+| text | string | 是 | 目标文本（用于发音对比评测） |
+| sampleRate | string | 否 | 采样率，默认 `16000` |
+| channels | string | 否 | 声道数，默认 `1` |
+
+#### 响应示例（成功）
+
+```json
+{
+  "score": 82,
+  "accuracyScore": 85,
+  "intonationScore": 78,
+  "wordFeedback": [
+    { "word": "Welcome", "isCorrect": true, "score": 90 },
+    { "word": "to", "isCorrect": true, "score": 95 },
+    { "word": "our", "isCorrect": false, "score": 45 },
+    { "word": "restaurant", "isCorrect": true, "score": 88 }
+  ]
+}
+```
+
+#### 响应字段说明
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| score | number | 综合得分（0-100） |
+| accuracyScore | number | 发音准确度（0-100） |
+| intonationScore | number | 语调评分（0-100） |
+| wordFeedback | array | 逐词反馈列表 |
+| wordFeedback[].word | string | 单词文本 |
+| wordFeedback[].isCorrect | boolean | 是否发音正确（准确度 ≥ 60 为正确） |
+| wordFeedback[].score | number | 该词得分（0-100） |
+
+#### 错误响应
+
+```json
+{ "error": "缺少音频文件" }           // 400 - 缺少 audio 字段
+{ "error": "缺少目标文本" }           // 400 - 缺少 text 字段
+{ "error": "语音识别失败: ..." }      // 422 - SDK 识别失败
+{ "error": "Azure Speech SDK 配置缺失..." } // 500 - 环境变量未配置
+```
+
+#### 依赖环境变量
+
+| 变量名 | 说明 |
+|--------|------|
+| `AZURE_SPEECH_KEY` | Microsoft Azure 语音服务订阅密钥 |
+| `AZURE_SPEECH_REGION` | Azure 服务区域，如 `eastasia` |
+
+---
+
+## 发音评估API
+
+### POST /api/speech/pronunciation-assessment
+
+使用 Azure Speech SDK 的 Pronunciation Assessment 功能评估用户发音，返回准确度、流畅度、完整度评分及逐词反馈。
+
+#### 请求体
+
+`Content-Type: multipart/form-data`
+
+| 字段 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| audio | File (Blob) | 是 | 用户录音文件，格式为原始 PCM（16kHz 单声道 16bit） |
+| referenceText | string | 是 | 目标文本（用于发音对比评测） |
+| sampleRate | string | 否 | 采样率，默认 `16000` |
+
+#### 响应示例（成功）
+
+```json
+{
+  "success": true,
+  "accuracyScore": 85,
+  "fluencyScore": 78,
+  "completenessScore": 90,
+  "pronunciationScore": 84,
+  "recognizedText": "Welcome to our restaurant",
+  "wordFeedback": [
+    { "word": "Welcome", "accuracyScore": 90, "errorType": "None" },
+    { "word": "to", "accuracyScore": 95, "errorType": "None" },
+    { "word": "our", "accuracyScore": 45, "errorType": "Mispronunciation" },
+    { "word": "restaurant", "accuracyScore": 88, "errorType": "None" }
+  ]
+}
+```
+
+#### 响应字段说明
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| success | boolean | 是否成功 |
+| accuracyScore | number | 发音准确度（0-100） |
+| fluencyScore | number | 流畅度（0-100） |
+| completenessScore | number | 完整度（0-100） |
+| pronunciationScore | number | 综合发音评分（0-100） |
+| recognizedText | string | 识别的文本 |
+| wordFeedback | array | 逐词反馈列表 |
+| wordFeedback[].word | string | 单词文本 |
+| wordFeedback[].accuracyScore | number | 该词得分（0-100） |
+| wordFeedback[].errorType | string | 错误类型：`None` | `Omission` | `Insertion` | `Mispronunciation` |
+
+#### 错误响应
+
+```json
+{ "error": "音频数据不能为空" }           // 400 - 缺少 audio 字段
+{ "error": "目标文本不能为空" }           // 400 - 缺少 referenceText 字段
+{ "error": "音频数据过大，请录制更短的内容" } // 400 - 音频超过 10MB
+{ "error": "未识别到语音，请确保麦克风正常工作并大声说话" } // 422 - 未识别到语音
+{ "error": "发音评估失败: ..." }      // 422 - SDK 评估失败
+{ "error": "Azure Speech 密钥未配置" } // 500 - 环境变量未配置
+{ "error": "发音评估服务不可用" } // 500 - 服务异常
+```
+
+#### 依赖环境变量
+
+| 变量名 | 说明 |
+|--------|------|
+| `AZURE_SPEECH_KEY` | Microsoft Azure 语音服务订阅密钥 |
+| `AZURE_SPEECH_REGION` | Azure 服务区域，如 `eastasia` |
+
+---
+
 ## 填空测试API
 
 ### POST /api/fill-blank/evaluate
 
-评估填空题答案。
+评估问答题答案（语义匹配）。
 
 #### 请求体
 
 ```typescript
 interface FillBlankEvaluateRequest {
-  questionId: string    // 题目ID
-  userAnswer: string    // 用户答案
-  correctAnswer: string // 正确答案
+  question: string              // 题目文本
+  userAnswer: string            // 用户答案
+  referenceAnswers?: Array<{    // 参考答案列表（可选）
+    text: string
+    description?: string
+  }>
 }
 ```
 
@@ -538,13 +685,114 @@ interface FillBlankEvaluateRequest {
 ```json
 {
   "isCorrect": true,
-  "score": 100,
-  "analysis": "答案正确！",
-  "suggestion": "继续保持",
-  "userAnswer": "make a reservation",
-  "correctAnswer": "make a reservation"
+  "analysis": "回答准确，表达自然。",
+  "suggestions": ["继续保持良好的学习习惯"]
 }
 ```
+
+---
+
+### POST /api/fill-blank/evaluate-pattern
+
+填空题（Pattern Drill）语义评测，调用 GLM-4-Flash 判断用户填写内容是否符合场景语境。
+
+#### 请求体
+
+```typescript
+interface EvaluatePatternRequest {
+  template: string        // 句型模板，含 ___ 占位符，必填
+  userAnswers: string[]   // 用户填写的答案数组，每个占位符对应一项，必填
+  referenceAnswer?: string  // 参考答案（可选）
+  keywords?: string[]     // 关键词列表（可选）
+  scenarioHint?: string   // 场景提示（可选）
+}
+```
+
+#### 响应示例
+
+```json
+{
+  "isCorrect": true,
+  "referenceAnswer": "make a reservation",
+  "semanticAnalysis": "用户填写的 'book a table' 与场景语境完全吻合，表达地道自然。",
+  "feedback": "非常好！'book a table' 是餐厅预订场景中最常用的表达之一。"
+}
+```
+
+#### 错误响应
+
+```json
+{
+  "error": "缺少必要的参数",
+  "details": "请提供句型模板(template)和用户答案(userAnswers)"
+}
+```
+
+| 状态码 | 说明 |
+|--------|------|
+| 200 | 评测成功 |
+| 400 | 缺少 template 或 userAnswers |
+| 500 | LLM 调用失败 |
+
+---
+
+## 情景再现评测API
+
+### POST /api/guided-roleplay/evaluate
+
+情景再现题（Guided Role-play）评测，调用 GLM-4-Flash 从意图达成度、语言自然度、词汇使用等维度评估用户回答。
+
+#### 请求体
+
+```typescript
+interface GuidedRoleplayEvaluateRequest {
+  dialogueGoal: string          // 对话目标，必填
+  userAnswer: string            // 用户回答，必填
+  keywords?: string[]           // 关键词提示列表（可选）
+  evaluationDimensions?: string[] // 评测维度列表（可选，默认：意图达成度、语言自然度、词汇使用）
+}
+```
+
+#### 响应示例
+
+```json
+{
+  "intentScore": 85,
+  "naturalness": "表达自然流畅，符合日常口语习惯。",
+  "vocabularyFeedback": "词汇使用准确，场景相关词汇运用得当。",
+  "suggestions": [
+    "可以尝试使用更多礼貌用语",
+    "注意语速控制",
+    "可以补充更多细节信息"
+  ],
+  "referenceExpression": "I'd like to check in two bags, please."
+}
+```
+
+#### 响应字段说明
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| intentScore | number | 意图达成度评分（0-100） |
+| naturalness | string | 语言自然度评价（中文） |
+| vocabularyFeedback | string | 词汇使用评价（中文） |
+| suggestions | string[] | 改进建议列表（中文） |
+| referenceExpression | string | 参考英文表达 |
+
+#### 错误响应
+
+```json
+{
+  "error": "缺少必要的参数",
+  "details": "请提供对话目标(dialogueGoal)和用户答案(userAnswer)"
+}
+```
+
+| 状态码 | 说明 |
+|--------|------|
+| 200 | 评测成功 |
+| 400 | 缺少 dialogueGoal 或 userAnswer |
+| 500 | LLM 调用失败 |
 
 ---
 
@@ -591,5 +839,244 @@ interface FillBlankEvaluateRequest {
 
 | 版本 | 日期 | 变更内容 | 作者 |
 |------|------|----------|------|
+| v1.6 | 2026-03-01 | 新增 /api/guided-roleplay/evaluate 接口；修正 /api/shadowing/evaluate 请求格式（PCM 原始数据）；补充场景测试新题型说明；更新接口概览表 | AI |
+| v1.5 | 2026-07-11 | 更新 /api/scenes/[id]/sub-scenes 响应格式，新增 scene 字段（含 name/description/category/difficulty），场景不存在时返回 404 | AI |
+| v1.4 | 2026-07-10 | 新增子场景API文档（/api/scenes/[id]/sub-scenes、/api/sub-scenes/[subSceneId] 及其子路由） | AI |
+| v1.3 | 2026-07-01 | 新增 /api/fill-blank/evaluate-pattern 接口文档；修正 /api/fill-blank/evaluate 请求体格式 | AI |
+| v1.2 | 2026-06-20 | 新增跟读评测API（/api/shadowing/evaluate）文档 | AI |
 | v1.1 | 2026-02-24 | 补充完整的API接口定义、请求/响应格式、错误码说明 | AI |
 | v1.0 | 2026-02-24 | 初始版本 | - |
+
+---
+
+## 子场景API
+
+### GET /api/scenes/[id]/sub-scenes
+
+获取指定场景下的所有子场景列表，同时返回场景基本信息（供 SceneOverviewPage 使用）。
+
+#### 路径参数
+
+| 参数 | 类型 | 说明 |
+|------|------|------|
+| id | string | 场景ID |
+
+#### 响应示例
+
+```json
+{
+  "scene": {
+    "id": "daily_001",
+    "name": "机场值机",
+    "description": "在机场办理值机手续的常用英语表达",
+    "category": "旅行出行",
+    "difficulty": "初级"
+  },
+  "subScenes": [
+    {
+      "id": "sub_001",
+      "sceneId": "daily_001",
+      "name": "托运行李",
+      "description": "在机场办理行李托运",
+      "order": 1,
+      "estimatedMinutes": 5
+    }
+  ]
+}
+```
+
+> 若场景不存在，返回 404。若场景无子场景，`subScenes` 为空数组。
+
+---
+
+### GET /api/sub-scenes/[subSceneId]
+
+获取子场景详情，包含 QA_Pairs 列表和位置信息。
+
+#### 路径参数
+
+| 参数 | 类型 | 说明 |
+|------|------|------|
+| subSceneId | string | 子场景ID |
+
+#### 响应示例
+
+```json
+{
+  "subScene": { "id": "sub_001", "name": "托运行李", ... },
+  "qaPairs": [
+    {
+      "id": "qa_001",
+      "subSceneId": "sub_001",
+      "speakerText": "How many bags are you checking?",
+      "speakerTextCn": "您要托运几件行李？",
+      "responses": [
+        { "text": "Just one.", "text_cn": "只有一件。", "audio_url": "COS:/..." }
+      ],
+      "qaType": "must_speak",
+      "order": 1
+    }
+  ],
+  "totalSubScenes": 3,
+  "currentIndex": 1
+}
+```
+
+#### 错误码
+
+| 状态码 | 说明 |
+|--------|------|
+| 404 | 子场景不存在 |
+| 500 | 服务器内部错误 |
+
+---
+
+### GET /api/sub-scenes/[subSceneId]/practice
+
+动态生成子场景练习题（选择题 → 填空题 → 问答题）。
+
+#### 路径参数
+
+| 参数 | 类型 | 说明 |
+|------|------|------|
+| subSceneId | string | 子场景ID |
+
+#### 响应示例
+
+```json
+{
+  "questions": [
+    {
+      "type": "choice",
+      "qaId": "qa_001",
+      "audioUrl": "COS:/...",
+      "options": [
+        { "id": "opt_1", "text": "Just one.", "isCorrect": true },
+        { "id": "opt_2", "text": "Window seat.", "isCorrect": false }
+      ]
+    },
+    {
+      "type": "fill_blank",
+      "qaId": "qa_002",
+      "template": "I'd like to ___ my bag.",
+      "blanks": [{ "index": 0, "answer": "check" }]
+    },
+    {
+      "type": "speaking",
+      "qaId": "qa_003",
+      "speakerText": "Do you have any fragile items?",
+      "speakerTextCn": "您有易碎物品吗？"
+    }
+  ]
+}
+```
+
+---
+
+### POST /api/sub-scenes/[subSceneId]/ai-dialogue
+
+调用 GLM-4-Flash 判断用户回应是否语义匹配当前 QA_Pair，并推进对话。
+
+#### 路径参数
+
+| 参数 | 类型 | 说明 |
+|------|------|------|
+| subSceneId | string | 子场景ID |
+
+#### 请求体
+
+```json
+{
+  "userMessage": "Just one bag.",
+  "currentQaIndex": 0,
+  "conversationHistory": [
+    { "role": "ai", "text": "How many bags are you checking?" },
+    { "role": "user", "text": "Just one bag." }
+  ]
+}
+```
+
+| 字段 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| userMessage | string | 是 | 用户本轮输入文字 |
+| currentQaIndex | number | 是 | 当前 QA_Pair 索引（0-based） |
+| conversationHistory | array | 是 | 本轮对话历史 |
+
+#### 响应示例
+
+```json
+{
+  "pass": true,
+  "nextQaIndex": 1,
+  "aiMessage": "Are they over 23kg?",
+  "isComplete": false
+}
+```
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| pass | boolean | 用户回应是否通过语义匹配 |
+| nextQaIndex | number | 下一个待处理的 QA_Pair 索引 |
+| aiMessage | string? | 下一条 speaker_text 或完成提示 |
+| isComplete | boolean | 是否所有 QA_Pair 已完成 |
+
+#### 错误码
+
+| 状态码 | 说明 |
+|--------|------|
+| 400 | currentQaIndex 超出范围 |
+| 404 | 子场景不存在或无 QA_Pairs |
+| 500 | 服务器内部错误 |
+
+---
+
+### POST /api/sub-scenes/[subSceneId]/review
+
+对 passed=false 的对话条目调用 GLM-4-Flash 生成更地道的表达建议。LLM 调用失败时降级返回空 highlights 数组。
+
+#### 路径参数
+
+| 参数 | 类型 | 说明 |
+|------|------|------|
+| subSceneId | string | 子场景ID |
+
+#### 请求体
+
+```json
+{
+  "fluencyScore": 60,
+  "dialogueHistory": [
+    { "qaId": "qa_001", "userText": "I have one bag.", "passed": true },
+    { "qaId": "qa_002", "userText": "No fragile.", "passed": false }
+  ]
+}
+```
+
+| 字段 | 类型 | 必填 | 说明 |
+|------|------|------|------|
+| fluencyScore | number | 是 | 流畅度得分（0-100） |
+| dialogueHistory | array | 是 | 完整对话历史，含 passed 状态 |
+
+#### 响应示例
+
+```json
+{
+  "highlights": [
+    {
+      "qaId": "qa_002",
+      "userText": "No fragile.",
+      "issue": "表达不完整，缺少主语",
+      "betterExpression": "No, I don't have any fragile items."
+    }
+  ]
+}
+```
+
+> LLM 调用失败时返回 `{ "highlights": [] }`，HTTP 状态码仍为 200，不影响前端流程。
+
+#### 错误码
+
+| 状态码 | 说明 |
+|--------|------|
+| 404 | 子场景不存在 |
+

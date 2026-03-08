@@ -8,11 +8,13 @@ export default function InitializingView({
   subMessage = 'AI 正在准备角色和场景设置'
 }: InitializingViewProps) {
   return (
-    <Loading
-      message={message}
-      subMessage={subMessage}
-      size="md"
-      variant="primary"
-    />
+    <div className="flex-1 flex flex-col items-center justify-center px-6">
+      <Loading
+        message={message}
+        subMessage={subMessage}
+        size="md"
+        variant="primary"
+      />
+    </div>
   )
 }

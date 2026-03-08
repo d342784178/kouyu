@@ -1,0 +1,90 @@
+{
+  "subSceneId": "workplace_050_sub_2",
+  "subSceneName": "初步排查",
+  "questionType": "fill_blank",
+  "generatedAt": "2026-03-03T14:33:30.570Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "workplace_050_sub_2_fill_blank_1",
+      "subSceneId": "workplace_050_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "situation": "IT支持人员指导用户检查笔记本电脑无法开机的问题，询问电源和硬件状态。",
+        "speakerText": "Is the power adapter connected properly? Do you hear any beep when you press the power button?",
+        "speakerTextCn": "电源适配器插好了吗？按下电源键时有听到任何蜂鸣声吗？",
+        "responseTemplate": "The adapter is plugged in, but ___.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "there's no beep at all",
+            "options": [
+              "there's a little beep",
+              "I think it might beep",
+              "beep is kind of there",
+              "there's no beep at all"
+            ]
+          }
+        ],
+        "hint": "回答需明确是否听到声音，避免使用模糊词如'maybe'或'kinda'",
+        "knowledgePoint": "具体反馈硬件状态"
+      }
+    },
+    {
+      "id": "workplace_050_sub_2_fill_blank_2",
+      "subSceneId": "workplace_050_sub_2",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "situation": "用户报告显示器无信号，IT人员指导其检查连接线和指示灯状态。",
+        "speakerText": "Is the monitor's power light on? And is the cable securely connected to both ends?",
+        "speakerTextCn": "显示器的电源指示灯亮吗？线缆两端都插紧了吗？",
+        "responseTemplate": "The power light is on, but ___.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "the screen remains black",
+            "options": [
+              "the screen looks kinda dark",
+              "maybe the screen is off",
+              "I think the screen is working",
+              "the screen remains black"
+            ]
+          }
+        ],
+        "hint": "描述现象需清晰直接，避免主观猜测或模糊表达",
+        "knowledgePoint": "准确描述视觉/状态反馈"
+      }
+    },
+    {
+      "id": "workplace_050_sub_2_fill_blank_3",
+      "subSceneId": "workplace_050_sub_2",
+      "type": "fill_blank",
+      "order": 3,
+      "content": {
+        "type": "fill_blank",
+        "situation": "用户无法连接Wi-Fi，IT人员指导其确认网络适配器状态和指示灯。",
+        "speakerText": "Does your computer show any Wi-Fi icon? And is the wireless switch turned on?",
+        "speakerTextCn": "你的电脑显示Wi-Fi图标了吗？无线开关打开了吗？",
+        "responseTemplate": "I see the Wi-Fi icon, but ___.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "it won't connect to any network",
+            "options": [
+              "it might connect if I wait",
+              "I'm not sure about the connection",
+              "it connects sometimes",
+              "it won't connect to any network"
+            ]
+          }
+        ],
+        "hint": "描述网络连接状态需明确是否成功，避免使用不确定的表达",
+        "knowledgePoint": "明确表达功能是否实现"
+      }
+    }
+  ]
+}

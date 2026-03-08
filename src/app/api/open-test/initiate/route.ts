@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { callLLM, Message } from '@/lib/llm'
+import { callLLMForScene, Message } from '@/lib/llm'
 import { generateSpeech } from '../utils/speechGenerator'
 import { generateInitiatePrompt } from '@/lib/prompts/role-play-prompts'
 
@@ -46,10 +46,10 @@ export async function POST(request: Request) {
       { role: 'user', content: '请开始对话。' }
     ]
 
-    console.log('[对话初始化] 调用GLM API...')
+    console.log('[对话初始化] 调用对话生成模型API...')
 
-    // 调用GLM API
-    const response = await callLLM(messages, 0.7, 500)
+    // 调用对话生成模型API (meta/llama-3.1-8b-instruct)
+    const response = await callLLMForScene('dialogue-generation', messages, 0.7, 500)
     const assistantMessage = response.content.trim()
     
     console.log('[对话初始化] 大模型回复:', assistantMessage)

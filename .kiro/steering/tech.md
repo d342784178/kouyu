@@ -34,6 +34,15 @@
 
 - **Playwright 1.58** - 端到端测试框架
 
+### 前端语音测试
+前端测试录音功能时,可以使用以下脚本播放语音
+
+- 直接指定语音内容
+python .kiro/temp/tts-test/tts_play.py -t "Hello, how are you today?"
+
+
+
+
 ## 开发工具
 
 - **ESLint** - 代码检查

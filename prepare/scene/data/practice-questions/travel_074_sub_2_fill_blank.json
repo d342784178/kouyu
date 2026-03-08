@@ -1,0 +1,90 @@
+{
+  "subSceneId": "travel_074_sub_2",
+  "subSceneName": "询问时间与车次",
+  "questionType": "fill_blank",
+  "generatedAt": "2026-03-03T14:31:30.248Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_074_sub_2_fill_blank_1",
+      "subSceneId": "travel_074_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "situation": "你在火车站询问下一班去上海的列车，想确认是否有高铁选项",
+        "speakerText": "Is there a high-speed train to Shanghai later today?",
+        "speakerTextCn": "今天晚些时候有去上海的高铁吗？",
+        "responseTemplate": "Yes, there's one ___ 5 PM.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "around",
+            "options": [
+              "at",
+              "around",
+              "exactly",
+              "on"
+            ]
+          }
+        ],
+        "hint": "表达模糊时间时，用哪个词更自然？",
+        "knowledgePoint": "使用around表达近似时间"
+      }
+    },
+    {
+      "id": "travel_074_sub_2_fill_blank_2",
+      "subSceneId": "travel_074_sub_2",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "situation": "你听到工作人员说有一班快车，想表达满意并询问票价",
+        "speakerText": "We have an express train departing in about an hour.",
+        "speakerTextCn": "我们有一班大约一小时后发车的快车。",
+        "responseTemplate": "___! How much does it cost?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "That works",
+            "options": [
+              "That's fine",
+              "That works",
+              "Okay then",
+              "Good idea"
+            ]
+          }
+        ],
+        "hint": "表达对安排满意时，哪个短语比单纯说'OK'更地道？",
+        "knowledgePoint": "使用That works表达满意"
+      }
+    },
+    {
+      "id": "travel_074_sub_2_fill_blank_3",
+      "subSceneId": "travel_074_sub_2",
+      "type": "fill_blank",
+      "order": 3,
+      "content": {
+        "type": "fill_blank",
+        "situation": "你想知道是否有比当前推荐时间更早的列车，想自然地提出询问",
+        "speakerText": "The next train leaves at 3:30 PM.",
+        "speakerTextCn": "下一班车下午3:30发车。",
+        "responseTemplate": "Do you have anything ___ that?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "earlier than",
+            "options": [
+              "before than",
+              "earlier than",
+              "more early than",
+              "prior than"
+            ]
+          }
+        ],
+        "hint": "比较时间时，哪个结构是正确且常用的？",
+        "knowledgePoint": "使用earlier than比较时间"
+      }
+    }
+  ]
+}

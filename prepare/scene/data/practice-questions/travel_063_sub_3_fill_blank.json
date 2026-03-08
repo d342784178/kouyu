@@ -1,0 +1,90 @@
+{
+  "subSceneId": "travel_063_sub_3",
+  "subSceneName": "选择退款方式",
+  "questionType": "fill_blank",
+  "generatedAt": "2026-03-03T14:30:21.541Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_063_sub_3_fill_blank_1",
+      "subSceneId": "travel_063_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "situation": "你在酒店退房时，前台询问退款方式，你希望快速拿到钱用于打车。",
+        "speakerText": "We can refund you by cash, credit card, or bank transfer. Which would you prefer?",
+        "speakerTextCn": "我们可以用现金、信用卡或银行转账退款，您希望选择哪种方式？",
+        "responseTemplate": "I'd like ___ please, I need it right away for a taxi.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "cash",
+            "options": [
+              "cash",
+              "credit card",
+              "bank transfer",
+              "a check"
+            ]
+          }
+        ],
+        "hint": "当你需要立刻用钱时，通常会选择最快的方式。",
+        "knowledgePoint": "表达退款方式偏好（基于紧急需求）"
+      }
+    },
+    {
+      "id": "travel_063_sub_3_fill_blank_2",
+      "subSceneId": "travel_063_sub_3",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "situation": "你收到通知说银行转账需要几天才能到账，你不想等，但又没有现金账户，于是决定用信用卡退款。",
+        "speakerText": "The bank transfer will take several days to process.",
+        "speakerTextCn": "银行转账需要几天才能处理完成。",
+        "responseTemplate": "In that case, I'll go with ___ instead.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "credit card",
+            "options": [
+              "credit card",
+              "cash",
+              "bank transfer",
+              "digital wallet"
+            ]
+          }
+        ],
+        "hint": "当转账太慢时，人们常选择次快的替代方式。",
+        "knowledgePoint": "根据处理时间调整退款方式选择"
+      }
+    },
+    {
+      "id": "travel_063_sub_3_fill_blank_3",
+      "subSceneId": "travel_063_sub_3",
+      "type": "fill_blank",
+      "order": 3,
+      "content": {
+        "type": "fill_blank",
+        "situation": "你不需要立刻用钱，而且希望退款直接进入账户，所以你决定选择银行转账。",
+        "speakerText": "So, would you like cash, credit, or bank transfer?",
+        "speakerTextCn": "那么，您想要现金、信用卡还是银行转账？",
+        "responseTemplate": "___ is fine with me, I don't need it immediately.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Bank transfer",
+            "options": [
+              "Bank transfer",
+              "Cash",
+              "Credit card",
+              "PayPal"
+            ]
+          }
+        ],
+        "hint": "当不着急用钱时，可以选择最方便但较慢的方式。",
+        "knowledgePoint": "表达对非紧急退款方式的接受"
+      }
+    }
+  ]
+}

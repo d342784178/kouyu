@@ -1,0 +1,75 @@
+{
+  "subSceneId": "travel_071_sub_1",
+  "subSceneName": "问候退房",
+  "questionType": "speaking",
+  "generatedAt": "2026-03-02T15:10:23.064Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_071_sub_1_speaking_1",
+      "subSceneId": "travel_071_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_071_sub_1_qa_1",
+        "speakerText": "Good morning! I'd like to check out today.",
+        "speakerTextCn": "早上好！我想今天退房。",
+        "expectedAnswers": [
+          "Sure, I can help with that. Could I have your room number?",
+          "OK, checkout? Just a sec!",
+          "Check out? Room 305?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确回应了退房请求并引导提供房号",
+          "语言准确性：语法和词汇使用是否正确，是否避免使用 'I want'",
+          "表达自然度：语气是否礼貌、符合酒店服务场景"
+        ]
+      }
+    },
+    {
+      "id": "travel_071_sub_1_speaking_2",
+      "subSceneId": "travel_071_sub_1",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_071_sub_1_qa_2",
+        "speakerText": "I'm in room 412. Can I get my bill now?",
+        "speakerTextCn": "我住412房，能现在给我账单吗？",
+        "expectedAnswers": [
+          "Absolutely, I'll pull up your account right away.",
+          "Bill? One minute, I'll check.",
+          "412? Got it, bill coming!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确回应账单请求并承诺立即处理",
+          "语言准确性：是否使用 'Can I get...' 的礼貌句型，避免命令式表达",
+          "表达自然度：语调是否友好，是否使用口语化但专业的回应方式"
+        ]
+      }
+    },
+    {
+      "id": "travel_071_sub_1_speaking_3",
+      "subSceneId": "travel_071_sub_1",
+      "type": "speaking",
+      "order": 3,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "I'd like to check out. Could you please send the bill to my email?",
+        "speakerTextCn": "我想退房，能将账单发送到我的邮箱吗？",
+        "expectedAnswers": [
+          "Of course! Could you please confirm your email address?",
+          "Sure, I'll email your receipt right away.",
+          "No problem — I'll send it to your email. What's the address?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确回应了电子账单请求并引导提供邮箱信息",
+          "语言准确性：是否使用礼貌表达如 'Could you...', 'please', 避免生硬指令",
+          "表达自然度：是否使用符合酒店服务场景的流畅口语表达"
+        ]
+      }
+    }
+  ]
+}

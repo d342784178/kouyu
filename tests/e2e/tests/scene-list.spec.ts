@@ -75,12 +75,12 @@ test.describe('场景列表页', () => {
       await expect(firstCard.locator('p')).toBeVisible()
     })
 
-    test('点击场景卡片应跳转到详情页', async ({ page }) => {
+    test('点击场景卡片应跳转到场景大纲页', async ({ page }) => {
       const firstCard = page.locator(SELECTORS.sceneList.sceneCard).first()
       const sceneName = await firstCard.locator('h3').textContent()
       
       await firstCard.click()
-      await page.waitForURL(/\/scene-detail\//)
+      await page.waitForURL(/\/scene\/[^/]+\/overview/)
       
       // 验证页面标题
       const pageTitle = page.locator('h1')

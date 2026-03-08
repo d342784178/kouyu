@@ -1,0 +1,78 @@
+{
+  "subSceneId": "travel_074_sub_2",
+  "subSceneName": "询问时间与车次",
+  "questionType": "speaking",
+  "generatedAt": "2026-03-02T15:14:25.780Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_074_sub_2_speaking_1",
+      "subSceneId": "travel_074_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_074_sub_2_qa_1",
+        "speakerText": "When's the next train to Nanjing?",
+        "speakerTextCn": "下一班去南京的车什么时候开？",
+        "expectedAnswers": [
+          "Is there one around 3 PM?",
+          "Any high-speed trains after 2:30?",
+          "What's the next departure time?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确回应了询问发车时间的需求",
+          "语言准确性：语法正确，无明显错误",
+          "表达自然度：使用了around/after等模糊表达，符合口语习惯",
+          "关键词覆盖：包含train/time/high-speed等场景关键词"
+        ]
+      }
+    },
+    {
+      "id": "travel_074_sub_2_speaking_2",
+      "subSceneId": "travel_074_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "qaId": "travel_074_sub_2_qa_2",
+        "speakerText": "We have a train at 4:20 PM — it's a high-speed service, about 5 hours.",
+        "speakerTextCn": "有一班下午4:20的车，是高铁，大约5小时。",
+        "expectedAnswers": [
+          "Perfect! How much is the fare?",
+          "That works. What's the price?",
+          "Great, I'll take it. Can I pay now?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：正确表达了满意并自然过渡到价格询问",
+          "语言准确性：使用了地道表达如Perfect/That works，语法无误",
+          "表达自然度：符合真实对话节奏，避免只说'OK'",
+          "关键词覆盖：包含fare/price等核心词汇"
+        ]
+      }
+    },
+    {
+      "id": "travel_074_sub_2_speaking_3",
+      "subSceneId": "travel_074_sub_2",
+      "type": "speaking",
+      "order": 3,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Do you have any trains to Guangzhou before 12 PM?",
+        "speakerTextCn": "有中午前去广州的火车吗？",
+        "expectedAnswers": [
+          "Yes, there's one around 11:15 AM.",
+          "We have a fast train after 10:45.",
+          "The next one is at 11:30 — is that okay?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确回应了对方对'before 12 PM'的询问",
+          "语言准确性：使用了正确的时态和介词（around/after）",
+          "表达自然度：语气自然，符合日常对话习惯",
+          "关键词覆盖：包含train/fast/before/around等场景关键词"
+        ]
+      }
+    }
+  ]
+}

@@ -53,11 +53,20 @@ export interface OpenDialogueContent {
   analysis: string
 }
 
+// 场景信息
+export interface SceneInfo {
+  id: string
+  name: string
+  category: string
+  description: string
+}
+
 // OpenTestDialog 组件 Props
 export interface OpenTestDialogProps {
   sceneId: string
   testId: string
   testContent: OpenDialogueContent
+  scene?: SceneInfo
   currentIndex?: number
   totalTests?: number
   onComplete: () => void
@@ -99,6 +108,7 @@ export interface ActiveChatViewProps extends ViewProps {
   currentRound: number
   maxRounds: number
   isRecording: boolean
+  isRecognizing?: boolean
   isGeneratingResponse: boolean
   playingMessageIndex: number | null
   error: string

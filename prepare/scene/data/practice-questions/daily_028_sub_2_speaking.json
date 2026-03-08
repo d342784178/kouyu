@@ -1,0 +1,75 @@
+{
+  "subSceneId": "daily_028_sub_2",
+  "subSceneName": "询问商品位置",
+  "questionType": "speaking",
+  "generatedAt": "2026-03-02T14:42:10.507Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "daily_028_sub_2_speaking_1",
+      "subSceneId": "daily_028_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_028_sub_2_qa_1",
+        "speakerText": "Do you have those spiral notebooks in blue?",
+        "speakerTextCn": "你们有蓝色的活页笔记本吗？",
+        "expectedAnswers": [
+          "Yeah, they're on the second shelf.",
+          "Let me check for you — I'll be right back.",
+          "Sorry, we're out of blue ones, but we have black or green."
+        ],
+        "evaluationCriteria": [
+          "是否准确回应了库存状态（有/无/待查）",
+          "是否使用了场景关键词如 'spiral notebooks', 'blue', 'shelf'",
+          "表达是否自然、符合日常口语习惯"
+        ]
+      }
+    },
+    {
+      "id": "daily_028_sub_2_speaking_2",
+      "subSceneId": "daily_028_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "qaId": "daily_028_sub_2_qa_2",
+        "speakerText": "And where are the pens?",
+        "speakerTextCn": "笔在哪儿？",
+        "expectedAnswers": [
+          "Right next to the notebooks, on the left.",
+          "Down the aisle, second rack on the right.",
+          "Over there — you can't miss them."
+        ],
+        "evaluationCriteria": [
+          "是否清晰指明了具体位置",
+          "是否使用了方向词如 'next to', 'down the aisle', 'on the left/right'",
+          "表达是否简洁自然，符合真实对话节奏"
+        ]
+      }
+    },
+    {
+      "id": "daily_028_sub_2_speaking_3",
+      "subSceneId": "daily_028_sub_2",
+      "type": "speaking",
+      "order": 3,
+      "content": {
+        "type": "speaking",
+        "qaId": null,
+        "speakerText": "Hi, I'm looking for a notebook and some pens. Can you help me?",
+        "speakerTextCn": "你好，我在找一本笔记本和一些笔，你能帮我吗？",
+        "expectedAnswers": [
+          "Sure! Notebooks are on the second shelf, and pens are right next to them.",
+          "Of course! Let me show you — notebooks are over there, and pens are on the left rack.",
+          "Absolutely! We have notebooks on the second shelf, and the pens are just down the aisle."
+        ],
+        "evaluationCriteria": [
+          "是否完整回应了两种商品的位置",
+          "是否使用了至少两个场景核心表达（如 'on the shelf', 'next to', 'down the aisle'）",
+          "语气是否礼貌友好，符合服务场景"
+        ]
+      }
+    }
+  ]
+}

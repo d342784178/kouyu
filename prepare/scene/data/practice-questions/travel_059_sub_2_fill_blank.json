@@ -1,0 +1,120 @@
+{
+  "subSceneId": "travel_059_sub_2",
+  "subSceneName": "询问价格与优惠",
+  "questionType": "fill_blank",
+  "generatedAt": "2026-03-03T14:30:34.291Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
+  "questions": [
+    {
+      "id": "travel_059_sub_2_fill_blank_1",
+      "subSceneId": "travel_059_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "situation": "游客在景点售票处询问成人门票价格，并想知道是否有学生优惠",
+        "speakerText": "How much is the admission for adults?",
+        "speakerTextCn": "成人门票多少钱？",
+        "responseTemplate": "It's ___ per person. ___ are available.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a certain amount",
+            "options": [
+              "a certain amount",
+              "expensive",
+              "free",
+              "too high"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "Student discounts",
+            "options": [
+              "Student discounts",
+              "Free entry",
+              "Special tickets",
+              "VIP passes"
+            ]
+          }
+        ],
+        "hint": "先回答价格，再提是否有针对学生或特定人群的优惠",
+        "knowledgePoint": "询问价格并自然衔接优惠信息的表达结构"
+      }
+    },
+    {
+      "id": "travel_059_sub_2_fill_blank_2",
+      "subSceneId": "travel_059_sub_2",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "situation": "游客想为家人购票，主动询问是否有家庭套票或团体优惠",
+        "speakerText": "Do you offer any deals for families or groups?",
+        "speakerTextCn": "有针对家庭或团体的优惠吗？",
+        "responseTemplate": "Yes, ___ for groups of ___ or more.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "there's a discount",
+            "options": [
+              "there's a discount",
+              "it's free",
+              "you need to book early",
+              "we don't accept cash"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "three or more people",
+            "options": [
+              "three or more people",
+              "five dollars",
+              "in the morning",
+              "with a credit card"
+            ]
+          }
+        ],
+        "hint": "回答优惠存在性时，使用 'there's a discount'，人数描述用泛指表达",
+        "knowledgePoint": "主动询问团体优惠并用通用结构回应"
+      }
+    },
+    {
+      "id": "travel_059_sub_2_fill_blank_3",
+      "subSceneId": "travel_059_sub_2",
+      "type": "fill_blank",
+      "order": 3,
+      "content": {
+        "type": "fill_blank",
+        "situation": "游客看到标价后，想确认是否能用学生证享受折扣",
+        "speakerText": "If I show my student ID, can I get a lower price?",
+        "speakerTextCn": "如果我出示学生证，能便宜点吗？",
+        "responseTemplate": "Absolutely! Just show your ___ and you'll get ___ off.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "student ID",
+            "options": [
+              "student ID",
+              "credit card",
+              "passport",
+              "membership card"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "a discount",
+            "options": [
+              "a discount",
+              "a free gift",
+              "a tour guide",
+              "a faster line"
+            ]
+          }
+        ],
+        "hint": "确认身份凭证后，用 'get a discount' 表达价格减免",
+        "knowledgePoint": "用身份凭证换取优惠的常见表达方式"
+      }
+    }
+  ]
+}
