@@ -353,8 +353,8 @@ export default function SceneLearningPage({
 
   // ---- 渲染 ----
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8] flex flex-col">
-      <div className="max-w-[430px] mx-auto w-full flex flex-col min-h-screen">
+    <div className="h-[calc(100vh-80px)] bg-gradient-to-b from-[#FAFBFC] to-[#F0F4F8] flex flex-col">
+      <div className="h-[calc(100vh-80px)] overflow-y-automax-w-[430px] mx-auto w-full flex flex-col">
 
         {/* 加载状态：骨架屏 */}
         {isLoading && (
