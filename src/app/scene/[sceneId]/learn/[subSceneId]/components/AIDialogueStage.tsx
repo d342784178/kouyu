@@ -10,12 +10,14 @@
  * - QA_Pair 回应状态记录（fluent/prompted/failed）
  * - Fluency_Score 计算和展示
  * - Speech SDK 失败时降级为文字输入框
+ * - 支持浏览器兼容（夸克、小米等浏览器通过服务端语音识别）
  */
 
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { calculateFluencyScore } from '@/lib/scene-learning/scoring'
-import type { QAPair, FollowUp, DialogueMode } from '@/types'
+import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+import type { QAPair, DialogueMode } from '@/types'
 import type { QAPairResult, QAPairResultStatus } from '@/lib/scene-learning/scoring'
 
 // ============================================================
@@ -65,15 +67,6 @@ interface RetryPrompt {
 /** 生成唯一消息 id */
 function genId() {
   return `msg_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`
-}
-
-/** 检查 Web Speech API 是否可用 */
-function isSpeechRecognitionAvailable(): boolean {
-  if (typeof window === 'undefined') return false
-  return !!(
-    (window as unknown as Record<string, unknown>).SpeechRecognition ||
-    (window as unknown as Record<string, unknown>).webkitSpeechRecognition
-  )
 }
 
 // ============================================================
@@ -178,22 +171,26 @@ function MessageBubble({ message }: MessageBubbleProps) {
 // 子组件：录音波形动画
 // ============================================================
 
-function WaveformAnimation() {
+function WaveformAnimation({ audioLevel = 0 }: { audioLevel?: number }) {
+  const threshold = 5
+  const normalizedLevel = audioLevel > threshold ? Math.min((audioLevel - threshold) / 45, 1) : 0
+  
   return (
-    <div className="flex items-center gap-0.5 h-5">
-      {[0, 1, 2, 3, 4].map((i) => (
-        <motion.div
-          key={i}
-          className="w-1 rounded-full bg-white"
-          animate={{ height: ['4px', '16px', '4px'] }}
-          transition={{
-            duration: 0.6,
-            repeat: Infinity,
-            delay: i * 0.1,
-            ease: 'easeInOut',
-          }}
-        />
-      ))}
+    <div className="flex items-center gap-0.5 h-5" aria-hidden="true">
+      {[0, 1, 2, 3, 4].map((i) => {
+        const baseHeight = 5
+        const maxHeight = 16
+        const barLevel = normalizedLevel * (1 - Math.abs(i - 2) * 0.15)
+        const targetHeight = baseHeight + (maxHeight - baseHeight) * barLevel
+        
+        return (
+          <div
+            key={i}
+            className="w-0.5 rounded-full bg-white transition-all duration-100"
+            style={{ height: targetHeight }}
+          />
+        )
+      })}
     </div>
   )
 }
@@ -302,12 +299,12 @@ export default function AIDialogueStage({
 
   // ---- Refs ----
   const messagesEndRef = useRef<HTMLDivElement>(null)
-  const recognitionRef = useRef<SpeechRecognition | null>(null)
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const conversationHistoryRef = useRef<{ role: 'ai' | 'user'; text: string }[]>([])
   const currentQaHintedRef = useRef(false)
   const currentQaIndexRef = useRef(0)
   const isProcessingRef = useRef(false) // 防止重复提交
+  const handleUserSubmitRef = useRef((_: string) => {})
 
   // ---- 同步 ref 与 state ----
   useEffect(() => {
@@ -501,6 +498,57 @@ export default function AIDialogueStage({
     [addMessage, callAIDialogue, clearTimeoutTimer]
   )
 
+  // 同步 handleUserSubmit 到 ref
+  useEffect(() => { handleUserSubmitRef.current = handleUserSubmit }, [handleUserSubmit])
+
+  // ---- 使用 useSpeechRecognition hook ----
+  const handleVoiceResult = useCallback((transcript: string) => {
+    handleUserSubmitRef.current(transcript)
+  }, [])
+
+  const handleVoiceError = useCallback((error: string) => {
+    console.log('[AIDialogueStage] 语音识别错误:', error)
+    if (error.includes('权限被拒绝') || error.includes('不支持')) {
+      setUseFallbackInput(true)
+    }
+  }, [])
+
+  const {
+    isSupported,
+    isRecording,
+    isRecognizing,
+    interimTranscript,
+    startRecording: startVoiceRecording,
+    stopRecording: stopVoiceRecording,
+    audioLevel,
+    browserCompatibility,
+  } = useSpeechRecognition({
+    onResult: handleVoiceResult,
+    onError: handleVoiceError,
+    lang: 'en-US',
+    silenceTimeout: 800,
+    enablePronunciationAssessment: false, // AI练习不需要发音评估
+  })
+
+  // 同步录音状态到本地 state
+  useEffect(() => {
+    if (isRecording) {
+      setRecordingState('recording')
+    } else if (isRecognizing) {
+      setRecordingState('recognizing')
+    } else {
+      setRecordingState('idle')
+    }
+  }, [isRecording, isRecognizing])
+
+  // 如果浏览器不支持语音识别，自动切换到文字输入
+  useEffect(() => {
+    if (!isSupported && browserCompatibility.unsupportedReason) {
+      console.log('[AIDialogueStage] 浏览器不支持语音识别:', browserCompatibility.unsupportedReason)
+      setUseFallbackInput(true)
+    }
+  }, [isSupported, browserCompatibility])
+
   // ---- 获取当前 QA_Pair 的对话模式 ----
   const getCurrentDialogueMode = useCallback((): DialogueMode => {
     const currentQa = qaPairs[currentQaIndexRef.current]
@@ -558,124 +606,17 @@ export default function AIDialogueStage({
     }
   }, [clearTimeoutTimer])
 
-  // ---- 语音识别相关 refs ----
-  const finalTranscriptRef = useRef('')
-  const interimTranscriptRef = useRef('')
-  const silenceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-  const handleUserSubmitRef = useRef(handleUserSubmit)
-  useEffect(() => { handleUserSubmitRef.current = handleUserSubmit }, [handleUserSubmit])
-
-  // ---- 初始化语音识别（一次性，参考 OpenTestDialog）----
-  useEffect(() => {
-    const SR = (window as any).webkitSpeechRecognition || (window as any).SpeechRecognition
-    if (!SR) {
-      setUseFallbackInput(true)
-      return
-    }
-
-    const rec = new SR() as SpeechRecognition
-    rec.lang = 'en-US'
-    rec.continuous = true
-    rec.interimResults = true
-
-    const clearSilence = () => {
-      if (silenceTimeoutRef.current) {
-        clearTimeout(silenceTimeoutRef.current)
-        silenceTimeoutRef.current = null
-      }
-    }
-
-    const setSilenceTimeout = () => {
-      clearSilence()
-      silenceTimeoutRef.current = setTimeout(() => {
-        const transcript = (finalTranscriptRef.current || interimTranscriptRef.current).trim()
-        if (transcript) {
-          handleUserSubmitRef.current(transcript)
-        } else {
-          setRecordingState('idle')
-        }
-        try { rec.stop() } catch (_) {}
-      }, 800)
-    }
-
-    rec.onresult = (event: SpeechRecognitionEvent) => {
-      let finalText = ''
-      let interimText = ''
-      for (let i = event.resultIndex; i < event.results.length; i++) {
-        const t = event.results[i][0].transcript
-        if (event.results[i].isFinal) finalText += t
-        else interimText += t
-      }
-      if (finalText) finalTranscriptRef.current += finalText
-      if (interimText) interimTranscriptRef.current = interimText
-      // 每次有语音输入就重置 800ms 静音计时器
-      setSilenceTimeout()
-    }
-
-    rec.onerror = (event: SpeechRecognitionErrorEvent) => {
-      clearSilence()
-      if (event.error === 'aborted') return
-      if (event.error === 'not-allowed' || event.error === 'audio-capture') {
-        setUseFallbackInput(true)
-        return
-      }
-      setRecordingState('idle')
-    }
-
-    rec.onend = () => {
-      clearSilence()
-      finalTranscriptRef.current = ''
-      interimTranscriptRef.current = ''
-      setRecordingState((prev) => (prev === 'recording' ? 'idle' : prev))
-    }
-
-    recognitionRef.current = rec
-
-    return () => {
-      clearSilence()
-      try { rec.abort() } catch (_) {}
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
   // ---- 开始录音（点击触发）----
   const startRecording = useCallback(async () => {
-    if (isProcessingRef.current || isAITyping || !recognitionRef.current) return
-
-    try {
-      // 重置转录内容
-      finalTranscriptRef.current = ''
-      interimTranscriptRef.current = ''
-      clearTimeoutTimer()
-
-      // 先请求麦克风权限
-      await navigator.mediaDevices.getUserMedia({ audio: true })
-
-      recognitionRef.current.start()
-      setRecordingState('recording')
-    } catch {
-      setUseFallbackInput(true)
-    }
-  }, [isAITyping, clearTimeoutTimer])
+    if (isProcessingRef.current || isAITyping) return
+    clearTimeoutTimer()
+    await startVoiceRecording()
+  }, [isAITyping, clearTimeoutTimer, startVoiceRecording])
 
   // ---- 停止录音（点击触发，手动停止）----
   const stopRecording = useCallback(() => {
-    if (!recognitionRef.current) return
-
-    // 清除静音计时器
-    if (silenceTimeoutRef.current) {
-      clearTimeout(silenceTimeoutRef.current)
-      silenceTimeoutRef.current = null
-    }
-
-    const transcript = (finalTranscriptRef.current || interimTranscriptRef.current).trim()
-    if (transcript) {
-      handleUserSubmitRef.current(transcript)
-    } else {
-      setRecordingState('idle')
-    }
-    try { recognitionRef.current.stop() } catch (_) {}
-  }, [])
+    stopVoiceRecording()
+  }, [stopVoiceRecording])
 
   // ---- 文字输入框提交 ----
   const handleTextSubmit = useCallback(() => {
@@ -823,7 +764,7 @@ export default function AIDialogueStage({
                   <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
                 </svg>
               </button>
-              {isSpeechRecognitionAvailable() && (
+              {isSupported && (
                 <button
                   type="button"
                   onClick={() => setUseFallbackInput(false)}
@@ -854,7 +795,7 @@ export default function AIDialogueStage({
                 }`}
               >
                 {recordingState === 'recording' ? (
-                  <><WaveformAnimation /><span>停止录音</span></>
+                  <><WaveformAnimation audioLevel={audioLevel} /><span>停止录音</span></>
                 ) : isAITyping ? (
                   <>
                     <svg className="animate-spin" width="20" height="20" viewBox="0 0 24 24" fill="none">

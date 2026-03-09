@@ -594,7 +594,7 @@ export default function LearningStage({ qaPairs, subSceneId, failedQaIds = [], o
 
       {/* 进入练习按钮 */}
       {onProceed && (
-        <div className="mt-8 flex justify-center">
+        <div className="mt-8 flex justify-center mt-4">
           <button
             type="button"
             onClick={(e) => {
