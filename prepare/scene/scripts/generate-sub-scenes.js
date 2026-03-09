@@ -1,10 +1,10 @@
 /**
  * 子场景数据生成脚本
  * 调用 NVIDIA API (qwen/qwen3-next-80b-a3b-instruct) 为每个场景生成子场景和问答对数据
- * 输出到 prepare/new_scene/data/sub-scenes/{scene_id}.json
+ * 输出到 prepare/scene/data/sub-scenes/{scene_id}.json
  *
  * 用法：
- *   node prepare/new_scene/scripts/generate-sub-scenes.js [--scene <scene_id>] [--dry-run]
+ *   node prepare/scene/scripts/generate-sub-scenes.js [--scene <scene_id>] [--dry-run]
  *
  * 选项：
  *   --scene <id>   只处理指定场景（不传则处理所有场景）

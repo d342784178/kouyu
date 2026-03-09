@@ -1,10 +1,15 @@
 /**
  * 子场景练习题生成脚本
  * 调用 NVIDIA API (qwen/qwen3-next-80b-a3b-instruct 为每个子场景生成练习题
- * 输出到 prepare/new_scene/data/practice-questions/{sub_scene_id}_{type}.json
+ * 输出到 prepare/scene/data/practice-questions/{sub_scene_id}_{type}.json
+ *
+ * 生成规则：
+ *   - 每个子场景总共生成 4-6 道题目
+ *   - 三种题型均衡分布：choice 1-2道, fill_blank 1-2道, speaking 1-2道
+ *   - 两种对话模式均衡分布：user_asks 和 user_responds 各至少1道
  *
  * 用法：
- *   node prepare/new_scene/scripts/generate-practice-questions.js [选项]
+ *   node prepare/scene/scripts/generate-practice-questions.js [选项]
  *
  * 选项：
  *   --subScene <id>   只处理指定子场景（不传则处理所有子场景）
@@ -14,13 +19,13 @@
  *
  * 示例：
  *   # 生成所有子场景的所有题型
- *   node prepare/new_scene/scripts/generate-practice-questions.js
+ *   node prepare/scene/scripts/generate-practice-questions.js
  *
  *   # 只生成填空题
- *   node prepare/new_scene/scripts/generate-practice-questions.js --type fill_blank
+ *   node prepare/scene/scripts/generate-practice-questions.js --type fill_blank
  *
  *   # 只生成指定子场景的选择题
- *   node prepare/new_scene/scripts/generate-practice-questions.js --subScene travel_072_sub_1 --type choice
+ *   node prepare/scene/scripts/generate-practice-questions.js --subScene daily_001_sub_1 --type choice
  */
 
 const fs = require('fs')

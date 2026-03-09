@@ -5,10 +5,39 @@
   "exportedAt": "2026-03-08T15:38:57.096Z",
   "questions": [
     {
-      "id": "travel_059_sub_2_fill_blank_1",
+      "id": "travel_059_sub_2_qa_1_fill_blank_1",
       "subSceneId": "travel_059_sub_2",
       "type": "fill_blank",
       "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在景点入口处想了解成人门票价格，并顺带询问是否有学生优惠",
+        "speakerText": "How much is the entry ticket for adults?",
+        "speakerTextCn": "成人门票多少钱？",
+        "responseTemplate": "___",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "How much is the entry ticket for adults?",
+            "options": [
+              "How much is the entry ticket for adults?",
+              "What is the price for adults?",
+              "Can I get a discount as a student?",
+              "Is there a ticket for adults?"
+            ]
+          }
+        ],
+        "hint": "询问价格时，使用 'How much is...' 是最自然的表达方式",
+        "knowledgePoint": "询问基础价格的句型",
+        "qaId": "travel_059_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "travel_059_sub_2_fill_blank_1",
+      "subSceneId": "travel_059_sub_2",
+      "type": "fill_blank",
+      "order": 2,
       "content": {
         "hint": "先回答价格，再提是否有针对学生或特定人群的优惠",
         "type": "fill_blank",
@@ -40,166 +69,6 @@
         "speakerTextCn": "成人门票多少钱？",
         "knowledgePoint": "询问价格并自然衔接优惠信息的表达结构",
         "responseTemplate": "It's ___ per person. ___ are available."
-      }
-    },
-    {
-      "id": "travel_059_sub_2_fill_blank_2",
-      "subSceneId": "travel_059_sub_2",
-      "type": "fill_blank",
-      "order": 2,
-      "content": {
-        "hint": "回答优惠存在性时，使用 'there's a discount'，人数描述用泛指表达",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "there's a discount",
-            "options": [
-              "there's a discount",
-              "it's free",
-              "you need to book early",
-              "we don't accept cash"
-            ]
-          },
-          {
-            "index": 1,
-            "answer": "three or more people",
-            "options": [
-              "three or more people",
-              "five dollars",
-              "in the morning",
-              "with a credit card"
-            ]
-          }
-        ],
-        "situation": "游客想为家人购票，主动询问是否有家庭套票或团体优惠",
-        "speakerText": "Do you offer any deals for families or groups?",
-        "dialogueMode": "user_responds",
-        "speakerTextCn": "有针对家庭或团体的优惠吗？",
-        "knowledgePoint": "主动询问团体优惠并用通用结构回应",
-        "responseTemplate": "Yes, ___ for groups of ___ or more."
-      }
-    },
-    {
-      "id": "travel_059_sub_2_fill_blank_3",
-      "subSceneId": "travel_059_sub_2",
-      "type": "fill_blank",
-      "order": 3,
-      "content": {
-        "hint": "确认身份凭证后，用 'get a discount' 表达价格减免",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "student ID",
-            "options": [
-              "student ID",
-              "credit card",
-              "passport",
-              "membership card"
-            ]
-          },
-          {
-            "index": 1,
-            "answer": "a discount",
-            "options": [
-              "a discount",
-              "a free gift",
-              "a tour guide",
-              "a faster line"
-            ]
-          }
-        ],
-        "situation": "游客看到标价后，想确认是否能用学生证享受折扣",
-        "speakerText": "If I show my student ID, can I get a lower price?",
-        "dialogueMode": "user_responds",
-        "speakerTextCn": "如果我出示学生证，能便宜点吗？",
-        "knowledgePoint": "用身份凭证换取优惠的常见表达方式",
-        "responseTemplate": "Absolutely! Just show your ___ and you'll get ___ off."
-      }
-    },
-    {
-      "id": "travel_059_sub_2_pq_6",
-      "subSceneId": "travel_059_sub_2",
-      "type": "fill_blank",
-      "order": 6,
-      "content": {
-        "hint": "询问团体优惠时的关键词",
-        "qaId": null,
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "discounts",
-            "options": [
-              "discounts",
-              "prices",
-              "tickets",
-              "bills"
-            ]
-          }
-        ],
-        "template": "Do you offer ___ for groups of five or more?",
-        "dialogueMode": "user_responds",
-        "knowledgePoint": "动词搭配：offer discounts（提供折扣）"
-      }
-    },
-    {
-      "id": "travel_059_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "travel_059_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "type": "fill_blank",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "游客在景点入口处想了解成人门票价格，并顺带询问是否有学生优惠",
-        "speakerText": "How much is the entry ticket for adults?",
-        "speakerTextCn": "成人门票多少钱？",
-        "responseTemplate": "___",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "How much is the entry ticket for adults?",
-            "options": [
-              "How much is the entry ticket for adults?",
-              "What is the price for adults?",
-              "Can I get a discount as a student?",
-              "Is there a ticket for adults?"
-            ]
-          }
-        ],
-        "hint": "询问价格时，使用 'How much is...' 是最自然的表达方式",
-        "knowledgePoint": "询问基础价格的句型",
-        "qaId": "travel_059_sub_2_qa_1"
-      }
-    },
-    {
-      "id": "travel_059_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "travel_059_sub_2",
-      "type": "fill_blank",
-      "order": 2,
-      "content": {
-        "type": "fill_blank",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "游客想了解是否有针对学生或团体的优惠，以便节省开支",
-        "speakerText": "Do you have any family or group deals?",
-        "speakerTextCn": "有家庭或团体优惠吗？",
-        "responseTemplate": "___",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "Do you offer any student discounts?",
-            "options": [
-              "Do you offer any student discounts?",
-              "Are students free?",
-              "Can I pay less if I'm a student?",
-              "Do you have student tickets?"
-            ]
-          }
-        ],
-        "hint": "询问优惠时，使用 'Do you offer any... discounts?' 是最地道且礼貌的表达",
-        "knowledgePoint": "询问优惠的句型",
-        "qaId": "travel_059_sub_2_qa_2"
       }
     }
   ],

@@ -5,10 +5,39 @@
   "exportedAt": "2026-03-08T15:38:57.178Z",
   "questions": [
     {
-      "id": "travel_066_sub_2_fill_blank_1",
+      "id": "travel_066_sub_2_qa_1_fill_blank_1",
       "subSceneId": "travel_066_sub_2",
       "type": "fill_blank",
       "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在兑换货币时，想确认当前美元兑欧元的汇率",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "What's the current rate for USD to EUR?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "What's the current rate for USD to EUR?",
+            "options": [
+              "What's the current rate for USD to EUR?",
+              "How much is one dollar in euros?",
+              "Can you tell me the dollar to euro price?",
+              "Is the rate for USD to EUR good?"
+            ]
+          }
+        ],
+        "hint": "用固定句型 What's the current rate for X to Y? 询问汇率，避免使用 How much is...",
+        "knowledgePoint": "标准汇率询问句型",
+        "qaId": "travel_066_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "travel_066_sub_2_fill_blank_1",
+      "subSceneId": "travel_066_sub_2",
+      "type": "fill_blank",
+      "order": 2,
       "content": {
         "hint": "用 'around + 数字 + unit + per + currency' 表达汇率，用 'extra' 或 'included' 说明费用结构",
         "type": "fill_blank",
@@ -40,166 +69,6 @@
         "speakerTextCn": "你能告诉我英镑兑日元的当前汇率吗？",
         "knowledgePoint": "汇率表达与费用结构确认",
         "responseTemplate": "It's ___ , and the fee is ___ ."
-      }
-    },
-    {
-      "id": "travel_066_sub_2_fill_blank_2",
-      "subSceneId": "travel_066_sub_2",
-      "type": "fill_blank",
-      "order": 2,
-      "content": {
-        "hint": "用 'extra' 表示额外收费，用 'included' 表示已包含，避免说 'no charge' 或 'free' 在正式兑换场景",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "extra",
-            "options": [
-              "extra",
-              "included",
-              "free",
-              "not needed"
-            ]
-          }
-        ],
-        "situation": "你在银行柜台想确认美元兑换人民币时是否包含手续费",
-        "speakerText": "Is the exchange fee included in the rate, or is it charged separately?",
-        "dialogueMode": "user_responds",
-        "speakerTextCn": "汇率里包含兑换手续费吗，还是另外收取？",
-        "knowledgePoint": "费用结构的准确表达",
-        "responseTemplate": "The fee is ___ ."
-      }
-    },
-    {
-      "id": "travel_066_sub_2_fill_blank_3",
-      "subSceneId": "travel_066_sub_2",
-      "type": "fill_blank",
-      "order": 3,
-      "content": {
-        "hint": "用 'about + 数字' 表达近似汇率，用 'service fee' 是最常见搭配，避免用 'conversion fee' 等生僻词",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "about 1.10",
-            "options": [
-              "about 1.10",
-              "1.10 exactly",
-              "1.10 for each",
-              "1.10 total"
-            ]
-          },
-          {
-            "index": 1,
-            "answer": "service",
-            "options": [
-              "service",
-              "exchange",
-              "transaction",
-              "conversion"
-            ]
-          }
-        ],
-        "situation": "你在酒店前台询问欧元兑换本地货币的汇率和附加费用",
-        "speakerText": "What's the rate for EUR to local currency, and is there an additional charge?",
-        "dialogueMode": "user_responds",
-        "speakerTextCn": "欧元兑本地货币的汇率是多少？有额外收费吗？",
-        "knowledgePoint": "汇率近似表达与常见费用术语",
-        "responseTemplate": "The rate is ___ , and there's a ___ fee."
-      }
-    },
-    {
-      "id": "travel_066_sub_2_pq_6",
-      "subSceneId": "travel_066_sub_2",
-      "type": "fill_blank",
-      "order": 6,
-      "content": {
-        "hint": "询问汇率和手续费的完整表达",
-        "qaId": null,
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "rate",
-            "options": [
-              "rate",
-              "amount",
-              "time",
-              "place"
-            ]
-          },
-          {
-            "index": 1,
-            "answer": "fee",
-            "options": [
-              "fee",
-              "tax",
-              "charge",
-              "bonus"
-            ]
-          }
-        ],
-        "template": "I'd like to exchange $300. Could you tell me the ______ and whether there's a ______?",
-        "dialogueMode": "user_responds",
-        "knowledgePoint": "场景高频搭配：rate + fee"
-      }
-    },
-    {
-      "id": "travel_066_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "travel_066_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "type": "fill_blank",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在兑换货币时，想确认当前美元兑欧元的汇率",
-        "speakerText": "",
-        "speakerTextCn": "",
-        "responseTemplate": "What's the current rate for USD to EUR?",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "What's the current rate for USD to EUR?",
-            "options": [
-              "What's the current rate for USD to EUR?",
-              "How much is one dollar in euros?",
-              "Can you tell me the dollar to euro price?",
-              "Is the rate for USD to EUR good?"
-            ]
-          }
-        ],
-        "hint": "用固定句型 What's the current rate for X to Y? 询问汇率，避免使用 How much is...",
-        "knowledgePoint": "标准汇率询问句型",
-        "qaId": "travel_066_sub_2_qa_1"
-      }
-    },
-    {
-      "id": "travel_066_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "travel_066_sub_2",
-      "type": "fill_blank",
-      "order": 2,
-      "content": {
-        "type": "fill_blank",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想确认兑换货币时是否需要额外支付手续费",
-        "speakerText": "",
-        "speakerTextCn": "",
-        "responseTemplate": "Is the fee included or extra?",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "Is the fee included or extra?",
-            "options": [
-              "Is the fee included or extra?",
-              "Do I have to pay extra for the service?",
-              "How much is the service charge?",
-              "Are there any hidden costs?"
-            ]
-          }
-        ],
-        "hint": "用 Is the fee included or extra? 明确询问费用结构，避免模糊提问",
-        "knowledgePoint": "费用结构确认句型",
-        "qaId": "travel_066_sub_2_qa_2"
       }
     }
   ],

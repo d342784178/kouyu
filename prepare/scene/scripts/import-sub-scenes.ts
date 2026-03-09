@@ -1,12 +1,12 @@
 /**
  * 子场景数据导入脚本（并发批量版本）
- * 将 prepare/new_scene/data/sub-scenes/ 目录下的 JSON 文件批量 upsert 到数据库
+ * 将 prepare/scene/data/sub-scenes/ 目录下的 JSON 文件批量 upsert 到数据库
  *
  * 用法：
- *   npx ts-node prepare/new_scene/scripts/import-sub-scenes.ts [--scene <scene_id>] [--dry-run] [--concurrency <n>]
+ *   npx ts-node prepare/scene/scripts/import-sub-scenes.ts [--scene <scene_id>] [--dry-run] [--concurrency <n>]
  *
  * 选项：
- *   --scene <id>       只导入指定场景的数据
+ *   --scene <id>       只导入指定场景数据
  *   --dry-run          只打印将要执行的操作，不实际写入数据库
  *   --concurrency <n>  并发数，默认 10
  */

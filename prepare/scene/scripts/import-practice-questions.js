@@ -1,9 +1,9 @@
 /**
  * 练习题数据导入脚本
- * 将 prepare/new_scene/data/practice-questions/ 目录下的 JSON 数据导入数据库
+ * 将 prepare/scene/data/practice-questions/ 目录下的 JSON 数据导入数据库
  *
  * 用法：
- *   node prepare/new_scene/scripts/import-practice-questions.js [选项]
+ *   node prepare/scene/scripts/import-practice-questions.js [选项]
  *
  * 选项：
  *   --subScene <id>       只导入指定子场景（不传则导入所有）
@@ -13,19 +13,19 @@
  *
  * 示例：
  *   # 导入所有数据
- *   node prepare/new_scene/scripts/import-practice-questions.js
+ *   node prepare/scene/scripts/import-practice-questions.js
  *
  *   # 只导入填空题
- *   node prepare/new_scene/scripts/import-practice-questions.js --type fill_blank
+ *   node prepare/scene/scripts/import-practice-questions.js --type fill_blank
  *
  *   # 只导入 user_asks 模式的练习题
- *   node prepare/new_scene/scripts/import-practice-questions.js --dialogueMode user_asks
+ *   node prepare/scene/scripts/import-practice-questions.js --dialogueMode user_asks
  *
  *   # 只导入指定子场景的选择题
- *   node prepare/new_scene/scripts/import-practice-questions.js --subScene travel_072_sub_1 --type choice
+ *   node prepare/scene/scripts/import-practice-questions.js --subScene daily_001_sub_1 --type choice
  *
  *   # 强制覆盖已有数据
- *   node prepare/new_scene/scripts/import-practice-questions.js --type fill_blank --force
+ *   node prepare/scene/scripts/import-practice-questions.js --type fill_blank --force
  */
 
 const fs = require('fs')

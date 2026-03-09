@@ -5,10 +5,39 @@
   "exportedAt": "2026-03-08T15:38:57.538Z",
   "questions": [
     {
-      "id": "workplace_048_sub_3_fill_blank_1",
+      "id": "workplace_048_sub_3_qa_1_fill_blank_1",
       "subSceneId": "workplace_048_sub_3",
       "type": "fill_blank",
       "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工在上传发票前，想确认是否可以提交模糊或不清晰的扫描件",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Can I upload ___ instead of a clear scan?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a blurry photo",
+            "options": [
+              "a blurry photo",
+              "a handwritten note",
+              "a screenshot",
+              "an email confirmation"
+            ]
+          }
+        ],
+        "hint": "考虑哪种形式不符合公司对发票清晰度的要求",
+        "knowledgePoint": "询问文件格式与质量要求",
+        "qaId": "workplace_048_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "workplace_048_sub_3_fill_blank_1",
+      "subSceneId": "workplace_048_sub_3",
+      "type": "fill_blank",
+      "order": 2,
       "content": {
         "hint": "Think about the standard format for professional expense submissions — file type and clear naming are required.",
         "type": "fill_blank",
@@ -40,120 +69,6 @@
         "speakerTextCn": "我应该上传照片还是扫描文件？文件名该怎么命名？",
         "knowledgePoint": "文件格式与命名规范表达",
         "responseTemplate": "Only ___ files are accepted, and please name them like '___'."
-      }
-    },
-    {
-      "id": "workplace_048_sub_3_fill_blank_2",
-      "subSceneId": "workplace_048_sub_3",
-      "type": "fill_blank",
-      "order": 2,
-      "content": {
-        "hint": "Remember the policy: missing receipts mean the entire claim may be rejected unless an exception applies.",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "partial submission",
-            "options": [
-              "partial submission",
-              "digital copies",
-              "handwritten notes",
-              "email confirmations"
-            ]
-          }
-        ],
-        "situation": "An employee lost one receipt and asks if they can still submit the claim with only some documents.",
-        "speakerText": "I couldn't find one receipt. Can I still submit the rest?",
-        "dialogueMode": "user_responds",
-        "speakerTextCn": "我找不到一张发票了，还能提交其他的吗？",
-        "knowledgePoint": "完整提交要求的表达",
-        "responseTemplate": "I'm sorry, but claims require all receipts — ___ is not allowed."
-      }
-    },
-    {
-      "id": "workplace_048_sub_3_fill_blank_3",
-      "subSceneId": "workplace_048_sub_3",
-      "type": "fill_blank",
-      "order": 3,
-      "content": {
-        "hint": "Recall the rule: blurry or unprofessional images are rejected — scanning ensures clarity.",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "photos",
-            "options": [
-              "photos",
-              "screenshots",
-              "copies",
-              "prints"
-            ]
-          }
-        ],
-        "situation": "A new employee is unsure whether they need to scan receipts or if clear photos are acceptable.",
-        "speakerText": "Can I just take a picture with my phone and upload it?",
-        "dialogueMode": "user_responds",
-        "speakerTextCn": "我能不能直接用手机拍张照上传？",
-        "knowledgePoint": "禁止使用手机原图的表达",
-        "responseTemplate": "No, ___ from your phone camera aren't accepted — please scan them instead."
-      }
-    },
-    {
-      "id": "workplace_048_sub_3_qa_1_fill_blank_1",
-      "subSceneId": "workplace_048_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "type": "fill_blank",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "员工在上传发票前，想确认是否可以提交模糊或不清晰的扫描件",
-        "speakerText": "",
-        "speakerTextCn": "",
-        "responseTemplate": "Can I upload ___ instead of a clear scan?",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "a blurry photo",
-            "options": [
-              "a blurry photo",
-              "a handwritten note",
-              "a screenshot",
-              "an email confirmation"
-            ]
-          }
-        ],
-        "hint": "考虑哪种形式不符合公司对发票清晰度的要求",
-        "knowledgePoint": "询问文件格式与质量要求",
-        "qaId": "workplace_048_sub_3_qa_1"
-      }
-    },
-    {
-      "id": "workplace_048_sub_3_qa_2_fill_blank_1",
-      "subSceneId": "workplace_048_sub_3",
-      "type": "fill_blank",
-      "order": 2,
-      "content": {
-        "type": "fill_blank",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "员工想确认是否可以将多张发票合并成一个文件上传",
-        "speakerText": "",
-        "speakerTextCn": "",
-        "responseTemplate": "Can I combine multiple receipts into ___?",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "one PDF file",
-            "options": [
-              "one PDF file",
-              "a single image",
-              "a zip folder",
-              "an Excel sheet"
-            ]
-          }
-        ],
-        "hint": "考虑哪种文件格式是公司允许的合并方式",
-        "knowledgePoint": "询问文件合并与格式规范",
-        "qaId": "workplace_048_sub_3_qa_2"
       }
     }
   ],
