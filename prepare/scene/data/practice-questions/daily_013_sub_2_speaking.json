@@ -5,53 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.537Z",
   "questions": [
     {
-      "id": "daily_013_sub_2_qa_2_speaking_1",
-      "subSceneId": "daily_013_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_013_sub_2_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "场景提示：用户询问借书期限，管理员回答",
-        "expectedAnswers": [
-          "What's the deadline for returning these books?",
-          "Can I get an extension on the return date?",
-          "If I miss the deadline, what will happen to my library account?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问期限的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了期限和逾期等关键词"
-        ]
-      }
-    },
-    {
-      "id": "daily_013_sub_2_qa_1_speaking_1",
-      "subSceneId": "daily_013_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_013_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "您询问借书期限，管理员回答",
-        "expectedAnswers": [
-          "How long can I keep the books?",
-          "能借书多久?",
-          "书能借多久?",
-          "什么时候要还书?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达了询问借书期限的意图",
-          "语言准确性：语法和用词正确",
-          "表达自然度：符合英语口语习惯",
-          "关键词覆盖：使用了‘借书期限’关键词"
-        ]
-      }
-    },
-    {
       "id": "daily_013_sub_2_speaking_3",
       "subSceneId": "daily_013_sub_2",
       "type": "speaking",
@@ -73,6 +26,60 @@
           "表达自然度：语气礼貌，符合图书馆工作人员的沟通风格"
         ]
       }
+    },
+    {
+      "id": "daily_013_sub_2_qa_1_speaking_1",
+      "subSceneId": "daily_013_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户在图书馆借书前，想确认书籍的借阅期限以及逾期会有什么后果",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "How long can I keep this book?",
+          "What's the loan period for this book?",
+          "If I return it late, will I be charged a fine?",
+          "Can you tell me the due date and what happens if I'm late?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了借阅期限和逾期后果",
+          "语言准确性：语法正确，用词恰当，无严重错误",
+          "表达自然度：符合英语母语者日常提问习惯",
+          "关键词覆盖：使用了 'loan period', 'due date', 'fine', 'late' 等场景关键词"
+        ],
+        "qaId": "daily_013_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "daily_013_sub_2_qa_2_speaking_1",
+      "subSceneId": "daily_013_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户打算借书，但不确定能否按时归还，想提前了解是否可以续借以及续借条件",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Can I renew this book if I need more time?",
+          "Is renewal allowed, and what are the conditions?",
+          "What happens if I want to keep the book longer? Can I extend it?",
+          "Are there any restrictions on renewing this book?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰询问了续借可能性及条件",
+          "语言准确性：语法正确，使用了恰当的条件句和疑问结构",
+          "表达自然度：符合真实图书馆场景中的口语表达",
+          "关键词覆盖：使用了 'renew', 'extend', 'conditions', 'restrictions' 等场景关键词"
+        ],
+        "qaId": "daily_013_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:04:12.077Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

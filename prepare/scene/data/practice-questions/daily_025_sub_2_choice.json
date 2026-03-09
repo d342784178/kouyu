@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.614Z",
   "questions": [
     {
-      "id": "daily_025_sub_2_qa_1_choice_1",
-      "subSceneId": "daily_025_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_025_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "You got any soda or water?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you sell coffee?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How much is the drink?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I want a beverage.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案 'You got any soda or water?' 是口语中自然、符合场景的询问方式，直接询问可选饮品。干扰项1只问咖啡，范围过窄且偏离原场景的泛指饮料；干扰项2假设已有饮品并直接问价格，但顾客尚未确认是否有货；干扰项3是陈述句而非问题，不符合询问情境。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在结账时顺口询问商店是否有饮料可买，想了解可选的饮品类型"
-      }
-    },
-    {
       "id": "daily_025_sub_2_choice_1",
       "subSceneId": "daily_025_sub_2",
       "type": "choice",
@@ -73,41 +38,6 @@
         "speakerText": "Want anything to drink with that?",
         "dialogueMode": "user_responds",
         "speakerTextCn": "还要加点饮料吗？"
-      }
-    },
-    {
-      "id": "daily_025_sub_2_qa_2_choice_1",
-      "subSceneId": "daily_025_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_025_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "I'll take a Coke then. Total?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you have any drinks?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How much is a Coke?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can I get a drink?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案'I'll take a Coke then. Total?'符合场景中顾客已确认有饮料可选，直接点单并询问总价的自然表达。干扰项'Do you have any drinks?'是询问阶段的问题，但场景中服务方已回应有售，此时应直接点单；'How much is a Coke?'只问单价，未表达购买意图，也不符合结账语境；'Can I get a drink?'语气犹豫，未明确选择商品，不符合顾客已决定购买的语境。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在结账时顺带询问是否有饮料可买，服务人员回应有售，顾客需要选择饮料并询问总价。"
       }
     },
     {
@@ -181,6 +111,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "你们有瓶装水吗？"
       }
+    },
+    {
+      "id": "daily_025_sub_2_qa_1_choice_1",
+      "subSceneId": "daily_025_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在便利店结账前，想顺便问一下有没有饮料可买",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do you have any drinks like soda or water?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much is the soda?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I get a Coke, please?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you sell snacks too?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是询问是否有饮料，符合场景中‘顺带问有没有饮料’的需求。选项2和3假设已有饮料可选，属于跳过询问直接点单，不符合‘先确认有无’的逻辑。选项4偏离主题，问的是零食而非饮料。",
+        "qaId": "daily_025_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "daily_025_sub_2_qa_2_choice_1",
+      "subSceneId": "daily_025_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在自动售货机旁犹豫，想确认是否还有瓶装水出售",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "You got any bottled water left?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "What time do you close?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is this machine working?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I pay with card?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了口语化表达 'You got any...?'，符合日常自然提问方式，精准针对‘是否有瓶装水’。选项1是常见误答，问的是营业时间；选项3怀疑机器故障，与是否还有水无关；选项4关注支付方式，完全偏离主题。",
+        "qaId": "daily_025_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:05:23.618Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

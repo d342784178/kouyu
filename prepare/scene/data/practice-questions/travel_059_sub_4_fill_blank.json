@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.103Z",
   "questions": [
     {
-      "id": "travel_059_sub_4_qa_1_fill_blank_1",
-      "subSceneId": "travel_059_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示，帮助用户回忆",
-        "qaId": "travel_059_sub_4_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "两张",
-            "options": [
-              "一张",
-              "两张",
-              "三张",
-              "四张"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客询问价格、优惠等，工作人员回答",
-        "knowledgePoint": "支付与确认",
-        "responseTemplate": "我要___张成人票，能刷卡吗？"
-      }
-    },
-    {
       "id": "travel_059_sub_4_fill_blank_1",
       "subSceneId": "travel_059_sub_4",
       "type": "fill_blank",
@@ -57,33 +30,6 @@
         "speakerTextCn": "我想用手机支付，你能帮我一下吗？",
         "knowledgePoint": "支付方式相关表达",
         "responseTemplate": "Of course! Just scan the ___ and you're all set."
-      }
-    },
-    {
-      "id": "travel_059_sub_4_qa_2_fill_blank_1",
-      "subSceneId": "travel_059_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "在正式确认服务或状态时，常用 'confirm' 表示官方确认",
-        "qaId": "travel_059_sub_4_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "confirm",
-            "options": [
-              "check",
-              "confirm",
-              "make sure",
-              "verify"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "游客完成支付后，想确认所购门票是否已成功生效",
-        "knowledgePoint": "提问句型中的核心动词使用",
-        "responseTemplate": "Can you ___ that my tickets are confirmed?"
       }
     },
     {
@@ -167,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "支付凭证词汇：receipt（收据）"
       }
+    },
+    {
+      "id": "travel_059_sub_4_qa_1_fill_blank_1",
+      "subSceneId": "travel_059_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在购票后想确认支付是否成功，向工作人员询问",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Can you ___ that my payment went through?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "confirm",
+            "options": [
+              "confirm",
+              "check",
+              "verify",
+              "see"
+            ]
+          }
+        ],
+        "hint": "用一个动词表达‘确认’支付已完成，这是最自然的表达",
+        "knowledgePoint": "常用确认性提问句型",
+        "qaId": "travel_059_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "travel_059_sub_4_qa_2_fill_blank_1",
+      "subSceneId": "travel_059_sub_4",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客想确认所选的支付方式是否被接受，向工作人员询问",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Is it okay if I pay with ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "contactless",
+            "options": [
+              "contactless",
+              "cash",
+              "check",
+              "bitcoin"
+            ]
+          }
+        ],
+        "hint": "在现代支付场景中，非接触式支付是常见选项，注意语境的现代性",
+        "knowledgePoint": "支付方式的自然表达",
+        "qaId": "travel_059_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:38.138Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

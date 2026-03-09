@@ -5,54 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.181Z",
   "questions": [
     {
-      "id": "travel_066_sub_2_qa_2_speaking_1",
-      "subSceneId": "travel_066_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_066_sub_2_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在兑换外币时，想了解当前汇率以及是否还有额外手续费，需要主动向工作人员询问清楚。",
-        "expectedAnswers": [
-          "What's the current exchange rate, and is the fee included?",
-          "Could you tell me the rate and whether there are any extra charges?",
-          "Is the exchange rate shown the final amount, or is there an additional fee?",
-          "How much will I actually get after all fees are deducted?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问了汇率和手续费情况",
-          "语言准确性：语法结构正确，用词恰当",
-          "表达自然度：符合日常英语口语习惯，不生硬",
-          "关键词覆盖：使用了 'exchange rate', 'fee', 'included', 'extra' 等场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "travel_066_sub_2_qa_1_speaking_1",
-      "subSceneId": "travel_066_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_066_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在兑换货币时，想了解当前美元兑欧元的汇率以及是否收取额外手续费，请主动询问。",
-        "expectedAnswers": [
-          "What's the current exchange rate for USD to EUR?",
-          "Could you tell me the rate for converting USD to EUR, and is there any fee?",
-          "How much will I get for one USD in EUR, and are there additional charges?",
-          "Can you check the latest USD to EUR rate and let me know if there are service fees?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问了汇率和手续费",
-          "语言准确性：语法结构正确，用词恰当",
-          "表达自然度：符合日常英语口语习惯，语气礼貌",
-          "关键词覆盖：使用了 'exchange rate', 'USD to EUR', 'fee' 或 'charge' 等核心词汇"
-        ]
-      }
-    },
-    {
       "id": "travel_066_sub_2_speaking_3",
       "subSceneId": "travel_066_sub_2",
       "type": "speaking",
@@ -75,6 +27,60 @@
           "关键词覆盖：包含 'rate', 'fee', 'hidden charges', 'service charge' 等关键表达"
         ]
       }
+    },
+    {
+      "id": "travel_066_sub_2_qa_1_speaking_1",
+      "subSceneId": "travel_066_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在兑换货币时，想确认当前美元兑英镑的汇率以及是否收取额外手续费。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "What's the current exchange rate for USD to GBP?",
+          "Could you tell me the rate for converting dollars to pounds?",
+          "How much is one US dollar worth in pounds today?",
+          "What’s the rate, and is there a service fee on top?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了美元兑英镑的汇率",
+          "语言准确性：语法正确，使用了正确的货币代码（USD/GBP）和表达",
+          "表达自然度：符合日常口语习惯，避免生硬或书面化表达",
+          "关键词覆盖：使用了 'exchange rate', 'USD', 'GBP', 'fee' 等场景关键词"
+        ],
+        "qaId": "travel_066_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "travel_066_sub_2_qa_2_speaking_1",
+      "subSceneId": "travel_066_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在机场货币兑换点，想确认手续费是包含在汇率里还是需要额外支付。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Is the fee included in the rate, or is it extra?",
+          "Are there any additional charges on top of the exchange rate?",
+          "Do I pay the fee separately, or is it built into the rate?",
+          "What’s the service charge — is it included or added later?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰询问了手续费是否额外收取",
+          "语言准确性：正确使用了 'included', 'extra', 'additional charges' 等关键表达",
+          "表达自然度：符合服务场景中的礼貌且直接的提问方式",
+          "关键词覆盖：使用了 'fee', 'charge', 'included', 'extra', 'rate' 等核心词汇"
+        ],
+        "qaId": "travel_066_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:06.622Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

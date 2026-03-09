@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.513Z",
   "questions": [
     {
-      "id": "daily_010_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "daily_010_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "用户应该问的问题是关于核对衣物数量的",
-        "qaId": "daily_010_sub_2_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "mix-up",
-            "options": [
-              "mix-up",
-              "mistake",
-              "confusion",
-              "misunderstanding"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客询问衣物数量，工作人员回答",
-        "knowledgePoint": "表达核对衣物数量时的常用句型",
-        "responseTemplate": "Let me double-check... Oh, here it is! Sorry for the ___"
-      }
-    },
-    {
       "id": "daily_010_sub_2_fill_blank_1",
       "subSceneId": "daily_010_sub_2",
       "type": "fill_blank",
@@ -57,33 +30,6 @@
         "speakerTextCn": "我已从您的订单中取出所有物品——让我确认一下：两件夹克、一件毛衣和三双袜子，对吗？",
         "knowledgePoint": "确认信息并表达感谢的礼貌回应",
         "responseTemplate": "___"
-      }
-    },
-    {
-      "id": "daily_010_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "daily_010_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "用肯定陈述句+right?来确认信息，不要用疑问词开头",
-        "qaId": "daily_010_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "3 shirts, 2 pants, and 1 towel",
-            "options": [
-              "3 shirts, 2 pants, and 1 towel",
-              "there are 3 shirts, 2 pants, and 1 towel",
-              "do you have 3 shirts, 2 pants, and 1 towel",
-              "I think you have 3 shirts, 2 pants, and 1 towel"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "店员在核对衣物数量与订单是否一致，顾客想确认所列物品的数量是否正确",
-        "knowledgePoint": "确认性提问句型",
-        "responseTemplate": "You've got ___ , right?"
       }
     },
     {
@@ -167,6 +113,37 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "核对动作的固定搭配（double-check）"
       }
+    },
+    {
+      "id": "daily_010_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "daily_010_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在取衣时，想确认订单中的衣物数量是否准确，礼貌地向店员提问",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Could you please confirm if I have ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "all the items on my order",
+            "options": [
+              "all the items on my order",
+              "all the clothes I bought",
+              "everything I paid for",
+              "the number of clothes"
+            ]
+          }
+        ],
+        "hint": "使用礼貌请求句型，核心是确认订单中的所有物品是否齐全",
+        "knowledgePoint": "礼貌确认请求句型",
+        "qaId": "daily_010_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:30.094Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

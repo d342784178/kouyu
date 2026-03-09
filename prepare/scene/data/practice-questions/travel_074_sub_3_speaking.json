@@ -5,29 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.320Z",
   "questions": [
     {
-      "id": "travel_074_sub_3_qa_1_speaking_1",
-      "subSceneId": "travel_074_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_074_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在飞机上，工作人员向你询问座位类型，你希望坐在靠窗还是靠过道的位置?",
-        "expectedAnswers": [
-          "我希望坐在靠窗的座位。",
-          "我想坐靠窗的座位，谢谢。",
-          "靠窗座位好吗?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了座位类型的关键词"
-        ]
-      }
-    },
-    {
       "id": "travel_074_sub_3_speaking_2",
       "subSceneId": "travel_074_sub_3",
       "type": "speaking",
@@ -74,6 +51,34 @@
           "关键词覆盖：包含 'window seat' 或 'aisle seat'，无混淆表达"
         ]
       }
+    },
+    {
+      "id": "travel_074_sub_3_qa_1_speaking_1",
+      "subSceneId": "travel_074_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在机场办理登机手续，想向工作人员提出对座位的偏好，并确认是否可以安排。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Could I please request a window seat? I’d love to enjoy the view during the flight.",
+          "Do you happen to have any aisle seats available? I need to get up easily during the flight.",
+          "I’d prefer a seat near the front if possible—less waiting to deplane.",
+          "Is it possible to get a window seat in row 12? I’m traveling with my child and want to keep an eye out the window."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表达了座位偏好",
+          "语言准确性：语法和用词是否正确，是否使用了恰当的礼貌表达",
+          "表达自然度：是否符合英语口语习惯，是否包含合理理由",
+          "关键词覆盖：是否使用了 'window seat', 'aisle seat', 'front row', 'prefer', 'request' 等场景关键词"
+        ],
+        "qaId": "travel_074_sub_3_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:48.395Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

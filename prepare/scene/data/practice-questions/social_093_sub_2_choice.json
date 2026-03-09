@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.792Z",
   "questions": [
     {
-      "id": "social_093_sub_2_qa_2_choice_1",
-      "subSceneId": "social_093_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "social_093_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "You got that hoodie from the same shop downtown?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you come here every day?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Is this hoodie from downtown?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Where did you buy this?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案直接回应了场景中‘确认共同点’的核心目标，使用‘same shop downtown’建立共鸣。选项2是原场景中顾客的初始问题，但已由对方回应过，不适合再问。选项3虽相关但未强调‘相同店铺’这一关键共同点，缺乏互动性。选项4是开放性问题，偏离了‘确认已有线索’的延伸话题策略。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客注意到服务人员穿着一件熟悉的卫衣，想确认是否和自己一样来自同一家店，以建立共同话题"
-      }
-    },
-    {
-      "id": "social_093_sub_2_qa_1_choice_1",
-      "subSceneId": "social_093_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "social_093_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "You're here every morning? Same order?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you work nearby?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "What time do you usually come?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Is this your favorite coffee?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案直接延续了观察到的行为（每天来+点同样饮品），自然引发共鸣。干扰项1是关于工作地点，偏离了行为模式的确认；干扰项2只问时间，未涉及重复行为；干扰项3虽相关但只问偏好，未体现对习惯的观察，语气不够自然贴合日常闲聊场景。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在咖啡店每天早上都看到同一个顾客，想确认他是否每天都来以及是否点同样的饮品，以此建立轻松的对话和共同点。"
-      }
-    },
-    {
       "id": "social_093_sub_2_choice_3",
       "subSceneId": "social_093_sub_2",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "这个月我每个周末都去徒步。你也喜欢吗？"
       }
+    },
+    {
+      "id": "social_093_sub_2_qa_1_choice_1",
+      "subSceneId": "social_093_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在咖啡店常遇到一位顾客，发现他总点同样的饮品，你想通过一个细节问题确认他是否也有固定习惯，以建立熟悉感。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do you always order the same drink here?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "What’s your favorite flavor in coffee?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you work nearby?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I try your latte?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接针对‘固定习惯’这一核心交际任务，用‘always order the same drink’自然引出对方分享细节（如饮品配方），符合‘确认兴趣一致性’的场景目标。干扰项：B是泛泛问偏好，不聚焦习惯；C转向工作地点，偏离主题；D是请求行为，非确认性提问，无法促进建立熟悉感。",
+        "qaId": "social_093_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "social_093_sub_2_qa_2_choice_1",
+      "subSceneId": "social_093_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你注意到一位常客穿着一件有独特图案的T恤，想通过一个具体细节确认他是否对某类品牌或风格有持续偏好，从而延伸话题。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Did you get this shirt from that indie store on 5th Street?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is that shirt comfortable?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you like wearing colorful clothes?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Where did you buy your last shirt?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用具体地点（'indie store on 5th Street'）精准指向细节，引导对方确认是否为固定购买渠道，符合‘用细节确认兴趣一致性’的学习目标。干扰项：B关注舒适度，非兴趣偏好；C是宽泛的风格问题，缺乏具体锚点；D问的是‘上一件’，未建立持续性关联，无法有效延伸话题。",
+        "qaId": "social_093_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:08:28.598Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

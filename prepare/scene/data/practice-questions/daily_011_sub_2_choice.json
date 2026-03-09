@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.521Z",
   "questions": [
     {
-      "id": "daily_011_sub_2_qa_2_choice_1",
-      "subSceneId": "daily_011_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_011_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Will it make me tired?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How much does it cost?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "What's the expiration date?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Is it good for my cold?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案\"Will it make me tired?\"是合适的提问，因为它直接询问药品是否会导致疲劳。其他选项不合适，因为它们询问了药品的价格、过期日期或与其他健康状况的相关性，然而这些信息并不是本场景的主要关注点。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在药店询问药品的效果和用法"
-      }
-    },
-    {
       "id": "daily_011_sub_2_choice_1",
       "subSceneId": "daily_011_sub_2",
       "type": "choice",
@@ -73,41 +38,6 @@
         "speakerText": "This is for headaches, isn't it? Should I take it with food?",
         "dialogueMode": "user_responds",
         "speakerTextCn": "这个是治头痛的吧？需要饭后吃吗？"
-      }
-    },
-    {
-      "id": "daily_011_sub_2_qa_1_choice_1",
-      "subSceneId": "daily_011_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_011_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "This one's for coughs, right? How often do I take it?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What is the side effect of this medicine?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you tell me the price of this medicine?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How long does it take to work?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 \"This one's for coughs, right? How often do I take it?\"。其他选项虽然都是合理的问题，但与场景提示不符，或者没有提到药效与用法。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "询问药品功能与服用方法"
       }
     },
     {
@@ -181,6 +111,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我10岁的孩子能吃这个吗？一天最多吃几次？"
       }
+    },
+    {
+      "id": "daily_011_sub_2_qa_1_choice_1",
+      "subSceneId": "daily_011_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在药房领取新处方药，想确认药物的主要用途和服用频率，避免用药错误。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What is this medicine for, and how many times a day should I take it?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is this medicine expensive?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you give me a discount on this?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have a stronger version of this?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确询问了药物的主要用途和服用频率，符合场景中确认药效与用法的核心交际任务。干扰项分别询问价格、折扣和更强版本，均与药效和用法无关，属于答非所问型错误。",
+        "qaId": "daily_011_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "daily_011_sub_2_qa_2_choice_1",
+      "subSceneId": "daily_011_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客服用新药后担心可能的副作用，想确认是否会影响日常活动，如开车或工作。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Does this medicine cause drowsiness or affect my ability to drive?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How long will it take to work?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Should I take it with food?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I stop taking it if I feel better?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接询问药物是否引起嗜睡或影响驾驶能力，精准对应安全用药的关切点。干扰项分别询问起效时间、是否饭后服用和是否可自行停药，虽相关但偏离了本题聚焦的副作用安全问题，属于理解偏差型错误。",
+        "qaId": "daily_011_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:46.525Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

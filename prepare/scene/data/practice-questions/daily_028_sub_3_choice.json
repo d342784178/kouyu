@@ -41,76 +41,6 @@
       }
     },
     {
-      "id": "daily_028_sub_3_qa_2_choice_1",
-      "subSceneId": "daily_028_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_028_sub_3_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Do you want a bag for that?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How much does it cost?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can I have a discount?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Do you have any bags?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案 'Do you want a bag for that?' 是店员在顾客确认价格后自然提出的附加服务询问，符合购物场景。干扰项 'How much does it cost?' 是顾客在确认价格前的问题，不符合当前情境；'Can I have a discount?' 是议价行为，与确认购买阶段无关；'Do you have any bags?' 仅询问库存，未体现服务性提问，表达不完整且不自然。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在确认商品价格后，准备付款，店员询问是否需要购物袋。"
-      }
-    },
-    {
-      "id": "daily_028_sub_3_qa_1_choice_1",
-      "subSceneId": "daily_028_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_028_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "How much are these two notebooks and three pens?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you have any notebooks and pens?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can I buy these items?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How much is one notebook?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案直接询问所选商品的总价，符合确认价格并决定购买的场景。选项2只询问是否有货，未涉及价格；选项3询问能否购买，但未提价格，无法帮助决策；选项4只问单本笔记本价格，未涵盖全部商品，信息不完整。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想购买两本笔记本和三支笔，需要询问总价以便决定是否购买。"
-      }
-    },
-    {
       "id": "daily_028_sub_3_choice_2",
       "subSceneId": "daily_028_sub_3",
       "type": "choice",
@@ -181,6 +111,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "这两本书一共18美元。"
       }
+    },
+    {
+      "id": "daily_028_sub_3_qa_1_choice_1",
+      "subSceneId": "daily_028_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在超市结账前，想确认几件商品的总价，准备决定是否购买",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How much do these three items cost altogether?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Are these items on sale?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I pay with a credit card?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have any discounts today?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案询问总价，符合确认价格后决定购买的场景。干扰项分别涉及促销、支付方式和折扣，虽然相关但不是当前情境下最直接的提问，不符合‘确认价格’的核心任务。",
+        "qaId": "daily_028_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "daily_028_sub_3_qa_2_choice_1",
+      "subSceneId": "daily_028_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在文具店拿起两本笔记本和一支钢笔，想先知道总价再决定是否购买",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What's the total for these two notebooks and one pen?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is this pen made of metal?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I return these if I don't like them?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Where did you get these notebooks from?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案精准询问指定商品的总价，符合确认价格后做购买决策的语用目标。干扰项分别询问材质、退换政策和商品来源，与当前核心任务无关，属于答非所问型错误。",
+        "qaId": "daily_028_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:05:33.837Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

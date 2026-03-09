@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.349Z",
   "questions": [
     {
-      "id": "workplace_031_sub_4_qa_1_choice_1",
-      "subSceneId": "workplace_031_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_031_sub_4_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What makes you interested in this company?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How long have you been working here?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you tell me more about your hobbies?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Do you have any questions about the company?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确的提问是 \"What makes you interested in this company?\"，因为它直接询问求职者对公司的兴趣度。其他选项都是干扰项，可能与面试主题有关但不直接询问求职者对公司的兴趣度。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "面试官确认你对岗位的兴趣与适配度"
-      }
-    },
-    {
       "id": "workplace_031_sub_4_choice_2",
       "subSceneId": "workplace_031_sub_4",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "这个职位如何与你的长期目标一致？"
       }
+    },
+    {
+      "id": "workplace_031_sub_4_qa_1_choice_1",
+      "subSceneId": "workplace_031_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在面试结束前，你希望主动向面试官提问，以展现你对公司和职位的深入了解和强烈兴趣。",
+        "speakerText": "We've discussed your experience—now I'd like to hear why this role stands out to you.",
+        "speakerTextCn": "我们已经讨论了你的经验，现在我想听听为什么这个职位对你特别有吸引力。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What’s the salary range for this position?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you tell me more about how success is measured in this role?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you think I’m qualified for this job?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "When will I know if I got the job?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是询问该职位如何衡量成功，因为它体现了候选人对岗位职责和绩效标准的关注，展现了主动思考和职业成熟度，符合‘确认意向’的交际目标。选项1关注薪资，时机不当且显得功利；选项3是自我质疑，不符合积极主动的提问原则；选项4过早追问结果，缺乏对岗位本身的兴趣表达。",
+        "qaId": "workplace_031_sub_4_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:00.182Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

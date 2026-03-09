@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.515Z",
   "questions": [
     {
-      "id": "workplace_046_sub_1_qa_1_choice_1",
-      "subSceneId": "workplace_046_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_046_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Hey Alex, got a quick minute?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Alex, why are you always staying late?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you work overtime today?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Do you have time?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案 'Hey Alex, got a quick minute?' 是一种礼貌、非正式但得体的开场方式，适合在请求短暂交谈时使用。干扰项1 'Why are you always staying late?' 带有指责语气，不符合礼貌开场；干扰项2 'Can you work overtime today?' 直接切入主题，缺乏铺垫，显得突兀；干扰项3 'Do you have time?' 表达不完整，缺少称呼和语境，显得生硬且不自然。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你希望向主管Alex礼貌地打招呼并询问他是否有时间讨论加班安排，需要选择一个既礼貌又自然的开场提问。"
-      }
-    },
-    {
       "id": "workplace_046_sub_1_choice_2",
       "subSceneId": "workplace_046_sub_1",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "早上好，约翰。我能占用你两分钟时间吗？"
       }
+    },
+    {
+      "id": "workplace_046_sub_1_qa_1_choice_1",
+      "subSceneId": "workplace_046_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你希望在不打扰主管的情况下，礼貌地询问他是否有时间讨论加班安排。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hey Alex, got a quick minute? I need to talk about the overtime schedule.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Alex, you have to stay late tonight, right?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you work overtime this weekend? I don't care what you think.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I'm going to work late, just letting you know.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了礼貌、开放式的邀请式提问（'got a quick minute?'），既尊重对方时间，又自然引出话题。干扰项2是命令式语气，缺乏礼貌；干扰项3语气强硬且不尊重对方感受；干扰项4是单方面通知，而非提问，不符合'user_asks'模式要求。",
+        "qaId": "workplace_046_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:26.972Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

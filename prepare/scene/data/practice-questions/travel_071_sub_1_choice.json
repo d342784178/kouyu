@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.257Z",
   "questions": [
     {
-      "id": "travel_071_sub_1_qa_2_choice_1",
-      "subSceneId": "travel_071_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_071_sub_1_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "I'm in room 412. Can I get my bill now?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can you tell me what time checkout is?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "I want my money back.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Room 412, please.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案直接表达了退房需求并礼貌请求账单，符合场景。选项2询问退房时间，虽相关但未提出结账请求；选项3表达错误，‘要回钱’不符合酒店退房语境；选项4表达不完整，缺乏明确请求，显得生硬且不自然。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在酒店前台准备退房，需要礼貌地请求结账并领取账单。"
-      }
-    },
-    {
-      "id": "travel_071_sub_1_qa_1_choice_1",
-      "subSceneId": "travel_071_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_071_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Good morning! I'd like to check out today.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can I get my bill now?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "When can I leave the room?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I want to check out.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案使用了礼貌的开场白和标准表达 'I'd like to check out today'，符合酒店服务场景的礼仪。选项2只问账单，未明确退房意图；选项3语气生硬且聚焦时间而非请求；选项4缺少礼貌用语，显得突兀不专业。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在酒店前台礼貌地提出退房请求，需要选择最恰当的表达方式。"
-      }
-    },
-    {
       "id": "travel_071_sub_1_choice_3",
       "subSceneId": "travel_071_sub_1",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我想退房，请问总费用是多少？"
       }
+    },
+    {
+      "id": "travel_071_sub_1_qa_1_choice_1",
+      "subSceneId": "travel_071_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在酒店前台，准备办理退房手续，需要礼貌地向工作人员提出退房请求。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'd like to check out today, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I want to leave now.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you check me out?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "When can I get my bill?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'I'd like to check out today, please.'是礼貌且地道的退房表达，符合英语口语习惯。干扰项'I want to leave now.'语气生硬，不符合酒店服务场景的礼貌要求；'Can you check me out?'是错误的主动语态，应由工作人员执行退房动作；'When can I get my bill?'是询问账单，而非提出退房请求，答非所问。",
+        "qaId": "travel_071_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "travel_071_sub_1_qa_2_choice_1",
+      "subSceneId": "travel_071_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚结束住宿，准备退房，想礼貌地请求查看最终账单以便核对。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Could I please get my final bill?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Give me my bill.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is my bill ready?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much do I owe you?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案'Could I please get my final bill?'使用了礼貌的请求句式，符合酒店服务语境。干扰项'Give me my bill.'语气命令式，不礼貌；'Is my bill ready?'虽可接受，但不如'Could I get...'主动且更符合学习要求；'How much do I owe you?'是直接询问金额，未使用标准退房用语，语用不当。",
+        "qaId": "travel_071_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:51.373Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

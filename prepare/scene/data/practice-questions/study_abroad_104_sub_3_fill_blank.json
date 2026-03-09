@@ -5,60 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.909Z",
   "questions": [
     {
-      "id": "study_abroad_104_sub_3_qa_1_fill_blank_1",
-      "subSceneId": "study_abroad_104_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示，帮助用户回忆",
-        "qaId": "study_abroad_104_sub_3_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "确认报名成功的方式",
-            "options": [
-              "确认报名成功的方式",
-              "会收到邮件吗",
-              "怎么确认报名成功",
-              "是否有其他确认方式"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户询问确认报名成功的方式",
-        "knowledgePoint": "确认与反馈，提问句型",
-        "responseTemplate": "我可以___?"
-      }
-    },
-    {
-      "id": "study_abroad_104_sub_3_qa_2_fill_blank_1",
-      "subSceneId": "study_abroad_104_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问可能性或请求许可时，常用情态动词开头，强调是否可以做到",
-        "qaId": "study_abroad_104_sub_3_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "Can",
-            "options": [
-              "Could",
-              "Do",
-              "Will",
-              "Should"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户刚完成报名，需要向工作人员确认是否可以获取一份书面凭证用于官方用途",
-        "knowledgePoint": "请求许可的疑问句型",
-        "responseTemplate": "___ I get a receipt for my records?"
-      }
-    },
-    {
       "id": "study_abroad_104_sub_3_fill_blank_1",
       "subSceneId": "study_abroad_104_sub_3",
       "type": "fill_blank",
@@ -167,6 +113,62 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "场景功能表达：保存凭证（save both）"
       }
+    },
+    {
+      "id": "study_abroad_104_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "study_abroad_104_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户刚完成在线报名，想确认是否成功并索取电子凭证以便存档",
+        "responseTemplate": "Could you please send me a ___ so I can keep it for my records?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "confirmation email",
+            "options": [
+              "confirmation email",
+              "payment receipt",
+              "registration form",
+              "application link"
+            ]
+          }
+        ],
+        "hint": "用于确认报名成功的官方通知，通常通过电子邮件发送",
+        "knowledgePoint": "请求官方确认凭证的礼貌表达",
+        "qaId": "study_abroad_104_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "study_abroad_104_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "study_abroad_104_sub_3",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户需要一份可下载的报名证明，用于后续提交给机构或学校",
+        "responseTemplate": "Is it possible to download a ___ from my account?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "registration certificate",
+            "options": [
+              "registration certificate",
+              "enrollment form",
+              "course syllabus",
+              "payment invoice"
+            ]
+          }
+        ],
+        "hint": "用于证明已成功注册的官方文件，通常称为‘证书’或‘证明’",
+        "knowledgePoint": "请求数字凭证的常见表达方式",
+        "qaId": "study_abroad_104_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:09:31.570Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

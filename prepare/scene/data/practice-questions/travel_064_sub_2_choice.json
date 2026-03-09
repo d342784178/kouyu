@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.153Z",
   "questions": [
     {
-      "id": "travel_064_sub_2_qa_1_choice_1",
-      "subSceneId": "travel_064_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_064_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "How much does it cost to store my luggage for 24 hours?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How many bags can I store for $5?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Is there a discount for storing luggage for more than 24 hours?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "What is the cost of storing a suitcase for a week?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是‘How much does it cost to store my luggage for 24 hours?’因为它直接询问了寄存行李24小时内的费用。其他选项不正确，因为它们询问了不同的信息，例如存放的数量、时间长短等",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你需要知道寄存行李24小时内的费用"
-      }
-    },
-    {
-      "id": "travel_064_sub_2_qa_2_choice_1",
-      "subSceneId": "travel_064_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_064_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Do you charge by the day or by the hour?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How much does it cost to store my luggage for a week?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can I get a discount if I store my luggage for 24 hours?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Is there a limit on how much luggage I can store?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案‘Do you charge by the day or by the hour？’是询问收费标准的合适问题。其他选项不符合场景需求，或者是提问不当型，无法获得想要的信息。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "旅客了解寄存费用和计费方式，顾客：How much does it cost to store my luggage for 24 hours?"
-      }
-    },
-    {
       "id": "travel_064_sub_2_choice_3",
       "subSceneId": "travel_064_sub_2",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "前24小时免费，之后每天3美元。"
       }
+    },
+    {
+      "id": "travel_064_sub_2_qa_1_choice_1",
+      "subSceneId": "travel_064_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "旅客在机场行李寄存处，想了解寄存一件行李24小时的费用",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How much does it cost to store one bag for 24 hours?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I store my bag for free if I'm flying today?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have any discounts for students?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What time do you close at night?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接询问24小时寄存一件行李的费用，符合场景核心任务。干扰项分别涉及免费寄存（无依据）、学生优惠（无关）、营业时间（偏离主题），均未针对收费标准提问。",
+        "qaId": "travel_064_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "travel_064_sub_2_qa_2_choice_1",
+      "subSceneId": "travel_064_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "旅客计划寄存行李三天，想确认是按小时还是按天计费",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is the pricing based on days or hours?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How many bags can I store at once?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I pick up my luggage after midnight?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you offer insurance for stored items?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接询问计费单位（按天还是按小时），精准回应用户对计费方式的疑惑。干扰项分别询问寄存数量、取件时间、保险服务，均与计费方式无关，属于答非所问。",
+        "qaId": "travel_064_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:10.975Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

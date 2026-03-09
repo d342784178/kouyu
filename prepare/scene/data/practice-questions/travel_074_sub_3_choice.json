@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.316Z",
   "questions": [
     {
-      "id": "travel_074_sub_3_qa_1_choice_1",
-      "subSceneId": "travel_074_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_074_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Would you like a window or aisle seat?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you have a window or aisle seat?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can I have a seat with a view?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I'd like a seat next to the window",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是Would you like a window or aisle seat？因为这是一种礼貌的提问方式，尊重了工作人员的专业权威。其他选项中的问题不当或表达不完整，无法准确表达顾客的需求。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在订座位时询问座位类型"
-      }
-    },
-    {
       "id": "travel_074_sub_3_choice_2",
       "subSceneId": "travel_074_sub_3",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我们可以为您安排靠窗或靠过道的座位，您更喜欢哪个？"
       }
+    },
+    {
+      "id": "travel_074_sub_3_qa_1_choice_1",
+      "subSceneId": "travel_074_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在机场办理登机手续，想向工作人员提出对座位的偏好，以便获得满意的座位安排。",
+        "speakerText": "Window or aisle?",
+        "speakerTextCn": "靠窗还是靠过道？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'd prefer a window seat, if possible, because I like to look outside during the flight.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you give me a seat near the bathroom?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is there any free seat left?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I don't care where I sit.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确表达了座位偏好并说明了理由，符合自然、礼貌的口语表达。干扰项2偏离了主题（询问洗手间附近座位，非标准偏好）；干扰项3是泛泛询问空位，未表达偏好；干扰项4虽真实但缺乏主动性，不符合‘提出偏好’的交际目标。",
+        "qaId": "travel_074_sub_3_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:47.863Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

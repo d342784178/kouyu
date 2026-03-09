@@ -5,53 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.762Z",
   "questions": [
     {
-      "id": "social_090_sub_2_qa_2_speaking_1",
-      "subSceneId": "social_090_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "social_090_sub_2_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "视频接通后，主动问候对方以拉近关系",
-        "expectedAnswers": [
-          "You look amazing today, is that a new hairstyle?",
-          "You look great! Did you get a haircut?",
-          "I love your new look, did you get a fresh haircut?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问对方新发型的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了发型和 haircut 的关键词"
-        ]
-      }
-    },
-    {
-      "id": "social_090_sub_2_qa_1_speaking_1",
-      "subSceneId": "social_090_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "social_090_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "视频接通后自然寒暄，拉近关系，如果是 user_responds 模式，场景可能是客服或工作人员主动问候顾客",
-        "expectedAnswers": [
-          "Hey! Long time no see—how’ve you been?",
-          "嘿！好久不见，最近咋样?",
-          "Hi! How have you been lately?",
-          "长时间不见了，你最近过得怎么样?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
       "id": "social_090_sub_2_speaking_3",
       "subSceneId": "social_090_sub_2",
       "type": "speaking",
@@ -74,6 +27,60 @@
           "关键词覆盖：是否包含至少一个具体事件或感受细节"
         ]
       }
+    },
+    {
+      "id": "social_090_sub_2_qa_1_speaking_1",
+      "subSceneId": "social_090_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "视频通话开始时，你作为用户主动向客服或服务人员打招呼并关心对方近况，以建立友好氛围",
+        "speakerText": "Hey, how’s everything going with you lately?",
+        "speakerTextCn": "嘿，你最近一切都还好吗？",
+        "expectedAnswers": [
+          "Not too bad! Just been keeping busy with client meetings.",
+          "Pretty good, thanks for asking! I’ve been enjoying the spring weather.",
+          "Could be better, but I’m hanging in there—how about you?",
+          "Same old routine, but I’m grateful for the little wins!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否自然地表达了对对方近况的关心",
+          "语言准确性：语法结构和时态使用是否正确",
+          "表达自然度：是否符合日常英语口语习惯，避免机械式回答",
+          "关键词覆盖：是否使用了如 'lately', 'going', 'busy', 'grateful' 等场景相关表达"
+        ],
+        "qaId": "social_090_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "social_090_sub_2_qa_2_speaking_1",
+      "subSceneId": "social_090_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "视频接通后，你注意到服务人员穿着新衣服或佩戴了新配饰，想自然地赞美并开启轻松对话",
+        "speakerText": "You’ve got a new necklace! Is it from a recent trip?",
+        "speakerTextCn": "你戴了条新项链！是最近旅行买的吗？",
+        "expectedAnswers": [
+          "Thanks! I picked it up during a weekend getaway to the coast.",
+          "You noticed! Yeah, it’s a little souvenir from my sister’s wedding.",
+          "Haha, not a trip—just found it at a local market. I love unique pieces!",
+          "Actually, it’s a gift from my mom—she knows I love blue stones!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确回应了关于配饰的赞美与提问",
+          "语言准确性：代词、时态和介词使用是否正确（如 'from', 'during', 'at'）",
+          "表达自然度：是否使用了轻松、真诚的语气，避免生硬回答",
+          "关键词覆盖：是否包含 'trip', 'souvenir', 'local market', 'gift' 等场景关键词"
+        ],
+        "qaId": "social_090_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:07:13.272Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

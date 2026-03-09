@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.555Z",
   "questions": [
     {
-      "id": "workplace_050_sub_2_qa_2_choice_1",
-      "subSceneId": "workplace_050_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_050_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Is the computer turning on?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "What is the problem with the computer?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Is the charger light on? Any fan noise?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_4",
-            "text": "Can you fix my computer now?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案\"Is the charger light on? Any fan noise?\"是针对故障排查的合适问题，其他选项与场景不符或不合适",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户描述故障，等待技术人员指导"
-      }
-    },
-    {
-      "id": "workplace_050_sub_2_qa_1_choice_1",
-      "subSceneId": "workplace_050_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_050_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Try unplugging it, then press and hold the power button for 15 seconds.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can you send me the manual?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "What's your phone number so I can call you back?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Is there a way to fix it without unplugging it?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是Try unplugging it, then press and hold the power button for 15 seconds，因为这是针对故障的基础检查步骤。选项2、3和4都是不相关的问题，干扰了用户对故障排查的理解。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户描述故障，等待技术人员指导"
-      }
-    },
-    {
       "id": "workplace_050_sub_2_choice_3",
       "subSceneId": "workplace_050_sub_2",
       "type": "choice",
@@ -109,6 +39,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "你试过换一个电源插座吗？"
       }
+    },
+    {
+      "id": "workplace_050_sub_2_qa_1_choice_1",
+      "subSceneId": "workplace_050_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你的笔记本电脑无法开机，屏幕一直是黑的。你已尝试重启但无效，现在需要向IT支持人员询问下一步该检查什么。",
+        "speakerText": "I can't get my laptop to turn on—screen is completely black. I've tried restarting, but nothing works.",
+        "speakerTextCn": "我的笔记本电脑无法开机，屏幕完全是黑的。我试过重启，但毫无作用。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Should I buy a new one?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "What should I check next?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Is it broken for good?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you come over and fix it?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'What should I check next?' 是在IT人员提供初步指导后，用户合理跟进的标准表达，符合初步排查场景中的协作沟通逻辑。干扰项1和3属于放弃式提问，缺乏解决问题的态度；干扰项4跳过用户自查环节，不符合IT支持流程中先指导用户排查的常规做法。",
+        "qaId": "workplace_050_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:00.442Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

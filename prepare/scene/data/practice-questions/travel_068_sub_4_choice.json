@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.227Z",
   "questions": [
     {
-      "id": "travel_068_sub_4_qa_2_choice_1",
-      "subSceneId": "travel_068_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_068_sub_4_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "How much is the entrance fee to the temple?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can we have a discount on the temple's food?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Do you have any free Wi-Fi at the temple?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "What is the opening time of the temple today?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案\"How much is the entrance fee to the temple?\"是最合适的问题，因为它询问了寺庙门票的费用信息。其他选项虽然语法正确，但与场景提示不符，无法有效地询问休息安排和费用信息。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "游客询问休息安排，导游提供信息"
-      }
-    },
-    {
-      "id": "travel_068_sub_4_qa_1_choice_1",
-      "subSceneId": "travel_068_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_068_sub_4_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "How long does it take to get to the next stop?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "We've been walking for an hour—can we take a break now?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_3",
-            "text": "I'd like to know the price of the tour before we continue.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "What time do you think we'll finish the tour?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 'We've been walking for an hour—can we take a break now?'，因为它询问了休息安排的问题。其他选项不正确，因为它们询问了不同的信息，例如下一个停点的时间、导游费用的价格或完成游览的时间。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "游客询问休息安排，导游提供信息"
-      }
-    },
-    {
       "id": "travel_068_sub_4_choice_3",
       "subSceneId": "travel_068_sub_4",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我真的很累了，我们能在下一个景点前休息一下吗？"
       }
+    },
+    {
+      "id": "travel_068_sub_4_qa_1_choice_1",
+      "subSceneId": "travel_068_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在徒步途中感到疲惫，想询问是否很快有休息点，同时希望语气礼貌且自然",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Could we take a short break soon? I'm starting to feel a bit tired.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "When will we reach the next stop?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is there a café nearby? I need coffee now.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Why haven't we stopped yet? I'm exhausted.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了礼貌的请求语气（Could we...）并表达了身体感受（feeling tired），符合常见社交策略，容易获得积极回应。选项2只问时间，未表达需求，不够明确；选项3假设了咖啡馆，限制了回应可能性；选项4语气指责，容易引起反感。",
+        "qaId": "travel_068_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "travel_068_sub_4_qa_2_choice_1",
+      "subSceneId": "travel_068_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客即将进入一个收费景点，想确认是否还有额外费用，以便提前准备现金或调整计划",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Just to confirm, is there any additional fee for entry, and do you accept cards?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much is the ticket?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't have cash—can I pay with my phone?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Are you sure there are no hidden charges?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案清晰询问了是否存在额外费用，并主动确认支付方式，是高效且礼貌的沟通方式。选项2只问票价，未涉及额外费用；选项3假设了无法支付，语气消极；选项4用'hidden charges'带有不信任感，容易引发负面反应。",
+        "qaId": "travel_068_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:38.408Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

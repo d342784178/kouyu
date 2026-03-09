@@ -43,60 +43,6 @@
       }
     },
     {
-      "id": "travel_059_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "travel_059_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空时请回忆相关价格和折扣的提问句型",
-        "qaId": "travel_059_sub_2_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "family or group",
-            "options": [
-              "学生优惠",
-              "团体折扣",
-              "家庭套餐",
-              "个人价格"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在购票时，游客询问门票价格及是否有折扣",
-        "knowledgePoint": "询问价格与优惠的提问句型",
-        "responseTemplate": "Do you have any ___ deals?"
-      }
-    },
-    {
-      "id": "travel_059_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "travel_059_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "游客想知道成人门票的价格信息",
-        "qaId": "travel_059_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "entry ticket",
-            "options": [
-              "成人门票",
-              "儿童票",
-              "团体票",
-              "优惠券"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "门店内，游客询问成人门票价格",
-        "knowledgePoint": "口语表达：询问价格与优惠",
-        "responseTemplate": "How much is the ___ for adults?"
-      }
-    },
-    {
       "id": "travel_059_sub_2_fill_blank_2",
       "subSceneId": "travel_059_sub_2",
       "type": "fill_blank",
@@ -197,6 +143,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "动词搭配：offer discounts（提供折扣）"
       }
+    },
+    {
+      "id": "travel_059_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "travel_059_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在景点入口处想了解成人门票价格，并顺带询问是否有学生优惠",
+        "speakerText": "How much is the entry ticket for adults?",
+        "speakerTextCn": "成人门票多少钱？",
+        "responseTemplate": "___",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "How much is the entry ticket for adults?",
+            "options": [
+              "How much is the entry ticket for adults?",
+              "What is the price for adults?",
+              "Can I get a discount as a student?",
+              "Is there a ticket for adults?"
+            ]
+          }
+        ],
+        "hint": "询问价格时，使用 'How much is...' 是最自然的表达方式",
+        "knowledgePoint": "询问基础价格的句型",
+        "qaId": "travel_059_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "travel_059_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "travel_059_sub_2",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客想了解是否有针对学生或团体的优惠，以便节省开支",
+        "speakerText": "Do you have any family or group deals?",
+        "speakerTextCn": "有家庭或团体优惠吗？",
+        "responseTemplate": "___",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Do you offer any student discounts?",
+            "options": [
+              "Do you offer any student discounts?",
+              "Are students free?",
+              "Can I pay less if I'm a student?",
+              "Do you have student tickets?"
+            ]
+          }
+        ],
+        "hint": "询问优惠时，使用 'Do you offer any... discounts?' 是最地道且礼貌的表达",
+        "knowledgePoint": "询问优惠的句型",
+        "qaId": "travel_059_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:38.727Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

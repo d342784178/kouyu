@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.431Z",
   "questions": [
     {
-      "id": "workplace_040_sub_1_qa_1_choice_1",
-      "subSceneId": "workplace_040_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_040_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Hey Alex, got a minute to go over Q2 progress?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Alex, I think Q2 will be great!",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "What's the plan for Q2?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I'm here to give you a report, right?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案“Hey Alex, got a minute to go over Q2 progress？”是合适的开场问候，因为它表达了寻求信息或服务的意图。干扰项‘Alex, I think Q2 will be great！’过于自信和直接，‘What's the plan for Q2？’则是转变了话题，‘I'm here to give you a report, right？’则过于直接且不自然",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "场景提示：用户通常在寻求信息或服务时先提问"
-      }
-    },
-    {
       "id": "workplace_040_sub_1_choice_2",
       "subSceneId": "workplace_040_sub_1",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "嗨，汤姆，我们能快速回顾一下项目状态吗？"
       }
+    },
+    {
+      "id": "workplace_040_sub_1_qa_1_choice_1",
+      "subSceneId": "workplace_040_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工在办公室遇到经理，想礼貌地请求几分钟时间汇报第二季度工作进展",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hey Alex, got a minute to go over Q2 progress?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I finished my Q2 report, can you check it?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "What did you think about my performance this quarter?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can we schedule a meeting for next week?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是直接、礼貌且简洁地请求短暂时间讨论工作进展，符合职场高频沟通场景。选项2是陈述事实而非提问，缺乏请求语气；选项3提前进入评价环节，时机不当；选项4过于正式且拖延，不符合‘立即沟通’的场景需求。",
+        "qaId": "workplace_040_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:54.118Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

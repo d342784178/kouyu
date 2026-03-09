@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.760Z",
   "questions": [
     {
-      "id": "social_090_sub_1_qa_1_fill_blank_1",
-      "subSceneId": "social_090_sub_1",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "回忆正确的提问句型",
-        "qaId": "social_090_sub_1_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "okay",
-            "options": [
-              "好吗",
-              "什么意思",
-              "听不清",
-              "不清楚"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "视频通话开始时进行连接测试",
-        "knowledgePoint": "连接测试",
-        "responseTemplate": "Hey, can you hear me ___? The audio's a bit crackly."
-      }
-    },
-    {
       "id": "social_090_sub_1_fill_blank_1",
       "subSceneId": "social_090_sub_1",
       "type": "fill_blank",
@@ -57,43 +30,6 @@
         "speakerTextCn": "我几乎听不到你，你能检查一下麦克风吗？",
         "knowledgePoint": "表达音频问题与解决方案的核心动词",
         "responseTemplate": "I'm sorry, my mic might be muted. Let me ___ it."
-      }
-    },
-    {
-      "id": "social_090_sub_1_qa_2_fill_blank_1",
-      "subSceneId": "social_090_sub_1",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "检查音视频是否正常，确认连接稳定",
-        "qaId": "social_090_sub_1_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "video",
-            "options": [
-              "video",
-              "audio",
-              "camera",
-              "connection"
-            ]
-          },
-          {
-            "index": 1,
-            "answer": "camera",
-            "options": [
-              "camera",
-              "microphone",
-              "speaker",
-              "equipment"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在视频通话开始时进行连接测试",
-        "knowledgePoint": "提问句型和连接测试",
-        "responseTemplate": "Your ___'s frozen—can you check your ___?"
       }
     },
     {
@@ -177,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "网络切换的惯用动词搭配"
       }
+    },
+    {
+      "id": "social_090_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "social_090_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在视频会议开始前测试连接，想确认对方是否能清晰听到你的声音",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Can you hear me ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "clearly",
+            "options": [
+              "clearly",
+              "loudly",
+              "quickly",
+              "properly"
+            ]
+          }
+        ],
+        "hint": "当确认声音质量时，常用 'clearly' 表示'清晰地'",
+        "knowledgePoint": "常用表达：描述音频清晰度的副词",
+        "qaId": "social_090_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "social_090_sub_1_qa_2_fill_blank_1",
+      "subSceneId": "social_090_sub_1",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在视频通话中发现画面卡顿，想询问对方是否也遇到同样的问题",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Is your video ___ too?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "lagging",
+            "options": [
+              "lagging",
+              "blinking",
+              "shaking",
+              "dimming"
+            ]
+          }
+        ],
+        "hint": "描述网络延迟导致的画面卡顿，常用 'lagging'",
+        "knowledgePoint": "常用表达：描述视频延迟的动词",
+        "qaId": "social_090_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:06:59.819Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

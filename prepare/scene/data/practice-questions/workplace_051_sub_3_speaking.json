@@ -5,52 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.565Z",
   "questions": [
     {
-      "id": "workplace_051_sub_3_qa_1_speaking_1",
-      "subSceneId": "workplace_051_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_051_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在会议前确认设备需求时，你可以向服务人员询问什么?",
-        "expectedAnswers": [
-          "Can you set up the projector and mic for us?",
-          "Do you have a projector and a microphone available for our meeting?",
-          "Can we borrow a projector and a microphone for our presentation?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "workplace_051_sub_3_qa_2_speaking_1",
-      "subSceneId": "workplace_051_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_051_sub_3_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想确认会议所需设备是否已经准备好",
-        "expectedAnswers": [
-          "Do you have the projector and video equipment set up?",
-          "Is the Zoom meeting room ready with all the necessary devices?",
-          "Have you got the equipment we need for the meeting ready?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
       "id": "workplace_051_sub_3_speaking_3",
       "subSceneId": "workplace_051_sub_3",
       "type": "speaking",
@@ -72,6 +26,60 @@
           "表达是否清晰、有逻辑，是否主动提出潜在需求"
         ]
       }
+    },
+    {
+      "id": "workplace_051_sub_3_qa_1_speaking_1",
+      "subSceneId": "workplace_051_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在为一场重要会议预订会议室，需要确认是否提供高清摄像头、麦克风和屏幕共享功能，避免现场技术故障。",
+        "speakerText": "Could you confirm if the room has a high-definition camera, a wireless mic, and screen-sharing capability?",
+        "speakerTextCn": "你能确认一下这个房间是否有高清摄像头、无线话筒和屏幕共享功能吗？",
+        "expectedAnswers": [
+          "Yes, everything’s set up — HD camera, wireless mic, and screen sharing via HDMI and wireless cast.",
+          "We have the camera and mic, but screen sharing requires you to connect via laptop — is that okay?",
+          "The room supports wireless screen sharing, but we don’t have a dedicated mic — could you bring your own?",
+          "I’ll double-check with AV team — give me two minutes to confirm."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了至少三项关键设备（摄像头、话筒、屏幕共享）",
+          "语言准确性：语法正确，使用了恰当的设备术语（如 HD camera, wireless mic, screen-sharing）",
+          "表达自然度：语气礼貌，符合职场沟通习惯，无中式英语",
+          "关键词覆盖：使用了场景关键词如 camera, mic, screen-sharing, set up"
+        ],
+        "qaId": "workplace_051_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "workplace_051_sub_3_qa_2_speaking_1",
+      "subSceneId": "workplace_051_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你即将主持一场跨国线上会议，需要确认会议室是否已配置好与Zoom、Teams或Webex兼容的设备，确保跨平台顺利接入。",
+        "speakerText": "Is the room equipped for Zoom, Teams, or Webex? Do you have a dedicated meeting laptop ready?",
+        "speakerTextCn": "这个房间支持Zoom、Teams或Webex吗？你们有专门用于会议的笔记本电脑吗？",
+        "expectedAnswers": [
+          "Yes, we have a pre-configured laptop with all three platforms installed and tested.",
+          "We only have Zoom and Teams ready — Webex isn’t supported here. Would that work?",
+          "We don’t have a dedicated laptop, but you can plug in your own — we have HDMI and USB-C ports.",
+          "Let me check with IT — we usually use Zoom, but we can install Teams if you need it."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰询问了会议平台兼容性及设备准备情况",
+          "语言准确性：正确使用技术术语如 Zoom, Teams, Webex, pre-configured, plug in",
+          "表达自然度：语气专业且灵活，体现对替代方案的开放态度",
+          "关键词覆盖：使用了场景关键词如 Zoom, Teams, Webex, laptop, equipped"
+        ],
+        "qaId": "workplace_051_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:23.427Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

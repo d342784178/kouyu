@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.206Z",
   "questions": [
     {
-      "id": "travel_067_sub_3_qa_1_choice_1",
-      "subSceneId": "travel_067_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_067_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Will my coverage be higher if I have high blood pressure?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "I have high blood pressure — will that affect my coverage?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_3",
-            "text": "Can I get a refund if I have high blood pressure?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Does high blood pressure affect my age?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案I have high blood pressure — will that affect my coverage?因为它直接询问了顾客的健康状况对保险的影响。其他选项不正确，因为它们没有准确反映顾客的关注点。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客询问个人健康状况对保险的影响"
-      }
-    },
-    {
       "id": "travel_067_sub_3_choice_2",
       "subSceneId": "travel_067_sub_3",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我有哮喘，定期使用吸入器，这会有问题吗？"
       }
+    },
+    {
+      "id": "travel_067_sub_3_qa_1_choice_1",
+      "subSceneId": "travel_067_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "旅客患有糖尿病，想了解是否需要申报以及是否会影响保险覆盖范围",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I have diabetes — does that mean I can't get travel insurance?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "I'm diabetic, but my condition is well-controlled. Should I mention it when applying for insurance?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you give me a discount because I have a chronic illness?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you cover all medical emergencies, even if I didn't tell you about my illness?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案正确体现了主动披露病史并询问申报必要性的恰当表达，符合避免理赔纠纷的学习目标。选项1语气过于绝对，容易造成误解；选项3错误地将健康状况与折扣挂钩，偏离主题；选项4假设未申报的情况，不符合主动沟通的语境。",
+        "qaId": "travel_067_sub_3_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:25.442Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

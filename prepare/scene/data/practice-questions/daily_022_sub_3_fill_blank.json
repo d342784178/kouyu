@@ -33,60 +33,6 @@
       }
     },
     {
-      "id": "daily_022_sub_3_qa_2_fill_blank_1",
-      "subSceneId": "daily_022_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问可能性或能力时，常用 'Can' 表示 '能否' 做某事",
-        "qaId": "daily_022_sub_3_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "Can",
-            "options": [
-              "Could",
-              "Will",
-              "Do",
-              "May"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想确认购买后是否能立即取走商品，需要询问相关条件",
-        "knowledgePoint": "情态动词在询问购买条件中的正确使用",
-        "responseTemplate": "___ I take it home today?"
-      }
-    },
-    {
-      "id": "daily_022_sub_3_qa_1_fill_blank_1",
-      "subSceneId": "daily_022_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问某事是否包含在内，用一般现在时的疑问句结构，主语是单数第三人称",
-        "qaId": "daily_022_sub_3_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "Does",
-            "options": [
-              "Is",
-              "Do",
-              "Are",
-              "Does"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想了解宠物的价格以及是否包含基本医疗服务",
-        "knowledgePoint": "一般现在时疑问句结构（Does + 主语 + 动词原形）",
-        "responseTemplate": "___ the price include vaccinations?"
-      }
-    },
-    {
       "id": "daily_022_sub_3_fill_blank_2",
       "subSceneId": "daily_022_sub_3",
       "type": "fill_blank",
@@ -167,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "场景高频词汇（服务包含项）"
       }
+    },
+    {
+      "id": "daily_022_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "daily_022_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在购买商品前，想确认价格是否包含额外服务（如安装、配送或保修）",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Does the price ___ include installation and warranty?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "already",
+            "options": [
+              "already",
+              "still",
+              "even",
+              "just"
+            ]
+          }
+        ],
+        "hint": "询问价格是否已经包含某项服务时，常用 'already' 强调是否包含在内",
+        "knowledgePoint": "询问服务是否包含在价格中的常用表达",
+        "qaId": "daily_022_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "daily_022_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "daily_022_sub_3",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想确认购买后是否能立即取货或使用服务",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Can I ___ take it home / use the service right away?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "actually",
+            "options": [
+              "actually",
+              "possibly",
+              "usually",
+              "generally"
+            ]
+          }
+        ],
+        "hint": "用 'actually' 表达对能否立即获得服务的直接确认，语气自然且常用",
+        "knowledgePoint": "询问即时获取条件的口语表达",
+        "qaId": "daily_022_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:04:42.439Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.408Z",
   "questions": [
     {
-      "id": "workplace_037_sub_4_qa_1_choice_1",
-      "subSceneId": "workplace_037_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_037_sub_4_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Just to clarify—when you said 'next week,' do you mean Monday or Friday?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "你什么时候要我送礼物?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "这件事情你还想再说吗?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "下周是周三，还是周四？",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案：Just to clarify—when you said 'next week,' do you mean Monday or Friday？正确原因：这是礼貌打断的典型例子，用户对关键信息提出疑问以澄清。其他选项不正确：选项2不在场景范围内，选项3不是礼貌打断，选项4信息不准确",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在会议中，用户对时间等关键信息提出疑问，以确保理解无误"
-      }
-    },
-    {
       "id": "workplace_037_sub_4_choice_2",
       "subSceneId": "workplace_037_sub_4",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "抱歉插话，你能澄清一下你所说的‘尽快’是什么意思吗？"
       }
+    },
+    {
+      "id": "workplace_037_sub_4_qa_1_choice_1",
+      "subSceneId": "workplace_037_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在团队会议中，同事提到‘我们将在两个月内完成项目’，但你不确定‘两个月’具体指哪段时间，想礼貌地澄清以避免误解。",
+        "speakerText": "I'm not sure I follow—when you say 'two months,' do you mean starting from now or from the end of this month?",
+        "speakerTextCn": "我不太确定你的意思——你说‘两个月’，是指从现在开始算，还是从这个月底开始？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Just to clarify—when you said 'two months,' do you mean starting from now or from the end of this month?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I think you're wrong—two months can't mean that.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you just repeat what you said about the timeline?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "We need to finish faster—two months is too long.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了礼貌的表达 'Just to clarify'，符合在职场中澄清模糊信息的规范，语气尊重且明确。干扰项1过于直接且带有攻击性，干扰项2只是要求重复，未体现澄清意图，干扰项3则偏离主题，表达的是对时间长短的抱怨而非澄清。",
+        "qaId": "workplace_037_sub_4_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:49.490Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

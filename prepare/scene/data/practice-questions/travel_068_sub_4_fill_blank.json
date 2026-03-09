@@ -5,60 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.228Z",
   "questions": [
     {
-      "id": "travel_068_sub_4_qa_1_fill_blank_1",
-      "subSceneId": "travel_068_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示，帮助用户回忆",
-        "qaId": "travel_068_sub_4_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "coffee",
-            "options": [
-              "hotel",
-              "restaurant",
-              "meal",
-              "coffee"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "游客询问休息安排，导游提供信息",
-        "knowledgePoint": "使用提问句型询问休息安排",
-        "responseTemplate": "We've been walking for an hour—any chance we can stop for __________ soon?"
-      }
-    },
-    {
-      "id": "travel_068_sub_4_qa_2_fill_blank_1",
-      "subSceneId": "travel_068_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示：注意提问句型的关键部分",
-        "qaId": "travel_068_sub_4_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "extra",
-            "options": [
-              "额外费用",
-              "门票价格",
-              "现金支付",
-              "额外收费"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "游客询问休息安排，导游提供信息",
-        "knowledgePoint": "考察提问句型的使用",
-        "responseTemplate": "The entrance fee to the temple's _______________—cash only."
-      }
-    },
-    {
       "id": "travel_068_sub_4_fill_blank_1",
       "subSceneId": "travel_068_sub_4",
       "type": "fill_blank",
@@ -167,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "动词搭配（exchange cash）"
       }
+    },
+    {
+      "id": "travel_068_sub_4_qa_1_fill_blank_1",
+      "subSceneId": "travel_068_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在长途步行后感到疲惫，想礼貌地询问是否可以安排休息点",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Could we take a short break soon? ___",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "I'm starting to get really tired",
+            "options": [
+              "I'm starting to get really tired",
+              "I want to sit down now",
+              "We should stop immediately",
+              "Is there a bench nearby?"
+            ]
+          }
+        ],
+        "hint": "用身体感受表达需求，语气礼貌但明确，避免命令式表达",
+        "knowledgePoint": "用身体感受表达合理请求",
+        "qaId": "travel_068_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "travel_068_sub_4_qa_2_fill_blank_1",
+      "subSceneId": "travel_068_sub_4",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客听到可能有额外费用，想确认是否需要额外支付并表达自己的财务状况",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Will there be any extra charges? ___",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "I'm on a tight budget",
+            "options": [
+              "I'm on a tight budget",
+              "I don't have a credit card",
+              "I prefer to pay in cash",
+              "Is it included in the tour?"
+            ]
+          }
+        ],
+        "hint": "表达财务限制时，用委婉但清晰的方式说明情况，避免直接拒绝",
+        "knowledgePoint": "委婉表达财务限制以避免尴尬",
+        "qaId": "travel_068_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:30.251Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

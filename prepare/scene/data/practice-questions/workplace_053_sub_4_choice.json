@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.583Z",
   "questions": [
     {
-      "id": "workplace_053_sub_4_qa_2_choice_1",
-      "subSceneId": "workplace_053_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_053_sub_4_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What is the latest time I can send this package?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How long does it take to deliver a package to a client?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you help me pack this package?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Do you have any discounts on shipping?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案为 \"What is the latest time I can send this package?\"，因为用户询问最晚的寄送时间。其他选项不正确，因为它们不符合场景的需求：\"How long does it take to deliver a package to a client?\" 是一个关于配送时间的询问，而不是寄送时间；\"Can you help me pack this package?\" 是关于包装的询问，而不是寄送时间；\"Do you have any discounts on shipping?\" 是关于折扣的询问，而不是寄送时间。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户询问快递服务，服务方提供解答"
-      }
-    },
-    {
-      "id": "workplace_053_sub_4_qa_1_choice_1",
-      "subSceneId": "workplace_053_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_053_sub_4_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Can you ship this to Boston overnight?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "How much does it cost to ship to Boston?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "能帮我加急寄到波士顿吗？易碎品。",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_4",
-            "text": "Can you ship this to New York?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 opt_3，因为它符合场景需求，表达了用户的寄送需求。其他选项不正确，可能是因为理解偏差或表达不当。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户询问快递服务，服务方提供解答。"
-      }
-    },
-    {
       "id": "workplace_053_sub_4_choice_3",
       "subSceneId": "workplace_053_sub_4",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我要寄一个国际包裹，你们提供追踪和保险服务吗？"
       }
+    },
+    {
+      "id": "workplace_053_sub_4_qa_1_choice_1",
+      "subSceneId": "workplace_053_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你有一份重要合同需要当天送达客户公司，但不确定快递公司当天的收件截止时间，想向快递员确认。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What time do you stop accepting packages for same-day delivery?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you deliver this tomorrow instead?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much does it cost to ship this overnight?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you need the package now or can I drop it off later?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确询问了当天寄送的截止时间，符合场景需求。选项2是提出替代方案，而非询问截止时间；选项3关注费用，与时间紧迫性无关；选项4模糊地询问时间，未明确指向快递公司的收件截止点，表达不当。",
+        "qaId": "workplace_053_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "workplace_053_sub_4_qa_2_choice_1",
+      "subSceneId": "workplace_053_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你有一个易碎的样品需要寄给海外合作伙伴，担心运输途中损坏，想询问快递公司是否提供特殊包装或加急服务。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do you offer special handling for fragile items, and can you guarantee delivery by Friday?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is the packaging material included in the price?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I pay extra to make it arrive faster?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What’s your policy on lost packages?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案同时询问了易碎品特殊处理和交付时限，完整覆盖了场景中的两个关键需求。选项2只关注包装费用，忽略时效和保护需求；选项3只问加急，未提及易碎品保护；选项4偏离主题，询问的是遗失赔偿，与当前寄送需求无关。",
+        "qaId": "workplace_053_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:35.404Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

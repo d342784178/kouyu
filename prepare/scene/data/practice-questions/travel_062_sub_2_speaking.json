@@ -5,54 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.133Z",
   "questions": [
     {
-      "id": "travel_062_sub_2_qa_1_speaking_1",
-      "subSceneId": "travel_062_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_062_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "游客在陌生城市向当地工作人员询问景点推荐，并想知道从当前位置到推荐景点的步行距离是否可行。",
-        "expectedAnswers": [
-          "Is the Old Town far from here? Can I walk there?",
-          "How far is the Old Town from this spot? Is it walkable?",
-          "Could you recommend a nearby attraction, and is it within walking distance?",
-          "What’s the closest must-see place around here, and how long would it take to walk there?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问了景点推荐和步行距离",
-          "语言准确性：语法结构正确，时态和用词无错误",
-          "表达自然度：符合英语母语者日常对话习惯",
-          "关键词覆盖：包含 'Old Town'、'far'、'walk' 或相关表达"
-        ]
-      }
-    },
-    {
-      "id": "travel_062_sub_2_qa_2_speaking_1",
-      "subSceneId": "travel_062_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_062_sub_2_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "游客正在咨询旅游建议，工作人员已经推荐了几个景点，游客想确认其中一个观山景点是否值得前往，并想知道从当前位置到那里有多远。",
-        "expectedAnswers": [
-          "Is the mountain view spot worth visiting? How far is it from here?",
-          "Do you think it's worth making a trip to the mountain view spot? About how far is it?",
-          "Would you recommend the mountain view spot? I'm curious about the distance.",
-          "Is the mountain view spot a good place to go? How long does it take to get there?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问景点是否值得去以及距离信息",
-          "语言准确性：语法结构正确，时态和用词恰当",
-          "表达自然度：符合英语母语者日常对话习惯",
-          "关键词覆盖：使用了'mountain view spot', 'worth', 'far'或'distance'等场景关键词"
-        ]
-      }
-    },
-    {
       "id": "travel_062_sub_2_speaking_3",
       "subSceneId": "travel_062_sub_2",
       "type": "speaking",
@@ -75,6 +27,60 @@
           "关键词覆盖：包含 market / get to / worth visiting / bus / walk 等场景关键词"
         ]
       }
+    },
+    {
+      "id": "travel_062_sub_2_qa_1_speaking_1",
+      "subSceneId": "travel_062_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在旅游信息中心询问某个热门景点是否值得参观，并想知道从当前位置步行或乘车需要多长时间。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Is the Central Park worth visiting? How far is it from here?",
+          "Would you recommend the Art Museum? Can I walk there or should I take public transport?",
+          "Is the riverside promenade worth the trip? About how long does it take to get there by bus?",
+          "What do you think of the historic clock tower? Is it close enough to walk?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问景点推荐和交通距离",
+          "语言准确性：语法正确，使用了恰当的表达如 'worth visiting' 或 'how far is it'",
+          "表达自然度：符合英语母语者在旅游场景中的日常提问习惯",
+          "关键词覆盖：使用了 'worth', 'far', 'walk', 'bus' 或 'public transport' 等场景关键词"
+        ],
+        "qaId": "travel_062_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "travel_062_sub_2_qa_2_speaking_1",
+      "subSceneId": "travel_062_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在酒店前台想了解附近一家口碑很好的餐厅是否值得去，并想知道是步行可达还是需要打车。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Is the Blue Lantern Restaurant any good? Is it walkable from here?",
+          "I heard the Italian place down the street is great — is it worth going to? How long by taxi?",
+          "Would you say the rooftop diner is worth the effort? Can I get there on foot?",
+          "Is the local seafood spot nearby worth a visit? Should I take a bus or just walk?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达对餐厅推荐和交通方式的双重询问",
+          "语言准确性：正确使用 'worth going to', 'walkable', 'by taxi' 等表达",
+          "表达自然度：符合游客在陌生城市向本地人咨询的口语习惯",
+          "关键词覆盖：使用了 'worth', 'walkable', 'taxi', 'bus', 'nearby' 等场景关键词"
+        ],
+        "qaId": "travel_062_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:51.759Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

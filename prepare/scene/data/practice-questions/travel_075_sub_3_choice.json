@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.337Z",
   "questions": [
     {
-      "id": "travel_075_sub_3_qa_1_choice_1",
-      "subSceneId": "travel_075_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_075_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What facilities does the bus have?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How much does the bus ticket cost?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Is the bus air-conditioned?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can I bring my pet on the bus?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 What facilities does the bus have？因为顾客想要知道公交车上提供什么设施。其他选项不正确，因为它们与顾客的需求不符。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想知道公交车上提供哪些设施"
-      }
-    },
-    {
       "id": "travel_075_sub_3_choice_2",
       "subSceneId": "travel_075_sub_3",
       "type": "choice",
@@ -110,6 +75,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "这辆巴士有卫生间吗？"
       }
+    },
+    {
+      "id": "travel_075_sub_3_qa_1_choice_1",
+      "subSceneId": "travel_075_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "乘客在机场柜台前，想了解免费托运行李的尺寸限制和重量额度。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What are the size and weight limits for free checked luggage?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I bring a carry-on bag for free?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much does it cost to check an extra bag?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Is there a limit on the number of bags I can bring?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案询问的是免费托运行李的具体尺寸和重量限制，这是乘客在咨询行李规定时最核心的问题。选项2只问随身行李，范围过窄；选项3和4关注付费或数量，属于后续问题，不符合当前咨询行李免费额度的首要意图。",
+        "qaId": "travel_075_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "travel_075_sub_3_qa_1_choice_1",
+      "subSceneId": "travel_075_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "乘客在登机口前，想确认自己行李是否符合免费托运的标准，需了解允许的尺寸和重量。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What are the maximum dimensions and weight allowed for free checked baggage?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do I need to pay if my bag is a little heavy?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I check two bags without extra charge?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Is there a scale nearby to check my bag?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接询问免费托运行李的尺寸和重量上限，精准对应行李规定咨询的核心需求。选项2和3预设了超重或数量问题，属于后续追问；选项4是寻求解决方案，而非获取规定信息，偏离了咨询的首要目的。",
+        "qaId": "travel_075_sub_3_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:06.309Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

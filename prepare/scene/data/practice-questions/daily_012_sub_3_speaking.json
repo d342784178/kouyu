@@ -5,51 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.531Z",
   "questions": [
     {
-      "id": "daily_012_sub_3_qa_1_speaking_1",
-      "subSceneId": "daily_012_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_012_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在考虑购买会员方案，需要确认价格和优惠。请问：",
-        "expectedAnswers": [
-          "What are the prices of the different membership plans?",
-          "How much does each membership plan cost?",
-          "Can you tell me more about the pricing for the basic and premium plans?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
-      "id": "daily_012_sub_3_qa_2_speaking_1",
-      "subSceneId": "daily_012_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_012_sub_3_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在比较不同会员方案，想要知道哪个方案更划算",
-        "expectedAnswers": [
-          "What are the membership prices?",
-          "How much does it cost to pay for 3 months upfront?",
-          "Can you tell me more about the discounts for different membership plans?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
       "id": "daily_012_sub_3_speaking_3",
       "subSceneId": "daily_012_sub_3",
       "type": "speaking",
@@ -72,6 +27,60 @@
           "关键词覆盖：包含 annual plan, discount, save, refundable, pay 等关键词"
         ]
       }
+    },
+    {
+      "id": "daily_012_sub_3_qa_1_speaking_1",
+      "subSceneId": "daily_012_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在健身房咨询会员方案，工作人员介绍了基础版和高级版的价格，你想了解是否有长期付费优惠或学生折扣。",
+        "speakerText": "Our basic plan is $30/month, and the premium is $50 with extra perks like classes and sauna access.",
+        "speakerTextCn": "我们的基础计划每月30美元，高级计划50美元，包含课程和桑拿等额外福利。",
+        "expectedAnswers": [
+          "Do you offer any discounts for students?",
+          "Can I get a better rate if I pay for six months upfront?",
+          "Is there a family plan or group discount available?",
+          "What’s the cheapest way to sign up long-term?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了价格优惠或折扣",
+          "语言准确性：语法和用词是否正确，是否使用了恰当的礼貌表达",
+          "表达自然度：是否符合英语母语者在咨询优惠时的日常表达习惯",
+          "关键词覆盖：是否使用了如 discount, upfront, rate, plan 等场景关键词"
+        ],
+        "qaId": "daily_012_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "daily_012_sub_3_qa_2_speaking_1",
+      "subSceneId": "daily_012_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在比较两个健身会员方案，工作人员说明了基础和高级的差异，你想确认是否能将高级方案的优惠延长到更长时间。",
+        "speakerText": "Premium is $50/month, but if you pay annually, you get two months free.",
+        "speakerTextCn": "高级计划每月50美元，如果按年付费，可免费获得两个月。",
+        "expectedAnswers": [
+          "Could I get the same discount if I pay for 18 months instead of a year?",
+          "Would the two-month free offer still apply if I upgrade later?",
+          "Is the annual discount locked in, or could it change after the first year?",
+          "What happens if I cancel before the year ends — do I still keep the free months?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确询问了优惠的适用条件或延长可能性",
+          "语言准确性：是否正确使用了条件句、时态和礼貌请求结构",
+          "表达自然度：是否像真实消费者在深入询问条款时那样表达",
+          "关键词覆盖：是否使用了如 discount, pay upfront, lock in, upgrade, cancel 等相关词汇"
+        ],
+        "qaId": "daily_012_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:59.567Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

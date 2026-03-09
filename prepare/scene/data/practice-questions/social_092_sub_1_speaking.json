@@ -5,52 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.782Z",
   "questions": [
     {
-      "id": "social_092_sub_1_qa_1_speaking_1",
-      "subSceneId": "social_092_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "social_092_sub_1_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在楼道里遇到一位新搬来的邻居，想友好地打招呼并确认对方身份，可以询问对方的名字或表达欢迎。",
-        "expectedAnswers": [
-          "Hi! I'm your neighbor on the second floor. You must be the new person who just moved in?",
-          "Hey there! Welcome to the building! I'm Alex — what's your name?",
-          "Hi! I noticed you just moved in. I live right across the hall — nice to meet you!",
-          "Hello! I hope you're settling in well. I'm your neighbor — mind if I ask your name?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了问候和确认对方是新邻居的意图",
-          "语言准确性：语法和用词是否正确，无明显错误",
-          "表达自然度：是否符合英语母语者日常打招呼的口语习惯",
-          "关键词覆盖：是否使用了 'new neighbor', 'move in', 'name' 等场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "social_092_sub_1_qa_2_speaking_1",
-      "subSceneId": "social_092_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "social_092_sub_1_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在楼道遇到新邻居，想问候他们。他们看起来很不熟悉这个地方，想知道他们的名字或更多关于他们的信息。",
-        "expectedAnswers": [
-          "What's your name?",
-          "Welcome to the building! Can I help you with anything?",
-          "Hi, how do you like our building so far?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问邻居信息的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
       "id": "social_092_sub_1_speaking_3",
       "subSceneId": "social_092_sub_1",
       "type": "speaking",
@@ -73,6 +27,60 @@
           "关键词覆盖：是否使用了 'thanks', 'help', 'I'm', 'appreciate' 等社交关键词"
         ]
       }
+    },
+    {
+      "id": "social_092_sub_1_qa_1_speaking_1",
+      "subSceneId": "social_092_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在楼道里遇到新搬来的邻居，想主动打招呼并询问对方的名字，营造友好氛围",
+        "speakerText": "Hi! I live across the hall. I'm Sam. What's your name?",
+        "speakerTextCn": "嗨！我住在对面。我是萨姆，你叫什么名字？",
+        "expectedAnswers": [
+          "Hi Sam! I'm Jordan. Nice to meet you!",
+          "Hey! I'm Taylor. Thanks for saying hi!",
+          "Hi! I just moved in yesterday—I'm Priya. Great to meet you!",
+          "Oh hey! I'm Mike. Welcome to the building!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表达了问候并询问对方名字",
+          "语言准确性：语法和拼写是否正确，人称代词使用是否恰当",
+          "表达自然度：语气是否友好、符合日常口语习惯",
+          "关键词覆盖：是否包含 'name', 'hi', 'meet' 等场景关键词"
+        ],
+        "qaId": "social_092_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "social_092_sub_1_qa_2_speaking_1",
+      "subSceneId": "social_092_sub_1",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在电梯里遇到新邻居，想轻松开启对话并表达欢迎，同时询问对方是否刚搬来",
+        "speakerText": "Hey! This is your first time in the building, right?",
+        "speakerTextCn": "嘿！这是你第一次住在这栋楼吧？",
+        "expectedAnswers": [
+          "Yes, just moved in this morning! I'm Chloe.",
+          "You got it! I'm Daniel. Still figuring out where everything is!",
+          "Yep! Got the keys yesterday. Really glad to be here.",
+          "That's right! I'm Elena. Hope I don't break the elevator!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确回应了关于是否刚搬来的询问",
+          "语言准确性：时态使用是否正确（如 just moved in），冠词和介词是否恰当",
+          "表达自然度：语气是否轻松、有生活气息，是否带点幽默或亲切感",
+          "关键词覆盖：是否包含 'moved in', 'first time', 'building' 等场景关键词"
+        ],
+        "qaId": "social_092_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:08:18.665Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

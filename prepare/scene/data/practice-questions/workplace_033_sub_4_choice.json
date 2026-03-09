@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.368Z",
   "questions": [
     {
-      "id": "workplace_033_sub_4_qa_2_choice_1",
-      "subSceneId": "workplace_033_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_033_sub_4_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Is the attachment in the correct format?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can you send me a copy of the email?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "What is the purpose of the email?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can you confirm if the attachment is in .docx format?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案\"Is the attachment in the correct format?\"是最合适的问题，因为它直接询问抄送人是否正确。其他选项\"Can you send me a copy of the email?\"是询问邮件副本的请求，\"What is the purpose of the email?\"询问邮件目的，\"Can you confirm if the attachment is in .docx format?\"询问附件格式，但不询问抄送人是否正确。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户询问抄送人是否正确，服务方/工作人员确认或纠正"
-      }
-    },
-    {
-      "id": "workplace_033_sub_4_qa_1_choice_1",
-      "subSceneId": "workplace_033_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_033_sub_4_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Did I correctly CC Linda and Mark on the update?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Are Linda and Mark the only people who received the update?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "What is the correct format for attaching files to the email?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Is the update already sent to Linda and Mark?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案：Did I correctly CC Linda and Mark on the update？\n\n干扰项所在：\n- Are Linda and Mark the only people who received the update？（理解偏差型，误解了场景需求）\n- What is the correct format for attaching files to the email？（提问不当型，问题语法正确但不符合该场景）\n- Is the update already sent to Linda and Mark？（表达不当型，表达不自然或不完整）",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "确认邮件抄送对象和附件格式是否正确"
-      }
-    },
-    {
       "id": "workplace_033_sub_4_choice_3",
       "subSceneId": "workplace_033_sub_4",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我正在发送合同，抄送了法务和财务，并附上了签署版。"
       }
+    },
+    {
+      "id": "workplace_033_sub_4_qa_1_choice_1",
+      "subSceneId": "workplace_033_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚发送了一封工作邮件，想确认抄送对象是否完整，避免遗漏关键人员。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Did I include everyone in the CC? I want to make sure Priya and Tom are both copied.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you send me a copy of the email again?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is the attachment in PDF format?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Who should I ask for approval before sending this?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接询问抄送对象是否完整，符合场景中确认抄送人的核心任务。干扰项2是请求重发邮件，与确认抄送对象无关；干扰项3转向附件格式，偏离主题；干扰项4询问审批流程，属于无关问题。",
+        "qaId": "workplace_033_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "workplace_033_sub_4_qa_2_choice_1",
+      "subSceneId": "workplace_033_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你准备发送一份项目报告，不确定附件格式是否符合公司规范，想确认是否需要转换格式。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I sent the report as a .docx—should I convert it to PDF to match the team’s template?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you check if the file opened properly on your end?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Who should I CC for the final review?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Is the deadline still tomorrow?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确询问格式是否需统一，符合场景中确认附件格式的核心任务。干扰项2是确认文件能否打开，属于技术问题而非格式规范；干扰项3转向抄送对象，偏离主题；干扰项4询问截止时间，与格式无关。",
+        "qaId": "workplace_033_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:32.383Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

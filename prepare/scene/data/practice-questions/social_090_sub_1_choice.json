@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.759Z",
   "questions": [
     {
-      "id": "social_090_sub_1_qa_2_choice_1",
-      "subSceneId": "social_090_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "social_090_sub_1_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Is your internet stable?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Can you hear me?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Your video's frozen—can you check your camera?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_4",
-            "text": "How long will we be talking?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案：Your video's frozen—can you check your camera？因为这是连接测试时用户通常会问的问题。\n干扰项1：Is your internet stable？不符合连接测试场景。\n干扰项2：Can you hear me？与连接测试无关。\n干扰项3：How long will we be talking？不符合连接测试场景。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在视频通话开始时进行连接测试"
-      }
-    },
-    {
-      "id": "social_090_sub_1_qa_1_choice_1",
-      "subSceneId": "social_090_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "social_090_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Hey, can you hear me okay? The audio's a bit crackly.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What's your name?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Is the video working?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can you see my picture?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确的选项 \"Hey, can you hear me okay? The audio's a bit crackly.\" 是一个合适的连接测试问题，适合在视频通话开始时使用。其他选项不符合连接测试的场景需求，或者表达不自然或不完整。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户通常在视频通话开始时进行连接测试，检查音视频是否正常，确认连接稳定"
-      }
-    },
-    {
       "id": "social_090_sub_1_choice_3",
       "subSceneId": "social_090_sub_1",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我在通话中遇到卡顿，视频一直在缓冲。"
       }
+    },
+    {
+      "id": "social_090_sub_1_qa_1_choice_1",
+      "subSceneId": "social_090_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在参加线上会议，但对方说听不清你的声音，你需要主动询问并确认音频设置是否正常。",
+        "speakerText": "I'm having trouble hearing you clearly—could you check your microphone settings?",
+        "speakerTextCn": "我听不清你的声音，你能检查一下麦克风设置吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can you hear me now? I just turned up my volume.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Your audio is broken—try restarting your computer.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Why is the sound so low? Is your speaker broken?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I can't see you—did you turn off your camera?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案正确地以礼貌方式询问对方是否检查了麦克风设置，符合连接测试中用户主动排查音频问题的交际目标。选项2语气生硬且错误地将问题归咎于对方设备；选项3错误地假设是对方扬声器问题，而非自己的麦克风；选项4完全偏离音频主题，涉及视频问题。",
+        "qaId": "social_090_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "social_090_sub_1_qa_2_choice_1",
+      "subSceneId": "social_090_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "视频通话中对方的画面突然卡顿，你需要礼貌地提出问题并建议排查网络或摄像头。",
+        "speakerText": "Your video just froze—could you check if your camera is still on or if your internet is slow?",
+        "speakerTextCn": "你的视频刚卡住了，你能检查一下摄像头是否开启，或者网络是否变慢了吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is your camera working? Maybe your connection is unstable?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "You're frozen—fix it now!",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you turn up your microphone? I can't hear anything.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I think the app is broken—let’s quit and restart.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案以礼貌方式同时询问摄像头状态和网络状况，符合连接测试中系统性排查问题的表达习惯。选项2语气命令式，不适用于礼貌沟通；选项3混淆了音频与视频问题；选项4过早跳到重启应用，未先确认具体原因，缺乏针对性。",
+        "qaId": "social_090_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:07:38.780Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

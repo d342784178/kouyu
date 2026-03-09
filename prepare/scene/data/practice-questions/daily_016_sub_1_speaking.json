@@ -5,51 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.554Z",
   "questions": [
     {
-      "id": "daily_016_sub_1_qa_2_speaking_1",
-      "subSceneId": "daily_016_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_016_sub_1_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客进店问候并询问商品有无",
-        "expectedAnswers": [
-          "Do you have the chicken sandwich?",
-          "And do you have the chicken sandwich?",
-          "Excuse me, do you have chicken sandwiches?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达了询问意图",
-          "语言准确性：语法和用词正确",
-          "表达自然度：符合英语口语习惯",
-          "关键词覆盖：使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "daily_016_sub_1_qa_1_speaking_1",
-      "subSceneId": "daily_016_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_016_sub_1_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客通常先发起询问，如询问商品信息或价格",
-        "expectedAnswers": [
-          "Excuse me, do you have any new arrivals?",
-          "Hey, do you have any fresh orange juice?",
-          "Hi, can you tell me if you have any discounts on your products?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
       "id": "daily_016_sub_1_speaking_3",
       "subSceneId": "daily_016_sub_1",
       "type": "speaking",
@@ -71,6 +26,60 @@
           "是否提供了额外有用信息（如种类、位置），体现服务意识"
         ]
       }
+    },
+    {
+      "id": "daily_016_sub_1_qa_1_speaking_1",
+      "subSceneId": "daily_016_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客走进便利店，想询问是否有冰咖啡",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Do you have iced coffee?",
+          "Hey, do you sell iced coffee?",
+          "Any iced coffee in stock?",
+          "Could I get some iced coffee? Do you have it?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了冰咖啡的库存情况",
+          "语言准确性：语法正确，使用了恰当的疑问句结构",
+          "表达自然度：符合日常口语习惯，语气礼貌或随意得当",
+          "关键词覆盖：使用了 'iced coffee' 或 'have/sell/in stock' 等核心词汇"
+        ],
+        "qaId": "daily_016_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "daily_016_sub_1_qa_2_speaking_1",
+      "subSceneId": "daily_016_sub_1",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在超市生鲜区想确认是否有有机苹果",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Do you have organic apples?",
+          "Are organic apples available today?",
+          "Got any organic apples?",
+          "Can you tell me if you carry organic apples?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰询问了有机苹果的供货情况",
+          "语言准确性：使用了正确的疑问句式和商品名称",
+          "表达自然度：语气自然，符合超市购物场景的交流习惯",
+          "关键词覆盖：使用了 'organic apples', 'have/available/carry' 等关键词"
+        ],
+        "qaId": "daily_016_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:04:19.505Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

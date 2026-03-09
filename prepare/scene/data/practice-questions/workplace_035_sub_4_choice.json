@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.390Z",
   "questions": [
     {
-      "id": "workplace_035_sub_4_qa_1_choice_1",
-      "subSceneId": "workplace_035_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_035_sub_4_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "So, it's all approved then?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "My vacation is on Friday, right?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "I'm sure my boss will say yes.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can I ask again next week?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案\"So, it's all approved then?\"是因为它询问请假是否已经获批准，符合场景需求。其他选项不正确，因为它们没有询问请假的状态，或者询问了不相关的问题",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你刚刚收到上级的回复，确认一下你的请假是否已经获批准"
-      }
-    },
-    {
-      "id": "workplace_035_sub_4_qa_2_choice_1",
-      "subSceneId": "workplace_035_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_035_sub_4_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Thanks so much for understanding. I really appreciate it.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "我感谢你批准我的假期，谢谢!",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "能请假真是太好了，谢谢!",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "你很好，批准了我的假期，谢谢!",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案\"Thanks so much for understanding. I really appreciate it.\"是最合适的结束对话表达，其他选项虽然表达了感激，但不够礼貌或不完全符合场景。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你刚刚得到上级批准你的请假申请，下一步该如何表达感激"
-      }
-    },
-    {
       "id": "workplace_035_sub_4_choice_3",
       "subSceneId": "workplace_035_sub_4",
       "type": "choice",
@@ -109,6 +39,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我明天要开始休假了，只是想确认一切已经安排好了。"
       }
+    },
+    {
+      "id": "workplace_035_sub_4_qa_1_choice_1",
+      "subSceneId": "workplace_035_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚收到老板的邮件，确认你的请假申请已批准，现在当面感谢并礼貌结束对话。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Thanks for approving my leave—I really appreciate it. I’ll see you next Monday!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you tell me again when I need to come back?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I hope you don’t mind if I take more days off next time?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "So, is everything confirmed?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案表达了感谢并自然结束对话，符合职场礼貌规范。选项2是重复确认，不符合已批准的语境；选项3是提出新请求，时机不当；选项4是确认批准，属于申请阶段的提问，而非道别阶段。",
+        "qaId": "workplace_035_sub_4_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:36.414Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

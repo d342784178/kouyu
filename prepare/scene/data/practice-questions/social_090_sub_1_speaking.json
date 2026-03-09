@@ -5,50 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.761Z",
   "questions": [
     {
-      "id": "social_090_sub_1_qa_2_speaking_1",
-      "subSceneId": "social_090_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "social_090_sub_1_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "场景提示：用户通常在视频通话开始时进行连接测试，检查音视频是否正常，确认连接稳定",
-        "expectedAnswers": [
-          "Your video's frozen—can you check your camera?",
-          "我看到了你的视频，但它好像卡住了，你能检查下摄像头吗?",
-          "你的视频为什么会卡住呢？能检查下摄像头吗？"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
-      "id": "social_090_sub_1_qa_1_speaking_1",
-      "subSceneId": "social_090_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "social_090_sub_1_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在视频通话开始时进行连接测试，确认音视频是否正常",
-        "expectedAnswers": [
-          "Hey, can you hear me okay? The audio's a bit crackly.",
-          "嘿，你能听到声音吗？声音有点沙沙的。",
-          "Hi, can you hear me clearly? I'm experiencing some audio issues."
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问音视频连接问题的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
       "id": "social_090_sub_1_speaking_3",
       "subSceneId": "social_090_sub_1",
       "type": "speaking",
@@ -71,6 +27,60 @@
           "关键词覆盖：包含connection, drop, bandwidth, switch等场景关键词"
         ]
       }
+    },
+    {
+      "id": "social_090_sub_1_qa_1_speaking_1",
+      "subSceneId": "social_090_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在进行视频会议前，发现对方的视频画面延迟严重，需要主动询问并确认问题原因。",
+        "speakerText": "Your video is lagging pretty badly—could you check your internet connection?",
+        "speakerTextCn": "你的视频延迟很严重，能检查一下你的网络连接吗？",
+        "expectedAnswers": [
+          "I'll restart my router—it might be buffering.",
+          "My Wi-Fi is weak right now; I'm switching to Ethernet.",
+          "I think it's my upload speed. Let me close some background apps.",
+          "Sorry! I'm on mobile data—let me join via Wi-Fi instead."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确指出了视频延迟问题并请求对方排查",
+          "语言准确性：语法和时态使用正确，无严重错误",
+          "表达自然度：符合日常英语口语习惯，语气礼貌自然",
+          "关键词覆盖：使用了 'lagging', 'internet', 'connection', 'buffering', 'Wi-Fi', 'mobile data' 等场景关键词"
+        ],
+        "qaId": "social_090_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "social_090_sub_1_qa_2_speaking_1",
+      "subSceneId": "social_090_sub_1",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在视频通话中听不清对方说话，声音断断续续，需要主动询问对方是否能听到你并建议排查音频问题。",
+        "speakerText": "I'm having trouble hearing you clearly—can you check your microphone and speakers?",
+        "speakerTextCn": "我听不清你说的话，你能检查一下你的麦克风和扬声器吗？",
+        "expectedAnswers": [
+          "My mic might be muted—let me check.",
+          "I think my headset is faulty; I'll switch to my laptop speakers.",
+          "The audio settings are off—I'll reset them right away.",
+          "It's probably my internet—let me reconnect."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确表达了听不清的问题并引导对方检查音频设备",
+          "语言准确性：语法结构正确，用词符合口语习惯",
+          "表达自然度：语气自然，符合真实对话中的沟通方式",
+          "关键词覆盖：使用了 'hear you clearly', 'microphone', 'speakers', 'muted', 'headset', 'internet' 等关键词"
+        ],
+        "qaId": "social_090_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:07:32.171Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.537Z",
   "questions": [
     {
-      "id": "workplace_048_sub_3_qa_1_choice_1",
-      "subSceneId": "workplace_048_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_048_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Do I need to scan all receipts? What format should they be?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What is the deadline for submitting the receipts?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can I upload the receipts directly from the company website?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How many receipts can I upload at one time?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 Do I need to scan all receipts? What format should they be？因为用户在询问具体操作步骤时，通常会先提问。其他选项都是不正确的，因为它们没有回答用户的主要问题：收据的扫描和格式要求。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在询问具体操作步骤时，用户通常会先提问。"
-      }
-    },
-    {
-      "id": "workplace_048_sub_3_qa_2_choice_1",
-      "subSceneId": "workplace_048_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_048_sub_3_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Can I submit partial receipts if I lost one?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What is the deadline for submitting receipts?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Do I need to scan the receipts or can I take a photo?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How do I know if my receipts are being processed?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 Can I submit partial receipts if I lost one？因为用户在询问具体操作步骤时，通常会先提问。其他选项虽然都是合理的问题，但并不是在这个场景下最合适的问题。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在询问具体操作步骤时，用户通常会先提问，特别是在确认发票上传格式和注意事项的情况下。"
-      }
-    },
-    {
       "id": "workplace_048_sub_3_choice_3",
       "subSceneId": "workplace_048_sub_3",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我正在上传差旅费用，即使我用公司卡支付了酒店费用，也需要上传酒店收据吗？"
       }
+    },
+    {
+      "id": "workplace_048_sub_3_qa_1_choice_1",
+      "subSceneId": "workplace_048_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工在提交报销前，想确认发票文件的命名规范和格式要求，避免被财务退回。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I upload receipts in PNG format if they’re clearer than JPG?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "What are the required file formats and naming conventions for expense receipts?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Do I need to send the original paper receipts by mail?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How long does it take for reimbursements to be processed?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案询问了文件格式和命名规范，直接对应场景核心需求——避免因格式错误被退回。干扰项1错误地假设PNG可接受，与规则冲突；干扰项3问的是纸质原件，与数字化上传场景不符；干扰项4偏离主题，问的是处理时间而非上传要求。",
+        "qaId": "workplace_048_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "workplace_048_sub_3_qa_2_choice_1",
+      "subSceneId": "workplace_048_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工不小心删除了一张机票收据，想确认是否可以用行程单或电子确认邮件替代，以免报销被拒。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I use a screenshot of my email confirmation instead of a scanned receipt?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Should I ask my colleague to lend me their receipt?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is there a deadline for submitting receipts this month?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I combine multiple receipts into one PDF file?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接针对替代凭证的可行性，符合实际工作中的常见困境。干扰项1是常见误解，但提问方向正确；干扰项2建议借用他人票据，违反财务规范；干扰项3问截止日期，与凭证缺失无关；干扰项4虽相关但属于格式操作，非替代凭证的核心问题。",
+        "qaId": "workplace_048_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:54.707Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

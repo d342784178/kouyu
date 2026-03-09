@@ -33,70 +33,6 @@
       }
     },
     {
-      "id": "workplace_033_sub_4_qa_1_fill_blank_1",
-      "subSceneId": "workplace_033_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "确认抄送对象是否正确",
-        "qaId": "workplace_033_sub_4_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "Linda and Mark",
-            "options": [
-              "Linda",
-              "Mark",
-              "John",
-              "David"
-            ]
-          },
-          {
-            "index": 1,
-            "answer": "Linda and Mark",
-            "options": [
-              "Linda",
-              "Mark",
-              "John",
-              "David"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "确认邮件抄送对象和附件格式是否正确",
-        "knowledgePoint": "提问句型和抄送人确认",
-        "responseTemplate": "Just sent the update—CC'd___and___, right?"
-      }
-    },
-    {
-      "id": "workplace_033_sub_4_qa_2_fill_blank_1",
-      "subSceneId": "workplace_033_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "请确认附件格式是否正确",
-        "qaId": "workplace_033_sub_4_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "docx",
-            "options": [
-              "docx",
-              "pdf",
-              "jpg",
-              "xlsx"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "确认邮件抄送对象和附件格式是否正确",
-        "knowledgePoint": "提问句型和语法结构",
-        "responseTemplate": "The attachment is in .___—should I convert it to PDF for consistency?"
-      }
-    },
-    {
       "id": "workplace_033_sub_4_fill_blank_2",
       "subSceneId": "workplace_033_sub_4",
       "type": "fill_blank",
@@ -177,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "动词搭配：convert to（格式转换固定搭配）"
       }
+    },
+    {
+      "id": "workplace_033_sub_4_qa_1_fill_blank_1",
+      "subSceneId": "workplace_033_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚发送了一封工作邮件，想确认抄送名单是否完整，需要礼貌地询问对方是否需要添加其他人员。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "I've sent the email—___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "should I add anyone else?",
+            "options": [
+              "should I add anyone else?",
+              "is everyone included?",
+              "did I send it to the right people?",
+              "can you check the recipients?"
+            ]
+          }
+        ],
+        "hint": "表达‘是否需要添加其他人’时，用‘should I add anyone else?’最自然、礼貌且符合职场习惯。",
+        "knowledgePoint": "职场沟通中的礼貌确认句型",
+        "qaId": "workplace_033_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "workplace_033_sub_4_qa_2_fill_blank_1",
+      "subSceneId": "workplace_033_sub_4",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你准备发送一份工作文件，不确定附件格式是否符合团队规范，想询问对方是否需要转换格式。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "The file is in .docx—___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "should I convert it to PDF?",
+            "options": [
+              "should I convert it to PDF?",
+              "is PDF better than docx?",
+              "can you open a docx file?",
+              "do you prefer docx?"
+            ]
+          }
+        ],
+        "hint": "询问是否需要转换格式时，用‘should I convert it to PDF?’表达主动配合的态度，符合职场专业表达。",
+        "knowledgePoint": "格式确认的主动服务句型",
+        "qaId": "workplace_033_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:29.149Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

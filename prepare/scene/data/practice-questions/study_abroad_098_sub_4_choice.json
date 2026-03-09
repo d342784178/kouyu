@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.850Z",
   "questions": [
     {
-      "id": "study_abroad_098_sub_4_qa_1_choice_1",
-      "subSceneId": "study_abroad_098_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_098_sub_4_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Can I book a study room for my group? How far ahead do I need to reserve?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you have study rooms available?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "I want to book a room tomorrow.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How much does it cost to rent a study room?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案同时询问了预订可能性和提前时间，符合场景需求。选项2只确认房间是否存在，未涉及预订流程；选项3假设已决定时间，但未询问预订规则；选项4聚焦价格，而场景核心是预订流程和时间要求。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想预订一个供小组使用的讨论室，但不确定流程和提前预订的时间要求，你需要向工作人员提出一个恰当的问题来获取这些信息。"
-      }
-    },
-    {
       "id": "study_abroad_098_sub_4_choice_2",
       "subSceneId": "study_abroad_098_sub_4",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我该怎么实际预订？有网站或应用吗？"
       }
+    },
+    {
+      "id": "study_abroad_098_sub_4_qa_1_choice_1",
+      "subSceneId": "study_abroad_098_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你和三位同学需要在图书馆预订一个小组讨论室，但不确定如何操作以及是否可以当天预订。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I book a study room for my group today, and how do I do it?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is the study room available right now?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much does it cost to rent a study room?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Could you reserve a room for me, please?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案询问了预订的可行性（今天能否订）和操作方式（如何订），符合场景中用户需要获取操作平台和时效信息的核心任务。选项2只问是否空闲，未涉及预订流程；选项3关注费用，但场景未提及收费；选项4请求代为预订，而图书馆系统通常要求用户自行在线操作，不符合实际流程。",
+        "qaId": "study_abroad_098_sub_4_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:08:55.297Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

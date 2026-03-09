@@ -33,70 +33,6 @@
       }
     },
     {
-      "id": "workplace_033_sub_3_qa_2_fill_blank_1",
-      "subSceneId": "workplace_033_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "请提供其他发送方式或格式",
-        "qaId": "workplace_033_sub_3_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "xlsx",
-            "options": [
-              "pdf",
-              "txt",
-              "doc",
-              "xlsx"
-            ]
-          },
-          {
-            "index": 1,
-            "answer": "csv",
-            "options": [
-              "docx",
-              "xls",
-              "ppt",
-              "csv"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户在邮件中提出问题，等待服务方/工作人员回答",
-        "knowledgePoint": "提出替代方案",
-        "responseTemplate": "I can't open the ___ file—it says it's corrupted. Any chance you can resend as ___?"
-      }
-    },
-    {
-      "id": "workplace_033_sub_3_qa_1_fill_blank_1",
-      "subSceneId": "workplace_033_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "PDF太大发不了，能改用其他方式吗？",
-        "qaId": "workplace_033_sub_3_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "Google Drive",
-            "options": [
-              "Dropbox",
-              "OneDrive",
-              "Google Drive",
-              "Microsoft SharePoint"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户在邮件中提出问题，等待服务方/工作人员回答",
-        "knowledgePoint": "提出替代方案",
-        "responseTemplate": "The PDF file is too big to send—can I share it via ___ instead?"
-      }
-    },
-    {
       "id": "workplace_033_sub_3_fill_blank_2",
       "subSceneId": "workplace_033_sub_3",
       "type": "fill_blank",
@@ -177,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "职场常用文件共享平台名称"
       }
+    },
+    {
+      "id": "workplace_033_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "workplace_033_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你收到一个无法打开的文件，想请求对方改用另一种格式重新发送，但不确定如何礼貌地提出替代方案。",
+        "speakerText": "I'm having trouble opening this file.",
+        "speakerTextCn": "我打不开这个文件。",
+        "responseTemplate": "Could you please send it as ___ instead?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a PDF",
+            "options": [
+              "a PDF",
+              "the same file",
+              "it by email",
+              "a compressed version"
+            ]
+          }
+        ],
+        "hint": "当文件格式有问题时，常用句型是 'Could you send it as ___ instead?' 来请求更换格式。",
+        "knowledgePoint": "提出替代方案的礼貌请求句型",
+        "qaId": "workplace_033_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "workplace_033_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "workplace_033_sub_3",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你无法下载一个超大的文件附件，想建议对方改用云盘分享，但不确定如何自然表达这个请求。",
+        "speakerText": "The attachment is too large to download.",
+        "speakerTextCn": "附件太大，无法下载。",
+        "responseTemplate": "Would it be possible to share it via ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a cloud link",
+            "options": [
+              "a cloud link",
+              "an email chain",
+              "a printed copy",
+              "a text message"
+            ]
+          }
+        ],
+        "hint": "当文件太大时，常用 'Would it be possible to share it via ___?' 来礼貌提议使用云服务。",
+        "knowledgePoint": "使用云服务替代大附件的表达方式",
+        "qaId": "workplace_033_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:22.503Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

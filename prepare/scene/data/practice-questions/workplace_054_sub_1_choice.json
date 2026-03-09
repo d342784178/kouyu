@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.586Z",
   "questions": [
     {
-      "id": "workplace_054_sub_1_qa_1_choice_1",
-      "subSceneId": "workplace_054_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_054_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Hi, do you have time for me?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "你有空吗？",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you help me now?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Hi, how much time do you have?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案\"Hi, do you have time for me?\"适用于询问服务员是否可以提供服务的场景，表达自然、礼貌。其他选项中的问题可能不完全符合场景或表达不自然。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想询问服务员是否可以提供服务"
-      }
-    },
-    {
       "id": "workplace_054_sub_1_choice_2",
       "subSceneId": "workplace_054_sub_1",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "嗨，萨拉，有空吗？"
       }
+    },
+    {
+      "id": "workplace_054_sub_1_qa_1_choice_1",
+      "subSceneId": "workplace_054_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工在办公室遇到行政人员，想礼貌地请求几分钟时间咨询工作事宜",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hi Sarah, do you have a quick moment to chat about the new filing system?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Hey, I need you to help me with something right now.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "What are you doing? Can you help me?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "The filing system isn’t working—can you fix it?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了礼貌的开场白（'Hi Sarah'）和委婉的请求结构（'do you have a quick moment to chat about...'），符合职场礼貌问候场景。干扰项1语气生硬且缺乏礼貌；干扰项2直接命令式，缺乏尊重；干扰项4直接要求解决问题，未先建立沟通桥梁，不符合先问候再提出请求的社交规范。",
+        "qaId": "workplace_054_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:29.284Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

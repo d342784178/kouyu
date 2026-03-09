@@ -5,54 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.592Z",
   "questions": [
     {
-      "id": "daily_022_sub_3_qa_1_speaking_1",
-      "subSceneId": "daily_022_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_022_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在宠物店想购买一只小狗，想了解具体价格、是否包含疫苗接种以及是否有其他附加费用或条件。",
-        "expectedAnswers": [
-          "How much does the puppy cost?",
-          "Does the price include vaccinations and other services?",
-          "Are there any additional fees I should know about?",
-          "Could you tell me what’s included in the price?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问了价格、包含服务和购买条件",
-          "语言准确性：语法结构正确，用词恰当",
-          "表达自然度：符合日常英语口语习惯，语气礼貌自然",
-          "关键词覆盖：使用了 price, include, vaccinations, fees 等场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "daily_022_sub_3_qa_2_speaking_1",
-      "subSceneId": "daily_022_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_022_sub_3_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在宠物店想了解一只小狗的价格、包含的服务（如疫苗）以及是否可以当天带回家，需要主动向店员提问。",
-        "expectedAnswers": [
-          "How much does it cost, and does the price include the vaccinations?",
-          "Can I take it home today? What’s included in the price?",
-          "Could you tell me the total cost and what services are covered?",
-          "Is the price all-inclusive, and am I able to bring it home today?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问了价格、包含服务和购买条件",
-          "语言准确性：语法正确，用词恰当，无明显错误",
-          "表达自然度：符合英语口语习惯，语气礼貌自然",
-          "关键词覆盖：使用了'price', 'cost', 'include', 'vaccinations', 'take home'等场景关键词"
-        ]
-      }
-    },
-    {
       "id": "daily_022_sub_3_speaking_3",
       "subSceneId": "daily_022_sub_3",
       "type": "speaking",
@@ -75,6 +27,60 @@
           "关键词覆盖：使用了warranty, return, sick, vet等核心词"
         ]
       }
+    },
+    {
+      "id": "daily_022_sub_3_qa_1_speaking_1",
+      "subSceneId": "daily_022_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在宠物店想购买一只猫，想确认价格是否包含绝育手术、猫粮和初始疫苗。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "How much is the cat, and does the price include spaying, food, and initial vaccines?",
+          "Could you tell me what’s included in the price? I want to know if shots and spaying are covered.",
+          "Is the cost all-inclusive for vaccines and sterilization, or are those extra?",
+          "Do I pay extra for the first set of shots and the food, or is it bundled?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了价格及三项关键服务（绝育、猫粮、疫苗）是否包含",
+          "语言准确性：语法正确，使用了恰当的疑问句结构和专业词汇（如 spaying, vaccines）",
+          "表达自然度：符合日常英语口语习惯，语气礼貌且清晰",
+          "关键词覆盖：至少包含 price, include, vaccines, spaying 中的三个关键词"
+        ],
+        "qaId": "daily_022_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "daily_022_sub_3_qa_2_speaking_1",
+      "subSceneId": "daily_022_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在预订酒店房间时，想确认房价是否包含早餐、Wi-Fi和机场接送服务。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Does the room rate include breakfast, Wi-Fi, and airport shuttle?",
+          "Can you confirm what’s covered in the price? I’m especially interested in breakfast and free Wi-Fi.",
+          "Are breakfast and the airport transfer part of the deal, or are they extra charges?",
+          "Is Wi-Fi free and is there a complimentary breakfast? What about pickup from the airport?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了三项服务（早餐、Wi-Fi、接送）是否包含在房价中",
+          "语言准确性：使用了正确的疑问结构和酒店常用术语（如 room rate, shuttle, complimentary）",
+          "表达自然度：语气礼貌，符合酒店服务场景的沟通习惯",
+          "关键词覆盖：至少包含 room rate, include, breakfast, Wi-Fi 中的三个关键词"
+        ],
+        "qaId": "daily_022_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:05:18.211Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

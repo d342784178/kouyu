@@ -5,60 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.266Z",
   "questions": [
     {
-      "id": "travel_071_sub_4_qa_1_fill_blank_1",
-      "subSceneId": "travel_071_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "礼貌索要发票或收据用于报销",
-        "qaId": "travel_071_sub_4_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "receipt",
-            "options": [
-              "票据",
-              "收据",
-              "发票",
-              "账单"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "索取发票",
-        "knowledgePoint": "表达式索取发票",
-        "responseTemplate": "Could I get a _____ for my expenses?"
-      }
-    },
-    {
-      "id": "travel_071_sub_4_qa_2_fill_blank_1",
-      "subSceneId": "travel_071_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "请填写公司名称",
-        "qaId": "travel_071_sub_4_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "ABC Corp.",
-            "options": [
-              "本公司名称",
-              "公司名单",
-              "我的公司名称",
-              "公司名称列表"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客提出需求，服务方回应",
-        "knowledgePoint": "提问句型，表达需求",
-        "responseTemplate": "Can you put my company name on it? It's___"
-      }
-    },
-    {
       "id": "travel_071_sub_4_fill_blank_1",
       "subSceneId": "travel_071_sub_4",
       "type": "fill_blank",
@@ -177,6 +123,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "动词搭配（send by email）与冠词用法"
       }
+    },
+    {
+      "id": "travel_071_sub_4_qa_1_fill_blank_1",
+      "subSceneId": "travel_071_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在餐厅吃完饭后，想礼貌地向服务员索取发票用于公司报销",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "___ for a receipt, please?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Could I get",
+            "options": [
+              "Could I get",
+              "Give me",
+              "I want",
+              "Can you give"
+            ]
+          }
+        ],
+        "hint": "使用礼貌的请求句型，避免直接命令式表达",
+        "knowledgePoint": "礼貌索取服务的句型",
+        "qaId": "travel_071_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "travel_071_sub_4_qa_2_fill_blank_1",
+      "subSceneId": "travel_071_sub_4",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在酒店结账时，需要收据上注明公司名称以便报销",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Could you ___ on the receipt?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "add my company name",
+            "options": [
+              "add my company name",
+              "write my company is",
+              "put the name of my company",
+              "include my company"
+            ]
+          }
+        ],
+        "hint": "使用简洁的动词短语表达需求，避免冗长或语法错误结构",
+        "knowledgePoint": "请求个性化收据的表达方式",
+        "qaId": "travel_071_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:45.913Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

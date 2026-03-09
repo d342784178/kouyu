@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.549Z",
   "questions": [
     {
-      "id": "workplace_049_sub_4_qa_2_choice_1",
-      "subSceneId": "workplace_049_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_049_sub_4_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What's the daily limit for meals?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How do I get reimbursed for my expenses?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can I have a car rental for my trip?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "What's the maximum amount I can spend on a hotel room?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案是\"What's the daily limit for meals?\"，因为它符合场景需求，询问每日住宿和餐饮预算上限。其他选项不正确，因为它们不符合场景需求或询问了不相关的信息。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "确认差旅费用报销流程和额度"
-      }
-    },
-    {
-      "id": "workplace_049_sub_4_qa_1_choice_1",
-      "subSceneId": "workplace_049_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_049_sub_4_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What's the max daily allowance for hotels and meals?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can you give me a list of all the allowed expenses?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How long does it take to process a reimbursement request?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Do you have any discounts for business travelers?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案询问住宿和餐饮的每日上限，这是确认差旅费用报销流程和额度的关键信息。干扰项\"Can you give me a list of all the allowed expenses?\"询问的是允许的所有费用清单，这与场景提示不符；\"How long does it take to process a reimbursement request?\"询问的是处理报销请求的时间，这与场景提示无关；\"Do you have any discounts for business travelers?\"询问的是商务旅行者是否有折扣，这与场景提示也无关。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "确认差旅费用报销流程和额度"
-      }
-    },
-    {
       "id": "workplace_049_sub_4_choice_3",
       "subSceneId": "workplace_049_sub_4",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我下个月要出差三天，关于出租车等杂费的报销政策是什么？"
       }
+    },
+    {
+      "id": "workplace_049_sub_4_qa_1_choice_1",
+      "subSceneId": "workplace_049_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你即将出差，需要提前确认公司对交通费用的报销政策，避免预订后无法报销。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What's the maximum amount the company will reimburse for round-trip flights?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I upgrade to business class if I find a good deal?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you know which airport is closest to the conference center?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much did last month’s travel budget cost?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接询问公司对往返机票的报销上限，符合‘确认预算’的核心任务。干扰项2是假设性提问，未先确认政策；干扰项3是地理信息问题，与预算无关；干扰项4询问历史数据，无法帮助当前决策。",
+        "qaId": "workplace_049_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "workplace_049_sub_4_qa_2_choice_1",
+      "subSceneId": "workplace_049_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你计划出差三天，需要明确公司对每日餐饮和杂费的报销标准，以便合理规划开销。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What’s the daily per diem for meals and incidentals?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I get an advance on my travel expenses?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Should I pay for meals with my personal card?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How many meals are provided during the conference?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用专业术语 'per diem' 准确询问每日餐饮和杂费标准，符合职场规范。干扰项1询问预支，属于不同流程；干扰项2和3关注支付方式，未触及报销额度这一核心问题。",
+        "qaId": "workplace_049_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:52.219Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

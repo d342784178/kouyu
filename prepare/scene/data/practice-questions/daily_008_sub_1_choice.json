@@ -41,41 +41,6 @@
       }
     },
     {
-      "id": "daily_008_sub_1_qa_1_choice_1",
-      "subSceneId": "daily_008_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_008_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Hi there! Can you help me send a package?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "你好！快递服务很贵吗？",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you tell me the address of the post office?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "嗨！你能帮我寄个包裹吗？",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案\"Hi there! Can you help me send a package?\"是合适的打招呼咨询问题。选项\"你好！快递服务很贵吗？」是理解偏差型，因为顾客并没有询问快递服务价格。选项\"Can you tell me the address of the post office?\"是提问不当型，因为顾客应该询问寄快递服务，而不是邮局地址。选项\"嗨！你能帮我寄个包裹吗？\"是表达不当型，因为它的语法和表达方式与正确答案不同。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客向工作人员问候并询问寄快递服务"
-      }
-    },
-    {
       "id": "daily_008_sub_1_choice_2",
       "subSceneId": "daily_008_sub_1",
       "type": "choice",
@@ -146,6 +111,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "嗨！我要寄一个包裹，你们做国际快递吗？"
       }
+    },
+    {
+      "id": "daily_008_sub_1_qa_1_choice_1",
+      "subSceneId": "daily_008_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在快递公司前台，想礼貌地询问是否可以帮忙寄一个包裹",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hi, could you help me send a package?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I need to send a package now.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you send packages?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you send my package for me?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了礼貌的请求句式 'Could you help me...'，符合英语中向陌生人求助的常见表达。选项2是命令式语气，不够礼貌；选项3只是询问服务是否存在，未表达求助意图；选项4虽然语法正确，但 'send my package' 暗示对方已接受请求，而实际应先礼貌询问是否可提供帮助。",
+        "qaId": "daily_008_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:25.959Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

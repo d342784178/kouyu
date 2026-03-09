@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.553Z",
   "questions": [
     {
-      "id": "daily_016_sub_1_qa_1_choice_1",
-      "subSceneId": "daily_016_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_016_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Hey, do you have any orange juice?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Orange juice is very popular, right?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "I'd like to know the price of the juice.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "You have orange juice, right?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案\"Hey, do you have any orange juice?\"符合场景的询问方式。其他选项不正确，因为它们没有直接询问商品信息或价格。\"Orange juice is very popular, right?\"是一种不相关的陈述，\"I'd like to know the price of the juice.\"更倾向于询问价格信息而不是商品是否有售，\"You have orange juice, right?\"是一种询问是否有橙汁的陈述，但没有询问具体的问题。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客通常先发起询问，如询问商品信息或价格"
-      }
-    },
-    {
-      "id": "daily_016_sub_1_qa_2_choice_1",
-      "subSceneId": "daily_016_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_016_sub_1_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "And do you have the chicken sandwich?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "You have chicken sandwich?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "I want chicken sandwich.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can you tell me about chicken sandwich?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 'And do you have the chicken sandwich?'，因为它符合场景提示，询问商品是否有鸡肉三明治。其他选项不正确，因为它们询问了错误的问题：'You have chicken sandwich?' 是提问不当型，'I want chicken sandwich.' 是表达不当型，'Can you tell me about chicken sandwich?' 是理解偏差型。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客进店问候并询问商品有无"
-      }
-    },
-    {
       "id": "daily_016_sub_1_choice_1",
       "subSceneId": "daily_016_sub_1",
       "type": "choice",
@@ -181,6 +111,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "嘿，你们有新鲜的香蕉吗？"
       }
+    },
+    {
+      "id": "daily_016_sub_1_qa_1_choice_1",
+      "subSceneId": "daily_016_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客走进便利店，想询问是否有瓶装矿泉水，准备购买",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do you have any bottled water?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much is the bottled water?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I want to buy some bottled water.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Where is the water located?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 'Do you have any bottled water?'，这是询问商品库存的自然、高频表达，符合场景中顾客主动询问有无商品的需求。选项2是问价格，但顾客尚未确认是否有货，逻辑顺序错误；选项3是陈述需求，不是提问，不符合'user_asks'模式；选项4是问位置，但前提应是先确认是否有货，属于顺序颠倒。",
+        "qaId": "daily_016_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "daily_016_sub_1_qa_2_choice_1",
+      "subSceneId": "daily_016_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在咖啡店想确认是否有燕麦奶，以便点拿铁",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do you offer oat milk?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I’d like a latte with oat milk.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is oat milk expensive?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you make me a latte?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 'Do you offer oat milk?'，这是在不确定商品是否提供时的标准询问方式，自然且符合口语习惯。选项2是直接下单，但顾客尚未确认是否可选燕麦奶，逻辑不完整；选项3问价格，属于过早关注成本；选项4未提及燕麦奶，与场景需求无关。",
+        "qaId": "daily_016_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:04:21.952Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

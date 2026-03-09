@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.135Z",
   "questions": [
     {
-      "id": "travel_062_sub_3_qa_2_fill_blank_1",
-      "subSceneId": "travel_062_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问关闭时间，动词需与 'early' 搭配表示结束营业",
-        "qaId": "travel_062_sub_3_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "close",
-            "options": [
-              "close",
-              "open",
-              "start",
-              "finish"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "游客想了解景点在周末是否提前关闭",
-        "knowledgePoint": "日常询问开放时间的句型结构",
-        "responseTemplate": "Do they ___ early on weekends?"
-      }
-    },
-    {
       "id": "travel_062_sub_3_fill_blank_1",
       "subSceneId": "travel_062_sub_3",
       "type": "fill_blank",
@@ -67,33 +40,6 @@
         "speakerTextCn": "您能告诉我成人和儿童的票价吗？",
         "knowledgePoint": "表达价格差异的常用结构",
         "responseTemplate": "It's ___ for adults and ___ for children."
-      }
-    },
-    {
-      "id": "travel_062_sub_3_qa_1_fill_blank_1",
-      "subSceneId": "travel_062_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问价格和时间时，用间接疑问句结构，避免使用倒装",
-        "qaId": "travel_062_sub_3_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "how much the entrance fee is and when it opens",
-            "options": [
-              "how much the entrance fee is and when it opens",
-              "what is the price and opening time",
-              "the cost and opening hours of it",
-              "how much does it cost and what time it starts"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "游客想了解景点的门票价格和开放时间",
-        "knowledgePoint": "间接疑问句的正确语序",
-        "responseTemplate": "Could you tell me ___?"
       }
     },
     {
@@ -177,6 +123,62 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "场景高频词汇（free）"
       }
+    },
+    {
+      "id": "travel_062_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "travel_062_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在参观景点前，想了解门票价格",
+        "responseTemplate": "___ for the entrance fee?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "How much is",
+            "options": [
+              "How much is",
+              "What is the cost of",
+              "Is it expensive",
+              "Do you charge"
+            ]
+          }
+        ],
+        "hint": "询问价格的标准表达，常用于服务场景",
+        "knowledgePoint": "询问价格的常用句型",
+        "qaId": "travel_062_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "travel_062_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "travel_062_sub_3",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客想知道景点是否在节假日有特别开放时间",
+        "responseTemplate": "___ on holidays?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Do you close early",
+            "options": [
+              "Do you close early",
+              "Are you open late",
+              "Is it closed",
+              "What time do you start"
+            ]
+          }
+        ],
+        "hint": "询问特殊日期是否提前关闭的标准表达",
+        "knowledgePoint": "确认特殊时间安排的句型",
+        "qaId": "travel_062_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:48.197Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

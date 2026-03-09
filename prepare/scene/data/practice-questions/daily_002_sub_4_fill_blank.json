@@ -5,60 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.450Z",
   "questions": [
     {
-      "id": "daily_002_sub_4_qa_2_fill_blank_1",
-      "subSceneId": "daily_002_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "你可以问工作人员：我想知道哪里是收银台，你能告诉我哪里的收银台吗？",
-        "qaId": "daily_002_sub_4_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "哪里",
-            "options": [
-              "哪个地方",
-              "哪个位置",
-              "哪条队伍",
-              "哪个房间"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在商店中询问收银台的位置",
-        "knowledgePoint": "提问句型",
-        "responseTemplate": "我想知道哪里是收银台，你能告诉我___吗?"
-      }
-    },
-    {
-      "id": "daily_002_sub_4_qa_1_fill_blank_1",
-      "subSceneId": "daily_002_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问地点时，英语中常用 'Where's' 引导特殊疑问句",
-        "qaId": "daily_002_sub_4_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "Where's",
-            "options": [
-              "What's",
-              "How's",
-              "Is there",
-              "Where's"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想找到最近的收银台，需要向工作人员提问",
-        "knowledgePoint": "特殊疑问句结构（询问地点）",
-        "responseTemplate": "___ the nearest checkout counter?"
-      }
-    },
-    {
       "id": "daily_002_sub_4_fill_blank_1",
       "subSceneId": "daily_002_sub_4",
       "type": "fill_blank",
@@ -167,6 +113,37 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "场景核心词汇（express lane）"
       }
+    },
+    {
+      "id": "daily_002_sub_4_qa_1_fill_blank_1",
+      "subSceneId": "daily_002_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在超市里想找到最近的收银台，准备结账，需要向工作人员询问位置",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Where's the nearest ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "checkout counter",
+            "options": [
+              "checkout counter",
+              "shopping cart",
+              "product aisle",
+              "customer service"
+            ]
+          }
+        ],
+        "hint": "这是询问收银台位置最自然、最常用的表达方式",
+        "knowledgePoint": "日常购物场景中的方位询问句型",
+        "qaId": "daily_002_sub_4_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:15.746Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

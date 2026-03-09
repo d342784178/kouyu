@@ -5,53 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.589Z",
   "questions": [
     {
-      "id": "daily_022_sub_1_qa_1_speaking_1",
-      "subSceneId": "daily_022_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_022_sub_1_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客走进宠物店，想向店员打招呼并说明自己正在寻找适合公寓生活的宠物，请你模拟顾客的提问。",
-        "expectedAnswers": [
-          "Hi! I'm looking for a pet that's good for small spaces.",
-          "Hello! Do you have any pets that work well in apartments?",
-          "Hi there! I need a low-maintenance pet for my apartment—any suggestions?",
-          "Hey! I live in an apartment and want a pet that won't need much room. What do you recommend?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确表达了寻找适合公寓宠物的意图",
-          "语言准确性：语法正确，用词恰当，无明显错误",
-          "表达自然度：符合英语日常口语习惯，语气友好自然",
-          "关键词覆盖：使用了 'apartment', 'pet', 'small space' 或类似关键词"
-        ]
-      }
-    },
-    {
-      "id": "daily_022_sub_1_qa_2_speaking_1",
-      "subSceneId": "daily_022_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_022_sub_1_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你走进店里，店员问你：Hi, how can I help you today?",
-        "expectedAnswers": [
-          "Hi, I just wanted to browse around.",
-          "Hi, I'm looking for some information about your products.",
-          "Hi, I'm interested in learning more about your store."
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
       "id": "daily_022_sub_1_speaking_3",
       "subSceneId": "daily_022_sub_1",
       "type": "speaking",
@@ -74,6 +27,60 @@
           "关键词覆盖：使用了 'small', 'quiet', 'noise', 'pet' 等场景关键词"
         ]
       }
+    },
+    {
+      "id": "daily_022_sub_1_qa_1_speaking_1",
+      "subSceneId": "daily_022_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客刚走进宠物店，想向店员打招呼并说明自己想买一只适合小空间养的宠物，但没有养过宠物的经验。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Hi, I'm new to pets—could you recommend something low-maintenance and good for small spaces?",
+          "Hello! I'm looking for a pet that doesn't need much care, since I've never had one before.",
+          "Hi there! I live in an apartment and want a quiet, easy pet—any suggestions?",
+          "Hey, I need a pet that’s simple to take care of and won’t need a lot of room."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表达了想买宠物且是新手、空间有限的需求",
+          "语言准确性：语法正确，用词恰当，无严重错误",
+          "表达自然度：符合英语口语习惯，语气礼貌自然",
+          "关键词覆盖：使用了 'low-maintenance', 'small space', 'new to pets', 'recommend' 等场景关键词"
+        ],
+        "qaId": "daily_022_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "daily_022_sub_1_qa_2_speaking_1",
+      "subSceneId": "daily_022_sub_1",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客走进宠物店，想询问店员哪种宠物适合忙碌的上班族，希望宠物安静、不吵闹、容易照顾。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Hi, I work long hours—do you have any quiet, low-effort pets that would be good for someone busy?",
+          "Hello! I’m looking for a pet that’s calm and doesn’t need daily walks or a lot of attention.",
+          "Hey, I’m looking for something peaceful and easy to care for—I’m usually home late.",
+          "Could you suggest a pet that’s quiet and doesn’t require much time, since I’m always at work?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰传达了‘忙碌’‘安静’‘低维护’的核心需求",
+          "语言准确性：语法正确，时态和用词符合日常对话规范",
+          "表达自然度：语气自然，符合真实顾客与店员的互动方式",
+          "关键词覆盖：使用了 'busy', 'low-effort', 'quiet', 'easy to care for', 'work' 等关键词"
+        ],
+        "qaId": "daily_022_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:04:35.982Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

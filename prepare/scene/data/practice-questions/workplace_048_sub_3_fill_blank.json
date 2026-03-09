@@ -5,60 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.538Z",
   "questions": [
     {
-      "id": "workplace_048_sub_3_qa_2_fill_blank_1",
-      "subSceneId": "workplace_048_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "如果丢了张发票，能只报部分吗？",
-        "qaId": "workplace_048_sub_3_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "partial receipts",
-            "options": [
-              "all receipts",
-              "partial receipts",
-              "only one receipt",
-              "none of them"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "询问发票上传格式和注意事项",
-        "knowledgePoint": "提问句型",
-        "responseTemplate": "Can I submit ___ if I lost one?"
-      }
-    },
-    {
-      "id": "workplace_048_sub_3_qa_1_fill_blank_1",
-      "subSceneId": "workplace_048_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示，帮助用户回忆",
-        "qaId": "workplace_048_sub_3_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "scan",
-            "options": [
-              "submit",
-              "send",
-              "scan",
-              "upload"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "询问具体操作步骤时，用户通常会先提问",
-        "knowledgePoint": "提问句型和发票上传注意事项",
-        "responseTemplate": "Do I need to ___ all receipts?"
-      }
-    },
-    {
       "id": "workplace_048_sub_3_fill_blank_1",
       "subSceneId": "workplace_048_sub_3",
       "type": "fill_blank",
@@ -151,6 +97,66 @@
         "knowledgePoint": "禁止使用手机原图的表达",
         "responseTemplate": "No, ___ from your phone camera aren't accepted — please scan them instead."
       }
+    },
+    {
+      "id": "workplace_048_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "workplace_048_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工在上传发票前，想确认是否可以提交模糊或不清晰的扫描件",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Can I upload ___ instead of a clear scan?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a blurry photo",
+            "options": [
+              "a blurry photo",
+              "a handwritten note",
+              "a screenshot",
+              "an email confirmation"
+            ]
+          }
+        ],
+        "hint": "考虑哪种形式不符合公司对发票清晰度的要求",
+        "knowledgePoint": "询问文件格式与质量要求",
+        "qaId": "workplace_048_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "workplace_048_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "workplace_048_sub_3",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工想确认是否可以将多张发票合并成一个文件上传",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Can I combine multiple receipts into ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "one PDF file",
+            "options": [
+              "one PDF file",
+              "a single image",
+              "a zip folder",
+              "an Excel sheet"
+            ]
+          }
+        ],
+        "hint": "考虑哪种文件格式是公司允许的合并方式",
+        "knowledgePoint": "询问文件合并与格式规范",
+        "qaId": "workplace_048_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:40.926Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

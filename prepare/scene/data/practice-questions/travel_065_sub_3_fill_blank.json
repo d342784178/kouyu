@@ -33,60 +33,6 @@
       }
     },
     {
-      "id": "travel_065_sub_3_qa_2_fill_blank_1",
-      "subSceneId": "travel_065_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "请回忆服务方/工作人员应提供的明确指导或步骤",
-        "qaId": "travel_065_sub_3_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "the embassy",
-            "options": [
-              "选项1：公安局",
-              "选项2：大使馆",
-              "选项3：派出所",
-              "选项4：学校"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "了解后续补办步骤和所需材料",
-        "knowledgePoint": "询问流程和所需材料",
-        "responseTemplate": "What materials will we need to bring to___"
-      }
-    },
-    {
-      "id": "travel_065_sub_3_qa_1_fill_blank_1",
-      "subSceneId": "travel_065_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "服务方/工作人员应提供明确的指导或步骤",
-        "qaId": "travel_065_sub_3_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "做什么",
-            "options": [
-              "做什么",
-              "怎么办",
-              "要准备什么",
-              "需要去哪里"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "询问流程，了解后续补办步骤和所需材料",
-        "knowledgePoint": "询问流程",
-        "responseTemplate": "接下来我该___什么？"
-      }
-    },
-    {
       "id": "travel_065_sub_3_fill_blank_2",
       "subSceneId": "travel_065_sub_3",
       "type": "fill_blank",
@@ -167,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "场景惯用搭配（submit documents）"
       }
+    },
+    {
+      "id": "travel_065_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "travel_065_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚刚被告知需要补办某项证件，但不确定还需要准备哪些材料或文件。",
+        "speakerText": "You'll need to bring some documents to complete the process.",
+        "speakerTextCn": "你需要带一些文件来完成这个流程。",
+        "responseTemplate": "Could you please tell me what ___ I need to bring?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "documents",
+            "options": [
+              "documents",
+              "papers",
+              "forms",
+              "items"
+            ]
+          }
+        ],
+        "hint": "这里需要询问的是具体需要带什么材料，常用词是 documents。",
+        "knowledgePoint": "询问所需材料的标准化表达",
+        "qaId": "travel_065_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "travel_065_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "travel_065_sub_3",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你已得知下一步要前往某个机构办理业务，但想确认是否需要提前预约或是否有特定流程。",
+        "speakerText": "You need to go to the service center to submit your application.",
+        "speakerTextCn": "你需要去服务中心提交申请。",
+        "responseTemplate": "Do I need to ___ before going there?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "make an appointment",
+            "options": [
+              "make an appointment",
+              "book a ticket",
+              "call ahead",
+              "schedule a meeting"
+            ]
+          }
+        ],
+        "hint": "在办理官方事务前，询问是否需要预约的常用表达是 'make an appointment'。",
+        "knowledgePoint": "询问是否需要预约的地道表达",
+        "qaId": "travel_065_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:58.282Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

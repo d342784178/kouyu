@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.376Z",
   "questions": [
     {
-      "id": "workplace_034_sub_3_qa_1_choice_1",
-      "subSceneId": "workplace_034_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_034_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "How's the budget holding up? I heard the vendor costs spiked last month.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What's the weather like outside?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you tell me more about the project timeline?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "What's your favorite hobby?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是How's the budget holding up? I heard the vendor costs spiked last month，因为它直接询问了预算情况。其他选项与场景无关，或者询问了不相关的信息。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "询问预算情况，服务方/工作人员需提供详细回答"
-      }
-    },
-    {
-      "id": "workplace_034_sub_3_qa_2_choice_1",
-      "subSceneId": "workplace_034_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_034_sub_3_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Do we have any major risks we should flag before Q3?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you have any questions about the budget?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "When is the deadline for the budget report?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can you tell me more about the company's financial situation?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案\"Do we have any major risks we should flag before Q3?\"能够准确地询问总监关于预算和风险的质询。选项2、3和4的问题虽然语法正确，但不符合该场景的需求。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "Q3前有什么重大风险需要提前预警吗？"
-      }
-    },
-    {
       "id": "workplace_034_sub_3_choice_3",
       "subSceneId": "workplace_034_sub_3",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "能更新一下新产品的发布计划吗？预计会有延迟吗？"
       }
+    },
+    {
+      "id": "workplace_034_sub_3_qa_1_choice_1",
+      "subSceneId": "workplace_034_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你作为项目经理，需要在周会上主动向总监询问当前项目预算的执行情况，以展现你对成本的掌控力。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How's the budget holding up? I heard vendor costs went up last month.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can we spend more next quarter if needed?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Why did we overspend on cloud services?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Is the budget fine?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是选项1，因为它以专业、具体的方式询问预算现状，引用了已知信息（供应商费用上涨），引导对方提供有数据支持的回应，符合职场沟通中‘展现掌控力’的要求。选项2是未来请求，非当前状态询问；选项3带有指责语气，不符合建设性沟通原则；选项4过于笼统，缺乏专业深度。",
+        "qaId": "workplace_034_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "workplace_034_sub_3_qa_2_choice_1",
+      "subSceneId": "workplace_034_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在准备季度汇报，需要主动向总监提出潜在项目风险，以体现你的前瞻性与风险管理意识。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Are there any major risks we should flag before Q3?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is everything going smoothly?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can we switch vendors next month?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What’s the biggest problem right now?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是选项1，它精准使用了职场中表达风险预警的标准句式，强调‘提前预警’（flag before Q3），符合专业沟通中‘具体+有预案’的要求。选项2过于被动且模糊；选项3直接提出解决方案，而非先识别风险；选项4语气负面，易引发防御性回应，不符合积极主动的管理沟通风格。",
+        "qaId": "workplace_034_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:30.751Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -5,54 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.629Z",
   "questions": [
     {
-      "id": "daily_027_sub_2_qa_2_speaking_1",
-      "subSceneId": "daily_027_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_027_sub_2_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在购买一款电动工具，想了解它的电池续航时间和功率等关键功能，需要向销售员提问。",
-        "expectedAnswers": [
-          "How long does the battery last on a single charge?",
-          "What's the power output and runtime of this tool?",
-          "Does it have multiple speed settings and an LED light?",
-          "Can you tell me about the battery life and any special features like lighting or speed controls?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问了电池续航或功率等关键功能",
-          "语言准确性：语法结构正确，用词恰当",
-          "表达自然度：符合日常英语对话习惯，不生硬",
-          "关键词覆盖：使用了battery,续航, power, LED, speed等场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "daily_027_sub_2_qa_1_speaking_1",
-      "subSceneId": "daily_027_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_027_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客正在查看一款电动工具，想了解它的电池续航时间和功率参数，你需要主动询问相关功能信息。",
-        "expectedAnswers": [
-          "How long does the battery last on a single charge?",
-          "What’s the battery voltage and runtime?",
-          "Can you tell me the battery life and power output?",
-          "How many minutes of use can I get from one full charge?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问了电池续航或功率参数",
-          "语言准确性：语法结构正确，用词恰当",
-          "表达自然度：符合日常英语口语习惯，无生硬表达",
-          "关键词覆盖：使用了 battery, charge, runtime, voltage 或 power 等场景关键词"
-        ]
-      }
-    },
-    {
       "id": "daily_027_sub_2_speaking_3",
       "subSceneId": "daily_027_sub_2",
       "type": "speaking",
@@ -75,6 +27,60 @@
           "关键词覆盖：使用了torque、battery life、adjust、charge等核心词"
         ]
       }
+    },
+    {
+      "id": "daily_027_sub_2_qa_1_speaking_1",
+      "subSceneId": "daily_027_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在电器商店查看一台电动钻，销售员告诉你它的电池是20V，续航90分钟。你想进一步了解它的充电时间和是否支持快充。",
+        "speakerText": "This one’s got a 20V battery — lasts about 90 mins on a charge.",
+        "speakerTextCn": "这款是20伏电池，充一次能用90分钟。",
+        "expectedAnswers": [
+          "How long does it take to fully charge?",
+          "Does it support fast charging? I need to get back to work quickly.",
+          "Can I buy an extra battery to swap in while the other one charges?",
+          "Is the charger included, or do I need to buy it separately?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了充电时间或快充功能",
+          "语言准确性：语法和时态使用正确，无明显错误",
+          "表达自然度：使用了日常口语中常见的表达方式",
+          "关键词覆盖：包含 charging, fast charge, extra battery, charger 等场景关键词"
+        ],
+        "qaId": "daily_027_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "daily_027_sub_2_qa_2_speaking_1",
+      "subSceneId": "daily_027_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "销售员介绍了一款电动割草机，说它功率是1400W，适合中等大小的草坪。你希望确认它是否能应对你家较厚的草和陡坡。",
+        "speakerText": "It’s a 1400W motor, perfect for medium-sized lawns.",
+        "speakerTextCn": "它配备1400瓦电机，适合中等大小的草坪。",
+        "expectedAnswers": [
+          "Can it handle thick grass or tall weeds?",
+          "Will it struggle on steep slopes? My backyard is pretty hilly.",
+          "Is the power adjustable? I don’t want to overwork it on light patches.",
+          "How does it compare to a 1200W model in terms of torque?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否针对实际使用需求（厚草、陡坡）提出具体问题",
+          "语言准确性：使用了恰当的动词和比较结构，如 'handle', 'struggle', 'compare'",
+          "表达自然度：语气符合真实消费者询问习惯，不生硬",
+          "关键词覆盖：包含 thick grass, steep slopes, power adjustable, torque 等核心功能词"
+        ],
+        "qaId": "daily_027_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:05:00.875Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

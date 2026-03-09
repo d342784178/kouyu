@@ -33,33 +33,6 @@
       }
     },
     {
-      "id": "workplace_040_sub_1_qa_1_fill_blank_1",
-      "subSceneId": "workplace_040_sub_1",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "用户应该先问候经理，然后询问有关进展的信息",
-        "qaId": "workplace_040_sub_1_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "manager",
-            "options": [
-              "manager",
-              "colleague",
-              "customer",
-              "supervisor"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "场景提示：用户通常在寻求信息或服务时先提问",
-        "knowledgePoint": "开场问候和提问句型",
-        "responseTemplate": "Hey ___ , got a minute to go over Q2 progress?"
-      }
-    },
-    {
       "id": "workplace_040_sub_1_fill_blank_2",
       "subSceneId": "workplace_040_sub_1",
       "type": "fill_blank",
@@ -166,6 +139,37 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "惯用搭配：dive in（开始深入讨论）"
       }
+    },
+    {
+      "id": "workplace_040_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "workplace_040_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工想礼貌地请求经理抽出一点时间汇报工作进展",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Hi [name], could you spare a moment to ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "review the progress",
+            "options": [
+              "review the progress",
+              "check the schedule",
+              "discuss the lunch plan",
+              "update the database"
+            ]
+          }
+        ],
+        "hint": "在工作汇报场景中，常用表达是‘review the progress’来指代回顾工作进展",
+        "knowledgePoint": "工作场景中的礼貌请求表达",
+        "qaId": "workplace_040_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:45.052Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

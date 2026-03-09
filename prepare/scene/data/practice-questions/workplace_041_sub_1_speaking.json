@@ -5,54 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.448Z",
   "questions": [
     {
-      "id": "workplace_041_sub_1_qa_1_speaking_1",
-      "subSceneId": "workplace_041_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_041_sub_1_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在晨会上，你的同事正在汇报项目进展，你想自然地询问他关于客户报告的完成情况，但不想显得催促或不礼貌。",
-        "expectedAnswers": [
-          "How's the client report coming along?",
-          "Any updates on the client report?",
-          "Are we on track with the client report?",
-          "Could you give a quick update on the client report?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问工作进展的意图",
-          "语言准确性：语法结构和用词是否正确",
-          "表达自然度：是否符合职场晨会中的口语习惯",
-          "关键词覆盖：是否包含'client report'或相关核心词汇"
-        ]
-      }
-    },
-    {
-      "id": "workplace_041_sub_1_qa_2_speaking_1",
-      "subSceneId": "workplace_041_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_041_sub_1_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在晨会上询问同事项目进展",
-        "expectedAnswers": [
-          "Can you send me the draft by noon?",
-          "你能在中午前给我初稿吗？",
-          "Do you have a deadline for the draft?",
-          "你有初稿的截止日期吗？"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
       "id": "workplace_041_sub_1_speaking_3",
       "subSceneId": "workplace_041_sub_1",
       "type": "speaking",
@@ -75,6 +27,60 @@
           "关键词覆盖：是否包含人数、时间节点、关键动作（如 scheduled, wraps up）"
         ]
       }
+    },
+    {
+      "id": "workplace_041_sub_1_qa_1_speaking_1",
+      "subSceneId": "workplace_041_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在晨会上，你想询问同事关于当前项目的进展，以便了解是否需要协调资源或调整计划。",
+        "speakerText": "How's the project tracking going this week?",
+        "speakerTextCn": "这周项目进展如何？",
+        "expectedAnswers": [
+          "We're on track—completed the data analysis and now reviewing the visuals.",
+          "Almost done with phase two; just waiting on final approvals from QA.",
+          "A bit behind schedule due to a delay in feedback, but we're catching up.",
+          "Good progress! We’ve hit all our milestones so far."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了项目进展状态",
+          "语言准确性：语法和时态使用是否正确",
+          "表达自然度：是否符合职场晨会的口语习惯",
+          "关键词覆盖：是否使用了 project, progress, tracking, week 等相关关键词"
+        ],
+        "qaId": "workplace_041_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "workplace_041_sub_1_qa_2_speaking_1",
+      "subSceneId": "workplace_041_sub_1",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在晨会中，你想确认另一位同事负责的客户反馈汇总是否已完成，以便推进下一步决策。",
+        "speakerText": "Have you gathered all the client feedback yet?",
+        "speakerTextCn": "你收集完所有客户反馈了吗？",
+        "expectedAnswers": [
+          "Yes, I compiled everything yesterday and shared it in the shared folder.",
+          "Almost—two responses are still pending, but I’ll follow up today.",
+          "Not yet, but I expect them by end of day; I’ll send you a summary by 4 PM.",
+          "I’ve got 90%—the last batch is coming in this afternoon."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确询问了客户反馈的收集状态",
+          "语言准确性：是否正确使用完成时态和时间表达",
+          "表达自然度：是否体现职场中礼貌且高效的沟通风格",
+          "关键词覆盖：是否使用了 client feedback, gathered, compiled, pending 等相关词汇"
+        ],
+        "qaId": "workplace_041_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:13.306Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

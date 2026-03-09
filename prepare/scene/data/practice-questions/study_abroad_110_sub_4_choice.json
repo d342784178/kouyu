@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.002Z",
   "questions": [
     {
-      "id": "study_abroad_110_sub_4_qa_2_choice_1",
-      "subSceneId": "study_abroad_110_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_110_sub_4_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What's the next step if we don't get a response?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can you help me with something else?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How long will it take to get a reply?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I'm not sure if I need any more help.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案opt_1的问题符合场景需求，用户在确认下一步行动与联系方式时，自然会问\"What's the next step if we don't get a response?\"。其他选项不合适，无法满足用户的需求或询问的内容。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户提出疑问，服务方/工作人员提供解答"
-      }
-    },
-    {
-      "id": "study_abroad_110_sub_4_qa_1_choice_1",
-      "subSceneId": "study_abroad_110_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_110_sub_4_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "I'll send you the syllabus for that design course by Friday—should I email you or submit it online?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "你会告诉我周五设计课的时间吗？",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "I'll send you the syllabus for that design course by Friday—should I come to your office or call you?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "我周五把设计课的大纲发给你，是发邮件还是打电话？",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案：I'll send you the syllabus for that design course by Friday—should I email you or submit it online？其他选项中，'opt_2'理解偏差型，'opt_3'不当表达型，'opt_4'不当表达型",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "确认下一步行动与联系方式"
-      }
-    },
-    {
       "id": "study_abroad_110_sub_4_choice_3",
       "subSceneId": "study_abroad_110_sub_4",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我已经发送了申请材料，我该如何确认是否收到？"
       }
+    },
+    {
+      "id": "study_abroad_110_sub_4_qa_1_choice_1",
+      "subSceneId": "study_abroad_110_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚刚咨询了签证申请流程，工作人员表示会发给你一份清单，但你不确定何时能收到，想礼貌地询问如何跟进。",
+        "speakerText": "I’ll email you the document checklist for your visa application by tomorrow.",
+        "speakerTextCn": "我明天会把签证申请的清单通过邮件发给你。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What’s the best way to follow up if I don’t receive it by Wednesday?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you send it faster? I need it today.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I’ll check my email every hour.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have a phone number I can call?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是礼貌询问具体跟进时间点（Wednesday），符合场景中‘确认下一步行动与联系方式’的核心任务。选项2语气强硬，不符合礼貌原则；选项3是自我承诺而非提问；选项4虽合理但未聚焦于‘未收到时如何跟进’这一关键意图。",
+        "qaId": "study_abroad_110_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "study_abroad_110_sub_4_qa_2_choice_1",
+      "subSceneId": "study_abroad_110_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你申请了校内实习岗位，工作人员说会联系你的导师确认资格，但你希望知道多久后可以主动联系他们确认进展。",
+        "speakerText": "I’ll reach out to your academic advisor to verify your eligibility.",
+        "speakerTextCn": "我会联系你的学术顾问来核实你的资格。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How long should I wait before I follow up with you if I haven’t heard anything?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you just call my advisor right now?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I’ll email my advisor myself to speed things up.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you know if I’m qualified?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案精准询问了‘多久后跟进’，体现了主动性和对流程的尊重。选项2越过了工作人员的职责；选项3擅自行动，可能破坏流程；选项4是重复确认资格，而非询问后续跟进方式，偏离场景核心。",
+        "qaId": "study_abroad_110_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:11.672Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

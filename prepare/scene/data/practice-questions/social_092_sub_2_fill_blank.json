@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.784Z",
   "questions": [
     {
-      "id": "social_092_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "social_092_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "邻居可能会回答你关于垃圾日的时间和规则",
-        "qaId": "social_092_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "垃圾日",
-            "options": [
-              "垃圾日",
-              "开车时间",
-              "公交线路",
-              "停车地点"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你住的小区垃圾处理问题需要你知道什么",
-        "knowledgePoint": "提问句型",
-        "responseTemplate": "你想问邻居关于小区垃圾处理的问题是___"
-      }
-    },
-    {
       "id": "social_092_sub_2_fill_blank_1",
       "subSceneId": "social_092_sub_2",
       "type": "fill_blank",
@@ -57,33 +30,6 @@
         "speakerTextCn": "嗨，我是新搬来的。你能告诉我怎么正确处理垃圾吗？",
         "knowledgePoint": "表达垃圾分类和投放要求",
         "responseTemplate": "You need to ___ and put them out before 8 p.m. on weekdays."
-      }
-    },
-    {
-      "id": "social_092_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "social_092_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "注意这里需要一个表示‘回收’的动词，常用于环保语境中",
-        "qaId": "social_092_sub_2_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "recycle",
-            "options": [
-              "throw",
-              "collect",
-              "store",
-              "recycle"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户想了解小区的垃圾投放规则，特别是是否回收塑料制品，向邻居提问。",
-        "knowledgePoint": "日常场景中的功能句型：询问环保处理方式",
-        "responseTemplate": "Oh, and do they ___ plastics here?"
       }
     },
     {
@@ -167,6 +113,62 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "动词搭配：rinse bins（清洁垃圾桶）"
       }
+    },
+    {
+      "id": "social_092_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "social_092_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚搬进新小区，想了解垃圾投放的基本规则，准备向物业人员提问。",
+        "responseTemplate": "Could you tell me when the trash is collected around here?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "when the trash is collected around here",
+            "options": [
+              "when the trash is collected around here",
+              "what time the trash truck comes",
+              "where I should put the garbage",
+              "how often we need to take out the bins"
+            ]
+          }
+        ],
+        "hint": "询问垃圾收集时间，使用 'when the trash is collected' 是最自然的表达方式",
+        "knowledgePoint": "日常事务询问句型",
+        "qaId": "social_092_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "social_092_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "social_092_sub_2",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想确认小区是否支持垃圾分类和回收，准备向工作人员提问。",
+        "responseTemplate": "Do you recycle containers like bottles and cans here?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Do you recycle containers like bottles and cans here",
+            "options": [
+              "Do you recycle containers like bottles and cans here",
+              "Can I throw bottles in the regular bin",
+              "Are bottles and cans accepted for recycling",
+              "Where do I put plastic bottles"
+            ]
+          }
+        ],
+        "hint": "询问回收政策时，使用 'Do you recycle...' 是最直接且礼貌的表达方式",
+        "knowledgePoint": "环保服务询问句型",
+        "qaId": "social_092_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:08:06.220Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

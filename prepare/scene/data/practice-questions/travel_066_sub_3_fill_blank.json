@@ -5,43 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.184Z",
   "questions": [
     {
-      "id": "travel_066_sub_3_qa_2_fill_blank_1",
-      "subSceneId": "travel_066_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "使用 mostly 和 with a few 来描述金额和钞票面额",
-        "qaId": "travel_066_sub_3_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "hundreds",
-            "options": [
-              "hundreds",
-              "fifties",
-              "tens",
-              "ones"
-            ]
-          },
-          {
-            "index": 1,
-            "answer": "fifties",
-            "options": [
-              "fifties",
-              "hundreds",
-              "tens",
-              "ones"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "确认金额和钞票面额",
-        "knowledgePoint": "口语表达：确认金额和钞票面额",
-        "responseTemplate": "Can I get mostly ___, with a few ___ for small purchases?"
-      }
-    },
-    {
       "id": "travel_066_sub_3_fill_blank_1",
       "subSceneId": "travel_066_sub_3",
       "type": "fill_blank",
@@ -67,33 +30,6 @@
         "speakerTextCn": "我想换300美元，谢谢。",
         "knowledgePoint": "表达钞票面额的主次搭配结构",
         "responseTemplate": "Sure. Would you like it in ___?"
-      }
-    },
-    {
-      "id": "travel_066_sub_3_qa_1_fill_blank_1",
-      "subSceneId": "travel_066_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "服务方需要确认你的需求",
-        "qaId": "travel_066_sub_3_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "$500",
-            "options": [
-              "$100",
-              "$500",
-              "$1000",
-              "$2000"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想换几张钞票，总额是多少?",
-        "knowledgePoint": "询问金额和钞票面额",
-        "responseTemplate": "我想换___美元，谢谢。"
       }
     },
     {
@@ -187,6 +123,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "mostly + with a few...（主次搭配表达）"
       }
+    },
+    {
+      "id": "travel_066_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "travel_066_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在银行想兑换外币，需要礼貌地提出兑换金额并说明希望的钞票面额搭配",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "I'd like to exchange $300, mostly in ______, with a few twenties for smaller expenses.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "tens",
+            "options": [
+              "tens",
+              "fifties",
+              "hundreds",
+              "fives"
+            ]
+          }
+        ],
+        "hint": "用mostly + 面额词表达主要需求，with a few...补充次要需求",
+        "knowledgePoint": "表达钞票面额主次搭配的礼貌请求句型",
+        "qaId": "travel_066_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "travel_066_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "travel_066_sub_3",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在兑换外币时想清楚表达希望大部分是大面额，少量小面额用于日常开销",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Could I get ______ in fifties, with a couple of tens for convenience?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "most of it",
+            "options": [
+              "most of it",
+              "all of it",
+              "some of it",
+              "half of it"
+            ]
+          }
+        ],
+        "hint": "用most of it表达‘大部分’，避免直接说‘all’或‘half’",
+        "knowledgePoint": "使用most of it表达主次比例的地道说法",
+        "qaId": "travel_066_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:08.453Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -5,28 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.434Z",
   "questions": [
     {
-      "id": "workplace_040_sub_1_qa_1_speaking_1",
-      "subSceneId": "workplace_040_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_040_sub_1_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "场景提示：用户通常在寻求信息或服务时先提问，例如向经理汇报进展",
-        "expectedAnswers": [
-          "Hey boss, got a minute to discuss the Q2 project?",
-          "Hi, do you have a minute to talk about the Q2 progress?",
-          "Hey, can we quickly discuss the Q2 project?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
       "id": "workplace_040_sub_1_speaking_2",
       "subSceneId": "workplace_040_sub_1",
       "type": "speaking",
@@ -73,6 +51,60 @@
           "关键词覆盖：是否包含 pulled / organized / summarized / ready 等核心词汇"
         ]
       }
+    },
+    {
+      "id": "workplace_040_sub_1_qa_1_speaking_1",
+      "subSceneId": "workplace_040_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工在办公室遇到经理，想礼貌地开启工作汇报，询问对方是否有时间简短沟通Q2工作进展。",
+        "speakerText": "Hi Sarah, do you have a quick moment to go over the Q2 updates?",
+        "speakerTextCn": "嗨，萨拉，有空花几分钟聊聊Q2的更新吗？",
+        "expectedAnswers": [
+          "Of course, I've got the report ready.",
+          "Sure, let's take five minutes.",
+          "Absolutely, I was just about to send you the summary.",
+          "Yes, go ahead—I'm all ears."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表达了希望汇报或讨论工作进展的意图",
+          "语言准确性：语法结构正确，时态和用词恰当",
+          "表达自然度：符合职场口语习惯，语气礼貌且不生硬",
+          "关键词覆盖：使用了 'Q2', 'updates', 'moment', 'go over' 等场景关键词"
+        ],
+        "qaId": "workplace_040_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "workplace_040_sub_1_qa_1_speaking_1",
+      "subSceneId": "workplace_040_sub_1",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工在晨会前想提前向经理汇报关键进展，以节省会议时间，需礼貌询问对方是否方便简短交流。",
+        "speakerText": "Hi Mark, could I quickly share the key highlights from Q2 before the meeting?",
+        "speakerTextCn": "嗨，马克，会议前我能简短分享一下Q2的关键亮点吗？",
+        "expectedAnswers": [
+          "Go ahead—I’d love to hear them.",
+          "Sure, fire away.",
+          "Yes, that’d be helpful, thanks.",
+          "Absolutely, let’s do it now."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达了希望提前汇报、提升效率的意图",
+          "语言准确性：使用了恰当的礼貌请求结构（could I...）和职场表达",
+          "表达自然度：语气友好、简洁，符合职场非正式但专业的情境",
+          "关键词覆盖：使用了 'Q2', 'key highlights', 'before the meeting', 'quickly' 等场景关键词"
+        ],
+        "qaId": "workplace_040_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:03.998Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

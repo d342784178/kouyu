@@ -5,30 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.174Z",
   "questions": [
     {
-      "id": "travel_066_sub_1_qa_1_speaking_1",
-      "subSceneId": "travel_066_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_066_sub_1_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在外汇兑换点，想礼貌地请求将美元兑换成欧元。请向工作人员提出你的兑换请求。",
-        "expectedAnswers": [
-          "Hi, could I exchange some USD for euros?",
-          "Hello, I'd like to exchange US dollars for euros, please.",
-          "Excuse me, do you exchange USD to euros? I'd like to convert a bit.",
-          "Hi there! Is it possible to swap dollars for euros here?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否清晰表达了兑换美元为欧元的请求",
-          "语言准确性：语法结构正确，用词恰当，无重大错误",
-          "表达自然度：符合英语口语习惯，语气礼貌得体",
-          "关键词覆盖：使用了 'exchange', 'USD', 'euros' 等场景关键词"
-        ]
-      }
-    },
-    {
       "id": "travel_066_sub_1_speaking_2",
       "subSceneId": "travel_066_sub_1",
       "type": "speaking",
@@ -75,6 +51,60 @@
           "关键词覆盖：使用了 'exchange', 'euros', 'US dollars', 'convert' 等核心词汇"
         ]
       }
+    },
+    {
+      "id": "travel_066_sub_1_qa_1_speaking_1",
+      "subSceneId": "travel_066_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在机场的货币兑换处，想礼貌地请求将人民币兑换成美元",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Hi, could I exchange some CNY for USD, please?",
+          "Hello, I'd like to exchange Chinese yuan for US dollars.",
+          "Excuse me, is it possible to convert RMB into USD here?",
+          "Could you help me exchange yuan for dollars?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达了兑换人民币为美元的请求",
+          "语言准确性：语法结构正确，货币名称和单位使用无误",
+          "表达自然度：使用了礼貌用语（如 could, would like, excuse me）符合口语习惯",
+          "关键词覆盖：包含 CNY/RMB/yuan 和 USD/dollars 等核心词汇"
+        ],
+        "qaId": "travel_066_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "travel_066_sub_1_qa_1_speaking_1",
+      "subSceneId": "travel_066_sub_1",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在酒店前台的兑换服务台，想请求将欧元兑换成当地货币",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Hi, can I exchange euros for the local currency?",
+          "Could I please convert some euros to your local money?",
+          "I'd like to exchange euros here—what’s the rate?",
+          "Excuse me, do you exchange euros for this country’s currency?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表达了兑换欧元为当地货币的意图",
+          "语言准确性：正确使用货币名称和兑换动词（exchange/convert）",
+          "表达自然度：语气礼貌，符合服务场景中的日常对话习惯",
+          "关键词覆盖：包含 euros 和 local currency 等关键术语"
+        ],
+        "qaId": "travel_066_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:09.882Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

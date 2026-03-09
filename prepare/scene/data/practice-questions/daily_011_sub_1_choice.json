@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.519Z",
   "questions": [
     {
-      "id": "daily_011_sub_1_qa_2_choice_1",
-      "subSceneId": "daily_011_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_011_sub_1_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "I've had this cough for three days, and it's worse at night.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you have any medicine for coughs?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "I think I need something for my cold.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How much does cough medicine cost?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案准确描述了症状持续时间和加重情况，符合顾客主动发起对话并提供关键信息的自然交流方式。干扰项1虽然语法正确，但仅泛泛询问药品，未提供症状细节，不利于药剂师判断；干扰项2使用模糊的‘cold’而非具体症状‘cough’，信息不精准；干扰项3只关注价格，未说明需求背景，不符合医疗咨询的常规流程。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客进入药店，想向药剂师描述自己的咳嗽症状并寻求建议"
-      }
-    },
-    {
-      "id": "daily_011_sub_1_qa_1_choice_1",
-      "subSceneId": "daily_011_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_011_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Hi, I need something for a cough.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "我想买点东西，谢谢.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "您有任何推荐的药物吗?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "我需要一个盒子.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 \"Hi, I need something for a cough.\"，因为它直接表达了顾客的需求。选项 2 是不正确的，因为它没有明确说明需要什么。选项 3 是理解偏差型，顾客并没有明确说明需要什么药物。选项 4 是表达不当型，因为它没有任何关系到药物的需求。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客进入药店，需要购买药物"
-      }
-    },
-    {
       "id": "daily_011_sub_1_choice_1",
       "subSceneId": "daily_011_sub_1",
       "type": "choice",
@@ -181,6 +111,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我吞咽时喉咙痛，已经三天了，你推荐什么？"
       }
+    },
+    {
+      "id": "daily_011_sub_1_qa_1_choice_1",
+      "subSceneId": "daily_011_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客进入药店，想购买治疗感冒引起的鼻塞和流涕的药物，需要向药剂师说明自己的症状以便获得合适建议。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I've got a stuffy nose and runny nose for two days—do you have something for that?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I buy some aspirin?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is this medicine good for colds?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you sell tissues?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确描述了具体症状（鼻塞和流涕）和持续时间，符合药剂师推荐药物所需的必要信息。选项2仅要求购买特定药物，未说明症状，缺乏沟通有效性。选项3是模糊的泛泛提问，未提供个人情况。选项4与药物需求无关，属于答非所问。",
+        "qaId": "daily_011_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "daily_011_sub_1_qa_2_choice_1",
+      "subSceneId": "daily_011_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客因喉咙痛和轻微发烧想寻求非处方药，希望药剂师根据症状推荐合适药品。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I have a sore throat and a low fever—what can you recommend?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I need something strong for pain.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Are you open on Sundays?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get a prescription for antibiotics?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案清晰说明了症状（喉咙痛+低烧）并礼貌请求建议，符合药剂师推荐非处方药的沟通标准。选项2过于笼统，未说明症状类型和背景。选项3与需求无关，属于时间询问。选项4错误地要求处方药，而药店通常不直接提供抗生素处方，不符合常见场景。",
+        "qaId": "daily_011_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:45.817Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

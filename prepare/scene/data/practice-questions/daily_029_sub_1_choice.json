@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.642Z",
   "questions": [
     {
-      "id": "daily_029_sub_1_qa_2_choice_1",
-      "subSceneId": "daily_029_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_029_sub_1_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Thanks! Do you have any toys with batteries?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Hello! How much is the toy?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Sorry, I'm looking for something else.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Excuse me, where is the toy section?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案\"Thanks! Do you have any toys with batteries?\"符合场景需求，询问有没有带电池的玩具。其他选项不符合场景需求或表达不自然",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "家长进入玩具店后，向店员打招呼并询问有没有带电池的玩具"
-      }
-    },
-    {
-      "id": "daily_029_sub_1_qa_1_choice_1",
-      "subSceneId": "daily_029_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_029_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Hi! Where can I find the toys?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "You have a lot of toys! Can I have them all?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Do you know where my kids are?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I'm looking for the action figures. Can you show me?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 opt_1，因为它礼貌地问候并询问玩具位置。其他选项不符合场景要求：opt_2 是不恰当的提问，opt_3 是不相关的问题，opt_4 是不必要的表达",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "家长进店后向店员礼貌问候并询问玩具位置"
-      }
-    },
-    {
       "id": "daily_029_sub_1_choice_1",
       "subSceneId": "daily_029_sub_1",
       "type": "choice",
@@ -181,6 +111,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "早上好！你知道适合幼儿的软毛玩具在哪儿吗？"
       }
+    },
+    {
+      "id": "daily_029_sub_1_qa_1_choice_1",
+      "subSceneId": "daily_029_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "一位家长走进玩具店，想礼貌地询问动作玩偶在哪里，以便找到给孩子买的礼物。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hi, could you tell me where the action figures are?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Where are the toys?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you sell action figures?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I want an action figure, can you give me one?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了礼貌的询问句式 'Could you tell me...'，符合英语日常交际规范。选项2过于笼统，未明确指代 'action figures'；选项3仅询问是否销售，未问位置；选项4是直接命令式，缺乏礼貌，不适合服务场景。",
+        "qaId": "daily_029_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "daily_029_sub_1_qa_2_choice_1",
+      "subSceneId": "daily_029_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "家长在找到动作玩偶区域后，想进一步确认是否有内置电池的款式，以便直接购买无需另购电池。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do any of these come with batteries included?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you have batteries?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Are these toys powered?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I buy batteries here?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案精准使用了关键表达 'come with batteries included'，符合母语者习惯。选项2仅询问是否卖电池，未关联玩具；选项3用词模糊，'powered' 不是日常口语中描述玩具电池的常用词；选项4转向询问电池购买，偏离了核心需求。",
+        "qaId": "daily_029_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:05:27.821Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

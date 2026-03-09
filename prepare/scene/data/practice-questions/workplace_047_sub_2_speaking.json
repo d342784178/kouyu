@@ -5,29 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.529Z",
   "questions": [
     {
-      "id": "workplace_047_sub_2_qa_1_speaking_1",
-      "subSceneId": "workplace_047_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_047_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "经理作为服务方回应员工的休假请求，请说明下周三是否可以批准员工的休假请求，并说明原因",
-        "expectedAnswers": [
-          "Sure, I can approve your request for next Wednesday. You've been working hard lately, so you deserve a break.",
-          "Okay, I've checked the schedule and it looks like we can approve your request for next Wednesday. However, please make sure to complete all your tasks before you leave.",
-          "Sorry, but I'm afraid we can't approve your request for next Wednesday. We have an important meeting scheduled and your presence is required."
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了批准或拒绝休假请求的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词（如休假、批准、原因）"
-        ]
-      }
-    },
-    {
       "id": "workplace_047_sub_2_speaking_2",
       "subSceneId": "workplace_047_sub_2",
       "type": "speaking",
@@ -74,6 +51,34 @@
           "关键词覆盖：使用了 'take off', 'day off', 'personal matter/issue'"
         ]
       }
+    },
+    {
+      "id": "workplace_047_sub_2_qa_1_speaking_1",
+      "subSceneId": "workplace_047_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你工作最近很忙，想申请下周二调休一天，因为需要去银行处理重要事务。请向你的经理礼貌提出请求。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Could I take next Tuesday off? I need to handle some important banking matters.",
+          "I'd like to request a day off next Tuesday—I have a personal errand that can't be rescheduled.",
+          "Would it be possible to take Tuesday off? I've got a critical appointment at the bank.",
+          "I was wondering if I could swap a day off to next Tuesday—I’ve got some urgent paperwork to take care of."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达了调休请求和具体日期",
+          "语言准确性：使用了恰当的礼貌表达（如 Could I, I'd like, Would it be possible）",
+          "表达自然度：是否符合职场口语习惯，避免生硬或过于随意的表达",
+          "关键词覆盖：是否包含 'take off', 'next Tuesday', 和合理的原因词如 'banking', 'appointment', 'errand'"
+        ],
+        "qaId": "workplace_047_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:35.338Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

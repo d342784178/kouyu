@@ -5,51 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.369Z",
   "questions": [
     {
-      "id": "workplace_033_sub_4_qa_2_speaking_1",
-      "subSceneId": "workplace_033_sub_4",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_033_sub_4_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "确认邮件抄送对象和附件格式是否正确",
-        "expectedAnswers": [
-          "附件是.docx格式，要转成PDF统一格式吗？",
-          "我看到附件是.docx格式，应该转成PDF吗？",
-          "附件是.docx格式，是否需要统一成PDF格式？"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "workplace_033_sub_4_qa_1_speaking_1",
-      "subSceneId": "workplace_033_sub_4",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_033_sub_4_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "刚发了更新，抄送了Linda和Mark对吧？",
-        "expectedAnswers": [
-          "Yes, you CC'd Linda and Mark.",
-          "That's correct, I CC'd Linda and Mark.",
-          "Yes, Linda and Mark are CC'd on the update."
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问抄送人是否正确的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
       "id": "workplace_033_sub_4_speaking_3",
       "subSceneId": "workplace_033_sub_4",
       "type": "speaking",
@@ -71,6 +26,58 @@
           "是否在回应中体现主动性与协作性，而非仅被动确认"
         ]
       }
+    },
+    {
+      "id": "workplace_033_sub_4_qa_1_speaking_1",
+      "subSceneId": "workplace_033_sub_4",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户在发送工作邮件前，想确认抄送对象是否完整，避免遗漏关键人员",
+        "speakerText": "I've CC'd Sarah and James—did I miss anyone else who needs to see this?",
+        "speakerTextCn": "我抄送了Sarah和James，还有其他人需要收到这封邮件吗？",
+        "expectedAnswers": [
+          "Yes, add Tom—he's handling the budget review.",
+          "No, that's all—just make sure they reply by Friday.",
+          "Actually, please remove James and CC his manager instead—he's on leave."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确询问了抄送名单的完整性",
+          "语言准确性：语法和用词是否正确，如使用CC、add/remove等关键词",
+          "表达自然度：是否符合职场英语口语习惯，语气得体",
+          "关键词覆盖：是否包含抄送相关词汇如CC, add, remove, someone"
+        ],
+        "qaId": "workplace_033_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "workplace_033_sub_4_qa_2_speaking_1",
+      "subSceneId": "workplace_033_sub_4",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户在发送报告附件前，不确定文件格式是否符合公司规范，需确认是否需要转换",
+        "speakerText": "I attached the file as a .xlsx—should I change it to .csv for the analytics team?",
+        "speakerTextCn": "我附上了.xlsx格式的文件，应该改成.csv给数据分析团队吗？",
+        "expectedAnswers": [
+          "No, .xlsx is fine—they need the formulas for their analysis.",
+          "Yes, please convert it—our system only accepts .csv for imports.",
+          "Actually, send both: .xlsx for editing and .csv for the system upload."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问附件格式是否需要调整",
+          "语言准确性：正确使用文件格式术语如.xlsx, .csv, convert",
+          "表达自然度：是否使用自然的职场表达，如'please convert', 'is fine'",
+          "关键词覆盖：是否包含格式相关关键词如format, convert, attachment, csv/xlsx"
+        ],
+        "qaId": "workplace_033_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:33.700Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

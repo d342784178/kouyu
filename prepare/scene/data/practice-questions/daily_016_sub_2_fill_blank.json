@@ -33,60 +33,6 @@
       }
     },
     {
-      "id": "daily_016_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "daily_016_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "用这个结构确认对方说的金额是否准确，常用于口语中的复述确认",
-        "qaId": "daily_016_sub_2_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "the total",
-            "options": [
-              "the total",
-              "it costs",
-              "how much is",
-              "it will be"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在结账时听完报价后，想确认最终总价是否正确",
-        "knowledgePoint": "确认性提问句型",
-        "responseTemplate": "So that's ___?"
-      }
-    },
-    {
-      "id": "daily_016_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "daily_016_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "当询问物品的总价时，使用 'How much is...' 结构，即使涉及多个物品，也用单数动词",
-        "qaId": "daily_016_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "is",
-            "options": [
-              "are",
-              "do",
-              "has",
-              "is"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想询问两种商品的总价格，需要使用正确的提问句型来确认总价",
-        "knowledgePoint": "询问价格的句型结构",
-        "responseTemplate": "How much ___ the juice and the sandwich?"
-      }
-    },
-    {
       "id": "daily_016_sub_2_fill_blank_2",
       "subSceneId": "daily_016_sub_2",
       "type": "fill_blank",
@@ -167,6 +113,37 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "价格相加与总金额表达"
       }
+    },
+    {
+      "id": "daily_016_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "daily_016_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在结账前想确认商品的总金额，避免付款错误",
+        "speakerText": "The juice is $2.50 and the sandwich is $4.",
+        "speakerTextCn": "橙汁2.5美元，三明治4美元。",
+        "responseTemplate": "So ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "that's $6.50",
+            "options": [
+              "that's $6.50",
+              "it costs $6.50",
+              "the total is $6.50",
+              "how much is it"
+            ]
+          }
+        ],
+        "hint": "用 'So ___?' 来重复确认对方说的总价，语气自然且常用",
+        "knowledgePoint": "确认总价的常用句型",
+        "qaId": "daily_016_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:04:33.117Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

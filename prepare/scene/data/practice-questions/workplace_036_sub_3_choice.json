@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.397Z",
   "questions": [
     {
-      "id": "workplace_036_sub_3_qa_1_choice_1",
-      "subSceneId": "workplace_036_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_036_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "So, what's on the agenda today?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What's your name?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "What time is it now?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How was your weekend?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案“So, what's on the agenda today?”适合用于询问今天的工作安排。选项2、3、4中的问题与场景无关或不合适",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在确认日程时询问今天的工作安排"
-      }
-    },
-    {
       "id": "workplace_036_sub_3_choice_2",
       "subSceneId": "workplace_036_sub_3",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "你今天看起来怎么样？"
       }
+    },
+    {
+      "id": "workplace_036_sub_3_qa_1_choice_1",
+      "subSceneId": "workplace_036_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚到办公室，想自然地向同事了解今天的工作安排，以便协调自己的任务",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What’s on the agenda today?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Did you finish the report yesterday?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can we reschedule the meeting?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What time do you usually start work?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'What’s on the agenda today?' 是在职场中自然询问当日工作安排的常用表达，简洁且符合场景。干扰项 'Did you finish...' 是追问过去任务，与当前日程无关；'Can we reschedule...' 是提出变更请求，不符合确认安排的意图；'What time do you usually start...' 询问的是作息时间，偏离工作内容主题。",
+        "qaId": "workplace_036_sub_3_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:48.017Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

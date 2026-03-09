@@ -33,60 +33,6 @@
       }
     },
     {
-      "id": "workplace_050_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "workplace_050_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "技术人员可能会建议用户尝试的第一步",
-        "qaId": "workplace_050_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "press and hold the power button",
-            "options": [
-              "拔掉电源后就好",
-              "长按电源键30秒",
-              "按下电源键再试",
-              "不需要操作"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户描述故障，等待技术人员指导",
-        "knowledgePoint": "基本故障排除技巧",
-        "responseTemplate": "Try unplugging it, then ___"
-      }
-    },
-    {
-      "id": "workplace_050_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "workplace_050_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "帮助用户回忆基础检查问题",
-        "qaId": "workplace_050_sub_2_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "charger",
-            "options": [
-              "电源",
-              "充电器",
-              "风扇",
-              "电脑"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户描述故障，等待技术人员指导",
-        "knowledgePoint": "基础检查问题表达",
-        "responseTemplate": "Is the ___ light on? Any fan noise?"
-      }
-    },
-    {
       "id": "workplace_050_sub_2_fill_blank_2",
       "subSceneId": "workplace_050_sub_2",
       "type": "fill_blank",
@@ -167,6 +113,47 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "场景高频词汇（connection）"
       }
+    },
+    {
+      "id": "workplace_050_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "workplace_050_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你的电脑无法开机，屏幕全黑，你正在向IT支持人员寻求下一步指导。",
+        "speakerText": "I've tried restarting, but it's still not turning on. What should I check next?",
+        "speakerTextCn": "我已经尝试重启了，但还是无法开机。我接下来该检查什么？",
+        "responseTemplate": "Is the ___ on? Do you hear any ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "charger light",
+            "options": [
+              "charger light",
+              "power button",
+              "screen brightness",
+              "wifi signal"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "fan noise",
+            "options": [
+              "fan noise",
+              "keyboard click",
+              "speaker sound",
+              "mouse movement"
+            ]
+          }
+        ],
+        "hint": "IT人员通常会先让你检查电源指示灯和风扇声音来判断硬件是否通电。",
+        "knowledgePoint": "基础故障排查中的标准提问句型",
+        "qaId": "workplace_050_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:57.159Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

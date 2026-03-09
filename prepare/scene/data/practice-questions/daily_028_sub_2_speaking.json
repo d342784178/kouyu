@@ -5,54 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.638Z",
   "questions": [
     {
-      "id": "daily_028_sub_2_qa_1_speaking_1",
-      "subSceneId": "daily_028_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_028_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在文具店想找笔记本和笔的具体位置，想向店员询问蓝色活页笔记本和黑色签字笔放在哪里。",
-        "expectedAnswers": [
-          "Where can I find the blue spiral notebooks?",
-          "Could you tell me where the black pens and blue notebooks are?",
-          "I'm looking for blue spiral notebooks and black pens—could you point me to them?",
-          "Are the blue notebooks and black pens on this aisle?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问了笔记本和笔的具体位置",
-          "语言准确性：语法结构正确，用词恰当",
-          "表达自然度：符合英语日常购物场景的口语习惯",
-          "关键词覆盖：使用了 'blue spiral notebooks', 'black pens', 'where' 或相关位置表达"
-        ]
-      }
-    },
-    {
-      "id": "daily_028_sub_2_qa_2_speaking_1",
-      "subSceneId": "daily_028_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_028_sub_2_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在商店里想找到笔记本和笔的具体摆放位置，需要向店员提问。",
-        "expectedAnswers": [
-          "Where can I find the notebooks and pens?",
-          "Could you tell me where the pens and notebooks are?",
-          "Where are the pens and notebooks located?",
-          "Do you know where I can pick up the pens and notebooks?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问了笔记本和笔的位置",
-          "语言准确性：语法结构正确，用词恰当",
-          "表达自然度：符合日常英语口语习惯，语气礼貌自然",
-          "关键词覆盖：使用了'notebooks'和'pens'等场景关键词"
-        ]
-      }
-    },
-    {
       "id": "daily_028_sub_2_speaking_3",
       "subSceneId": "daily_028_sub_2",
       "type": "speaking",
@@ -74,6 +26,60 @@
           "语气是否礼貌友好，符合服务场景"
         ]
       }
+    },
+    {
+      "id": "daily_028_sub_2_qa_1_speaking_1",
+      "subSceneId": "daily_028_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在文具店想找笔记本和笔的具体摆放位置，准备向店员提问",
+        "speakerText": "Where can I find the spiral notebooks and black pens?",
+        "speakerTextCn": "螺旋笔记本和黑色笔在哪里可以找到？",
+        "expectedAnswers": [
+          "The notebooks are on the third shelf, and the pens are right below them.",
+          "You'll find notebooks in aisle 2, and the pens are next to them on the left.",
+          "Let me show you — they're near the checkout counter.",
+          "Sorry, we just moved them; the notebooks are now by the windows, and pens are on the bottom rack."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了笔记本和笔的位置",
+          "语言准确性：使用了正确的方位词和商品名称（如notebooks, pens, shelf, aisle）",
+          "表达自然度：符合日常口语习惯，无中式英语表达",
+          "关键词覆盖：包含至少一个商品名和一个方位词"
+        ],
+        "qaId": "daily_028_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "daily_028_sub_2_qa_2_speaking_1",
+      "subSceneId": "daily_028_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在超市文具区想确认蓝色活页笔记本和中性笔的摆放位置",
+        "speakerText": "Could you tell me where the blue spiral notebooks and gel pens are?",
+        "speakerTextCn": "您能告诉我蓝色活页笔记本和凝胶笔在哪里吗？",
+        "expectedAnswers": [
+          "Sure, they’re in section B, right behind the sticky notes.",
+          "The blue notebooks are on the top shelf, and gel pens are in the drawer below.",
+          "I’ll take you there — they’re near the stationery section, just past the pencils.",
+          "We’ve relocated them; they’re now by the back wall near the organizers."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰询问了两种商品的具体位置",
+          "语言准确性：使用了礼貌表达（Could you...）和准确商品术语（spiral notebooks, gel pens）",
+          "表达自然度：符合英语母语者在商店中询问位置的语气",
+          "关键词覆盖：包含商品名称（blue spiral notebooks, gel pens）和方位描述"
+        ],
+        "qaId": "daily_028_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:05:20.858Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

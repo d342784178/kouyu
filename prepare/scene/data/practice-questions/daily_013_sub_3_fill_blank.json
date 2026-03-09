@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.539Z",
   "questions": [
     {
-      "id": "daily_013_sub_3_qa_1_fill_blank_1",
-      "subSceneId": "daily_013_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示，帮助用户回忆",
-        "qaId": "daily_013_sub_3_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "在线续借",
-            "options": [
-              "在线续借",
-              "电话续借",
-              "现场续借",
-              "邮寄续借"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户询问续借服务，工作人员回答是否可以在线操作。",
-        "knowledgePoint": "续借服务的在线操作",
-        "responseTemplate": "我能___我的书籍吗?"
-      }
-    },
-    {
       "id": "daily_013_sub_3_fill_blank_1",
       "subSceneId": "daily_013_sub_3",
       "type": "fill_blank",
@@ -57,33 +30,6 @@
         "speakerTextCn": "我正在网站上尝试续借图书，但不确定该点哪里，能帮帮我吗？",
         "knowledgePoint": "核心操作动词与功能按钮表达",
         "responseTemplate": "Sure, just log in to your account and look for the ___ button."
-      }
-    },
-    {
-      "id": "daily_013_sub_3_qa_2_fill_blank_1",
-      "subSceneId": "daily_013_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "当询问假设情况的结果时，常用 'What if... then?' 结构",
-        "qaId": "daily_013_sub_3_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "then?",
-            "options": [
-              "then?",
-              "now?",
-              "so?",
-              "right?"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户询问续借服务，工作人员回答是否可以在线操作，用户想进一步确认如果系统不允许续借该怎么办",
-        "knowledgePoint": "假设性提问句型",
-        "responseTemplate": "What if the system says 'Cannot renew'___"
       }
     },
     {
@@ -167,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "条件表达（as long as）"
       }
+    },
+    {
+      "id": "daily_013_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "daily_013_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户在图书馆想了解如何续借书籍，但不确定该用什么方式询问",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Can I ______ my books online?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "renew",
+            "options": [
+              "renew",
+              "return",
+              "borrow",
+              "reserve"
+            ]
+          }
+        ],
+        "hint": "这是询问续借服务的标准表达，动词要与书籍的延期使用相关",
+        "knowledgePoint": "高频服务动词使用",
+        "qaId": "daily_013_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "daily_013_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "daily_013_sub_3",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户尝试续借但系统提示失败，想确认是否因为有人预约了这本书",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Why can't I renew this book? Is it because someone else has ______?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a hold",
+            "options": [
+              "a hold",
+              "a reservation",
+              "a request",
+              "a booking"
+            ]
+          }
+        ],
+        "hint": "图书馆术语中，‘有人预约’的标准说法是 'has a hold'",
+        "knowledgePoint": "图书馆专业术语",
+        "qaId": "daily_013_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:58.521Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

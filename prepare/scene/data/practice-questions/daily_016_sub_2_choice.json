@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.555Z",
   "questions": [
     {
-      "id": "daily_016_sub_2_qa_1_choice_1",
-      "subSceneId": "daily_016_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_016_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "How much does the juice cost?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "How much is the juice and the sandwich?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_3",
-            "text": "What is the price of the juice?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can you tell me the price of the sandwich?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 How much is the juice and the sandwich?，因为它询问了两个商品的价格。其他选项不正确，因为它们只询问了一个商品的价格或询问了一个商品的价格和另一个商品的可用性",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客询问商品价格并确认总价"
-      }
-    },
-    {
-      "id": "daily_016_sub_2_qa_2_choice_1",
-      "subSceneId": "daily_016_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_016_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "So that's $6.50?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How much is this?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Is this product expensive?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I'd like to pay $10, please.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案\"So that's $6.50?\"反映了顾客询问商品价格并确认总价的需求。其他选项不符合场景要求，例如询问商品价格（How much is this?）或询问商品价格是否贵（Is this product expensive?）或自行决定支付金额（I'd like to pay $10, please.）",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客询问商品价格并确认总价"
-      }
-    },
-    {
       "id": "daily_016_sub_2_choice_1",
       "subSceneId": "daily_016_sub_2",
       "type": "choice",
@@ -181,6 +111,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "所以总共是17块5吗？"
       }
+    },
+    {
+      "id": "daily_016_sub_2_qa_1_choice_1",
+      "subSceneId": "daily_016_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在咖啡店点了一杯拿铁和一块巧克力蛋糕，店员报出价格后，你想确认总价是否正确，避免结账时出错。",
+        "speakerText": "So the total comes to $9.75?",
+        "speakerTextCn": "所以总价是9.75美元吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How much is the latte and the chocolate cake?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "So the total comes to $9.75?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you give me a discount?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you accept credit cards?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 'So the total comes to $9.75?'，这是在店员报出价格后，顾客用于确认总价的标准表达，符合'确认价格'场景的核心交际任务。干扰项1是初次询问价格，而非确认；干扰项3和4与价格确认无关，属于答非所问。",
+        "qaId": "daily_016_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:04:12.911Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

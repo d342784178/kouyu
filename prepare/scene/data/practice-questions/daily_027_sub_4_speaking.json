@@ -5,52 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.633Z",
   "questions": [
     {
-      "id": "daily_027_sub_4_qa_2_speaking_1",
-      "subSceneId": "daily_027_sub_4",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_027_sub_4_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想了解一款电钻的保修政策，想知道哪些情况在保修范围内，是否可以购买延保服务。",
-        "expectedAnswers": [
-          "What's covered under the warranty?",
-          "Does the warranty include accidental damage or just manufacturing defects?",
-          "Can I buy an extended warranty, and how much does it cost?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问了保修范围或延保选项",
-          "语言准确性：语法结构正确，用词恰当",
-          "表达自然度：符合日常英语口语习惯，不生硬"
-        ]
-      }
-    },
-    {
-      "id": "daily_027_sub_4_qa_1_speaking_1",
-      "subSceneId": "daily_027_sub_4",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_027_sub_4_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想了解这款电钻的保修政策，包括保修时长和覆盖范围。",
-        "expectedAnswers": [
-          "What's the warranty period for this drill?",
-          "Does the warranty cover the motor and battery?",
-          "How long does the warranty last, and what parts are included?",
-          "Could you tell me what's covered under the standard warranty?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问了保修时长或覆盖范围",
-          "语言准确性：语法正确，用词恰当，无重大错误",
-          "表达自然度：符合日常英语口语习惯，不生硬或书面化",
-          "关键词覆盖：使用了 warranty, cover, motor, battery, period 等场景关键词中的至少两个"
-        ]
-      }
-    },
-    {
       "id": "daily_027_sub_4_speaking_3",
       "subSceneId": "daily_027_sub_4",
       "type": "speaking",
@@ -72,6 +26,60 @@
           "表达自然度：语调自然，符合消费者确认信息的口语习惯"
         ]
       }
+    },
+    {
+      "id": "daily_027_sub_4_qa_1_speaking_1",
+      "subSceneId": "daily_027_sub_4",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在购买一台家用咖啡机后，想确认保修范围，特别是是否包含漏水或按键失灵等常见问题。",
+        "speakerText": "The standard warranty covers manufacturing defects for one year, like a faulty heating element or pump failure.",
+        "speakerTextCn": "标准保修为期一年，涵盖制造缺陷，比如加热元件或水泵故障。",
+        "expectedAnswers": [
+          "What about if the water tank cracks from normal use?",
+          "Does it cover issues like leaking or the buttons not responding?",
+          "If the display stops working after six months, is that included?",
+          "So accidental damage like dropping it isn’t covered, right?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了保修是否涵盖非制造缺陷的常见问题",
+          "语言准确性：语法正确，时态和用词恰当",
+          "表达自然度：符合日常英语口语习惯，语气自然",
+          "关键词覆盖：使用了 warranty, cover, defect, damage, normal use 等场景关键词"
+        ],
+        "qaId": "daily_027_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "daily_027_sub_4_qa_2_speaking_1",
+      "subSceneId": "daily_027_sub_4",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在电器店询问一款智能吸尘器的保修政策，想知道是否包含电池性能下降或刷毛磨损等使用中常见损耗。",
+        "speakerText": "Warranty is 18 months and only applies to electrical component failures, not wear and tear.",
+        "speakerTextCn": "保修期18个月，仅适用于电气部件故障，不包括正常磨损。",
+        "expectedAnswers": [
+          "So if the battery doesn’t hold a charge after a year, that’s not covered?",
+          "What if the brushes wear out faster than expected?",
+          "Is there an option to add coverage for consumable parts like filters or brushes?",
+          "Does the warranty cover reduced suction power over time?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确追问了保修是否涵盖使用性损耗或性能衰减",
+          "语言准确性：语法正确，使用了恰当的条件句和专业词汇",
+          "表达自然度：表达符合真实购物场景中的追问方式",
+          "关键词覆盖：使用了 warranty, cover, battery, brushes, wear and tear, performance 等关键词"
+        ],
+        "qaId": "daily_027_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:05:12.688Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

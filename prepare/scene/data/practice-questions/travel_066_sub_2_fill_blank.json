@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.178Z",
   "questions": [
     {
-      "id": "travel_066_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "travel_066_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问额外费用时，常用 'are there any fees' 来礼貌地确认是否有隐藏费用",
-        "qaId": "travel_066_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "are there any fees",
-            "options": [
-              "are there any fees",
-              "do you charge extra",
-              "what is the fee",
-              "is it free"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想了解当前美元兑换欧元的汇率和是否有额外手续费",
-        "knowledgePoint": "礼貌询问附加费用的句型结构",
-        "responseTemplate": "Could you tell me what the current rate is for USD to EUR, and ___?"
-      }
-    },
-    {
       "id": "travel_066_sub_2_fill_blank_1",
       "subSceneId": "travel_066_sub_2",
       "type": "fill_blank",
@@ -67,33 +40,6 @@
         "speakerTextCn": "你能告诉我英镑兑日元的当前汇率吗？",
         "knowledgePoint": "汇率表达与费用结构确认",
         "responseTemplate": "It's ___ , and the fee is ___ ."
-      }
-    },
-    {
-      "id": "travel_066_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "travel_066_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "这里需要一个过去分词，表示‘被包含’的状态",
-        "qaId": "travel_066_sub_2_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "included",
-            "options": [
-              "included",
-              "include",
-              "including",
-              "includes"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想了解当前汇率和是否需要额外支付手续费",
-        "knowledgePoint": "询问费用是否包含的句型结构",
-        "responseTemplate": "Is the fee ___ or extra?"
       }
     },
     {
@@ -197,6 +143,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "场景高频搭配：rate + fee"
       }
+    },
+    {
+      "id": "travel_066_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "travel_066_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在兑换货币时，想确认当前美元兑欧元的汇率",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "What's the current rate for USD to EUR?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "What's the current rate for USD to EUR?",
+            "options": [
+              "What's the current rate for USD to EUR?",
+              "How much is one dollar in euros?",
+              "Can you tell me the dollar to euro price?",
+              "Is the rate for USD to EUR good?"
+            ]
+          }
+        ],
+        "hint": "用固定句型 What's the current rate for X to Y? 询问汇率，避免使用 How much is...",
+        "knowledgePoint": "标准汇率询问句型",
+        "qaId": "travel_066_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "travel_066_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "travel_066_sub_2",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想确认兑换货币时是否需要额外支付手续费",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Is the fee included or extra?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Is the fee included or extra?",
+            "options": [
+              "Is the fee included or extra?",
+              "Do I have to pay extra for the service?",
+              "How much is the service charge?",
+              "Are there any hidden costs?"
+            ]
+          }
+        ],
+        "hint": "用 Is the fee included or extra? 明确询问费用结构，避免模糊提问",
+        "knowledgePoint": "费用结构确认句型",
+        "qaId": "travel_066_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:02.320Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

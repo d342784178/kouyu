@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.958Z",
   "questions": [
     {
-      "id": "study_abroad_108_sub_1_qa_1_choice_1",
-      "subSceneId": "study_abroad_108_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_108_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Hi, I'm calling to book a slot for my graduation checklist meeting.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "When is the best time to graduate?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you tell me what I need to do for graduation?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I need a meeting about graduation.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案准确表达了预约意图，使用了礼貌且符合场景的表达方式。干扰项1是询问毕业时间，偏离了预约请求的核心；干扰项2是询问毕业要求，属于信息咨询而非预约；干扰项3表达不完整且不够礼貌，缺乏明确的预约动作。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "学生想预约学术顾问进行毕业事项面谈，需要礼貌且清晰地提出预约请求。"
-      }
-    },
-    {
-      "id": "study_abroad_108_sub_1_qa_2_choice_1",
-      "subSceneId": "study_abroad_108_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_108_sub_1_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What documents should I bring for the meeting?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "When will the meeting be scheduled?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you help me write my thesis outline?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I need to bring my transcript and thesis outline.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案询问需要携带的材料，符合预约时确认准备事项的交际需求。选项2只问时间，未涉及材料准备；选项3请求代写论文，超出顾问职责范围；选项4是陈述句而非提问，不符合预约对话中主动询问的语用规则。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "学生预约学术顾问面谈毕业事宜，希望确认需要准备哪些材料。"
-      }
-    },
-    {
       "id": "study_abroad_108_sub_1_choice_3",
       "subSceneId": "study_abroad_108_sub_1",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我想预约毕业审核，下周有空位吗？"
       }
+    },
+    {
+      "id": "study_abroad_108_sub_1_qa_1_choice_1",
+      "subSceneId": "study_abroad_108_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "学生想预约学术顾问面谈毕业相关事宜，需要主动询问可预约的时间",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I schedule a meeting to go over my graduation requirements?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "What documents do I need to bring to the meeting?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is the graduation checklist available online?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Could you tell me when my thesis defense is?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是询问预约面谈时间，符合‘主动预约’的交际目标。选项2和3是关于材料和信息查询，属于后续步骤，不是预约时的首要问题。选项4询问答辩时间，与毕业清单面谈无关，属于话题偏移。",
+        "qaId": "study_abroad_108_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "study_abroad_108_sub_1_qa_2_choice_1",
+      "subSceneId": "study_abroad_108_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "学生希望确认面谈前需要准备的材料，避免遗漏重要文件",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Could you please clarify what documents I should bring for the graduation meeting?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you have any advice on how to write a good thesis?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "When will the results of my final exams be released?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I reschedule my appointment if I'm late?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接询问所需材料，符合预约前确认准备事项的高频需求。选项1与场景高度相关，而选项2涉及论文写作指导，超出面谈范围；选项3询问成绩发布时间，与材料准备无关；选项4聚焦改期，属于预约后的操作，非初始确认环节。",
+        "qaId": "study_abroad_108_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:09:54.001Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

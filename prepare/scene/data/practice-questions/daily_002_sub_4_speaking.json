@@ -5,52 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.451Z",
   "questions": [
     {
-      "id": "daily_002_sub_4_qa_1_speaking_1",
-      "subSceneId": "daily_002_sub_4",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_002_sub_4_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在超市或商场里，想找到最近的收银台结账，需要向工作人员询问位置。",
-        "expectedAnswers": [
-          "Where's the nearest checkout counter?",
-          "Can you tell me where the closest register is?",
-          "Could you point me to the nearest checkout?",
-          "Which way is the closest place to pay?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问收银台位置的意图",
-          "语言准确性：语法结构正确，用词恰当",
-          "表达自然度：符合日常英语口语习惯，不生硬",
-          "关键词覆盖：使用了'checkout', 'nearest/closest'等场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "daily_002_sub_4_qa_2_speaking_1",
-      "subSceneId": "daily_002_sub_4",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_002_sub_4_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在商场里，需要问工作人员最近的收银台在哪里",
-        "expectedAnswers": [
-          "Excuse me, where is the nearest checkout?",
-          "Could you tell me where the closest cash register is?",
-          "Hi, do you know where the checkout is located?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达了询问最近收银台的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
       "id": "daily_002_sub_4_speaking_3",
       "subSceneId": "daily_002_sub_4",
       "type": "speaking",
@@ -73,6 +27,60 @@
           "关键词覆盖：包含 'express lane', 'few items', 'under 10', 'fastest' 等核心词汇"
         ]
       }
+    },
+    {
+      "id": "daily_002_sub_4_qa_1_speaking_1",
+      "subSceneId": "daily_002_sub_4",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在超市购物完毕，想找到最近的收银台结账，向工作人员询问位置。",
+        "speakerText": "Where can I find the nearest checkout counter?",
+        "speakerTextCn": "我可以在哪里找到最近的收银台？",
+        "expectedAnswers": [
+          "Is there a checkout near the exit?",
+          "Could you point me to the closest register?",
+          "Where’s the quickest place to pay?",
+          "Do you have a checkout lane close by?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问收银台位置",
+          "语言准确性：语法和用词是否正确，无中式英语",
+          "表达自然度：是否符合日常英语口语习惯",
+          "关键词覆盖：是否使用了 checkout / counter / register / near / closest 等关键词"
+        ],
+        "qaId": "daily_002_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "daily_002_sub_4_qa_2_speaking_1",
+      "subSceneId": "daily_002_sub_4",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在大型商场购物后想快速结账，但不确定哪里有收银台，于是向服务台员工询问。",
+        "speakerText": "Which checkout station is closest to me right now?",
+        "speakerTextCn": "现在离我最近的收银台是哪一个？",
+        "expectedAnswers": [
+          "Where’s the nearest self-checkout?",
+          "Can you tell me which aisle has a checkout nearby?",
+          "Is there a checkout on this floor?",
+          "Which way should I go to find a register?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确询问最近的收银台位置",
+          "语言准确性：使用了恰当的方位词和结账相关词汇",
+          "表达自然度：语气礼貌，符合服务场景对话习惯",
+          "关键词覆盖：是否包含 nearest / closest / checkout / register / nearby 等核心词"
+        ],
+        "qaId": "daily_002_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:26.302Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

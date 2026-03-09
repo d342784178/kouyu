@@ -5,51 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.538Z",
   "questions": [
     {
-      "id": "workplace_048_sub_3_qa_2_speaking_1",
-      "subSceneId": "workplace_048_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_048_sub_3_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在询问上传发票的具体操作步骤，包括哪些情况下可以只报部分发票",
-        "expectedAnswers": [
-          "Can I submit partial receipts if I lost one?",
-          "What if I only have part of the receipt, can I still upload it?",
-          "If I've lost some of the receipts, can I just upload the ones I have left?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "workplace_048_sub_3_qa_1_speaking_1",
-      "subSceneId": "workplace_048_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_048_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "您正在询问上传发票的具体操作步骤",
-        "expectedAnswers": [
-          "Do I need to scan all receipts? What format should they be?",
-          "所有收据都要扫描吗？要什么格式？",
-          "What's the format for uploading receipts?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
       "id": "workplace_048_sub_3_speaking_3",
       "subSceneId": "workplace_048_sub_3",
       "type": "speaking",
@@ -71,6 +26,60 @@
           "表达是否专业、有逻辑，体现对流程的理解"
         ]
       }
+    },
+    {
+      "id": "workplace_048_sub_3_qa_1_speaking_1",
+      "subSceneId": "workplace_048_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工在提交差旅费用报销前，想确认发票上传的具体要求，包括文件格式、命名规范和是否需要包含所有票据。",
+        "speakerText": "What are the exact requirements for uploading receipts? Should I include every single one, and how should I name the files?",
+        "speakerTextCn": "上传收据的具体要求是什么？我需要包含每一张吗？文件应该怎么命名？",
+        "expectedAnswers": [
+          "Upload all receipts as PDF or JPG files—no screenshots or phone photos. Name them like 'Meal_June20.pdf'.",
+          "Yes, include every receipt. Use clear scans, and label files with the date and purpose, e.g., 'Taxi_July5.jpg'.",
+          "Only submit original receipts in PDF or JPG. Avoid blurry images, and use a consistent naming format: Event_Date.pdf.",
+          "Make sure each file is under 5MB and clearly shows the amount, date, and vendor. Name files as 'Airfare_Aug12.pdf'."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了格式、范围和命名要求",
+          "语言准确性：语法和用词是否正确，是否使用了关键词如 'PDF', 'JPG', 'name files'",
+          "表达自然度：是否符合职场英语口语习惯，语气是否礼貌得体",
+          "关键词覆盖：是否包含 'receipts', 'format', 'name files', 'include all' 等核心词汇"
+        ],
+        "qaId": "workplace_048_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "workplace_048_sub_3_qa_2_speaking_1",
+      "subSceneId": "workplace_048_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工有一张发票是外币消费，不确定是否需要转换成美元，以及是否需要附加说明。",
+        "speakerText": "I have a receipt in euros—do I need to convert it to USD, and should I add a note explaining the currency?",
+        "speakerTextCn": "我有一张欧元发票，需要换成美元吗？是否需要附上货币说明？",
+        "expectedAnswers": [
+          "Yes, convert the amount to USD and attach a screenshot of the exchange rate from a bank or PayPal.",
+          "You don’t need to convert it—just upload the original receipt and write the USD equivalent in the comment box.",
+          "Upload the original receipt as is, and add a brief note: 'Paid in EUR, equivalent to $XX.XX on [date]'.",
+          "Make sure the receipt clearly shows the currency and amount. Then enter the USD value manually in the system."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了货币转换和附加说明的要求",
+          "语言准确性：语法和术语使用是否正确，如 'convert', 'exchange rate', 'attach a note'",
+          "表达自然度：是否符合职场中处理财务问题的自然表达方式",
+          "关键词覆盖：是否包含 'euros', 'USD', 'convert', 'note', 'receipt' 等核心词汇"
+        ],
+        "qaId": "workplace_048_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:56.719Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

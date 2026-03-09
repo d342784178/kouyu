@@ -41,76 +41,6 @@
       }
     },
     {
-      "id": "daily_019_sub_3_qa_1_choice_1",
-      "subSceneId": "daily_019_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_019_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Can you make it with pink roses instead? And maybe include a little teddy bear?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you sell pink roses and teddy bears?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "I want pink roses and a teddy bear.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Are pink roses available?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案直接表达了修改原订单的请求，语气礼貌且完整包含两个定制需求，符合口语交际习惯。干扰项2仅询问商品是否存在，未表达定制意图；干扰项3是命令式表达，缺乏礼貌和协商语气；干扰项4只问单一商品的可用性，未提及修改或添加要求。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想定制一份花束，希望将原定的红玫瑰换成粉玫瑰，并额外添加一个小熊玩偶，现在需要向花店工作人员提出这个个性化要求。"
-      }
-    },
-    {
-      "id": "daily_019_sub_3_qa_2_choice_1",
-      "subSceneId": "daily_019_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_019_sub_3_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Can you make this customization for me?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How much does it cost to order a standard version?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "When will you finish the order?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I want this customized, please.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案询问是否能完成定制，符合场景中等待服务方确认需求的交际目标。干扰项2询问标准版本价格，偏离定制需求；干扰项3关注完成时间，而非可行性；干扰项4是陈述句而非提问，不符合互动情境。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客提出个性化定制要求，等待服务方回应是否可以满足需求"
-      }
-    },
-    {
       "id": "daily_019_sub_3_choice_2",
       "subSceneId": "daily_019_sub_3",
       "type": "choice",
@@ -181,6 +111,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我们可以把百合换成牡丹，并加一条浅粉丝带，额外收费15美元，本地配送免费。"
       }
+    },
+    {
+      "id": "daily_019_sub_3_qa_1_choice_1",
+      "subSceneId": "daily_019_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在定制一份生日花束时，想把原本的黄色郁金香换成红色玫瑰，并加一个写有'生日快乐'的贺卡，需要向店员确认是否可以以及是否额外收费。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I change the tulips to red roses and add a card that says 'Happy Birthday'? Will there be an extra charge?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I want red roses instead, and I don’t care about the card or the price.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Are red roses more expensive than tulips?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you deliver the flowers without the card?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案清晰、礼貌地提出了两项定制需求（换花+加贺卡）并主动询问是否收费，符合真实沟通场景。干扰项1语气生硬且忽略关键信息；干扰项2只问价格，未明确需求；干扰项4偏离主题，询问的是取消贺卡而非添加。",
+        "qaId": "daily_019_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "daily_019_sub_3_qa_2_choice_1",
+      "subSceneId": "daily_019_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想定制一个婚礼蛋糕，希望将顶层改为草莓口味，并在蛋糕上用糖霜写上新人的名字，需要向糕点师确认是否可行。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Could I have the top layer changed to strawberry flavor and write 'Sarah & Tom' on top with icing? Is that possible?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I like strawberry, but can you just make the whole cake strawberry?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have any cakes with names on them?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get a discount if I change the flavor?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案完整表达了两项定制请求并礼貌询问可行性，符合定制场景的沟通规范。干扰项1只提出更改口味，未提名字书写，信息不全；干扰项2是泛泛询问，未聚焦定制需求；干扰项4提前谈折扣，偏离核心诉求，显得不合时宜。",
+        "qaId": "daily_019_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:04:41.804Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.334Z",
   "questions": [
     {
-      "id": "travel_075_sub_2_qa_1_choice_1",
-      "subSceneId": "travel_075_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_075_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What is the departure time?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you have any snacks available?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Is this bus going to the airport?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How much does the ticket cost?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案\"What is the departure time?\"是正确的，因为它询问了班次时间。其他选项不符合场景，询问了不相关的问题。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "您正在询问班次时间及是否准点"
-      }
-    },
-    {
-      "id": "travel_075_sub_2_qa_2_choice_1",
-      "subSceneId": "travel_075_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_075_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What's the maximum weight for a large suitcase?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How much does it cost to check in a bag?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "What's the policy on carrying pets on the plane?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can I pay for extra luggage at the gate?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案\"What's the maximum weight for a large suitcase?\"符合场景需求，询问行李重量限制。其他选项不符合场景需求或表达不自然。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在机场柜台询问行李的重量限制和额外行李的费用"
-      }
-    },
-    {
       "id": "travel_075_sub_2_choice_3",
       "subSceneId": "travel_075_sub_2",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我们允许一件最多23公斤的托运行李和一件随身物品。超大行李需提前申请。"
       }
+    },
+    {
+      "id": "travel_075_sub_2_qa_1_choice_1",
+      "subSceneId": "travel_075_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "乘客在车站询问下一班长途汽车的发车时间以及是否准时",
+        "speakerText": "The next bus to Chicago leaves at 3:30 PM.",
+        "speakerTextCn": "开往芝加哥的下一班车下午3:30发车。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What time does the next bus to Chicago leave, and is it usually on time?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much does a ticket to Chicago cost?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I bring a large suitcase on the bus?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Where is the boarding gate for the Chicago bus?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确询问了发车时间及准点情况，符合场景核心任务。干扰项分别询问票价、行李政策和登车口，均偏离了‘确认班次时间及准点性’的核心目标。",
+        "qaId": "travel_075_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "travel_075_sub_2_qa_2_choice_1",
+      "subSceneId": "travel_075_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "乘客在售票窗口想确认今晚最后一班去纽约的火车是否延误",
+        "speakerText": "The last train to New York departs at 11:15 PM.",
+        "speakerTextCn": "去纽约的最后一班火车晚上11:15发车。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is the 11:15 PM train to New York running on schedule tonight?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I buy a ticket for the 11:15 PM train now?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "What time does the first train to New York leave tomorrow?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have snacks available on the train to New York?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接针对准点性提问，贴合乘客对延误的担忧。干扰项分别涉及购票、首班车时间及车上零食，虽相关但偏离‘确认延误情况’的核心意图。",
+        "qaId": "travel_075_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:58.964Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

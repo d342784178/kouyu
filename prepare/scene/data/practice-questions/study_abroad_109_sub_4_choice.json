@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.979Z",
   "questions": [
     {
-      "id": "study_abroad_109_sub_4_qa_1_choice_1",
-      "subSceneId": "study_abroad_109_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_109_sub_4_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "When can I pick them up?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Where is the office to get my transcript?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can I get my transcript tomorrow?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How much does it cost to pick up my transcript?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案 'When can I pick them up?' 直接询问取件时间，符合场景需求。干扰项 'Where is the office...' 询问地点而非时间，偏离核心需求；'Can I get my transcript tomorrow?' 是封闭式提问，限制了对方回答的灵活性；'How much does it cost...' 询问费用，与取件时间无关。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "学生想了解成绩单何时可以领取，需要向工作人员提问"
-      }
-    },
-    {
       "id": "study_abroad_109_sub_4_choice_2",
       "subSceneId": "study_abroad_109_sub_4",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我明天能拿到成绩单吗？"
       }
+    },
+    {
+      "id": "study_abroad_109_sub_4_qa_1_choice_1",
+      "subSceneId": "study_abroad_109_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "学生在教务处询问成绩单何时可以领取，需要礼貌且准确地提问",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "When can I pick up my transcript?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you send me my transcript by email?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is my transcript ready yet?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much does it cost to get my transcript?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'When can I pick up my transcript?' 符合场景中询问取件时间的核心交际任务，使用了恰当的句型和词汇。干扰项2是询问邮件发送，偏离取件场景；干扰项3虽然相关，但属于确认状态而非询问具体时间，不够精准；干扰项4关注费用，与时间无关，答非所问。",
+        "qaId": "study_abroad_109_sub_4_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:09:49.359Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

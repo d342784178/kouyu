@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.102Z",
   "questions": [
     {
-      "id": "travel_059_sub_4_qa_1_choice_1",
-      "subSceneId": "travel_059_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_059_sub_4_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "I'd like to buy two adult tickets, can I pay with a credit card?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can I get a discount on the ticket price?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "What time does the show start?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How much does it cost for a child ticket?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案\"I'd like to buy two adult tickets, can I pay with a credit card?\"正确，因为它询问了支付方式。其他选项不正确，因为它们询问了不同的信息。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客询问价格、优惠等，工作人员回答"
-      }
-    },
-    {
-      "id": "travel_059_sub_4_qa_2_choice_1",
-      "subSceneId": "travel_059_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_059_sub_4_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Can you confirm my tickets are for today?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How much do the tickets cost?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Do you have any discounts?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I bought tickets, right?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案询问确认票务日期，符合支付后核实关键信息的场景。干扰项1和2聚焦价格与优惠，属于支付前的询问；干扰项4表达不完整且语气不专业，缺乏明确的确认意图。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "游客刚完成支付，想确认所购门票是否有效且为当天使用"
-      }
-    },
-    {
       "id": "travel_059_sub_4_choice_3",
       "subSceneId": "travel_059_sub_4",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我想用苹果支付买票，可以吗？"
       }
+    },
+    {
+      "id": "travel_059_sub_4_qa_1_choice_1",
+      "subSceneId": "travel_059_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客刚完成购票，想确认支付是否成功以及票是否已生效",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can you please confirm that my payment went through and my tickets are active?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much did I pay for the tickets?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you accept Apple Pay?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get a discount if I buy more tickets?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确表达了用户需要确认支付成功和票务生效的核心需求，符合购票后的典型确认场景。干扰项2仅询问价格，与支付确认无关；干扰项3询问支付方式，但用户已支付完毕；干扰项4询问折扣，属于提前咨询行为，不符合当前确认阶段的情境。",
+        "qaId": "travel_059_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "travel_059_sub_4_qa_2_choice_1",
+      "subSceneId": "travel_059_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客刚用手机扫码支付后，想确认电子票是否已发送到账户并可直接使用",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Has my e-ticket been sent to my email or app, and can I use it right away?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "What time does the attraction open tomorrow?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I change the date of my tickets later?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have any free souvenirs with the ticket?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案精准聚焦于电子票的发送状态和可用性，是支付后最自然的确认问题。干扰项1询问明日开放时间，属于无关信息；干扰项3询问改期，属于后续操作而非当前确认；干扰项4询问赠品，与支付确认无关，属于无关联想。",
+        "qaId": "travel_059_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:42.464Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

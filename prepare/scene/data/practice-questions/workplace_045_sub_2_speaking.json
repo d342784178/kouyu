@@ -5,52 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.509Z",
   "questions": [
     {
-      "id": "workplace_045_sub_2_qa_1_speaking_1",
-      "subSceneId": "workplace_045_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_045_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你遇到了打印机故障的问题，需要同事帮助解决",
-        "expectedAnswers": [
-          "打印机又卡纸了，我重启过，还是打不出。",
-          "我重启了打印机，但它还是不能正常工作，能否帮忙看看?",
-          "打印机卡纸了，重启后也没用，能否帮忙排查一下问题?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "workplace_045_sub_2_qa_2_speaking_1",
-      "subSceneId": "workplace_045_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_045_sub_2_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你遇到打印机故障，需要同事帮助解决问题",
-        "expectedAnswers": [
-          "我的打印机出了问题，屏幕上显示‘卡纸’，红灯一直在闪，需要你的帮助",
-          "打印机显示‘卡纸’，红灯闪烁，能麻烦你来看看吗？",
-          "我的打印机卡纸了，红灯一直闪，能帮我修复一下吗？"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达了询问意图",
-          "语言准确性：语法和用词正确",
-          "表达自然度：符合英语口语习惯",
-          "关键词覆盖：使用了‘卡纸’和‘红灯’等关键词"
-        ]
-      }
-    },
-    {
       "id": "workplace_045_sub_2_speaking_3",
       "subSceneId": "workplace_045_sub_2",
       "type": "speaking",
@@ -72,6 +26,60 @@
           "是否表达自然，符合职场协作语境"
         ]
       }
+    },
+    {
+      "id": "workplace_045_sub_2_qa_1_speaking_1",
+      "subSceneId": "workplace_045_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在办公室使用打印机时遇到问题，屏幕上显示‘墨盒错误’，你已经尝试重新安装墨盒但问题依旧，现在需要向同事寻求帮助。",
+        "speakerText": "I've reinstalled the ink cartridge, but the printer still shows 'Ink Cartridge Error' and won't print.",
+        "speakerTextCn": "我重新安装了墨盒，但打印机仍然显示‘墨盒错误’，无法打印。",
+        "expectedAnswers": [
+          "Have you seen this error before? Maybe there's a reset procedure?",
+          "Could you check if the ink levels are recognized properly?",
+          "Do you think I need a new cartridge, or is it a sensor issue?",
+          "Would you mind helping me troubleshoot this? I'm not sure what else to try."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达了问题和已尝试的操作",
+          "语言准确性：语法和用词是否正确，是否使用了 'I've tried...' 等关键结构",
+          "表达自然度：是否符合职场英语口语习惯，语气是否得体",
+          "关键词覆盖：是否包含 'ink cartridge', 'error', 'won't print' 等场景关键词"
+        ],
+        "qaId": "workplace_045_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "workplace_045_sub_2_qa_2_speaking_1",
+      "subSceneId": "workplace_045_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在打印重要文件时，打印机突然停止工作，控制面板显示‘无法连接’，你确认了Wi-Fi连接正常，但打印机仍无法响应，现在需要请IT支持人员协助。",
+        "speakerText": "The printer says 'Unable to Connect' even though my laptop is on the same Wi-Fi—I've restarted both devices, but it's still offline.",
+        "speakerTextCn": "打印机显示‘无法连接’，尽管我的笔记本电脑和打印机在同一个Wi-Fi网络上，我已经重启了两个设备，但打印机仍然离线。",
+        "expectedAnswers": [
+          "Has this happened to anyone else on this network?",
+          "Could you check if the printer's IP address changed?",
+          "Is there a way to manually reconnect it through the settings?",
+          "Do we need to reinstall the printer driver on this machine?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确说明了问题现象和已采取的措施",
+          "语言准确性：是否正确使用了完成时态（I've restarted）和专业术语",
+          "表达自然度：是否使用了职场中常见的求助表达方式",
+          "关键词覆盖：是否包含 'unable to connect', 'Wi-Fi', 'restarted', 'offline' 等关键表达"
+        ],
+        "qaId": "workplace_045_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:36.750Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -5,51 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.140Z",
   "questions": [
     {
-      "id": "travel_062_sub_4_qa_2_speaking_1",
-      "subSceneId": "travel_062_sub_4",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_062_sub_4_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在游览一座城市，需要向当地人索取地图并结束对话，如何询问?",
-        "expectedAnswers": [
-          "Thanks so much! You've been super helpful.",
-          "I really appreciate your help, thanks!",
-          "That's very kind of you, thanks for the map!"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
-      "id": "travel_062_sub_4_qa_1_speaking_1",
-      "subSceneId": "travel_062_sub_4",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_062_sub_4_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在游览一座城市，需要一个城市地图来规划你的行程。请你主动询问附近的人能否给你一份免费的地图。",
-        "expectedAnswers": [
-          "Excuse me, could I get a map of the city?",
-          "Hi, can I get a free map of the city, please?",
-          "Sorry to bother you, could you give me a map of the city?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
       "id": "travel_062_sub_4_speaking_3",
       "subSceneId": "travel_062_sub_4",
       "type": "speaking",
@@ -72,6 +27,60 @@
           "关键词覆盖：是否包含 'map', 'free', 'where', 'get' 等场景关键词"
         ]
       }
+    },
+    {
+      "id": "travel_062_sub_4_qa_1_speaking_1",
+      "subSceneId": "travel_062_sub_4",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在旅游信息中心向工作人员礼貌索取一份城市地图，并准备结束对话",
+        "speakerText": "Could I please get a free map of the city? Also, thanks so much for your help!",
+        "speakerTextCn": "我能要一份免费的城市地图吗？另外，非常感谢你的帮助！",
+        "expectedAnswers": [
+          "Of course! Here you go — enjoy your trip!",
+          "Sure! Take one from the rack near the door. Have a wonderful day!",
+          "Absolutely! This one has the subway routes marked too. Have a great time!",
+          "No problem! Feel free to come back if you need more info. Safe travels!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达了索取地图和表达感谢的双重意图",
+          "语言准确性：语法正确，用词恰当，无明显错误",
+          "表达自然度：语气礼貌、符合英语口语习惯，不生硬",
+          "关键词覆盖：使用了 'map', 'free', 'thanks', 'trip/visit' 等场景关键词"
+        ],
+        "qaId": "travel_062_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "travel_062_sub_4_qa_2_speaking_1",
+      "subSceneId": "travel_062_sub_4",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在酒店前台向工作人员请求一张当地景点地图，并礼貌道别",
+        "speakerText": "Would it be possible to get a city map? I really appreciate your assistance!",
+        "speakerTextCn": "我可以要一张城市地图吗？非常感谢你的帮助！",
+        "expectedAnswers": [
+          "Certainly! Here’s a detailed one with walking tours highlighted. Have a fantastic time!",
+          "Of course — we have them by the entrance. Thanks for choosing us!",
+          "Yes, here you are! Let me know if you need recommendations later. Enjoy your stay!",
+          "Absolutely! This map includes hidden gems too. Thanks for stopping by!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达了索取地图和表达感谢的双重意图",
+          "语言准确性：语法正确，用词恰当，无明显错误",
+          "表达自然度：语气礼貌、符合英语口语习惯，不生硬",
+          "关键词覆盖：使用了 'map', 'city', 'appreciate', 'help', 'enjoy' 等场景关键词"
+        ],
+        "qaId": "travel_062_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:53.316Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

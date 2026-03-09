@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.645Z",
   "questions": [
     {
-      "id": "daily_029_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "daily_029_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问价格时，英语中最常用的标准句型是 'How much is...?'",
-        "qaId": "daily_029_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "How much is",
-            "options": [
-              "How much is",
-              "What is the price of",
-              "How many does",
-              "Is this robot"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "家长想了解一个机器人玩具的价格，确认是否在自己的预算范围内",
-        "knowledgePoint": "日常询价句型",
-        "responseTemplate": "___ this robot?"
-      }
-    },
-    {
       "id": "daily_029_sub_2_fill_blank_1",
       "subSceneId": "daily_029_sub_2",
       "type": "fill_blank",
@@ -57,33 +30,6 @@
         "speakerTextCn": "我喜欢这个，但有点超出了我的预算。你们有类似但更便宜一点的吗？",
         "knowledgePoint": "价格比较表达（cheaper）",
         "responseTemplate": "How about this model? It's ___ but has the same educational features."
-      }
-    },
-    {
-      "id": "daily_029_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "daily_029_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "表达预算超支后，礼貌询问是否有更便宜的选项时，常用这个句型",
-        "qaId": "daily_029_sub_2_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "Do you have anything cheaper",
-            "options": [
-              "Do you have anything cheaper",
-              "Can you give me a discount",
-              "Is it possible to lower the price",
-              "Do you have something more expensive"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "家长看到报价后觉得有点超预算，想礼貌地询问是否有更便宜的选项",
-        "knowledgePoint": "礼貌询价与预算协商句型",
-        "responseTemplate": "That's a bit over my budget. ___?"
       }
     },
     {
@@ -177,6 +123,37 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "固定搭配 'over my budget' 和比较级 'cheaper' 的正确使用"
       }
+    },
+    {
+      "id": "daily_029_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "daily_029_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "家长在商店看到一款教育玩具，觉得价格偏高，想礼貌地询问是否有更符合预算的选项",
+        "speakerText": "This looks great, but it's a bit over my budget.",
+        "speakerTextCn": "这看起来很棒，但有点超预算了。",
+        "responseTemplate": "Do you have ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "anything cheaper",
+            "options": [
+              "anything cheaper",
+              "something more expensive",
+              "a discount code",
+              "another model"
+            ]
+          }
+        ],
+        "hint": "当价格超出预算时，常用表达是询问是否有更便宜的选项",
+        "knowledgePoint": "使用比较级表达价格期望",
+        "qaId": "daily_029_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:05:18.101Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

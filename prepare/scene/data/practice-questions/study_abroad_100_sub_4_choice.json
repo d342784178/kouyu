@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.870Z",
   "questions": [
     {
-      "id": "study_abroad_100_sub_4_qa_1_choice_1",
-      "subSceneId": "study_abroad_100_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_100_sub_4_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Can I know the deadline for adding or dropping courses?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What's the penalty for late course drops?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Do I need to pay extra to add or drop courses?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "When is the final exam for this course?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 opt_1，因为它询问了截止日期和加退课规则。其他选项不正确，因为它们询问了不同的信息。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想确认选课截止日期和加退课的规则"
-      }
-    },
-    {
       "id": "study_abroad_100_sub_4_choice_2",
       "subSceneId": "study_abroad_100_sub_4",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "你可以在加退课期内加课，截止到周五。"
       }
+    },
+    {
+      "id": "study_abroad_100_sub_4_qa_1_choice_1",
+      "subSceneId": "study_abroad_100_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在注册新学期的课程，想确认加退课的最终截止时间，避免错过无 penalty 的期限。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What's the last day I can add or drop a class without getting a penalty?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I drop a class if I'm failing it?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much does it cost to add a course?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do I need to see an advisor before adding classes?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接询问无处罚的加退课截止日期，符合场景核心需求。干扰项2聚焦于退课理由而非时间点，干扰项3关注费用而非截止日，干扰项4涉及流程而非关键时间信息，均偏离核心交际目标。",
+        "qaId": "study_abroad_100_sub_4_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:09:09.443Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

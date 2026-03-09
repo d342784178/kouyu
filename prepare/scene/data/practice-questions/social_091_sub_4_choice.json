@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.774Z",
   "questions": [
     {
-      "id": "social_091_sub_4_qa_1_choice_1",
-      "subSceneId": "social_091_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "social_091_sub_4_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Did you follow me on Instagram? I posted that new coffee shop pic.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you use Instagram often?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "I posted a picture of a coffee shop, did you like it?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Have you seen my latest post?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案直接询问对方是否关注了自己，符合确认关注的场景。选项2只询问使用频率，未涉及关注行为；选项3询问是否点赞，偏离了‘关注’的核心需求；选项4询问是否看过动态，但未明确确认是否关注，表达不够精准。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户发起对话，询问对方是否关注了自己的社交媒体账号"
-      }
-    },
-    {
       "id": "social_091_sub_4_choice_2",
       "subSceneId": "social_091_sub_4",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "你还没关注我Twitter吧？我刚发了关于新演唱会的推文！"
       }
+    },
+    {
+      "id": "social_091_sub_4_qa_1_choice_1",
+      "subSceneId": "social_091_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在Instagram上分享了一张新照片，想确认朋友是否关注了你，用轻松非正式的语气询问。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hey, have you followed me on Instagram? I just posted a pic of the new brunch spot!",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you think my Instagram account is worth following?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I posted something cool—did you see it?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "You should follow me—I post great photos.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接、自然地询问对方是否关注，符合非正式语境且明确指向Instagram关注行为。选项2是间接评价账号价值，而非确认关注状态；选项3只问是否看到，未提及关注；选项4是建议而非提问，不符合‘user_asks’模式要求。",
+        "qaId": "social_091_sub_4_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:07:46.934Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

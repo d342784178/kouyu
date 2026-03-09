@@ -5,28 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.589Z",
   "questions": [
     {
-      "id": "workplace_054_sub_2_qa_1_speaking_1",
-      "subSceneId": "workplace_054_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_054_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "服务方/工作人员可能询问具体数量或确认库存，例如：'我们有多少个笔？'",
-        "expectedAnswers": [
-          "I'd like to know how many pens you have.",
-          "Can I check how many pens you have in stock?",
-          "How many pens do you have available?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
       "id": "workplace_054_sub_2_speaking_2",
       "subSceneId": "workplace_054_sub_2",
       "type": "speaking",
@@ -73,6 +51,34 @@
           "关键词覆盖：包含 'how many', 'boxes', 'markers', 'sticky notes'"
         ]
       }
+    },
+    {
+      "id": "workplace_054_sub_2_qa_1_speaking_1",
+      "subSceneId": "workplace_054_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你是一名员工，需要向行政人员申领办公用品，请主动说明你需要的物品和数量，避免对方反复询问。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "I need 4 highlighters, 2 staplers, and a pack of sticky notes.",
+          "Could I please get 6 ballpoint pens, 15 notepads, and one roll of masking tape?",
+          "I’d like to request 3 folders, 2 tape dispensers, and 10 index cards.",
+          "Just a few items: 5 pencils, 8 pads, and 1 glue stick."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达了所需物品和数量",
+          "语言准确性：语法、冠词、复数形式是否正确",
+          "表达自然度：是否使用日常办公场景中的自然表达",
+          "关键词覆盖：是否包含办公用品名词（如pen, pad, tape等）和数量词"
+        ],
+        "qaId": "workplace_054_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:35.847Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -33,70 +33,6 @@
       }
     },
     {
-      "id": "daily_008_sub_3_qa_2_fill_blank_1",
-      "subSceneId": "daily_008_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示：用户询问快递方式的时效",
-        "qaId": "daily_008_sub_3_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "Friday",
-            "options": [
-              "星期天",
-              "星期五",
-              "星期六",
-              "下周一"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客询问快递费用和方式",
-        "knowledgePoint": "提问句型",
-        "responseTemplate": "Can I get it there by ___?"
-      }
-    },
-    {
-      "id": "daily_008_sub_3_qa_1_fill_blank_1",
-      "subSceneId": "daily_008_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示：询问快递费用和方式",
-        "qaId": "daily_008_sub_3_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "standard shipping",
-            "options": [
-              "标准邮件",
-              "快递服务",
-              "特快运送",
-              "普通快递"
-            ]
-          },
-          {
-            "index": 1,
-            "answer": "express",
-            "options": [
-              "普通邮件",
-              "快递服务",
-              "特快运送",
-              "标准运送"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客询问快递费用和方式，服务方提供信息",
-        "knowledgePoint": "运用提问句型，询问快递费用和方式",
-        "responseTemplate": "How much for __________ and __________?"
-      }
-    },
-    {
       "id": "daily_008_sub_3_fill_blank_2",
       "subSceneId": "daily_008_sub_3",
       "type": "fill_blank",
@@ -185,6 +121,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "动词搭配（choose/take the cheaper option）"
       }
+    },
+    {
+      "id": "daily_008_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "daily_008_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在网购后想了解不同快递方式的费用和送达时间，准备向客服提问",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "How much does ___ cost, and how long does it take?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "standard shipping",
+            "options": [
+              "standard shipping",
+              "the delivery option",
+              "express delivery",
+              "my package"
+            ]
+          }
+        ],
+        "hint": "询问标准快递的价格和时效，常用表达是 'standard shipping'",
+        "knowledgePoint": "询问快递方式的费用与时效",
+        "qaId": "daily_008_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "daily_008_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "daily_008_sub_3",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客急需收到商品，想确认最快的方式能否在指定时间前送达",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Will ___ get here by next Tuesday?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "express shipping",
+            "options": [
+              "express shipping",
+              "the cheapest option",
+              "standard delivery",
+              "your fastest service"
+            ]
+          }
+        ],
+        "hint": "询问最快快递能否按时送达，常用 'express shipping' 指代特快服务",
+        "knowledgePoint": "使用 'express shipping' 提问时效可行性",
+        "qaId": "daily_008_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:30.282Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

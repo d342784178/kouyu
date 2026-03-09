@@ -5,52 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.377Z",
   "questions": [
     {
-      "id": "workplace_034_sub_3_qa_2_speaking_1",
-      "subSceneId": "workplace_034_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_034_sub_3_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "场景提示：用户询问预算情况，服务方/工作人员需提供详细回答",
-        "expectedAnswers": [
-          "What potential risks could impact our budget before Q3?",
-          "Are there any major risks that could affect our budget before the end of Q3?",
-          "What are the potential financial risks we should be aware of before Q3?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问预算风险的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词（风险、预算、Q3）"
-        ]
-      }
-    },
-    {
-      "id": "workplace_034_sub_3_qa_1_speaking_1",
-      "subSceneId": "workplace_034_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_034_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "场景提示：用户询问预算情况，服务方/工作人员需提供详细回答",
-        "expectedAnswers": [
-          "What's the latest on the budget? I heard there were some unexpected expenses.",
-          "Can you give me an update on the budget? I'd like to know how the vendor costs are affecting it.",
-          "How's the budget looking? I'm concerned about the impact of the vendor price hike on our overall costs."
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问预算情况的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了预算和风险的关键词"
-        ]
-      }
-    },
-    {
       "id": "workplace_034_sub_3_speaking_3",
       "subSceneId": "workplace_034_sub_3",
       "type": "speaking",
@@ -73,6 +27,58 @@
           "关键词覆盖：包含 audit, compliance, issue, action, deadline 等关键词"
         ]
       }
+    },
+    {
+      "id": "workplace_034_sub_3_qa_1_speaking_1",
+      "subSceneId": "workplace_034_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在向总监汇报项目进展，总监希望你主动说明当前预算执行情况和潜在风险，你需要提出一个专业的问题来引导对话，展示你的风险意识和预算掌控能力。",
+        "speakerText": "How are we tracking against the Q3 budget, and are there any hidden risks we need to address before the next review?",
+        "speakerTextCn": "我们目前的Q3预算执行情况如何？有没有哪些潜在风险需要在下次审查前解决？",
+        "expectedAnswers": [
+          "We're at 88% of budget with some savings in marketing, but we're monitoring a delay in the payment gateway integration that could impact timeline.",
+          "On track overall—spent less on travel but higher cloud costs; the main risk is vendor onboarding taking longer than expected.",
+          "Good control so far. The only concern is potential currency fluctuation affecting our overseas vendor payments."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了预算执行情况和潜在风险",
+          "语言准确性：语法、时态、专业术语使用是否正确",
+          "表达自然度：是否符合职场英语口语习惯，语气专业得体",
+          "关键词覆盖：是否包含 budget, risk, monitoring, vendor, impact 等场景关键词"
+        ],
+        "qaId": "workplace_034_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "workplace_034_sub_3_qa_2_speaking_1",
+      "subSceneId": "workplace_034_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚完成季度财务复盘，总监对你团队的支出效率有疑虑。你需要主动提出一个有深度的问题，表明你不仅清楚预算状态，还具备前瞻性风险预判能力。",
+        "speakerText": "Could we flag any budget vulnerabilities that might surface in the next quarter based on current spending trends?",
+        "speakerTextCn": "根据当前的支出趋势，我们是否需要提前预警下个季度可能出现的预算漏洞？",
+        "expectedAnswers": [
+          "Yes—our cloud usage is growing 15% faster than projected; if we don’t optimize by August, we’ll exceed Q4 cap.",
+          "The main vulnerability is the lack of contract renewals with two key vendors—without renegotiation, costs could spike 20% next quarter.",
+          "Not critical yet, but if the hiring freeze continues, we may need to outsource core tasks, which would increase variable costs."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确提出关于未来预算风险的前瞻性问题",
+          "语言准确性：是否正确使用趋势表达（growing, projected, spike）和条件结构",
+          "表达自然度：是否体现专业汇报语气，避免模糊或过度自信",
+          "关键词覆盖：是否包含 budget, vulnerability, projected, spike, renegotiation, cost control 等关键词"
+        ],
+        "qaId": "workplace_034_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:39.961Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

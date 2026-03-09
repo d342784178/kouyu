@@ -33,33 +33,6 @@
       }
     },
     {
-      "id": "daily_008_sub_1_qa_1_fill_blank_1",
-      "subSceneId": "daily_008_sub_1",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "礼貌地询问服务人员帮助",
-        "qaId": "daily_008_sub_1_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "send a package",
-            "options": [
-              "寄个东西",
-              "帮我收件",
-              "打印邮件",
-              "给你送东西"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你来这家快递公司寄个包裹吗？",
-        "knowledgePoint": "提问句型和客观语言",
-        "responseTemplate": "Hi there！Can you help me___?"
-      }
-    },
-    {
       "id": "daily_008_sub_1_fill_blank_2",
       "subSceneId": "daily_008_sub_1",
       "type": "fill_blank",
@@ -166,6 +139,37 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "动词时态与搭配（send → sending）"
       }
+    },
+    {
+      "id": "daily_008_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "daily_008_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在快递点向工作人员礼貌询问是否可以帮忙寄包裹",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Hi, could you help me ______ a package?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "send",
+            "options": [
+              "send",
+              "deliver",
+              "mail",
+              "ship"
+            ]
+          }
+        ],
+        "hint": "在快递服务场景中，'send a package' 是最自然的表达方式",
+        "knowledgePoint": "高频服务场景中的动词搭配",
+        "qaId": "daily_008_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:19.367Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

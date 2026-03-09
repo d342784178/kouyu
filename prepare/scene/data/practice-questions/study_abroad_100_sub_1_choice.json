@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.863Z",
   "questions": [
     {
-      "id": "study_abroad_100_sub_1_qa_1_choice_1",
-      "subSceneId": "study_abroad_100_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_100_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Hi there! You're here for course advising, right?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What courses are you taking this semester?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you fill out this form?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I'm the advisor, who are you?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案通过友好问候和开放式确认（'right?'）自然开启对话，符合初次寒暄场景。选项2过早聚焦课程细节，未建立基本互动；选项3是命令式指令，缺乏礼貌和情境适应性；选项4语气生硬，不符合英语文化中先建立关系再询问的沟通习惯。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "学生第一次见到学术顾问，顾问需要友好开场并确认学生的来意"
-      }
-    },
-    {
       "id": "study_abroad_100_sub_1_choice_2",
       "subSceneId": "study_abroad_100_sub_1",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "嗨，我是你的学术顾问。你来这里是有什么事吗？"
       }
+    },
+    {
+      "id": "study_abroad_100_sub_1_qa_1_choice_1",
+      "subSceneId": "study_abroad_100_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你是一名新生，第一次来到学术顾问办公室，想礼貌地打招呼并说明你来咨询选课的事。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hi, I'm new here. Could you help me choose courses for next semester?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "What classes should I take?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I need to pick classes, so do your job.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Are you the advisor? I heard you're busy.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案礼貌、清晰地表达了问候和需求，符合初次见面的社交规范。选项2过于直接，缺乏礼貌铺垫；选项3语气粗鲁，不符合社交礼仪；选项4聚焦于顾问是否忙碌，偏离了主要目的，显得不自然。",
+        "qaId": "study_abroad_100_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:09:03.188Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

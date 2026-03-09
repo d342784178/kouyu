@@ -5,52 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.441Z",
   "questions": [
     {
-      "id": "workplace_040_sub_4_qa_2_speaking_1",
-      "subSceneId": "workplace_040_sub_4",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_040_sub_4_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "经理询问员工下季度计划及所需支持",
-        "expectedAnswers": [
-          "Can you send me the updated report by EOD?",
-          "你能在今天下班前发给我更新版报告吗？",
-          "What is the deadline for submitting the updated report?",
-          "你能告诉我更新版报告的截止时间吗？"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "workplace_040_sub_4_qa_1_speaking_1",
-      "subSceneId": "workplace_040_sub_4",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_040_sub_4_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "经理询问员工下季度计划及所需支持",
-        "expectedAnswers": [
-          "What's the plan for next quarter? Any support you need?",
-          "Could you tell me about your plans for the next quarter and if there's anything I can do to help?",
-          "What are your goals for the next quarter and do you need any assistance from me?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问下季度计划与所需支持的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
       "id": "workplace_040_sub_4_speaking_3",
       "subSceneId": "workplace_040_sub_4",
       "type": "speaking",
@@ -72,6 +26,60 @@
           "是否使用了场景核心动词（handle, coordinate, send, confirm）"
         ]
       }
+    },
+    {
+      "id": "workplace_040_sub_4_qa_1_speaking_1",
+      "subSceneId": "workplace_040_sub_4",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你和团队正在筹备一个项目会议，需要明确谁负责准备材料以及截止时间。",
+        "speakerText": "Who’s handling the presentation slides, and when do you need them by?",
+        "speakerTextCn": "谁负责准备演示文稿？你需要它们什么时候完成？",
+        "expectedAnswers": [
+          "I’ll take care of the slides—I’ll send them to everyone by Wednesday EOD.",
+          "Sarah is working on them; she’ll finish by Tuesday afternoon.",
+          "I’ll draft them this week and share for feedback by Friday.",
+          "We’re splitting the work—I’ll handle the first half by Thursday, and Mark will finish the rest by Friday."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确指出了责任人和具体截止时间",
+          "语言准确性：使用了正确的时态和表达（如 will, by + 时间点）",
+          "表达自然度：符合职场口语习惯，无生硬或翻译腔",
+          "关键词覆盖：包含 'handling', 'by', 时间节点等关键表达"
+        ],
+        "qaId": "workplace_040_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "workplace_040_sub_4_qa_2_speaking_1",
+      "subSceneId": "workplace_040_sub_4",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在协调一个跨部门合作项目，需要确认下一步行动和负责人。",
+        "speakerText": "What’s the next step, and who should we follow up with to move this forward?",
+        "speakerTextCn": "下一步是什么？我们应该跟进谁来推动这件事？",
+        "expectedAnswers": [
+          "We need marketing to approve the campaign copy—I’ll email them by tomorrow morning.",
+          "The next step is getting IT’s sign-off; I’ll schedule a quick call with them by Thursday.",
+          "Let’s wait for finance’s budget confirmation—I’ll check in with them on Monday.",
+          "We’re good to go once legal clears the contract—I’ll remind them by end of day."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰询问下一步行动与责任人",
+          "语言准确性：使用了恰当的动词短语（follow up, schedule, check in）和时间表达",
+          "表达自然度：符合职场中推进事务的自然对话节奏",
+          "关键词覆盖：包含 'next step', 'follow up with', 时间节点等关键表达"
+        ],
+        "qaId": "workplace_040_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:07.104Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

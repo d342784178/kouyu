@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.646Z",
   "questions": [
     {
-      "id": "daily_029_sub_3_qa_1_choice_1",
-      "subSceneId": "daily_029_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_029_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "I'll take this one. Can I pay with card?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you accept cash only?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How much is it?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can I pay with card?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 'I'll take this one. Can I pay with card?'，因为它既表达了购买意愿，又自然地询问支付方式，符合结账场景。干扰项1 'Do you accept cash only?' 暗示只接受现金，与意图相反；干扰项2 'How much is it?' 只询问价格，未涉及支付方式；干扰项3 'Can I pay with card?' 虽语法正确，但缺少购买表态，显得突兀不完整。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "家长在结账时决定购买商品，想确认是否可以使用银行卡支付"
-      }
-    },
-    {
-      "id": "daily_029_sub_3_qa_2_choice_1",
-      "subSceneId": "daily_029_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_029_sub_3_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Do you accept Apple Pay?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How much does it cost?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can I pay with cash?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Do you have Apple Pay?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案 'Do you accept Apple Pay?' 是询问商家是否接受某种支付方式的标准表达。干扰项1 'How much does it cost?' 询问价格，与支付方式无关；干扰项2 'Can I pay with cash?' 虽语法正确，但聚焦现金而非题目要求的Apple Pay；干扰项3 'Do you have Apple Pay?' 表达不自然，误将支付方式当作商家拥有的物品，不符合英语习惯。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "家长在结账时想确认商家是否支持苹果支付，以便使用手机完成付款"
-      }
-    },
-    {
       "id": "daily_029_sub_3_choice_1",
       "subSceneId": "daily_029_sub_3",
       "type": "choice",
@@ -181,6 +111,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "现金还是刷卡？"
       }
+    },
+    {
+      "id": "daily_029_sub_3_qa_1_choice_1",
+      "subSceneId": "daily_029_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "家长在超市结账时，想确认是否可以使用支付宝支付",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do you accept Alipay?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I pay with cash instead?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much is the total?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have a discount for Alipay?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Do you accept Alipay?' 是在支付场景下询问新型支付方式的标准表达，符合学习目标。干扰项2是询问现金支付，与支付宝无关；干扰项3是询问金额，属于结账前的确认，非支付方式提问；干扰项4假设已有支付方式并询问优惠，偏离了核心交际任务——确认是否支持该支付方式。",
+        "qaId": "daily_029_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "daily_029_sub_3_qa_2_choice_1",
+      "subSceneId": "daily_029_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "家长在便利店结账时，想确认是否支持Google Pay",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is Google Pay an option here?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I use my credit card?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have any promotions today?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How do I use Google Pay?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Is Google Pay an option here?' 是自然、礼貌地询问新型支付方式的常见表达，符合高频真实场景。干扰项2是询问信用卡，与Google Pay无关；干扰项3是询问促销，属于无关话题；干扰项4假设已确认支持并询问使用方法，但用户当前任务是确认是否支持，而非学习操作流程。",
+        "qaId": "daily_029_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:05:36.085Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

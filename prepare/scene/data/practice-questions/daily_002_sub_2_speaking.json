@@ -5,53 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.446Z",
   "questions": [
     {
-      "id": "daily_002_sub_2_qa_2_speaking_1",
-      "subSceneId": "daily_002_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_002_sub_2_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在超市看到一袋苹果，想确认这袋苹果是按公斤卖还是按袋卖，需要向店员询问商品的重量单位。",
-        "expectedAnswers": [
-          "How much does this bag of apples weigh?",
-          "Is this sold by the kilo or by the bag?",
-          "What's the weight of one bag?",
-          "Do you sell these by weight or per bag?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问了商品的计量方式",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语母语者日常对话习惯",
-          "关键词覆盖：是否包含 'bag', 'weight', 'sold by' 等场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "daily_002_sub_2_qa_1_speaking_1",
-      "subSceneId": "daily_002_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_002_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在超市寻找酸奶时，需要了解商品的计量单位。",
-        "expectedAnswers": [
-          "Is this yogurt sold by the pound or by the container?",
-          "这个酸奶是按磅卖还是按盒卖?",
-          "How is this yogurt sold, by weight or by container?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达了询问意图",
-          "语言准确性：语法和用词正确",
-          "表达自然度：符合英语口语习惯",
-          "关键词覆盖：使用了场景关键词"
-        ]
-      }
-    },
-    {
       "id": "daily_002_sub_2_speaking_3",
       "subSceneId": "daily_002_sub_2",
       "type": "speaking",
@@ -74,6 +27,60 @@
           "关键词覆盖：使用至少两个场景关键词（by the piece, by the kilogram, pre-packed, weigh）"
         ]
       }
+    },
+    {
+      "id": "daily_002_sub_2_qa_1_speaking_1",
+      "subSceneId": "daily_002_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在超市看到一袋大米，不确定是按袋卖还是按重量卖，想确认计价方式。",
+        "speakerText": "Is this rice sold by the bag or by the kilogram?",
+        "speakerTextCn": "这种米是按袋卖还是按公斤卖？",
+        "expectedAnswers": [
+          "It's sold by the bag — each bag is 5 kilograms.",
+          "We sell it by weight, so you can choose how much you want.",
+          "You can buy individual bags or bulk by the kilo — your choice.",
+          "All our rice comes pre-packaged in 2-kilo bags."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了商品的计价单位（按袋/按重量）",
+          "语言准确性：语法正确，使用了正确的计量单位词汇（bag, kilogram, weight）",
+          "表达自然度：符合超市购物场景中的日常口语习惯",
+          "关键词覆盖：使用了 'sold by the bag' 或 'sold by the kilogram/weight' 等核心表达"
+        ],
+        "qaId": "daily_002_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "daily_002_sub_2_qa_2_speaking_1",
+      "subSceneId": "daily_002_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在水果区看到一筐橙子，不确定是按筐卖还是按斤卖，想确认价格计算方式。",
+        "speakerText": "Are these oranges priced per bag or by the pound?",
+        "speakerTextCn": "这些橙子是按袋计价还是按磅计价？",
+        "expectedAnswers": [
+          "They're priced by the pound — you can grab as many as you like.",
+          "We sell them in 3-pound bags, so that's the standard unit.",
+          "You can choose loose by the pound or take a pre-packed bag.",
+          "Each bag is about 2.5 pounds, and that’s the price you see."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确询问了商品的计价单位（按袋/按磅）",
+          "语言准确性：使用了正确的表达如 'priced per bag' 或 'by the pound'",
+          "表达自然度：符合英语母语者在超市询问散装商品时的自然语调",
+          "关键词覆盖：使用了 'per bag', 'by the pound', 'priced' 等关键短语"
+        ],
+        "qaId": "daily_002_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:16.156Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

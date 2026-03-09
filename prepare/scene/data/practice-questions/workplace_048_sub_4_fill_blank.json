@@ -5,60 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.540Z",
   "questions": [
     {
-      "id": "workplace_048_sub_4_qa_1_fill_blank_1",
-      "subSceneId": "workplace_048_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "在询问审批周期时使用的句子结构",
-        "qaId": "workplace_048_sub_4_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "How long does approval usually take?",
-            "options": [
-              "How long does it take?",
-              "How long will it take?",
-              "How long does approval take?",
-              "How long does the approval take?"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "员工询问报销审批周期和到账时间",
-        "knowledgePoint": "提问句型与时间",
-        "responseTemplate": "审批一般要多久?"
-      }
-    },
-    {
-      "id": "workplace_048_sub_4_qa_2_fill_blank_1",
-      "subSceneId": "workplace_048_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "提问的关键部分是时间",
-        "qaId": "workplace_048_sub_4_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "到账",
-            "options": [
-              "到账",
-              "汇款",
-              "审批",
-              "支付"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "员工询问报销审批周期和到账时间",
-        "knowledgePoint": "提问句型和时间表达",
-        "responseTemplate": "钱什么时候___"
-      }
-    },
-    {
       "id": "workplace_048_sub_4_fill_blank_1",
       "subSceneId": "workplace_048_sub_4",
       "type": "fill_blank",
@@ -167,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "惯用搭配（might take longer）"
       }
+    },
+    {
+      "id": "workplace_048_sub_4_qa_1_fill_blank_1",
+      "subSceneId": "workplace_048_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工想了解报销申请的审批需要多长时间，准备向财务部门询问",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "How long does the approval process usually take___",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "after submission?",
+            "options": [
+              "after submission?",
+              "after payment?",
+              "before approval?",
+              "in the system?"
+            ]
+          }
+        ],
+        "hint": "询问审批周期时，通常以 'after submission' 表达提交后的流程时间",
+        "knowledgePoint": "询问流程时间节点的常用句型",
+        "qaId": "workplace_048_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "workplace_048_sub_4_qa_2_fill_blank_1",
+      "subSceneId": "workplace_048_sub_4",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工已提交报销，想知道款项何时能到账，准备向财务人员询问",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "When will the reimbursement be deposited into my account___",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "after approval?",
+            "options": [
+              "after approval?",
+              "before submission?",
+              "on payday?",
+              "by the end of the month?"
+            ]
+          }
+        ],
+        "hint": "询问到账时间时，应基于审批完成后的阶段提问，避免直接问具体日期",
+        "knowledgePoint": "基于流程阶段询问资金到账时间的表达",
+        "qaId": "workplace_048_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:48.045Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

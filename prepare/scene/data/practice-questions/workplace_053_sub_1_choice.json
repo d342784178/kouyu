@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.577Z",
   "questions": [
     {
-      "id": "workplace_053_sub_1_qa_1_choice_1",
-      "subSceneId": "workplace_053_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_053_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Hey, any packages for me today?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Hello, I want a package.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Do you have my address?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I need help with my delivery.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案\"Hey, any packages for me today?\"是最合适的询问包裹的方式。其他选项虽然表达了某种意思，但并不完全符合场景的需求。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "向前台确认是否有自己的快递"
-      }
-    },
-    {
-      "id": "workplace_053_sub_1_qa_2_choice_1",
-      "subSceneId": "workplace_053_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_053_sub_1_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Do you have a package for me?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "My package is very big, is it here?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "I want to know about the weather.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Is there a book from Amazon with my name on it?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案：Do you have a package for me？这是因为它是最直接、最合适的提问方式。干扰项：My package is very big, is it here？这是理解偏差型，因为它提到了包裹的大小，而不是询问是否有快递。I want to know about the weather。是提问不当型，因为它与场景无关。Is there a book from Amazon with my name on it？也是提问不当型，因为它询问的是书，而不是包裹。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "向前台确认是否有自己的快递"
-      }
-    },
-    {
       "id": "workplace_053_sub_1_choice_3",
       "subSceneId": "workplace_053_sub_1",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "有我的快递吗？是UPS寄来的，我的名字是John Smith。"
       }
+    },
+    {
+      "id": "workplace_053_sub_1_qa_1_choice_1",
+      "subSceneId": "workplace_053_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你是一名公司员工，今天期待收到一个快递，想向前台询问是否有你的包裹。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hey, is there a package for me today?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you send my package to my house?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Did you deliver all the packages already?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Who sent this package to the office?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 'Hey, is there a package for me today?'，这是在职场中自然、礼貌地询问自己包裹的常见表达。干扰项1是请求寄送包裹，与场景不符；干扰项2是询问快递是否全部送达，属于管理层面的问题，非个人查询；干扰项3是追问寄件人，偏离了用户想确认自己包裹的核心需求。",
+        "qaId": "workplace_053_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "workplace_053_sub_1_qa_2_choice_1",
+      "subSceneId": "workplace_053_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你昨天在网上下单了京东快递，今天想向前台确认是否收到你的包裹，并希望提供更多信息以便核对。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is there a package from JD.com under my name?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you know when the next delivery will come?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I pick up any package without ID?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Why haven't I received my package yet?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是 'Is there a package from JD.com under my name?'，它明确指出了寄件平台和收件人，有助于前台高效核对，符合学习要求。干扰项1是询问下次配送时间，与当前确认包裹是否存在无关；干扰项2是质疑领取流程，偏离主题；干扰项3是抱怨未收到，语气消极且未提供可核查信息，不符合职场礼貌沟通规范。",
+        "qaId": "workplace_053_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:19.796Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

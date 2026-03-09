@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.854Z",
   "questions": [
     {
-      "id": "study_abroad_099_sub_1_qa_1_choice_1",
-      "subSceneId": "study_abroad_099_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_099_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Hi, I'm new here and I'd like to apply for on-campus housing. What options do you have?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you have dorms? I need one.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How much does it cost to live off-campus?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I want a room. When can I move in?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案礼貌地介绍了自己并明确询问宿舍选项，符合初次咨询的语境。选项2过于简略且缺乏礼貌；选项3偏离了校内住宿的主题；选项4假设已确定住宿类型，未先询问可用选项，不符合逻辑顺序。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你是一名新生，第一次来到学校，想向住宿办公室咨询可用的宿舍类型，你需要礼貌地打招呼并询问有哪些住宿选择。"
-      }
-    },
-    {
-      "id": "study_abroad_099_sub_1_qa_2_choice_1",
-      "subSceneId": "study_abroad_099_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_099_sub_1_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What types of dorm rooms do you have available?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How much does a single room cost?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can I get a suite next semester?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Do you have any vacancies?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案询问宿舍类型，符合初次咨询时了解选项的需求。干扰项1聚焦价格，属于过早深入细节；干扰项2假设学生已决定要套房，不符合初次咨询的开放性；干扰项3只问空房，未涉及类型信息，回答无法覆盖场景需求。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "学生第一次联系住宿办公室，想了解可供选择的宿舍类型"
-      }
-    },
-    {
       "id": "study_abroad_099_sub_1_choice_3",
       "subSceneId": "study_abroad_099_sub_1",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我对校内住宿感兴趣，能告诉我有哪些房型和 Availability 吗？"
       }
+    },
+    {
+      "id": "study_abroad_099_sub_1_qa_1_choice_1",
+      "subSceneId": "study_abroad_099_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "作为新生，你第一次前往住宿办公室，想了解可选的宿舍类型并表达自己的偏好，以便提高申请成功率。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hi, I'm new and I'd like to know what housing options are available. I prefer a single room with a private bathroom if possible.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you have any free rooms?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much does a dorm cost?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I don't care what kind of room I get, just give me something.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案清晰礼貌地表达了身份、意图和具体偏好（单人间+独立卫浴），符合初次咨询的高效沟通策略。选项2过于模糊，未说明身份或需求；选项3只问价格，未涉及房型，偏离核心目标；选项4态度消极，不利于争取理想住宿。",
+        "qaId": "study_abroad_099_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "study_abroad_099_sub_1_qa_2_choice_1",
+      "subSceneId": "study_abroad_099_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你听说单人间很抢手，但愿意接受双人间，想礼貌地询问是否有空余名额，并表达合作意愿。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I understand singles are full, but are there any double rooms available? I'm happy to share with a roommate.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I get a single room anyway?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "When will more rooms open up?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have any rooms left? I don't mind who I live with.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确承认了当前状况（单人间已满），明确询问双人间并主动表达合住意愿，体现灵活性和礼貌，符合高成功率沟通策略。选项1仅重复询问单人间，忽略现实情况；选项3未表达自身需求，仅关注等待时间；选项4虽态度开放，但缺乏对当前房型状态的认知，显得不够周全。",
+        "qaId": "study_abroad_099_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:09:06.854Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

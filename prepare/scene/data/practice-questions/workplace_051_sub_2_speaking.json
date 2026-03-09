@@ -5,50 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.563Z",
   "questions": [
     {
-      "id": "workplace_051_sub_2_qa_2_speaking_1",
-      "subSceneId": "workplace_051_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_051_sub_2_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你需要确认会议室在上午十点是否可用，首先你应该问：",
-        "expectedAnswers": [
-          "Do you have any smaller rooms open at 10 AM?",
-          "上午十点有小会议室吗？",
-          "您十点有小会议室吗？"
-        ],
-        "evaluationCriteria": [
-          "是否正确表达了询问意图",
-          "语法和用词是否正确",
-          "是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
-      "id": "workplace_051_sub_2_qa_1_speaking_1",
-      "subSceneId": "workplace_051_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_051_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "场景提示：用户通常在需要信息时先提问",
-        "expectedAnswers": [
-          "Is the conference room available on Thursday at 2 PM?",
-          "Is the big meeting room free on Thursday afternoon?",
-          "Can I book the conference room on Thursday at 2 PM?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
       "id": "workplace_051_sub_2_speaking_3",
       "subSceneId": "workplace_051_sub_2",
       "type": "speaking",
@@ -71,6 +27,60 @@
           "关键词覆盖：使用 'free', 'booked', 'available', 'how about', 'alternative room' 等关键词"
         ]
       }
+    },
+    {
+      "id": "workplace_051_sub_2_qa_1_speaking_1",
+      "subSceneId": "workplace_051_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你需要预订一个会议室用于下午的团队会议，想确认小会议室在下午3点是否空闲。",
+        "speakerText": "Is the small meeting room available at 3 PM today?",
+        "speakerTextCn": "今天下午三点小会议室有空吗？",
+        "expectedAnswers": [
+          "Is the small meeting room free at 3 PM today?",
+          "Could you check if the small conference room is open at 3 PM?",
+          "Do you have the small room available for a meeting at 3 PM today?",
+          "Would the small meeting room be free at 3 o'clock this afternoon?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了小会议室在指定时间的可用性",
+          "语言准确性：语法正确，时态和冠词使用恰当",
+          "表达自然度：符合职场日常口语习惯，语气礼貌",
+          "关键词覆盖：包含 'small meeting room', 'available/free', '3 PM' 等核心词汇"
+        ],
+        "qaId": "workplace_051_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "workplace_051_sub_2_qa_2_speaking_1",
+      "subSceneId": "workplace_051_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你计划明天上午10点召开一个5人小组会议，想询问是否有适合的中型会议室可用，如果小的不行，可以考虑替代方案。",
+        "speakerText": "Do you have a medium-sized room available for 5 people at 10 AM tomorrow?",
+        "speakerTextCn": "明天上午十点有适合五个人的中型会议室空着吗？",
+        "expectedAnswers": [
+          "Is there a medium room free for five people at 10 AM tomorrow?",
+          "Could you check if any medium-sized meeting rooms are available at 10 tomorrow?",
+          "We need a room for five — is the medium one open at 10 AM tomorrow?",
+          "If the medium room isn’t free, do you have any other options around 10 AM?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰表达人数需求和时间，并隐含接受替代方案",
+          "语言准确性：正确使用比较级、数量词和时间表达",
+          "表达自然度：语气自然，符合职场协商场景，包含灵活选项",
+          "关键词覆盖：包含 'medium-sized room', 'five people', '10 AM', 'available/free' 等核心词汇"
+        ],
+        "qaId": "workplace_051_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:11.080Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

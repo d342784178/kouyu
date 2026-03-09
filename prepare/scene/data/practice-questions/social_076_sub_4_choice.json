@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.662Z",
   "questions": [
     {
-      "id": "social_076_sub_4_qa_1_choice_1",
-      "subSceneId": "social_076_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "social_076_sub_4_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Wait, you're from Beijing? I went there last year for the Great Wall.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What's your favorite food?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Do you like playing basketball?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How old are you?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案“Wait, you're from Beijing? I went there last year for the Great Wall.”寻找了共同点，因为提问者去了对方所在城市。干扰项“What's your favorite food?”、“Do you like playing basketball?”和“How old are you?”与场景提示无关，询问的信息不直接寻找共同点。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在自我介绍中，通过询问对方基本信息来寻找共同点"
-      }
-    },
-    {
       "id": "social_076_sub_4_choice_2",
       "subSceneId": "social_076_sub_4",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "你喜欢独立音乐？我去年夏天在布鲁克林看过The Strokes的现场！"
       }
+    },
+    {
+      "id": "social_076_sub_4_qa_1_choice_1",
+      "subSceneId": "social_076_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在社交活动中，你刚认识一位新朋友，对方提到他来自广州，你想通过提问找到共同兴趣，促进进一步交流",
+        "speakerText": "Oh, you're from Guangzhou? I've been there twice — the dim sum is unreal!",
+        "speakerTextCn": "哦，你是广州的？我去过两次，那里的点心太棒了！",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Really? I'm from Guangzhou too — what's your favorite dim sum place?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don't like dim sum. Do you like hiking?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is Guangzhou cold in winter?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "That's nice. I've never been there.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了 'Really?' 表达惊喜共鸣，并基于对方提到的点心主动询问具体推荐，自然延续话题并建立共同点。干扰项1完全回避共同点，干扰项2只问天气（无关兴趣），干扰项3仅表示礼貌性敷衍，缺乏互动性。",
+        "qaId": "social_076_sub_4_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:06:32.152Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

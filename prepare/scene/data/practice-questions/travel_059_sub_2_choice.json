@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.095Z",
   "questions": [
     {
-      "id": "travel_059_sub_2_qa_2_choice_1",
-      "subSceneId": "travel_059_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_059_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Do you have any family or group deals?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How much does a single ticket cost?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Is there a discount for students?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "What time does the park close?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案Do you have any family or group deals?是因为它询问了价格和优惠信息，符合场景需求。选项2和3虽然提到了价格和优惠，但不完全符合场景需求。选项4完全与场景无关，询问了一个不相关的问题。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你走进一家旅游景点，工作人员问你需要买什么门票。你想知道是否有家庭或团体优惠。"
-      }
-    },
-    {
-      "id": "travel_059_sub_2_qa_1_choice_1",
-      "subSceneId": "travel_059_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_059_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "How much is the entry ticket for adults?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "门票多少钱?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "这个门票有优惠吗?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "您有成人门票吗?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案‘How much is the entry ticket for adults?’直接询问成人门票价格。‘门票多少钱？’不使用标准英语表达，理解偏差。‘这个门票有优惠吗？’虽然询问了优惠信息，但不是主要问题。‘您有成人门票吗？’询问的是门票的存在，而不是价格信息。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在购票处询问成人门票价格"
-      }
-    },
-    {
       "id": "travel_059_sub_2_choice_3",
       "subSceneId": "travel_059_sub_2",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "如果我在线购票有折扣吗？"
       }
+    },
+    {
+      "id": "travel_059_sub_2_qa_1_choice_1",
+      "subSceneId": "travel_059_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在参观一个著名景点，想了解成人门票价格以及是否有学生优惠。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How much does an adult ticket cost, and do you offer any discounts for students?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is the ticket expensive?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I get a free ticket if I'm a student?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you sell tickets online?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案清晰询问了成人票价和学生优惠，符合场景中‘问价格+顺带问优惠’的核心任务。干扰项1过于模糊，未明确对象；干扰项2假设性提问且不专业；干扰项4完全偏离价格与优惠主题。",
+        "qaId": "travel_059_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "travel_059_sub_2_qa_2_choice_1",
+      "subSceneId": "travel_059_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你和两位朋友计划一起参观博物馆，想了解是否有团体购票优惠。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do you have any group discounts for three or more people?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How many people can enter with one ticket?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is this museum open today?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I pay with a credit card?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接针对团体优惠提问，符合‘主动问优惠，争取省钱’的学习目标。干扰项1误解了团体票含义，问的是单票多人使用；干扰项2和3分别询问开放时间和支付方式，与价格优惠无关。",
+        "qaId": "travel_059_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:30.480Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

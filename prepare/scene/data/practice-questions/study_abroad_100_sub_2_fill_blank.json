@@ -33,33 +33,6 @@
       }
     },
     {
-      "id": "study_abroad_100_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "study_abroad_100_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问对方是否已完成先修课，使用现在完成时表达经历",
-        "qaId": "study_abroad_100_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "Have you taken the prerequisite course",
-            "options": [
-              "Have you taken the prerequisite course",
-              "Did you take the prerequisite course",
-              "Do you know the prerequisite course",
-              "Are you taking the prerequisite course"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户询问课程先修要求",
-        "knowledgePoint": "询问先修课经历的正确句型结构",
-        "responseTemplate": "___ before? It's a prereq for this course."
-      }
-    },
-    {
       "id": "study_abroad_100_sub_2_fill_blank_2",
       "subSceneId": "study_abroad_100_sub_2",
       "type": "fill_blank",
@@ -166,6 +139,37 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "代词指代用法：it 指代单数课程（prerequisite）"
       }
+    },
+    {
+      "id": "study_abroad_100_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "study_abroad_100_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "学生想确认一门课程是否有先修要求，避免选错课",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Could you tell me if there's a ______ for this course?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "prerequisite",
+            "options": [
+              "prerequisite",
+              "requirement",
+              "permission",
+              "recommendation"
+            ]
+          }
+        ],
+        "hint": "这是学术场景中表达‘先修课’的标准术语",
+        "knowledgePoint": "学术场景中的核心表达：先修课",
+        "qaId": "study_abroad_100_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:09:01.105Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

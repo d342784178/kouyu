@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.437Z",
   "questions": [
     {
-      "id": "workplace_040_sub_3_qa_1_choice_1",
-      "subSceneId": "workplace_040_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_040_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "How’s the budget doing this quarter?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What’s the budget for next year?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Did we make a profit last month?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How much did we spend on marketing last year?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案‘How’s the budget doing this quarter?’表达了对当前预算情况的询问。其他选项不符合场景需求或表达不当，例如询问下一年预算或询问过去的销售额。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "讨论当前支出与预算使用情况"
-      }
-    },
-    {
       "id": "workplace_040_sub_3_choice_2",
       "subSceneId": "workplace_040_sub_3",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我们整体Q3预算进展如何？"
       }
+    },
+    {
+      "id": "workplace_040_sub_3_qa_1_choice_1",
+      "subSceneId": "workplace_040_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你作为部门主管，想了解团队本月的预算使用情况，想知道是否超支以及是否有良好的回报。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How are we doing on the monthly budget? Have we stayed within limits, and what’s the return like?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Did we spend too much this month?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you explain why the budget was increased?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Who approved the extra spending?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确询问预算使用情况并关注回报，符合职场中专业、全面的沟通方式。选项2只问是否超支，忽略了回报信息，不完整；选项3和4预设了超支或预算调整，不符合初始了解情况的意图，属于误导性提问。",
+        "qaId": "workplace_040_sub_3_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:50.992Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

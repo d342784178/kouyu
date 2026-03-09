@@ -5,54 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.615Z",
   "questions": [
     {
-      "id": "daily_025_sub_2_qa_2_speaking_1",
-      "subSceneId": "daily_025_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_025_sub_2_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在结账时顺口询问是否有饮料可买，你作为店员已告知有售，现在顾客决定购买，你需要用英语自然地询问总价或确认订单。",
-        "expectedAnswers": [
-          "I'll take a Coke, please. How much is that?",
-          "Can I get a Coke as well? What's the total?",
-          "I'll go with a Coke. Could you tell me the full amount?",
-          "Add a Coke to this, please. How much do I owe?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确表达了购买饮料并询问总价的意图",
-          "语言准确性：语法、时态和冠词使用是否正确",
-          "表达自然度：是否符合日常英语口语习惯，语气是否礼貌得体",
-          "关键词覆盖：是否包含 'Coke' / 'drink' 和 'total' / 'how much' 等场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "daily_025_sub_2_qa_1_speaking_1",
-      "subSceneId": "daily_025_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_025_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在结账时顺口询问商店是否有饮料可购买，希望了解可选的饮品种类。",
-        "expectedAnswers": [
-          "Do you have any drinks like soda or water?",
-          "Can I get something to drink here? Like soda or bottled water?",
-          "Do you sell any beverages? I'm looking for water or soda.",
-          "Got any drinks on hand? Maybe water or soda?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问饮料选项",
-          "语言准确性：语法和词汇使用是否正确",
-          "表达自然度：是否符合日常口语习惯",
-          "关键词覆盖：是否包含'drink', 'soda', 'water'等场景关键词"
-        ]
-      }
-    },
-    {
       "id": "daily_025_sub_2_speaking_3",
       "subSceneId": "daily_025_sub_2",
       "type": "speaking",
@@ -75,6 +27,60 @@
           "关键词覆盖：是否使用了 'iced tea', 'lemonade', 'sold out', 'available' 等场景词汇"
         ]
       }
+    },
+    {
+      "id": "daily_025_sub_2_qa_1_speaking_1",
+      "subSceneId": "daily_025_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在结账时顺口询问商店是否有饮料出售，想买一瓶喝的",
+        "speakerText": "Do you have any drinks like water or soda?",
+        "speakerTextCn": "你们有水或汽水之类的饮料吗？",
+        "expectedAnswers": [
+          "Yeah, we've got bottled water and cola — $1.25 each.",
+          "Just sparkling water and lemonade left.",
+          "Sorry, we're all out of drinks today.",
+          "We have iced tea and energy drinks over by the fridge."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问饮料种类",
+          "语言准确性：语法和时态使用正确",
+          "表达自然度：符合日常口语习惯，无生硬表达",
+          "关键词覆盖：使用了 drinks, water, soda, etc. 相关词汇"
+        ],
+        "qaId": "daily_025_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "daily_025_sub_2_qa_2_speaking_1",
+      "subSceneId": "daily_025_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在便利店排队时，想确认是否能买瓶饮料搭配零食",
+        "speakerText": "What drinks do you have available?",
+        "speakerTextCn": "你们有什么饮料可选？",
+        "expectedAnswers": [
+          "We’ve got bottled water, Sprite, and Gatorade.",
+          "Just cold coffee and juice — no soda right now.",
+          "Everything’s in the cooler by the door.",
+          "We’re out of soda, but water’s $1 and iced tea’s $2."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰询问可选饮料种类",
+          "语言准确性：使用正确疑问句结构和冠词",
+          "表达自然度：符合真实口语中的简洁表达方式",
+          "关键词覆盖：使用了 drinks, water, soda, juice, etc. 相关词汇"
+        ],
+        "qaId": "daily_025_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:04:56.510Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

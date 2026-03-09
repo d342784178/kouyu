@@ -33,60 +33,6 @@
       }
     },
     {
-      "id": "daily_027_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "daily_027_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问持续时间时，常用 'How long does... last...' 结构",
-        "qaId": "daily_027_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "How long does the battery last on a single charge?",
-            "options": [
-              "How long does the battery last on a single charge?",
-              "What is the battery voltage?",
-              "Does the battery last long?",
-              "How many hours is the battery?"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想了解产品的电池续航时间，但不确定如何提问",
-        "knowledgePoint": "询问产品功能的句型结构",
-        "responseTemplate": "How long does the battery last on a single charge?"
-      }
-    },
-    {
-      "id": "daily_027_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "daily_027_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问功能时，常用 'what other features it has' 来引导问题",
-        "qaId": "daily_027_sub_2_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "what other features it has",
-            "options": [
-              "what other features it has",
-              "how much it costs",
-              "where it is made",
-              "when it will be available"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想了解产品的功能特性，比如电池续航时间或额外功能",
-        "knowledgePoint": "询问产品功能的句型结构",
-        "responseTemplate": "Can you tell me ___?"
-      }
-    },
-    {
       "id": "daily_027_sub_2_fill_blank_2",
       "subSceneId": "daily_027_sub_2",
       "type": "fill_blank",
@@ -167,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "功能表达：variable speed（可变速度档位）"
       }
+    },
+    {
+      "id": "daily_027_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "daily_027_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在五金店想了解电动工具的电池续航时间，准备向店员提问",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "How long does the runtime last on a full charge?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "How long does the runtime last on a full charge?",
+            "options": [
+              "How long does the runtime last on a full charge?",
+              "What is the battery voltage?",
+              "Does it come with extra batteries?",
+              "How fast does it charge?"
+            ]
+          }
+        ],
+        "hint": "询问续航时间时，用 'runtime' 和 'on a full charge' 是最自然的表达",
+        "knowledgePoint": "询问产品续航能力的核心句型",
+        "qaId": "daily_027_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "daily_027_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "daily_027_sub_2",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在比较两款电钻，想确认它们是否支持多档速度调节",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Does it have multiple speed settings?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Does it have multiple speed settings?",
+            "options": [
+              "Does it have multiple speed settings?",
+              "Is it very powerful?",
+              "Can I change the drill bit easily?",
+              "Does it have a light?"
+            ]
+          }
+        ],
+        "hint": "询问功能选项时，用 'multiple speed settings' 比 'two speeds' 更通用",
+        "knowledgePoint": "询问产品功能配置的通用句型",
+        "qaId": "daily_027_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:05:25.632Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

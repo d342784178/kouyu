@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.319Z",
   "questions": [
     {
-      "id": "travel_074_sub_3_qa_1_fill_blank_1",
-      "subSceneId": "travel_074_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示，帮助用户回忆",
-        "qaId": "travel_074_sub_3_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "窗",
-            "options": [
-              "窗",
-              "过道",
-              "中间",
-              "边缘"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客询问座位类型，工作人员根据顾客选择提供座位",
-        "knowledgePoint": "口语表达，提问句型",
-        "responseTemplate": "我想选择一个靠___的座位"
-      }
-    },
-    {
       "id": "travel_074_sub_3_fill_blank_1",
       "subSceneId": "travel_074_sub_3",
       "type": "fill_blank",
@@ -166,6 +139,37 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "场景核心表达（aisle seat 与晕机的合理搭配）"
       }
+    },
+    {
+      "id": "travel_074_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "travel_074_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在登机或乘车时，想向工作人员询问是否可以安排靠窗或靠过道的座位",
+        "speakerText": "Would you mind letting me know what seating options are available?",
+        "speakerTextCn": "您能告诉我有哪些座位选择吗？",
+        "responseTemplate": "I'd prefer a ___ seat, if possible.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "window",
+            "options": [
+              "window",
+              "middle",
+              "back",
+              "front"
+            ]
+          }
+        ],
+        "hint": "表达座位偏好时，常用 'window' 或 'aisle' 来指代靠窗或靠过道的座位",
+        "knowledgePoint": "表达座位偏好",
+        "qaId": "travel_074_sub_3_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:49.717Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

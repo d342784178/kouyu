@@ -5,70 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.061Z",
   "questions": [
     {
-      "id": "travel_056_sub_4_qa_1_fill_blank_1",
-      "subSceneId": "travel_056_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "请回忆顾客可能会问的问题",
-        "qaId": "travel_056_sub_4_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "breakfast",
-            "options": [
-              "WiFi",
-              "password",
-              "breakfast",
-              "dinner"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "咨询酒店设施和早餐时间",
-        "knowledgePoint": "提问句型",
-        "responseTemplate": "Could you tell me about the WiFi and ___?"
-      }
-    },
-    {
-      "id": "travel_056_sub_4_qa_2_fill_blank_1",
-      "subSceneId": "travel_056_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "请你回忆一下你在酒店前台问的问题内容",
-        "qaId": "travel_056_sub_4_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "WiFi",
-            "options": [
-              "早餐",
-              "酒店房间",
-              "免费班车",
-              "酒店设施"
-            ]
-          },
-          {
-            "index": 1,
-            "answer": "breakfast",
-            "options": [
-              "WiFi",
-              "酒店房间",
-              "免费班车",
-              "酒店设施"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "您在酒店前台问了一个问题：关于WiFi和早餐的时间",
-        "knowledgePoint": "提问句型",
-        "responseTemplate": "Could you tell me about the ___ and ___?"
-      }
-    },
-    {
       "id": "travel_056_sub_4_fill_blank_1",
       "subSceneId": "travel_056_sub_4",
       "type": "fill_blank",
@@ -151,6 +87,66 @@
         "knowledgePoint": "委婉表达时间需求的日常短语",
         "responseTemplate": "Is it okay if I come ___?"
       }
+    },
+    {
+      "id": "travel_056_sub_4_qa_1_fill_blank_1",
+      "subSceneId": "travel_056_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在酒店前台，想询问免费WiFi的密码和早餐供应时间，准备礼貌地提出问题",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Could you tell me ___ and when breakfast is served?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "the WiFi password",
+            "options": [
+              "the WiFi password",
+              "how to connect to WiFi",
+              "the room number",
+              "the breakfast menu"
+            ]
+          }
+        ],
+        "hint": "你想知道WiFi密码和早餐时间，这两个是核心信息",
+        "knowledgePoint": "礼貌询问服务信息的句型结构",
+        "qaId": "travel_056_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "travel_056_sub_4_qa_2_fill_blank_1",
+      "subSceneId": "travel_056_sub_4",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚入住酒店，想确认早餐是否包含在房费里以及是否需要提前预订",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Is breakfast included in the room rate, and do I need to ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "reserve a spot",
+            "options": [
+              "reserve a spot",
+              "pay extra",
+              "ask the manager",
+              "show my ID"
+            ]
+          }
+        ],
+        "hint": "询问是否需要提前预订早餐，常用表达是 'reserve a spot'",
+        "knowledgePoint": "询问服务是否需要预约的表达",
+        "qaId": "travel_056_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:17.412Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.200Z",
   "questions": [
     {
-      "id": "travel_067_sub_2_qa_2_choice_1",
-      "subSceneId": "travel_067_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_067_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What does the basic plan cover?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Is insurance mandatory?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How much does the insurance cost?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can I buy insurance later?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案 'What does the basic plan cover?' 直接询问保障范围，符合旅客了解保险内容的核心需求。干扰项 'Is insurance mandatory?' 仅询问是否必须购买，未涉及保障内容；'How much does the insurance cost?' 关注价格而非保障范围；'Can I buy insurance later?' 询问购买时机，偏离了了解保险覆盖范围的意图。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "旅客在购买旅行保险时，想了解基础保险计划具体包含哪些保障内容，以便判断是否必须购买。"
-      }
-    },
-    {
-      "id": "travel_067_sub_2_qa_1_choice_1",
-      "subSceneId": "travel_067_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_067_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Do I really need travel insurance for a short trip to Japan?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How much does travel insurance cost?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you recommend a good travel insurance company?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I want to buy travel insurance, what do I need to do?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案直接询问保险的必要性，符合场景中旅客的核心疑问。选项2只关心价格，忽略了是否必须购买的问题；选项3假设旅客已决定购买，偏离了确认必要性的初衷；选项4直接进入购买流程，未先确认需求，不符合对话逻辑。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "旅客计划去日本进行短途旅行，不确定是否必须购买旅游保险，想确认保险的必要性及覆盖范围。"
-      }
-    },
-    {
       "id": "travel_067_sub_2_choice_3",
       "subSceneId": "travel_067_sub_2",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "如果我只待三天，买旅游保险值得吗？"
       }
+    },
+    {
+      "id": "travel_067_sub_2_qa_1_choice_1",
+      "subSceneId": "travel_067_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "旅客在机场柜台办理登机手续时，想了解是否必须购买旅行保险以及基础保险包含哪些保障内容",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do I really need to buy travel insurance for this trip, and what does the basic plan cover?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is travel insurance expensive? I don't think I can afford it.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you recommend the best insurance plan available?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I already have insurance, so I don't need this one.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接询问必要性（Do I really need...）和保障范围（what does the basic plan cover?），符合场景中旅客的核心需求。干扰项2聚焦价格，偏离主题；干扰项3要求推荐最佳方案，属于过度延伸；干扰项4是陈述已拥有保险，未提出任何问题，不符合'user_asks'模式。",
+        "qaId": "travel_067_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "travel_067_sub_2_qa_2_choice_1",
+      "subSceneId": "travel_067_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "旅客在预订酒店时，客服主动提及可加购保险，旅客想确认是否强制购买以及是否包含医疗紧急援助",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is travel insurance mandatory, and does it include coverage for medical emergencies?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much does the insurance cost if I add it now?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I get a discount if I buy insurance with my hotel booking?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I already have medical insurance, so I'm good.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确询问‘是否强制’和‘是否包含医疗紧急保障’，精准回应旅客对必要性与保障范围的核心关切。干扰项2和3聚焦价格与折扣，偏离‘必要性’和‘覆盖范围’主题；干扰项4是自我陈述，未构成提问，不符合'user_asks'模式要求。",
+        "qaId": "travel_067_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:28.768Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

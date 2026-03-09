@@ -5,60 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.554Z",
   "questions": [
     {
-      "id": "workplace_050_sub_1_qa_2_fill_blank_1",
-      "subSceneId": "workplace_050_sub_1",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "开机后电脑显示苹果标志后就黑屏了",
-        "qaId": "workplace_050_sub_1_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "就显示黑屏",
-            "options": [
-              "就显示黑屏",
-              "就显示蓝屏",
-              "就显示红屏",
-              "就显示白屏"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "电脑开机后出现问题，请描述故障情况",
-        "knowledgePoint": "IT支持",
-        "responseTemplate": "电脑开机后___"
-      }
-    },
-    {
-      "id": "workplace_050_sub_1_qa_1_fill_blank_1",
-      "subSceneId": "workplace_050_sub_1",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "快速响应并提供帮助",
-        "qaId": "workplace_050_sub_1_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "laptop",
-            "options": [
-              "电脑",
-              "笔记本",
-              "桌面",
-              "手机"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "员工发现电脑故障，需要联系IT支持",
-        "knowledgePoint": "提问句型",
-        "responseTemplate": "Hey, can you help me with my___?"
-      }
-    },
-    {
       "id": "workplace_050_sub_1_fill_blank_1",
       "subSceneId": "workplace_050_sub_1",
       "type": "fill_blank",
@@ -167,6 +113,37 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "固定表达（hold the power button）"
       }
+    },
+    {
+      "id": "workplace_050_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "workplace_050_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工发现电脑无法正常启动，需要向IT支持简单描述问题",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "My computer ___ when I try to turn it on.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "won't turn on",
+            "options": [
+              "won't turn on",
+              "doesn't work well",
+              "is too slow",
+              "has no internet"
+            ]
+          }
+        ],
+        "hint": "描述设备完全无法启动的常见表达",
+        "knowledgePoint": "故障描述：设备无法启动",
+        "qaId": "workplace_050_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:48.855Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

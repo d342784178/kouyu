@@ -5,52 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.579Z",
   "questions": [
     {
-      "id": "workplace_053_sub_1_qa_2_speaking_1",
-      "subSceneId": "workplace_053_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_053_sub_1_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "向前台确认是否有自己的快递",
-        "expectedAnswers": [
-          "Is there a package from Amazon with my name on it?",
-          "有没有一件寄给我的亚马逊快递?",
-          "有没有一包寄给我的亚马逊快递吗?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "workplace_053_sub_1_qa_1_speaking_1",
-      "subSceneId": "workplace_053_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_053_sub_1_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你走到前台，想确认是否有自己的快递。",
-        "expectedAnswers": [
-          "Hey, any packages for me today?",
-          "Do you have any packages for me?",
-          "Is there any package for me?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达了询问快递的意图",
-          "语言准确性：语法和用词正确",
-          "表达自然度：符合英语口语习惯",
-          "关键词覆盖：使用了快递和今天的关键词"
-        ]
-      }
-    },
-    {
       "id": "workplace_053_sub_1_speaking_3",
       "subSceneId": "workplace_053_sub_1",
       "type": "speaking",
@@ -72,6 +26,60 @@
           "表达自然度：是否使用职场常用语如 'Hold on', 'I'll look up', 避免生硬表达"
         ]
       }
+    },
+    {
+      "id": "workplace_053_sub_1_qa_1_speaking_1",
+      "subSceneId": "workplace_053_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你来到公司前台，想确认今天是否有寄给你的快递，但不确定具体是哪家快递公司。",
+        "speakerText": "Hi, could you check if there's a package for me today?",
+        "speakerTextCn": "你好，你能帮我查一下今天有没有我的快递吗？",
+        "expectedAnswers": [
+          "Hi, could you check if there's a package for me today?",
+          "Do I have any deliveries waiting for me?",
+          "Is there anything for [Your Name] at the front desk?",
+          "Hey, any parcels arrived for me recently?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表达了询问快递的意图",
+          "语言准确性：语法结构正确，用词恰当",
+          "表达自然度：符合职场口语习惯，语气礼貌自然",
+          "关键词覆盖：使用了 package/delivery/parcel 等场景关键词"
+        ],
+        "qaId": "workplace_053_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "workplace_053_sub_1_qa_2_speaking_1",
+      "subSceneId": "workplace_053_sub_1",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你知道快递来自京东，且收件人是你的全名，想向前台确认是否已到。",
+        "speakerText": "Hi, I’m expecting a package from JD.com under the name Li Wei. Has it arrived?",
+        "speakerTextCn": "你好，我等一个寄给李伟的京东快递，到了吗？",
+        "expectedAnswers": [
+          "Hi, I’m expecting a package from JD.com under the name Li Wei. Has it arrived?",
+          "Could you check if there’s a JD delivery for Li Wei today?",
+          "Any packages from JD with my name — Li Wei — on them?",
+          "I’m Li Wei. Did a京东 package come in for me?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰说明了寄件平台和收件人信息",
+          "语言准确性：正确使用了公司名、人名和时态",
+          "表达自然度：语气自然，符合职场沟通习惯",
+          "关键词覆盖：使用了 JD.com / package / name / arrived 等关键词"
+        ],
+        "qaId": "workplace_053_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:30.350Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.134Z",
   "questions": [
     {
-      "id": "travel_062_sub_3_qa_1_choice_1",
-      "subSceneId": "travel_062_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_062_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "How much is the entrance fee for the museum?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "When did the museum open last year?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Is the museum open today?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How many people visit the museum daily?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案询问门票价格，直接回应场景需求。干扰项1询问去年的开放时间，与当前信息无关；干扰项2仅问是否开放，未涉及价格和常规开放时间；干扰项3询问日均游客量，偏离核心需求。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "游客想了解博物馆的门票价格和开放时间，准备向工作人员提问。"
-      }
-    },
-    {
-      "id": "travel_062_sub_3_qa_2_choice_1",
-      "subSceneId": "travel_062_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_062_sub_3_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Do they close early on weekends?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How much is the ticket price?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Do they open early on weekends?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "When is the closing time?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案询问周末是否早关，精准匹配场景需求。干扰项1只问票价，偏离时间焦点；干扰项2问的是开门时间而非关门时间，方向错误；干扰项3虽问关闭时间，但未限定周末，缺乏场景针对性。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "游客想了解景点在周末的关闭时间是否比平时早"
-      }
-    },
-    {
       "id": "travel_062_sub_3_choice_3",
       "subSceneId": "travel_062_sub_3",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "艺术画廊工作日几点开门？"
       }
+    },
+    {
+      "id": "travel_062_sub_3_qa_1_choice_1",
+      "subSceneId": "travel_062_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在参观前想了解美术馆的门票价格和儿童优惠政策",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How much does it cost for adults and do children get in for free?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is the museum open today?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I pay with a credit card?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What time do you close on weekends?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确询问了成人票价和儿童优惠，符合场景核心任务。选项2只问是否开放，未涉及票价；选项3问支付方式，与票价无关；选项4问闭馆时间，属于时间信息而非价格信息，均偏离核心需求。",
+        "qaId": "travel_062_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "travel_062_sub_3_qa_2_choice_1",
+      "subSceneId": "travel_062_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客计划周末参观动物园，想确认是否与平日开放时间一致",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do you have different opening hours on weekends?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much is the ticket for adults?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is the zoo closed on Mondays?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I buy tickets online?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接询问周末是否与平日时间不同，精准对应场景中的‘确认特殊时间’需求。选项2问价格，与时间无关；选项3问周一是否关闭，虽涉及时间但非周末对比；选项4问购票方式，完全偏离主题。",
+        "qaId": "travel_062_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:51.762Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

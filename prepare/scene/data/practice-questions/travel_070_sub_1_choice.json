@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.245Z",
   "questions": [
     {
-      "id": "travel_070_sub_1_qa_1_choice_1",
-      "subSceneId": "travel_070_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_070_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Hi, this is Lisa Chen calling about my flight.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Hello, I am calling about the weather.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Hi, I am Lisa Chen, can you help me?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "What is my flight number?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案\"Hi, this is Lisa Chen calling about my flight.\"因为它直接询问了航班目的，符合场景需求。其他选项不正确，因为它们没有明确提及航班信息或目的。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "客服接听电话后，应询问用户姓名和航班信息"
-      }
-    },
-    {
       "id": "travel_070_sub_1_choice_2",
       "subSceneId": "travel_070_sub_1",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "您好，我是来自多伦多的Anna，我打电话是关于我即将出行的行程。"
       }
+    },
+    {
+      "id": "travel_070_sub_1_qa_1_choice_1",
+      "subSceneId": "travel_070_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在给航空公司客服打电话，想礼貌地说明来电目的并请求帮助改签航班，需要在开场时清晰、礼貌地表达自己的身份和意图。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hi, this is Sarah Wong. I’m calling to reschedule my flight tomorrow due to a family emergency.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you change my flight? I need to go now.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I’m Sarah Wong. I want my flight changed.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Hey, is anyone there? My flight is messed up.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案礼貌地说明了身份（Hi, this is Sarah Wong）和明确的来电目的（to reschedule my flight... due to a family emergency），符合商务沟通规范。选项2缺乏身份信息且语气随意；选项3虽有身份但表达生硬，缺少礼貌用语；选项4语气不专业，使用了非正式表达和负面词汇，不适合客服场景。",
+        "qaId": "travel_070_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:31.692Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

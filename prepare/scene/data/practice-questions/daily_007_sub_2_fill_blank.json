@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.484Z",
   "questions": [
     {
-      "id": "daily_007_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "daily_007_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示：在这周的某一天。",
-        "qaId": "daily_007_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "haircut",
-            "options": [
-              "理发",
-              "修脚",
-              "美甲",
-              "购物"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客通常先提出预约需求，服务方再回应。",
-        "knowledgePoint": "预约意图",
-        "responseTemplate": "我想预约一个___。"
-      }
-    },
-    {
       "id": "daily_007_sub_2_fill_blank_1",
       "subSceneId": "daily_007_sub_2",
       "type": "fill_blank",
@@ -166,6 +139,37 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "固定搭配（book a haircut）"
       }
+    },
+    {
+      "id": "daily_007_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "daily_007_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想预约一次理发服务，需要礼貌地向理发师表达你的意图",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "I'd like to ___ a haircut for this week.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "book",
+            "options": [
+              "book",
+              "make",
+              "schedule",
+              "do"
+            ]
+          }
+        ],
+        "hint": "用 'I'd like to' 表达礼貌的预约请求时，后面常接 'book' 表示预约服务",
+        "knowledgePoint": "礼貌表达预约意图的核心动词",
+        "qaId": "daily_007_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:26.914Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

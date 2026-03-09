@@ -33,60 +33,6 @@
       }
     },
     {
-      "id": "travel_062_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "travel_062_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "这里需要填入一个具体的景点名称，表达‘这个地点怎么样’的意思",
-        "qaId": "travel_062_sub_2_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "mountain view spot",
-            "options": [
-              "mountain view spot",
-              "place to go",
-              "how far is it",
-              "best time to visit"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "游客想确认某个景点是否值得专程前往，询问推荐并关心交通距离",
-        "knowledgePoint": "询问推荐的句型结构",
-        "responseTemplate": "What about the ___? Is it worth the trip?"
-      }
-    },
-    {
-      "id": "travel_062_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "travel_062_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "这里需要一个泛指景点的词，用于询问距离和步行可能性。",
-        "qaId": "travel_062_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "attraction",
-            "options": [
-              "attraction",
-              "place",
-              "location",
-              "spot"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "游客想确认某个景点是否离当前地点较远，并想知道是否可以步行前往。",
-        "knowledgePoint": "询问距离与步行可能性的句型结构",
-        "responseTemplate": "Is the ___ far from here? Can I walk?"
-      }
-    },
-    {
       "id": "travel_062_sub_2_fill_blank_2",
       "subSceneId": "travel_062_sub_2",
       "type": "fill_blank",
@@ -167,6 +113,62 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "公共交通工具的常用表达（take + bus/train）"
       }
+    },
+    {
+      "id": "travel_062_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "travel_062_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在酒店前台询问某个景点是否值得参观，想确认性价比和交通方式",
+        "responseTemplate": "Is it ___ the trip?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "worth",
+            "options": [
+              "worth",
+              "good",
+              "important",
+              "necessary"
+            ]
+          }
+        ],
+        "hint": "用这个短语询问某个地方或活动是否值得花时间或精力去",
+        "knowledgePoint": "评估性价比的常用表达",
+        "qaId": "travel_062_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "travel_062_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "travel_062_sub_2",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客想确认能否步行到达目的地，希望得到交通方式的建议",
+        "responseTemplate": "Can I ___ there?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "walk",
+            "options": [
+              "walk",
+              "drive",
+              "run",
+              "cycle"
+            ]
+          }
+        ],
+        "hint": "用这个短语礼貌地确认步行是否可行，常用于旅游咨询场景",
+        "knowledgePoint": "询问步行可行性",
+        "qaId": "travel_062_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:42.538Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

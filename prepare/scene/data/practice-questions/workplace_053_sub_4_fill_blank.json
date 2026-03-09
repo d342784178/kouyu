@@ -5,60 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.584Z",
   "questions": [
     {
-      "id": "workplace_053_sub_4_qa_1_fill_blank_1",
-      "subSceneId": "workplace_053_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示：快递地址",
-        "qaId": "workplace_053_sub_4_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "Boston",
-            "options": [
-              "New York",
-              "Los Angeles",
-              "Chicago",
-              "Boston"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "员工询问快递服务的具体要求",
-        "knowledgePoint": "提问句型和快递地址",
-        "responseTemplate": "能帮我加急寄到___吗？易碎品。"
-      }
-    },
-    {
-      "id": "workplace_053_sub_4_qa_2_fill_blank_1",
-      "subSceneId": "workplace_053_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示：用户询问寄送要求，需要了解最晚寄送时间",
-        "qaId": "workplace_053_sub_4_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "client",
-            "options": [
-              "客户",
-              "服务员",
-              "收件人",
-              "寄送者"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "场景提示：用户询问快递服务，服务方提供解答。",
-        "knowledgePoint": "考察的知识点：提问句型",
-        "responseTemplate": "I need to send this to a _______________ — any cut-off time?"
-      }
-    },
-    {
       "id": "workplace_053_sub_4_fill_blank_1",
       "subSceneId": "workplace_053_sub_4",
       "type": "fill_blank",
@@ -167,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "have + 宾语 + 形容词（准备就绪的地道表达）"
       }
+    },
+    {
+      "id": "workplace_053_sub_4_qa_1_fill_blank_1",
+      "subSceneId": "workplace_053_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工需要寄送一份重要文件，希望确保快递能当天送达，向快递服务人员询问最晚寄送时间。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "What's the ______ for same-day delivery?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "cut-off time",
+            "options": [
+              "cut-off time",
+              "delivery deadline",
+              "shipping hour",
+              "send limit"
+            ]
+          }
+        ],
+        "hint": "询问快递服务的截止时间，常用表达是 'cut-off time'",
+        "knowledgePoint": "询问快递服务时效的常用句型",
+        "qaId": "workplace_053_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "workplace_053_sub_4_qa_2_fill_blank_1",
+      "subSceneId": "workplace_053_sub_4",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工要寄送一个易碎物品，担心运输过程中损坏，向快递员确认是否提供特殊包装或处理服务。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Can you handle this as ______?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "fragile",
+            "options": [
+              "fragile",
+              "urgent",
+              "priority",
+              "special"
+            ]
+          }
+        ],
+        "hint": "说明物品易碎时，常用 'fragile' 作为专业术语请求特殊处理",
+        "knowledgePoint": "描述物品特性以请求特殊处理的表达",
+        "qaId": "workplace_053_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:21.874Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

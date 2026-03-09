@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.112Z",
   "questions": [
     {
-      "id": "travel_061_sub_2_qa_1_choice_1",
-      "subSceneId": "travel_061_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_061_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Sure! How many people and what time?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you have any vegetarian options?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can I make a reservation for tomorrow?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How much is the dinner?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案 'Sure! How many people and what time?' 符合场景中服务方要求提供预订关键信息（人数和时间）的语境。干扰项 'Do you have any vegetarian options?' 关注饮食偏好，属于特殊要求，但未回应核心的人员与时间信息；'Can I make a reservation for tomorrow?' 是请求而非回应服务方的询问；'How much is the dinner?' 询问价格，与预订细节无关。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客正在餐厅预订座位，服务人员询问需要什么信息，顾客需要回应以提供预订所需的关键细节：人数、时间及特殊要求。"
-      }
-    },
-    {
       "id": "travel_061_sub_2_choice_2",
       "subSceneId": "travel_061_sub_2",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我们想预订一个私人房间办生日派对。"
       }
+    },
+    {
+      "id": "travel_061_sub_2_qa_1_choice_1",
+      "subSceneId": "travel_061_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你打算和朋友去一家餐厅用餐，想提前预订桌子。你需要礼貌地告知人数、时间，并提出一个额外需求。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "We need a table for four at 8 PM, and could we possibly have a corner table?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you give me a table? Four people, 8 o'clock.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is there a window table available? I don’t care how many people or what time.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I want a table for four at 8 PM. It has to be by the window.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了礼貌表达 'could we possibly' 来提出额外需求，符合场景中'用if possible让请求更礼貌'的学习要求。选项2缺少礼貌语气，选项3未说明人数和时间，信息不完整，选项4语气生硬，不符合英语中委婉表达的习惯。",
+        "qaId": "travel_061_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:30.276Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

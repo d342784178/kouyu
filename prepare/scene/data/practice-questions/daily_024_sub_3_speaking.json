@@ -5,30 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.607Z",
   "questions": [
     {
-      "id": "daily_024_sub_3_qa_1_speaking_1",
-      "subSceneId": "daily_024_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_024_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在干洗店取衣服，想询问工作人员什么时候可以来取回衣物。",
-        "expectedAnswers": [
-          "When can I pick up my clothes?",
-          "Could you tell me what time my clothes will be ready?",
-          "When will my laundry be ready for pickup?",
-          "Is it possible to pick them up today? If so, what time?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问取衣时间的意图",
-          "语言准确性：语法结构和词汇使用是否正确",
-          "表达自然度：是否符合英语母语者日常交流习惯",
-          "关键词覆盖：是否包含'pick up', 'clothes/laundry', 'ready/time'等场景关键词"
-        ]
-      }
-    },
-    {
       "id": "daily_024_sub_3_speaking_2",
       "subSceneId": "daily_024_sub_3",
       "type": "speaking",
@@ -75,6 +51,34 @@
           "关键词覆盖：是否使用了 'business trip', 'pick up', 'before then', 'ready' 等关键词"
         ]
       }
+    },
+    {
+      "id": "daily_024_sub_3_qa_1_speaking_1",
+      "subSceneId": "daily_024_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在干洗店取衣服，想询问衣服什么时候能准备好，需要礼貌且清晰地提问，并说明原因以便店员优先处理",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Could you tell me when my clothes will be ready? I need them for a job interview on Friday.",
+          "What time can I pick up my clothes tomorrow? I’m in a bit of a rush.",
+          "Is it possible to get them by Wednesday? I have an important event that day.",
+          "When’s the earliest I can collect my laundry? I’m traveling this weekend."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问取衣时间",
+          "语言准确性：语法和时态使用正确，无重大错误",
+          "表达自然度：语气礼貌，符合日常英语口语习惯",
+          "关键词覆盖：使用了 'ready', 'pick up', 'earliest', 'event/meeting/interview' 等场景关键词"
+        ],
+        "qaId": "daily_024_sub_3_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:05:13.507Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

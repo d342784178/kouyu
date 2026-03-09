@@ -5,53 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.581Z",
   "questions": [
     {
-      "id": "workplace_053_sub_2_qa_2_speaking_1",
-      "subSceneId": "workplace_053_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_053_sub_2_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你需要向前台人员请求派送一个快递包裹，快递包裹非常重要，请帮助你确定前台人员是否能够完成这个服务",
-        "expectedAnswers": [
-          "Could you send this to Marketing? It's urgent.",
-          "能帮我把这送到市场部吗？很急。",
-          "Can you deliver this package to the Marketing department as soon as possible?",
-          "可以帮我把快递包裹送到市场部吗？这很急"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "workplace_053_sub_2_qa_1_speaking_1",
-      "subSceneId": "workplace_053_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_053_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在办公室前台，需要向前台工作人员询问是否可以帮忙把快递送到你工作的位置",
-        "expectedAnswers": [
-          "Can you drop this off at my desk? Thanks!",
-          "能帮我把这送到我工位吗？谢谢！",
-          "Could you deliver this package to my office? Thank you!"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达了询问意图",
-          "语言准确性：语法和用词正确",
-          "表达自然度：符合英语口语习惯",
-          "关键词覆盖：使用了场景关键词"
-        ]
-      }
-    },
-    {
       "id": "workplace_053_sub_2_speaking_3",
       "subSceneId": "workplace_053_sub_2",
       "type": "speaking",
@@ -73,6 +26,60 @@
           "表达自然度：语调自然，符合职场日常对话节奏"
         ]
       }
+    },
+    {
+      "id": "workplace_053_sub_2_qa_1_speaking_1",
+      "subSceneId": "workplace_053_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚收到一个快递，但正在开会，想请前台帮忙送到你的办公桌",
+        "speakerText": "Could you please bring this package to my desk? I'm in a meeting right now.",
+        "speakerTextCn": "你能把这份快递送到我桌上吗？我现在在开会。",
+        "expectedAnswers": [
+          "Of course! I'll drop it off right away.",
+          "Sure, I'll take it to your desk—just let me know your extension.",
+          "I can do that, but could you confirm your room number?",
+          "Absolutely! I'll leave it on your desk and send you a quick text."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确请求将快递送到指定位置",
+          "语言准确性：语法正确，使用了恰当的礼貌表达（如 could you, please）",
+          "表达自然度：符合职场日常口语习惯，不生硬或过度正式",
+          "关键词覆盖：包含 package/desk/meeting 等场景关键词"
+        ],
+        "qaId": "workplace_053_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "workplace_053_sub_2_qa_2_speaking_1",
+      "subSceneId": "workplace_053_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你有一个紧急文件需要立刻送到隔壁部门，但自己走不开，想请前台协助派送",
+        "speakerText": "I need this document delivered to Sales ASAP—could you handle it for me?",
+        "speakerTextCn": "我需要这份文件立刻送到销售部，你能帮我处理一下吗？",
+        "expectedAnswers": [
+          "No problem—I'll take it over personally.",
+          "I can send it via internal courier, but I'll need the recipient's name.",
+          "I’ll leave it at the Sales reception—do you want me to notify them?",
+          "On my way! Should I hand it to someone specific?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达紧急需求和目标部门",
+          "语言准确性：正确使用 ASAP, could you, handle it 等实用表达",
+          "表达自然度：语气礼貌且符合职场沟通习惯",
+          "关键词覆盖：包含 document/Sales/ASAP/delivered 等核心词汇"
+        ],
+        "qaId": "workplace_053_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:26.439Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

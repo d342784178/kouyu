@@ -41,76 +41,6 @@
       }
     },
     {
-      "id": "daily_008_sub_3_qa_2_choice_1",
-      "subSceneId": "daily_008_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_008_sub_3_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Can you tell me how much it will cost?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you have any discounts?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "What is the delivery time to my home?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How long does it take to arrive?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案是 \"Can you tell me how much it will cost?\"，因为它询问了运费。其他选项虽然都是合理的问题，但不直接询问运费。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客询问快递费用和方式，服务方提供信息"
-      }
-    },
-    {
-      "id": "daily_008_sub_3_qa_1_choice_1",
-      "subSceneId": "daily_008_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_008_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "How much is the shipping fee for standard and express?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How many days will it take for standard shipping?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you send it by email?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How much is the express shipping fee?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案：How much is the shipping fee for standard and express？\n干扰项：\n- 选项 2：问题语法正确但不符合该场景，仅提及标准快递的时效\n- 选项 3：理解偏差型，误解了场景需求，要求服务方通过电子邮件发送\n- 选项 4：虽然提问了快递费用，但未完整提及标准快递",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客询问快递费用和方式，服务方提供信息"
-      }
-    },
-    {
       "id": "daily_008_sub_3_choice_2",
       "subSceneId": "daily_008_sub_3",
       "type": "choice",
@@ -181,6 +111,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "哪种选择能让我在周日前收到？"
       }
+    },
+    {
+      "id": "daily_008_sub_3_qa_1_choice_1",
+      "subSceneId": "daily_008_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在网店结账时，想了解不同快递方式的费用和送达时间，以便选择最合适的选项",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How much does standard shipping cost, and how long does it take to arrive?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is express shipping the best option?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you send it faster than usual?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I want the cheapest one, how much is it?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案清晰询问了普通快递的价格和时效，符合典型购物场景中顾客需要对比选项的交际需求。干扰项2是主观询问建议，而非获取信息；干扰项3表达模糊，未明确对比方式；干扰项4直接要求最便宜的，语气生硬且未体现对时效的关注，不够礼貌和完整。",
+        "qaId": "daily_008_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "daily_008_sub_3_qa_2_choice_1",
+      "subSceneId": "daily_008_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客急需收到包裹，想确认哪种快递能在周末前送达，同时想了解价格差异",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Will my package arrive by Sunday with express shipping, and what’s the price difference compared to standard?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you deliver it this weekend?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is express shipping worth the extra cost?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How fast is your fastest option?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确询问了特快是否能在周日前送达，并主动对比价格差异，信息完整且符合真实对话逻辑。干扰项2未说明具体快递方式，服务方无法准确回应；干扰项3是主观评价，不是信息询问；干扰项4只问速度，忽略了价格，信息不完整，无法帮助顾客做决策。",
+        "qaId": "daily_008_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:33.526Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

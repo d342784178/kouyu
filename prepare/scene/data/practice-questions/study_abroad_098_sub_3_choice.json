@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.848Z",
   "questions": [
     {
-      "id": "study_abroad_098_sub_3_qa_1_choice_1",
-      "subSceneId": "study_abroad_098_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_098_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "I can't access the JSTOR database—do I need a special login?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can you tell me what JSTOR is?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How many journals are in JSTOR?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I need to log in to JSTOR.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案直接表达了访问失败的困境并询问是否需要特殊登录，符合场景中‘遇到问题发起咨询’的需求。选项2误解了场景，用户已知JSTOR是什么；选项3关注数据库内容而非访问问题；选项4只是陈述需求，未提出明确问题，缺乏互动性。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你尝试访问JSTOR数据库但无法登录，想向图书馆工作人员咨询是否需要特殊账号或权限。"
-      }
-    },
-    {
       "id": "study_abroad_098_sub_3_choice_2",
       "subSceneId": "study_abroad_098_sub_3",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我能在家里下载期刊文章吗？"
       }
+    },
+    {
+      "id": "study_abroad_098_sub_3_qa_1_choice_1",
+      "subSceneId": "study_abroad_098_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在图书馆网站上找不到电子期刊的访问入口，想向工作人员询问正确的访问方式。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can you tell me how to access the academic journals through the library’s website?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Why can’t I open the journals on my phone?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have printed copies of these journals?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How much does it cost to download articles?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案询问的是如何通过图书馆网站访问学术期刊，符合场景中用户寻求正确访问路径的需求。干扰项2聚焦于手机访问，偏离核心问题；干扰项3误将电子资源理解为纸质资源；干扰项4错误假设访问需要付费，而图书馆资源通常免费提供。",
+        "qaId": "study_abroad_098_sub_3_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:08:43.405Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

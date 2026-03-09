@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.632Z",
   "questions": [
     {
-      "id": "daily_027_sub_4_qa_1_choice_1",
-      "subSceneId": "daily_027_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_027_sub_4_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What does the warranty cover and how long does it last?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How much does it cost to extend the warranty?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Is the warranty available in my country?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can I get a refund if it breaks?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案询问保修范围和期限，直接对应场景需求。干扰项1聚焦延保费用，偏离基础政策了解；干扰项2关注地域有效性，非当前核心问题；干扰项3询问退款，混淆了保修与退货政策。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客：这个电钻的保修政策是怎样的？"
-      }
-    },
-    {
-      "id": "daily_027_sub_4_qa_2_choice_1",
-      "subSceneId": "daily_027_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_027_sub_4_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What does the warranty cover?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How much does the drill cost?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can I return this if I don't like it?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Do you offer any discounts?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案 'What does the warranty cover?' 直接询问保修范围，符合场景需求。干扰项 'How much does the drill cost?' 考察价格而非保修；'Can I return this if I don't like it?' 混淆了退货政策与保修；'Do you offer any discounts?' 偏离主题，询问优惠而非保障条款。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想了解这款电钻的保修范围和条件，准备向店员提问。"
-      }
-    },
-    {
       "id": "daily_027_sub_4_choice_1",
       "subSceneId": "daily_027_sub_4",
       "type": "choice",
@@ -181,6 +111,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "您的保修涵盖18个月内的软件故障和硬件缺陷，但不包括极端温度造成的损坏。"
       }
+    },
+    {
+      "id": "daily_027_sub_4_qa_1_choice_1",
+      "subSceneId": "daily_027_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在电器商店购买了一台咖啡机，店员介绍了标准保修政策，你想确认是否涵盖意外泼洒液体造成的损坏。",
+        "speakerText": "The standard warranty covers internal component failures for one year, but not accidental spills or drops.",
+        "speakerTextCn": "标准保修涵盖一年内的内部部件故障，但不包括意外泼洒或跌落。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Does the warranty cover damage if I accidentally spill coffee on it?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How long does the warranty last?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I get a refund if it breaks next month?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Is the coffee machine energy efficient?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接追问意外损坏是否在保修范围内，符合场景中‘追问意外情况’的学习目标。选项2虽然相关，但只是重复已知信息，缺乏针对性追问；选项3涉及退款，偏离保修范围主题；选项4完全无关，属于产品性能问题。",
+        "qaId": "daily_027_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "daily_027_sub_4_qa_2_choice_1",
+      "subSceneId": "daily_027_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚买了一台空气净化器，店员说保修两年，但你不确定是否包括滤芯更换，想确认清楚以免日后产生误解。",
+        "speakerText": "Warranty covers motor and electronic faults for two years. Filters are consumables and not included.",
+        "speakerTextCn": "保修涵盖电机和电子故障两年，滤芯属于耗材，不包含在内。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Are replacement filters covered under the warranty, or do I need to buy them separately?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How often should I change the filter?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I extend the warranty to three years?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Is this model quieter than the previous one?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案精准询问耗材是否在保修范围内，符合‘确认保修范围’的核心任务。选项2虽相关，但问的是使用频率而非保修条款；选项3转向延保，偏离当前焦点；选项4与保修完全无关，属于产品对比。",
+        "qaId": "daily_027_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:05:09.483Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

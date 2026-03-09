@@ -5,30 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.695Z",
   "questions": [
     {
-      "id": "social_080_sub_3_qa_1_speaking_1",
-      "subSceneId": "social_080_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "social_080_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想确认朋友在节日期间是否有空，以便安排一次聚会或见面，避免时间冲突。",
-        "expectedAnswers": [
-          "Are you free on Dec 28th? I'm throwing a small get-together.",
-          "Do you have any plans for Dec 28th? I was thinking of getting together.",
-          "I'm planning a little get-together on the 28th — would that work for you?",
-          "Could you let me know if Dec 28th works for you? I'd love to catch up."
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确表达了询问对方时间安排的意图",
-          "语言准确性：语法结构正确，时态和用词无错误",
-          "表达自然度：符合英语母语者日常对话习惯，语气友好",
-          "关键词覆盖：包含场景关键词如 'Dec 28th', 'free', 'get-together' 或类似表达"
-        ]
-      }
-    },
-    {
       "id": "social_080_sub_3_speaking_2",
       "subSceneId": "social_080_sub_3",
       "type": "speaking",
@@ -75,6 +51,60 @@
           "关键词覆盖：使用了potluck, bring, holiday, let you know等"
         ]
       }
+    },
+    {
+      "id": "social_080_sub_3_qa_1_speaking_1",
+      "subSceneId": "social_080_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你打算在圣诞节前邀请朋友聚餐，想确认对方是否有空，避免时间冲突。",
+        "speakerText": "Hi, I'm planning a little dinner on December 23rd — would you be free that evening?",
+        "speakerTextCn": "嗨，我打算23号晚上办个小型聚餐，你那天有空吗？",
+        "expectedAnswers": [
+          "That works for me! What time and where?",
+          "I'm sorry, I already have plans that night.",
+          "Let me check my calendar real quick — I'll get back to you by tomorrow.",
+          "Actually, I'm free! Sounds great — what's the plan?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问对方时间安排",
+          "语言准确性：语法和时态使用正确，无重大错误",
+          "表达自然度：符合日常英语口语习惯，语气礼貌得体",
+          "关键词覆盖：使用了 'free', 'plan', 'evening', 'date' 等场景关键词"
+        ],
+        "qaId": "social_080_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "social_080_sub_3_qa_1_speaking_1",
+      "subSceneId": "social_080_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你和同事商量新年假期前的团队活动，想确认大家的时间是否冲突。",
+        "speakerText": "Hey, we're thinking of organizing a team lunch on December 30th — does that work for you?",
+        "speakerTextCn": "嘿，我们打算在12月30号组织一次团队午餐，你那天有空吗？",
+        "expectedAnswers": [
+          "Perfect! I’m free that day.",
+          "I might be traveling then — can we possibly move it to the 29th?",
+          "I’m booked, but I’d love to join if there’s another option.",
+          "Let me confirm with my family first, but I think I’m available."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰提出时间提议并询问对方安排",
+          "语言准确性：使用恰当的时态和礼貌表达，如 'might', 'possibly', 'think'",
+          "表达自然度：语气友好，符合职场社交语境",
+          "关键词覆盖：使用了 'team lunch', 'free', 'work for you', 'move it', 'available' 等关键词"
+        ],
+        "qaId": "social_080_sub_3_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:06:37.451Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

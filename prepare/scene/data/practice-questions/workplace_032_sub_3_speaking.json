@@ -5,51 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.359Z",
   "questions": [
     {
-      "id": "workplace_032_sub_3_qa_1_speaking_1",
-      "subSceneId": "workplace_032_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_032_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "服务方询问任务分配，等待被分配任务者回应。例如：你会负责哪些任务，什么时候完成。",
-        "expectedAnswers": [
-          "So, Alex, you'll handle the social media overhaul by Friday?",
-          "So, Alex, what's your deadline for the social media overhaul?",
-          "Can you confirm the tasks you'll be working on and the deadline for each?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问任务分配和截止时间的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
-      "id": "workplace_032_sub_3_qa_2_speaking_1",
-      "subSceneId": "workplace_032_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_032_sub_3_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "服务方询问任务分配，等待被分配任务者回应。",
-        "expectedAnswers": [
-          "And who's taking care of the Q3 report? It's due Monday.",
-          "谁负责Q3报告？周一就要交。",
-          "谁会负责Q3报告的制作？截止时间是周一。"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问分工的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了任务名称和截止时间"
-        ]
-      }
-    },
-    {
       "id": "workplace_032_sub_3_speaking_3",
       "subSceneId": "workplace_032_sub_3",
       "type": "speaking",
@@ -72,6 +27,60 @@
           "关键词覆盖：是否包含 'lead', 'onboarding', 'checklist', 'coordinate', 'templates' 等场景关键词"
         ]
       }
+    },
+    {
+      "id": "workplace_032_sub_3_qa_1_speaking_1",
+      "subSceneId": "workplace_032_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在参加项目进度会议，需要确认某项任务的负责人和截止时间，确保任务能按时完成。",
+        "speakerText": "Who’s responsible for finalizing the client presentation? The meeting is next Wednesday.",
+        "speakerTextCn": "谁负责完成客户演示文稿？会议定在下周三。",
+        "expectedAnswers": [
+          "I’ll take it—I’ll have the draft ready by Monday so we can review it together.",
+          "I’m tied up with the budget review this week—could Sam handle it? I can help with the data.",
+          "I’ll do it, but I’ll need the latest sales figures by Friday to include them.",
+          "Next Wednesday? I think I can make it, but I’ll need access to the brand guidelines first."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确指出了任务负责人和截止时间",
+          "语言准确性：语法和时态使用正确，无明显错误",
+          "表达自然度：符合职场口语习惯，语气得体",
+          "关键词覆盖：使用了 'responsible for', 'finalizing', 'deadline' 等场景关键词"
+        ],
+        "qaId": "workplace_032_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "workplace_032_sub_3_qa_2_speaking_1",
+      "subSceneId": "workplace_032_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你作为团队协调人，需要确认下周的系统升级任务由谁执行，以避免遗漏关键步骤。",
+        "speakerText": "Who’s handling the server update? It’s scheduled for next Friday before the backup window.",
+        "speakerTextCn": "谁负责服务器升级？计划在下周五备份窗口前完成。",
+        "expectedAnswers": [
+          "I’ll manage it—I’ve already tested the patch. I’ll send you the checklist by Thursday.",
+          "I’m not the right person—I think Mark knows the config best. Can you confirm with him?",
+          "I can do it, but I’ll need the IT security team to approve the changes first.",
+          "Friday’s too tight—I’ve got a client call then. Can we move it to Thursday?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确确认任务负责人和关键时间节点",
+          "语言准确性：使用了正确的时态和专业术语（如 'server update', 'backup window'）",
+          "表达自然度：语气礼貌、符合职场沟通习惯",
+          "关键词覆盖：使用了 'handling', 'scheduled', 'before', 'deadline' 等场景关键词"
+        ],
+        "qaId": "workplace_032_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:29.079Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

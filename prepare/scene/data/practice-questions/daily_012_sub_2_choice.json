@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.528Z",
   "questions": [
     {
-      "id": "daily_012_sub_2_qa_2_choice_1",
-      "subSceneId": "daily_012_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_012_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Do you have a pool?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "What kind of equipment do you have?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_3",
-            "text": "How much does a membership cost?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can I use the equipment for free?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 'What kind of equipment do you have?' 因为它直接询问健身房的设备。其他选项不符合场景的需求或询问了不相关的信息。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在健身房询问设施和服务"
-      }
-    },
-    {
       "id": "daily_012_sub_2_choice_1",
       "subSceneId": "daily_012_sub_2",
       "type": "choice",
@@ -73,41 +38,6 @@
         "speakerText": "We have treadmills, ellipticals, and a functional training zone. We also offer free locker rentals and water stations.",
         "dialogueMode": "user_responds",
         "speakerTextCn": "我们有跑步机、椭圆机和功能性训练区，还提供免费储物柜和饮水站。"
-      }
-    },
-    {
-      "id": "daily_012_sub_2_qa_1_choice_1",
-      "subSceneId": "daily_012_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_012_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What kind of equipment do you have?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can you tell me about the gym's history?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Do you have any personal trainers available?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How much does it cost to join the gym?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 'What kind of equipment do you have?'，因为这直接问到了健身房的设备。其他选项虽然都是合理的问题，但与场景的主要关注点不符。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在健身房询问设施和服务"
       }
     },
     {
@@ -181,6 +111,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "是的，我们的认证教练每小时25美元，可以在前台预约。"
       }
+    },
+    {
+      "id": "daily_012_sub_2_qa_1_choice_1",
+      "subSceneId": "daily_012_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在考虑加入一家健身房，想了解是否有私人教练服务以及收费标准。",
+        "speakerText": "We’ve got certified trainers — you can book sessions for $25/hour. And no, no pool, but we’ve got a great sauna.",
+        "speakerTextCn": "我们有认证教练，25美元一小时，没有泳池，但有很棒的桑拿。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do you have personal trainers, and how much do they charge per hour?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I’d like to use the sauna first, can you book me a session?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is the gym open 24 hours?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get a free towel if I join today?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接询问了私人教练是否存在及收费标准，符合场景需求。选项2是回应而非提问，且混淆了桑拿和教练服务；选项3询问营业时间，与教练服务无关；选项4询问毛巾，虽相关但偏离当前对话焦点。",
+        "qaId": "daily_012_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "daily_012_sub_2_qa_2_choice_1",
+      "subSceneId": "daily_012_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你听说这家健身房有新设施，想确认是否提供游泳池和桑拿服务。",
+        "speakerText": "We’ve got cardio machines, free weights, and a yoga studio. Oh, and we offer free towel service and showers.",
+        "speakerTextCn": "我们有有氧器械、自由重量区和瑜伽室，还提供免费毛巾和淋浴。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do you have a pool or a sauna? I’m looking for both.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I’ll try the yoga studio first, thanks.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Are the showers free?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What time do you close on weekends?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接询问了用户关心的两项设施（泳池和桑拿），使用了恰当的疑问句式。选项2是表达个人意愿而非提问；选项3虽然相关，但只问了淋浴（已提及），未触及新设施；选项4与设施无关，属于时间查询。",
+        "qaId": "daily_012_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:55.918Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

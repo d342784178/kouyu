@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.905Z",
   "questions": [
     {
-      "id": "study_abroad_104_sub_2_qa_1_choice_1",
-      "subSceneId": "study_abroad_104_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_104_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "When’s the deadline to register?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can you tell me how to sign up for the event?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Is the registration still open?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I want to register, what do I need?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案直接询问截止日期，符合场景中‘确认截止日期’的核心需求。选项2关注报名步骤，虽相关但未聚焦截止日；选项3只询问是否开放，未明确日期；选项4询问所需材料，偏离了‘避免错过’的时间重点。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想了解报名的具体步骤和截止日期，以免错过机会。"
-      }
-    },
-    {
-      "id": "study_abroad_104_sub_2_qa_2_choice_1",
-      "subSceneId": "study_abroad_104_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_104_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Could you please tell me the registration steps and the deadline?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do I need to pay anything when I register?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "When is the event going to start?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can I register later?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案询问了报名步骤和截止日期，完全匹配场景需求。干扰项1虽然语法正确，但只关注费用，偏离了步骤与截止日期的核心信息；干扰项2询问活动开始时间，与报名流程无关；干扰项3虽然相关，但只聚焦于是否能延期，未涵盖完整流程和截止日期，表达不全面。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想了解报名的具体步骤和截止日期，需要向工作人员提问以获取清晰信息。"
-      }
-    },
-    {
       "id": "study_abroad_104_sub_2_choice_3",
       "subSceneId": "study_abroad_104_sub_2",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "报名前需要填表吗？"
       }
+    },
+    {
+      "id": "study_abroad_104_sub_2_qa_1_choice_1",
+      "subSceneId": "study_abroad_104_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你打算申请一个暑期语言课程，但不确定报名流程和截止时间，想向工作人员咨询清楚，避免错过机会。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What are the steps to sign up, and when is the final date to register?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I register next week if I’m busy this week?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much does the course cost?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do I need to bring any documents to the office?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确询问了报名步骤和截止日期，符合‘确认流程’场景的核心需求。干扰项2只问延期可能性，未涉及流程；干扰项3只问费用，偏离流程主题；干扰项4问所需材料，属于次要细节，非本场景重点。",
+        "qaId": "study_abroad_104_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "study_abroad_104_sub_2_qa_2_choice_1",
+      "subSceneId": "study_abroad_104_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你准备报名一个海外大学的交换项目，但对整个申请流程一无所知，想先了解从哪一步开始以及何时必须完成报名。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Could you walk me through the registration process and tell me the deadline?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is there an interview required for this program?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I apply after the deadline if I pay a late fee?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What courses can I take during the exchange?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案以礼貌方式请求完整流程说明和截止日期，精准匹配场景目标。干扰项1涉及面试，属于后续环节；干扰项2假设可延期，偏离‘确认流程’的初始咨询目的；干扰项3问课程内容，与报名流程无关。",
+        "qaId": "study_abroad_104_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:09:46.460Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

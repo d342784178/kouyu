@@ -33,60 +33,6 @@
       }
     },
     {
-      "id": "study_abroad_110_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "study_abroad_110_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示：请根据场景信息回忆关键词",
-        "qaId": "study_abroad_110_sub_2_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "design basics",
-            "options": [
-              "选项1：计算机编程",
-              "选项2：设计基础",
-              "选项3：语言学",
-              "选项4：历史学"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "场景提示：用户提出问题，服务方/工作人员回答",
-        "knowledgePoint": "考察的知识点：提问句型",
-        "responseTemplate": "What if I took a _______________ course this summer? Would that help me skip intro classes?"
-      }
-    },
-    {
-      "id": "study_abroad_110_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "study_abroad_110_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "请填写用户提出的具体课程名称",
-        "qaId": "study_abroad_110_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "Calc I and Intro to Psychology",
-            "options": [
-              "微积分一和心理学导论",
-              "线性代数和计算机编程",
-              "图形设计原理和摄影艺术",
-              "数据分析和人工智能"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "场景提示：用户提出问题，服务方/工作人员回答",
-        "knowledgePoint": "转学分确认",
-        "responseTemplate": "I’ve taken ___ and ___—will those count toward the Graphic Design program?"
-      }
-    },
-    {
       "id": "study_abroad_110_sub_2_fill_blank_2",
       "subSceneId": "study_abroad_110_sub_2",
       "type": "fill_blank",
@@ -165,6 +111,62 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "请求文件的惯用搭配：send me the syllabus"
       }
+    },
+    {
+      "id": "study_abroad_110_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "study_abroad_110_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你曾修过一门与目标专业相关的课程，想确认它是否能被计入学分要求，现在向学术顾问提问。",
+        "responseTemplate": "I took ___ last semester—would that be eligible for credit transfer?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a course in digital illustration",
+            "options": [
+              "a course in digital illustration",
+              "a class about art history",
+              "some online videos",
+              "the textbook for design"
+            ]
+          }
+        ],
+        "hint": "用具体课程名称表达你修过的课程，避免模糊表达如'一些课'或'相关的东西'",
+        "knowledgePoint": "使用准确课程名称进行学分咨询的提问句型",
+        "qaId": "study_abroad_110_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "study_abroad_110_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "study_abroad_110_sub_2",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你计划在暑期修一门基础课，想提前确认是否能用它跳过本专业的入门课程。",
+        "responseTemplate": "If I take ___ this summer, could it replace the introductory course?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "foundations of visual design",
+            "options": [
+              "foundations of visual design",
+              "a design workshop",
+              "a free YouTube tutorial",
+              "reading the course manual"
+            ]
+          }
+        ],
+        "hint": "用正式课程名称表达你计划修的课程，避免使用非正式或非课程类表达",
+        "knowledgePoint": "提出替代性课程学分申请的提问结构",
+        "qaId": "study_abroad_110_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:06.374Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

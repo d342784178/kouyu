@@ -5,52 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.521Z",
   "questions": [
     {
-      "id": "daily_011_sub_1_qa_1_speaking_1",
-      "subSceneId": "daily_011_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_011_sub_1_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客通常在需要服务时先发起对话，例如在药店买药时。",
-        "expectedAnswers": [
-          "Hi there, I need something for a bad cough.",
-          "Excuse me, I have a cough and need some medication.",
-          "Hello, I'm looking for something to help with my cough."
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
-      "id": "daily_011_sub_1_qa_2_speaking_1",
-      "subSceneId": "daily_011_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_011_sub_1_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客走进药店，希望向药剂师描述自己的症状并寻求帮助，需要主动开口说明自己的健康需求。",
-        "expectedAnswers": [
-          "I've been coughing for three days, especially at night.",
-          "I got a cough that won't go away—it's worse when I lie down.",
-          "Can you help me with a cough? It's been going on for three days and gets worse at night.",
-          "I'm dealing with a persistent cough that's worse at night—do you have something for that?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否清晰表达了咳嗽症状和持续时间",
-          "语言准确性：语法正确，时态使用恰当（如现在完成时）",
-          "表达自然度：符合英语母语者在药店场景中的日常表达习惯",
-          "关键词覆盖：使用了 'cough', 'days', 'night' 等场景关键词"
-        ]
-      }
-    },
-    {
       "id": "daily_011_sub_1_speaking_3",
       "subSceneId": "daily_011_sub_1",
       "type": "speaking",
@@ -73,6 +27,60 @@
           "关键词覆盖：使用了 'cough', 'runny nose', 'cold', 'antihistamine', 'humidifier' 等关键词"
         ]
       }
+    },
+    {
+      "id": "daily_011_sub_1_qa_1_speaking_1",
+      "subSceneId": "daily_011_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客走进药房，想购买缓解鼻塞和流鼻涕的非处方药，需要主动向药剂师说明自己的症状。",
+        "speakerText": "I've got a stuffy nose and runny nose since yesterday, and it's making it hard to sleep.",
+        "speakerTextCn": "我从昨天开始鼻塞流鼻涕，影响睡觉了。",
+        "expectedAnswers": [
+          "Do you have anything for congestion and runny nose?",
+          "Could you recommend something for a cold with nasal symptoms?",
+          "I need help with stuffy nose and sneezing—what do you suggest?",
+          "Is there a good over-the-counter remedy for cold symptoms like this?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表达了鼻塞和流鼻涕的诉求",
+          "语言准确性：语法正确，用词符合日常表达",
+          "表达自然度：是否使用自然口语化表达而非书面语",
+          "关键词覆盖：是否包含 'stuffy nose', 'runny nose', 'cold', 'remedy' 等场景关键词"
+        ],
+        "qaId": "daily_011_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "daily_011_sub_1_qa_2_speaking_1",
+      "subSceneId": "daily_011_sub_1",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客因轻微喉咙痛和干咳想买止咳糖浆，希望药剂师推荐适合的产品。",
+        "speakerText": "My throat is sore and I’ve been coughing a bit, mostly during the day. I don’t want anything with strong medicine.",
+        "speakerTextCn": "我喉咙痛，白天有点咳嗽，不想吃药效太强的药。",
+        "expectedAnswers": [
+          "Do you have a gentle cough syrup for a sore throat?",
+          "What’s a mild option for throat irritation and light cough?",
+          "I need something soothing for my throat—no drowsiness, please.",
+          "Can you suggest a non-drowsy remedy for a scratchy throat and dry cough?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰说明喉咙痛、干咳和偏好温和药物",
+          "语言准确性：语法正确，使用了恰当的形容词如 'gentle', 'mild', 'non-drowsy'",
+          "表达自然度：是否符合顾客与药剂师日常对话的语气",
+          "关键词覆盖：是否包含 'sore throat', 'cough', 'gentle', 'non-drowsy', 'remedy' 等关键词"
+        ],
+        "qaId": "daily_011_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:50.360Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

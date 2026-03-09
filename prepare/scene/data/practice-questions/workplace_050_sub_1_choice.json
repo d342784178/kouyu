@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.553Z",
   "questions": [
     {
-      "id": "workplace_050_sub_1_qa_2_choice_1",
-      "subSceneId": "workplace_050_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_050_sub_1_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "It won't boot up—just shows a black screen after the Apple logo.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "My computer is very slow, can you help me speed it up?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "What's the password for the computer?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can you tell me the latest company news?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案\"It won't boot up—just shows a black screen after the Apple logo.\"是最合适的问题，因为它直接描述了电脑故障的症状。其他选项虽然语法正确，但不符合场景需求或不相关。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你发现电脑开机不了，苹果标志后就黑屏了，需要联系IT支持，快点帮助我!"
-      }
-    },
-    {
-      "id": "workplace_050_sub_1_qa_1_choice_1",
-      "subSceneId": "workplace_050_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_050_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Hey, my laptop is not working. Can you help me?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What's your phone number? I need help with my laptop.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "I'm calling to report a problem with the internet.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can you fix my computer now? It's really urgent.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案：Hey, my laptop is not working. Can you help me？因为它准确描述了电脑故障的情况并表达了需求。其他选项不正确，因为它们没有准确描述电脑故障或没有表达需求。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "员工发现电脑故障，联系IT支持"
-      }
-    },
-    {
       "id": "workplace_050_sub_1_choice_3",
       "subSceneId": "workplace_050_sub_1",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我的键盘完全没反应，我已经试过重启了。"
       }
+    },
+    {
+      "id": "workplace_050_sub_1_qa_1_choice_1",
+      "subSceneId": "workplace_050_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工的电脑突然无法连接网络，所有浏览器都显示无法访问网页，他需要向IT支持人员说明问题以便快速获得帮助。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "My computer won't connect to the internet—every browser says 'site can't be reached'.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you fix my computer? It's broken.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I think someone hacked my system, because the network is gone.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Why is the Wi-Fi so slow today?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确描述了具体故障现象（无法连接网络 + 错误提示），符合口语化、简洁、信息明确的要求。干扰项1过于笼统（'broken'无具体信息），干扰项2引入无根据的猜测（'hacked'），干扰项3偏离核心问题（问网速而非完全断连）",
+        "qaId": "workplace_050_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "workplace_050_sub_1_qa_2_choice_1",
+      "subSceneId": "workplace_050_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工的打印机在打印文档时突然卡纸，多次尝试后仍无法正常工作，他需要向IT支持人员清晰说明情况以便快速处理。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "The printer keeps jamming—I cleared the paper once, but it's stuck again.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I hate this printer. It never works.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you send me a new printer instead?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Is the printer out of ink?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案清晰描述了故障现象（反复卡纸）和已尝试的解决动作，符合专业沟通规范。干扰项1情绪化表达无帮助，干扰项2跳过问题直接要求更换设备，干扰项3错误地将卡纸归因于缺墨，属于理解偏差",
+        "qaId": "workplace_050_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:06.648Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

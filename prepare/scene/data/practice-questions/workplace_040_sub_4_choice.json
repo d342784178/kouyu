@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.439Z",
   "questions": [
     {
-      "id": "workplace_040_sub_4_qa_1_choice_1",
-      "subSceneId": "workplace_040_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_040_sub_4_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What’s the plan for next quarter? Any support you need?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "你下周要做什么?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "你觉得这个项目需要多长时间?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "你有没有时间来帮助我?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是正确的提问，因为它明确了下季度计划和所需支持。其他选项都是不正确的提问，因为它们没有明确地询问下季度计划或所需支持。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "经理询问员工下季度计划及所需支持"
-      }
-    },
-    {
-      "id": "workplace_040_sub_4_qa_2_choice_1",
-      "subSceneId": "workplace_040_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_040_sub_4_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Can you send me the updated report by EOD?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "你能告诉我下季度的目标吗?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "我能帮你做什么?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "你能给我更多的资源吗?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案是“Can you send me the updated report by EOD?”因为它直接询问了员工需要经理发送的报告。选项2理解了场景需求，但提问不直接。选项3和选项4表达不当，因为它们没有明确询问下一步行动与责任人。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "经理询问员工下季度计划及所需支持"
-      }
-    },
-    {
       "id": "workplace_040_sub_4_choice_3",
       "subSceneId": "workplace_040_sub_4",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "谁负责最终确定预算草案？"
       }
+    },
+    {
+      "id": "workplace_040_sub_4_qa_1_choice_1",
+      "subSceneId": "workplace_040_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你是一名团队负责人，正在与下属确认下周项目交付的安排，需要明确具体任务、负责人和截止时间。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can we finish the project next week?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Who will handle the client presentation, and when is the deadline?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Is the project going well?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you send me the files when you have time?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确询问了责任人（Who will handle...）和截止时间（when is the deadline），符合‘确认计划’中明确时间节点与责任人的核心目标。干扰项1和4过于模糊，未指定责任人或具体时间；干扰项3是开放式问候，无法推动行动确认。",
+        "qaId": "workplace_040_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "workplace_040_sub_4_qa_2_choice_1",
+      "subSceneId": "workplace_040_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在协调跨部门合作，需要确认市场部何时提供宣传素材，以便设计团队按时启动工作。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do you have the marketing materials ready?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "When can I expect the campaign visuals from your team, and who should I follow up with?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Could you please send everything soon?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Are you busy with anything else right now?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案精准询问了交付时间（When can I expect...）和对接人（who should I follow up with），符合‘明确责任人与时间节点’的要求。干扰项1只问是否准备好，未要求具体时间；干扰项3使用模糊表达‘soon’，不符合学习要求；干扰项4与任务无关，属于无效提问。",
+        "qaId": "workplace_040_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:06.347Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

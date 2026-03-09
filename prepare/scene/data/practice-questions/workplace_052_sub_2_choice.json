@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.571Z",
   "questions": [
     {
-      "id": "workplace_052_sub_2_qa_2_choice_1",
-      "subSceneId": "workplace_052_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_052_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Can I set it to double-sided?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How much does this machine cost?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you help me with the paper jam?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Do you have any other machines available?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 Can I set it to double-sided？因为它询问了如何设置双面复印，这是为了省纸。其他选项不符合场景需求或表达不当。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在询问复印机使用和设置的方法，希望能省纸"
-      }
-    },
-    {
-      "id": "workplace_052_sub_2_qa_1_choice_1",
-      "subSceneId": "workplace_052_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_052_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "How do I use this copier?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "这个机器能打印吗？",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "I need help with the scanner, please.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "这是什么机器？",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案：'How do I use this copier?' 是一个直接的问题，表达了使用复印机的需求。其他选项不正确，因为它们没有直接问到复印机的使用问题，或者是询问其他功能（打印、扫描）或机器的名称。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在一家办公室的复印机前，想要知道如何使用它，"
-      }
-    },
-    {
       "id": "workplace_052_sub_2_choice_3",
       "subSceneId": "workplace_052_sub_2",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "怎么改纸张大小？机器打印出来的太小了。"
       }
+    },
+    {
+      "id": "workplace_052_sub_2_qa_1_choice_1",
+      "subSceneId": "workplace_052_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在公司新来的办公室，第一次使用复印机，想请教如何设置复印份数。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How many copies can I make at once?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is this machine broken?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you make copies for me?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Why is the machine so slow?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案询问如何设置复印份数，符合实际使用场景；干扰项1是质疑机器故障，与情境无关；干扰项2是请求他人代劳，不符合‘请教操作’的意图；干扰项3是抱怨速度，属于无根据的负面评价。",
+        "qaId": "workplace_052_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "workplace_052_sub_2_qa_2_choice_1",
+      "subSceneId": "workplace_052_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你需要复印一份合同，想确认是否能调整复印的清晰度以确保文字更清楚。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I adjust the darkness setting for clearer text?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you have a better printer somewhere else?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much does it cost to print?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Is the paper jammed again?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接询问如何调整清晰度，是使用复印机时的合理操作提问；干扰项1是转移问题到其他设备，偏离主题；干扰项2关注费用，与操作无关；干扰项3假设机器故障，属于误解情境。",
+        "qaId": "workplace_052_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:23.625Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

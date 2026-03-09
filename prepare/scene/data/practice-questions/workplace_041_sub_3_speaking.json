@@ -5,52 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.453Z",
   "questions": [
     {
-      "id": "workplace_041_sub_3_qa_2_speaking_1",
-      "subSceneId": "workplace_041_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_041_sub_3_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "如果你专注写报告，我能负责团队同步会吗？",
-        "expectedAnswers": [
-          "If I focus on the report, can you handle the team sync?",
-          "If I'm working on the report, can you take care of the team meeting?",
-          "If I prioritize the report, will you be able to handle the team sync?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "workplace_041_sub_3_qa_1_speaking_1",
-      "subSceneId": "workplace_041_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_041_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "我这周有两个截止日，能帮我定下哪个先做吗？",
-        "expectedAnswers": [
-          "What's the most important task that needs to be completed this week?",
-          "Could you help me decide which deadline to focus on first?",
-          "Which deadline is more urgent, and should we tackle that one first?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达了询问优先级的意图",
-          "语言准确性：语法和用词正确",
-          "表达自然度：符合英语口语习惯",
-          "关键词覆盖：使用了关键词‘deadline’和‘prioritize’"
-        ]
-      }
-    },
-    {
       "id": "workplace_041_sub_3_speaking_3",
       "subSceneId": "workplace_041_sub_3",
       "type": "speaking",
@@ -73,6 +27,60 @@
           "关键词覆盖：是否包含 'prioritize', 'deadline', 'vendor contract', 'budget analysis' 等关键词"
         ]
       }
+    },
+    {
+      "id": "workplace_041_sub_3_qa_1_speaking_1",
+      "subSceneId": "workplace_041_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你手头有两项任务，但时间紧张，想主动向主管提出优先处理哪一项的建议，以便合理分配精力。",
+        "speakerText": "I'm juggling the quarterly sales analysis and the client onboarding docs—should I focus on the sales report first since it's due Friday?",
+        "speakerTextCn": "我同时在处理季度销售分析和客户入职文档，由于销售报告周五截止，我应该先做这个吗？",
+        "expectedAnswers": [
+          "Yes, the sales report takes priority—it's for the executive meeting.",
+          "Actually, let's do the onboarding docs first; the client is waiting on it.",
+          "Both are important, but if you can finish the sales report by Thursday, that'd be ideal.",
+          "I'll help you with the onboarding docs—focus on the sales report."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达了任务选项并请求优先级指导",
+          "语言准确性：语法正确，时态和用词恰当",
+          "表达自然度：符合职场口语习惯，语气礼貌且专业",
+          "关键词覆盖：使用了 'priority', 'due', 'focus on', 'juggling' 等场景关键词"
+        ],
+        "qaId": "workplace_041_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "workplace_041_sub_3_qa_2_speaking_1",
+      "subSceneId": "workplace_041_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你被分配了两个任务，但其中一个需要他人配合，你想主动提议分工方案，以提高效率。",
+        "speakerText": "If I take care of drafting the project timeline, could you review the budget spreadsheet instead?",
+        "speakerTextCn": "如果我负责起草项目时间表，你能代为审核预算表吗？",
+        "expectedAnswers": [
+          "Sure, I can review the budget—just send it over by noon.",
+          "Actually, I’m swamped today—could you handle both for now?",
+          "That works—let me know if you need help with the timeline.",
+          "Thanks, I’ll take the budget. Please keep me updated on the timeline."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确提出了分工建议并请求对方确认",
+          "语言准确性：使用了条件句（if...could...）和恰当的职场动词",
+          "表达自然度：语气合作、非命令式，符合职场协作语境",
+          "关键词覆盖：使用了 'take care of', 'review', 'handle', 'budget', 'timeline' 等场景关键词"
+        ],
+        "qaId": "workplace_041_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:11.876Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -5,29 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.248Z",
   "questions": [
     {
-      "id": "travel_070_sub_1_qa_1_speaking_1",
-      "subSceneId": "travel_070_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_070_sub_1_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "客服接听电话后，请问用户姓名和航班信息",
-        "expectedAnswers": [
-          "Hi, this is Lisa Chen calling about my flight.",
-          "Hello, I'm calling about my flight.",
-          "Hi, I'm Lisa Chen. I'd like to inquire about my flight."
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达了询问航班信息的意图",
-          "语言准确性：语法和用词正确",
-          "表达自然度：符合英语口语习惯",
-          "关键词覆盖：使用了姓名和航班关键词"
-        ]
-      }
-    },
-    {
       "id": "travel_070_sub_1_speaking_2",
       "subSceneId": "travel_070_sub_1",
       "type": "speaking",
@@ -72,6 +49,34 @@
           "表达自然度：是否结合了合理理由（如饮食需求、商务会议），使请求更可信和自然"
         ]
       }
+    },
+    {
+      "id": "travel_070_sub_1_qa_1_speaking_1",
+      "subSceneId": "travel_070_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚刚拨通航空客服电话，需要礼貌地自我介绍并说明来电目的，比如改签或查询航班状态。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Hi, this is Emma Li calling to check the status of my flight to Tokyo.",
+          "Good morning, I'm John Park—I'd like to reschedule my flight because of a schedule change.",
+          "Hello, my name is Rachel Wong. Could you help me update my departure time?",
+          "Hi, I'm calling regarding my booking under the name David Kim—I need to make a change."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰说明了身份和来电目的",
+          "语言准确性：语法、时态和拼写是否正确",
+          "表达自然度：是否使用了符合英语口语习惯的礼貌表达",
+          "关键词覆盖：是否包含姓名、航班相关动词（如 check, reschedule, update）"
+        ],
+        "qaId": "travel_070_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:34.562Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

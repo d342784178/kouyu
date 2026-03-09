@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.608Z",
   "questions": [
     {
-      "id": "daily_024_sub_4_qa_1_choice_1",
-      "subSceneId": "daily_024_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_024_sub_4_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "How much will this cost?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you offer dry cleaning?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "When can I pick up my clothes?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How much is it for dry cleaning?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案 'How much will this cost?' 是直接、自然且符合场景的询问价格方式。干扰项1 'Do you offer dry cleaning?' 是在确认服务是否提供，而非询问价格；干扰项2 'When can I pick up my clothes?' 关注取件时间，与价格无关；干扰项3 'How much is it for dry cleaning?' 虽语法正确，但表达过于笼统，未指明具体物品，不如正确答案精准贴合语境。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想了解干洗服务的费用，需要向工作人员询问价格"
-      }
-    },
-    {
       "id": "daily_024_sub_4_choice_1",
       "subSceneId": "daily_024_sub_4",
       "type": "choice",
@@ -146,6 +111,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "多件衣物有优惠吗？我想现在付款。"
       }
+    },
+    {
+      "id": "daily_024_sub_4_qa_1_choice_1",
+      "subSceneId": "daily_024_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你带着几件衬衫去干洗店，想询问总费用以便决定是否现在付款。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How much is it per shirt?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you tell me the total for all these items?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you accept credit cards?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "When will my clothes be ready?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是询问总价，因为场景强调‘想现在付款’，需知道总金额。选项1只问单价，未满足付款决策需求；选项3和4与价格无关，属于答非所问。",
+        "qaId": "daily_024_sub_4_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:05:08.683Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

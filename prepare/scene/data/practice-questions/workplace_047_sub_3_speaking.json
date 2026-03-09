@@ -5,53 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.531Z",
   "questions": [
     {
-      "id": "workplace_047_sub_3_qa_1_speaking_1",
-      "subSceneId": "workplace_047_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_047_sub_3_qa_1",
-        "type": "speaking",
-        "question": "Will your tasks be covered?",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在与经理讨论工作安排，想要确认接手你的任务是否有其他人负责",
-        "expectedAnswers": [
-          "Will my tasks be handed over to someone else?",
-          "Is there anyone who will take over my tasks?",
-          "Will my work be covered?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达了询问任务接手情况",
-          "语言准确性：语法和用词正确",
-          "表达自然度：符合确认安排场景的口语习惯"
-        ]
-      }
-    },
-    {
-      "id": "workplace_047_sub_3_qa_2_speaking_1",
-      "subSceneId": "workplace_047_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_047_sub_3_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你是项目经理，需要确认员工的工作安排。你发现员工已经完成了申请表，请你确认一下是否可以批准工作安排。",
-        "expectedAnswers": [
-          "Approved! Just send me the form.",
-          "我已经批准了！你可以把申请表发给我了。",
-          "好的，批准了！请把申请表发给我看看。",
-          "确认收到！你可以把申请表发给我了，谢谢!"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达了确认安排的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
       "id": "workplace_047_sub_3_speaking_3",
       "subSceneId": "workplace_047_sub_3",
       "type": "speaking",
@@ -74,6 +27,58 @@
           "关键词覆盖：包含 handover / on track / confirm / share / schedule 等核心词"
         ]
       }
+    },
+    {
+      "id": "workplace_047_sub_3_qa_1_speaking_1",
+      "subSceneId": "workplace_047_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你即将休假，需要向经理确认工作交接安排并请求批准，确保任务有人接手且不影响项目进度。",
+        "speakerText": "Could you please confirm that my tasks will be covered while I'm away, and approve the handover plan?",
+        "speakerTextCn": "您能确认我休假期间我的工作有人接手，并批准交接计划吗？",
+        "expectedAnswers": [
+          "Yes, I've assigned Lisa to handle the quarterly reports and Tom to manage the client meetings. I'll send you the handover document by EOD.",
+          "Absolutely—I’ve already briefed Sarah on all pending items and she’s ready to step in. The plan is in the shared folder.",
+          "Of course. I’ve coordinated with the team: Mark will take over the budget review, and I’ve updated the task tracker. Let me know if you need any changes."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确请求确认工作交接并获得批准",
+          "语言准确性：使用正确时态、专业词汇（如 handover, coordinate, step in）",
+          "表达自然度：符合职场口语习惯，语气礼貌且专业",
+          "关键词覆盖：包含 tasks, covered, approve, handover 等核心词汇"
+        ],
+        "qaId": "workplace_047_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "workplace_047_sub_3_qa_2_speaking_1",
+      "subSceneId": "workplace_047_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你提交了加班申请，现在需要主动向经理确认是否已批准，以便安排后续工作。",
+        "speakerText": "Hi, I just submitted the overtime request for this week—could you let me know if it’s been approved?",
+        "speakerTextCn": "嗨，我刚提交了本周的加班申请，您能告诉我是否已批准吗？",
+        "expectedAnswers": [
+          "Yes, it’s approved—just make sure to log your hours in the system by Friday.",
+          "Approved! Thanks for planning ahead. Let me know if you need support with the deliverables.",
+          "Got it—approved. Please share the updated timeline with the team so everyone’s aligned."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：清晰询问申请是否获批，推动下一步行动",
+          "语言准确性：使用正确句型（could you let me know, it’s approved）和专业表达",
+          "表达自然度：语气礼貌、简洁，符合职场沟通习惯",
+          "关键词覆盖：包含 approved, overtime request, submitted, log hours 等关键术语"
+        ],
+        "qaId": "workplace_047_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:44.874Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

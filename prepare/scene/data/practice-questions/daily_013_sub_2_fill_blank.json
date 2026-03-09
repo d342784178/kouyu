@@ -33,60 +33,6 @@
       }
     },
     {
-      "id": "daily_013_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "daily_013_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示：请回忆要问的借书期限的问题",
-        "qaId": "daily_013_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "How long",
-            "options": [
-              "How long",
-              "What time",
-              "How many",
-              "Where is"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "确认借期",
-        "knowledgePoint": "提问句型",
-        "responseTemplate": "我可以借书多久?"
-      }
-    },
-    {
-      "id": "daily_013_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "daily_013_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "用户需要了解借书期限和逾期后果",
-        "qaId": "daily_013_sub_2_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "on time",
-            "options": [
-              "明天",
-              "这个月",
-              "最近",
-              "on time"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户询问借书期限，管理员回答",
-        "knowledgePoint": "提问句型和语法",
-        "responseTemplate": "What if I can't return them ___?"
-      }
-    },
-    {
       "id": "daily_013_sub_2_fill_blank_2",
       "subSceneId": "daily_013_sub_2",
       "type": "fill_blank",
@@ -141,6 +87,66 @@
         "knowledgePoint": "标准借期的常规表达",
         "responseTemplate": "The standard period is ___ weeks."
       }
+    },
+    {
+      "id": "daily_013_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "daily_013_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户在图书馆想了解借书到期后能否续借，以及需要满足什么条件",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Can I ______ if I need more time?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "renew it",
+            "options": [
+              "renew it",
+              "keep it",
+              "extend it",
+              "borrow it again"
+            ]
+          }
+        ],
+        "hint": "当你需要更多时间时，图书馆通常允许的操作是续借，但可能有次数或预约限制",
+        "knowledgePoint": "表达续借请求的常用句型",
+        "qaId": "daily_013_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "daily_013_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "daily_013_sub_2",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户担心可能无法按时还书，想提前询问逾期会有什么后果",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "What happens if I ______?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "return it late",
+            "options": [
+              "return it late",
+              "lose the book",
+              "forget to return",
+              "borrow too many"
+            ]
+          }
+        ],
+        "hint": "询问逾期后果时，应使用与‘归还’和‘延迟’相关的标准表达",
+        "knowledgePoint": "询问逾期后果的规范表达",
+        "qaId": "daily_013_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:56.489Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

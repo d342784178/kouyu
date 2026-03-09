@@ -5,51 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.062Z",
   "questions": [
     {
-      "id": "travel_056_sub_4_qa_1_speaking_1",
-      "subSceneId": "travel_056_sub_4",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_056_sub_4_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客：'Could you tell me about the WiFi and breakfast?'",
-        "expectedAnswers": [
-          "The WiFi is free, and the password is on the card.",
-          "Is the WiFi free, and can you tell me when breakfast is?",
-          "Can you tell me about the WiFi and the breakfast hours, please?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达询问意图",
-          "语言准确性：语法和用词正确",
-          "表达自然度：符合英语口语习惯",
-          "关键词覆盖：使用了WiFi和早餐"
-        ]
-      }
-    },
-    {
-      "id": "travel_056_sub_4_qa_2_speaking_1",
-      "subSceneId": "travel_056_sub_4",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_056_sub_4_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客：'Could you tell me about the WiFi and breakfast?'",
-        "expectedAnswers": [
-          "Can you tell me more about the WiFi and breakfast options here?",
-          "What time does breakfast start and is the WiFi available throughout the day?",
-          "Do you have any information about the WiFi and breakfast schedule?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
       "id": "travel_056_sub_4_speaking_3",
       "subSceneId": "travel_056_sub_4",
       "type": "speaking",
@@ -72,6 +27,60 @@
           "关键词覆盖：使用了 'breakfast', 'fruit', 'WiFi', 'balcony' 等核心词汇"
         ]
       }
+    },
+    {
+      "id": "travel_056_sub_4_qa_1_speaking_1",
+      "subSceneId": "travel_056_sub_4",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在酒店前台办理入住，想了解免费WiFi的密码和早餐供应时间。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Could you tell me the WiFi password and when breakfast starts?",
+          "Is the WiFi free? And what time is breakfast served?",
+          "Do you provide free WiFi? If so, what’s the password? Also, what are the breakfast hours?",
+          "Can you give me the WiFi details and breakfast time, please?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了WiFi密码和早餐时间",
+          "语言准确性：语法正确，时态和用词恰当",
+          "表达自然度：符合酒店场景的日常口语习惯",
+          "关键词覆盖：包含WiFi、password、breakfast、time等核心词"
+        ],
+        "qaId": "travel_056_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "travel_056_sub_4_qa_2_speaking_1",
+      "subSceneId": "travel_056_sub_4",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚到酒店房间，发现WiFi连接不上，想确认早餐是否包含在房费里以及结束时间。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "I’m having trouble with the WiFi—could you confirm the password again? Also, does breakfast end at 10?",
+          "Is breakfast included in the room rate? And what time do they stop serving?",
+          "Could you remind me of the WiFi password? And is breakfast served until 10:30 or 10?",
+          "Just to double-check—breakfast ends at 10, right? And the WiFi password is on the card?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰询问了WiFi密码和早餐结束时间",
+          "语言准确性：使用了恰当的疑问结构和礼貌表达",
+          "表达自然度：符合实际入住后补问的口语节奏",
+          "关键词覆盖：包含WiFi、password、breakfast、end/time、included等关键信息"
+        ],
+        "qaId": "travel_056_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:24.096Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

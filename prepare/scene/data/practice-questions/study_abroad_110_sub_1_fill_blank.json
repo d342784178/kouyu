@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.994Z",
   "questions": [
     {
-      "id": "study_abroad_110_sub_1_qa_2_fill_blank_1",
-      "subSceneId": "study_abroad_110_sub_1",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示：用户正在寻求转专业的建议",
-        "qaId": "study_abroad_110_sub_1_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "Biology",
-            "options": [
-              "Biology",
-              "Mathematics",
-              "History",
-              "Philosophy"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "场景提示：用户通常在需要服务或信息时先发起对话",
-        "knowledgePoint": "转专业意向表达",
-        "responseTemplate": "I'm currently studying ___ but I'm really into design and digital media."
-      }
-    },
-    {
       "id": "study_abroad_110_sub_1_fill_blank_1",
       "subSceneId": "study_abroad_110_sub_1",
       "type": "fill_blank",
@@ -57,33 +30,6 @@
         "speakerTextCn": "嗨，我目前在学工程，但我发现我更热衷于理解人类行为。我想转到心理学专业，你能帮我了解流程吗？",
         "knowledgePoint": "表达转专业意向的核心句型",
         "responseTemplate": "I'm thinking about switching to ___"
-      }
-    },
-    {
-      "id": "study_abroad_110_sub_1_qa_1_fill_blank_1",
-      "subSceneId": "study_abroad_110_sub_1",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "用户想聊聊转专业的事",
-        "qaId": "study_abroad_110_sub_1_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "switching my major",
-            "options": [
-              "switching my major",
-              "getting a job",
-              "studying abroad",
-              "enjoying my life"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户通常在需要服务或信息时先发起对话",
-        "knowledgePoint": "初次咨询-转专业意向",
-        "responseTemplate": "Hi, I'd like to talk about___—do you have a minute?"
       }
     },
     {
@@ -167,6 +113,47 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "惯用表达：feels right（感觉正确/合适）"
       }
+    },
+    {
+      "id": "study_abroad_110_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "study_abroad_110_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "学生想向学术顾问表达转专业的意向，需要礼貌地开启对话并说明自己的兴趣动机",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "I'm currently in ___ , but I'm really passionate about ___ . I think I'd be more motivated if I switched.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Biology",
+            "options": [
+              "Biology",
+              "Chemistry",
+              "Physics",
+              "Mathematics"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "graphic design",
+            "options": [
+              "graphic design",
+              "computer science",
+              "business management",
+              "psychology"
+            ]
+          }
+        ],
+        "hint": "先说明当前专业，再用 'passionate about' 表达真实兴趣，避免使用 'like' 或 'interested in' 这类弱表达",
+        "knowledgePoint": "用具体专业名称和强烈情感动词表达转专业动机",
+        "qaId": "study_abroad_110_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:09:53.890Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

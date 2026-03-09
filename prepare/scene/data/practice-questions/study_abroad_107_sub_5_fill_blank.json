@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.957Z",
   "questions": [
     {
-      "id": "study_abroad_107_sub_5_qa_2_fill_blank_1",
-      "subSceneId": "study_abroad_107_sub_5",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问活动是否存在以及地点，使用 'if there are any...' 和 'where they're held' 结构",
-        "qaId": "study_abroad_107_sub_5_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "if there are any welcome events and where they're held",
-            "options": [
-              "if there are any welcome events and where they're held",
-              "what time the event starts and who organizes it",
-              "how many students will attend and what to bring",
-              "if the event is free and if I need to register"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "新生询问校园内是否有欢迎活动及其地点",
-        "knowledgePoint": "询问活动存在性与地点的提问句型",
-        "responseTemplate": "Could you tell me ___?"
-      }
-    },
-    {
       "id": "study_abroad_107_sub_5_fill_blank_1",
       "subSceneId": "study_abroad_107_sub_5",
       "type": "fill_blank",
@@ -57,33 +30,6 @@
         "speakerTextCn": "这周有个为新生举办的欢迎活动。",
         "knowledgePoint": "询问参与资格的常用表达",
         "responseTemplate": "___? I don't want to miss it if I'm eligible."
-      }
-    },
-    {
-      "id": "study_abroad_107_sub_5_qa_1_fill_blank_1",
-      "subSceneId": "study_abroad_107_sub_5",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问事件的时间和地点时，宾语从句需用陈述语序",
-        "qaId": "study_abroad_107_sub_5_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "the welcome party is",
-            "options": [
-              "the welcome party is",
-              "is the welcome party",
-              "the welcome party will be",
-              "where the welcome party"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "新生询问活动时间和地点",
-        "knowledgePoint": "宾语从句的语序结构",
-        "responseTemplate": "Could you tell me when and where ___?"
       }
     },
     {
@@ -167,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "代词指代（it 指代前面提到的活动）"
       }
+    },
+    {
+      "id": "study_abroad_107_sub_5_qa_1_fill_blank_1",
+      "subSceneId": "study_abroad_107_sub_5",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "作为新生，你想知道学校举办的欢迎活动是否对所有新生开放，以及是否需要提前报名",
+        "speakerText": "We're hosting a welcome event for new students this week.",
+        "speakerTextCn": "这周我们为新生举办了一场欢迎活动。",
+        "responseTemplate": "Is it open to ______?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "all new students",
+            "options": [
+              "all new students",
+              "everyone",
+              "international students only",
+              "registered participants"
+            ]
+          }
+        ],
+        "hint": "你想确认活动是否对所有新生开放，而不是仅限特定群体",
+        "knowledgePoint": "询问活动参与资格的常用表达",
+        "qaId": "study_abroad_107_sub_5_qa_1"
+      }
+    },
+    {
+      "id": "study_abroad_107_sub_5_qa_2_fill_blank_1",
+      "subSceneId": "study_abroad_107_sub_5",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想知道校园里的英语交流活动是否允许非ESL学生参加",
+        "speakerText": "There's an English practice group meeting every Thursday.",
+        "speakerTextCn": "每周四都有一个英语练习小组活动。",
+        "responseTemplate": "Can I join even if I'm not ______?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "an ESL student",
+            "options": [
+              "an ESL student",
+              "a native speaker",
+              "a freshman",
+              "on the list"
+            ]
+          }
+        ],
+        "hint": "你想表达自己不属于该活动的目标群体，但仍希望参与",
+        "knowledgePoint": "询问非目标群体是否可参与的礼貌表达",
+        "qaId": "study_abroad_107_sub_5_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:09:39.136Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

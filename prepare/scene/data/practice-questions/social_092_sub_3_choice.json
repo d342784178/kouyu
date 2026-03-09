@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.786Z",
   "questions": [
     {
-      "id": "social_092_sub_3_qa_1_choice_1",
-      "subSceneId": "social_092_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "social_092_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Is there a grocery store nearby? I need to buy some things.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "有超市吗？",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "有超市吗？我想买点东西。",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "附近有超市吗？我需要买点东西，但是不一定是超市。",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 \"Is there a grocery store nearby? I need to buy some things.\"，因为它既询问了超市的位置，又表明了你需要买东西的目的。选项 2 和 3 都缺乏了 \"I need to buy some things.\" 这个必要的信息，选项 4 的表达不自然，因为它不确定是否是超市。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想去超市买点东西，需要问问附近有没有超市"
-      }
-    },
-    {
-      "id": "social_092_sub_3_qa_2_choice_1",
-      "subSceneId": "social_092_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "social_092_sub_3_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Could you recommend a supermarket nearby that sells fresh produce and daily essentials?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Where is the nearest gas station?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Do you have any pre-packaged fruits?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Is there a fruit stall?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案询问的是包含新鲜蔬果和日用品的超市，符合场景需求。干扰项1是问加油站，与购物无关；干扰项2是问预包装水果，与用户‘不喜欢预包装’的需求矛盾；干扰项3只问水果摊，范围太窄且未提及日用品，不够全面。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在陌生城市想找一家能买新鲜蔬果和日用品的超市，不想买预包装食品，想向当地人询问附近哪里有合适的超市。"
-      }
-    },
-    {
       "id": "social_092_sub_3_choice_3",
       "subSceneId": "social_092_sub_3",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "你知道哪里可以买到新鲜蔬菜和面包吗？我刚搬来这儿。"
       }
+    },
+    {
+      "id": "social_092_sub_3_qa_1_choice_1",
+      "subSceneId": "social_092_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在陌生城市旅游，想买些日常用品和新鲜食材，向当地便利店店员询问附近是否有超市。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is there a grocery store around here? I need to buy some fresh food and toiletries.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you sell milk and soap here?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much does a loaf of bread cost?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you recommend a good restaurant nearby?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案清晰表达了寻找超市的需求，并说明了目的（买新鲜食品和日用品），符合真实语境。干扰项2和3只问具体商品，未提出位置询问，属于答非所问；干扰项4完全偏离主题，询问餐厅而非超市。",
+        "qaId": "social_092_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "social_092_sub_3_qa_2_choice_1",
+      "subSceneId": "social_092_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚搬进新小区，想找个能买水果和蔬菜的超市，避免每天买预包装食品，向邻居询问推荐。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Are there any supermarkets with fresh produce nearby? I prefer buying fruits and veggies in bulk.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is the supermarket open on Sundays?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Where can I get the cheapest fruit?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you like shopping at big supermarkets?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确表达了对新鲜蔬果的偏好和购买方式（bulk），能引导对方给出有针对性的推荐。干扰项2只问营业时间，未提出位置需求；干扰项3只关注价格，忽略了整体购物体验；干扰项4是询问对方偏好，而非寻求信息，属于提问不当。",
+        "qaId": "social_092_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:08:14.732Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

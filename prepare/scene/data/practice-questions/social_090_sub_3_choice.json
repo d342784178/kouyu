@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.763Z",
   "questions": [
     {
-      "id": "social_090_sub_3_qa_2_choice_1",
-      "subSceneId": "social_090_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "social_090_sub_3_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "So, what's the next step for this project?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "我觉得我们应该先去吃个饭，然后再谈工作安排。",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "那你觉得我们应该如何处理新客户的需求？",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "我想知道你最近在忙什么工作。",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 \"So, what's the next step for this project?\"。因为它自然过渡到了工作安排的讨论。其他选项中，\"我觉得我们应该先去吃个饭，然后再谈工作安排。\" 是一个不相关的建议，\"那你觉得我们应该如何处理新客户的需求？\" 是一个相关但是过于具体的问题，\"我想知道你最近在忙什么工作。\" 是一个不相关的问题。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你刚刚与同事讨论了新项目的基本信息，准备进入讨论具体工作安排。"
-      }
-    },
-    {
-      "id": "social_090_sub_3_qa_1_choice_1",
-      "subSceneId": "social_090_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "social_090_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Anyway, I wanted to check in about the Q3 report—got time to go over it?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "我想问一下，你有时间吗？",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "你有空吗？我们可以一起讨论Q3报告的内容。",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "我想问你一些关于Q3报告的问题。",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确的提问方式是自然过渡到工作或计划讨论主题，使用Anyway表示转折，并且表明了自己的目的和要求。选项2和3的问题不符合场景需求，不自然。选项4的问题表达不当，不自然。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想讨论公司的Q3报告，有空的话想和同事一起过一下。"
-      }
-    },
-    {
       "id": "social_090_sub_3_choice_3",
       "subSceneId": "social_090_sub_3",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我们转个话题吧，我想讨论一下项目时间表。"
       }
+    },
+    {
+      "id": "social_090_sub_3_qa_1_choice_1",
+      "subSceneId": "social_090_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你和同事在茶水间偶遇，想自然地把话题转向本周的项目进度讨论，询问对方对当前进展的看法",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hey, have you had a chance to look at the project timeline yet?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you finish the report by Friday?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I think we’re falling behind on this project.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Let’s meet tomorrow at 10 a.m.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是开放式提问，自然引导对方分享观点，符合'进入正题'的协商场景。选项2是直接命令式提问，缺乏过渡；选项3是陈述观点而非提问；选项4是直接提议会议，未先了解对方意见，不符合自然过渡的要求。",
+        "qaId": "social_090_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "social_090_sub_3_qa_2_choice_1",
+      "subSceneId": "social_090_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你准备开始团队周会，想引导大家讨论上次会议提出的行动项进展，用礼貌且自然的方式开启话题",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Just to pick up from last week, how’s everyone doing with the action items?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Did you do the tasks I assigned?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "We need to get this done by Friday.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can we skip reviewing last week’s items?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了温和的过渡语 'Just to pick up from last week'，符合职场中自然进入正题的表达习惯。选项2语气生硬，像指责；选项3是命令而非提问；选项4是回避话题，与目标相反。",
+        "qaId": "social_090_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:07:16.391Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

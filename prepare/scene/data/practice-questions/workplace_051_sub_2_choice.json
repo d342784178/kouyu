@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.562Z",
   "questions": [
     {
-      "id": "workplace_051_sub_2_qa_2_choice_1",
-      "subSceneId": "workplace_051_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_051_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Do you have any smaller rooms open at 10 AM?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What is the price of the conference room?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "When is the meeting starting?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can you show me a list of all available rooms?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案Do you have any smaller rooms open at 10 AM？是最合适的提问，因为它询问了会议室的可用情况。选项2和3询问了不相关的信息，选项4询问了过于详细的信息，都是不正确的",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户通常在需要信息时先提问"
-      }
-    },
-    {
-      "id": "workplace_051_sub_2_qa_1_choice_1",
-      "subSceneId": "workplace_051_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_051_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Is the big conference room free on Thursday at 2 PM?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can I have the conference room on Thursday at 2 PM?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Do you have any meetings on Thursday at 2 PM?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "What is the conference room's schedule for Thursday?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案\"Is the big conference room free on Thursday at 2 PM?\"是最合适的提问方式，因为它明确询问会议室在特定时段是否可用。其他选项虽然表达了类似的意思，但不是最合适的方式。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想知道会议室的可用情况，通常在需要信息时先提问"
-      }
-    },
-    {
       "id": "workplace_051_sub_2_choice_3",
       "subSceneId": "workplace_051_sub_2",
       "type": "choice",
@@ -109,6 +39,78 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "明天下午三点培训室有空吗？"
       }
+    },
+    {
+      "id": "workplace_051_sub_2_qa_1_choice_1",
+      "subSceneId": "workplace_051_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在为团队安排一个半小时的会议，需要确认周五上午11点是否有适合6人的中型会议室可用。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is there a medium-sized room available for six people on Friday at 11 AM?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you book me a room for Friday at 11 AM?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have any rooms free tomorrow?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Is the big conference room busy on Friday?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确询问了房间类型（medium-sized）、人数（six people）、日期（Friday）和时间（11 AM），符合职场中高效、具体的提问习惯。干扰项1是直接要求预订而非询问可用性；干扰项2过于笼统，未指定时间或人数；干扰项3只问了大会议室，忽略了房间大小是否匹配需求。",
+        "qaId": "workplace_051_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "workplace_051_sub_2_qa_2_choice_1",
+      "subSceneId": "workplace_051_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你原计划在周四下午3点使用会议室，但临时需要提前到2点，想确认是否有可能调整时间。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Would it be possible to use the conference room at 2 PM instead of 3 PM on Thursday?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is the room free at 3 PM on Thursday?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I change my booking to 2 PM?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What time is the room booked until on Thursday?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案以礼貌方式提出时间调整请求，同时明确时间点和日期，符合职场沟通规范。干扰项1仅询问原定时间是否可用，未表达调整意图；干扰项2假设已预订并直接要求更改，但未确认可用性，逻辑跳跃；干扰项3是询问信息而非提出请求，不符合用户主动提问的场景目标。",
+        "qaId": "workplace_051_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:22.536Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

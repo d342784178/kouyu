@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.975Z",
   "questions": [
     {
-      "id": "study_abroad_109_sub_2_qa_1_choice_1",
-      "subSceneId": "study_abroad_109_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_109_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Do I need a form?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What is the deadline for application?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How long does it take to get the results?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Where can I submit my application?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 'Do I need a form?'，因为这个问题直接询问了申请过程中的一个关键环节。其他选项虽然可能与申请过程有关，但并没有直接回答用户的核心问题。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想知道申请成绩单的具体流程"
-      }
-    },
-    {
       "id": "study_abroad_109_sub_2_choice_2",
       "subSceneId": "study_abroad_109_sub_2",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我可以在不去办公室的情况下申请成绩单吗？"
       }
+    },
+    {
+      "id": "study_abroad_109_sub_2_qa_1_choice_1",
+      "subSceneId": "study_abroad_109_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "学生想申请成绩单，但不确定具体流程，想向办公室工作人员询问需要做什么",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Could you tell me what steps I need to follow to request an official transcript?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is it possible to get a transcript without paying anything?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I already have my transcript, but it’s not sealed. Can you fix it?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Why do I need to request a transcript? Isn’t it automatic?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确询问了申请官方成绩单的具体步骤，符合真实场景中学生向工作人员寻求流程指导的自然表达。干扰项2聚焦费用，偏离流程询问；干扰项3假设已拥有成绩单，与场景矛盾；干扰项4质疑流程合理性，语气不当且偏离核心问题。",
+        "qaId": "study_abroad_109_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:09:45.602Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -5,54 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.514Z",
   "questions": [
     {
-      "id": "daily_010_sub_2_qa_2_speaking_1",
-      "subSceneId": "daily_010_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_010_sub_2_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在商店买了一件衣服，店员准备交给你，但是你想核对一下衣物数量与订单是否一致。请问店员衣物数量是多少?",
-        "expectedAnswers": [
-          "Let me double-check... Oh, here it is! Sorry for the mix-up.",
-          "我再核对一下…哦，在这呢！抱歉搞错了。",
-          "你可以告诉我一下衣物数量吗？我想确认一下订单和实际衣物数量是否一致。",
-          "衣物数量是多少？我想核对一下订单和实际衣物数量是否一致。"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问衣物数量的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "daily_010_sub_2_qa_1_speaking_1",
-      "subSceneId": "daily_010_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_010_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "店员正在核对顾客订单中的衣物数量，你需要确认订单上的物品和数量是否正确。",
-        "expectedAnswers": [
-          "Just to confirm, we have 3 shirts, 2 pairs of pants, and 1 towel, right?",
-          "Can you check if the order includes 3 shirts, 2 pants, and a towel?",
-          "Is it correct that the order has three shirts, two pants, and one towel?",
-          "Could you verify we’ve got the right count: three shirts, two pants, and one towel?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否准确表达了核对衣物数量的意图",
-          "语言准确性：语法、复数形式（如pants/pairs of pants）和冠词使用是否正确",
-          "表达自然度：是否符合英语母语者在零售场景中的常用表达方式",
-          "关键词覆盖：是否包含场景关键词如shirts, pants, towel, count/verify/confirm"
-        ]
-      }
-    },
-    {
       "id": "daily_010_sub_2_speaking_3",
       "subSceneId": "daily_010_sub_2",
       "type": "speaking",
@@ -75,6 +27,60 @@
           "关键词覆盖：是否使用了场景关键词如 'verify', 'order', 'sweater', 'scarf'"
         ]
       }
+    },
+    {
+      "id": "daily_010_sub_2_qa_1_speaking_1",
+      "subSceneId": "daily_010_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在取衣时，主动向店员确认订单中的衣物数量是否正确，避免拿错或遗漏。",
+        "speakerText": "Could you please check if I have all the items from my order? I ordered two sweaters, one jacket, and three pairs of socks.",
+        "speakerTextCn": "您能帮我确认一下我订单里的衣物都齐了吗？我订了两件毛衣、一件夹克和三双袜子。",
+        "expectedAnswers": [
+          "Yes, here they are — two sweaters, one jacket, and three pairs of socks.",
+          "Actually, you're missing one sock — let me grab it for you.",
+          "All set! You’ve got everything on the list. Thanks for waiting.",
+          "Oops, I see we gave you an extra sweater by mistake. Let me fix that."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确核对了订单中的具体衣物数量",
+          "语言准确性：语法和时态正确，量词使用准确（如 pairs of socks）",
+          "表达自然度：符合日常服务场景中的口语习惯",
+          "关键词覆盖：使用了 order, items, sweaters, jacket, socks 等核心词汇"
+        ],
+        "qaId": "daily_010_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "daily_010_sub_2_qa_2_speaking_1",
+      "subSceneId": "daily_010_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在洗衣店取回衣物时，担心自己订的衣物被混淆，主动请店员逐一核对。",
+        "speakerText": "I’d like to make sure everything matches my receipt — can you go through each piece with me?",
+        "speakerTextCn": "我想确认一下所有衣物是否和收据一致，您能一件一件跟我核对吗？",
+        "expectedAnswers": [
+          "Of course! Let’s see — that’s four shirts, two jeans, and one towel, just like your receipt.",
+          "Hmm, we only have three shirts here — the fourth one is still being dried.",
+          "Everything’s correct! You’re all set. Have a great day!",
+          "Sorry, we accidentally included a bonus hoodie — would you like to keep it?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达核对衣物与收据一致的需求",
+          "语言准确性：使用了恰当的礼貌表达（如 I’d like to, can you）和复数形式",
+          "表达自然度：符合顾客在服务场景中温和但明确的沟通方式",
+          "关键词覆盖：使用了 receipt, each piece, matches, items 等关键表达"
+        ],
+        "qaId": "daily_010_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:46.461Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

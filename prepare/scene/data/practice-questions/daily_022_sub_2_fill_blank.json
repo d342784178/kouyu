@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.590Z",
   "questions": [
     {
-      "id": "daily_022_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "daily_022_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问一般事实或习惯时，主语为复数they，要用助动词do开头",
-        "qaId": "daily_022_sub_2_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "Do",
-            "options": [
-              "Are",
-              "Do",
-              "Have",
-              "Does"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想了解某种宠物的日常需求，询问它们是否需要大量运动",
-        "knowledgePoint": "一般疑问句的结构（助动词do用于复数主语）",
-        "responseTemplate": "___ they need a lot of exercise?"
-      }
-    },
-    {
       "id": "daily_022_sub_2_fill_blank_1",
       "subSceneId": "daily_022_sub_2",
       "type": "fill_blank",
@@ -57,33 +30,6 @@
         "speakerTextCn": "像贵宾犬这样的小型犬掉毛多吗？我担心过敏问题。",
         "knowledgePoint": "表达宠物毛发特性时的否定性回应",
         "responseTemplate": "___, they’re hypoallergenic."
-      }
-    },
-    {
-      "id": "daily_022_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "daily_022_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问声音大小时，常用 'How loud are...' 开头",
-        "qaId": "daily_022_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "How loud",
-            "options": [
-              "How loud",
-              "How much",
-              "Are they",
-              "What size"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想了解某种宠物的叫声大小，因为自己住在公寓，担心影响邻居。",
-        "knowledgePoint": "询问特征的疑问句型",
-        "responseTemplate": "___ are ___ dogs?"
       }
     },
     {
@@ -167,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "固定表达（couch potatoes）"
       }
+    },
+    {
+      "id": "daily_022_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "daily_022_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想了解某种宠物是否适合养在小空间里，想询问它的活动需求",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Do they need ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a lot of exercise",
+            "options": [
+              "a lot of exercise",
+              "much food",
+              "daily baths",
+              "lots of training"
+            ]
+          }
+        ],
+        "hint": "询问宠物是否需要大量运动时，常用这个表达",
+        "knowledgePoint": "询问宠物需求的口语句型",
+        "qaId": "daily_022_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "daily_022_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "daily_022_sub_2",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客担心宠物是否吵闹，想确认它是否适合住在公寓或共享空间",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Are they usually ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "loud",
+            "options": [
+              "loud",
+              "friendly",
+              "active",
+              "messy"
+            ]
+          }
+        ],
+        "hint": "询问宠物是否吵闹时，用这个形容词最自然",
+        "knowledgePoint": "描述宠物行为特征的常用形容词",
+        "qaId": "daily_022_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:04:31.120Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

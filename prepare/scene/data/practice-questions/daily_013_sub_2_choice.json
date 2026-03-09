@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.536Z",
   "questions": [
     {
-      "id": "daily_013_sub_2_qa_2_choice_1",
-      "subSceneId": "daily_013_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_013_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What's the deadline for returning the books?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can I borrow more books if I return these on time?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How much do I have to pay if I lose a book?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can I just keep the books forever?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案：What's the deadline for returning the books？因为用户询问借书期限，管理员回答。其他选项不符合场景需求或表达不自然。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户询问借书期限，管理员回答"
-      }
-    },
-    {
       "id": "daily_013_sub_2_choice_1",
       "subSceneId": "daily_013_sub_2",
       "type": "choice",
@@ -73,41 +38,6 @@
         "speakerText": "How long can I keep these books?",
         "dialogueMode": "user_responds",
         "speakerTextCn": "这些书我能借多久？"
-      }
-    },
-    {
-      "id": "daily_013_sub_2_qa_1_choice_1",
-      "subSceneId": "daily_013_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_013_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "How long can I keep the books?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How many books can I borrow?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "What's the fine if I return the book late?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can I keep the books forever?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案：How long can I keep the books？因为用户询问借书期限，管理员回答。其他选项不正确，因为它们没有直接询问借书期限或逾期后果。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户询问借书期限，管理员回答"
       }
     },
     {
@@ -181,6 +111,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我的借期快到了，能续借吗？如果不能会怎样？"
       }
+    },
+    {
+      "id": "daily_013_sub_2_qa_1_choice_1",
+      "subSceneId": "daily_013_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户在图书馆借书前，想了解书籍的借阅期限和逾期会有什么后果",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How long can I keep these books, and what happens if I return them late?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I borrow more than five books at once?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have any bestsellers available right now?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Is there a quiet area where I can read inside the library?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确询问了借期和逾期后果，符合场景核心交际任务。干扰项分别询问借书数量、热门书籍和阅读区域，均与借期和罚款无关，属于答非所问。",
+        "qaId": "daily_013_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "daily_013_sub_2_qa_2_choice_1",
+      "subSceneId": "daily_013_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户担心可能无法按时还书，想确认是否可以续借以及续借的条件",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "If I can't return the book by the due date, can I renew it, and are there any conditions?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I pay a fee to extend the due date without renewing?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "What time does the library close on weekends?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have e-books I can download instead?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确询问了续借可能性及条件，贴合场景要求。干扰项中，第一个虚构了付费延期机制（图书馆通常无此服务），后两个问题分别与开放时间和电子书相关，完全偏离续借主题，属于理解偏差和答非所问。",
+        "qaId": "daily_013_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:04:10.379Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

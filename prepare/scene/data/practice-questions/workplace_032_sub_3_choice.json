@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.358Z",
   "questions": [
     {
-      "id": "workplace_032_sub_3_qa_1_choice_1",
-      "subSceneId": "workplace_032_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_032_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "So, Alex, you'll handle the social media overhaul by Friday?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Alex, what's the deadline for the project?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you tell me more about the social media overhaul?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "What's your role in the company?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案正确，因为它明确询问了被分配任务者的任务和截止时间。其他选项不正确，因为它们询问了不相关的问题或没有明确询问任务和截止时间。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "服务方询问任务分配，等待被分配任务者回应。"
-      }
-    },
-    {
-      "id": "workplace_032_sub_3_qa_2_choice_1",
-      "subSceneId": "workplace_032_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_032_sub_3_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Who's responsible for the Q3 report? It's due next week.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What's the Q3 report about?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you give me more information about the Q3 report?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "When is the Q3 report due?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案：Who's responsible for the Q3 report? It's due next week。正确问题询问了任务分配和截止时间。干扰项：What's the Q3 report about？和Can you give me more information about the Q3 report？询问了报告内容，超出了所需信息；When is the Q3 report due？只询问了截止时间，但没有明确任务分配。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "服务方询问任务分配，等待被分配任务者回应。"
-      }
-    },
-    {
       "id": "workplace_032_sub_3_choice_3",
       "subSceneId": "workplace_032_sub_3",
       "type": "choice",
@@ -109,6 +39,80 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "你能周三前完成客户演示文稿吗？"
       }
+    },
+    {
+      "id": "workplace_032_sub_3_qa_1_choice_1",
+      "subSceneId": "workplace_032_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在与团队成员确认下周的项目分工，需要明确谁负责客户反馈报告的撰写以及提交时间，同时询问是否需要他人协助。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Who’s doing the client feedback report? It’s due next Wednesday, and I think Sam might help with the data.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you finish the client feedback report by Wednesday?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I’ll take the client feedback report, but I need help with the charts.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "When is the client feedback report due again?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案包含任务内容、明确截止时间（next Wednesday）和协作需求（Sam might help），符合‘确认任务’场景的核心要求。选项2是直接命令句，缺乏对责任人的询问；选项3是自我承诺，不符合‘用户主动提问’的模式；选项4只询问时间，未明确任务归属，信息不完整。",
+        "qaId": "workplace_032_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "workplace_032_sub_3_qa_2_choice_1",
+      "subSceneId": "workplace_032_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在安排月度运营会议的准备工作，需要确认谁负责整理上月的销售数据并提交给管理层，同时了解是否需要其他同事配合。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Who’s compiling the sales data for the monthly review? It needs to be ready by Friday, and I’m not sure if you’ll need input from Finance.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I can handle the sales data—I’ll send it to you by Friday.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is the sales data due on Friday?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Could you please make sure the sales report is done?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确询问任务负责人（Who’s compiling）、截止时间（by Friday）和协作需求（need input from Finance），完全符合场景要求。选项2是自我回应，不符合‘用户提问’模式；选项3只问时间，未指明责任人；选项4语气模糊且未提供关键细节，缺乏专业性。",
+        "qaId": "workplace_032_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:21.393Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

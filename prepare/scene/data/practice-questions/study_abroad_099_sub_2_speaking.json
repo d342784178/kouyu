@@ -5,53 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.857Z",
   "questions": [
     {
-      "id": "study_abroad_099_sub_2_qa_1_speaking_1",
-      "subSceneId": "study_abroad_099_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_099_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在查看一间单人公寓的出租信息，想确认每月租金以及包含哪些设施（如网络、水电、清洁等）。",
-        "expectedAnswers": [
-          "How much is the monthly rent for a single room?",
-          "Does the $850 include utilities, WiFi, and cleaning services?",
-          "Could you tell me what’s included in the $850 monthly rate?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问了租金和包含的设施",
-          "语言准确性：语法和用词是否正确，无明显错误",
-          "表达自然度：是否符合日常英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词如 rent, monthly, include, utilities, WiFi, cleaning"
-        ]
-      }
-    },
-    {
-      "id": "study_abroad_099_sub_2_qa_2_speaking_1",
-      "subSceneId": "study_abroad_099_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_099_sub_2_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在看一间公寓，想了解单人间的费用以及是否包含水电、网络等设施，同时想知道押金金额和退还条件。",
-        "expectedAnswers": [
-          "How much is the monthly rent for a single room, and what utilities are included?",
-          "Could you tell me the deposit amount and under what conditions it's refunded?",
-          "Is the rent all-inclusive, and how much is the security deposit? Is it refundable if I leave the room clean?",
-          "What’s the total cost per month, and what do I need to do to get my deposit back?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问了租金、包含设施和押金退还条件",
-          "语言准确性：语法结构正确，用词恰当，无重大语言错误",
-          "表达自然度：符合英语母语者日常对话习惯，语气礼貌自然",
-          "关键词覆盖：使用了 rent, deposit, refundable, utilities, included 等场景关键词"
-        ]
-      }
-    },
-    {
       "id": "study_abroad_099_sub_2_speaking_3",
       "subSceneId": "study_abroad_099_sub_2",
       "type": "speaking",
@@ -74,6 +27,60 @@
           "关键词覆盖：使用了 include, deposit, refundable, extra fees, utilities 等核心词汇"
         ]
       }
+    },
+    {
+      "id": "study_abroad_099_sub_2_qa_1_speaking_1",
+      "subSceneId": "study_abroad_099_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在咨询学生公寓的单人间费用，想确认月租包含哪些设施和服务，避免后续产生额外开销。",
+        "speakerText": "The single room is $850 per month, with WiFi, utilities, and weekly cleaning included.",
+        "speakerTextCn": "单人间每月850美元，包含WiFi、水电和每周一次保洁。",
+        "expectedAnswers": [
+          "Does the price include laundry services?",
+          "Are there any extra charges for parking or air conditioning?",
+          "What about internet speed—is it high enough for online classes?",
+          "Is the cleaning service daily or just once a week?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了费用包含的具体项目",
+          "语言准确性：语法正确，用词恰当，无明显错误",
+          "表达自然度：符合英语母语者日常对话习惯",
+          "关键词覆盖：使用了如 'include', 'extra charges', 'services' 等场景关键词"
+        ],
+        "qaId": "study_abroad_099_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "study_abroad_099_sub_2_qa_2_speaking_1",
+      "subSceneId": "study_abroad_099_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你已得知单人间月租为850美元，现在想确认付款方式和押金规则，以便安排财务计划。",
+        "speakerText": "The deposit is $300, refundable after move-out if the room is left in good condition.",
+        "speakerTextCn": "押金为300美元，搬出时房间保持良好状态即可退还。",
+        "expectedAnswers": [
+          "Do I pay the deposit upfront or with the first month’s rent?",
+          "Can I pay the rent monthly, or do I need to pay for the whole semester at once?",
+          "What counts as 'good condition' for the deposit refund?",
+          "Is the deposit deducted from the first payment or paid separately?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰询问了付款方式或押金退还条件",
+          "语言准确性：语法和时态使用正确，无中式英语",
+          "表达自然度：表达符合租房场景中的真实对话节奏",
+          "关键词覆盖：使用了如 'deposit', 'refund', 'pay upfront', 'monthly' 等核心词汇"
+        ],
+        "qaId": "study_abroad_099_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:09:15.813Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -33,60 +33,6 @@
       }
     },
     {
-      "id": "workplace_051_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "workplace_051_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "请用提问句型的关键部分填空",
-        "qaId": "workplace_051_sub_2_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "that time",
-            "options": [
-              "that time",
-              "next week",
-              "on Friday",
-              "at 2 PM"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "确认会议室在特定时段是否可用",
-        "knowledgePoint": "提问句型",
-        "responseTemplate": "Do you have any smaller rooms open at ___?"
-      }
-    },
-    {
-      "id": "workplace_051_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "workplace_051_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "使用 'free' 表示会议室是否有空",
-        "qaId": "workplace_051_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "free",
-            "options": [
-              "有空",
-              "无空",
-              "不确定",
-              "不知道"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户通常在需要信息时先提问",
-        "knowledgePoint": "提问句型和场景适用",
-        "responseTemplate": "会议室在___是否有空?"
-      }
-    },
-    {
       "id": "workplace_051_sub_2_fill_blank_2",
       "subSceneId": "workplace_051_sub_2",
       "type": "fill_blank",
@@ -167,6 +113,47 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "替代时间表达（but ___ works 是标准句型）"
       }
+    },
+    {
+      "id": "workplace_051_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "workplace_051_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你需要预订一个会议室，但不确定哪个时间段有空，想礼貌地询问可用时间",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Is ___ free during ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "the meeting room",
+            "options": [
+              "the meeting room",
+              "the office",
+              "the cafeteria",
+              "the elevator"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "the afternoon",
+            "options": [
+              "the afternoon",
+              "the weekend",
+              "last week",
+              "next year"
+            ]
+          }
+        ],
+        "hint": "询问房间是否空闲时，常用 'Is the meeting room free during [time period]?' 结构",
+        "knowledgePoint": "礼貌询问可用时间的通用句型",
+        "qaId": "workplace_051_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:05.562Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

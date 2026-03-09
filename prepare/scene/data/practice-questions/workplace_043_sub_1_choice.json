@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.468Z",
   "questions": [
     {
-      "id": "workplace_043_sub_1_qa_1_choice_1",
-      "subSceneId": "workplace_043_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_043_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Hey, could we schedule a quick chat this afternoon?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "你能帮我预约今天下午的会议吗?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "我想知道离职手续需要多久?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "我有问题想要问经理，能打电话吗?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是\"Hey, could we schedule a quick chat this afternoon?\"因为它表达了请求与经理进行离职面谈的意图。其他选项虽然都有所涉及离职，但没有准确表达出员工的请求。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "员工请求与经理进行离职面谈，服务方/工作人员回应"
-      }
-    },
-    {
       "id": "workplace_043_sub_1_choice_2",
       "subSceneId": "workplace_043_sub_1",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我正在考虑离开公司，能安排个时间谈谈吗？"
       }
+    },
+    {
+      "id": "workplace_043_sub_1_qa_1_choice_1",
+      "subSceneId": "workplace_043_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工希望与经理安排一次离职面谈，需要以礼貌且专业的方式提出请求",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hi, would it be possible to schedule a time to talk about my resignation this week?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I’m leaving, so when can we have a meeting?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you cancel your afternoon meeting so we can talk now?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I need to tell you something important—can we chat right away?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了委婉、专业的表达方式（'would it be possible' 和 'about my resignation'），符合职场沟通规范。干扰项2过于直接生硬，缺乏礼貌；干扰项3要求对方立即取消会议，显得无礼且不现实；干扰项4使用模糊的'important'和'right away'，缺乏具体性和专业性，容易引发误解。",
+        "qaId": "workplace_043_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:20.334Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

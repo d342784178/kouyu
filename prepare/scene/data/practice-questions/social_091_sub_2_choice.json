@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.771Z",
   "questions": [
     {
-      "id": "social_091_sub_2_qa_1_choice_1",
-      "subSceneId": "social_091_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "social_091_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "I saw your story on Snapchat—what's your handle?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "你用什么社交媒体平台?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "我刚看到你Instagram的动态，你的号码是什么?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "你在哪个社交媒体平台上发布的?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案I saw your story on Snapchat—what's your handle?是因为它直接询问对方的社交媒体账号。选项opt_2、opt_3、opt_4都是不正确的，因为它们没有直接询问对方的账号信息。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "询问对方社交媒体账号"
-      }
-    },
-    {
       "id": "social_091_sub_2_choice_2",
       "subSceneId": "social_091_sub_2",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "你有Twitter账号吗？我想关注你。"
       }
+    },
+    {
+      "id": "social_091_sub_2_qa_1_choice_1",
+      "subSceneId": "social_091_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在社交活动中认识了一位新朋友，想加对方的社交媒体账号以便保持联系",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What's your Instagram handle? I'd love to follow you.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you send me your phone number so I can add you on WeChat?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have a social media account? I'm not sure which one.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Why don't you post more on TikTok? I saw your last video.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接、礼貌地询问对方的Instagram账号，符合社交场景中的常见表达。选项2转向了微信（非全球通用平台）且未明确语境；选项3表达模糊，缺乏针对性；选项4是批评性评论，不符合主动询问账号的交际目的。",
+        "qaId": "social_091_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:07:37.884Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

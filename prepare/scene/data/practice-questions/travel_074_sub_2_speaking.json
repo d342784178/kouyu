@@ -5,53 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.315Z",
   "questions": [
     {
-      "id": "travel_074_sub_2_qa_2_speaking_1",
-      "subSceneId": "travel_074_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_074_sub_2_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想知道下一班火车的发车时间和车次类型",
-        "expectedAnswers": [
-          "Excuse me, what's the departure time and train type of the next train?",
-          "Hi, can you tell me the departure time and train type of the next train?",
-          "What's the schedule and train type of the next train?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "travel_074_sub_2_qa_1_speaking_1",
-      "subSceneId": "travel_074_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_074_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在火车站想乘坐去北京的火车，但不确定发车时间和车次类型，需要向工作人员询问下一班车的信息。",
-        "expectedAnswers": [
-          "When's the next train to Beijing?",
-          "What time does the next train to Beijing leave?",
-          "Could you tell me the departure time and type of the next train to Beijing?",
-          "Is there a train going to Beijing soon? I'd like to know the schedule and train type."
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问了发车时间和车次类型",
-          "语言准确性：语法结构正确，时态使用恰当",
-          "表达自然度：符合英语口语习惯，语气礼貌得体",
-          "关键词覆盖：使用了 'train', 'Beijing', 'next', 'time' 或 'departure' 等场景关键词"
-        ]
-      }
-    },
-    {
       "id": "travel_074_sub_2_speaking_3",
       "subSceneId": "travel_074_sub_2",
       "type": "speaking",
@@ -74,6 +27,58 @@
           "关键词覆盖：包含train/fast/before/around等场景关键词"
         ]
       }
+    },
+    {
+      "id": "travel_074_sub_2_qa_1_speaking_1",
+      "subSceneId": "travel_074_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在火车站询问下一班去上海的列车时间及是否为高铁，希望找到下午3点后出发的车次",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "What's the next train to Shanghai after 3 PM?",
+          "Do you have any high-speed trains departing after 3:30?",
+          "Is there a fast train to Shanghai around 4 o'clock?",
+          "Could you tell me the departure time of the next high-speed train to Shanghai?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了去上海的列车时间和车次类型",
+          "语言准确性：时间表达（after/around）和词汇（high-speed/fast train）使用正确",
+          "表达自然度：符合英语口语习惯，避免生硬或过度正式的表达"
+        ],
+        "qaId": "travel_074_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "travel_074_sub_2_qa_2_speaking_1",
+      "subSceneId": "travel_074_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在长途汽车站想确认下一班去南京的班车时间，想知道是否有上午10点前发车的快速班次",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Is there a fast bus to Nanjing before 10 AM?",
+          "What time does the next express bus to Nanjing leave?",
+          "Do you have any quick services to Nanjing around 9:30?",
+          "Could you check if there’s a fast bus departing before 10?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达了对时间（before/around）和车次类型（fast/express）的需求",
+          "语言准确性：正确使用表达时间的介词和车次相关词汇",
+          "表达自然度：使用口语化表达如‘Could you check...’而非机械句式"
+        ],
+        "qaId": "travel_074_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:55.833Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -5,52 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.529Z",
   "questions": [
     {
-      "id": "daily_012_sub_2_qa_2_speaking_1",
-      "subSceneId": "daily_012_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_012_sub_2_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想问健身房关于设备和附加服务的信息",
-        "expectedAnswers": [
-          "We've got certified trainers — you can book sessions for $25/hour. And no, no pool, but we've got a great sauna.",
-          "你们这里有认证教练吗？我想知道费用是多少？",
-          "你们健身房里有什么设备？有桑拿吗？"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "daily_012_sub_2_qa_1_speaking_1",
-      "subSceneId": "daily_012_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_012_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "例如：'What kind of equipment do you have?'",
-        "expectedAnswers": [
-          "What kind of equipment does your gym have?",
-          "Can you tell me about the facilities and equipment here?",
-          "What are the available machines and facilities in your gym?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达询问意图",
-          "语言准确性：语法和用词正确",
-          "表达自然度：符合英语口语习惯",
-          "关键词覆盖：使用了场景关键词"
-        ]
-      }
-    },
-    {
       "id": "daily_012_sub_2_speaking_3",
       "subSceneId": "daily_012_sub_2",
       "type": "speaking",
@@ -73,6 +27,60 @@
           "关键词覆盖：是否使用了 locker rentals, protein shakes, 24/7 access 等关键词"
         ]
       }
+    },
+    {
+      "id": "daily_012_sub_2_qa_1_speaking_1",
+      "subSceneId": "daily_012_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在考虑加入一家健身房，想了解他们提供的设施和服务，比如是否有泳池、私人教练或桑拿。",
+        "speakerText": "We’ve got cardio machines, free weights, and a yoga studio. We also offer personal training and a sauna.",
+        "speakerTextCn": "我们有氧器械、自由重量区和瑜伽室，还提供私人训练和桑拿。",
+        "expectedAnswers": [
+          "Do you have a swimming pool?",
+          "Are personal training sessions included in the membership, or is it extra?",
+          "Is the sauna available 24/7?",
+          "Can I try out the yoga studio before signing up?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了设施或服务",
+          "语言准确性：语法和时态使用正确",
+          "表达自然度：是否符合日常英语口语习惯",
+          "关键词覆盖：是否使用了场景关键词如 pool, trainer, sauna, yoga studio"
+        ],
+        "qaId": "daily_012_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "daily_012_sub_2_qa_2_speaking_1",
+      "subSceneId": "daily_012_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚走进健身房，想确认有哪些额外服务，比如毛巾、淋浴或储物柜，以便决定是否办理会员。",
+        "speakerText": "We provide free towels, locker rentals, and hot showers after workouts.",
+        "speakerTextCn": "我们提供免费毛巾、储物柜租赁和运动后热水淋浴。",
+        "expectedAnswers": [
+          "Do you offer free towels and showers?",
+          "Is there a fee for using the lockers?",
+          "Are the showers available right after closing time?",
+          "Do you have hair dryers in the bathroom?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确询问了附加服务",
+          "语言准确性：使用了正确的疑问结构和词汇",
+          "表达自然度：表达符合真实对话场景，不生硬",
+          "关键词覆盖：是否包含 towel, shower, locker, bathroom 等关键词"
+        ],
+        "qaId": "daily_012_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:52.403Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

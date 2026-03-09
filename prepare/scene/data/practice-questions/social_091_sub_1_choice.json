@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.769Z",
   "questions": [
     {
-      "id": "social_091_sub_1_qa_1_choice_1",
-      "subSceneId": "social_091_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "social_091_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Hey, long time no see! You been posting pics on IG lately?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "你最近在看什么电影?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "你最近在干嘛?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "你最近在哪儿旅行了?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案正确，因为它询问了对方在社交媒体上的活动情况。干扰项‘你最近在看什么电影？’、‘你最近在干嘛？’和‘你最近在哪儿旅行了？’不符合场景需求，都是不相关的问题。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在朋友间询问对方最近在社交媒体上的活动情况"
-      }
-    },
-    {
       "id": "social_091_sub_1_choice_2",
       "subSceneId": "social_091_sub_1",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "你看起来像是刚度假回来！你发照片了吗？"
       }
+    },
+    {
+      "id": "social_091_sub_1_qa_1_choice_1",
+      "subSceneId": "social_091_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "朋友久别重逢，你想自然地开启话题，询问对方最近是否还在使用社交媒体分享生活",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hey, haven't seen your posts in a while—still on Instagram?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you think Instagram is better than TikTok?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I saw your photo last week—was that taken in Paris?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Why don't you post anymore? You used to be so active.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是选项1，它用自然口语表达（'haven't seen your posts in a while'）礼貌地开启社交媒体话题，符合朋友间轻松闲聊的语境。选项2是评价性问题，偏离了问候和了解近况的核心任务；选项3假设对方发过照片，可能造成尴尬；选项4带有指责语气（'Why don't you...'），不够友好，不符合轻松闲聊的语用原则。",
+        "qaId": "social_091_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:07:23.479Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

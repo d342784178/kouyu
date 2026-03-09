@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.176Z",
   "questions": [
     {
-      "id": "travel_066_sub_2_qa_2_choice_1",
-      "subSceneId": "travel_066_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_066_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Is the fee included or extra?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What is the exchange rate today?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How much money can I get for 100 dollars?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Do you charge any commission?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案 'Is the fee included or extra?' 直接针对手续费是否包含这一核心问题，符合场景中‘主动问清额外费用’的要求。选项2仅询问汇率，未涉及手续费；选项3是计算结果导向，未询问费用结构；选项4虽涉及手续费，但表达模糊，未明确是否包含，不如正确选项精准。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在兑换货币时，想确认当前汇率以及手续费是否包含在内，避免后续产生额外费用。"
-      }
-    },
-    {
-      "id": "travel_066_sub_2_qa_1_choice_1",
-      "subSceneId": "travel_066_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_066_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What's the current rate for USD to EUR, and are there any fees?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How much does a Euro cost?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you exchange my dollars?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "What time do you close today?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案明确询问了汇率和手续费，符合场景需求。干扰项1只问欧元价格，未提及美元和手续费，信息不完整；干扰项2仅询问是否兑换，未涉及汇率和费用；干扰项3与汇率完全无关，属于无关问题。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在兑换货币时，想了解当前美元兑欧元的汇率以及是否收取额外手续费"
-      }
-    },
-    {
       "id": "travel_066_sub_2_choice_3",
       "subSceneId": "travel_066_sub_2",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我要兑换500美元，汇率是多少？有手续费吗？"
       }
+    },
+    {
+      "id": "travel_066_sub_2_qa_1_choice_1",
+      "subSceneId": "travel_066_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在兑换货币时，想清楚了解当前美元兑英镑的汇率和是否收取额外手续费",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What's the current rate for USD to GBP, and is the fee included?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much is one dollar in pounds?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you charge any extra money?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get pounds for dollars?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案同时询问了汇率和费用结构，符合实际交流中避免后续纠纷的需求。选项2只问汇率，未涉及手续费，信息不完整；选项3提问模糊，未明确是兑换费用；选项4只是确认服务是否存在，未获取关键信息。",
+        "qaId": "travel_066_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "travel_066_sub_2_qa_2_choice_1",
+      "subSceneId": "travel_066_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在机场兑换点准备换欧元，想确认当前汇率和是否有隐藏费用",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What's the exchange rate for USD to EUR, and is there a service charge?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How many euros will I get for $100?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is the rate good today?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you accept US dollars?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确询问了汇率和手续费，符合高效、准确获取关键信息的交际目标。选项2只计算结果，未获取汇率和费用结构，无法用于比价；选项3主观模糊，无法用于决策；选项4是基础确认，未触及核心信息。",
+        "qaId": "travel_066_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:07.435Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

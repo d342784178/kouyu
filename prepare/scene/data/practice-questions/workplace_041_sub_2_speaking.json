@@ -5,53 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.451Z",
   "questions": [
     {
-      "id": "workplace_041_sub_2_qa_2_speaking_1",
-      "subSceneId": "workplace_041_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_041_sub_2_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你需要向同事请求协助或资源支持，例如需要使用某个工具或软件",
-        "expectedAnswers": [
-          "Do you have access to the new analytics tool?",
-          "你有新数据分析工具的权限吗？",
-          "Can you help me access the new analytics tool?",
-          "你能否帮助我获得新数据分析工具的权限？"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "workplace_041_sub_2_qa_1_speaking_1",
-      "subSceneId": "workplace_041_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_041_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在忙于QA阶段，需要同事的协助或资源支持。请问一个适合的问题给你的同事。",
-        "expectedAnswers": [
-          "我QA阶段很忙，能不能帮我审一下测试用例?",
-          "我需要帮助审一下测试用例，能否给个手?",
-          "我正在忙于QA阶段，能不能协助我一下审一下测试用例?"
-        ],
-        "evaluationCriteria": [
-          "是否正确表达了询问意图",
-          "语法和用词是否正确",
-          "是否符合英语口语习惯",
-          "是否使用了场景关键词"
-        ]
-      }
-    },
-    {
       "id": "workplace_041_sub_2_speaking_3",
       "subSceneId": "workplace_041_sub_2",
       "type": "speaking",
@@ -74,6 +27,60 @@
           "关键词覆盖：使用了 budget report, send, share, follow up, Finance 等场景关键词"
         ]
       }
+    },
+    {
+      "id": "workplace_041_sub_2_qa_1_speaking_1",
+      "subSceneId": "workplace_041_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在赶项目截止日期，需要同事协助提供一份最新的客户反馈报告，但不确定对方是否有权限或是否方便帮忙。",
+        "speakerText": "Do you have access to the latest customer feedback report? If so, could you share it with me by end of day?",
+        "speakerTextCn": "你有权限访问最新的客户反馈报告吗？如果有，今天下班前能发给我吗？",
+        "expectedAnswers": [
+          "Yes, I downloaded it this morning—I’ll email it to you right away.",
+          "I don’t have it yet, but I’ll check with the marketing team and get back to you by noon.",
+          "I can share the link, but it’s still being updated—want me to flag you when it’s final?",
+          "Not yet, but I can request access for you—just give me your email."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确请求了报告并说明了时间需求",
+          "语言准确性：语法和用词是否正确，如时态、情态动词使用",
+          "表达自然度：是否符合职场口语习惯，避免生硬或过度正式",
+          "关键词覆盖：是否包含 'access', 'share', 'by end of day' 等场景关键词"
+        ],
+        "qaId": "workplace_041_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "workplace_041_sub_2_qa_2_speaking_1",
+      "subSceneId": "workplace_041_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你需要借用团队的会议室进行客户演示，但不确定当天是否有空档，想礼貌询问并确认可用时间。",
+        "speakerText": "Hi, is the conference room available this afternoon for a client demo? If not, do you know when it might open up?",
+        "speakerTextCn": "嗨，今天下午会议室有空吗？我想用它做客户演示。如果没有，你知道什么时候能空出来吗？",
+        "expectedAnswers": [
+          "It’s booked until 4, but it’s free after 5—if that works, I’ll reserve it for you.",
+          "Actually, it’s free from 2–3:30—would that window work?",
+          "Sorry, it’s fully booked all day, but we can book the smaller huddle room instead.",
+          "I’ll check the calendar real quick—give me two minutes to confirm."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达了使用会议室的需求和时间范围",
+          "语言准确性：是否正确使用了时态、条件句和礼貌表达",
+          "表达自然度：是否符合职场中协商资源的口语习惯",
+          "关键词覆盖：是否包含 'available', 'conference room', 'demo', 'when it opens up' 等场景关键词"
+        ],
+        "qaId": "workplace_041_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:18.296Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

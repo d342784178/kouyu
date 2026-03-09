@@ -33,60 +33,6 @@
       }
     },
     {
-      "id": "daily_009_sub_3_qa_1_fill_blank_1",
-      "subSceneId": "daily_009_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示：用户可以选择现金、银行卡或其他付款方式",
-        "qaId": "daily_009_sub_3_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "cash",
-            "options": [
-              "cash",
-              "card",
-              "credit",
-              "debit"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在完成加油后，主动询问如何支付和是否需要收据。",
-        "knowledgePoint": "支付与索要收据",
-        "responseTemplate": "我将在加油站内用___付款，能给我收据吗？"
-      }
-    },
-    {
-      "id": "daily_009_sub_3_qa_2_fill_blank_1",
-      "subSceneId": "daily_009_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "当不需要收据时，英语中常用 'No receipt, thanks.' 来礼貌地拒绝。",
-        "qaId": "daily_009_sub_3_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "No receipt, thanks.",
-            "options": [
-              "No receipt, please.",
-              "Give me a receipt.",
-              "I need a receipt.",
-              "Receipt, please."
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在完成加油后，想告诉收银员自己用信用卡支付，并且不需要收据。",
-        "knowledgePoint": "礼貌拒绝服务的常用句型",
-        "responseTemplate": "I'll pay by card. ___"
-      }
-    },
-    {
       "id": "daily_009_sub_3_fill_blank_2",
       "subSceneId": "daily_009_sub_3",
       "type": "fill_blank",
@@ -167,6 +113,35 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "支付方式的介词搭配（pay by credit card）"
       }
+    },
+    {
+      "id": "daily_009_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "daily_009_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在结账后，想礼貌地请求一张收据",
+        "responseTemplate": "I'll pay by card. ___",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Can I get a receipt?",
+            "options": [
+              "Can I get a receipt?",
+              "Do you have a receipt?",
+              "I want a receipt.",
+              "Could you give me a receipt?"
+            ]
+          }
+        ],
+        "hint": "在英语中，礼貌请求收据最自然的表达是 'Can I get...?'",
+        "knowledgePoint": "礼貌请求服务的常用句型",
+        "qaId": "daily_009_sub_3_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:46.439Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

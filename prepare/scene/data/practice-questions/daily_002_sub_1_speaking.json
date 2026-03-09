@@ -5,52 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.442Z",
   "questions": [
     {
-      "id": "daily_002_sub_1_qa_2_speaking_1",
-      "subSceneId": "daily_002_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_002_sub_1_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在超市寻找牛奶和燕麦片，需要询问工作人员商品的位置。",
-        "expectedAnswers": [
-          "Excuse me, where can I find the almond milk and oatmeal?",
-          "Hi, do you know where I can find the milk and cereal?",
-          "Sorry to bother you, could you tell me where the milk and oatmeal are located?"
-        ],
-        "evaluationCriteria": [
-          "是否正确表达了询问商品位置的意图",
-          "语法和用词是否正确",
-          "是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
-      "id": "daily_002_sub_1_qa_1_speaking_1",
-      "subSceneId": "daily_002_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_002_sub_1_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在超市里想找牛奶和燕麦片，但不确定它们在哪个区域，需要向工作人员询问商品所在的位置。",
-        "expectedAnswers": [
-          "Excuse me, where can I find the dairy section and the cereal aisle?",
-          "Could you tell me where the milk and oatmeal are located?",
-          "I'm looking for milk and oatmeal—could you point me to the right section?",
-          "Where do I go to find dairy products and oats?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问牛奶和燕麦片位置的意图",
-          "语言准确性：语法结构正确，用词恰当，无明显错误",
-          "表达自然度：符合日常英语口语习惯，语气礼貌自然",
-          "关键词覆盖：使用了 'milk', 'oatmeal/ oats', 'dairy', 'section/aisle' 等场景关键词"
-        ]
-      }
-    },
-    {
       "id": "daily_002_sub_1_speaking_3",
       "subSceneId": "daily_002_sub_1",
       "type": "speaking",
@@ -73,6 +27,60 @@
           "关键词覆盖：包含 breakfast cereal, aisle, next to, near, section"
         ]
       }
+    },
+    {
+      "id": "daily_002_sub_1_qa_1_speaking_1",
+      "subSceneId": "daily_002_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在超市里想找到牛奶和燕麦片的摆放区域，需要向工作人员提问",
+        "speakerText": "Could you tell me where I can find the milk and oatmeal?",
+        "speakerTextCn": "您能告诉我牛奶和燕麦片在哪里吗？",
+        "expectedAnswers": [
+          "Milk is in the dairy section near the back, and oatmeal is in the cereal aisle, right next to it.",
+          "You'll find milk on the left side of the store, and the oatmeal is in the health food section, aisle 3.",
+          "The milk is refrigerated down aisle 2, and the oatmeal is on the top shelf of the breakfast foods section.",
+          "Milk's in the chilled section by the eggs, and oatmeal's in the baking and grains aisle, just past the rice."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了牛奶和燕麦片两个商品的位置",
+          "语言准确性：语法正确，使用了恰当的方位词和超市常用词汇",
+          "表达自然度：符合英语母语者在超市问路时的口语习惯",
+          "关键词覆盖：包含 'milk', 'oatmeal', 'find', 'section/aisle' 等场景关键词"
+        ],
+        "qaId": "daily_002_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "daily_002_sub_1_qa_2_speaking_1",
+      "subSceneId": "daily_002_sub_1",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在超市寻找无糖牛奶和即食燕麦片，不确定它们是否在常规区域，想向员工确认",
+        "speakerText": "Hi, I'm looking for unsweetened milk and instant oatmeal—do you know which aisles they're in?",
+        "speakerTextCn": "你好，我在找无糖牛奶和即食燕麦片，知道它们在哪个通道吗？",
+        "expectedAnswers": [
+          "Unsweetened milk is in the organic dairy section, aisle 4, and instant oatmeal is right beside it in the quick breakfast row.",
+          "We have unsweetened almond milk in the plant-based drinks aisle, and instant oatmeal is in aisle 6 near the granola.",
+          "The unsweetened milk is near the lactose-free products, and the instant oatmeal is on the top shelf of aisle 5.",
+          "Sorry, unsweetened milk is only in the freezer section now, and instant oatmeal is by the protein bars."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰说明了具体商品类型（无糖牛奶、即食燕麦片）",
+          "语言准确性：正确使用了 'unsweetened', 'instant', 'aisle', 'section' 等专业词汇",
+          "表达自然度：语气礼貌，符合在超市主动询问的日常对话风格",
+          "关键词覆盖：包含 'unsweetened milk', 'instant oatmeal', 'aisle/section', 'find/locate' 等关键表达"
+        ],
+        "qaId": "daily_002_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:15.476Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

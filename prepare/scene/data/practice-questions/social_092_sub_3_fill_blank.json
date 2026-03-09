@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.787Z",
   "questions": [
     {
-      "id": "social_092_sub_3_qa_1_fill_blank_1",
-      "subSceneId": "social_092_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "请回忆提问时的关键词",
-        "qaId": "social_092_sub_3_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "买点东西",
-            "options": [
-              "去逛街",
-              "看电影",
-              "买点东西",
-              "玩游戏"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "询问附近超市的位置",
-        "knowledgePoint": "询问超市位置的句型",
-        "responseTemplate": "附近有超市吗？我得_____."
-      }
-    },
-    {
       "id": "social_092_sub_3_fill_blank_1",
       "subSceneId": "social_092_sub_3",
       "type": "fill_blank",
@@ -57,33 +30,6 @@
         "speakerTextCn": "嗨，我刚搬来这儿。你知道附近哪里有超市吗？",
         "knowledgePoint": "表达地点的常用方位短语",
         "responseTemplate": "There's one just ___ down the street."
-      }
-    },
-    {
-      "id": "social_092_sub_3_qa_2_fill_blank_1",
-      "subSceneId": "social_092_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "用一个名词短语表示‘一家不错的超市’，注意主谓结构完整",
-        "qaId": "social_092_sub_3_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "a good supermarket",
-            "options": [
-              "a good supermarket",
-              "where is a supermarket",
-              "any supermarket",
-              "a supermarket is"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想知道附近哪里有卖新鲜蔬果和日用品的超市，不想买预包装的商品",
-        "knowledgePoint": "询问地点的通用提问句型",
-        "responseTemplate": "Is there ___ around here that sells fresh produce and everyday items?"
       }
     },
     {
@@ -167,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "场景核心词汇（grocery store）"
       }
+    },
+    {
+      "id": "social_092_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "social_092_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在陌生街区，想找个买日常食品的超市，需要向路人或工作人员提问",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Is there a ___ nearby?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "grocery store",
+            "options": [
+              "grocery store",
+              "pharmacy",
+              "bookshop",
+              "cafe"
+            ]
+          }
+        ],
+        "hint": "询问超市时，最自然的表达是用 'grocery store'，而不是其他类型的店铺",
+        "knowledgePoint": "高频生活场景中的核心名词搭配",
+        "qaId": "social_092_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "social_092_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "social_092_sub_3",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你不喜欢预包装食品，想找新鲜食材的购物点，需要向当地人询问",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Do you know where I can find a ___? I prefer fresh produce.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "farmer's market",
+            "options": [
+              "farmer's market",
+              "shopping mall",
+              "liquor store",
+              "pet store"
+            ]
+          }
+        ],
+        "hint": "表达偏好后，最匹配的地点是能提供新鲜食材的市场",
+        "knowledgePoint": "表达饮食偏好时的精准场所提问",
+        "qaId": "social_092_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:08:07.900Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

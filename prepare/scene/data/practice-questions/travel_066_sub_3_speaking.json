@@ -5,52 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.185Z",
   "questions": [
     {
-      "id": "travel_066_sub_3_qa_2_speaking_1",
-      "subSceneId": "travel_066_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_066_sub_3_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "服务员正在处理您的交易，您想确认一下可以换多少钞票，适合于小额消费",
-        "expectedAnswers": [
-          "Can I get mostly hundreds, with a few fifties for small purchases?",
-          "能给我多张一百元的钞票再加几张五十元吗?",
-          "可以给我一些一百元的钞票和一些五十元的钞票吗?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "travel_066_sub_3_qa_1_speaking_1",
-      "subSceneId": "travel_066_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_066_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "服务方回应询问金额和钞票面额，用户需要询问确认金额和钞票面额",
-        "expectedAnswers": [
-          "What denominations will I get for $500, please?",
-          "I'd like to confirm the $500 exchange, what bills will I receive?",
-          "Can you tell me the denominations for the $500 exchange?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问确认金额和钞票面额的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
       "id": "travel_066_sub_3_speaking_3",
       "subSceneId": "travel_066_sub_3",
       "type": "speaking",
@@ -72,6 +26,60 @@
           "是否正确使用了面额复数形式（fifties, tens）和数字搭配"
         ]
       }
+    },
+    {
+      "id": "travel_066_sub_3_qa_1_speaking_1",
+      "subSceneId": "travel_066_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在银行兑换美元，想换300美元，并希望大部分是20美元面额，少量是10美元用于零花。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "I'd like to exchange $300, mostly in twenties, with a few tens for small expenses.",
+          "Can I get $300 in mostly $20 bills, and maybe a couple of $10s?",
+          "I need $300 changed — mostly twenties, but a little in tens would be helpful.",
+          "Could I get 13 twenties and 2 tens, please?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表达了兑换金额和主次面额需求",
+          "语言准确性：语法正确，使用了正确的货币表达（如 $20 bills, tens）",
+          "表达自然度：是否符合英语母语者在兑换时的自然表达习惯",
+          "关键词覆盖：是否使用了 'mostly', 'with a few', 'twenties', 'tens' 等场景关键词"
+        ],
+        "qaId": "travel_066_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "travel_066_sub_3_qa_2_speaking_1",
+      "subSceneId": "travel_066_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在机场兑换处想换200欧元，希望以50欧元为主，搭配少量10欧元用于买饮料和小纪念品。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "I'd like to exchange €200, mostly in 50-euro notes, with a couple of 10s for snacks and souvenirs.",
+          "Can I get €200 in mostly 50s, and maybe four 10s?",
+          "I need €200 changed — mostly 50s, but a few 10s would be great for small purchases.",
+          "Could you give me 3 fifties and 5 tens, please?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达兑换金额和面额偏好",
+          "语言准确性：正确使用欧元符号、复数形式（50s, 10s）和礼貌表达",
+          "表达自然度：是否符合机场兑换场景中旅客的常用表达方式",
+          "关键词覆盖：是否使用了 'mostly', 'with a few', 'fifties', 'tens' 等关键表达"
+        ],
+        "qaId": "travel_066_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:18.334Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

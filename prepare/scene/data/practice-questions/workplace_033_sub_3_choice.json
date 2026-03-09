@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.366Z",
   "questions": [
     {
-      "id": "workplace_033_sub_3_qa_2_choice_1",
-      "subSceneId": "workplace_033_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_033_sub_3_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "I can't open the .xlsx file—it says it's corrupted. Could you send me the file again?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "我收到的附件是什么格式?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you tell me what software you used to create the file?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "我想下载更多附件，能否提供?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案：I can't open the .xlsx file—it says it's corrupted. Could you send me the file again？其他选项不符合场景需求或表达不当",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户在邮件中发现附件无法打开，提示损坏，希望服务方重发附件的替代方案"
-      }
-    },
-    {
-      "id": "workplace_033_sub_3_qa_1_choice_1",
-      "subSceneId": "workplace_033_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_033_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "The PDF file is too big to send—can I share it via Google Drive instead?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "我想知道这个PDF文件的价格?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "PDF文件不能发了，能不能改成WORD文件?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "这个问题我不太清楚，你能再解释一下吗?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案：The PDF file is too big to send—can I share it via Google Drive instead？其他选项都是不相关的问题或表达不当。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户在邮件中提出问题，等待服务方/工作人员回答"
-      }
-    },
-    {
       "id": "workplace_033_sub_3_choice_3",
       "subSceneId": "workplace_033_sub_3",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "演示文稿上传共享文件夹总是超时，能改用邮件发ZIP压缩包吗？"
       }
+    },
+    {
+      "id": "workplace_033_sub_3_qa_1_choice_1",
+      "subSceneId": "workplace_033_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你收到一个太大无法下载的视频文件，想请对方改用云盘链接发送，并确保链接可公开访问。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Could you upload the video to Dropbox and share a link set to 'Anyone with the link can view'?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "The video is too big—can you just email it again?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Why is the file so large? Can you make it smaller?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I can't open the video—maybe try converting it to MP4?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案提出清晰的替代方案（使用Dropbox）并明确权限设置（Anyone with the link can view），符合专业沟通标准。选项2只是重复发送，未解决文件过大问题；选项3是抱怨而非提出解决方案；选项4错误地假设对方需要转换格式，而非改变传输方式。",
+        "qaId": "workplace_033_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "workplace_033_sub_3_qa_2_choice_1",
+      "subSceneId": "workplace_033_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你无法打开对方发送的Word文档，怀疑格式不兼容，想请对方改发为PDF版本以便查看。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'm having trouble opening the .docx file—would it be possible to resend it as a PDF instead?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Your document won't open—did you save it wrong?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you send me the original file again? Maybe I missed something.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I think Google Docs can open it—should I try that?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案礼貌地说明问题并提出明确替代方案（改发PDF），符合职场沟通规范。选项2指责对方操作错误，语气不专业；选项3未提供解决方案，可能造成重复沟通；选项4建议对方采取行动，但提问对象错误（应由用户自己尝试，而非要求对方配合）。",
+        "qaId": "workplace_033_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:32.370Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

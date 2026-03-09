@@ -5,54 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.101Z",
   "questions": [
     {
-      "id": "travel_059_sub_3_qa_1_speaking_1",
-      "subSceneId": "travel_059_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_059_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "游客在参观景点前，想确认今天的开放时间以及是否提供免费导览服务。",
-        "expectedAnswers": [
-          "What time does it close today?",
-          "Could you tell me the opening and closing hours for today?",
-          "Do you offer guided tours, and if so, what time do they start?",
-          "Is there a guided tour included, and when does the place close?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问了开放时间或导览服务",
-          "语言准确性：语法和时态使用正确，无重大错误",
-          "表达自然度：符合英语母语者日常对话习惯",
-          "关键词覆盖：使用了'close', 'opening hours', 'guided tour'等场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "travel_059_sub_3_qa_2_speaking_1",
-      "subSceneId": "travel_059_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_059_sub_3_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "游客在参观景点前，想确认开放时间以及门票是否包含导览服务。",
-        "expectedAnswers": [
-          "What are the opening hours?",
-          "Does the ticket include a guided tour?",
-          "Are guided tours available, and do they come with the ticket?",
-          "Could you tell me the opening time and whether a guided tour is included?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问了开放时间与导览服务",
-          "语言准确性：语法结构正确，用词恰当",
-          "表达自然度：符合英语母语者日常对话习惯",
-          "关键词覆盖：包含'opening hours'或'opening time'，以及'guided tour'或'tour'等关键词"
-        ]
-      }
-    },
-    {
       "id": "travel_059_sub_3_speaking_3",
       "subSceneId": "travel_059_sub_3",
       "type": "speaking",
@@ -75,6 +27,60 @@
           "关键词覆盖：包含 'guided tour', 'afternoon', 'free', 'paid', 'sign up' 等"
         ]
       }
+    },
+    {
+      "id": "travel_059_sub_3_qa_1_speaking_1",
+      "subSceneId": "travel_059_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在景点入口处想确认当天的开放时间以及门票是否包含免费导览服务",
+        "speakerText": "Could you tell me what time the attraction opens and closes today, and whether the ticket includes a guided tour?",
+        "speakerTextCn": "您能告诉我今天景点的开放和关闭时间吗？门票包含导览服务吗？",
+        "expectedAnswers": [
+          "It opens at 9 AM and closes at 7 PM. Guided tours are included with your ticket.",
+          "We open at 8:30 and close at 6:30. There's a free guided tour at 11 AM and 3 PM — just show up.",
+          "Opening is at 9, closing at 8. Tours aren't included, but you can join one for $12 extra.",
+          "9 to 7, and yes — free guided tours every hour on the hour from 10 AM to 4 PM."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否同时询问了开放/关闭时间和导览服务",
+          "语言准确性：语法正确，时态和用词恰当",
+          "表达自然度：符合英语口语习惯，无中式英语",
+          "关键词覆盖：使用了 'opens', 'closes', 'guided tour', 'included' 等场景关键词"
+        ],
+        "qaId": "travel_059_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "travel_059_sub_3_qa_2_speaking_1",
+      "subSceneId": "travel_059_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在售票窗口前想确认最后入场时间及是否有英语导览服务",
+        "speakerText": "What's the last entry time, and do you offer guided tours in English?",
+        "speakerTextCn": "最后入场时间是几点？你们有英语导览吗？",
+        "expectedAnswers": [
+          "Last entry is at 6 PM. We have English tours every 30 minutes until 5 PM.",
+          "You can enter until 6:30, but tours end at 5:30. Yes, English tours are available daily.",
+          "No English tours today — only Chinese and Spanish. Last entry is 6 PM.",
+          "Entry closes at 6:45. English tours run at 10 AM, 1 PM, and 4 PM — no booking needed."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了最后入场时间和英语导览服务",
+          "语言准确性：语法正确，使用了恰当的疑问结构和时间表达",
+          "表达自然度：符合游客在售票处的典型问法，简洁清晰",
+          "关键词覆盖：使用了 'last entry', 'guided tours', 'in English' 等核心关键词"
+        ],
+        "qaId": "travel_059_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:46.612Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -5,50 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.169Z",
   "questions": [
     {
-      "id": "travel_065_sub_3_qa_2_speaking_1",
-      "subSceneId": "travel_065_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_065_sub_3_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在与服务方/工作人员交谈，了解后续补办步骤和所需材料，服务方/工作人员应提供明确的指导或步骤。",
-        "expectedAnswers": [
-          "What do I need to do next?",
-          "What are the steps I need to take to complete the application?",
-          "Could you explain the process of applying for the visa?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
-      "id": "travel_065_sub_3_qa_1_speaking_1",
-      "subSceneId": "travel_065_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_065_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在办理一个文件，服务员正在指导你下一步的操作。你想问服务员关于后续的步骤和所需材料。",
-        "expectedAnswers": [
-          "What do I need to do next?",
-          "接下来我需要准备什么材料?",
-          "下一步我需要做什么才能完成这个文件的办理?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
       "id": "travel_065_sub_3_speaking_3",
       "subSceneId": "travel_065_sub_3",
       "type": "speaking",
@@ -71,6 +27,60 @@
           "关键词覆盖：使用了 'passport photos', 'birth certificate', 'original', 'on-site' 等场景关键词"
         ]
       }
+    },
+    {
+      "id": "travel_065_sub_3_qa_1_speaking_1",
+      "subSceneId": "travel_065_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在办理丢失证件的补办手续，工作人员告诉你需要提交一些材料，你想进一步确认具体需要哪些文件以及是否需要提前预约。",
+        "speakerText": "You'll need to bring your ID card and a recent photo.",
+        "speakerTextCn": "你需要带上身份证和一张近期照片。",
+        "expectedAnswers": [
+          "Do I need to make an appointment before I come?",
+          "What other documents should I prepare besides the ID and photo?",
+          "Is there a form I need to fill out beforehand?",
+          "Can I get the form online or do I have to pick it up in person?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了补办所需的具体材料或流程细节",
+          "语言准确性：语法结构正确，用词恰当，无明显错误",
+          "表达自然度：符合日常英语口语习惯，语气礼貌自然",
+          "关键词覆盖：使用了如 'appointment', 'documents', 'form', 'prepare' 等场景关键词"
+        ],
+        "qaId": "travel_065_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "travel_065_sub_3_qa_2_speaking_1",
+      "subSceneId": "travel_065_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚被告知补办流程需要两天时间，你想确认办理地点、开放时间以及是否可以加急处理。",
+        "speakerText": "The process usually takes two business days.",
+        "speakerTextCn": "这个流程通常需要两个工作日。",
+        "expectedAnswers": [
+          "Where exactly is the office located?",
+          "What are your opening hours? Can I go on weekends?",
+          "Is there an option to speed up the process if I pay extra?",
+          "Do I need to come back in person to pick it up, or can it be mailed?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确追问了时间、地点、加急选项等关键信息",
+          "语言准确性：句式结构完整，时态和介词使用正确",
+          "表达自然度：表达符合真实对话节奏，有适当停顿和礼貌语气",
+          "关键词覆盖：使用了如 'location', 'opening hours', 'speed up', 'pick up', 'mailed' 等场景关键词"
+        ],
+        "qaId": "travel_065_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:06.649Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

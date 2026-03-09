@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.168Z",
   "questions": [
     {
-      "id": "travel_065_sub_3_qa_1_choice_1",
-      "subSceneId": "travel_065_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_065_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What documents do I need to prepare?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Can I get a list of the required materials?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "What do I need to do next?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_4",
-            "text": "How long does the whole process take?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案：What do I need to do next?。其他选项虽然与场景相关，但不是用户应该问的问题。选项1和选项2虽然接近，但更具体地问到了材料准备和所需材料，这不是本场景的主要需求。选项4虽然与流程相关，但不直接回答用户的疑问，属于理解偏差型干扰项。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "服务方/工作人员应提供明确的指导或步骤，帮助用户了解后续补办步骤和所需材料"
-      }
-    },
-    {
-      "id": "travel_065_sub_3_qa_2_choice_1",
-      "subSceneId": "travel_065_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_065_sub_3_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What documents do I need to bring to the embassy?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can I get a map to the embassy?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How much does it cost to visit the embassy?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can you speak louder, I didn't hear you?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案\"What documents do I need to bring to the embassy?\"是最合适的问题，因为它直接询问所需材料。其他选项不正确，因为它们不符合场景需求或询问不相关信息。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "了解后续补办步骤和所需材料"
-      }
-    },
-    {
       "id": "travel_065_sub_3_choice_3",
       "subSceneId": "travel_065_sub_3",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "领事馆说你需要提交一张新照片和国籍证明。"
       }
+    },
+    {
+      "id": "travel_065_sub_3_qa_1_choice_1",
+      "subSceneId": "travel_065_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在大使馆补办护照时，工作人员告诉你需要提交一份证明文件，你想进一步了解具体需要哪些材料以及是否需要提前预约。",
+        "speakerText": "You'll need to bring a copy of your police report.",
+        "speakerTextCn": "你需要带上警方报告的副本。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What other documents do I need to bring, and do I need to book an appointment?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I already have the police report, so I'm all set.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you just send me the documents by email?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "When is the embassy closed?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确追问了所需材料（other documents）和是否需要预约（book an appointment），这是补办流程中关键的细节信息。干扰项1是陈述已准备好材料，未提问；干扰项2提出不现实的邮件发送请求，不符合现场办理场景；干扰项3只问关门时间，偏离了材料和流程的核心需求。",
+        "qaId": "travel_065_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "travel_065_sub_3_qa_2_choice_1",
+      "subSceneId": "travel_065_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚被告知需要去指定办公室办理护照补办，但你不清楚具体流程和办理所需时间，想主动询问下一步操作和预计耗时。",
+        "speakerText": "Please go to the second floor counter for your replacement passport.",
+        "speakerTextCn": "请到二楼柜台办理你的补办护照。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What documents should I have ready when I get there, and how long does the process usually take?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is the second floor open today?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I'll go there right away, thanks!",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I pay by credit card at the counter?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案精准询问了所需材料和办理时长，这是用户在未知流程中必须明确的核心信息。干扰项1只确认开放时间，信息片面；干扰项2是简单致谢，未提问；干扰项3聚焦支付方式，属于次要细节，偏离流程主线。",
+        "qaId": "travel_065_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:07.063Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

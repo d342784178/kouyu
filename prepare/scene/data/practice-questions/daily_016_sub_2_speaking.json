@@ -5,53 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.556Z",
   "questions": [
     {
-      "id": "daily_016_sub_2_qa_2_speaking_1",
-      "subSceneId": "daily_016_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_016_sub_2_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在结账时听到店员报出商品价格，希望确认最终总价是否正确",
-        "expectedAnswers": [
-          "So that's $6.50?",
-          "Just to confirm, the total is $6.50?",
-          "Does that come to $6.50 altogether?",
-          "I think that’s $6.50 — is that right?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确表达了确认总价的意图",
-          "语言准确性：语法结构正确，数字和货币单位使用无误",
-          "表达自然度：符合日常英语口语习惯，语气礼貌自然",
-          "关键词覆盖：使用了'price', 'total', 或数字货币表达等场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "daily_016_sub_2_qa_1_speaking_1",
-      "subSceneId": "daily_016_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_016_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客询问橙汁和三明治的价格，服务方/工作人员需要回答。",
-        "expectedAnswers": [
-          "How much is the juice and the sandwich?",
-          "What is the total price of the juice and the sandwich?",
-          "How much will the juice and the sandwich cost me?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问价格的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
       "id": "daily_016_sub_2_speaking_3",
       "subSceneId": "daily_016_sub_2",
       "type": "speaking",
@@ -73,6 +26,60 @@
           "表达自然度：语速自然，符合真实点餐场景的流畅回应"
         ]
       }
+    },
+    {
+      "id": "daily_016_sub_2_qa_1_speaking_1",
+      "subSceneId": "daily_016_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在结账前想确认所选商品的总价，避免付款错误",
+        "speakerText": "Could you please confirm the total for these items?",
+        "speakerTextCn": "您能确认一下这些物品的总价吗？",
+        "expectedAnswers": [
+          "Sure, that's $12.75 total.",
+          "The total comes to twelve seventy-five.",
+          "Everything adds up to $12.75.",
+          "That'll be twelve seventy-five, please."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确请求确认总价",
+          "语言准确性：数字表达是否正确，无语法错误",
+          "表达自然度：是否使用日常口语中常见的确认表达",
+          "关键词覆盖：是否包含 'total', 'confirm', 或金额相关词"
+        ],
+        "qaId": "daily_016_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "daily_016_sub_2_qa_2_speaking_1",
+      "subSceneId": "daily_016_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在选购几样商品后，想快速核对最终金额是否正确",
+        "speakerText": "Just to double-check, how much is everything together?",
+        "speakerTextCn": "我再确认一下，所有东西加起来多少钱？",
+        "expectedAnswers": [
+          "Everything is $8.90 altogether.",
+          "The total is eight ninety.",
+          "That’s $8.90 — you’re all set.",
+          "Eight ninety, including tax."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达核对总价的意图",
+          "语言准确性：金额表达和语法是否规范",
+          "表达自然度：是否使用自然的口语核对句式",
+          "关键词覆盖：是否包含 'total', 'everything', 'together', 或类似表达"
+        ],
+        "qaId": "daily_016_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:04:05.603Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

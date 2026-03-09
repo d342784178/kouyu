@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.579Z",
   "questions": [
     {
-      "id": "workplace_053_sub_2_qa_1_choice_1",
-      "subSceneId": "workplace_053_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_053_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Can you drop this off at my desk? Thanks!",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "You can help me send this package, right?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you tell me where my package is?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I need you to send this package to my home",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案：Can you drop this off at my desk? Thanks! 因为它是适合的场景提示和语言表达，其他选项不合适或表达不当",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想问前台能否帮你把快递送到办公室"
-      }
-    },
-    {
-      "id": "workplace_053_sub_2_qa_2_choice_1",
-      "subSceneId": "workplace_053_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_053_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Could you send this to Marketing? It's urgent.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can I have a package?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How much does it cost to send a package?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Do you have any packages for me?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是Could you send this to Marketing? It's urgent，因为它明确询问前台是否可以将快递送到市场部，并提到了急迫的需求。其他选项不符合场景要求或表达不当。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想让前台帮忙把快递送到办公室，很急。"
-      }
-    },
-    {
       "id": "workplace_053_sub_2_choice_3",
       "subSceneId": "workplace_053_sub_2",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我有个给人力资源部的包裹，你能送到他们办公室吗？"
       }
+    },
+    {
+      "id": "workplace_053_sub_2_qa_1_choice_1",
+      "subSceneId": "workplace_053_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚收到一个快递，但正在开会，想请前台帮忙送到你的办公室",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Could you please bring this package to my desk? I'm in a meeting right now.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Where is my package? I need it now.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you deliver this to the mailroom?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I don't have time to pick it up, so you should do it.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了礼貌请求句式 'Could you please...' 并说明了原因 'I'm in a meeting right now'，符合职场沟通规范。选项2是命令式语气，缺乏礼貌；选项3将目的地错误改为邮局，不符合场景；选项4语气生硬，像在命令而非请求。",
+        "qaId": "workplace_053_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "workplace_053_sub_2_qa_2_choice_1",
+      "subSceneId": "workplace_053_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你有一个紧急文件需要立即送到财务部，想请前台协助派送",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Would you mind delivering this to Finance? It's urgent — I need it within 10 minutes.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is Finance there? I'll go get it myself.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you send this to someone in Finance later?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Why isn't this already delivered to Finance?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案清晰表达了请求、目的地和紧急性，符合职场高效沟通原则。选项2是自己去取，未请求帮助；选项3弱化了紧急性，与场景矛盾；选项4是责备语气，不符合礼貌请求的语境。",
+        "qaId": "workplace_053_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:26.596Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -5,52 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.449Z",
   "questions": [
     {
-      "id": "daily_002_sub_3_qa_2_speaking_1",
-      "subSceneId": "daily_002_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_002_sub_3_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在超市想购买麦片，想知道目前是否有任何折扣、优惠券或赠品活动，请向店员询问促销信息。",
-        "expectedAnswers": [
-          "Do you have any discounts on cereal right now?",
-          "Are there any coupons or free gifts with cereal this week?",
-          "Is there a promotion on cereal, like buy-one-get-one-free?",
-          "Could you tell me if there are any special offers on cereal?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确询问了麦片的促销信息",
-          "语言准确性：语法正确，用词恰当",
-          "表达自然度：符合日常英语口语习惯",
-          "关键词覆盖：使用了 discount, coupon, promotion, offer 等关键词之一"
-        ]
-      }
-    },
-    {
-      "id": "daily_002_sub_3_qa_1_speaking_1",
-      "subSceneId": "daily_002_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_002_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "今天面包有促销吗？你要询问促销活动的详细信息",
-        "expectedAnswers": [
-          "Is there a special deal on bread today?",
-          "Do you have any discounts or promotions on bread?",
-          "Are there any free gifts with the purchase of bread?"
-        ],
-        "evaluationCriteria": [
-          "是否正确表达了询问促销活动的意图",
-          "语法和用词是否正确",
-          "是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
       "id": "daily_002_sub_3_speaking_3",
       "subSceneId": "daily_002_sub_3",
       "type": "speaking",
@@ -72,6 +26,60 @@
           "表达自然度：包含场景关键词如 'weekly sale', 'flash sale', 'exclusive deals', 'signing up'"
         ]
       }
+    },
+    {
+      "id": "daily_002_sub_3_qa_1_speaking_1",
+      "subSceneId": "daily_002_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在超市看到一款洗发水，想确认是否有折扣或赠品活动",
+        "speakerText": "Is there any promotion on this shampoo right now?",
+        "speakerTextCn": "这款洗发水现在有促销活动吗？",
+        "expectedAnswers": [
+          "Yes, it's buy one get one free this week.",
+          "We have a 20% discount if you buy two or more.",
+          "Not right now, but there's a free sample you can take at the end of the aisle.",
+          "You can get a bonus travel-sized bottle when you scan the QR code on the shelf."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了促销或赠品信息",
+          "语言准确性：语法和时态使用正确，无明显错误",
+          "表达自然度：符合日常英语口语习惯，不生硬",
+          "关键词覆盖：使用了 promotion, discount, free, bonus 等相关关键词"
+        ],
+        "qaId": "daily_002_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "daily_002_sub_3_qa_2_speaking_1",
+      "subSceneId": "daily_002_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在服装店看到一件外套，想了解是否有打折或赠送配件的活动",
+        "speakerText": "Are there any deals or free gifts with this jacket?",
+        "speakerTextCn": "这件外套有折扣或者赠送礼品吗？",
+        "expectedAnswers": [
+          "It's 30% off until Sunday, and we're giving away scarves with every purchase.",
+          "No free gifts, but if you sign up for our loyalty program, you get an extra 15% off.",
+          "We're running a buy-one-get-one-half-off on all outerwear this month.",
+          "Not at the moment, but you can get a free dry cleaning voucher with your receipt."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确询问了折扣或赠品信息",
+          "语言准确性：使用了正确的疑问结构和商业用语",
+          "表达自然度：语气礼貌且符合购物场景的口语习惯",
+          "关键词覆盖：使用了 deals, free gifts, discount, loyalty program 等关键词"
+        ],
+        "qaId": "daily_002_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:14.410Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

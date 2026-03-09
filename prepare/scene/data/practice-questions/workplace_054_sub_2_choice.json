@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.588Z",
   "questions": [
     {
-      "id": "workplace_054_sub_2_qa_1_choice_1",
-      "subSceneId": "workplace_054_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_054_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "I'd like to know how many pens are available.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "I need a pen, a notepad, and a whole box of tape.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can I have some pens and notepads, please?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Do you have any pens left?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案I'd like to know how many pens are available.是正确的，因为它询问了库存数量。选项2中的表达不完整，选项3中的语法正确但不符合场景，选项4中的问题过于简单，不完全符合场景需求。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "服务方/工作人员可能询问具体数量或确认库存"
-      }
-    },
-    {
       "id": "workplace_054_sub_2_choice_2",
       "subSceneId": "workplace_054_sub_2",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我想领取一些马克笔和便利贴。"
       }
+    },
+    {
+      "id": "workplace_054_sub_2_qa_1_choice_1",
+      "subSceneId": "workplace_054_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工需要向行政人员申领办公用品，明确表达想要的物品和数量，避免对方反复确认。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'd like some pens, notepads, and tape, please.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Could you tell me what's available in stock?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I need 4 pens, 8 notepads, and 1 roll of tape.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_4",
+            "text": "Is it possible to get more supplies next week?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是直接说明所需物品及具体数量，符合‘明确数量，避免行政反复确认’的学习要求。选项1只说‘some’，过于模糊；选项2是询问库存，而非申领；选项4是推迟请求，不符合当前场景。只有选项3清晰、具体、符合职场高效沟通标准。",
+        "qaId": "workplace_054_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:34.591Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

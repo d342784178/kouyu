@@ -5,60 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.448Z",
   "questions": [
     {
-      "id": "daily_002_sub_3_qa_1_fill_blank_1",
-      "subSceneId": "daily_002_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问促销活动的商品",
-        "qaId": "daily_002_sub_3_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "什么",
-            "options": [
-              "什么",
-              "有",
-              "没有",
-              "哪里"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "询问促销活动",
-        "knowledgePoint": "提问句型",
-        "responseTemplate": "今天_____有折扣吗？"
-      }
-    },
-    {
-      "id": "daily_002_sub_3_qa_2_fill_blank_1",
-      "subSceneId": "daily_002_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "这里需要一个表示优惠凭证的名词，常用于询问促销工具",
-        "qaId": "daily_002_sub_3_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "coupons",
-            "options": [
-              "coupons",
-              "discounts",
-              "gifts",
-              "sales"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想了解当前商品是否有折扣或赠品活动",
-        "knowledgePoint": "询问促销活动的常用句型结构",
-        "responseTemplate": "Do you have any ___ for this product?"
-      }
-    },
-    {
       "id": "daily_002_sub_3_fill_blank_1",
       "subSceneId": "daily_002_sub_3",
       "type": "fill_blank",
@@ -167,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "场景惯用搭配（scan the app）"
       }
+    },
+    {
+      "id": "daily_002_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "daily_002_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在超市想了解某件商品是否有折扣或优惠活动",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Is there ___ on this item?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a special deal",
+            "options": [
+              "a special deal",
+              "a discount card",
+              "a free sample",
+              "a price tag"
+            ]
+          }
+        ],
+        "hint": "询问商品是否有促销时，常用 'Is there a special deal on...?' 结构",
+        "knowledgePoint": "询问促销活动的标准句型",
+        "qaId": "daily_002_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "daily_002_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "daily_002_sub_3",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想确认某商品是否提供优惠券或会员折扣",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Do you have ___ for this product?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "any coupons",
+            "options": [
+              "any coupons",
+              "any receipts",
+              "any labels",
+              "any manuals"
+            ]
+          }
+        ],
+        "hint": "询问优惠券时，用 'Do you have any coupons for...?' 是最自然的表达",
+        "knowledgePoint": "索取优惠券的常用提问方式",
+        "qaId": "daily_002_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:10.359Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -33,60 +33,6 @@
       }
     },
     {
-      "id": "daily_027_sub_4_qa_1_fill_blank_1",
-      "subSceneId": "daily_027_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问保修涵盖的内容时，常用 'What does the warranty cover?'",
-        "qaId": "daily_027_sub_4_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "cover",
-            "options": [
-              "cover",
-              "covers",
-              "is covered",
-              "include"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想了解某个产品的保修范围和条件",
-        "knowledgePoint": "询问保修范围的句型结构",
-        "responseTemplate": "What does the warranty ___?"
-      }
-    },
-    {
-      "id": "daily_027_sub_4_qa_2_fill_blank_1",
-      "subSceneId": "daily_027_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问保修涵盖哪些内容时，常用动词是 cover",
-        "qaId": "daily_027_sub_4_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "cover",
-            "options": [
-              "cover",
-              "include",
-              "have",
-              "last"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想了解某个产品的保修范围和条件",
-        "knowledgePoint": "询问保修范围的常用句型",
-        "responseTemplate": "What does the warranty ___?"
-      }
-    },
-    {
       "id": "daily_027_sub_4_fill_blank_2",
       "subSceneId": "daily_027_sub_4",
       "type": "fill_blank",
@@ -167,6 +113,37 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "否定表达：not covered by（保修排除项）"
       }
+    },
+    {
+      "id": "daily_027_sub_4_qa_1_fill_blank_1",
+      "subSceneId": "daily_027_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在电子产品商店购买了一台咖啡机，想确认保修是否涵盖意外损坏，比如打翻液体导致的电路故障。",
+        "speakerText": "The standard warranty covers manufacturing defects only.",
+        "speakerTextCn": "标准保修仅涵盖制造缺陷。",
+        "responseTemplate": "Does the warranty cover ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "accidental damage",
+            "options": [
+              "accidental damage",
+              "normal wear and tear",
+              "user error",
+              "cosmetic scratches"
+            ]
+          }
+        ],
+        "hint": "当你想确认保修是否包括意外情况时，常用这个表达",
+        "knowledgePoint": "询问保修范围的核心句型",
+        "qaId": "daily_027_sub_4_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:04:55.025Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

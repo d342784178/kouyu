@@ -5,28 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.469Z",
   "questions": [
     {
-      "id": "workplace_043_sub_1_qa_1_speaking_1",
-      "subSceneId": "workplace_043_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_043_sub_1_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "嘿，经理，今天下午能抽空与我谈谈离职事宜吗？",
-        "expectedAnswers": [
-          "Hey, could we schedule a quick chat this afternoon?",
-          "Can we talk about my resignation today?",
-          "Do you have some time this afternoon to discuss my leaving the company?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达了询问离职面谈的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
       "id": "workplace_043_sub_1_speaking_2",
       "subSceneId": "workplace_043_sub_1",
       "type": "speaking",
@@ -71,6 +49,34 @@
           "是否包含场景关键词如 'discuss', 'future', 'support', 'decision' 以体现对话意图"
         ]
       }
+    },
+    {
+      "id": "workplace_043_sub_1_qa_1_speaking_1",
+      "subSceneId": "workplace_043_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工希望与经理预约一次离职面谈，需要以礼貌、专业的方式提出请求。",
+        "speakerText": "Hi [Manager's Name], would it be possible to schedule a time to discuss my departure sometime this week?",
+        "speakerTextCn": "嗨，[经理的名字]，本周能否安排一个时间，讨论一下我的离职事宜？",
+        "expectedAnswers": [
+          "Hi [Manager's Name], I’d like to schedule a brief meeting to talk about my resignation. Are you available this week?",
+          "Could we find a time this week for a quiet chat about my decision to leave?",
+          "I’d appreciate a few minutes of your time to discuss my departure—when might be convenient for you?",
+          "I’m preparing to leave the company and would like to arrange a formal conversation. Do you have time this week?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达了希望进行离职面谈的意图",
+          "语言准确性：语法正确，用词专业，无中式英语表达",
+          "表达自然度：语气礼貌、委婉，符合职场沟通习惯",
+          "关键词覆盖：使用了 'schedule', 'discuss', 'departure/resignation', 'this week' 等关键词"
+        ],
+        "qaId": "workplace_043_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:17.161Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

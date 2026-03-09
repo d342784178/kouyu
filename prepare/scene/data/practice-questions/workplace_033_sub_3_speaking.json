@@ -5,52 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.367Z",
   "questions": [
     {
-      "id": "workplace_033_sub_3_qa_1_speaking_1",
-      "subSceneId": "workplace_033_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_033_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "场景提示：用户在邮件中提出问题，等待服务方/工作人员回答",
-        "expectedAnswers": [
-          "The PDF file is too big to send—can I share it via Google Drive instead?",
-          "PDF太大发不了，能改用Google Drive吗？",
-          "由于PDF文件太大，能否改用Google Drive发送？"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "workplace_033_sub_3_qa_2_speaking_1",
-      "subSceneId": "workplace_033_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_033_sub_3_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "场景提示：用户在邮件中提出问题，等待服务方/工作人员回答",
-        "expectedAnswers": [
-          "打不开xlsx文件，提示损坏，能重发成csv吗？",
-          "我无法打开xlsx文件，它提示损坏。能否将其重发为csv文件？",
-          "我收到的xlsx文件无法打开，提示损坏。能否将其重发为csv格式？"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
       "id": "workplace_033_sub_3_speaking_3",
       "subSceneId": "workplace_033_sub_3",
       "type": "speaking",
@@ -72,6 +26,60 @@
           "是否使用了专业、礼貌的语气，避免命令式表达"
         ]
       }
+    },
+    {
+      "id": "workplace_033_sub_3_qa_1_speaking_1",
+      "subSceneId": "workplace_033_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你收到一个太大无法下载的视频文件，想请对方改用云盘链接发送，并确保权限设置正确。",
+        "speakerText": "The video file is too large to download—could you share it via WeTransfer instead? Please set the link to expire in one week.",
+        "speakerTextCn": "视频文件太大下载不了，能改用WeTransfer发送吗？请将链接设置为一周后过期。",
+        "expectedAnswers": [
+          "Sure! I'll upload it to WeTransfer and send you the link with a one-week expiry.",
+          "I can do that—just give me a minute to set it up and I'll email you the link.",
+          "Actually, I'd prefer Dropbox—would that work? I can set it to expire in 7 days.",
+          "No problem—I'll use WeTransfer and make sure it's accessible to anyone with the link."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确提出了替代发送方式（如WeTransfer、Dropbox等）",
+          "语言准确性：是否正确使用了技术术语（如expire, link, upload）和语法结构",
+          "表达自然度：是否符合职场英语口语习惯，语气礼貌且清晰",
+          "关键词覆盖：是否包含 'too large', 'share via', 'link', 'expire' 等场景关键词"
+        ],
+        "qaId": "workplace_033_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "workplace_033_sub_3_qa_2_speaking_1",
+      "subSceneId": "workplace_033_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你无法打开对方发来的PPTX文件，怀疑版本不兼容，想请对方改发为PDF格式以便查看。",
+        "speakerText": "I'm having trouble opening the .pptx file—could you resend it as a PDF? That way I can view it on my tablet.",
+        "speakerTextCn": "我打不开这个.pptx文件，能重发为PDF格式吗？这样我就能在平板上查看了。",
+        "expectedAnswers": [
+          "Of course! I’ll convert it to PDF and send it over right away.",
+          "I’ll send you the PDF version—just let me know if the formatting looks off.",
+          "Sure thing—I’ll export it as PDF and include the speaker notes in a separate file.",
+          "No problem. PDF attached. Let me know if you need the original PPTX for editing."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达了因兼容性问题要求更改文件格式",
+          "语言准确性：是否正确使用了 'resend', 'convert', 'export', 'formatting' 等词汇",
+          "表达自然度：是否使用了符合职场沟通习惯的礼貌表达和完整句式",
+          "关键词覆盖：是否包含 '.pptx', 'PDF', 'resend', 'view', 'format' 等场景关键词"
+        ],
+        "qaId": "workplace_033_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:33.983Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

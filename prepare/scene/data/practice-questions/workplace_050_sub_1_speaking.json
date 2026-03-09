@@ -5,52 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.555Z",
   "questions": [
     {
-      "id": "workplace_050_sub_1_qa_2_speaking_1",
-      "subSceneId": "workplace_050_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_050_sub_1_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你发现电脑开机不了，苹果标志后就黑屏了。请问电脑维修人员：",
-        "expectedAnswers": [
-          "It won't boot up—just shows a black screen after the Apple logo.",
-          "我的电脑开机不了，苹果标志后就黑屏了，能帮我修吗?",
-          "电脑开机后，苹果标志后就黑屏了，需要怎么样才能修好?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "workplace_050_sub_1_qa_1_speaking_1",
-      "subSceneId": "workplace_050_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_050_sub_1_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你的笔记本卡死了，需要联系IT支持人员求助",
-        "expectedAnswers": [
-          "嘿，能帮个忙吗？我的笔记本彻底卡死了。",
-          "我的笔记本卡死了，能否提供帮助?",
-          "我的电脑出现了问题，能否来帮助我修复?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了‘卡死’和‘求助’关键词"
-        ]
-      }
-    },
-    {
       "id": "workplace_050_sub_1_speaking_3",
       "subSceneId": "workplace_050_sub_1",
       "type": "speaking",
@@ -73,6 +27,60 @@
           "关键词覆盖：是否包含 'restart', 'diagnostic', 'driver', 或 'network' 等场景关键词"
         ]
       }
+    },
+    {
+      "id": "workplace_050_sub_1_qa_1_speaking_1",
+      "subSceneId": "workplace_050_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工的电脑突然无法连接网络，尝试重启无效，需要向IT支持请求帮助。",
+        "speakerText": "Hey, my laptop won't connect to Wi-Fi anymore—I've restarted it but nothing works.",
+        "speakerTextCn": "嘿，我的笔记本再也连不上Wi-Fi了——我重启过好几次，但都没用。",
+        "expectedAnswers": [
+          "I'll check your network settings right away. Any error code?",
+          "Has this happened before? Let me run a diagnostic.",
+          "Okay, have you tried forgetting the network and reconnecting?",
+          "Got it. I'll reset your network profile remotely."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰表达了网络连接故障并说明已尝试重启",
+          "语言准确性：语法正确，用词符合职场口语习惯",
+          "表达自然度：语气礼貌且简洁，符合职场沟通风格",
+          "关键词覆盖：使用了 'Wi-Fi', 'restart', 'connect' 等场景关键词"
+        ],
+        "qaId": "workplace_050_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "workplace_050_sub_1_qa_2_speaking_1",
+      "subSceneId": "workplace_050_sub_1",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工的打印机突然停止工作，电脑显示‘脱机’，尝试重新启动打印机和电脑均无效，需联系IT支持。",
+        "speakerText": "My printer’s showing ‘offline’ on my screen, and I’ve tried turning it off and on again—still not working.",
+        "speakerTextCn": "我的打印机在屏幕上显示‘脱机’，我已经尝试开关机了，但还是不行。",
+        "expectedAnswers": [
+          "Let me check if it’s set as default and if the driver needs updating.",
+          "Did you check if it’s connected to the same network as your computer?",
+          "Alright, I’ll send a remote fix for the printer service. Can you confirm the model?",
+          "I’ll queue a technician to check the printer port. Thanks for the details."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确说明打印机状态为‘脱机’并提及已尝试重启",
+          "语言准确性：语法正确，使用了 'offline', 'turning off and on', 'not working' 等自然表达",
+          "表达自然度：语气直接但礼貌，符合职场求助语境",
+          "关键词覆盖：使用了 'printer', 'offline', 'restart', 'working' 等场景关键词"
+        ],
+        "qaId": "workplace_050_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:04.195Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

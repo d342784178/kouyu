@@ -41,76 +41,6 @@
       }
     },
     {
-      "id": "daily_013_sub_1_qa_1_choice_1",
-      "subSceneId": "daily_013_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_013_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Hi there! Can you help me with borrowing books?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Hello! How much money I need to borrow a book?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Excuse me! Can you show me where is the bookshelf?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Hi! What is the best book you recommend?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案为 \"Hi there! Can you help me with borrowing books?\"，因为它礼貌地询问了管理员关于借书流程的帮助。其他选项不正确，因为它们询问了与借书流程无关的问题或表达不礼貌。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户在图书馆需要借书时，主动向管理员询问流程"
-      }
-    },
-    {
-      "id": "daily_013_sub_1_qa_2_choice_1",
-      "subSceneId": "daily_013_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_013_sub_1_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "I'm new here. How many books can I borrow?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can you tell me where the books are?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How long can I keep the books?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Do you have any books about history?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案询问借书数量，直接回应借书流程的核心问题。选项2询问书籍位置，属于寻物而非流程咨询；选项3询问借阅期限，虽相关但非初始流程问题；选项4询问书籍类型，偏离借书流程主题。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户在图书馆需要借书时，主动向管理员询问流程"
-      }
-    },
-    {
       "id": "daily_013_sub_1_choice_2",
       "subSceneId": "daily_013_sub_1",
       "type": "choice",
@@ -181,6 +111,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "每次借书时我都需要出示身份证吗？"
       }
+    },
+    {
+      "id": "daily_013_sub_1_qa_1_choice_1",
+      "subSceneId": "daily_013_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户在图书馆首次借书，想礼貌地向管理员询问借书流程",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Hi, I'm new here. Could you please tell me how to borrow books?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How do I take books? I need one now.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have books? I want to borrow some.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get a book without a library card?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了礼貌用语（Could you please tell me...）并清晰表达了意图，符合打招呼咨询的场景。选项2语气生硬且未说明是询问流程；选项3只问是否有书，未涉及借阅流程；选项4预设了具体障碍，偏离了开放性咨询的目标。",
+        "qaId": "daily_013_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "daily_013_sub_1_qa_2_choice_1",
+      "subSceneId": "daily_013_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户在图书馆想了解借书的限制和续借政策",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'd like to know the borrowing limits and if I can renew the books later.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How many books can I steal?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I just take books home without signing anything?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Are books free? I don't have money.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确询问了借阅数量和续借政策，语言礼貌且信息完整，符合学习要求。选项2用词不当（steal）且不礼貌；选项3预设了违规行为，不符合正常咨询语境；选项4聚焦于付费问题，与图书馆借阅机制无关。",
+        "qaId": "daily_013_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:57.795Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

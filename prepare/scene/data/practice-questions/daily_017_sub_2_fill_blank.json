@@ -33,70 +33,6 @@
       }
     },
     {
-      "id": "daily_017_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "daily_017_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问某物是否存在时，常用一般疑问句结构 'Do you have...?'",
-        "qaId": "daily_017_sub_2_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "Do",
-            "options": [
-              "Are",
-              "Can",
-              "Do",
-              "Will"
-            ]
-          },
-          {
-            "index": 1,
-            "answer": "ripe mangoes",
-            "options": [
-              "fresh apples",
-              "ripe mangoes",
-              "sweet oranges",
-              "big bananas"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想了解水果的价格和可选种类，准备向店员提问",
-        "knowledgePoint": "一般疑问句结构用于询问物品是否存在",
-        "responseTemplate": "___ you have any ___?"
-      }
-    },
-    {
-      "id": "daily_017_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "daily_017_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "注意复数形式和冠词的使用，这里指代的是可数名词的复数形式",
-        "qaId": "daily_017_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "strawberries",
-            "options": [
-              "strawberries",
-              "strawberry's",
-              "the strawberries",
-              "strawberry"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想询问某种水果的价格和可选种类，需要向店员提出一个自然得体的问题",
-        "knowledgePoint": "询问价格的句型结构",
-        "responseTemplate": "How much are these ___?"
-      }
-    },
-    {
       "id": "daily_017_sub_2_fill_blank_2",
       "subSceneId": "daily_017_sub_2",
       "type": "fill_blank",
@@ -177,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "询问价格的核心词汇：price"
       }
+    },
+    {
+      "id": "daily_017_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "daily_017_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在水果摊前想了解某种水果的价格",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "How much are ______?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "these apples",
+            "options": [
+              "these apples",
+              "these apple",
+              "this apples",
+              "the apples"
+            ]
+          }
+        ],
+        "hint": "询问复数名词的价格时，用 'How much are...' + 复数名词",
+        "knowledgePoint": "询问价格的口语句型",
+        "qaId": "daily_017_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "daily_017_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "daily_017_sub_2",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客想确认水果摊是否有某种特定成熟度的水果",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Do you have any ______ kiwis?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "ripe",
+            "options": [
+              "ripe",
+              "red",
+              "big",
+              "fresh"
+            ]
+          }
+        ],
+        "hint": "描述水果成熟度时，'ripe' 是最准确、最常用的词",
+        "knowledgePoint": "描述水果状态的高频形容词",
+        "qaId": "daily_017_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:04:36.709Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

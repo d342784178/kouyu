@@ -5,50 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.230Z",
   "questions": [
     {
-      "id": "travel_068_sub_4_qa_2_speaking_1",
-      "subSceneId": "travel_068_sub_4",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_068_sub_4_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "游客询问休息安排，导游提供信息",
-        "expectedAnswers": [
-          "What are the extra fees for the rest area?",
-          "Is there an additional cost for the rest stop?",
-          "What's the entrance fee to the rest area?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问休息安排和费用",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
-      "id": "travel_068_sub_4_qa_1_speaking_1",
-      "subSceneId": "travel_068_sub_4",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_068_sub_4_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "我们已经走了快一小时了，能找个地方休息一下吗？",
-        "expectedAnswers": [
-          "We've been walking for a while, could we take a break now?",
-          "How about we stop for a coffee break soon?",
-          "We've been walking for an hour—any chance we can stop for a rest soon?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达了询问休息的意图",
-          "语言准确性：语法和用词正确",
-          "表达自然度：符合英语口语习惯"
-        ]
-      }
-    },
-    {
       "id": "travel_068_sub_4_speaking_3",
       "subSceneId": "travel_068_sub_4",
       "type": "speaking",
@@ -71,6 +27,60 @@
           "关键词覆盖：是否使用了‘rest’, ‘break’, ‘worn out’, ‘before’等场景关键词"
         ]
       }
+    },
+    {
+      "id": "travel_068_sub_4_qa_1_speaking_1",
+      "subSceneId": "travel_068_sub_4",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在参观途中感到疲惫，想询问下一个休息点在哪里，以及是否需要额外付费",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Where’s the next rest stop? I’m pretty tired.",
+          "Is there a place to take a break soon? And is there an extra fee for it?",
+          "Can we stop somewhere to sit down? Will we need to pay for that?",
+          "How soon until we reach a resting area? Are there any hidden costs?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了休息点的位置和时间",
+          "语言准确性：语法结构正确，时态使用恰当",
+          "表达自然度：是否使用了符合英语口语习惯的表达方式",
+          "关键词覆盖：是否包含 'rest stop', 'break', 'extra fee', 'cost' 等场景关键词"
+        ],
+        "qaId": "travel_068_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "travel_068_sub_4_qa_2_speaking_1",
+      "subSceneId": "travel_068_sub_4",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客即将进入一个收费景点，想确认是否包含在团费中，以及能否用信用卡支付",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Is the entrance fee included in the tour price, or is it extra?",
+          "Do we need to pay separately for this attraction? And can we use a credit card?",
+          "Just to confirm—this site has an additional charge, right? Is cash the only option?",
+          "Are there any extra fees for entering? I’d prefer to pay by card if possible."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰询问了费用是否额外及支付方式",
+          "语言准确性：正确使用了 'included', 'extra', 'credit card', 'cash' 等关键词",
+          "表达自然度：语气礼貌且符合旅游场景中的真实对话习惯",
+          "关键词覆盖：是否包含 'entrance fee', 'extra charge', 'payment method', 'tour price' 等核心词汇"
+        ],
+        "qaId": "travel_068_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:44.519Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

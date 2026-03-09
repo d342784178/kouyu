@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.856Z",
   "questions": [
     {
-      "id": "study_abroad_099_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "study_abroad_099_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问‘包含什么’时，常用‘include’或‘what...includes about’结构",
-        "qaId": "study_abroad_099_sub_2_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "about",
-            "options": [
-              "about",
-              "for",
-              "with",
-              "of"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想了解单人间的费用以及是否包含水电等基本设施，准备向房东提问。",
-        "knowledgePoint": "询问包含内容的提问句型",
-        "responseTemplate": "Could you tell me what the monthly rent includes___?"
-      }
-    },
-    {
       "id": "study_abroad_099_sub_2_fill_blank_1",
       "subSceneId": "study_abroad_099_sub_2",
       "type": "fill_blank",
@@ -57,33 +30,6 @@
         "speakerTextCn": "租金包含网络和水电。",
         "knowledgePoint": "确认服务包含范围的常用表达",
         "responseTemplate": "Does it also cover ______?"
-      }
-    },
-    {
-      "id": "study_abroad_099_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "study_abroad_099_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问包含哪些项目时，常用 'what is included' 结构",
-        "qaId": "study_abroad_099_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "is included",
-            "options": [
-              "is included",
-              "does it include",
-              "are the facilities",
-              "it includes"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想知道单人间的月租费用以及包含哪些设施",
-        "knowledgePoint": "询问包含内容的礼貌提问句型",
-        "responseTemplate": "Could you tell me what the monthly cost is and what ___?"
       }
     },
     {
@@ -167,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "场景核心动词（confirm 用于正式确认信息）"
       }
+    },
+    {
+      "id": "study_abroad_099_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "study_abroad_099_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在咨询住宿费用，想确认月租是否包含水电和网络等基本设施",
+        "speakerText": "The single room's $850/month. That includes WiFi, utilities, and cleaning.",
+        "speakerTextCn": "单人间每月850美元，含网费、水电和保洁。",
+        "responseTemplate": "Does the monthly rate include ______?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "utilities and WiFi",
+            "options": [
+              "utilities and WiFi",
+              "laundry and parking",
+              "breakfast and cleaning",
+              "internet and cable"
+            ]
+          }
+        ],
+        "hint": "询问费用是否包含基本生活服务，如水电、网络等",
+        "knowledgePoint": "询问费用包含项的常用句型",
+        "qaId": "study_abroad_099_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "study_abroad_099_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "study_abroad_099_sub_2",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想确认押金是否可退，以及退还条件",
+        "speakerText": "Deposit's $300, refundable when you move out clean.",
+        "speakerTextCn": "押金300美元，搬走时房间干净就退。",
+        "responseTemplate": "Is the deposit ______ if I leave the room in good condition?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "refundable",
+            "options": [
+              "refundable",
+              "negotiable",
+              "payable",
+              "optional"
+            ]
+          }
+        ],
+        "hint": "询问押金在满足条件时是否可以退还",
+        "knowledgePoint": "询问押金退还条件的核心词汇",
+        "qaId": "study_abroad_099_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:09:07.365Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

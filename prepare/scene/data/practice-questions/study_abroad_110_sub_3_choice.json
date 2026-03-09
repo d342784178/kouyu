@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.999Z",
   "questions": [
     {
-      "id": "study_abroad_110_sub_3_qa_1_choice_1",
-      "subSceneId": "study_abroad_110_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_110_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What are the steps to apply?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do I need to write an essay?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can I just call you to apply?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How long does it take to get approved?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 \"What are the steps to apply?\"，因为它直接询问流程。其他选项虽然语法正确，但不符合该场景需求或表达不当。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在询问转专业申请的流程，服务员正在解释。"
-      }
-    },
-    {
-      "id": "study_abroad_110_sub_3_qa_2_choice_1",
-      "subSceneId": "study_abroad_110_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_110_sub_3_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What are the steps to apply for transfer?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Can you tell me the deadline to apply for transfer?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "When's the deadline to apply for next semester?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_4",
-            "text": "How long does it take to get accepted for transfer?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案\"When's the deadline to apply for next semester?\"是因为它直接询问了转专业申请的截止日期，符合场景需求。其他选项虽然语法正确，但不符合场景需求或询问的信息",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想询问转专业申请流程的截止日期"
-      }
-    },
-    {
       "id": "study_abroad_110_sub_3_choice_3",
       "subSceneId": "study_abroad_110_sub_3",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我想转到计算机科学专业，我该准备哪些材料？"
       }
+    },
+    {
+      "id": "study_abroad_110_sub_3_qa_1_choice_1",
+      "subSceneId": "study_abroad_110_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你打算下学期转到计算机科学专业，想了解具体的申请步骤和所需材料",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What documents do I need to submit for the major change, and is there a recommended timeline?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I just switch majors without any paperwork?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is the computer science department accepting transfers this semester?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Tell me how to fill out the form.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案主动询问所需材料和建议时间线，符合高效沟通原则。选项2假设流程简单，忽略必要步骤；选项3只问是否开放，未涉及流程；选项4聚焦填表，但未全面了解要求，属于片面提问。",
+        "qaId": "study_abroad_110_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "study_abroad_110_sub_3_qa_2_choice_1",
+      "subSceneId": "study_abroad_110_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你计划申请转到设计系，想知道截止日期以及是否需要提前预约系主任面谈",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What’s the deadline for the design major transfer, and should I schedule a meeting with the department chair in advance?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "When does the application close again?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do I need to talk to the chair? I’m not sure if that’s required.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I apply after the deadline if I have a good reason?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案同时询问截止日期和是否需提前预约，体现主动性和全面性。选项2仅问截止日，未追问建议时间；选项3是被动确认，缺乏主动性；选项4假设例外情况，偏离当前申请阶段的核心信息需求。",
+        "qaId": "study_abroad_110_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:16.631Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

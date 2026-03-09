@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.503Z",
   "questions": [
     {
-      "id": "daily_009_sub_1_qa_2_choice_1",
-      "subSceneId": "daily_009_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_009_sub_1_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "I'd like to fill up, please.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you have gasoline?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How much is the fuel?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can you help me?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案'I'd like to fill up, please.'直接、礼貌地表达了加满油的需求，符合加油站服务场景。选项'Do you have gasoline?'是询问是否有油，而非提出服务请求；'How much is the fuel?'关注价格而非需求，不符合先提出需求的场景逻辑；'Can you help me?'过于笼统，未说明具体需求，不够明确自然。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客走进加油站，准备向员工提出加油需求，希望礼貌且清晰地表达想加满油"
-      }
-    },
-    {
       "id": "daily_009_sub_1_choice_1",
       "subSceneId": "daily_009_sub_1",
       "type": "choice",
@@ -73,41 +38,6 @@
         "speakerText": "Hi, can you help me with gas?",
         "dialogueMode": "user_responds",
         "speakerTextCn": "嗨，你能帮我加点油吗？"
-      }
-    },
-    {
-      "id": "daily_009_sub_1_qa_1_choice_1",
-      "subSceneId": "daily_009_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_009_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Hey there! Can I get some gas, please?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Hi! 我想买点东西",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "嘿！你们有加油服务吗？",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "您好！我需要一些汽油吗？",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案\"Hey there! Can I get some gas, please?\"符合场景需求，直接表达了顾客的需求。其他选项不正确，因为它们没有直接表达需求，或者表达不自然",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客向加油站员工打招呼并说明需要加油"
       }
     },
     {
@@ -181,6 +111,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "嗨，我想加点油。"
       }
+    },
+    {
+      "id": "daily_009_sub_1_qa_1_choice_1",
+      "subSceneId": "daily_009_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客走进加油站，准备为自己的汽车加油，需要向员工提出加油请求",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I get some gas, please?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much does gas cost here?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you sell oil for cars?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I need to pay for my car.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Can I get some gas, please?' 是加油站场景中最自然、高频的顾客请求表达，直接表明需求。干扰项 'How much does gas cost here?' 是询问价格而非请求服务，不符合场景核心任务；'Do you sell oil for cars?' 表达错误，加油站不卖 'oil' 而是 'gas'；'I need to pay for my car.' 与加油无关，答非所问。",
+        "qaId": "daily_009_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "daily_009_sub_1_qa_2_choice_1",
+      "subSceneId": "daily_009_sub_1",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在加油站排队，轮到自己时想直接说明要加满油",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'd like to fill up, please.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you fix my tire?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is this pump working?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "How long does it take to fill the tank?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'I'd like to fill up, please.' 是表达加满油的地道口语，符合日常使用习惯。干扰项 'Can you fix my tire?' 是维修请求，与加油无关；'Is this pump working?' 是设备询问，非服务请求；'How long does it take to fill the tank?' 是询问时间，未明确表达需求，属于偏离核心任务的提问。",
+        "qaId": "daily_009_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:33.868Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

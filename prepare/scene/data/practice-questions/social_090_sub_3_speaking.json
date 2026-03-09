@@ -5,51 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.765Z",
   "questions": [
     {
-      "id": "social_090_sub_3_qa_1_speaking_1",
-      "subSceneId": "social_090_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "social_090_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户提出问题，等待对方回答，例如想问问Q3报告的事，有空一起过一下吗？",
-        "expectedAnswers": [
-          "对了，想问问Q3报告的事，有空一起过一下吗？",
-          "Q3报告的事情，还是有空吗？",
-          "Q3报告，咱们有空再聊一下吧？"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "social_090_sub_3_qa_2_speaking_1",
-      "subSceneId": "social_090_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "social_090_sub_3_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你准备进入正题，想讨论新客户的截止日期，但还想听听对方的意见",
-        "expectedAnswers": [
-          "So, what's your take on the new client deadline?",
-          "What do you think about the new client deadline?",
-          "How do you feel about the new client deadline?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问对方意见的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
       "id": "social_090_sub_3_speaking_3",
       "subSceneId": "social_090_sub_3",
       "type": "speaking",
@@ -73,6 +28,60 @@
           "关键词覆盖：是否使用了 shift gears, marketing plan, quarter, target, draft 等场景关键词"
         ]
       }
+    },
+    {
+      "id": "social_090_sub_3_qa_1_speaking_1",
+      "subSceneId": "social_090_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你和同事在茶水间偶遇，想自然地把话题转向本周的项目进度讨论，主动提出询问对方的意见或安排",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "By the way, have you had a chance to review the project timeline for this week?",
+          "Could we quickly sync on the deliverables before lunch?",
+          "What’s your current priority on the client proposal?",
+          "Do you think we should adjust the task allocation for the sprint?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否成功将对话自然过渡到工作主题",
+          "语言准确性：语法和时态使用是否正确",
+          "表达自然度：是否符合职场口语习惯，避免生硬或过于正式",
+          "关键词覆盖：是否使用了与项目、时间、任务相关的关键词如 timeline, deliverables, priority, allocation"
+        ],
+        "qaId": "social_090_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "social_090_sub_3_qa_2_speaking_1",
+      "subSceneId": "social_090_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在视频会议开始前，想引导团队进入正式议程，主动发起对下一步行动的讨论",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Shall we dive into the action items from last week’s meeting?",
+          "What’s the biggest blocker we need to tackle today?",
+          "Let’s go over the key milestones—any concerns from your side?",
+          "Before we move on, can we confirm the deadline for Phase 2?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否有效引导会议进入核心议题",
+          "语言准确性：使用了恰当的引导短语和疑问结构",
+          "表达自然度：语气礼貌但直接，符合职场会议语境",
+          "关键词覆盖：是否包含 action items, blocker, milestone, deadline 等关键术语"
+        ],
+        "qaId": "social_090_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:07:33.408Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

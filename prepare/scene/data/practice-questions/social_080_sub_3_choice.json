@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.694Z",
   "questions": [
     {
-      "id": "social_080_sub_3_qa_1_choice_1",
-      "subSceneId": "social_080_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "social_080_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "I'm having a small get-together on Dec 28th — you free?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What are you doing on Dec 28th?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Are you free on Dec 28th? I need to know.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I'm free on Dec 28th, are you?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案直接提出邀请并自然询问对方空闲情况，符合社交场合的礼貌和语用习惯。选项2是单纯询问对方计划，未表达自身意图，显得突兀；选项3语气生硬，缺乏社交润滑；选项4颠倒了邀请逻辑，先说自己有空再问对方，不符合通常由发起方主动提出安排的社交规范。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想确认朋友在12月28日是否有空，以便安排一次小型聚会，避免时间冲突。"
-      }
-    },
-    {
       "id": "social_080_sub_3_choice_2",
       "subSceneId": "social_080_sub_3",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我计划新年当天家庭早午餐，你愿意来吗？"
       }
+    },
+    {
+      "id": "social_080_sub_3_qa_1_choice_1",
+      "subSceneId": "social_080_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你计划在圣诞节前邀请朋友聚餐，想确认对方是否有空，以便安排时间。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Are you free on December 23rd for dinner? I'd love to get together before Christmas.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'm having dinner on December 23rd, are you coming?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you like Christmas dinner? I heard the restaurant is great.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you tell me what you're doing on December 23rd?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接提出具体时间与邀请意图，符合礼貌且清晰的社交询问。选项2是陈述自己的计划而非询问对方，不符合'用户主动提问'的要求；选项3是泛泛询问喜好，未涉及时间安排；选项4虽询问日程，但语气生硬，缺乏邀请意图，不够自然友好。",
+        "qaId": "social_080_sub_3_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:06:31.405Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

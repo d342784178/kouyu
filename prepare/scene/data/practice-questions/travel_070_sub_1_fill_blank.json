@@ -5,43 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.247Z",
   "questions": [
     {
-      "id": "travel_070_sub_1_qa_1_fill_blank_1",
-      "subSceneId": "travel_070_sub_1",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "礼貌地询问姓名和航班信息",
-        "qaId": "travel_070_sub_1_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "caller",
-            "options": [
-              "乘客",
-              "客服",
-              "航班",
-              "电话"
-            ]
-          },
-          {
-            "index": 1,
-            "answer": "flight",
-            "options": [
-              "航班",
-              "票价",
-              "乘客",
-              "客服"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "客服接听电话后，应询问用户姓名和航班信息",
-        "knowledgePoint": "开场致意",
-        "responseTemplate": "您好，我是___ calling about my___."
-      }
-    },
-    {
       "id": "travel_070_sub_1_fill_blank_1",
       "subSceneId": "travel_070_sub_1",
       "type": "fill_blank",
@@ -176,6 +139,37 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "正式场合中‘修改预订’的动词搭配（modify/adjust a booking）"
       }
+    },
+    {
+      "id": "travel_070_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "travel_070_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你打电话给航空公司客服，礼貌地说明来电目的，请求帮助修改航班安排",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Hi, I'm calling to ___ my flight because of a change in plans.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "reschedule",
+            "options": [
+              "reschedule",
+              "cancel",
+              "book",
+              "check"
+            ]
+          }
+        ],
+        "hint": "使用一个表示‘更改时间或安排’的动词，常用于航班调整场景",
+        "knowledgePoint": "礼貌请求服务的高频动词搭配",
+        "qaId": "travel_070_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:35.851Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

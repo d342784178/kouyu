@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.435Z",
   "questions": [
     {
-      "id": "workplace_040_sub_2_qa_2_choice_1",
-      "subSceneId": "workplace_040_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_040_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What's the current project timeline?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Are there any major blockers slowing things down?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_3",
-            "text": "How many team members are working on this project?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "What's the total budget for this project?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 'Are there any major blockers slowing things down?'，因为它直接问出了阻碍进度的主要问题。其他选项虽然与项目有关，但并没有直接回答阻碍进度的问题。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "正在汇报项目进度，希望了解是否有任何阻碍拖慢进度"
-      }
-    },
-    {
-      "id": "workplace_040_sub_2_qa_1_choice_1",
-      "subSceneId": "workplace_040_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_040_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "So how's the client onboarding project coming along?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What's the budget for the client onboarding project?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How many clients have we onboarded so far?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "When will the client onboarding project be finished?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案\"So how's the client onboarding project coming along?\"是因为它直接询问项目进展，符合场景需求。其他选项虽然语法正确，但不符合场景需求，例如\"What's the budget for the client onboarding project?\"询问预算，与场景无关。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在与项目经理讨论项目进度，想知道客户入驻项目当前的状态"
-      }
-    },
-    {
       "id": "workplace_040_sub_2_choice_3",
       "subSceneId": "workplace_040_sub_2",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "你能给我更新一下Q3营销活动的进展吗？"
       }
+    },
+    {
+      "id": "workplace_040_sub_2_qa_1_choice_1",
+      "subSceneId": "workplace_040_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在与项目经理同步项目进展，需要询问当前阶段的关键数据完成情况，以便进行下一步规划。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How are things going with the project?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "What percentage of the target milestones have we achieved so far?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you finish this by Friday?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Did you have any problems with the team?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案询问的是具体的数据完成率，符合‘用数据支撑汇报’的学习要求。选项1过于笼统，无法引导出具体数据；选项3是催促截止时间，非进度询问；选项4聚焦团队问题，偏离了‘关键数据’的核心目标。",
+        "qaId": "workplace_040_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "workplace_040_sub_2_qa_2_choice_1",
+      "subSceneId": "workplace_040_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在参加项目周会，需要主动询问当前是否存在影响整体进度的障碍，以便提前协调资源解决。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is the project on track?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Are there any dependencies or bottlenecks we need to address this week?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "Who is responsible for the delay?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can we skip the next milestone?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确指向‘依赖项’和‘瓶颈’，符合‘说明问题时带解决方案倾向’的学习要求。选项1仅询问整体状态，不聚焦障碍；选项3指责责任人，语气不当且无助于解决；选项4提出不合理建议，不符合职场沟通规范。",
+        "qaId": "workplace_040_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:04.963Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.113Z",
   "questions": [
     {
-      "id": "travel_061_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "travel_061_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "这是英语中询问人数和时间的标准简洁表达，常用于服务场景。",
-        "qaId": "travel_061_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "How many people and what time",
-            "options": [
-              "How many people and what time",
-              "How many people are coming and when",
-              "What is the number and the time",
-              "Could you tell me the number and time"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在预订服务时，想确认参与人数和具体时段，向服务人员询问相关信息。",
-        "knowledgePoint": "标准提问句型结构",
-        "responseTemplate": "Sure! ___?"
-      }
-    },
-    {
       "id": "travel_061_sub_2_fill_blank_1",
       "subSceneId": "travel_061_sub_2",
       "type": "fill_blank",
@@ -170,6 +143,57 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "动词搭配（book a table 固定表达）"
       }
+    },
+    {
+      "id": "travel_061_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "travel_061_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在餐厅预订桌位，需要告诉服务员人数、时间，并礼貌地提出特殊要求",
+        "speakerText": "Sure! How many people and what time?",
+        "speakerTextCn": "好的！几位？几点？",
+        "responseTemplate": "___ people at ___, and we'd love ___ if possible.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Some",
+            "options": [
+              "Some",
+              "A few",
+              "The number of",
+              "How many"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "a certain time",
+            "options": [
+              "a certain time",
+              "the evening",
+              "tonight",
+              "that hour"
+            ]
+          },
+          {
+            "index": 2,
+            "answer": "a window seat",
+            "options": [
+              "a window seat",
+              "the best table",
+              "a quiet corner",
+              "a high chair"
+            ]
+          }
+        ],
+        "hint": "用 'if possible' 让请求更礼貌，空格中应填入通用表达，避免具体数字或时间",
+        "knowledgePoint": "礼貌表达需求的结构化句型",
+        "qaId": "travel_061_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:29.320Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

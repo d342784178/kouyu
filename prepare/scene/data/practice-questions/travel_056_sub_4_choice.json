@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.060Z",
   "questions": [
     {
-      "id": "travel_056_sub_4_qa_2_choice_1",
-      "subSceneId": "travel_056_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_056_sub_4_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What time does the breakfast start?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Is the WiFi free?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_3",
-            "text": "Do you have a gym in the hotel?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Is the breakfast included in the room price?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确的选项‘Is the WiFi free?’是因为顾客询问WiFi和早餐的时间，正确的回答应该是关于WiFi的使用情况。其他选项不符合场景的需求，或者提问不当。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客：'Could you tell me about the WiFi and breakfast?'"
-      }
-    },
-    {
-      "id": "travel_056_sub_4_qa_1_choice_1",
-      "subSceneId": "travel_056_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_056_sub_4_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What time is breakfast?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_2",
-            "text": "Is the WiFi free?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_3",
-            "text": "Can I have a map?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "When is the lunch?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案 'Is the WiFi free?' 是一个合适的问题，直接询问WiFi的费用。其他选项不合适，'What time is breakfast?' 只问了早餐的时间，而没有问WiFi相关的问题，'Can I have a map?' 不相关，'When is the lunch?' 还是问了一个不相关的问题",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客：'Could you tell me about the WiFi and breakfast?'"
-      }
-    },
-    {
       "id": "travel_056_sub_4_choice_3",
       "subSceneId": "travel_056_sub_4",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我正在办理入住，能告诉我早餐包含咖啡吗？"
       }
+    },
+    {
+      "id": "travel_056_sub_4_qa_1_choice_1",
+      "subSceneId": "travel_056_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在酒店前台办理入住，想了解免费WiFi的密码和早餐供应时间，准备礼貌地询问工作人员。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Could you tell me the WiFi password and when breakfast is served?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is the WiFi free? I hope it's fast.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "What time do you stop serving breakfast?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get breakfast in my room?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接、礼貌地同时询问WiFi密码和早餐时间，符合场景核心任务。选项2只问WiFi速度，忽略了密码和早餐；选项3只问早餐结束时间，未提WiFi；选项4转向房间送餐，偏离了原问题焦点。",
+        "qaId": "travel_056_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "travel_056_sub_4_qa_2_choice_1",
+      "subSceneId": "travel_056_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你刚入住酒店，想确认WiFi是否需要额外付费，以及早餐是否包含在房费里，准备向工作人员提问。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is the WiFi included in the room rate, and is breakfast also covered?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you have strong WiFi in the lobby?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How much does breakfast cost if I want to order extra?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get the WiFi password now?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案清晰询问WiFi和早餐是否包含在房费中，精准回应潜在需求。选项2只关注公共区域信号，无关付费问题；选项3假设早餐不包含，偏离了确认性提问；选项4只问密码，未涉及费用，信息不完整。",
+        "qaId": "travel_056_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:24.882Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

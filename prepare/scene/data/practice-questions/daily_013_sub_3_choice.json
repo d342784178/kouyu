@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.538Z",
   "questions": [
     {
-      "id": "daily_013_sub_3_qa_2_choice_1",
-      "subSceneId": "daily_013_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_013_sub_3_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What if the system says 'Cannot renew'?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can I renew my books online?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How many times can I renew a book?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I can't renew, what should I do?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案询问系统提示‘无法续借’时的应对方式，符合场景中用户对异常情况的关切。选项2是已由工作人员回答过的问题，属于重复提问；选项3询问续借次数，与异常处理无关；选项4表达不自然且语法不完整，缺少引导性结构，不符合地道英语提问习惯。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户询问续借服务，工作人员回答是否可以在线操作。用户想进一步了解如果系统提示无法续借时该如何处理。"
-      }
-    },
-    {
-      "id": "daily_013_sub_3_qa_1_choice_1",
-      "subSceneId": "daily_013_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_013_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Can I renew my books online?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How do I renew my books?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can I renew my books by phone?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Do I need to come to the library to renew my books?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是Can I renew my books online？因为这个问题直接询问是否可以在线续借，符合场景需求。其他选项不正确，因为它们没有直接询问是否可以在线续借。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户询问续借服务，工作人员回答是否可以在线操作"
-      }
-    },
-    {
       "id": "daily_013_sub_3_choice_1",
       "subSceneId": "daily_013_sub_3",
       "type": "choice",
@@ -181,6 +111,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "所有的书都能续借吗？"
       }
+    },
+    {
+      "id": "daily_013_sub_3_qa_1_choice_1",
+      "subSceneId": "daily_013_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户在图书馆借了两本书，快到期了，想确认是否能通过手机App续借，以及具体怎么操作。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I renew my books using the library app?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How much is the fine if I don't return the books on time?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you renew my books for me at the counter?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Why can't I renew my books online?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案询问的是是否可以通过App续借，符合场景中用户想确认操作方式的需求。选项2聚焦罚款，与续借操作无关；选项3假设人工办理，偏离了用户想了解自助操作的意图；选项4预设了无法续借的前提，不符合当前情境（用户尚未尝试，只是想了解可能性）。",
+        "qaId": "daily_013_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "daily_013_sub_3_qa_2_choice_1",
+      "subSceneId": "daily_013_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户想续借一本热门图书，担心被他人预约，想确认续借前是否需要检查是否有预约记录。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do I need to check if someone has placed a hold before I renew?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I renew all my books at once?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How many books can I borrow in total?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What time does the library close today?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接针对续借前的关键限制条件——是否有预约，是用户在续借热门图书时最关心的问题。选项2虽相关但未触及预约风险；选项3是借阅限额问题，与续借无关；选项4完全偏离主题，属于无关信息。",
+        "qaId": "daily_013_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:04:00.298Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

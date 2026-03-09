@@ -5,51 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.097Z",
   "questions": [
     {
-      "id": "travel_059_sub_2_qa_2_speaking_1",
-      "subSceneId": "travel_059_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_059_sub_2_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在游览一家博物馆，工作人员站在售票处。你想知道是否有家庭或团体优惠，怎样才能节省一些钱。",
-        "expectedAnswers": [
-          "Do you have any family or group deals?",
-          "Is there a discount for families or groups?",
-          "Are there any deals for families or groups?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "travel_059_sub_2_qa_1_speaking_1",
-      "subSceneId": "travel_059_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_059_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你走进一家门票售票处，询问成人门票的价格和是否有折扣。",
-        "expectedAnswers": [
-          "How much is the entry ticket for adults?",
-          "What's the price for adult tickets?",
-          "How much does it cost for an adult ticket?"
-        ],
-        "evaluationCriteria": [
-          "是否正确表达了询问门票价格的意图",
-          "是否使用了场景中的关键词（成人门票）",
-          "语言表达是否自然和流畅"
-        ]
-      }
-    },
-    {
       "id": "travel_059_sub_2_speaking_3",
       "subSceneId": "travel_059_sub_2",
       "type": "speaking",
@@ -72,6 +27,60 @@
           "关键词覆盖：包含 'save', 'discount', 'online', 'group', 'family', 'ticket'"
         ]
       }
+    },
+    {
+      "id": "travel_059_sub_2_qa_1_speaking_1",
+      "subSceneId": "travel_059_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客在景点售票处，想了解成人门票价格以及是否有任何折扣（如学生、老年人或团体优惠）",
+        "speakerText": "How much does an adult ticket cost, and do you offer any discounts for students, seniors, or groups?",
+        "speakerTextCn": "成人票多少钱？有没有针对学生、老年人或团体的折扣？",
+        "expectedAnswers": [
+          "It's $30 for adults, but students and seniors get 20% off with ID.",
+          "Adult tickets are $30. If you're a group of five or more, we offer a 15% discount.",
+          "Thirty dollars per person. Seniors pay $24 and students pay $21 with valid ID.",
+          "The regular price is $30, but we have a family pass for two adults and two kids at $80."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了成人票价和至少一种折扣类型",
+          "语言准确性：语法正确，时态和冠词使用恰当",
+          "表达自然度：符合英语母语者在售票处的日常问法",
+          "关键词覆盖：使用了 'adult ticket', 'discounts', 'students/seniors/groups' 等场景关键词"
+        ],
+        "qaId": "travel_059_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "travel_059_sub_2_qa_2_speaking_1",
+      "subSceneId": "travel_059_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "游客计划带家人参观博物馆，想确认是否有家庭套票或优惠组合可节省开支",
+        "speakerText": "Do you have a family package or any deals for visiting with children?",
+        "speakerTextCn": "你们有家庭套票吗？带孩子参观有没有优惠？",
+        "expectedAnswers": [
+          "Yes! Our family pass covers 2 adults and up to 3 kids for $65.",
+          "We don’t have a fixed package, but kids under 12 get in free with a paying adult.",
+          "Family deal: buy 2 tickets, get the third at half price — perfect for parents with one child.",
+          "No group packages, but if you book online, you save 10% on all tickets including children’s."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了家庭或儿童相关优惠",
+          "语言准确性：正确使用了 'family package', 'deal', 'children' 等词汇",
+          "表达自然度：符合游客在家庭出行时的常见提问方式",
+          "关键词覆盖：使用了 'family', 'children', 'deal', 'package' 等核心关键词"
+        ],
+        "qaId": "travel_059_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:43.796Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

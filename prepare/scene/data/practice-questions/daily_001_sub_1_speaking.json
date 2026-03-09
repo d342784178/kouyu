@@ -5,98 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.429Z",
   "questions": [
     {
-      "id": "daily_001_sub_1_qa_1_speaking_1",
-      "subSceneId": "daily_001_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_001_sub_1_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "您好！服务员正在引导您入座，请问一下有空位吗？",
-        "expectedAnswers": [
-          "Hi, is there a table available?",
-          "Hi, any table for one?",
-          "Hi, is there a seat available?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达询问空位",
-          "语言准确性：语法和用词正确",
-          "表达自然度：符合英语口语习惯",
-          "关键词覆盖：使用了‘table’和‘available’"
-        ]
-      }
-    },
-    {
-      "id": "daily_001_sub_1_qa_2_speaking_1",
-      "subSceneId": "daily_001_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_001_sub_1_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "服务员引导入座并问候，顾客主动询问座位位置",
-        "expectedAnswers": [
-          "Would you prefer a window seat or a booth?",
-          "Which one would you like, a window seat or a booth?",
-          "Do you want to sit by the window or in a booth?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了座位位置的关键词"
-        ]
-      }
-    },
-    {
-      "id": "daily_001_sub_1_qa_4_speaking_1",
-      "subSceneId": "daily_001_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_001_sub_1_qa_4",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "服务员正在为您服务，您想询问一下点餐时间",
-        "expectedAnswers": [
-          "What's the estimated wait time for the food?",
-          "How long will it take to get our food?",
-          "Can you tell me how long it'll take to get our orders?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问点餐时间的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
-      "id": "daily_001_sub_1_qa_3_speaking_1",
-      "subSceneId": "daily_001_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_001_sub_1_qa_3",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "服务员引导你入座后，递上菜单，你希望主动询问是否可以点饮料。",
-        "expectedAnswers": [
-          "Can I get something to drink while I look at the menu?",
-          "Could you recommend a drink to start with?",
-          "Do you have any special cocktails or house beverages?",
-          "What drinks do you recommend with the menu?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问饮料的意图",
-          "语言准确性：语法和用词是否正确，无明显错误",
-          "表达自然度：是否符合英语口语中服务员与顾客的自然互动习惯",
-          "关键词覆盖：是否包含'menu'、'drink'或相关词汇"
-        ]
-      }
-    },
-    {
       "id": "daily_001_sub_1_speaking_2",
       "subSceneId": "daily_001_sub_1",
       "type": "speaking",
@@ -141,6 +49,56 @@
           "表达自然度：语气自然，可包含适度补充信息"
         ]
       }
+    },
+    {
+      "id": "daily_001_sub_1_qa_1_speaking_1",
+      "subSceneId": "daily_001_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客刚进入餐厅，服务员走过来询问人数，顾客需要主动说明自己和同伴的人数。",
+        "speakerText": "Hi, welcome! How many in your party?",
+        "speakerTextCn": "您好，欢迎光临！你们几位？",
+        "expectedAnswers": [
+          "Just two, please.",
+          "We're three altogether.",
+          "It's just me today."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰说明了人数",
+          "语言准确性：语法和冠词、复数形式使用正确",
+          "表达自然度：符合日常口语习惯，语气礼貌"
+        ],
+        "qaId": "daily_001_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "daily_001_sub_1_qa_2_speaking_1",
+      "subSceneId": "daily_001_sub_1",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "服务员引导顾客到座位区，询问座位偏好，顾客需要主动表达对座位类型的要求。",
+        "speakerText": "Would you like to sit by the window, in the booth, or at the bar?",
+        "speakerTextCn": "您想坐在靠窗的位置、卡座，还是吧台边？",
+        "expectedAnswers": [
+          "A booth, please—we’d like to be a bit more private.",
+          "By the window, if possible. We love the view.",
+          "The bar seat is fine, thanks."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表达了座位偏好",
+          "语言准确性：使用了恰当的介词和礼貌表达（如 please, if possible）",
+          "表达自然度：符合真实对话中的语调与节奏"
+        ],
+        "qaId": "daily_001_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:08.646Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

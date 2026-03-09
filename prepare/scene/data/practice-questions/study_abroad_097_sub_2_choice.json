@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.837Z",
   "questions": [
     {
-      "id": "study_abroad_097_sub_2_qa_1_choice_1",
-      "subSceneId": "study_abroad_097_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_097_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "How do you justify the use of AI in education with such limited evidence?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What's the average salary of someone who uses AI in education?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you explain your research methodology in more detail?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Do you think AI will replace human teachers?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案“How do you justify the use of AI in education with such limited evidence?”是针对学生回答的合理追问，因为它要求学生提供更广泛的证据来支持他们的主张。其他选项不符合场景要求，无法有效追问学生的核心论点。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "教授提问，学生回答"
-      }
-    },
-    {
-      "id": "study_abroad_097_sub_2_qa_2_choice_1",
-      "subSceneId": "study_abroad_097_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_097_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Why did you choose qualitative interviews over surveys?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Are qualitative interviews better than surveys?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How many participants did you interview?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can you explain your research design?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案直接追问方法选择背后的理由，符合教授意图。干扰项1是评价性问题，偏离了‘为何选择’的探究核心；干扰项2聚焦样本数量，属于执行细节而非方法论依据；干扰项3过于宽泛，未聚焦于方法对比这一关键点。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "教授在听取学生的研究方法陈述后，针对其选择质性访谈而非问卷调查的决策提出追问，学生需要回应。此时，学生应提出一个能引导教授解释方法选择理由的恰当问题。"
-      }
-    },
-    {
       "id": "study_abroad_097_sub_2_choice_3",
       "subSceneId": "study_abroad_097_sub_2",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "你的结论称AI降低了辍学率，但你没有长期追踪学生，如何声称因果关系？"
       }
+    },
+    {
+      "id": "study_abroad_097_sub_2_qa_1_choice_1",
+      "subSceneId": "study_abroad_097_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "教授在听取学生的研究汇报时，对研究方法的代表性提出质疑，学生需要解释为何选择特定样本或方法。",
+        "speakerText": "Your findings are based on interviews with only 12 graduate students—how can you claim these results reflect the broader undergraduate population?",
+        "speakerTextCn": "你的发现仅基于对12名研究生的访谈——你如何能声称这些结果能反映更广泛的本科生群体？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I picked graduate students because they're more articulate and gave deeper insights.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "The sample was limited, but graduate students in my university mirror undergraduate learning behaviors in key areas like tech adoption and academic motivation.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I didn't have time to survey undergraduates, so I used whoever was available.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "All students are the same anyway—why does it matter who I interviewed?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案通过将样本与目标群体建立逻辑关联（研究生在技术采纳和学习动机上与本科生具有可比性），体现了学术严谨性。干扰项1是主观理由，未提供依据；干扰项3暴露研究设计缺陷，缺乏学术诚信；干扰项4完全否定研究差异，违背基本研究伦理。",
+        "qaId": "study_abroad_097_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "study_abroad_097_sub_2_qa_2_choice_1",
+      "subSceneId": "study_abroad_097_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "教授在学生展示研究结论后，质疑其结论的因果性，学生需解释如何排除其他变量影响。",
+        "speakerText": "You say AI tools increased student participation, but didn't the semester-long project requirement also play a role?",
+        "speakerTextCn": "你说AI工具提升了学生参与度，但整个学期的项目要求难道没有影响吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "The project was mandatory for everyone, so it can't explain why only some students became more active.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I didn't think about that—I just focused on the AI tool's impact.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Project requirements were too vague to affect participation meaningfully.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Students didn't even notice the project—it was all about the AI.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案通过区分变量影响范围（项目要求对所有人相同，而AI影响仅体现在部分学生），合理排除混杂变量，体现因果推理能力。干扰项2回避问题，暴露思维缺陷；干扰项3和4都武断否定其他变量，缺乏实证支持，不符合学术规范。",
+        "qaId": "study_abroad_097_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:08:54.235Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

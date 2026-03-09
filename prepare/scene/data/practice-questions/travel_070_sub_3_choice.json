@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.251Z",
   "questions": [
     {
-      "id": "travel_070_sub_3_qa_1_choice_1",
-      "subSceneId": "travel_070_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_070_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Could you tell me what available times you have?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you have any flights on the 15th?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "I want to book a flight now.",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "What time is it now?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案询问的是可用时间，符合乘客希望了解空位的意图。选项2只限定在15号，范围过窄，不符合开放性询问的要求。选项3是陈述句，不是提问，无法引导客服提供信息。选项4与航班空位完全无关，属于理解偏差。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "乘客想了解有哪些可用的航班时间，客服提供了两个选项，乘客需要提出一个自然且符合场景的询问来获取这些信息。"
-      }
-    },
-    {
       "id": "travel_070_sub_3_choice_2",
       "subSceneId": "travel_070_sub_3",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我们可以在22号下午2点或23号上午11点为您安排。"
       }
+    },
+    {
+      "id": "travel_070_sub_3_qa_1_choice_1",
+      "subSceneId": "travel_070_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在预订机票，客服告诉你有几个可选日期，你想表达你更倾向某个时间，同时礼貌地询问是否有更早的选项。",
+        "speakerText": "We have openings on the 15th at 10 a.m. or the 16th at 3 p.m.",
+        "speakerTextCn": "15号上午10点或16号下午3点有空位。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I have the 15th at 10 a.m.? Is there anything earlier than that?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I don’t like the 15th. Do you have anything on the 14th?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "What time is the cheapest flight?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "The 16th at 3 p.m. sounds good, but can I change it later?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确表达了偏好（15号10点）并礼貌询问更早选项，符合‘优先表达偏好，再询问替代方案’的学习要求。选项2直接否定推荐时间，语气生硬；选项3偏离主题，询问价格而非时间；选项4接受较晚时间，与‘寻求更早选项’的意图不符。",
+        "qaId": "travel_070_sub_3_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:40.947Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

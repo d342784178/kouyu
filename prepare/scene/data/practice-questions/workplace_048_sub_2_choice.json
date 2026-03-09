@@ -10,17 +10,20 @@
       "type": "choice",
       "order": 1,
       "content": {
-        "qaId": "workplace_048_sub_2_qa_1",
         "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "新员工第一次使用公司报销系统，不知道如何登录，想向同事询问登录方式和账号信息。",
+        "speakerText": "",
+        "speakerTextCn": "",
         "options": [
           {
             "id": "opt_1",
-            "text": "How do I log into the expense system? I forgot my password.",
+            "text": "How do I log into the expense system, and what’s my username and password?",
             "isCorrect": true
           },
           {
             "id": "opt_2",
-            "text": "Can you send me the expense system link?",
+            "text": "Can you help me reset my password?",
             "isCorrect": false
           },
           {
@@ -30,14 +33,15 @@
           },
           {
             "id": "opt_4",
-            "text": "I need to submit a report, can you help?",
+            "text": "Where can I find the company intranet?",
             "isCorrect": false
           }
         ],
-        "explanation": "正确答案直接询问登录方式并说明忘记密码，符合场景需求。选项2只问链接，未提及账号或密码问题，信息不完整；选项3关注系统是否可用，与登录方式无关；选项4偏离主题，谈论提交报告而非登录问题。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "员工需要登录报销系统，但忘记了登录方式和密码，想向同事寻求帮助。"
+        "explanation": "正确答案直接询问登录方式和账号信息，符合新员工首次使用系统的实际需求。干扰项2只问重置密码，假设用户已知账号，但场景中用户连账号都不清楚；干扰项3只确认系统是否可用，未涉及登录信息；干扰项4只问内网位置，未提及报销系统或账号，偏离核心需求。",
+        "qaId": "workplace_048_sub_2_qa_1"
       }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:38.821Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

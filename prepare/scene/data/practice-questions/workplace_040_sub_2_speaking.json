@@ -5,52 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.436Z",
   "questions": [
     {
-      "id": "workplace_040_sub_2_qa_1_speaking_1",
-      "subSceneId": "workplace_040_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_040_sub_2_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你是项目经理，需要了解客户入驻项目的进展情况。请问客户入驻项目进展如何？",
-        "expectedAnswers": [
-          "So how's the client onboarding project coming along?",
-          "How's the progress on the client onboarding project?",
-          "Can you give me an update on the client onboarding project?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达了询问进展情况的意图",
-          "语言准确性：语法和用词正确",
-          "表达自然度：符合英语口语习惯",
-          "关键词覆盖：使用了‘client onboarding project’这几个关键词"
-        ]
-      }
-    },
-    {
-      "id": "workplace_040_sub_2_qa_2_speaking_1",
-      "subSceneId": "workplace_040_sub_2",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_040_sub_2_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在与团队成员讨论项目进度，需要了解是否有任何阻碍拖慢了项目的推进。",
-        "expectedAnswers": [
-          "Any major blockers slowing things down?",
-          "有没有什么主要的问题或障碍导致进度延迟?",
-          "项目进展中遇到什么困难或瓶颈?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达了询问项目进度的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
       "id": "workplace_040_sub_2_speaking_3",
       "subSceneId": "workplace_040_sub_2",
       "type": "speaking",
@@ -73,6 +27,58 @@
           "关键词覆盖：是否包含 timeline, on schedule, delayed, milestone, launch 等关键词"
         ]
       }
+    },
+    {
+      "id": "workplace_040_sub_2_qa_1_speaking_1",
+      "subSceneId": "workplace_040_sub_2",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在周会上向项目经理询问当前营销活动的进展，需要了解关键指标完成情况",
+        "speakerText": "How are we doing on the Q3 marketing campaign metrics?",
+        "speakerTextCn": "我们本季度的营销活动指标进展如何？",
+        "expectedAnswers": [
+          "We're at 92% of our lead target and 88% on conversion rate—on track to hit the goal.",
+          "Almost there—lead generation is ahead, but conversion is slightly below target.",
+          "Good momentum overall; we’ve exceeded email open rates but need to boost social engagement."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了关键指标进展",
+          "语言准确性：语法和时态使用正确，数据表达清晰",
+          "表达自然度：符合职场口语习惯，避免机械背诵",
+          "关键词覆盖：使用了如 'metrics', 'target', 'conversion rate', 'on track' 等场景关键词"
+        ],
+        "qaId": "workplace_040_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "workplace_040_sub_2_qa_2_speaking_1",
+      "subSceneId": "workplace_040_sub_2",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你作为团队负责人，在每日站会上向成员询问产品迭代的开发进度，关注是否按计划推进",
+        "speakerText": "What’s the status on the feature rollout this week?",
+        "speakerTextCn": "这周的功能上线进展如何？",
+        "expectedAnswers": [
+          "We’ve deployed the core features—UI updates are live, and backend testing is 90% done.",
+          "On schedule: two features are live, one is in QA, and the last one’s delayed by a day.",
+          "Mostly on track, but we’re waiting on QA sign-off for the payment module."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否准确询问了功能发布当前状态",
+          "语言准确性：使用了正确的时态和项目术语（如 'deployed', 'QA', 'on schedule'）",
+          "表达自然度：符合敏捷开发场景中的简洁汇报风格",
+          "关键词覆盖：使用了如 'feature rollout', 'on schedule', 'QA', 'deployed' 等关键词"
+        ],
+        "qaId": "workplace_040_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:56.483Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

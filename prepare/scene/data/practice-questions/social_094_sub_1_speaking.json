@@ -5,28 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.799Z",
   "questions": [
     {
-      "id": "social_094_sub_1_qa_1_speaking_1",
-      "subSceneId": "social_094_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "social_094_sub_1_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在破冰聊天中，主动发起问候是常见的开场方式。",
-        "expectedAnswers": [
-          "Hi, I'm Alex. Are you here for the marketing panel?",
-          "Hey, I'm Alex. You're here for the conference, right?",
-          "Hi, I'm Alex. What brings you to this event?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
       "id": "social_094_sub_1_speaking_2",
       "subSceneId": "social_094_sub_1",
       "type": "speaking",
@@ -71,6 +49,34 @@
           "表达自然度：加入了社交延续元素（如提议喝咖啡、分享期待），促进对话继续"
         ]
       }
+    },
+    {
+      "id": "social_094_sub_1_qa_1_speaking_1",
+      "subSceneId": "social_094_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在一场行业交流会上，看到一位陌生人站在饮料区，想自然地开启对话并自我介绍。",
+        "speakerText": "Hi, I'm Sam. I'm new to this event—have you been here before?",
+        "speakerTextCn": "嗨，我是Sam，我第一次来这个活动，你之前来过吗？",
+        "expectedAnswers": [
+          "Hey Sam, I'm Lisa. I came last year too—it's pretty great!",
+          "Nice to meet you, Sam! I'm Mark. Yeah, I've been to a couple of these.",
+          "Hi Sam! I'm Chloe. First time for me too—hope we find good talks!",
+          "Sam, right? I'm Ben. Been coming here for three years now!"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否成功开启对话并表达友好意图",
+          "语言准确性：语法、时态和人称使用是否正确",
+          "表达自然度：是否符合英语母语者在社交场合的口语习惯",
+          "关键词覆盖：是否使用了 'Hi', 'I'm', 'new', 'before' 等场景关键词"
+        ],
+        "qaId": "social_094_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:08:20.390Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

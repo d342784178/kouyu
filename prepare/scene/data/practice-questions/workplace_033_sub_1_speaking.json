@@ -5,50 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.363Z",
   "questions": [
     {
-      "id": "workplace_033_sub_1_qa_2_speaking_1",
-      "subSceneId": "workplace_033_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_033_sub_1_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顺口问下，给客户的邮件发了吗？",
-        "expectedAnswers": [
-          "Just checking in—was the email to the client sent?",
-          "Did you send the email to the client?",
-          "I just wanted to check if you sent the email to the client"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问邮件状态的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
-      "id": "workplace_033_sub_1_qa_1_speaking_1",
-      "subSceneId": "workplace_033_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_033_sub_1_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "嘿，你有空发项目更新邮件了吗？",
-        "expectedAnswers": [
-          "Hey, did you get a chance to send the project update email?",
-          "Hi, have you sent the project progress email yet?",
-          "Hi, have you had a chance to send the project update email?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问邮件状态的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
       "id": "workplace_033_sub_1_pq_9",
       "subSceneId": "workplace_033_sub_1",
       "type": "speaking",
@@ -71,6 +27,60 @@
           "关键词覆盖：是否包含 'follow up', 'weekly status email', 'sent', 'team' 等核心词汇"
         ]
       }
+    },
+    {
+      "id": "workplace_033_sub_1_qa_1_speaking_1",
+      "subSceneId": "workplace_033_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在跟进一个重要的项目进度邮件，想礼貌询问同事是否已发送，对方是你的团队成员，你们平时关系良好但保持专业。",
+        "speakerText": "Hi, just wanted to check if the project update email has been sent out yet?",
+        "speakerTextCn": "嗨，想确认一下项目更新邮件发出去了吗？",
+        "expectedAnswers": [
+          "I just sent it a few minutes ago—should be in your inbox.",
+          "Not yet, I'm waiting for the finance team to confirm the numbers.",
+          "I'll send it by the end of the hour, I promise.",
+          "Actually, I forgot—thanks for reminding me, I'll send it right away."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰礼貌地询问了邮件发送状态",
+          "语言准确性：语法正确，时态使用恰当（如现在完成时、将来时）",
+          "表达自然度：符合职场口语习惯，语气得体不生硬",
+          "关键词覆盖：使用了 'project update', 'sent', 'email' 等核心词汇"
+        ],
+        "qaId": "workplace_033_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "workplace_033_sub_1_qa_2_speaking_1",
+      "subSceneId": "workplace_033_sub_1",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你作为项目经理，需要确认客户汇报邮件是否已发送，对方是你的上级，语气需保持尊重和专业。",
+        "speakerText": "Could you please let me know if the client’s project status email has been dispatched?",
+        "speakerTextCn": "您能否告知一下客户项目状态邮件是否已发出？",
+        "expectedAnswers": [
+          "Yes, it was sent this morning at 9:30 with all attachments included.",
+          "Not yet—I’m finalizing the executive summary and will send it by noon.",
+          "I’ve scheduled it to go out at 2 PM after the final review.",
+          "I apologize, I overlooked it—I’ll send it immediately."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否以尊重语气准确询问邮件发送状态",
+          "语言准确性：使用正式结构（如 'Could you please', 'dispatched'）且无语法错误",
+          "表达自然度：符合职场向上沟通的语境，避免过于随意",
+          "关键词覆盖：使用了 'client', 'project status', 'email', 'dispatched' 等专业词汇"
+        ],
+        "qaId": "workplace_033_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:28.929Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

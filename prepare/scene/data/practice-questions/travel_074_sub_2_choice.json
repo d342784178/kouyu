@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.309Z",
   "questions": [
     {
-      "id": "travel_074_sub_2_qa_2_choice_1",
-      "subSceneId": "travel_074_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_074_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What time does the high-speed train leave?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can I get a refund if I miss the train?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How long does the train take to get to the next station?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Do you have any trains that leave at midnight?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案\"What time does the high-speed train leave?\"符合场景需求，询问发车时间与车次类型。其他选项不符合场景需求或表达不当。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "询问发车时间与车次类型"
-      }
-    },
-    {
-      "id": "travel_074_sub_2_qa_1_choice_1",
-      "subSceneId": "travel_074_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_074_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "When's the next train to Beijing?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What time does the train leave for Beijing today?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Is there a train to Beijing?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How much is the ticket to Beijing?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案 'When's the next train to Beijing?' 准确询问了下一班车的时间，符合场景需求。干扰项1虽然语法正确，但未明确‘下一班’，可能指任意一班；干扰项2仅确认是否有车，未涉及时间或车次类型；干扰项3询问票价，与时间信息无关。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在火车站想了解下一班去北京的列车发车时间及车次类型，准备向工作人员提问。"
-      }
-    },
-    {
       "id": "travel_074_sub_2_choice_3",
       "subSceneId": "travel_074_sub_2",
       "type": "choice",
@@ -109,6 +39,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "有中午前去上海的火车吗？"
       }
+    },
+    {
+      "id": "travel_074_sub_2_qa_1_choice_1",
+      "subSceneId": "travel_074_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在火车站想询问下一班去上海的高铁，希望时间在下午3点之后，但不记得确切时间，想用自然的口语表达提问。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is there a high-speed train after 3 PM?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "What time is the train to Shanghai?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you have any train at 3:15 PM?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can you tell me the price of the high-speed train?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用 'after 3 PM' 模糊表达时间，符合口语自然表达习惯，并明确询问高铁（high-speed train），贴合场景。选项2过于笼统，未指定高铁或时间范围；选项3假设了确切时间，不符合题干中‘不记得确切时间’的语境；选项4询问价格，偏离了询问车次和时间的核心任务。",
+        "qaId": "travel_074_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:49.805Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

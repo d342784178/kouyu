@@ -41,76 +41,6 @@
       }
     },
     {
-      "id": "daily_012_sub_3_qa_2_choice_1",
-      "subSceneId": "daily_012_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_012_sub_3_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Can I get a discount if I pay for a year upfront?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you have any membership plans for students?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How much is the membership fee per month?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "What are the benefits of being a premium member?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 'Can I get a discount if I pay for a year upfront?'，因为用户想知道预付一年后是否能获得折扣。这道题目要求用户能够根据场景提问相关的问题，正确答案是基于场景提示设计的。其他选项是干扰项，用户可能会因为误解场景或提问不当而选择这些选项。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在与销售员讨论会员方案，想知道不同价格的优惠情况"
-      }
-    },
-    {
-      "id": "daily_012_sub_3_qa_1_choice_1",
-      "subSceneId": "daily_012_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_012_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What are the prices for each membership plan?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How much is the membership fee?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Do you have any discounts for long-term contracts?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can I pay in cash?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是\"What are the prices for each membership plan?\"因为它直接询问了会员价格的详细信息。其他选项虽然可能与价格有关，但没有准确地询问会员价格的详细信息。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想询问会员价格，因为你不确定哪个计划最合适。"
-      }
-    },
-    {
       "id": "daily_012_sub_3_choice_2",
       "subSceneId": "daily_012_sub_3",
       "type": "choice",
@@ -181,6 +111,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "基础版包含健身房使用权限，高级版额外提供私人训练课程和毛巾服务。"
       }
+    },
+    {
+      "id": "daily_012_sub_3_qa_1_choice_1",
+      "subSceneId": "daily_012_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在健身房咨询会员方案，工作人员介绍了基础版和高级版的价格，你想礼貌地询问如果提前支付几个月是否能享受优惠。",
+        "speakerText": "Our basic plan is $30/month, no contract. Premium is $50 with access to classes and sauna.",
+        "speakerTextCn": "基础计划每月30美元，无合约；高级50美元，含课程和桑拿。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I get a discount if I pay for three months in advance?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Why is the premium plan so expensive?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I’ll take the basic plan.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you have any other gyms nearby?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了礼貌且符合语境的提问方式 'Can I get a discount if I pay for three months in advance?'，这直接回应了工作人员提供的价格信息，并符合学习要求中 '用 Can I...? 询问优惠' 的目标。干扰项2是质疑价格，偏离了询问优惠的主题；干扰项3是直接做决定，而非提问；干扰项4完全无关，询问的是其他健身房位置。",
+        "qaId": "daily_012_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "daily_012_sub_3_qa_2_choice_1",
+      "subSceneId": "daily_012_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在考虑购买年费会员，工作人员提到基础会员每月30美元，你想确认是否可以分期付款或有长期订阅优惠。",
+        "speakerText": "Our basic plan is $30/month, no contract.",
+        "speakerTextCn": "基础计划每月30美元，无合约。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is there a special rate if I sign up for a full year?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "How many people use the gym every day?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can I pay with a credit card?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What time does the gym close?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Is there a special rate if I sign up for a full year?' 是针对长期订阅优惠的自然、礼貌提问，符合‘确认价格并询问优惠’的场景目标。干扰项2、3、4分别询问客流量、支付方式和营业时间，均与价格优惠无关，属于答非所问。",
+        "qaId": "daily_012_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:04:05.894Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

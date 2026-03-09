@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.657Z",
   "questions": [
     {
-      "id": "social_076_sub_1_qa_1_fill_blank_1",
-      "subSceneId": "social_076_sub_1",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "这里需要填入自己的名字，用于自我介绍后自然过渡到提问",
-        "qaId": "social_076_sub_1_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "Alex",
-            "options": [
-              "Alex",
-              "my name",
-              "this",
-              "the one"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "在社交场合，主动打招呼并询问对方情况是建立良好交流的开端",
-        "knowledgePoint": "自我介绍后使用确认式提问开启对话",
-        "responseTemplate": "Hey, I'm ___! You're new here, right?"
-      }
-    },
-    {
       "id": "social_076_sub_1_fill_blank_1",
       "subSceneId": "social_076_sub_1",
       "type": "fill_blank",
@@ -166,6 +139,37 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "口语缩写：Yep 替代 Yes"
       }
+    },
+    {
+      "id": "social_076_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "social_076_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "在社交场合初次见面，你想自然地打招呼并询问对方是否是新来的",
+        "speakerText": "Hey, I'm Alex! You're new here, right?",
+        "speakerTextCn": "嘿，我是亚历克斯！你是新来的吧？",
+        "responseTemplate": "___, I'm new here. Nice to meet you!",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Yeah, I am",
+            "options": [
+              "Yeah, I am",
+              "Yes, I was",
+              "Of course, I am",
+              "Sure, I'm here"
+            ]
+          }
+        ],
+        "hint": "用简洁自然的口语回应，避免正式表达，注意时态和缩写",
+        "knowledgePoint": "自然口语回应中的缩写与肯定表达",
+        "qaId": "social_076_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:06:28.386Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

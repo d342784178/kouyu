@@ -5,60 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.359Z",
   "questions": [
     {
-      "id": "workplace_032_sub_3_qa_2_fill_blank_1",
-      "subSceneId": "workplace_032_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "确认任务的截止时间和分工",
-        "qaId": "workplace_032_sub_3_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "next quarter",
-            "options": [
-              "next quarter",
-              "last quarter",
-              "this quarter",
-              "upcoming quarter"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "服务方询问任务分配，等待被分配任务者回应。",
-        "knowledgePoint": "口语表达，确认任务分工与截止时间",
-        "responseTemplate": "And who’s taking care of the ___ report?"
-      }
-    },
-    {
-      "id": "workplace_032_sub_3_qa_1_fill_blank_1",
-      "subSceneId": "workplace_032_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "确认任务分配和截止时间",
-        "qaId": "workplace_032_sub_3_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "task",
-            "options": [
-              "任务",
-              "项目",
-              "工作",
-              "项目"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "服务方询问任务分配，等待被分配任务者回应",
-        "knowledgePoint": "确认任务分配和截止时间",
-        "responseTemplate": "So, you’ll handle the ___ by Friday?"
-      }
-    },
-    {
       "id": "workplace_032_sub_3_fill_blank_1",
       "subSceneId": "workplace_032_sub_3",
       "type": "fill_blank",
@@ -167,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "动词搭配：gather data（收集数据，比collect更常用于职场语境）"
       }
+    },
+    {
+      "id": "workplace_032_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "workplace_032_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在团队会议中需要确认某项任务由谁负责，并询问完成时间",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Who’s handling ______?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "the project delivery",
+            "options": [
+              "the project delivery",
+              "for the project delivery",
+              "who does the project delivery",
+              "the project to deliver"
+            ]
+          }
+        ],
+        "hint": "询问任务负责人时，使用 'Who’s handling + 任务内容' 是最自然的表达",
+        "knowledgePoint": "任务确认的句型结构",
+        "qaId": "workplace_032_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "workplace_032_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "workplace_032_sub_3",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你希望确认一项任务的截止时间，并确保对方能按时完成",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "What’s the deadline for ______?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "the client presentation",
+            "options": [
+              "the client presentation",
+              "when is the client presentation",
+              "who does the client presentation",
+              "the client presentation due"
+            ]
+          }
+        ],
+        "hint": "询问截止时间时，使用 'What’s the deadline for + 任务内容' 是标准表达",
+        "knowledgePoint": "截止时间询问的句型结构",
+        "qaId": "workplace_032_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:09.684Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.539Z",
   "questions": [
     {
-      "id": "workplace_048_sub_4_qa_1_choice_1",
-      "subSceneId": "workplace_048_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_048_sub_4_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "How long does approval usually take?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "审批费用一般是多少?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "我什么时候才能收到报销的钱?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "审批流程是什么?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案：How long does approval usually take？这是一个合适的问题，因为它询问了审批周期。其他选项不正确，因为它们没有直接询问审批周期或时间信息。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想问工作人员关于报销审批的什么问题?"
-      }
-    },
-    {
-      "id": "workplace_048_sub_4_qa_2_choice_1",
-      "subSceneId": "workplace_048_sub_4",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_048_sub_4_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "When will I get the money?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "How long does it take to get the money?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "What's the purpose of the report?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can you help me with my tax return?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案\"When will I get the money?\"是最合适的提问方式，因为它直接询问到账时间。其他选项虽然语法正确，但不符合该场景的需求。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "员工询问报销审批周期和到账时间"
-      }
-    },
-    {
       "id": "workplace_048_sub_4_choice_3",
       "subSceneId": "workplace_048_sub_4",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我上周二提交了报销单，我什么时候能等到审批？"
       }
+    },
+    {
+      "id": "workplace_048_sub_4_qa_1_choice_1",
+      "subSceneId": "workplace_048_sub_4",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工刚提交了差旅报销申请，想了解审批大概需要多长时间，以便合理安排后续工作。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How long does the approval process usually take?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you speed up my approval?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Is my reimbursement approved yet?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Why is my reimbursement taking so long?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案询问的是审批的通常周期，符合场景中员工希望管理预期的需求。选项2是请求加速，属于不当施压；选项3是确认当前状态，而非询问流程时长；选项4带有抱怨语气，不符合职场礼貌沟通规范。",
+        "qaId": "workplace_048_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "workplace_048_sub_4_qa_2_choice_1",
+      "subSceneId": "workplace_048_sub_4",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工的报销申请刚通过审批，想知道款项何时能实际到账，以便规划个人财务安排。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "When will the reimbursement be deposited into my account?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you send me the money right away?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do I need to follow up on the payment?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What time do payments usually go out?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接询问款项到账时间，清晰且符合职场沟通习惯。选项2是催促性请求，语气不当；选项3是询问是否需要跟进，偏离了核心问题；选项4只问发款时间，未明确指向报销款项，表达不够精准。",
+        "qaId": "workplace_048_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:53.181Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

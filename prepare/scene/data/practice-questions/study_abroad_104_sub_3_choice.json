@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.908Z",
   "questions": [
     {
-      "id": "study_abroad_104_sub_3_qa_1_choice_1",
-      "subSceneId": "study_abroad_104_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_104_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "How do I know it went through? Will I get an email?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can you tell me how much the fee is?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "When will the event start?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I think I signed up, but I'm not sure.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案直接询问确认机制和邮件凭证，符合场景需求。选项2询问费用，与确认流程无关；选项3询问活动时间，偏离凭证需求；选项4是陈述句而非提问，不符合场景要求的主动确认行为。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你刚完成在线报名，想确认是否成功，并想知道是否会收到确认邮件作为凭证"
-      }
-    },
-    {
-      "id": "study_abroad_104_sub_3_qa_2_choice_1",
-      "subSceneId": "study_abroad_104_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_104_sub_3_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Can I print a receipt? I need it for my visa records.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Did my registration go through?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Where can I get a receipt?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I need a receipt.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案直接表达了请求打印收据并说明用途，符合场景中‘确认报名成功并索取凭证’的需求。选项2仅确认报名状态，未涉及索取凭证；选项3虽涉及收据但未明确请求动作，语气被动；选项4是陈述句，缺乏礼貌和明确的提问结构，不符合口语交际规范。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你刚刚完成了一项在线报名，系统显示成功，但你需要一份纸质收据作为签证申请的证明材料，你想向工作人员确认是否可以打印收据。"
-      }
-    },
-    {
       "id": "study_abroad_104_sub_3_choice_3",
       "subSceneId": "study_abroad_104_sub_3",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我刚报名了托福考试，如何确保所有信息都正确记录？"
       }
+    },
+    {
+      "id": "study_abroad_104_sub_3_qa_1_choice_1",
+      "subSceneId": "study_abroad_104_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户刚完成在线课程报名，想确认报名是否成功，并询问如何获取官方确认凭证以便提交给学校",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can you send me a confirmation email or a digital receipt? I need it for my university’s enrollment requirement.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is the course confirmed? I hope it worked.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "When will the class start? I need to plan my schedule.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I get a refund if I change my mind later?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案明确说明了需求（确认凭证）和用途（学校注册要求），符合高频真实场景。选项2语气模糊，缺乏具体请求；选项3偏离主题，询问开课时间而非确认凭证；选项4涉及退款，与确认报名无关，属于答非所问。",
+        "qaId": "study_abroad_104_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "study_abroad_104_sub_3_qa_2_choice_1",
+      "subSceneId": "study_abroad_104_sub_3",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户完成语言考试报名，需要官方报名凭证用于签证申请，但不确定是否能获取纸质或电子版证明",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Could I get a downloadable PDF confirmation with the official seal? I need it for my visa application.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you offer discounts if I sign up for another test next month?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How long does it take to get the test results?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Can I change my test date after I’ve paid?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案精准提出获取带官方印章的电子凭证，并说明用途（签证），符合‘说明用途以获取特殊支持’的学习目标。选项2是促销咨询，无关；选项3和4分别询问成绩和改期，均未涉及凭证索取，属于主题偏离。",
+        "qaId": "study_abroad_104_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:09:40.304Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

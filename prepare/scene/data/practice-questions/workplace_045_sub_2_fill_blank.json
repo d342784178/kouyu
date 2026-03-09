@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.508Z",
   "questions": [
     {
-      "id": "workplace_045_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "workplace_045_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "回想你在解决打印机故障时需要问的什么问题",
-        "qaId": "workplace_045_sub_2_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "屏幕上显示",
-            "options": [
-              "屏幕上显示",
-              "打印机显示",
-              "我看到",
-              "电脑显示"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "同事的打印机出现故障，需要你的帮助",
-        "knowledgePoint": "提问句型和故障描述",
-        "responseTemplate": "我看到打印机的___"
-      }
-    },
-    {
       "id": "workplace_045_sub_2_fill_blank_1",
       "subSceneId": "workplace_045_sub_2",
       "type": "fill_blank",
@@ -57,33 +30,6 @@
         "speakerTextCn": "打印机完全没反应，屏幕上显示‘墨水不足’。我已经换过墨盒了，但还是不行。",
         "knowledgePoint": "描述已尝试操作 + 提出下一步技术性建议",
         "responseTemplate": "Have you tried ___?"
-      }
-    },
-    {
-      "id": "workplace_045_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "workplace_045_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "回忆之前的对话",
-        "qaId": "workplace_045_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "又卡纸了",
-            "options": [
-              "工作正常",
-              "打不出",
-              "卡纸了",
-              "故障了"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "打印机卡纸了，需要同事帮助解决",
-        "knowledgePoint": "提问句型",
-        "responseTemplate": "打印机___"
       }
     },
     {
@@ -167,6 +113,37 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "动词搭配：open the panel（打开面板，打印机维修核心动作）"
       }
+    },
+    {
+      "id": "workplace_045_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "workplace_045_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你的打印机显示错误信息，红灯闪烁，你向同事寻求帮助，需要描述问题并说明你已尝试过重启。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "The printer is showing 'Paper Jam' on the screen and the red light is flashing—I've tried ___.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "restarting it",
+            "options": [
+              "restarting it",
+              "turning it off",
+              "changing the ink",
+              "calling IT"
+            ]
+          }
+        ],
+        "hint": "记得用 'I've tried...' 表达你已经尝试过的操作，这是描述问题时的关键结构。",
+        "knowledgePoint": "使用现在完成时描述已尝试的解决步骤",
+        "qaId": "workplace_045_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:22.452Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

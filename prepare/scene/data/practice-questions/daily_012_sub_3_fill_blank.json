@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.530Z",
   "questions": [
     {
-      "id": "daily_012_sub_3_qa_2_fill_blank_1",
-      "subSceneId": "daily_012_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "你可以问：'预付多少个月送多少个月？'",
-        "qaId": "daily_012_sub_3_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "three months",
-            "options": [
-              "three months",
-              "six months",
-              "one month",
-              "a year"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "确认价格时比较不同会员方案并询问优惠",
-        "knowledgePoint": "会员价格和优惠方案",
-        "responseTemplate": "What are the membership prices if I pay ___ upfront?"
-      }
-    },
-    {
       "id": "daily_012_sub_3_fill_blank_1",
       "subSceneId": "daily_012_sub_3",
       "type": "fill_blank",
@@ -57,33 +30,6 @@
         "speakerTextCn": "我们有基础版和高级版，高级版包含更多福利。今天要注册吗？",
         "knowledgePoint": "礼貌询问优惠的句型",
         "responseTemplate": "___ if I pay for several months in advance?"
-      }
-    },
-    {
-      "id": "daily_012_sub_3_qa_1_fill_blank_1",
-      "subSceneId": "daily_012_sub_3",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问会员方案价格和优惠",
-        "qaId": "daily_012_sub_3_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "membership prices",
-            "options": [
-              "会员费用",
-              "价格表",
-              "优惠方案",
-              "会员卡"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "比较不同会员方案并询问优惠",
-        "knowledgePoint": "提问句型和会员方案",
-        "responseTemplate": "What are the membership prices for your basic and premium plans?"
       }
     },
     {
@@ -167,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "核心句型 What’s the difference between...?（比较差异）"
       }
+    },
+    {
+      "id": "daily_012_sub_3_qa_1_fill_blank_1",
+      "subSceneId": "daily_012_sub_3",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在健身房咨询会员计划，工作人员介绍了基础版和高级版的价格，你想礼貌地询问是否能享受付费周期优惠",
+        "speakerText": "Our basic plan is $30/month, no contract. Premium is $50 with access to classes and sauna.",
+        "speakerTextCn": "基础计划每月30美元，无合约；高级50美元，含课程和桑拿。",
+        "responseTemplate": "___ if I pay for three months in advance?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Can I get a discount",
+            "options": [
+              "Can I get a discount",
+              "Do you give a discount",
+              "Is there a discount",
+              "Could I save money"
+            ]
+          }
+        ],
+        "hint": "用 'Can I get...' 结构礼貌询问优惠，这是最自然且常用的表达方式",
+        "knowledgePoint": "礼貌询问优惠的句型结构",
+        "qaId": "daily_012_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "daily_012_sub_3_qa_2_fill_blank_1",
+      "subSceneId": "daily_012_sub_3",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在比较两种健身会员方案，工作人员说明了差异后，你想确认高级版是否包含额外服务",
+        "speakerText": "Our basic plan is $30/month, no contract. Premium is $50 with access to classes and sauna.",
+        "speakerTextCn": "基础计划每月30美元，无合约；高级50美元，含课程和桑拿。",
+        "responseTemplate": "___ included in the premium plan?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "What services are",
+            "options": [
+              "What services are",
+              "Are all services",
+              "Which services are",
+              "Do you include any services"
+            ]
+          }
+        ],
+        "hint": "询问具体包含的服务时，用 'What services are included...' 是最标准、最清晰的表达",
+        "knowledgePoint": "询问服务内容的标准句型",
+        "qaId": "daily_012_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:48.983Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

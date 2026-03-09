@@ -5,29 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.340Z",
   "questions": [
     {
-      "id": "travel_075_sub_3_qa_1_speaking_1",
-      "subSceneId": "travel_075_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_075_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客：请问车上有哪些行李尺寸限制和免费额度？",
-        "expectedAnswers": [
-          "What are the luggage size restrictions and how much free luggage space is available on the bus?",
-          "Can you tell me about the luggage size limits and the free luggage allowance on the bus?",
-          "What are the baggage size restrictions and how much free baggage space is provided on the bus?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达了询问行李尺寸限制和免费额度的意图",
-          "语言准确性：语法和用词正确",
-          "表达自然度：符合英语口语习惯",
-          "关键词覆盖：使用了场景关键词"
-        ]
-      }
-    },
-    {
       "id": "travel_075_sub_3_speaking_2",
       "subSceneId": "travel_075_sub_3",
       "type": "speaking",
@@ -74,6 +51,60 @@
           "关键词覆盖：是否使用了'restroom', 'bus', 'back', 'available'等场景词汇"
         ]
       }
+    },
+    {
+      "id": "travel_075_sub_3_qa_1_speaking_1",
+      "subSceneId": "travel_075_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "乘客在机场柜台前，想了解航空公司对托运行李和随身行李的尺寸及免费额度规定。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "What are the size and weight limits for checked luggage?",
+          "How much luggage can I bring for free, and what are the carry-on restrictions?",
+          "Could you tell me the free baggage allowance and the dimensions allowed for carry-on bags?",
+          "Do you charge extra if my suitcase is over 23 kilograms or larger than 62 inches?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了行李尺寸和免费额度",
+          "语言准确性：语法和用词是否正确，如使用 'size', 'weight', 'allowance', 'restrictions' 等关键词",
+          "表达自然度：是否符合机场场景中旅客的自然提问方式",
+          "关键词覆盖：是否包含 'checked luggage', 'carry-on', 'free allowance', 'dimensions' 等核心词汇"
+        ],
+        "qaId": "travel_075_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "travel_075_sub_3_qa_1_speaking_1",
+      "subSceneId": "travel_075_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "乘客在航空公司官网客服聊天窗口，想确认是否可以免费携带两个行李箱以及它们的尺寸要求。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Can I check two bags for free, and what are the size requirements for each?",
+          "Are both of my suitcases allowed under the free baggage policy, and what’s the max size?",
+          "Is there a limit on the number of free checked bags, and what are the dimensional rules?",
+          "If I have two bags, do they both need to be under 62 linear inches and 23 kg to be free?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰询问了免费行李数量及尺寸限制",
+          "语言准确性：是否正确使用 'checked bags', 'size requirements', 'dimensional rules', 'linear inches' 等专业表达",
+          "表达自然度：是否符合在线客服沟通的礼貌与简洁风格",
+          "关键词覆盖：是否包含 'free baggage policy', 'number of bags', 'size limit', 'dimensions' 等核心术语"
+        ],
+        "qaId": "travel_075_sub_3_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:06.339Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

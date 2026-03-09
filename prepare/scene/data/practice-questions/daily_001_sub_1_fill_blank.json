@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.428Z",
   "questions": [
     {
-      "id": "daily_001_sub_1_qa_3_fill_blank_1",
-      "subSceneId": "daily_001_sub_1",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "这是服务员主动提供服务的礼貌表达，使用情态动词 + get 结构表示提供帮助。",
-        "qaId": "daily_001_sub_1_qa_3",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "Can I get",
-            "options": [
-              "Can I get",
-              "Could you get",
-              "Do you want",
-              "Will you have"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "服务员引导顾客入座后，想礼貌地询问顾客是否需要先点饮料。",
-        "knowledgePoint": "礼貌性服务提问句型",
-        "responseTemplate": "Here are your menus. ___ you something to drink while you look?"
-      }
-    },
-    {
       "id": "daily_001_sub_1_fill_blank_1",
       "subSceneId": "daily_001_sub_1",
       "type": "fill_blank",
@@ -57,87 +30,6 @@
         "speakerTextCn": "您想要靠窗的座位还是靠里面的座位？",
         "knowledgePoint": "表达座位偏好",
         "responseTemplate": "I'd prefer ___"
-      }
-    },
-    {
-      "id": "daily_001_sub_1_qa_1_fill_blank_1",
-      "subSceneId": "daily_001_sub_1",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "回忆服务员的回答",
-        "qaId": "daily_001_sub_1_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "one",
-            "options": [
-              "one",
-              "two",
-              "many",
-              "none"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客主动询问，服务方回应",
-        "knowledgePoint": "基本问候和入座询问",
-        "responseTemplate": "Hi there! Is there a table for __________?"
-      }
-    },
-    {
-      "id": "daily_001_sub_1_qa_4_fill_blank_1",
-      "subSceneId": "daily_001_sub_1",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "回忆服务方的回应内容",
-        "qaId": "daily_001_sub_1_qa_4",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "几分钟",
-            "options": [
-              "一会儿",
-              "几分钟",
-              "几小时",
-              "明天"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客主动询问，服务方回应",
-        "knowledgePoint": "入座问候",
-        "responseTemplate": "不着急，我过___再来给您点餐。"
-      }
-    },
-    {
-      "id": "daily_001_sub_1_qa_2_fill_blank_1",
-      "subSceneId": "daily_001_sub_1",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示：顾客询问座位位置",
-        "qaId": "daily_001_sub_1_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "window",
-            "options": [
-              "window",
-              "aisle",
-              "table",
-              "booth"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客主动询问座位位置",
-        "knowledgePoint": "口语提问句型",
-        "responseTemplate": "Would you prefer a __________ seat or a booth?"
       }
     },
     {
@@ -247,6 +139,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "口语简答：Just me（我一个人）"
       }
+    },
+    {
+      "id": "daily_001_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "daily_001_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你走进餐厅，服务员微笑着迎上来，准备引导你入座。你想礼貌地询问是否有靠窗的座位。",
+        "speakerText": "Hi! Welcome in. How many in your party?",
+        "speakerTextCn": "您好！欢迎光临。您几位？",
+        "responseTemplate": "Just one, and ___ if possible.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a window seat",
+            "options": [
+              "a window seat",
+              "the best table",
+              "a private corner",
+              "something quiet"
+            ]
+          }
+        ],
+        "hint": "当你想表达希望坐在靠窗的位置时，常用这个短语。",
+        "knowledgePoint": "表达座位偏好",
+        "qaId": "daily_001_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "daily_001_sub_1_qa_2_fill_blank_1",
+      "subSceneId": "daily_001_sub_1",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "服务员带你到桌边后，询问你是否需要饮品。你想礼貌地请求一杯冰水。",
+        "speakerText": "Can I get you something to drink while you look at the menu?",
+        "speakerTextCn": "您看菜单的时候需要先来点饮料吗？",
+        "responseTemplate": "___, please.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "Just water",
+            "options": [
+              "Just water",
+              "Some soda",
+              "A coffee",
+              "I don't drink"
+            ]
+          }
+        ],
+        "hint": "当只想点水时，最自然简洁的表达方式。",
+        "knowledgePoint": "点饮品的简洁表达",
+        "qaId": "daily_001_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:09.124Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

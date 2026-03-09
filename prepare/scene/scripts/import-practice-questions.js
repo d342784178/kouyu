@@ -143,14 +143,8 @@ async function importData() {
   let skipCount = 0
   let totalQuestions = 0
 
-  // 并发控制：10 个并发
-  const CONCURRENCY = 30
-  let currentIndex = 0
-  let activeCount = 0
-  let processedCount = 0
-
-  async function processFile(file) {
-    activeCount++
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i]
     const filePath = path.join(DATA_DIR, file)
     // 文件名格式：subSceneId_type.json
     const fileName = file.replace('.json', '')
@@ -165,9 +159,7 @@ async function importData() {
       if (questions.length === 0) {
         console.log(`⏭ 跳过（无题目）: ${fileName}`)
         skipCount++
-        activeCount--
-        processedCount++
-        return
+        continue
       }
 
       // 应用对话模式过滤
@@ -176,9 +168,7 @@ async function importData() {
         if (questions.length === 0) {
           console.log(`⏭ 跳过（无匹配对话模式）: ${fileName}`)
           skipCount++
-          activeCount--
-          processedCount++
-          return
+          continue
         }
       }
 
@@ -201,9 +191,7 @@ async function importData() {
       if (existingCount > 0 && !isForce) {
         console.log(`⏭ 跳过（已存在 ${existingCount} 条）: ${fileName}`)
         skipCount++
-        activeCount--
-        processedCount++
-        return
+        continue
       }
 
       // 强制模式下先删除该子场景该类型的数据
@@ -222,19 +210,31 @@ async function importData() {
         }
       }
 
-      // 批量插入
-      const insertPromises = questions.map(q => {
-        return sql`
+      // 批量插入 - 使用单条 SQL 语句插入多行
+      if (questions.length > 0) {
+        // 构建批量插入的 SQL
+        const valuesClauses = []
+        const params = []
+        let paramIndex = 1
+        
+        for (const q of questions) {
+          valuesClauses.push(`($${paramIndex}, $${paramIndex + 1}, $${paramIndex + 2}, $${paramIndex + 3}, $${paramIndex + 4}::jsonb, NOW(), NOW())`)
+          params.push(q.id, q.subSceneId, q.type, q.order, JSON.stringify(q.content))
+          paramIndex += 5
+        }
+        
+        const insertSQL = `
           INSERT INTO sub_scene_practice_questions (id, sub_scene_id, type, "order", content, created_at, updated_at)
-          VALUES (${q.id}, ${q.subSceneId}, ${q.type}, ${q.order}, ${JSON.stringify(q.content)}, NOW(), NOW())
+          VALUES ${valuesClauses.join(', ')}
           ON CONFLICT (id) DO UPDATE SET
             type = EXCLUDED.type,
             "order" = EXCLUDED."order",
             content = EXCLUDED.content,
             updated_at = NOW()
         `
-      })
-      await Promise.all(insertPromises)
+        
+        await sql.unsafe(insertSQL, params)
+      }
 
       console.log(`✓ ${fileName} (导入 ${questions.length} 道题目)`)
       successCount++
@@ -244,37 +244,11 @@ async function importData() {
       failCount++
     }
 
-    activeCount--
-    processedCount++
-
     // 每 50 个输出进度
-    if (processedCount % 50 === 0) {
-      console.log(`\n--- 进度: ${processedCount}/${files.length} (成功:${successCount} 跳过:${skipCount} 失败:${failCount}) ---\n`)
-    }
-
-    // 启动下一个任务
-    if (currentIndex < files.length) {
-      const next = files[currentIndex++]
-      processFile(next)
+    if ((i + 1) % 50 === 0) {
+      console.log(`\n--- 进度: ${i + 1}/${files.length} (成功:${successCount} 跳过:${skipCount} 失败:${failCount}) ---\n`)
     }
   }
-
-  // 启动初始并发任务
-  const initialBatch = Math.min(CONCURRENCY, files.length)
-  for (let i = 0; i < initialBatch; i++) {
-    currentIndex++
-    processFile(files[i])
-  }
-
-  // 等待所有任务完成
-  await new Promise(resolve => {
-    const checkInterval = setInterval(() => {
-      if (activeCount === 0 && currentIndex >= files.length) {
-        clearInterval(checkInterval)
-        resolve(null)
-      }
-    }, 200)
-  })
 
   // sql.end() 可能不存在，忽略错误
   try {

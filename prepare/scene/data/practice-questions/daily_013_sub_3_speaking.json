@@ -5,54 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.539Z",
   "questions": [
     {
-      "id": "daily_013_sub_3_qa_1_speaking_1",
-      "subSceneId": "daily_013_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_013_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户询问续借服务，工作人员回答是否可以在线操作。",
-        "expectedAnswers": [
-          "Can I renew my books online?",
-          "能不能在线续借书籍？",
-          "您能在线续借吗？",
-          "可以在线续借吗？"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问续借意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了续借关键词"
-        ]
-      }
-    },
-    {
-      "id": "daily_013_sub_3_qa_2_speaking_1",
-      "subSceneId": "daily_013_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_013_sub_3_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在图书馆办理图书续借，工作人员告诉你可以在线操作，但你担心系统可能显示‘无法续借’，想确认这种情况下该怎么办。",
-        "expectedAnswers": [
-          "What should I do if the system says 'Cannot renew'?",
-          "If the renewal fails online, how can I fix it?",
-          "Can I still renew in person if the website won't let me?",
-          "Is there another way to extend the due date if the system blocks it?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确表达了对‘无法续借’情况的担忧并寻求解决方案",
-          "语言准确性：语法结构正确，用词恰当，无明显错误",
-          "表达自然度：符合英语母语者日常对话习惯，语气自然",
-          "关键词覆盖：使用了 'renew', 'system', 'cannot renew' 或其同义表达"
-        ]
-      }
-    },
-    {
       "id": "daily_013_sub_3_speaking_3",
       "subSceneId": "daily_013_sub_3",
       "type": "speaking",
@@ -74,6 +26,60 @@
           "回答是否结构完整、逻辑清晰，便于用户执行"
         ]
       }
+    },
+    {
+      "id": "daily_013_sub_3_qa_1_speaking_1",
+      "subSceneId": "daily_013_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户在图书馆借了书，想确认是否可以续借以及如何操作，向工作人员提问。",
+        "speakerText": "Can I renew my books, and how do I do it?",
+        "speakerTextCn": "我可以续借我的书吗？怎么操作？",
+        "expectedAnswers": [
+          "Yes, you can renew online through the library app or website. Just sign in and select 'Renew'.",
+          "Sure! You can renew in person at the front desk, or by calling us with your library card number.",
+          "You're eligible for one renewal if no one else has requested the book. Check your account online.",
+          "Absolutely — you can renew up to two times, as long as there are no holds on the items."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：明确询问了是否可以续借以及如何操作",
+          "语言准确性：语法正确，使用了相关关键词如 'renew', 'online', 'library account'",
+          "表达自然度：符合日常口语习惯，语气礼貌自然",
+          "关键词覆盖：包含 'renew', 'how', 'online/in person/calling' 等场景核心词"
+        ],
+        "qaId": "daily_013_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "daily_013_sub_3_qa_2_speaking_1",
+      "subSceneId": "daily_013_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "用户想续借一本即将到期的书，但不确定是否有时间限制或限制条件，向工作人员确认细节。",
+        "speakerText": "Is there a limit to how many times I can renew a book?",
+        "speakerTextCn": "我可以续借一本书多少次？有次数限制吗？",
+        "expectedAnswers": [
+          "You can renew each book once, unless someone else has placed a hold on it.",
+          "Most items allow one renewal, but reference books can't be renewed at all.",
+          "You’re allowed two renewals per item, as long as no other patrons are waiting.",
+          "It depends on the type of material — regular books: one renewal; popular titles: none."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：准确询问续借次数限制，表达清晰意图",
+          "语言准确性：使用了正确时态和关键词如 'renew', 'limit', 'once', 'patrons'",
+          "表达自然度：提问方式符合英语母语者日常表达习惯",
+          "关键词覆盖：包含 'renew', 'times', 'limit', 'patrons', 'item' 等核心词汇"
+        ],
+        "qaId": "daily_013_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:04:17.370Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

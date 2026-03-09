@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.352Z",
   "questions": [
     {
-      "id": "workplace_031_sub_5_qa_1_choice_1",
-      "subSceneId": "workplace_031_sub_5",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_031_sub_5_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What's the company culture like?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "你是一个很棒的人，我想跟你结婚",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "What's the salary for this position?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "这次面试很好，我想再来一次",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案\"What's the company culture like?\"是合适的结束道别问题，因为它是关于公司相关的。其他选项不符合场景需求或表达不当。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "面试官收尾，询问是否有问题"
-      }
-    },
-    {
       "id": "workplace_031_sub_5_choice_2",
       "subSceneId": "workplace_031_sub_5",
       "type": "choice",
@@ -110,6 +75,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我这边的问题问完了，结束前你有什么想问的吗？"
       }
+    },
+    {
+      "id": "workplace_031_sub_5_qa_1_choice_1",
+      "subSceneId": "workplace_031_sub_5",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "面试即将结束，面试官问你是否有问题，你想了解团队的日常协作方式。",
+        "speakerText": "Alright, thanks for sharing all that. Do you have any questions for me?",
+        "speakerTextCn": "好的，谢谢你分享这些，你有什么问题问我吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can you tell me more about the salary and benefits package?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Just one—how is team collaboration usually structured in this department?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I don't have any questions, but thanks for your time.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "When will you make the final decision?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是B，因为它在礼貌结束语境下提出一个与工作内容直接相关、体现积极态度的具体问题，符合职场面试的得体提问规范。A项虽合理但更适合作为薪资谈判阶段的问题，不适合在收尾时突然提出；C项虽礼貌但未体现主动性，未充分利用提问机会；D项询问决策时间显得急切且可能冒犯，不符合面试礼仪。",
+        "qaId": "workplace_031_sub_5_qa_1"
+      }
+    },
+    {
+      "id": "workplace_031_sub_5_qa_1_choice_1",
+      "subSceneId": "workplace_031_sub_5",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "面试接近尾声，面试官询问你是否有问题，你想了解这个职位未来的发展路径。",
+        "speakerText": "Alright, thanks for sharing all that. Do you have any questions for me?",
+        "speakerTextCn": "好的，谢谢你分享这些，你有什么问题问我吗？",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "What’s the average time for promotion in this role?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_2",
+            "text": "Could you share how the company supports professional growth for someone in this position?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_3",
+            "text": "I’m good, thanks! I’ll follow up next week.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do you think I’m qualified for this job?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是B，因为它以开放、礼貌的方式询问职业发展支持机制，体现长远思考和对成长的重视，是面试收尾时的理想提问。A项虽相关但过于直接，可能显得功利；C项虽礼貌但错失提问机会，未展现主动性；D项是自我质疑式提问，容易削弱自信形象，不符合面试策略。",
+        "qaId": "workplace_031_sub_5_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:12:11.540Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

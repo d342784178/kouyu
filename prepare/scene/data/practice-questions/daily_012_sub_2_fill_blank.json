@@ -5,60 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.529Z",
   "questions": [
     {
-      "id": "daily_012_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "daily_012_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "例如：'What kind of equipment do you have?'",
-        "qaId": "daily_012_sub_2_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "equipment",
-            "options": [
-              "设施",
-              "设备",
-              "教练",
-              "服务"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "询问健身房设备与附加服务",
-        "knowledgePoint": "口语询问设施",
-        "responseTemplate": "What kind of ___ do you have?"
-      }
-    },
-    {
-      "id": "daily_012_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "daily_012_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "例如：'What kind of equipment do you have?'",
-        "qaId": "daily_012_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "equipment",
-            "options": [
-              "设施",
-              "设备",
-              "服务",
-              "人员"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "询问健身房的设备和附加服务",
-        "knowledgePoint": "询问设施和附加服务的句型",
-        "responseTemplate": "What kind of ___ do you have?"
-      }
-    },
-    {
       "id": "daily_012_sub_2_fill_blank_1",
       "subSceneId": "daily_012_sub_2",
       "type": "fill_blank",
@@ -167,6 +113,62 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "场景高频词汇：免费服务（free towel service, free showers）"
       }
+    },
+    {
+      "id": "daily_012_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "daily_012_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在考虑加入一家健身房，想了解是否有游泳池、桑拿或私人教练等设施和服务。",
+        "responseTemplate": "Do you have ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a pool",
+            "options": [
+              "a pool",
+              "the pool",
+              "pool",
+              "swimming pool"
+            ]
+          }
+        ],
+        "hint": "询问是否存在某项设施时，常用 'Do you have a/an ___?' 结构",
+        "knowledgePoint": "询问设施存在的基本句型",
+        "qaId": "daily_012_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "daily_012_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "daily_012_sub_2",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想知道健身房是否提供私人教练服务，准备礼貌地提问。",
+        "responseTemplate": "Do you have ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "personal trainers",
+            "options": [
+              "personal trainers",
+              "a personal trainer",
+              "trainers",
+              "fitness coaches"
+            ]
+          }
+        ],
+        "hint": "当询问可提供的服务时，使用复数形式更自然，因为服务通常是多人提供的",
+        "knowledgePoint": "服务类设施的复数表达",
+        "qaId": "daily_012_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:41.321Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

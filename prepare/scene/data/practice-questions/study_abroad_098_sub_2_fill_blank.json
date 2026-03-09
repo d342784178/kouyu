@@ -5,43 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.847Z",
   "questions": [
     {
-      "id": "study_abroad_098_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "study_abroad_098_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "在图书馆语境中，'check out' 表示借书，'keep' 表示保留书籍的时间",
-        "qaId": "study_abroad_098_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "check out",
-            "options": [
-              "borrow",
-              "take",
-              "get",
-              "check out"
-            ]
-          },
-          {
-            "index": 1,
-            "answer": "keep",
-            "options": [
-              "hold",
-              "retain",
-              "store",
-              "keep"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "用户在图书馆咨询处想了解一次能借多少本书以及借阅期限",
-        "knowledgePoint": "图书馆场景中的核心动词搭配",
-        "responseTemplate": "How many books can I ___ at once, and how long can I ___ 'em?"
-      }
-    },
-    {
       "id": "study_abroad_098_sub_2_fill_blank_1",
       "subSceneId": "study_abroad_098_sub_2",
       "type": "fill_blank",
@@ -206,6 +169,35 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "场景核心名词搭配（loan period）"
       }
+    },
+    {
+      "id": "study_abroad_098_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "study_abroad_098_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在图书馆咨询处想了解一次能借多少本书以及借阅期限，准备向工作人员提问。",
+        "responseTemplate": "How many books can I check out at once, and how long can I ___ them?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "keep",
+            "options": [
+              "keep",
+              "hold",
+              "borrow",
+              "store"
+            ]
+          }
+        ],
+        "hint": "这里需要一个表示‘保留、使用’的动词，常与‘books’和‘期限’搭配",
+        "knowledgePoint": "高频口语动词搭配",
+        "qaId": "study_abroad_098_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:08:38.307Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

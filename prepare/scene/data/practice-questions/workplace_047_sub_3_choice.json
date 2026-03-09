@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.530Z",
   "questions": [
     {
-      "id": "workplace_047_sub_3_qa_1_choice_1",
-      "subSceneId": "workplace_047_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_047_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Will my tasks be covered?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can I have your tasks?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "What are your tasks?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Do you have any free time?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案Will my tasks be covered?因为它直接询问任务是否有人接手。其他选项不正确，因为它们不直接解决任务交接的问题。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "经理正在确认工作交接与批准，作为员工你想确认自己的工作安排是否得到保障"
-      }
-    },
-    {
-      "id": "workplace_047_sub_3_qa_2_choice_1",
-      "subSceneId": "workplace_047_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_047_sub_3_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Has the project been approved?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What is the deadline for this project?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "I have finished the project, when can I go home?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can you explain the project details again?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 \"Has the project been approved?\"，因为这是在确认工作交接与批准的场景下，询问项目是否已获得批准。其他选项虽然语法正确，但不符合该场景的需求",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你向经理确认工作交接并等待批准"
-      }
-    },
-    {
       "id": "workplace_047_sub_3_choice_3",
       "subSceneId": "workplace_047_sub_3",
       "type": "choice",
@@ -109,6 +39,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "你能在休假前确认项目交接已完成吗？"
       }
+    },
+    {
+      "id": "workplace_047_sub_3_qa_1_choice_1",
+      "subSceneId": "workplace_047_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你即将休假，需要向经理申请批准工作交接安排，以确保任务顺利过渡并获得正式认可。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can you approve my handover plan? I've arranged for Lisa to take over my weekly reports and client follow-ups.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I'm going on vacation next week, so I hope you don't mind if I don't finish my tasks.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Has anyone been assigned to cover my duties while I'm away?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I think my work is fine, no need to worry about it.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案是选项1，因为它主动提出具体的交接安排并礼貌请求批准，符合职场专业沟通规范。选项2态度消极，暗示推卸责任；选项3是询问他人是否已安排，而非主动申请批准；选项4显得敷衍，缺乏专业性。",
+        "qaId": "workplace_047_sub_3_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:38.631Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

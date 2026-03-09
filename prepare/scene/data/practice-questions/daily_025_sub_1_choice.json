@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.612Z",
   "questions": [
     {
-      "id": "daily_025_sub_1_qa_2_choice_1",
-      "subSceneId": "daily_025_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_025_sub_1_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Do you have the latest magazine?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "I'd like one, please. How much?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Is this magazine expensive?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can you give me a discount?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 'Do you have the latest magazine?'，因为这是在确认商品是否存在之前的合理提问。干扰项1 'I'd like one, please. How much?' 是在确认有货后的下一步提问，不符合当前场景顺序；干扰项2 'Is this magazine expensive?' 假设已有商品且关注价格高低，偏离了确认库存的核心需求；干扰项3 'Can you give me a discount?' 是在购买阶段才可能提出的问题，与当前确认货品的场景无关。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在报刊亭想买一本最新杂志，需要先确认是否有货并询问价格"
-      }
-    },
-    {
       "id": "daily_025_sub_1_choice_1",
       "subSceneId": "daily_025_sub_1",
       "type": "choice",
@@ -73,41 +38,6 @@
         "speakerText": "Hey, got the new Time?",
         "dialogueMode": "user_responds",
         "speakerTextCn": "嘿，有最新一期《时代》吗？"
-      }
-    },
-    {
-      "id": "daily_025_sub_1_qa_1_choice_1",
-      "subSceneId": "daily_025_sub_1",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_025_sub_1_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Hey, got the new National Geographic?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you have any magazines about science?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Is this the latest issue of National Geographic?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Where can I buy National Geographic?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 'Hey, got the new National Geographic?'，这是口语中自然、简洁且符合场景的提问方式。干扰项1 'Do you have any magazines about science?' 过于宽泛，未指明具体杂志；干扰项2 'Is this the latest issue...' 假设对方手中已有杂志，不符合顾客询问库存的语境；干扰项3 'Where can I buy...' 询问购买地点而非是否有货，偏离核心需求。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在报刊亭想询问是否有最新一期的《国家地理》杂志，需要以自然、口语化的方式提问。"
       }
     },
     {
@@ -181,6 +111,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "有新一期《人物》吗？"
       }
+    },
+    {
+      "id": "daily_025_sub_1_qa_1_choice_1",
+      "subSceneId": "daily_025_sub_1",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在报刊亭想询问是否有最新一期《时代》杂志，准备用自然口语提问",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Do you have the new Time magazine?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can you tell me if you have the latest issue of Time magazine?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I want to buy the new Time, how much is it?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Is Time magazine available today?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Do you have the new Time magazine?' 是自然、简洁、符合口语习惯的问货表达，符合场景要求。干扰项2过于正式冗长，不符合口语简练原则；干扰项3直接问价，但尚未确认是否有货，逻辑顺序错误；干扰项4用词过于书面化（'available'），不符合报刊亭日常对话语境。",
+        "qaId": "daily_025_sub_1_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:04:48.929Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

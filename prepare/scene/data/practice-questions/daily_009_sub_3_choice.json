@@ -41,76 +41,6 @@
       }
     },
     {
-      "id": "daily_009_sub_3_qa_2_choice_1",
-      "subSceneId": "daily_009_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_009_sub_3_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "I'll pay by card, and no receipt, please.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can I pay in cash?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Do you give receipts?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I want a receipt and pay by card.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案 'I'll pay by card, and no receipt, please.' 完整表达了支付方式和拒收收据的意愿，符合场景中主动说明需求的自然表达。干扰项1仅询问现金支付，未涉及收据；干扰项2只询问收据是否存在，未表明支付方式；干扰项3语义矛盾，要求同时支付并索取收据，与场景中'不用收据'的意图相反。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在完成加油后，主动询问如何支付和是否需要收据。"
-      }
-    },
-    {
-      "id": "daily_009_sub_3_qa_1_choice_1",
-      "subSceneId": "daily_009_sub_3",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_009_sub_3_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "I'll pay inside with cash. Can I get a receipt?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "You need to pay outside. Can I get a receipt?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "I want to pay with credit card. What's the total amount?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can I get a receipt now? I'm going to pay later.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案I'll pay inside with cash. Can I get a receipt？是因为它符合场景需求，顾客询问如何支付和是否需要收据。其他选项不正确，因为它们不符合场景需求，例如opt_2询问需要支付在哪里，opt_3询问付款方式和总金额，opt_4询问是否可以现在获得收据，付款方式未明确。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在完成加油后，主动询问如何支付和是否需要收据。"
-      }
-    },
-    {
       "id": "daily_009_sub_3_choice_2",
       "subSceneId": "daily_009_sub_3",
       "type": "choice",
@@ -181,6 +111,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我用现金支付，不用收据了。"
       }
+    },
+    {
+      "id": "daily_009_sub_3_qa_1_choice_1",
+      "subSceneId": "daily_009_sub_3",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在超市结账后，决定使用信用卡付款，并希望获得一张收据以便报销。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Can I get a receipt, please?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Do you have a receipt?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "I want a receipt now.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Could you give me the bill?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案 'Can I get a receipt, please?' 是最自然、礼貌且符合英语母语者日常表达习惯的索要收据方式。选项2 'Do you have a receipt?' 暗示收据已存在，但顾客实际是请求生成收据，语义不符。选项3 'I want a receipt now.' 语气生硬，缺乏礼貌，不符合服务场景。选项4 'Could you give me the bill?' 中 'bill' 通常指未付款的账单，而非付款后的收据，属于术语误用。",
+        "qaId": "daily_009_sub_3_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:31.526Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

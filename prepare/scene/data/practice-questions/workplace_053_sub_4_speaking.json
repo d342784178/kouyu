@@ -5,53 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.584Z",
   "questions": [
     {
-      "id": "workplace_053_sub_4_qa_2_speaking_1",
-      "subSceneId": "workplace_053_sub_4",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_053_sub_4_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "场景提示：用户询问快递服务，服务方提供解答。员工说明寄快递的具体要求",
-        "expectedAnswers": [
-          "I need to send this to a client tomorrow — any cut-off time?",
-          "我明天要寄给客户，最晚几点能寄?",
-          "What's the deadline for sending this package to a client tomorrow?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "workplace_053_sub_4_qa_1_speaking_1",
-      "subSceneId": "workplace_053_sub_4",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_053_sub_4_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "场景提示：用户询问快递服务，服务方提供解答。",
-        "expectedAnswers": [
-          "Can you ship this overnight to Boston? It's fragile.",
-          "能帮我加急寄到波士顿吗？易碎品。",
-          "Can you expedite the shipping to Boston because this item is fragile?",
-          "能不能加急寄到波士顿？这件东西很容易碎。"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：正确表达了询问意图",
-          "语言准确性：语法和用词正确",
-          "表达自然度：符合英语口语习惯",
-          "关键词覆盖：使用了场景关键词"
-        ]
-      }
-    },
-    {
       "id": "workplace_053_sub_4_speaking_3",
       "subSceneId": "workplace_053_sub_4",
       "type": "speaking",
@@ -73,6 +26,60 @@
           "是否自然引导下一步行动或提供选项"
         ]
       }
+    },
+    {
+      "id": "workplace_053_sub_4_qa_1_speaking_1",
+      "subSceneId": "workplace_053_sub_4",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工需要寄送一份重要合同，要求当天送达且需要签收确认，询问快递公司能否满足要求",
+        "speakerText": "I need to send this contract today — can you guarantee delivery by 5 PM with signature confirmation?",
+        "speakerTextCn": "我需要今天寄出这份合同，你们能保证下午5点前送达并提供签收确认吗？",
+        "expectedAnswers": [
+          "Yes, we can do FedEx Priority Overnight with signature required — that’s $65.",
+          "We can send it via UPS Express Saver; it arrives by 6 PM with tracking and signature.",
+          "I’m sorry, but the cutoff for same-day signature delivery is 2 PM — we can still send it tomorrow with priority.",
+          "We can hold it and send it out first thing tomorrow with guaranteed delivery and signature."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表达了‘当天送达’和‘签收确认’的核心需求",
+          "语言准确性：语法结构正确，时态和用词符合商务语境",
+          "表达自然度：符合英语母语者在快递场景中的常见表达方式",
+          "关键词覆盖：使用了如 'signature confirmation', 'same-day', 'guarantee delivery' 等关键表达"
+        ],
+        "qaId": "workplace_053_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "workplace_053_sub_4_qa_2_speaking_1",
+      "subSceneId": "workplace_053_sub_4",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工要寄送一台精密仪器，担心运输中受损，询问快递公司是否提供专业包装和防震服务",
+        "speakerText": "This is a sensitive piece of equipment — do you offer special packaging and shock protection for fragile items?",
+        "speakerTextCn": "这是一台精密仪器，你们能提供专业包装和防震保护服务吗？",
+        "expectedAnswers": [
+          "Absolutely — we have custom foam inserts and shock-absorbing crates for sensitive devices.",
+          "We can package it in a reinforced box with bubble wrap and foam padding at no extra charge.",
+          "Yes, we offer ‘Fragile Express’ service with climate-controlled transport and handling tags.",
+          "I recommend our Premium Care package — it includes double-boxing, humidity control, and priority handling."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否清晰传达了‘精密仪器’和‘防震保护’的核心需求",
+          "语言准确性：正确使用了 'sensitive equipment', 'shock protection', 'custom packaging' 等专业表达",
+          "表达自然度：符合职场中对高价值物品寄送的礼貌且专业的询问方式",
+          "关键词覆盖：使用了如 'special packaging', 'shock protection', 'fragile items', 'premium care' 等场景关键词"
+        ],
+        "qaId": "workplace_053_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:35.164Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

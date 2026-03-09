@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.856Z",
   "questions": [
     {
-      "id": "study_abroad_099_sub_2_qa_1_choice_1",
-      "subSceneId": "study_abroad_099_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_099_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "How much is the monthly rent for a single room, and what's included?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you have any discounts for long-term stays?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Is the single room available next week?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "What time is check-in?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案直接询问租金和包含内容，符合场景需求。干扰项分别询问折扣（无关）、可用性（偏离重点）和入住时间（完全无关），均未触及费用与设施的核心信息。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想知道单人间的月租金以及包含哪些设施和服务"
-      }
-    },
-    {
-      "id": "study_abroad_099_sub_2_qa_2_choice_1",
-      "subSceneId": "study_abroad_099_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "study_abroad_099_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "What's the monthly rent for a single room, and what amenities are included?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Do you have any rooms available next week?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "How much is the deposit and when do I get it back?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Can I bring a pet to the room?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案询问了月租和包含的设施，完全符合‘费用确认’场景的核心需求。选项2只问房间可用性，与费用无关；选项3只问押金，忽略了租金和设施；选项4问宠物政策，属于无关信息。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想知道单人房的费用以及是否包含水电、网络等设施，还有押金政策。"
-      }
-    },
-    {
       "id": "study_abroad_099_sub_2_choice_3",
       "subSceneId": "study_abroad_099_sub_2",
       "type": "choice",
@@ -109,6 +39,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "月租900美元，包含水、电和网络。"
       }
+    },
+    {
+      "id": "study_abroad_099_sub_2_qa_1_choice_1",
+      "subSceneId": "study_abroad_099_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在咨询学生公寓的单人间费用，想确认月租是否包含水电、网络和清洁服务，避免后续额外收费。",
+        "speakerText": "The single room is $850 per month.",
+        "speakerTextCn": "单人间每月850美元。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Does the rent include utilities, WiFi, and cleaning?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I get a discount if I pay for six months upfront?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How far is the apartment from the campus?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What time can I move in?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接询问费用是否包含关键服务（水电、网络、清洁），符合场景核心目标。干扰项分别涉及折扣（与费用构成无关）、距离（无关信息）和入住时间（非费用确认），均偏离主题。",
+        "qaId": "study_abroad_099_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "study_abroad_099_sub_2_qa_2_choice_1",
+      "subSceneId": "study_abroad_099_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你已得知单人间月租为850美元，现在想确认是否需要预付押金，以及押金是否可退，以防后续产生误解。",
+        "speakerText": "The monthly rent is $850.",
+        "speakerTextCn": "月租是850美元。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is there a security deposit required, and is it refundable?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I bring a pet into the room?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Do you offer weekly payment options?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What furniture comes with the room?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案精准询问押金及其退还条件，紧扣费用确认的核心任务。干扰项涉及宠物（无关）、付款周期（虽相关但非当前焦点）和家具（属于设施细节而非费用条款），均非最直接、最必要的追问。",
+        "qaId": "study_abroad_099_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:09:09.933Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -5,60 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.550Z",
   "questions": [
     {
-      "id": "workplace_049_sub_4_qa_1_fill_blank_1",
-      "subSceneId": "workplace_049_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示：用户需要确认住宿和餐饮的每日上限",
-        "qaId": "workplace_049_sub_4_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "for hotels and meals",
-            "options": [
-              "for food only",
-              "for transportation only",
-              "for hotels and meals",
-              "for entertainment"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "确认差旅费用报销流程和额度",
-        "knowledgePoint": "提问句型",
-        "responseTemplate": "What's the max daily allowance for hotels and meals?"
-      }
-    },
-    {
-      "id": "workplace_049_sub_4_qa_2_fill_blank_1",
-      "subSceneId": "workplace_049_sub_4",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示，帮助用户回忆",
-        "qaId": "workplace_049_sub_4_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "指定航司",
-            "options": [
-              "具体时间",
-              "明天",
-              "每天",
-              "指定航司"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "确认差旅费用报销流程和额度",
-        "knowledgePoint": "口语提问句型",
-        "responseTemplate": "我还得订机票，有___?"
-      }
-    },
-    {
       "id": "workplace_049_sub_4_fill_blank_1",
       "subSceneId": "workplace_049_sub_4",
       "type": "fill_blank",
@@ -167,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "报销流程核心表达：email for pre-approval"
       }
+    },
+    {
+      "id": "workplace_049_sub_4_qa_1_fill_blank_1",
+      "subSceneId": "workplace_049_sub_4",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你即将出差，需要向行政人员确认公司对交通费用的报销政策，确保预订时符合规定。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Could you please clarify what ___ are allowed for transportation?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "modes of transportation",
+            "options": [
+              "modes of transportation",
+              "transportation costs",
+              "travel destinations",
+              "flight classes"
+            ]
+          }
+        ],
+        "hint": "询问允许的交通方式，而不是具体金额或航班等级",
+        "knowledgePoint": "询问报销范围的规范表达",
+        "qaId": "workplace_049_sub_4_qa_1"
+      }
+    },
+    {
+      "id": "workplace_049_sub_4_qa_2_fill_blank_1",
+      "subSceneId": "workplace_049_sub_4",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你准备提交差旅报销，想确认是否需要提前申请批准，避免流程出错。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Do I need to ___ before booking anything?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "get pre-approval",
+            "options": [
+              "get pre-approval",
+              "submit a request",
+              "send an email",
+              "ask your manager"
+            ]
+          }
+        ],
+        "hint": "核心表达是‘提前获得批准’，这是报销流程的关键步骤",
+        "knowledgePoint": "报销前置流程的规范提问",
+        "qaId": "workplace_049_sub_4_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:47.475Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

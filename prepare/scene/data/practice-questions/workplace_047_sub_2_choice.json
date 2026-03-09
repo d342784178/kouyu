@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.527Z",
   "questions": [
     {
-      "id": "workplace_047_sub_2_qa_1_choice_1",
-      "subSceneId": "workplace_047_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "workplace_047_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "I'd like to take a day off next Wednesday.",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can I have a day off on Friday?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "When is the next holiday?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "I'm not sure about the vacation policy.",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "答案解析：正确答案I'd like to take a day off next Wednesday.是合适的提问方式，因为它明确了员工的需求和日期。选项2Can I have a day off on Friday?不符合场景，因为员工提出的具体日期是下周三。选项3When is the next holiday?不符合场景，因为员工并没有提到需要知道下一个假期的日期。选项4I'm not sure about the vacation policy.不符合场景，因为员工并没有表达出对假期政策的疑问。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "经理作为服务方回应员工的休假请求"
-      }
-    },
-    {
       "id": "workplace_047_sub_2_choice_2",
       "subSceneId": "workplace_047_sub_2",
       "type": "choice",
@@ -110,6 +75,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "我这周末有个家庭活动。"
       }
+    },
+    {
+      "id": "workplace_047_sub_2_qa_1_choice_1",
+      "subSceneId": "workplace_047_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你最近工作很忙，想申请下周二调休一天，因为要处理个人事务，需要礼貌地向经理提出请求。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "I'd like to take Tuesday off next week—I’ve got some personal matters to handle.",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "I’m not available next Tuesday, so you have to let me off.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you just give me Tuesday off? I don’t care why.",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I need to work less next week—maybe Tuesday?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案使用了礼貌表达 'I'd like to' 并提供了合理原因，符合职场请求的规范。选项2语气强硬且不礼貌；选项3缺乏礼貌和理由，显得随意；选项4表达模糊，未明确请求，且 'work less' 不符合职场专业表达。",
+        "qaId": "workplace_047_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:13:35.591Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

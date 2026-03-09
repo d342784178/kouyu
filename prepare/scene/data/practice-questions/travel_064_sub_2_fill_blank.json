@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.154Z",
   "questions": [
     {
-      "id": "travel_064_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "travel_064_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "请填写行李寄存的时间",
-        "qaId": "travel_064_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "24",
-            "options": [
-              "24",
-              "12",
-              "48",
-              "36"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想知道寄存行李的费用",
-        "knowledgePoint": "询问收费标准",
-        "responseTemplate": "How much does it cost to store my luggage for ______________ hours?"
-      }
-    },
-    {
       "id": "travel_064_sub_2_fill_blank_1",
       "subSceneId": "travel_064_sub_2",
       "type": "fill_blank",
@@ -57,33 +30,6 @@
         "speakerTextCn": "费用按每件行李计算，包含基本安检服务。",
         "knowledgePoint": "询问服务范围的常用表达",
         "responseTemplate": "Does that ___ insurance or lost item protection?"
-      }
-    },
-    {
-      "id": "travel_064_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "travel_064_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "你可以问店员：我们按天收费吗？",
-        "qaId": "travel_064_sub_2_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "天",
-            "options": [
-              "天",
-              "小时",
-              "天数",
-              "费用"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想要了解寄存行李的收费标准",
-        "knowledgePoint": "询问收费标准",
-        "responseTemplate": "我们按___收费，不是按小时"
       }
     },
     {
@@ -167,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "场景惯用搭配（discount for long-term）"
       }
+    },
+    {
+      "id": "travel_064_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "travel_064_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "旅客在机场行李寄存处，想了解寄存一件行李的费用",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "How much does it cost to store my luggage for ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "a day",
+            "options": [
+              "a day",
+              "an hour",
+              "a week",
+              "the morning"
+            ]
+          }
+        ],
+        "hint": "询问标准计费周期的常用表达",
+        "knowledgePoint": "询问收费标准的句型结构",
+        "qaId": "travel_064_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "travel_064_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "travel_064_sub_2",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "旅客不确定寄存费用是按小时还是按天计算，想确认计费方式",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Do you charge by the hour or by ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "the day",
+            "options": [
+              "the day",
+              "the week",
+              "the hour",
+              "the month"
+            ]
+          }
+        ],
+        "hint": "确认计费单位的常见提问方式",
+        "knowledgePoint": "区分计费单位的表达",
+        "qaId": "travel_064_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:10:50.800Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

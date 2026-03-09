@@ -5,52 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.561Z",
   "questions": [
     {
-      "id": "daily_017_sub_1_qa_1_speaking_1",
-      "subSceneId": "daily_017_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_017_sub_1_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你走进水果店，店员正在摆放新鲜水果，你想询问店员今天有哪些新鲜水果",
-        "expectedAnswers": [
-          "Hi, do you have any fresh apples today?",
-          "Excuse me, are there any new apples in stock?",
-          "Hello, do you have any fresh apples or pears today?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问新鲜水果的意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯"
-        ]
-      }
-    },
-    {
-      "id": "daily_017_sub_1_qa_2_speaking_1",
-      "subSceneId": "daily_017_sub_1",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_017_sub_1_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客走进水果店，想要礼貌地与店员打招呼并开启对话",
-        "expectedAnswers": [
-          "Hi there! How's it going?",
-          "Hello! Doing well today?",
-          "Good morning! Any new fruits in today?",
-          "Hey! How's everything going?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否自然地表达了问候并开启对话",
-          "语言准确性：语法和时态使用正确，无明显错误",
-          "表达自然度：符合英语母语者日常打招呼的口语习惯",
-          "关键词覆盖：使用了问候语或相关社交用语"
-        ]
-      }
-    },
-    {
       "id": "daily_017_sub_1_speaking_3",
       "subSceneId": "daily_017_sub_1",
       "type": "speaking",
@@ -73,6 +27,56 @@
           "关键词覆盖：使用了 'great', 'pretty good', 'thanks for asking' 等问候关键词"
         ]
       }
+    },
+    {
+      "id": "daily_017_sub_1_qa_1_speaking_1",
+      "subSceneId": "daily_017_sub_1",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客走进一家咖啡店，想礼貌地向店员打招呼并开启对话",
+        "speakerText": "Hi, good morning!",
+        "speakerTextCn": "嗨，早上好！",
+        "expectedAnswers": [
+          "Good morning! How can I help you today?",
+          "Morning! What can I get for you?",
+          "Hey! Welcome in — anything special on the menu today?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否自然地开启问候并引导服务对话",
+          "语言准确性：语法正确，时态和用词恰当",
+          "表达自然度：符合英语母语者在咖啡店的日常口语习惯"
+        ],
+        "qaId": "daily_017_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "daily_017_sub_1_qa_2_speaking_1",
+      "subSceneId": "daily_017_sub_1",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客进入一家小型面包店，想用友好的方式向店员打招呼并表达兴趣",
+        "speakerText": "Hello! This place looks amazing!",
+        "speakerTextCn": "你好！这家店看起来真棒！",
+        "expectedAnswers": [
+          "Thanks so much! We just baked fresh croissants this morning.",
+          "Glad you like it! Would you like to try our signature sourdough?",
+          "Aw, thank you! Everything’s made daily — what catches your eye?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否在赞美后自然过渡到服务互动",
+          "语言准确性：用词恰当，无语法错误，语气友好",
+          "表达自然度：符合小型店铺店主热情、亲切的回应风格"
+        ],
+        "qaId": "daily_017_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:04:36.367Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

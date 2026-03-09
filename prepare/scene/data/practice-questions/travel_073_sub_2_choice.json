@@ -5,76 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.299Z",
   "questions": [
     {
-      "id": "travel_073_sub_2_qa_1_choice_1",
-      "subSceneId": "travel_073_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_073_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Excuse me, where is Green Park?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Can you take me to the nearest station?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "I want to go to the city center, right?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "How do I get to the train station?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案是 \"Excuse me, where is Green Park?\"，因为它清楚地表达了用户的目的地是 Green Park。其他选项不正确，因为它们没有直接问出目的地，或者询问了不相关的信息。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "您想去地铁站，需要清楚地问出目的地"
-      }
-    },
-    {
-      "id": "travel_073_sub_2_qa_2_choice_1",
-      "subSceneId": "travel_073_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "travel_073_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "Excuse me, could you tell me how to get to Green Park?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "Where is Green Park?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you show me the way to Green Park station?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Is Green Park far from here?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案使用了礼貌的询问结构 'Excuse me, could you tell me how to get to...'，符合在陌生环境中寻求方向的地道表达。干扰项1 'Where is Green Park?' 虽语法正确，但语气过于直接，不符合场景中的礼貌需求；干扰项2 'Can you show me the way...' 语义接近，但 'show me the way' 通常用于需要对方亲自带路的情境，而地铁站内更常见的是指引方向而非陪同；干扰项3 'Is Green Park far from here?' 询问的是距离而非路径，偏离了用户需要获取路线指引的核心目的。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你在地铁站内想询问如何到达绿园站，需要礼貌地提出一个清晰、符合英语口语习惯的问题。"
-      }
-    },
-    {
       "id": "travel_073_sub_2_choice_3",
       "subSceneId": "travel_073_sub_2",
       "type": "choice",
@@ -109,6 +39,45 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "换乘站在中央车站，下一班列车往东开。"
       }
+    },
+    {
+      "id": "travel_073_sub_2_qa_1_choice_1",
+      "subSceneId": "travel_073_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在伦敦地铁站，想前往牛津圆环站，但不确定该如何询问工作人员路线。",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Excuse me, could you tell me how to get to Oxford Circus?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is Oxford Circus the next stop?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Can you show me where Oxford Circus is on the map?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "I think I’m going to Oxford Circus, but I’m not sure.",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接、礼貌地询问前往目的地的路线，符合高频真实场景中的标准表达。选项2是假设性提问，适用于已上车后确认站点，而非初始询问。选项3虽合理，但更侧重地图指引，不如直接问路线常见。选项4是自我表达，未构成有效提问，无法引导工作人员提供帮助。",
+        "qaId": "travel_073_sub_2_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:50.714Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

@@ -5,41 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.627Z",
   "questions": [
     {
-      "id": "daily_027_sub_2_qa_2_choice_1",
-      "subSceneId": "daily_027_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_027_sub_2_qa_2",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "How long does the battery last on a single charge?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What color is the tool?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you tell me the price of this model?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Does it come with a warranty?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案询问电池续航时间，直接对应场景中‘询问电池续航’的核心需求。干扰项分别询问颜色（无关特征）、价格（财务信息而非功能）、保修（售后政策），均偏离了‘功能参数’的询问重点。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客想了解一款电动工具的电池续航时间和功率等关键功能参数，准备向销售人员提问。"
-      }
-    },
-    {
       "id": "daily_027_sub_2_choice_1",
       "subSceneId": "daily_027_sub_2",
       "type": "choice",
@@ -73,41 +38,6 @@
         "speakerText": "This model runs for 45 minutes on a full charge.",
         "dialogueMode": "user_responds",
         "speakerTextCn": "这款吸尘器满电后可以使用45分钟。"
-      }
-    },
-    {
-      "id": "daily_027_sub_2_qa_1_choice_1",
-      "subSceneId": "daily_027_sub_2",
-      "type": "choice",
-      "order": 1,
-      "content": {
-        "qaId": "daily_027_sub_2_qa_1",
-        "type": "choice",
-        "options": [
-          {
-            "id": "opt_1",
-            "text": "How long does the battery last on a single charge?",
-            "isCorrect": true
-          },
-          {
-            "id": "opt_2",
-            "text": "What color is the battery?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_3",
-            "text": "Can you tell me the price of this tool?",
-            "isCorrect": false
-          },
-          {
-            "id": "opt_4",
-            "text": "Does it come with a warranty?",
-            "isCorrect": false
-          }
-        ],
-        "explanation": "正确答案询问电池续航时间，直接对应场景中用户关心的核心功能参数。干扰项分别询问颜色（无关特征）、价格（经济因素而非功能）和保修（售后服务），均偏离了询问技术参数的场景目标。",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在查看电动工具，想了解产品的电池续航时间和电压参数，以便判断是否满足使用需求。"
       }
     },
     {
@@ -181,6 +111,82 @@
         "dialogueMode": "user_responds",
         "speakerTextCn": "这款剃须刀单次充电可续航7天。"
       }
+    },
+    {
+      "id": "daily_027_sub_2_qa_1_choice_1",
+      "subSceneId": "daily_027_sub_2",
+      "type": "choice",
+      "order": 1,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在五金店想购买一台电钻，想了解它的电池续航时间，因为你计划连续钻多个孔，需要长时间使用。",
+        "speakerText": "This model has a 20V lithium battery with a runtime of up to 90 minutes on a single charge.",
+        "speakerTextCn": "这款电钻配备20伏锂电池，单次充电最长可使用90分钟。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "How long does the battery last when I’m drilling 50 holes?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Is the battery easy to replace?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "Does it come with a charger?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "What’s the warranty on the motor?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案准确结合了具体使用场景（钻50个孔）来询问续航，符合学习要求中‘用具体需求提问’的指导。干扰项分别询问电池更换、充电器和保修，虽相关但偏离了核心需求——续航是否满足高强度使用。",
+        "qaId": "daily_027_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "daily_027_sub_2_qa_2_choice_1",
+      "subSceneId": "daily_027_sub_2",
+      "type": "choice",
+      "order": 2,
+      "content": {
+        "type": "choice",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在比较两款电动工具，销售员提到其中一款有两档速度和LED灯，你想确认LED灯的亮度是否足够在昏暗的地下室工作。",
+        "speakerText": "It features a 2-speed setting and a bright built-in LED light for better visibility.",
+        "speakerTextCn": "它配有两档调速和内置LED灯，提升可见度。",
+        "options": [
+          {
+            "id": "opt_1",
+            "text": "Is the LED bright enough to work in a dark basement?",
+            "isCorrect": true
+          },
+          {
+            "id": "opt_2",
+            "text": "Can I turn off the LED if I don’t want it?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_3",
+            "text": "How many lumens does the LED produce?",
+            "isCorrect": false
+          },
+          {
+            "id": "opt_4",
+            "text": "Do both speeds use the same amount of battery?",
+            "isCorrect": false
+          }
+        ],
+        "explanation": "正确答案直接表达了使用场景（昏暗地下室）和核心关切（亮度是否足够），符合使用‘game-changer’类表达的意图，即关注功能的实际价值。干扰项分别询问开关功能、光通量数值和耗电差异，要么无关，要么过于技术化，不符合日常口语交流习惯。",
+        "qaId": "daily_027_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:05:21.318Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

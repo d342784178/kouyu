@@ -5,52 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.498Z",
   "questions": [
     {
-      "id": "daily_008_sub_3_qa_2_speaking_1",
-      "subSceneId": "daily_008_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_008_sub_3_qa_2",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你想知道购买的商品如何快速送达?",
-        "expectedAnswers": [
-          "Can you tell me the delivery time and cost?",
-          "How long will it take to get there and how much will it cost?",
-          "What's the fastest way to get the package delivered and how much will it cost?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
-      "id": "daily_008_sub_3_qa_1_speaking_1",
-      "subSceneId": "daily_008_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "daily_008_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在咨询快递费用和方式，服务员正在提供信息",
-        "expectedAnswers": [
-          "What's the price for standard shipping and express?",
-          "普通快递和特快多少钱?",
-          "How much does standard shipping and express cost?"
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否正确表达了询问意图",
-          "语言准确性：语法和用词是否正确",
-          "表达自然度：是否符合英语口语习惯",
-          "关键词覆盖：是否使用了场景关键词"
-        ]
-      }
-    },
-    {
       "id": "daily_008_sub_3_speaking_3",
       "subSceneId": "daily_008_sub_3",
       "type": "speaking",
@@ -72,6 +26,60 @@
           "是否自然使用了场景关键词如 express, standard, arrives, budget-friendly"
         ]
       }
+    },
+    {
+      "id": "daily_008_sub_3_qa_1_speaking_1",
+      "subSceneId": "daily_008_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客在网店结账时，想了解不同快递方式的费用和送达时间，以便选择最适合的选项",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "What are the shipping options and how much do they cost?",
+          "How long does standard shipping take compared to express?",
+          "Could you tell me the price and delivery time for both economy and fast shipping?",
+          "Which option gets here the quickest, and what’s the difference in cost?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了快递方式、价格和时效",
+          "语言准确性：语法正确，时态和用词无错误",
+          "表达自然度：符合日常英语口语习惯，无中式表达",
+          "关键词覆盖：使用了 shipping, cost, price, delivery time, option 等场景关键词"
+        ],
+        "qaId": "daily_008_sub_3_qa_1"
+      }
+    },
+    {
+      "id": "daily_008_sub_3_qa_2_speaking_1",
+      "subSceneId": "daily_008_sub_3",
+      "type": "speaking",
+      "order": 2,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "顾客急需收到包裹，想确认是否能在周末前送达，同时想知道是否有加急服务",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "expectedAnswers": [
+          "Can I get this delivered by Saturday with express shipping?",
+          "Is there a same-day or overnight option? If so, how much extra does it cost?",
+          "Will the fastest service get it to me before the weekend?",
+          "What’s the latest I can ship today to make Saturday delivery?"
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确询问了截止时间、加急选项及额外费用",
+          "语言准确性：正确使用了 can, will, if so, how much extra 等自然表达",
+          "表达自然度：符合真实对话节奏，避免生硬或过度正式",
+          "关键词覆盖：使用了 deliver, express, same-day, overnight, weekend, extra cost 等关键词"
+        ],
+        "qaId": "daily_008_sub_3_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:29.024Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

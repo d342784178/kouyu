@@ -5,30 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.252Z",
   "questions": [
     {
-      "id": "travel_070_sub_3_qa_1_speaking_1",
-      "subSceneId": "travel_070_sub_3",
-      "type": "speaking",
-      "order": 1,
-      "content": {
-        "qaId": "travel_070_sub_3_qa_1",
-        "type": "speaking",
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在咨询航班空位，客服提供了两个可选时间，你想确认是否还有其他日期或时间可以选择，并表达自己的偏好。",
-        "expectedAnswers": [
-          "Do you have any other available times besides the 15th at 10 a.m. and the 16th at 3 p.m.?",
-          "I'd prefer a morning flight—could you check if there are options on the 17th or 18th?",
-          "Are there any earlier or later slots available? I'm flexible but would like to avoid late afternoons.",
-          "Could you tell me what other dates have openings? I'm leaning toward the 17th if possible."
-        ],
-        "evaluationCriteria": [
-          "意图达成度：是否明确表达了希望了解其他可选时间的意图",
-          "语言准确性：语法结构正确，时态和用词无错误",
-          "表达自然度：符合日常英语对话习惯，语气礼貌自然",
-          "关键词覆盖：使用了'available', 'openings', 'dates', 'times'等场景关键词"
-        ]
-      }
-    },
-    {
       "id": "travel_070_sub_3_speaking_2",
       "subSceneId": "travel_070_sub_3",
       "type": "speaking",
@@ -75,6 +51,34 @@
           "关键词覆盖：使用了日期、时间、更早/更晚等场景关键词"
         ]
       }
+    },
+    {
+      "id": "travel_070_sub_3_qa_1_speaking_1",
+      "subSceneId": "travel_070_sub_3",
+      "type": "speaking",
+      "order": 1,
+      "content": {
+        "type": "speaking",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你正在预订机票，客服告诉你有几个可选日期，你想表达自己的偏好并询问是否有更符合你时间安排的选项。",
+        "speakerText": "We have openings on the 15th at 10 a.m. or the 16th at 3 p.m.",
+        "speakerTextCn": "15号上午10点或16号下午3点有空位。",
+        "expectedAnswers": [
+          "I'd prefer the 15th at 10 a.m. if possible—can you check if there's an earlier flight that day?",
+          "The 15th works better for me, but is there a slot before noon?",
+          "15th at 10 is good, but do you have anything around 8 or 9 a.m.?",
+          "Could I book the 15th? I’d really like to get there before noon."
+        ],
+        "evaluationCriteria": [
+          "意图达成度：是否明确表达了日期偏好并请求替代选项",
+          "语言准确性：时态、介词和冠词使用是否正确",
+          "表达自然度：是否符合日常英语口语习惯，语气礼貌自然",
+          "关键词覆盖：是否使用了 'prefer', 'earlier', 'before noon', 'check if' 等场景关键词"
+        ],
+        "qaId": "travel_070_sub_3_qa_1"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:11:40.462Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

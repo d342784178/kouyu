@@ -33,60 +33,6 @@
       }
     },
     {
-      "id": "workplace_053_sub_1_qa_1_fill_blank_1",
-      "subSceneId": "workplace_053_sub_1",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "适用于询问服务情况或请求帮助时使用的句型",
-        "qaId": "workplace_053_sub_1_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "packages",
-            "options": [
-              "消息",
-              "信息",
-              "快递",
-              "包裹"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "询问服务情况或请求帮助时使用的句型",
-        "knowledgePoint": "询问快递",
-        "responseTemplate": "Hey, any ___ for me today?"
-      }
-    },
-    {
-      "id": "workplace_053_sub_1_qa_2_fill_blank_1",
-      "subSceneId": "workplace_053_sub_1",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "在询问包裹时，可以直接问公司名称",
-        "qaId": "workplace_053_sub_1_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "Amazon",
-            "options": [
-              "Amazon",
-              "Walmart",
-              "UPS",
-              "FedEx"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "询问包裹",
-        "knowledgePoint": "提问句型",
-        "responseTemplate": "Is there a package from ___ with my name on it?"
-      }
-    },
-    {
       "id": "workplace_053_sub_1_fill_blank_2",
       "subSceneId": "workplace_053_sub_1",
       "type": "fill_blank",
@@ -167,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "场景核心动词搭配（check the system）"
       }
+    },
+    {
+      "id": "workplace_053_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "workplace_053_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在公司前台，想询问是否有寄给你的快递",
+        "speakerText": "Hi, could you check if there's a package for me?",
+        "speakerTextCn": "你好，你能查一下有没有寄给我的快递吗？",
+        "responseTemplate": "Hi, could you check if there's a package for ___?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "me",
+            "options": [
+              "me",
+              "myself",
+              "I",
+              "mine"
+            ]
+          }
+        ],
+        "hint": "这里需要一个宾格代词，指代说话人自己",
+        "knowledgePoint": "宾格代词在询问包裹时的正确使用",
+        "qaId": "workplace_053_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "workplace_053_sub_1_qa_2_fill_blank_1",
+      "subSceneId": "workplace_053_sub_1",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在公司前台，想确认是否有来自某个快递公司的包裹",
+        "speakerText": "Do you have any packages from a courier with my name on it?",
+        "speakerTextCn": "你们有没有带有我名字的快递公司的包裹？",
+        "responseTemplate": "Do you have any packages from a ___ with my name on it?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "courier",
+            "options": [
+              "courier",
+              "company",
+              "delivery",
+              "post"
+            ]
+          }
+        ],
+        "hint": "这里指代快递服务提供方，最自然的口语表达",
+        "knowledgePoint": "快递服务提供方的常用词汇",
+        "qaId": "workplace_053_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:14.695Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

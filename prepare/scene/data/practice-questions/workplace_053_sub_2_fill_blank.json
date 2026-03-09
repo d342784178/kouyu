@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:57.580Z",
   "questions": [
     {
-      "id": "workplace_053_sub_2_qa_2_fill_blank_1",
-      "subSceneId": "workplace_053_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "填空提示，帮助用户回忆",
-        "qaId": "workplace_053_sub_2_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "市场部",
-            "options": [
-              "市场部",
-              "财务部",
-              "行政部",
-              "研发部"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "适用于顾客询问服务提供者是否可以完成某项服务",
-        "knowledgePoint": "请求派送",
-        "responseTemplate": "能帮我把这送到___吗？很急。"
-      }
-    },
-    {
       "id": "workplace_053_sub_2_fill_blank_1",
       "subSceneId": "workplace_053_sub_2",
       "type": "fill_blank",
@@ -57,33 +30,6 @@
         "speakerTextCn": "你能把这送到我办公室吗？我现在在开会。",
         "knowledgePoint": "高频请求表达：drop off + 物品 + to 地点",
         "responseTemplate": "Could you ______ this to my office? I'm in a meeting right now."
-      }
-    },
-    {
-      "id": "workplace_053_sub_2_qa_1_fill_blank_1",
-      "subSceneId": "workplace_053_sub_2",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "请回忆如何询问服务提供者",
-        "qaId": "workplace_053_sub_2_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "desk",
-            "options": [
-              "桌子",
-              "办公室",
-              "工位",
-              "门口"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "你正在前台咨询服务时，需要向服务员提出一个请求",
-        "knowledgePoint": "口语表达：请求派送",
-        "responseTemplate": "Can you drop this off at my ___? Thanks!"
       }
     },
     {
@@ -167,6 +113,76 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "场景核心句型（I'd like to send...）"
       }
+    },
+    {
+      "id": "workplace_053_sub_2_qa_1_fill_blank_1",
+      "subSceneId": "workplace_053_sub_2",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工请前台帮忙把快递送到自己的办公桌，语气礼貌且明确",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Could you ___ this to my desk? Thanks!",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "drop off",
+            "options": [
+              "drop off",
+              "send over",
+              "bring up",
+              "hand in"
+            ]
+          }
+        ],
+        "hint": "表达‘送到某处’时，常用短语是 drop off，尤其在办公室环境中",
+        "knowledgePoint": "日常请求服务的礼貌表达",
+        "qaId": "workplace_053_sub_2_qa_1"
+      }
+    },
+    {
+      "id": "workplace_053_sub_2_qa_2_fill_blank_1",
+      "subSceneId": "workplace_053_sub_2",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "员工请前台将一份紧急文件送到另一个部门，强调时间紧迫",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Could you ___ this to Sales? It's ___.",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "send over",
+            "options": [
+              "send over",
+              "take to",
+              "carry to",
+              "give to"
+            ]
+          },
+          {
+            "index": 1,
+            "answer": "urgent",
+            "options": [
+              "urgent",
+              "important",
+              "necessary",
+              "quick"
+            ]
+          }
+        ],
+        "hint": "表达‘送到’用 send over；强调紧急时用 urgent，能促使对方优先处理",
+        "knowledgePoint": "表达紧急请求的常用搭配",
+        "qaId": "workplace_053_sub_2_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:14:26.456Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }

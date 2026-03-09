@@ -5,33 +5,6 @@
   "exportedAt": "2026-03-08T15:38:56.441Z",
   "questions": [
     {
-      "id": "daily_002_sub_1_qa_1_fill_blank_1",
-      "subSceneId": "daily_002_sub_1",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "询问商品所在区域时，常用 'where can I find the...' 结构，后面接名词短语表示区域",
-        "qaId": "daily_002_sub_1_qa_1",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "dairy section",
-            "options": [
-              "dairy section",
-              "dairy's section",
-              "section of dairy",
-              "where is dairy"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在超市寻找牛奶和燕麦片，想询问工作人员这些商品在哪个区域",
-        "knowledgePoint": "询问位置的礼貌提问句型",
-        "responseTemplate": "Excuse me, where can I find the ___?"
-      }
-    },
-    {
       "id": "daily_002_sub_1_fill_blank_1",
       "subSceneId": "daily_002_sub_1",
       "type": "fill_blank",
@@ -57,43 +30,6 @@
         "speakerTextCn": "不好意思，您能告诉我燕麦片在哪里吗？",
         "knowledgePoint": "商品区域的常见表达（如 breakfast, dairy, snack）",
         "responseTemplate": "It's in the ___ section, next to the breakfast cereals."
-      }
-    },
-    {
-      "id": "daily_002_sub_1_qa_2_fill_blank_1",
-      "subSceneId": "daily_002_sub_1",
-      "type": "fill_blank",
-      "order": 1,
-      "content": {
-        "hint": "请根据场景提示填写正确的商品名称和区域名称",
-        "qaId": "daily_002_sub_1_qa_2",
-        "type": "fill_blank",
-        "blanks": [
-          {
-            "index": 0,
-            "answer": "almond milk",
-            "options": [
-              "牛奶",
-              "燕麦片",
-              "苹果片",
-              "橙汁"
-            ]
-          },
-          {
-            "index": 1,
-            "answer": "refrigerated",
-            "options": [
-              "冷藏区",
-              "热卖区",
-              "生活区",
-              "休息区"
-            ]
-          }
-        ],
-        "dialogueMode": "user_asks",
-        "scenarioHint": "顾客在超市寻找商品时，需要询问工作人员商品位置",
-        "knowledgePoint": "提问句型结构",
-        "responseTemplate": "Do you have ___ in the ___ section?"
       }
     },
     {
@@ -177,6 +113,66 @@
         "dialogueMode": "user_responds",
         "knowledgePoint": "商品区域类型表达（organic aisle）"
       }
+    },
+    {
+      "id": "daily_002_sub_1_qa_1_fill_blank_1",
+      "subSceneId": "daily_002_sub_1",
+      "type": "fill_blank",
+      "order": 1,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你在超市想找到牛奶和燕麦片所在的区域，准备向工作人员提问",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Could you tell me where to find ___ and oatmeal?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "milk",
+            "options": [
+              "milk",
+              "bread",
+              "juice",
+              "cereal"
+            ]
+          }
+        ],
+        "hint": "询问商品位置时，常用 'where to find' + 商品名",
+        "knowledgePoint": "询问商品位置的通用句型",
+        "qaId": "daily_002_sub_1_qa_1"
+      }
+    },
+    {
+      "id": "daily_002_sub_1_qa_2_fill_blank_1",
+      "subSceneId": "daily_002_sub_1",
+      "type": "fill_blank",
+      "order": 2,
+      "content": {
+        "type": "fill_blank",
+        "dialogueMode": "user_asks",
+        "scenarioHint": "你想确认冷藏区是否有燕麦片，准备礼貌地询问工作人员",
+        "speakerText": "",
+        "speakerTextCn": "",
+        "responseTemplate": "Do you have ___ in the refrigerated section?",
+        "blanks": [
+          {
+            "index": 0,
+            "answer": "oatmeal",
+            "options": [
+              "oatmeal",
+              "rice",
+              "yogurt",
+              "butter"
+            ]
+          }
+        ],
+        "hint": "确认特定商品是否在售时，常用 'Do you have... in...?' 结构",
+        "knowledgePoint": "确认商品在售的询问句型",
+        "qaId": "daily_002_sub_1_qa_2"
+      }
     }
-  ]
+  ],
+  "generatedAt": "2026-03-09T05:03:08.242Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct"
 }
