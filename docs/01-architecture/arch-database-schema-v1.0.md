@@ -1,7 +1,7 @@
 # 语习集 - 数据库设计
 
-> 版本: v1.5
-> 最后更新: 2026-03-08
+> 版本: v1.6
+> 最后更新: 2026-03-14
 > 优先级: P1
 > 阅读时间: 20分钟
 
@@ -584,12 +584,10 @@ interface OpenDialogueContent {
 
 | 分类 | ID前缀 | 数量 | 说明 |
 |------|--------|------|------|
-| 日常 | `daily_` | 31 | 餐厅、购物、银行等日常场景 |
-| 职场 | `workplace_` | 25 | 会议、面试、邮件等职场场景 |
-| 留学 | `study_abroad_` | 15 | 选课、宿舍、论文等留学场景 |
-| 旅行 | `travel_` | 20 | 机场、酒店、景点等旅行场景 |
-| 社交 | `social_` | 20 | 聚会、约会、介绍等社交场景 |
-| **总计** | - | **111** | - |
+| 日常 | `daily_` | 28 | 餐厅、购物、银行等日常场景 |
+| 社交 | `social_` | 14 | 聚会、约会、介绍等社交场景 |
+| 旅行 | `travel_` | 8 | 机场、酒店、景点等旅行场景 |
+| **总计** | - | **50** | - |
 
 ---
 
@@ -661,7 +659,7 @@ const examples = await db.query.phraseExamples.findMany({
 
 | 字段 | 允许值 | 说明 |
 |------|--------|------|
-| `category` | `日常`, `职场`, `留学`, `旅行`, `社交` | 使用中文 |
+| `category` | `日常`, `社交`, `旅行` | 使用中文 |
 | `difficulty` | `初级`, `中级`, `高级` | 使用中文 |
 | `type` (scene_tests) | `choice`, `qa`, `open_dialogue`, `fill_blank`, `guided_roleplay`, `vocab_activation` | 使用英文小写 |
 | `type` (vocabulary) | `word`, `phrase` | 使用英文小写 |
@@ -729,6 +727,7 @@ CREATE INDEX idx_scenes_search ON scenes USING gin(to_tsvector('chinese', name |
 
 | 版本 | 日期 | 变更内容 | 作者 |
 |------|------|----------|------|
+| v1.6 | 2026-03-14 | 场景数据精简：删除职场/留学类场景，保留50个高频日常场景（日常28+社交14+旅行8）；更新场景分类统计和字段值规范 | AI |
 | v1.5 | 2026-03-08 | 重构 qa_pairs 表字段：新增 dialogue_mode/trigger_speaker_role/scenario_hint 字段；重命名 speaker_text→trigger_text、responses→follow_ups、qa_type→learn_requirement；添加对话模式说明和完整示例 | AI |
 | v1.4 | 2026-03-01 | 补充 scene_tests.type 新增题型（fill_blank/guided_roleplay/vocab_activation）；更新字段值规范表 | AI |
 | v1.3 | 2026-07-30 | 新增 sub_scenes 和 qa_pairs 表定义（v2场景学习增强功能） | AI |

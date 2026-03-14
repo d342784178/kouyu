@@ -1,34 +1,16 @@
 'use client'
 
-/**
- * AIDialogueStage - 第三阶段：AI模拟对话
- *
- * 功能：
- * - 气泡对话样式（AI左侧，用户右侧）
- * - 底部固定麦克风按钮（按住说话，松开发送）
- * - 5秒超时提示逻辑
- * - QA_Pair 回应状态记录（fluent/prompted/failed）
- * - Fluency_Score 计算和展示
- * - Speech SDK 失败时降级为文字输入框
- * - 支持浏览器兼容（夸克、小米等浏览器通过服务端语音识别）
- */
-
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { calculateFluencyScore } from '@/lib/scene-learning/scoring'
 import { useSpeechRecognition } from '@/hooks/useSpeechRecognition'
+import AudioInputBar from '@/components/AudioInputBar'
 import type { QAPair, DialogueMode } from '@/types'
 import type { QAPairResult, QAPairResultStatus } from '@/lib/scene-learning/scoring'
 
-// ============================================================
-// 类型定义
-// ============================================================
-
 interface AIDialogueStageProps {
   subSceneId: string
-  /** 从父组件传入，避免重复请求 */
   qaPairs: QAPair[]
-  /** 进入下一阶段的回调，携带流畅度得分、未通过 id 列表、对话历史 */
   onProceed: (
     fluencyScore: number,
     failedQaIds: string[],
@@ -36,42 +18,25 @@ interface AIDialogueStageProps {
   ) => void
 }
 
-/** 对话气泡消息 */
 interface ChatMessage {
   id: string
   role: 'ai' | 'user'
   text: string
-  /** 是否为超时提示语 */
   isHint?: boolean
-  /** 是否为对话目标提示（user_asks 模式专用） */
   isGoalHint?: boolean
 }
 
-/** 当前录音/识别状态 */
 type RecordingState = 'idle' | 'recording' | 'recognizing' | 'error'
 
-/** 回答不匹配时的确认弹窗数据 */
 interface RetryPrompt {
-  /** AI 提示文案 */
   hint: string
-  /** 判断理由 */
   reason?: string
-  /** 需要撤销的用户消息 id */
   userMsgId: string
 }
 
-// ============================================================
-// 工具函数
-// ============================================================
-
-/** 生成唯一消息 id */
 function genId() {
   return `msg_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`
 }
-
-// ============================================================
-// 子组件：AI 输入中指示器
-// ============================================================
 
 function TypingIndicator() {
   return (
@@ -80,11 +45,9 @@ function TypingIndicator() {
       animate={{ opacity: 1, y: 0 }}
       className="flex items-start gap-3"
     >
-      {/* AI 头像 */}
       <div className="w-9 h-9 rounded-full bg-gradient-to-r from-[#4F7CF0] to-[#7B9FF5] flex items-center justify-center shrink-0 text-white text-xs font-bold shadow-sm">
         AI
       </div>
-      {/* 输入中气泡 */}
       <div className="max-w-[75%]">
         <div className="text-[10px] text-gray-500 mb-1.5">AI 助手</div>
         <div className="bg-[#EEF2FF] rounded-2xl rounded-tl-none px-4 py-3 shadow-md border border-gray-100">
@@ -106,10 +69,6 @@ function TypingIndicator() {
   )
 }
 
-// ============================================================
-// 子组件：单条气泡消息
-// ============================================================
-
 interface MessageBubbleProps {
   message: ChatMessage
 }
@@ -124,7 +83,6 @@ function MessageBubble({ message }: MessageBubbleProps) {
       transition={{ duration: 0.2 }}
       className={`flex items-start gap-3 ${isAI ? '' : 'flex-row-reverse'}`}
     >
-      {/* 头像 */}
       {isAI ? (
         <div className="w-9 h-9 rounded-full bg-gradient-to-r from-[#4F7CF0] to-[#7B9FF5] flex items-center justify-center shrink-0 text-white text-xs font-bold shadow-sm">
           AI
@@ -135,14 +93,11 @@ function MessageBubble({ message }: MessageBubbleProps) {
         </div>
       )}
 
-      {/* 气泡容器 */}
       <div className="max-w-[75%]">
-        {/* 角色标签 */}
         <div className={`text-[10px] mb-1.5 ${isAI ? 'text-gray-500' : 'text-right text-gray-500'}`}>
           {isAI ? 'AI 助手' : '我'}
         </div>
         
-        {/* 气泡 */}
         <div
           className={`px-4 py-3 rounded-2xl text-sm leading-relaxed shadow-md ${
             isAI
@@ -167,38 +122,6 @@ function MessageBubble({ message }: MessageBubbleProps) {
   )
 }
 
-// ============================================================
-// 子组件：录音波形动画
-// ============================================================
-
-function WaveformAnimation({ audioLevel = 0 }: { audioLevel?: number }) {
-  const threshold = 5
-  const normalizedLevel = audioLevel > threshold ? Math.min((audioLevel - threshold) / 45, 1) : 0
-  
-  return (
-    <div className="flex items-center gap-0.5 h-5" aria-hidden="true">
-      {[0, 1, 2, 3, 4].map((i) => {
-        const baseHeight = 5
-        const maxHeight = 16
-        const barLevel = normalizedLevel * (1 - Math.abs(i - 2) * 0.15)
-        const targetHeight = baseHeight + (maxHeight - baseHeight) * barLevel
-        
-        return (
-          <div
-            key={i}
-            className="w-0.5 rounded-full bg-white transition-all duration-100"
-            style={{ height: targetHeight }}
-          />
-        )
-      })}
-    </div>
-  )
-}
-
-// ============================================================
-// 子组件：对话完成卡片（Fluency_Score 展示）
-// ============================================================
-
 interface DialogueSummaryProps {
   fluencyScore: number
   results: QAPairResult[]
@@ -207,7 +130,6 @@ interface DialogueSummaryProps {
 }
 
 function DialogueSummary({ fluencyScore, results, qaPairs, onProceed }: DialogueSummaryProps) {
-  /** 状态对应的中文标签和颜色 */
   const statusConfig: Record<QAPairResultStatus, { label: string; color: string }> = {
     fluent: { label: '流畅通过', color: 'text-green-600 bg-green-50' },
     prompted: { label: '提示后通过', color: 'text-amber-600 bg-amber-50' },
@@ -220,14 +142,12 @@ function DialogueSummary({ fluencyScore, results, qaPairs, onProceed }: Dialogue
       animate={{ opacity: 1, y: 0 }}
       className="mx-4 my-4 bg-white rounded-card shadow-card border border-gray-100 overflow-hidden"
     >
-      {/* 得分头部 */}
       <div className="bg-gradient-to-r from-[#4F7CF0] to-[#7B9FF5] px-5 py-5 text-center">
         <p className="text-white/80 text-sm mb-1">对话完成！流畅度得分</p>
         <div className="text-5xl font-bold text-white mb-1">{fluencyScore}</div>
         <p className="text-white/70 text-xs">/ 100</p>
       </div>
 
-      {/* 各 QA_Pair 状态列表 */}
       <div className="px-4 py-3 space-y-2">
         <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">各环节表现</p>
         {results.map((result) => {
@@ -249,7 +169,6 @@ function DialogueSummary({ fluencyScore, results, qaPairs, onProceed }: Dialogue
         )}
       </div>
 
-      {/* 操作按钮 */}
       <div className="px-4 pb-4">
         <button
           type="button"
@@ -263,50 +182,30 @@ function DialogueSummary({ fluencyScore, results, qaPairs, onProceed }: Dialogue
   )
 }
 
-// ============================================================
-// 主组件：AIDialogueStage
-// ============================================================
-
 export default function AIDialogueStage({
   subSceneId,
   qaPairs,
   onProceed,
 }: AIDialogueStageProps) {
-  // ---- 对话消息列表 ----
   const [messages, setMessages] = useState<ChatMessage[]>([])
-  // ---- AI 正在输入中 ----
   const [isAITyping, setIsAITyping] = useState(false)
-  // ---- 当前 QA_Pair 索引（0-based） ----
   const [currentQaIndex, setCurrentQaIndex] = useState(0)
-  // ---- 录音/识别状态 ----
   const [recordingState, setRecordingState] = useState<RecordingState>('idle')
-  // ---- 是否降级为文字输入 ----
-  const [useFallbackInput, setUseFallbackInput] = useState(false)
-  // ---- 文字输入框内容 ----
-  const [textInput, setTextInput] = useState('')
-  // ---- 对话是否已完成 ----
   const [isComplete, setIsComplete] = useState(false)
-  // ---- QA_Pair 回应结果列表 ----
   const [qaResults, setQaResults] = useState<QAPairResult[]>([])
-  // ---- 每个 QA_Pair 对应的用户输入文本（用于 ReviewStage） ----
   const userTextMapRef = useRef<Map<string, string>>(new Map())
-  // ---- 当前 QA_Pair 是否已收到提示（用于判断 prompted 状态） ----
   const [currentQaHinted, setCurrentQaHinted] = useState(false)
-  // ---- Fluency_Score ----
   const [fluencyScore, setFluencyScore] = useState(0)
-  // ---- 回答不匹配时的确认弹窗 ----
   const [retryPrompt, setRetryPrompt] = useState<RetryPrompt | null>(null)
 
-  // ---- Refs ----
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const conversationHistoryRef = useRef<{ role: 'ai' | 'user'; text: string }[]>([])
   const currentQaHintedRef = useRef(false)
   const currentQaIndexRef = useRef(0)
-  const isProcessingRef = useRef(false) // 防止重复提交
+  const isProcessingRef = useRef(false)
   const handleUserSubmitRef = useRef((_: string) => {})
 
-  // ---- 同步 ref 与 state ----
   useEffect(() => {
     currentQaHintedRef.current = currentQaHinted
   }, [currentQaHinted])
@@ -315,7 +214,6 @@ export default function AIDialogueStage({
     currentQaIndexRef.current = currentQaIndex
   }, [currentQaIndex])
 
-  // ---- 自动滚动到底部 ----
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [])
@@ -324,7 +222,6 @@ export default function AIDialogueStage({
     scrollToBottom()
   }, [messages, isAITyping, scrollToBottom])
 
-  // ---- 添加消息到列表 ----
   const addMessage = useCallback((role: 'ai' | 'user', text: string, isHint = false, isGoalHint = false) => {
     const msg: ChatMessage = { id: genId(), role, text, isHint, isGoalHint }
     setMessages((prev) => [...prev, msg])
@@ -332,7 +229,6 @@ export default function AIDialogueStage({
     return msg
   }, [])
 
-  // ---- 清除超时计时器 ----
   const clearTimeoutTimer = useCallback(() => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current)
@@ -340,7 +236,6 @@ export default function AIDialogueStage({
     }
   }, [])
 
-  // ---- 调用 AI 对话 API ----
   const callAIDialogue = useCallback(
     async (userMessage: string) => {
       if (isProcessingRef.current) return
@@ -371,7 +266,6 @@ export default function AIDialogueStage({
         const data = await res.json()
         const { pass, nextQaIndex, aiMessage, isComplete: done, hint, reason } = data
 
-        // 记录当前 QA_Pair 的回应状态（仅在通过时记录）
         if (pass && currentQa && (currentQa.learnRequirement === 'speak_followup' || currentQa.learnRequirement === 'speak_trigger')) {
           const status: QAPairResultStatus = currentQaHintedRef.current ? 'prompted' : 'fluent'
           userTextMapRef.current.set(currentQa.id, userMessage)
@@ -382,7 +276,6 @@ export default function AIDialogueStage({
           })
         }
 
-        // 通过后重置提示状态
         if (pass) {
           setCurrentQaHinted(false)
           currentQaHintedRef.current = false
@@ -390,11 +283,8 @@ export default function AIDialogueStage({
 
         setIsAITyping(false)
 
-        // pass: false 时，弹出确认弹窗，等用户确认后撤销消息并重新输入
         if (!pass) {
-          // 使用大模型返回的具体提示信息，或默认提示
           const hintText = hint || '回答与场景不符，请重新尝试'
-          // 找到刚才加入的用户消息 id（消息列表最后一条）
           setMessages((prev) => {
             const lastUserMsg = [...prev].reverse().find((m) => m.role === 'user')
             if (lastUserMsg) {
@@ -412,20 +302,16 @@ export default function AIDialogueStage({
           return
         }
 
-        // 推进到下一个 QA_Pair
         setCurrentQaIndex(nextQaIndex)
         currentQaIndexRef.current = nextQaIndex
 
-        // 获取下一个 QA_Pair 的对话模式
         const nextQa = qaPairs[nextQaIndex]
         const nextDialogueMode = (nextQa?.dialogueMode as DialogueMode) || 'user_responds'
 
-        // AI 发送下一条消息
         if (aiMessage) {
           addMessage('ai', aiMessage)
         }
 
-        // 如果下一个是 user_asks 模式，显示对话目标提示
         if (nextDialogueMode === 'user_asks' && nextQa?.scenarioHint) {
           setTimeout(() => {
             addMessage('ai', nextQa.scenarioHint!, false, true)
@@ -433,8 +319,6 @@ export default function AIDialogueStage({
         }
       } catch {
         setIsAITyping(false)
-        // API 失败时降级为文字输入
-        setUseFallbackInput(true)
       } finally {
         isProcessingRef.current = false
       }
@@ -442,15 +326,12 @@ export default function AIDialogueStage({
     [subSceneId, qaPairs, addMessage, clearTimeoutTimer]
   )
 
-  // ---- 超时提示逻辑（5秒无输入，AI 发送提示语） ----
   const startTimeoutTimer = useCallback(() => {
     clearTimeoutTimer()
     timeoutRef.current = setTimeout(async () => {
-      // 标记当前 QA_Pair 已收到提示
       setCurrentQaHinted(true)
       currentQaHintedRef.current = true
 
-      // 通过 API 获取提示语（传入特殊标记）
       try {
         setIsAITyping(true)
         const body = {
@@ -471,7 +352,6 @@ export default function AIDialogueStage({
             addMessage('ai', data.aiMessage, true)
           }
         } else {
-          // API 失败时使用默认提示语
           addMessage('ai', 'Take your time, what would you say here?', true)
         }
       } catch {
@@ -479,12 +359,10 @@ export default function AIDialogueStage({
         addMessage('ai', 'Take your time, what would you say here?', true)
       }
 
-      // 提示后再次启动计时器
       startTimeoutTimer()
     }, 5000)
   }, [subSceneId, addMessage, clearTimeoutTimer])
 
-  // ---- 处理用户提交（文字或语音识别结果） ----
   const handleUserSubmit = useCallback(
     (text: string) => {
       const trimmed = text.trim()
@@ -492,25 +370,19 @@ export default function AIDialogueStage({
 
       clearTimeoutTimer()
       addMessage('user', trimmed)
-      setTextInput('')
       callAIDialogue(trimmed)
     },
     [addMessage, callAIDialogue, clearTimeoutTimer]
   )
 
-  // 同步 handleUserSubmit 到 ref
   useEffect(() => { handleUserSubmitRef.current = handleUserSubmit }, [handleUserSubmit])
 
-  // ---- 使用 useSpeechRecognition hook ----
   const handleVoiceResult = useCallback((transcript: string) => {
     handleUserSubmitRef.current(transcript)
   }, [])
 
   const handleVoiceError = useCallback((error: string) => {
     console.log('[AIDialogueStage] 语音识别错误:', error)
-    if (error.includes('权限被拒绝') || error.includes('不支持')) {
-      setUseFallbackInput(true)
-    }
   }, [])
 
   const {
@@ -527,10 +399,9 @@ export default function AIDialogueStage({
     onError: handleVoiceError,
     lang: 'en-US',
     silenceTimeout: 800,
-    enablePronunciationAssessment: false, // AI练习不需要发音评估
+    enablePronunciationAssessment: false,
   })
 
-  // 同步录音状态到本地 state
   useEffect(() => {
     if (isRecording) {
       setRecordingState('recording')
@@ -541,21 +412,11 @@ export default function AIDialogueStage({
     }
   }, [isRecording, isRecognizing])
 
-  // 如果浏览器不支持语音识别，自动切换到文字输入
-  useEffect(() => {
-    if (!isSupported && browserCompatibility.unsupportedReason) {
-      console.log('[AIDialogueStage] 浏览器不支持语音识别:', browserCompatibility.unsupportedReason)
-      setUseFallbackInput(true)
-    }
-  }, [isSupported, browserCompatibility])
-
-  // ---- 获取当前 QA_Pair 的对话模式 ----
   const getCurrentDialogueMode = useCallback((): DialogueMode => {
     const currentQa = qaPairs[currentQaIndexRef.current]
     return (currentQa?.dialogueMode as DialogueMode) || 'user_responds'
   }, [qaPairs])
 
-  // ---- 初始化：根据 dialogueMode 决定第一条消息 ----
   useEffect(() => {
     if (qaPairs.length === 0) return
 
@@ -564,10 +425,8 @@ export default function AIDialogueStage({
 
     const timer = setTimeout(() => {
       if (dialogueMode === 'user_responds') {
-        // user_responds 模式：AI 发送 triggerText
         addMessage('ai', firstQa.triggerText)
       } else {
-        // user_asks 模式：显示对话目标提示（scenarioHint）
         if (firstQa.scenarioHint) {
           addMessage('ai', firstQa.scenarioHint, false, true)
         }
@@ -578,14 +437,11 @@ export default function AIDialogueStage({
       clearTimeout(timer)
       clearTimeoutTimer()
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []) // 仅在挂载时执行一次
+  }, [])
 
-  // ---- 对话完成时计算 Fluency_Score，并补记未通过的 QA_Pair ----
   useEffect(() => {
     if (!isComplete) return
 
-    // 补记没有通过记录的 must_speak QA_Pair 为 failed
     const mustSpeakQas = qaPairs.filter((q) => q.learnRequirement === 'speak_followup' || q.learnRequirement === 'speak_trigger')
     setQaResults((prev) => {
       const extra = mustSpeakQas
@@ -599,39 +455,28 @@ export default function AIDialogueStage({
     setFluencyScore(score)
   }, [isComplete, qaResults, qaPairs])
 
-  // ---- 组件卸载时清理超时计时器 ----
   useEffect(() => {
     return () => {
       clearTimeoutTimer()
     }
   }, [clearTimeoutTimer])
 
-  // ---- 开始录音（点击触发）----
   const startRecording = useCallback(async () => {
     if (isProcessingRef.current || isAITyping) return
     clearTimeoutTimer()
     await startVoiceRecording()
   }, [isAITyping, clearTimeoutTimer, startVoiceRecording])
 
-  // ---- 停止录音（点击触发，手动停止）----
   const stopRecording = useCallback(() => {
     stopVoiceRecording()
   }, [stopVoiceRecording])
 
-  // ---- 文字输入框提交 ----
-  const handleTextSubmit = useCallback(() => {
-    handleUserSubmit(textInput)
-  }, [handleUserSubmit, textInput])
-
-  // ---- 用户确认"重新输入"：撤销用户消息并关闭弹窗 ----
   const handleRetryConfirm = useCallback(() => {
     if (!retryPrompt) return
     const { userMsgId } = retryPrompt
 
-    // 从消息列表中移除该用户消息
     setMessages((prev) => prev.filter((m) => m.id !== userMsgId))
 
-    // 同步撤销 conversationHistoryRef 中最后一条 user 记录
     const history = conversationHistoryRef.current
     const lastUserIdx = [...history].map((h, i) => ({ ...h, i })).reverse().find((h) => h.role === 'user')?.i
     if (lastUserIdx !== undefined) {
@@ -641,13 +486,11 @@ export default function AIDialogueStage({
     setRetryPrompt(null)
   }, [retryPrompt])
 
-  // ---- 对话完成后的 onProceed 回调 ----
   const handleProceed = useCallback(() => {
     const failedQaIds = qaResults
       .filter((r) => r.status === 'failed')
       .map((r) => r.qaId)
 
-    // 构建对话历史（供 ReviewStage 使用）
     const dialogueHistory = qaResults.map((r) => ({
       qaId: r.qaId,
       userText: userTextMapRef.current.get(r.qaId) ?? '',
@@ -657,14 +500,9 @@ export default function AIDialogueStage({
     onProceed(fluencyScore, failedQaIds, dialogueHistory)
   }, [qaResults, fluencyScore, onProceed])
 
-  // ============================================================
-  // 渲染
-  // ============================================================
-
   return (
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minHeight: 0 }} className="bg-[#F9FAFB] relative">
 
-      {/* ---- 消息列表区域（可滚动，浅灰背景） ---- */}
       <div className="flex-1 overflow-y-auto px-4 py-6 space-y-6">
         {messages.length === 0 ? (
           <div className="flex items-center justify-center h-32 text-[#6B7280] text-sm">
@@ -689,7 +527,6 @@ export default function AIDialogueStage({
         )}
       </div>
 
-      {/* ---- 回答不匹配确认弹窗 ---- */}
       <AnimatePresence>
         {retryPrompt && (
           <motion.div
@@ -732,104 +569,18 @@ export default function AIDialogueStage({
         )}
       </AnimatePresence>
 
-      {/* ---- 底部输入区域 ---- */}
       {!isComplete && (
-        <div className="shrink-0 border-t border-gray-200 bg-white px-4 py-4 pb-safe shadow-sm">
-
-          {/* 文字输入模式 */}
-          {useFallbackInput ? (
-            <div className="flex items-center gap-3">
-              <input
-                type="text"
-                value={textInput}
-                onChange={(e) => setTextInput(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' && !e.shiftKey) {
-                    e.preventDefault()
-                    handleTextSubmit()
-                  }
-                }}
-                placeholder="请输入英文回复..."
-                disabled={isAITyping || isProcessingRef.current}
-                className="flex-1 h-12 px-5 rounded-full border border-gray-200 text-sm focus:outline-none focus:border-[#4F7CF0] focus:ring-2 focus:ring-[#4F7CF0]/20 disabled:opacity-50 bg-gray-50 shadow-sm"
-              />
-              <button
-                type="button"
-                onClick={handleTextSubmit}
-                disabled={!textInput.trim() || isAITyping}
-                className="h-12 w-12 rounded-full bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white flex items-center justify-center shrink-0 disabled:opacity-40 shadow-md hover:shadow-lg transition-shadow"
-                aria-label="发送"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
-                </svg>
-              </button>
-              {isSupported && (
-                <button
-                  type="button"
-                  onClick={() => setUseFallbackInput(false)}
-                  className="h-12 w-12 bg-gray-100 text-gray-600 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors shadow-sm"
-                >
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-                    <line x1="12" y1="19" x2="12" y2="23" /><line x1="8" y1="23" x2="16" y2="23" />
-                  </svg>
-                </button>
-              )}
-            </div>
-          ) : (
-            /* 语音模式：宽条形按钮（与 OpenDialogue 一致） */
-            <div className="flex items-center gap-3">
-              <button
-                type="button"
-                onClick={recordingState === 'recording' ? stopRecording : startRecording}
-                disabled={isAITyping || isProcessingRef.current}
-                aria-label={recordingState === 'recording' ? '停止录音' : '开始录音'}
-                className={`flex-1 h-13 rounded-full font-semibold text-sm transition-all shadow-md flex items-center justify-center gap-3 select-none ${
-                  recordingState === 'recording'
-                    ? 'bg-[#EF4444] text-white shadow-lg shadow-red-200 hover:shadow-xl'
-                    : isAITyping || isProcessingRef.current
-                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed shadow-none'
-                    : 'bg-gradient-to-r from-[#4F7CF0] to-[#7B5FE8] text-white hover:shadow-lg hover:shadow-blue-100'
-                }`}
-              >
-                {recordingState === 'recording' ? (
-                  <><WaveformAnimation audioLevel={audioLevel} /><span>停止录音</span></>
-                ) : isAITyping ? (
-                  <>
-                    <svg className="animate-spin" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                    </svg>
-                    <span>AI 思考中...</span>
-                  </>
-                ) : (
-                  <>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-                      <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-                      <line x1="12" y1="19" x2="12" y2="23" /><line x1="8" y1="23" x2="16" y2="23" />
-                    </svg>
-                    <span>开始录音</span>
-                  </>
-                )}
-              </button>
-
-              {/* 切换文字输入 */}
-              <button
-                type="button"
-                onClick={() => setUseFallbackInput(true)}
-                disabled={isAITyping}
-                className="h-13 w-13 bg-gray-100 text-gray-600 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors disabled:opacity-40 shadow-sm"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="4 7 4 4 20 4 20 7" /><line x1="9" y1="20" x2="15" y2="20" /><line x1="12" y1="4" x2="12" y2="20" />
-                </svg>
-              </button>
-            </div>
-          )}
-        </div>
+        <AudioInputBar
+          isRecording={isRecording}
+          isRecognizing={isRecognizing}
+          onStartRecording={startRecording}
+          onStopRecording={stopRecording}
+          onSendText={handleUserSubmit}
+          isGeneratingResponse={isAITyping || isProcessingRef.current}
+          interimTranscript={interimTranscript}
+          audioLevel={audioLevel}
+          className="border-t border-gray-200 bg-white"
+        />
       )}
     </div>
   )
