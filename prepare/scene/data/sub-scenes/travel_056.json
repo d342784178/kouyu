@@ -1,13 +1,14 @@
 {
   "sceneId": "travel_056",
   "sceneName": "酒店入住",
-  "exportedAt": "2026-03-14T13:47:27.371Z",
+  "generatedAt": "2026-03-16T08:21:30.793Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "travel_056_sub_1",
       "sceneId": "travel_056",
-      "name": "礼貌问候",
-      "description": "前台接待旅客并致意",
+      "name": "确认预订",
+      "description": "旅客向前台确认预订信息，提供姓名和入住日期。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -15,113 +16,72 @@
           "id": "travel_056_sub_1_qa_1",
           "subSceneId": "travel_056_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Hi there! Welcome to Hotel Sunshine. How can I help you today?",
-          "triggerTextCn": "嗨！欢迎光临阳光酒店，有什么可以帮您的吗？",
+          "triggerText": "I have a reservation under the name Smith.",
+          "triggerTextCn": "我以史密斯的名字预订了房间。",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "客人主动提供预订姓名，服务员需核实信息",
           "followUps": [
             {
-              "text": "Hi! I've got a reservation under John Smith.",
-              "text_cn": "嗨，我有预订，名字是约翰·史密斯。",
-              "audio_url": ""
-            },
-            {
-              "text": "Hey! Booked for John Smith, yeah?",
-              "text_cn": "嘿，我订了，名字是约翰·史密斯，对吧？",
-              "audio_url": ""
-            },
-            {
-              "text": "I'm John Smith. I booked a room.",
-              "text_cn": "我是约翰·史密斯，我订了房间。",
-              "audio_url": ""
+              "text": "Let me check that for you. Could you please show me your ID?",
+              "text_cn": "我帮您查一下，请出示您的身份证件好吗？",
+              "audio_url": "COS:/qa/responses/travel_056_sub_1_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "先打招呼，再报预订名，自然开场",
-          "audioUrl": null,
-          "learnRequirement": "speak_followup",
+          "usageNote": "客人主动报预订姓名是入住时最常见开场白，服务员通常会要求核对身份。",
+          "audioUrl": "COS:/qa/questions/travel_056_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "travel_056_sub_1_qa_2",
           "subSceneId": "travel_056_sub_1",
-          "dialogueMode": "user_responds",
-          "triggerText": "Could I see your passport or ID, please?",
-          "triggerTextCn": "能出示一下您的护照或身份证吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Could you confirm my reservation for a double room tonight?",
+          "triggerTextCn": "您能确认我今晚的双人房预订吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "客人主动请求确认预订细节，如房型和日期",
           "followUps": [
             {
-              "text": "Of course, here's my passport.",
-              "text_cn": "当然，这是我的护照。",
-              "audio_url": ""
-            },
-            {
-              "text": "Sure, here you go. I also have my booking confirmation.",
-              "text_cn": "好的，给您。我还有预订确认单。",
-              "audio_url": ""
+              "text": "Yes, Mr. Smith. You're booked in a double room for tonight, check-in at 3 PM. Here's your key card.",
+              "text_cn": "是的，史密斯先生。您预订了今晚的双人房，入住时间为下午3点。这是您的房卡。",
+              "audio_url": "COS:/qa/responses/travel_056_sub_1_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "前台要求出示证件",
-          "audioUrl": null,
-          "learnRequirement": "speak_followup",
+          "usageNote": "客人在不确定预订是否成功时，会直接请求确认，这是高频需求。",
+          "audioUrl": "COS:/qa/questions/travel_056_sub_1_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
           "order": 2
         },
         {
           "id": "travel_056_sub_1_qa_3",
           "subSceneId": "travel_056_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "We'll need a credit card for the security deposit. It's $100, which will be released upon checkout.",
-          "triggerTextCn": "我们需要一张信用卡作为押金，100美元，退房时会退还。",
+          "triggerText": "Do you have a reservation under this name?",
+          "triggerTextCn": "这个名字有预订记录吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "服务员主动询问客人姓名以查询预订，标准流程第一步",
           "followUps": [
             {
-              "text": "No problem. Here's my credit card.",
-              "text_cn": "没问题，这是我的信用卡。",
-              "audio_url": ""
-            },
-            {
-              "text": "Can I pay the deposit in cash instead?",
-              "text_cn": "押金可以用现金支付吗？",
-              "audio_url": ""
+              "text": "Yes, it's under Lisa Chen.",
+              "text_cn": "有的，是丽莎·陈的名字。",
+              "audio_url": "COS:/qa/responses/travel_056_sub_1_qa_3_response0.mp3"
             }
           ],
-          "usageNote": "了解押金政策",
-          "audioUrl": null,
+          "usageNote": "服务员在客人未主动报姓名时，会先问这句话，是标准服务流程的起点。",
+          "audioUrl": "COS:/qa/questions/travel_056_sub_1_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
-        },
-        {
-          "id": "travel_056_sub_1_qa_4",
-          "subSceneId": "travel_056_sub_1",
-          "dialogueMode": "user_responds",
-          "triggerText": "You're all set! Here are your key cards. Your room is 512 on the fifth floor.",
-          "triggerTextCn": "一切就绪！这是您的房卡。您的房间是五楼512号。",
-          "triggerSpeakerRole": "staff",
-          "scenarioHint": null,
-          "scenarioHintCn": null,
-          "followUps": [
-            {
-              "text": "Thank you! Is there an elevator?",
-              "text_cn": "谢谢！请问有电梯吗？",
-              "audio_url": ""
-            }
-          ],
-          "usageNote": "前台完成登记后的告知",
-          "audioUrl": null,
-          "learnRequirement": "listen_only",
-          "order": 4
         }
       ]
     },
     {
       "id": "travel_056_sub_2",
       "sceneId": "travel_056",
-      "name": "确认预订",
-      "description": "核对姓名与预订信息",
+      "name": "出示证件",
+      "description": "旅客出示护照，前台核对身份并登记入住信息。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -129,30 +89,20 @@
           "id": "travel_056_sub_2_qa_1",
           "subSceneId": "travel_056_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Let me check that for you... Yep, John Smith, one night, standard room. Is that right?",
-          "triggerTextCn": "我查一下... 对，约翰·史密斯，住一晚，标准间，对吗？",
+          "triggerText": "Could you please show me your ID and passport?",
+          "triggerTextCn": "请您出示一下身份证和护照好吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "酒店前台要求客人出示证件以办理入住",
           "followUps": [
             {
-              "text": "Yes, that's correct. Thanks!",
-              "text_cn": "对，没错，谢谢！",
-              "audio_url": ""
-            },
-            {
-              "text": "Yeah, perfect! Just me and my wife.",
-              "text_cn": "对，太好了！就我和我老婆。",
-              "audio_url": ""
-            },
-            {
-              "text": "Correct.",
-              "text_cn": "没错。",
-              "audio_url": ""
+              "text": "Sure, here you go.",
+              "text_cn": "好的，给您。",
+              "audio_url": "COS:/qa/responses/travel_056_sub_2_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "确认信息时，用yes或yeah都行，别紧张",
-          "audioUrl": null,
+          "usageNote": "这是酒店入住时最常见、最自然的证件请求，回应简洁直接，符合真实场景。",
+          "audioUrl": "COS:/qa/questions/travel_056_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
@@ -160,149 +110,93 @@
           "id": "travel_056_sub_2_qa_2",
           "subSceneId": "travel_056_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you have any special requests? Like extra pillows or a late check-out?",
-          "triggerTextCn": "您有特殊要求吗？比如多要枕头或延迟退房？",
+          "triggerText": "Do you have a government-issued photo ID?",
+          "triggerTextCn": "您有政府签发的带照片的身份证吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "前台确认证件类型是否符合要求",
           "followUps": [
             {
-              "text": "No, thanks. Everything's fine.",
-              "text_cn": "不用了，谢谢，一切都好。",
-              "audio_url": ""
-            },
-            {
-              "text": "Actually, could I get an extra towel?",
-              "text_cn": "能多给一条毛巾吗？",
-              "audio_url": ""
-            },
-            {
-              "text": "Nope.",
-              "text_cn": "不用。",
-              "audio_url": ""
+              "text": "Yes, this is my driver’s license.",
+              "text_cn": "有的，这是我的驾照。",
+              "audio_url": "COS:/qa/responses/travel_056_sub_2_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "想要东西就说could I get...，简单直接",
-          "audioUrl": null,
+          "usageNote": "酒店常要求确认证件是否为官方签发的带照片证件，用户回应需明确具体证件类型。",
+          "audioUrl": "COS:/qa/questions/travel_056_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "travel_056_sub_2_qa_3",
           "subSceneId": "travel_056_sub_2",
-          "dialogueMode": "user_responds",
-          "triggerText": "Yes, breakfast is included. We also have a rooftop pool open until 10 PM.",
-          "triggerTextCn": "是的，早餐已包含在内。我们还有屋顶泳池，开放到晚上10点。",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "What documents do I need to check in?",
+          "triggerTextCn": "我入住需要出示什么证件？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "客人主动询问入住所需证件，常见于首次入住或国际旅客",
           "followUps": [
             {
-              "text": "Wonderful! What's the Wi-Fi password?",
-              "text_cn": "太好了！Wi-Fi密码是什么？",
-              "audio_url": ""
-            },
-            {
-              "text": "That's great. Is there a spa as well?",
-              "text_cn": "很好。还有水疗中心吗？",
-              "audio_url": ""
+              "text": "Just your passport and a credit card for the deposit.",
+              "text_cn": "只需要您的护照和一张信用卡用于押金。",
+              "audio_url": "COS:/qa/responses/travel_056_sub_2_qa_3_response0.mp3"
             }
           ],
-          "usageNote": "了解包含服务和额外设施",
-          "audioUrl": null,
-          "learnRequirement": "speak_followup",
+          "usageNote": "国际旅客常因不熟悉流程而主动询问，此问法自然且高频，回应包含核心要求。",
+          "audioUrl": "COS:/qa/questions/travel_056_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
           "order": 3
-        },
-        {
-          "id": "travel_056_sub_2_qa_4",
-          "subSceneId": "travel_056_sub_2",
-          "dialogueMode": "user_responds",
-          "triggerText": "The Wi-Fi password is on the card in your room. If you need anything, just dial 0 for the front desk.",
-          "triggerTextCn": "Wi-Fi密码在您房间的卡片上。如果需要任何帮助，拨0联系前台。",
-          "triggerSpeakerRole": "staff",
-          "scenarioHint": null,
-          "scenarioHintCn": null,
-          "followUps": [
-            {
-              "text": "Perfect. Thank you for all your help!",
-              "text_cn": "太好了。感谢您的帮助！",
-              "audio_url": ""
-            },
-            {
-              "text": "Got it. Dial 0 for the front desk. Thank you!",
-              "text_cn": "明白了，拨0联系前台。谢谢！",
-              "audio_url": ""
-            }
-          ],
-          "usageNote": "了解Wi-Fi和联系方式",
-          "audioUrl": null,
-          "learnRequirement": "speak_followup",
-          "order": 4
         }
       ]
     },
     {
       "id": "travel_056_sub_3",
       "sceneId": "travel_056",
-      "name": "出示证件与押金",
-      "description": "出示护照并支付押金",
+      "name": "支付押金",
+      "description": "前台说明押金金额，旅客用信用卡或现金支付。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_056_sub_3_qa_1",
           "subSceneId": "travel_056_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "Could I see your passport, please? And we'll need a $50 deposit for incidentals.",
-          "triggerTextCn": "能出示一下您的护照吗？另外需要50美元押金作为杂费。",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Could you please tell me the deposit amount for this room?",
+          "triggerTextCn": "请问这间房的押金是多少？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "客人主动询问押金金额，是入住支付押金环节的典型开场",
           "followUps": [
             {
-              "text": "Sure, here's my passport. I'll pay with my card.",
-              "text_cn": "好的，这是护照，我用信用卡付。",
-              "audio_url": ""
-            },
-            {
-              "text": "Here you go. Cash or card?",
-              "text_cn": "给你。现金还是刷卡？",
-              "audio_url": ""
-            },
-            {
-              "text": "Passport. Card only.",
-              "text_cn": "护照，只刷信用卡。",
-              "audio_url": ""
+              "text": "The deposit is $100, which will be refunded after checkout if there's no damage.",
+              "text_cn": "押金是100美元，退房时如果没有损坏，会全额退还。",
+              "audio_url": "COS:/qa/responses/travel_056_sub_3_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "递证件时说here's，付押金时明确支付方式",
-          "audioUrl": null,
-          "learnRequirement": "speak_followup",
+          "usageNote": "客人在办理入住时，常需先确认押金金额，此句自然、高频，适用于大多数酒店",
+          "audioUrl": "COS:/qa/questions/travel_056_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "travel_056_sub_3_qa_2",
           "subSceneId": "travel_056_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Here's your final bill. You have a $25 charge for the minibar.",
-          "triggerTextCn": "这是您的最终账单。小冰箱消费了25美元。",
+          "triggerText": "How would you like to pay the deposit?",
+          "triggerTextCn": "您想如何支付押金？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "服务员在确认押金金额后，引导客人选择支付方式，是标准流程",
           "followUps": [
             {
-              "text": "Let me check — yes, that's correct.",
-              "text_cn": "让我看看——是的，没错。",
-              "audio_url": ""
-            },
-            {
-              "text": "Actually, I didn't use the minibar. Could you double-check?",
-              "text_cn": "其实我没用小冰箱，能再确认一下吗？",
-              "audio_url": ""
+              "text": "I'll pay with my credit card.",
+              "text_cn": "我用信用卡支付。",
+              "audio_url": "COS:/qa/responses/travel_056_sub_3_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "核对账单上的额外消费",
-          "audioUrl": null,
+          "usageNote": "服务员必问句，客人回应需简洁直接，避免冗长解释，符合真实服务场景",
+          "audioUrl": "COS:/qa/questions/travel_056_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
         },
@@ -310,56 +204,30 @@
           "id": "travel_056_sub_3_qa_3",
           "subSceneId": "travel_056_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "How would you like to settle the bill?",
-          "triggerTextCn": "您想怎么结账？",
+          "triggerText": "Do you need a receipt for the deposit?",
+          "triggerTextCn": "您需要押金收据吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "支付完成后，服务员确认是否需要凭证，是专业服务的体现",
           "followUps": [
             {
-              "text": "Please charge it to the credit card on file.",
-              "text_cn": "请从存档的信用卡扣款。",
-              "audio_url": ""
-            },
-            {
-              "text": "I'll pay cash. Here's $200.",
-              "text_cn": "我付现金，这是200美元。",
-              "audio_url": ""
+              "text": "Yes, please. I'll need it for my expense report.",
+              "text_cn": "需要，请给我一张，我用于报销。",
+              "audio_url": "COS:/qa/responses/travel_056_sub_3_qa_3_response0.mp3"
             }
           ],
-          "usageNote": "选择付款方式",
-          "audioUrl": null,
+          "usageNote": "此句体现服务闭环，客人回应需明确需求，避免模糊回答如'OK'或'Whatever'",
+          "audioUrl": "COS:/qa/questions/travel_056_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
-        },
-        {
-          "id": "travel_056_sub_3_qa_4",
-          "subSceneId": "travel_056_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "All done! Your deposit has been released. We hope you enjoyed your stay. Please come back soon!",
-          "triggerTextCn": "完成了！押金已退还。希望您住得愉快，欢迎再次光临！",
-          "triggerSpeakerRole": "staff",
-          "scenarioHint": null,
-          "scenarioHintCn": null,
-          "followUps": [
-            {
-              "text": "Thank you! I had a wonderful stay.",
-              "text_cn": "谢谢！住得非常愉快。",
-              "audio_url": ""
-            }
-          ],
-          "usageNote": "退房完成后的道别",
-          "audioUrl": null,
-          "learnRequirement": "listen_only",
-          "order": 4
         }
       ]
     },
     {
       "id": "travel_056_sub_4",
       "sceneId": "travel_056",
-      "name": "询问设施与早餐",
-      "description": "咨询WiFi和早餐时间",
+      "name": "询问设施",
+      "description": "旅客询问WiFi密码和早餐时间等房间服务信息。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -367,30 +235,20 @@
           "id": "travel_056_sub_4_qa_1",
           "subSceneId": "travel_056_sub_4",
           "dialogueMode": "user_asks",
-          "triggerText": "The WiFi is free. The password's on the card. Breakfast is from 7 to 10 in the dining room.",
-          "triggerTextCn": "WiFi免费，密码在卡片上。早餐7点到10点在餐厅。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Is there a gym in the hotel?",
+          "triggerTextCn": "酒店有健身房吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客：'Could you tell me about the WiFi and breakfast?'",
+          "scenarioHintCn": "客人询问酒店健身设施",
           "followUps": [
             {
-              "text": "Great! Is the WiFi good in the room?",
-              "text_cn": "太好了！房间里WiFi稳吗？",
-              "audio_url": ""
-            },
-            {
-              "text": "What time's breakfast end?",
-              "text_cn": "早餐几点结束？",
-              "audio_url": ""
-            },
-            {
-              "text": "Thanks. WiFi password?",
-              "text_cn": "谢谢，WiFi密码是？",
-              "audio_url": ""
+              "text": "Yes, we have a 24-hour fitness center on the 5th floor. Towels and water are provided.",
+              "text_cn": "有的，我们五楼有24小时健身中心，提供毛巾和饮用水。",
+              "audio_url": "COS:/qa/responses/travel_056_sub_4_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "问WiFi和早餐时间，用简单句问清楚就行",
-          "audioUrl": null,
+          "usageNote": "客人在入住后常见询问，用于确认酒店配套服务",
+          "audioUrl": "COS:/qa/questions/travel_056_sub_4_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
         },
@@ -398,40 +256,51 @@
           "id": "travel_056_sub_4_qa_2",
           "subSceneId": "travel_056_sub_4",
           "dialogueMode": "user_asks",
-          "triggerText": "We also have a free shuttle to the city center at 8 AM and 6 PM.",
-          "triggerTextCn": "我们还有免费班车，早上8点和下午6点发车去市中心。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Could you tell me where the free Wi-Fi is available?",
+          "triggerTextCn": "请问免费Wi-Fi在哪些区域可用？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客：'Could you tell me about the WiFi and breakfast?'",
+          "scenarioHintCn": "客人询问网络覆盖范围",
           "followUps": [
             {
-              "text": "Do you have a shuttle after 10 PM?",
-              "text_cn": "晚上10点后有班车吗？",
-              "audio_url": ""
-            },
-            {
-              "text": "No thanks, I'll walk.",
-              "text_cn": "不用了，我走路去。",
-              "audio_url": ""
-            },
-            {
-              "text": "Shuttle at 6? Perfect!",
-              "text_cn": "6点有班车？太好了！",
-              "audio_url": ""
+              "text": "Wi-Fi is free throughout the entire hotel — rooms, lobby, restaurant, and pool area. The password is on your welcome card.",
+              "text_cn": "整个酒店都提供免费Wi-Fi——房间、大堂、餐厅和泳池区都有。密码在您的欢迎卡上。",
+              "audio_url": "COS:/qa/responses/travel_056_sub_4_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "想坐班车就问有没有晚班，别怕问",
-          "audioUrl": null,
+          "usageNote": "现代旅客高频需求，需明确覆盖范围和登录方式",
+          "audioUrl": "COS:/qa/questions/travel_056_sub_4_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
+        },
+        {
+          "id": "travel_056_sub_4_qa_3",
+          "subSceneId": "travel_056_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you offer room service?",
+          "triggerTextCn": "你们提供客房送餐服务吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员主动询问客人是否需要客房服务",
+          "followUps": [
+            {
+              "text": "Yes, please. I’d like to order dinner around 7 PM.",
+              "text_cn": "有的，请帮我订晚餐，大约晚上7点送过来。",
+              "audio_url": "COS:/qa/responses/travel_056_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "服务员常主动询问，用户需简洁回应需求和时间",
+          "audioUrl": "COS:/qa/questions/travel_056_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "travel_056_sub_5",
       "sceneId": "travel_056",
-      "name": "道别与指引",
-      "description": "领取房卡并指引房间位置",
+      "name": "领取房卡",
+      "description": "前台发放房卡，指引房间位置并致意欢迎。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -439,32 +308,64 @@
           "id": "travel_056_sub_5_qa_1",
           "subSceneId": "travel_056_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Here's your key card. Room 402 is on the fourth floor, elevator's right there.",
-          "triggerTextCn": "这是您的房卡，402房在四楼，电梯就在那儿。",
+          "triggerText": "May I have your name and reservation number, please?",
+          "triggerTextCn": "请问您的姓名和预订编号是多少？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "酒店前台核对信息后准备发放房卡",
           "followUps": [
             {
-              "text": "Thanks! Is there a fridge in the room?",
-              "text_cn": "谢谢！房间里有冰箱吗？",
-              "audio_url": ""
-            },
-            {
-              "text": "Got it. Thanks a lot!",
-              "text_cn": "知道了，太感谢了！",
-              "audio_url": ""
-            },
-            {
-              "text": "402, okay.",
-              "text_cn": "402，明白。",
-              "audio_url": ""
+              "text": "Sure, I'm John Smith, and my reservation number is RS7892.",
+              "text_cn": "好的，我叫约翰·史密斯，预订编号是RS7892。",
+              "audio_url": "COS:/qa/responses/travel_056_sub_5_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "道别前可再问1个问题，说完就走不拖沓",
-          "audioUrl": null,
+          "usageNote": "这是领取房卡时最常见的身份核对环节，用户需清晰提供姓名和预订号。",
+          "audioUrl": "COS:/qa/questions/travel_056_sub_5_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
+        },
+        {
+          "id": "travel_056_sub_5_qa_2",
+          "subSceneId": "travel_056_sub_5",
+          "dialogueMode": "user_asks",
+          "triggerText": "Could you tell me where my room is and how I get the key card?",
+          "triggerTextCn": "能告诉我我的房间在哪，以及怎么拿房卡吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "客人刚到酒店，首次询问房卡领取流程",
+          "followUps": [
+            {
+              "text": "Of course! Your room is 805 on the 8th floor. Here's your key card — just tap it on the door lock.",
+              "text_cn": "当然！您的房间是8楼的805房。这是您的房卡，直接刷卡开门即可。",
+              "audio_url": "COS:/qa/responses/travel_056_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "新入住客人常问此问题，服务员需明确告知房间号和使用方式。",
+          "audioUrl": "COS:/qa/questions/travel_056_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
+        },
+        {
+          "id": "travel_056_sub_5_qa_3",
+          "subSceneId": "travel_056_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Your room key card is ready. Room 1208, 12th floor. Elevator is to your right.",
+          "triggerTextCn": "您的房卡已准备好，1208房，在12楼，电梯在您右边。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员已准备好房卡，向客人说明房间位置和电梯方向",
+          "followUps": [
+            {
+              "text": "Perfect, thank you so much!",
+              "text_cn": "太好了，非常感谢！",
+              "audio_url": "COS:/qa/responses/travel_056_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "服务员主动告知信息后，用户需自然回应感谢，体现礼貌与闭环交流。",
+          "audioUrl": "COS:/qa/questions/travel_056_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     }

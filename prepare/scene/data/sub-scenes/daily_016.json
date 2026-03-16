@@ -1,13 +1,14 @@
 {
   "sceneId": "daily_016",
   "sceneName": "便利店购物",
-  "exportedAt": "2026-03-14T13:47:27.294Z",
+  "generatedAt": "2026-03-16T08:08:16.679Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_016_sub_1",
       "sceneId": "daily_016",
-      "name": "打招呼询问",
-      "description": "顾客进店问候并询问商品有无",
+      "name": "询问商品",
+      "description": "顾客询问便利店是否有饮料和三明治。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -15,29 +16,19 @@
           "id": "daily_016_sub_1_qa_1",
           "subSceneId": "daily_016_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "Hey, you got any orange juice?",
-          "triggerTextCn": "嘿，你们有橙汁吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Do you have any fresh fruit?",
+          "triggerTextCn": "你们有新鲜水果吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "场景提示：顾客通常先发起询问，如询问商品信息或价格",
+          "scenarioHintCn": "顾客询问便利店是否有特定商品",
           "followUps": [
             {
-              "text": "Yeah, we do. It's in the fridge.",
-              "text_cn": "有的，在冷藏柜里。",
+              "text": "Yes, we have apples, bananas, and oranges in the fridge section.",
+              "text_cn": "有的，苹果、香蕉和橙子在冷藏区。",
               "audio_url": "COS:/qa/responses/daily_016_sub_1_qa_1_response0.mp3"
-            },
-            {
-              "text": "Sorry, we're out of it right now.",
-              "text_cn": "不好意思，现在卖完了。",
-              "audio_url": "COS:/qa/responses/daily_016_sub_1_qa_1_response1.mp3"
-            },
-            {
-              "text": "Over there by the drinks.",
-              "text_cn": "饮料区那边。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用简短口语问有无商品，自然又高效",
+          "usageNote": "顾客在寻找特定食品时常用此句，简洁直接，适合日常购物场景",
           "audioUrl": "COS:/qa/questions/daily_016_sub_1_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -46,32 +37,43 @@
           "id": "daily_016_sub_1_qa_2",
           "subSceneId": "daily_016_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "And do you have the chicken sandwich?",
-          "triggerTextCn": "那鸡肉三明治有吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Where can I find the bottled water?",
+          "triggerTextCn": "瓶装水在哪里？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "场景提示：顾客通常先发起询问，如询问商品信息或价格",
+          "scenarioHintCn": "顾客寻找商品摆放位置",
           "followUps": [
             {
-              "text": "Yep, right next to the salads.",
-              "text_cn": "有，在沙拉旁边。",
+              "text": "Right next to the snacks, aisle 3, near the checkout.",
+              "text_cn": "就在零食旁边，三号通道，靠近收银台。",
               "audio_url": "COS:/qa/responses/daily_016_sub_1_qa_2_response0.mp3"
-            },
-            {
-              "text": "Not today, sorry.",
-              "text_cn": "今天没货，抱歉。",
-              "audio_url": "COS:/qa/responses/daily_016_sub_1_qa_2_response1.mp3"
-            },
-            {
-              "text": "We just ran out.",
-              "text_cn": "刚卖完。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用do you have问商品库存，日常高频",
+          "usageNote": "顾客不熟悉货架布局时的高频提问，服务员通常用方位词快速指引",
           "audioUrl": "COS:/qa/questions/daily_016_sub_1_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
+        },
+        {
+          "id": "daily_016_sub_1_qa_3",
+          "subSceneId": "daily_016_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Are you looking for something specific?",
+          "triggerTextCn": "您是在找什么特定的东西吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员主动询问顾客需求，提供帮助",
+          "followUps": [
+            {
+              "text": "Yeah, I need some instant noodles — any good ones here?",
+              "text_cn": "是的，我需要一些方便面——这里有好的吗？",
+              "audio_url": "COS:/qa/responses/daily_016_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "店员主动服务时的典型开场问句，顾客回应应简洁说明需求，避免冗长",
+          "audioUrl": "COS:/qa/questions/daily_016_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
@@ -79,7 +81,7 @@
       "id": "daily_016_sub_2",
       "sceneId": "daily_016",
       "name": "确认价格",
-      "description": "顾客询问商品价格并确认总价",
+      "description": "顾客询问商品价格，店员回复单价。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -87,29 +89,19 @@
           "id": "daily_016_sub_2_qa_1",
           "subSceneId": "daily_016_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "How much is the juice and the sandwich?",
-          "triggerTextCn": "橙汁和三明治多少钱？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "How much is this?",
+          "triggerTextCn": "这个多少钱？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问价格，服务方/工作人员需回答",
+          "scenarioHintCn": "顾客确认单件商品价格",
           "followUps": [
             {
-              "text": "The juice is $2.50, sandwich's $4. So $6.50 total.",
-              "text_cn": "橙汁2.5，三明治4，总共6.5。",
+              "text": "It's $2.99.",
+              "text_cn": "2.99美元。",
               "audio_url": "COS:/qa/responses/daily_016_sub_2_qa_1_response0.mp3"
-            },
-            {
-              "text": "Juice: $2.50, sandwich: $4. You're good.",
-              "text_cn": "橙汁2.5，三明治4，没问题。",
-              "audio_url": "COS:/qa/responses/daily_016_sub_2_qa_1_response1.mp3"
-            },
-            {
-              "text": "Six fifty, please.",
-              "text_cn": "6块5，谢谢。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "直接问总价，避免反复确认",
+          "usageNote": "日常购物中最基础的价格确认句，适用于任何商品",
           "audioUrl": "COS:/qa/questions/daily_016_sub_2_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -118,40 +110,51 @@
           "id": "daily_016_sub_2_qa_2",
           "subSceneId": "daily_016_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "So that's $6.50?",
-          "triggerTextCn": "所以是6块5吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "What's the total for these items?",
+          "triggerTextCn": "这些东西总共多少钱？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问价格，服务方/工作人员需回答",
+          "scenarioHintCn": "顾客结账前确认多件商品总价",
           "followUps": [
             {
-              "text": "Yeah, that's right.",
-              "text_cn": "对，没错。",
+              "text": "That comes to $12.50.",
+              "text_cn": "总共是12.50美元。",
               "audio_url": "COS:/qa/responses/daily_016_sub_2_qa_2_response0.mp3"
-            },
-            {
-              "text": "Yep, you got it.",
-              "text_cn": "没错，你算对了。",
-              "audio_url": "COS:/qa/responses/daily_016_sub_2_qa_2_response1.mp3"
-            },
-            {
-              "text": "Exactly.",
-              "text_cn": "正好。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "重复确认金额，避免付错钱",
+          "usageNote": "结账前常用句，表达自然，比 'How much all together?' 更地道",
           "audioUrl": "COS:/qa/questions/daily_016_sub_2_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
+        },
+        {
+          "id": "daily_016_sub_2_qa_3",
+          "subSceneId": "daily_016_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you need help with anything else?",
+          "triggerTextCn": "还需要别的吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员在顾客确认价格后主动询问是否需要其他商品",
+          "followUps": [
+            {
+              "text": "No, that's all, thanks.",
+              "text_cn": "不用了，就这些，谢谢。",
+              "audio_url": "COS:/qa/responses/daily_016_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "店员常见收尾提问，顾客应简洁回应，避免冗长解释",
+          "audioUrl": "COS:/qa/questions/daily_016_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_016_sub_3",
       "sceneId": "daily_016",
-      "name": "支付方式",
-      "description": "顾客选择支付方式并完成交易",
+      "name": "选择支付",
+      "description": "顾客确认支付方式，店员提示现金或刷卡。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -159,29 +162,19 @@
           "id": "daily_016_sub_3_qa_1",
           "subSceneId": "daily_016_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "You good with card or cash?",
-          "triggerTextCn": "刷卡还是现金？",
+          "triggerText": "How would you like to pay?",
+          "triggerTextCn": "您想怎么支付？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "收银员询问支付方式，顾客选择支付方法",
           "followUps": [
             {
-              "text": "Card, please. I'll tap it.",
-              "text_cn": "刷卡，我刷卡支付。",
+              "text": "I'll pay with my credit card.",
+              "text_cn": "我用信用卡支付。",
               "audio_url": "COS:/qa/responses/daily_016_sub_3_qa_1_response0.mp3"
-            },
-            {
-              "text": "Cash. Here's a ten.",
-              "text_cn": "现金，给你十块。",
-              "audio_url": "COS:/qa/responses/daily_016_sub_3_qa_1_response1.mp3"
-            },
-            {
-              "text": "Apple Pay works?",
-              "text_cn": "能用苹果支付吗？",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用card/cash问支付方式，最常用",
+          "usageNote": "这是便利店结账时最常见的一句询问，顾客需简洁回应支付方式，避免冗长解释。",
           "audioUrl": "COS:/qa/questions/daily_016_sub_3_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -189,105 +182,190 @@
         {
           "id": "daily_016_sub_3_qa_2",
           "subSceneId": "daily_016_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "Here's your change, $3.50.",
-          "triggerTextCn": "找你3块5。",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you have cash?",
+          "triggerTextCn": "你有现金吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客确认是否可使用现金支付，常见于小额交易或无卡场景",
           "followUps": [
             {
-              "text": "Thanks! Have a good one.",
-              "text_cn": "谢谢！祝你今天愉快。",
+              "text": "Yes, we accept cash. The total is $8.50.",
+              "text_cn": "可以，我们收现金。总共是8.50美元。",
               "audio_url": "COS:/qa/responses/daily_016_sub_3_qa_2_response0.mp3"
-            },
-            {
-              "text": "Appreciate it!",
-              "text_cn": "太感谢了！",
-              "audio_url": "COS:/qa/responses/daily_016_sub_3_qa_2_response1.mp3"
-            },
-            {
-              "text": "Cool, thanks.",
-              "text_cn": "好的，谢谢。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "收钱后礼貌道谢，提升沟通温度",
+          "usageNote": "顾客主动确认支付方式是否支持现金，是高频且自然的提问，尤其在年轻顾客或游客中常见。",
           "audioUrl": "COS:/qa/questions/daily_016_sub_3_qa_2.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 2
+        },
+        {
+          "id": "daily_016_sub_3_qa_3",
+          "subSceneId": "daily_016_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can I use Apple Pay?",
+          "triggerTextCn": "我可以使用苹果支付吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问是否支持移动支付，反映现代支付习惯",
+          "followUps": [
+            {
+              "text": "Sure, just tap your phone on the reader.",
+              "text_cn": "当然可以，把手机靠近读卡器轻触一下就行。",
+              "audio_url": "COS:/qa/responses/daily_016_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "移动支付普及背景下，顾客主动确认支持的数字支付方式是典型对话，回应需包含操作指引。",
+          "audioUrl": "COS:/qa/questions/daily_016_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_016_sub_4",
       "sceneId": "daily_016",
-      "name": "道别离店",
-      "description": "顾客购物后礼貌告别店员",
+      "name": "完成交易",
+      "description": "店员收款找零，顾客确认无误。",
       "order": 4,
-      "estimatedMinutes": 3,
+      "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_016_sub_4_qa_1",
           "subSceneId": "daily_016_sub_4",
-          "dialogueMode": "user_responds",
-          "triggerText": "Thanks for your help!",
-          "triggerTextCn": "谢谢你的帮助！",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'll take this bottle of water and these snacks.",
+          "triggerTextCn": "我要买这瓶水和这些零食。",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客告知所选商品，准备结账",
           "followUps": [
             {
-              "text": "No problem, have a great day!",
-              "text_cn": "不客气，祝你今天开心！",
+              "text": "Sure, that'll be $4.75. How would you like to pay?",
+              "text_cn": "好的，总共4.75美元。您想怎么支付？",
               "audio_url": "COS:/qa/responses/daily_016_sub_4_qa_1_response0.mp3"
-            },
-            {
-              "text": "You too! See ya.",
-              "text_cn": "你也是！再见。",
-              "audio_url": "COS:/qa/responses/daily_016_sub_4_qa_1_response1.mp3"
-            },
-            {
-              "text": "Anytime!",
-              "text_cn": "随时欢迎！",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用No problem回应感谢，最自然",
+          "usageNote": "顾客在选好商品后直接告知店员，是结账流程的自然起点。",
           "audioUrl": "COS:/qa/questions/daily_016_sub_4_qa_1.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "daily_016_sub_4_qa_2",
           "subSceneId": "daily_016_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "See you later!",
-          "triggerTextCn": "待会儿见！",
+          "triggerText": "How would you like to pay?",
+          "triggerTextCn": "您想怎么支付？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "店员询问支付方式，常见于结账环节",
           "followUps": [
             {
-              "text": "Bye! Come back soon!",
-              "text_cn": "拜拜！常来啊！",
+              "text": "Cash, please.",
+              "text_cn": "现金。",
               "audio_url": "COS:/qa/responses/daily_016_sub_4_qa_2_response0.mp3"
-            },
-            {
-              "text": "Later!",
-              "text_cn": "拜！",
-              "audio_url": "COS:/qa/responses/daily_016_sub_4_qa_2_response1.mp3"
-            },
-            {
-              "text": "Will do!",
-              "text_cn": "一定！",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用Bye/Later道别，口语化更真实",
+          "usageNote": "店员在报总价后必问支付方式，用户应简洁回应，避免冗长解释。",
           "audioUrl": "COS:/qa/questions/daily_016_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "daily_016_sub_4_qa_3",
+          "subSceneId": "daily_016_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you have a loyalty card?",
+          "triggerTextCn": "您有会员卡吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员在结账前询问会员卡以提供折扣或积分",
+          "followUps": [
+            {
+              "text": "No, I don't have one.",
+              "text_cn": "没有，我没有。",
+              "audio_url": "COS:/qa/responses/daily_016_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "便利店常主动询问会员卡，用户只需简单回答是/否，无需额外说明。",
+          "audioUrl": "COS:/qa/questions/daily_016_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "daily_016_sub_5",
+      "sceneId": "daily_016",
+      "name": "礼貌道别",
+      "description": "顾客感谢店员，店员回应再见。",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_016_sub_5_qa_1",
+          "subSceneId": "daily_016_sub_5",
+          "dialogueMode": "user_asks",
+          "triggerText": "Thank you for your help!",
+          "triggerTextCn": "谢谢你的帮助！",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客结账后向店员表达感谢，礼貌道别",
+          "followUps": [
+            {
+              "text": "You're welcome! Have a great day!",
+              "text_cn": "不客气！祝你今天愉快！",
+              "audio_url": "COS:/qa/responses/daily_016_sub_5_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客在完成购物后主动致谢，是地道礼貌道别的常见方式，店员通常会以温暖回应结束对话。",
+          "audioUrl": "COS:/qa/questions/daily_016_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
+        },
+        {
+          "id": "daily_016_sub_5_qa_2",
+          "subSceneId": "daily_016_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Have a nice day!",
+          "triggerTextCn": "祝你今天愉快！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员在顾客结账后主动道别，顾客需自然回应",
+          "followUps": [
+            {
+              "text": "Thanks, you too!",
+              "text_cn": "谢谢，你也是！",
+              "audio_url": "COS:/qa/responses/daily_016_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "店员常用此句结束服务，顾客回应应简洁友好，避免冗长，'You too!' 是最自然的口语回应。",
+          "audioUrl": "COS:/qa/questions/daily_016_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "daily_016_sub_5_qa_3",
+          "subSceneId": "daily_016_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "See you next time!",
+          "triggerTextCn": "下次见！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员在顾客离开时使用非正式道别语，顾客需礼貌回应",
+          "followUps": [
+            {
+              "text": "Will do! Thanks again!",
+              "text_cn": "一定！再次谢谢！",
+              "audio_url": "COS:/qa/responses/daily_016_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "这是便利店员工高频使用的亲切道别语，顾客回应应体现积极态度，'Will do!' 是地道口语表达，比'I will'更自然。",
+          "audioUrl": "COS:/qa/questions/daily_016_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     }

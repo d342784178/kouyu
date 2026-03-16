@@ -1,13 +1,14 @@
 {
   "sceneId": "daily_006",
   "sceneName": "银行办理业务",
-  "exportedAt": "2026-03-14T13:47:27.277Z",
+  "generatedAt": "2026-03-16T08:03:57.517Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_006_sub_1",
       "sceneId": "daily_006",
-      "name": "问候与需求",
-      "description": "客户到银行问候并说明来意",
+      "name": "问候接待",
+      "description": "柜员问候客户并询问办理业务类型。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -15,29 +16,19 @@
           "id": "daily_006_sub_1_qa_1",
           "subSceneId": "daily_006_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Hi there! How can I help you today?",
-          "triggerTextCn": "您好！今天有什么可以帮您的？",
+          "triggerText": "Good morning. How can I help you today?",
+          "triggerTextCn": "早上好，有什么可以帮您？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "银行柜员主动问候客户，开启业务办理流程",
           "followUps": [
             {
-              "text": "I'd like to open a new savings account.",
-              "text_cn": "我想开一个新储蓄账户。",
+              "text": "Hi, I’d like to open a savings account.",
+              "text_cn": "您好，我想开一个储蓄账户。",
               "audio_url": "COS:/qa/responses/daily_006_sub_1_qa_1_response0.mp3"
-            },
-            {
-              "text": "Hey, I need to set up a checking account.",
-              "text_cn": "嘿，我想开个支票账户。",
-              "audio_url": "COS:/qa/responses/daily_006_sub_1_qa_1_response1.mp3"
-            },
-            {
-              "text": "Opening an account.",
-              "text_cn": "我要开户。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用I'd like来表达礼貌需求",
+          "usageNote": "这是银行接待环节最典型的开场白，客户需简洁说明业务需求，避免冗长解释。",
           "audioUrl": "COS:/qa/questions/daily_006_sub_1_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -45,41 +36,52 @@
         {
           "id": "daily_006_sub_1_qa_2",
           "subSceneId": "daily_006_sub_1",
-          "dialogueMode": "user_responds",
-          "triggerText": "Sure thing! Do you have your ID and proof of address?",
-          "triggerTextCn": "当然！您有身份证和住址证明吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "What identification do I need to bring?",
+          "triggerTextCn": "我需要带什么证件？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "客户主动询问办理业务所需的证件，是高频关键问题",
           "followUps": [
             {
-              "text": "Yes, here's my passport and utility bill.",
-              "text_cn": "有，这是我的护照和水电账单。",
+              "text": "You’ll need a government-issued photo ID, like a passport or driver’s license, and your social security number.",
+              "text_cn": "您需要提供带有照片的政府签发身份证件，比如护照或驾照，以及您的社会安全号码。",
               "audio_url": "COS:/qa/responses/daily_006_sub_1_qa_2_response0.mp3"
-            },
-            {
-              "text": "Yep, I've got both right here.",
-              "text_cn": "有，我这就拿出来。",
-              "audio_url": "COS:/qa/responses/daily_006_sub_1_qa_2_response1.mp3"
-            },
-            {
-              "text": "I forgot the bill. Can I use my lease?",
-              "text_cn": "我忘了带账单，能用租房合同吗？",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用here's/ I've got表达即时出示",
+          "usageNote": "客户在办理开户、转账等业务前几乎都会问此问题，回答包含标准证件清单，符合真实银行流程。",
           "audioUrl": "COS:/qa/questions/daily_006_sub_1_qa_2.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 2
+        },
+        {
+          "id": "daily_006_sub_1_qa_3",
+          "subSceneId": "daily_006_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you have a branch nearby that’s open on weekends?",
+          "triggerTextCn": "附近有周末营业的分行吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "客户询问营业时间，体现日常业务办理中的时间安排需求",
+          "followUps": [
+            {
+              "text": "Yes, our downtown branch is open Saturdays from 9 AM to 2 PM. Would you like the address?",
+              "text_cn": "有的，市中心分行周六上午9点到下午2点营业。需要地址吗？",
+              "audio_url": "COS:/qa/responses/daily_006_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "非工作日营业信息是客户高频咨询点，回应包含具体时间与主动提供进一步帮助，符合服务场景自然节奏。",
+          "audioUrl": "COS:/qa/questions/daily_006_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_006_sub_2",
       "sceneId": "daily_006",
-      "name": "账户类型选择",
-      "description": "柜员介绍账户类型，客户做选择",
+      "name": "出示证件",
+      "description": "客户提交身份证件，柜员核对信息。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -87,29 +89,19 @@
           "id": "daily_006_sub_2_qa_1",
           "subSceneId": "daily_006_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "We've got basic savings with 0.5% interest, or a premium one with higher returns but a $500 minimum deposit.",
-          "triggerTextCn": "我们有利率0.5%的基础储蓄，或高收益的高级账户，需存500美元起。",
+          "triggerText": "Could you please show me your ID and another form of identification?",
+          "triggerTextCn": "请您出示一下身份证和另一种身份证明文件好吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务方介绍完毕后，用户可询问具体细节或选择账户类型",
+          "scenarioHintCn": "银行柜员要求客户出示证件以核实身份",
           "followUps": [
             {
-              "text": "I'll go with the basic one for now.",
-              "text_cn": "我先选基础版。",
+              "text": "Sure, here's my passport and driver's license.",
+              "text_cn": "好的，这是我的护照和驾照。",
               "audio_url": "COS:/qa/responses/daily_006_sub_2_qa_1_response0.mp3"
-            },
-            {
-              "text": "Hmm, I think I'd prefer the premium one—I can deposit $600.",
-              "text_cn": "嗯，我想选高级的，我能存600美元。",
-              "audio_url": "COS:/qa/responses/daily_006_sub_2_qa_1_response1.mp3"
-            },
-            {
-              "text": "Basic is fine.",
-              "text_cn": "基础版就行。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用I'll go with表达明确选择",
+          "usageNote": "这是银行办理业务时最常听到的证件核实请求，客户需快速提供有效证件。",
           "audioUrl": "COS:/qa/questions/daily_006_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -117,177 +109,263 @@
         {
           "id": "daily_006_sub_2_qa_2",
           "subSceneId": "daily_006_sub_2",
-          "dialogueMode": "user_responds",
-          "triggerText": "You'll need to sign here and initial the terms.",
-          "triggerTextCn": "您需要在这里签名并签署条款。",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "What documents do I need to show for this transaction?",
+          "triggerTextCn": "我办理这笔业务需要出示哪些证件？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "服务方介绍完毕后，用户可询问具体细节或选择账户类型",
+          "scenarioHintCn": "客户不确定所需证件，主动询问银行工作人员",
           "followUps": [
             {
-              "text": "Got it—I'll sign right away.",
-              "text_cn": "好的，我马上签。",
+              "text": "You'll need your passport and a recent utility bill as proof of address.",
+              "text_cn": "您需要出示护照和一份近期的水电账单作为住址证明。",
               "audio_url": "COS:/qa/responses/daily_006_sub_2_qa_2_response0.mp3"
-            },
-            {
-              "text": "Sure thing, let me grab a pen.",
-              "text_cn": "没问题，我找支笔。",
-              "audio_url": "COS:/qa/responses/daily_006_sub_2_qa_2_response1.mp3"
-            },
-            {
-              "text": "Sign here? Okay.",
-              "text_cn": "这里签？行。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用Got it/Sure thing回应操作指令",
+          "usageNote": "客户在不明确要求时主动询问，是自然且高频的沟通方式。",
           "audioUrl": "COS:/qa/questions/daily_006_sub_2_qa_2.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 2
+        },
+        {
+          "id": "daily_006_sub_2_qa_3",
+          "subSceneId": "daily_006_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Is this national ID card acceptable?",
+          "triggerTextCn": "这张身份证可以吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "客户不确定自己携带的证件是否符合银行要求",
+          "followUps": [
+            {
+              "text": "Yes, as long as it's not expired and has your photo and signature.",
+              "text_cn": "可以，只要它没有过期，并且有您的照片和签名即可。",
+              "audio_url": "COS:/qa/responses/daily_006_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "客户在出示证件前确认有效性，是真实场景中非常典型的确认性提问。",
+          "audioUrl": "COS:/qa/questions/daily_006_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_006_sub_3",
       "sceneId": "daily_006",
-      "name": "存款与确认",
-      "description": "客户存入首笔资金并确认账户信息",
+      "name": "选择账户",
+      "description": "柜员介绍账户类型，客户选择适合的选项。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_006_sub_3_qa_1",
           "subSceneId": "daily_006_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "How much would you like to deposit as your opening balance?",
-          "triggerTextCn": "您想存多少作为初始余额？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'd like to open a savings account.",
+          "triggerTextCn": "我想开一个储蓄账户。",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "客户主动提出想开储蓄账户，寻求银行建议",
           "followUps": [
             {
-              "text": "I'll put in $1,000.",
-              "text_cn": "我存1000美元。",
+              "text": "Sure! We have three types: Standard Savings, High-Yield Savings, and Youth Savings. Which one suits your needs?",
+              "text_cn": "当然！我们有三种：普通储蓄、高收益储蓄和青少年储蓄。您需要哪一种？",
               "audio_url": "COS:/qa/responses/daily_006_sub_3_qa_1_response0.mp3"
-            },
-            {
-              "text": "Can I deposit $750? That's all I've got right now.",
-              "text_cn": "我能存750吗？我现在就这些。",
-              "audio_url": "COS:/qa/responses/daily_006_sub_3_qa_1_response1.mp3"
-            },
-            {
-              "text": "A thousand.",
-              "text_cn": "一千。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用I'll put in表达主动存款",
+          "usageNote": "客户表达开户意图时，银行职员会自然引导选择账户类型，这是开户流程的典型起点。",
           "audioUrl": "COS:/qa/questions/daily_006_sub_3_qa_1.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "daily_006_sub_3_qa_2",
           "subSceneId": "daily_006_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "Your account number is 8842-1095, and your card will arrive in 5–7 business days.",
-          "triggerTextCn": "您的账号是8842-1095，卡片将在5到7个工作日内寄到。",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do I need to show my ID and proof of address?",
+          "triggerTextCn": "我需要出示身份证和住址证明吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "客户确认开户所需文件，避免因材料不全反复跑腿",
           "followUps": [
             {
-              "text": "Thanks! Can I get a digital copy now?",
-              "text_cn": "谢谢！现在能给我电子版吗？",
+              "text": "Yes, please bring your passport or national ID, and a recent utility bill or bank statement with your name and address.",
+              "text_cn": "是的，请带上您的护照或身份证，以及最近的水电账单或银行对账单，上面需有您的姓名和地址。",
               "audio_url": "COS:/qa/responses/daily_006_sub_3_qa_2_response0.mp3"
-            },
-            {
-              "text": "Cool, I'll check my mail.",
-              "text_cn": "好的，我等邮件。",
-              "audio_url": "COS:/qa/responses/daily_006_sub_3_qa_2_response1.mp3"
-            },
-            {
-              "text": "Got it.",
-              "text_cn": "知道了。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用Can I...?礼貌请求额外服务",
+          "usageNote": "这是银行开户流程中最常被问及的文件要求问题，直接关系到业务能否顺利办理。",
           "audioUrl": "COS:/qa/questions/daily_006_sub_3_qa_2.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 2
+        },
+        {
+          "id": "daily_006_sub_3_qa_3",
+          "subSceneId": "daily_006_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like to link this account to a debit card?",
+          "triggerTextCn": "您想为这个账户绑定一张借记卡吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "银行职员在开户流程中主动询问是否绑定借记卡，是标准服务环节",
+          "followUps": [
+            {
+              "text": "Yes, please. I'll need it for ATM withdrawals and online payments.",
+              "text_cn": "好的，请帮我绑定。我需要用它取现和在线支付。",
+              "audio_url": "COS:/qa/responses/daily_006_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "银行职员常在开户时主动提议绑定借记卡，客户应能自然回应‘是’或‘否’，这是高频互动点。",
+          "audioUrl": "COS:/qa/questions/daily_006_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_006_sub_4",
       "sceneId": "daily_006",
-      "name": "道别与后续",
-      "description": "柜员礼貌道别，客户表达感谢",
+      "name": "确认存款",
+      "description": "客户存入首笔金额，柜员确认并记录。",
       "order": 4,
-      "estimatedMinutes": 3,
+      "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_006_sub_4_qa_1",
           "subSceneId": "daily_006_sub_4",
-          "dialogueMode": "user_responds",
-          "triggerText": "Thanks for banking with us! Is there anything else I can help you with?",
-          "triggerTextCn": "感谢选择我们银行！还有其他能帮您的吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'd like to make a deposit.",
+          "triggerTextCn": "我想存钱。",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "客户主动提出存款需求",
           "followUps": [
             {
-              "text": "No, that's all—really appreciate your help!",
-              "text_cn": "不用了，太感谢了！",
+              "text": "Sure, I can help with that. Do you have your account number and ID ready?",
+              "text_cn": "当然可以帮您。您有账户号和身份证吗？",
               "audio_url": "COS:/qa/responses/daily_006_sub_4_qa_1_response0.mp3"
-            },
-            {
-              "text": "Nah, good to go. You're awesome!",
-              "text_cn": "不用了，搞定了，你真棒！",
-              "audio_url": "COS:/qa/responses/daily_006_sub_4_qa_1_response1.mp3"
-            },
-            {
-              "text": "All set, thanks.",
-              "text_cn": "搞定了，谢谢。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用That's all/All set简���结束对话",
+          "usageNote": "客户首次提出存款请求时的标准开场白，银行职员会立即要求核对身份和账户信息。",
           "audioUrl": "COS:/qa/questions/daily_006_sub_4_qa_1.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "daily_006_sub_4_qa_2",
           "subSceneId": "daily_006_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Have a great day!",
-          "triggerTextCn": "祝您今天愉快！",
+          "triggerText": "How much would you like to deposit?",
+          "triggerTextCn": "您想存多少钱？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "柜员确认存款金额",
           "followUps": [
             {
-              "text": "You too! See you next time.",
-              "text_cn": "你也是！下次见。",
+              "text": "I'd like to deposit $500 in cash.",
+              "text_cn": "我想存500美元现金。",
               "audio_url": "COS:/qa/responses/daily_006_sub_4_qa_2_response0.mp3"
-            },
-            {
-              "text": "Thanks, you too!",
-              "text_cn": "谢谢，你也一样！",
-              "audio_url": "COS:/qa/responses/daily_006_sub_4_qa_2_response1.mp3"
-            },
-            {
-              "text": "Bye!",
-              "text_cn": "拜！",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用You too!回应祝福最自然",
+          "usageNote": "柜员在客户提出存款后必问的问题，用户需直接、清晰地回应金额和形式（现金/支票）。",
           "audioUrl": "COS:/qa/questions/daily_006_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "daily_006_sub_4_qa_3",
+          "subSceneId": "daily_006_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like a receipt?",
+          "triggerTextCn": "您需要收据吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "柜员在完成存款后确认是否需要凭证",
+          "followUps": [
+            {
+              "text": "Yes, please. I need it for my records.",
+              "text_cn": "请给我一张，我要留作记录。",
+              "audio_url": "COS:/qa/responses/daily_006_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "银行办理存款的最后一步，客户通常会要求收据以备查账，回应应简洁明确。",
+          "audioUrl": "COS:/qa/questions/daily_006_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "daily_006_sub_5",
+      "sceneId": "daily_006",
+      "name": "完成交接",
+      "description": "柜员交付银行卡与单据，致谢并告别。",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_006_sub_5_qa_1",
+          "subSceneId": "daily_006_sub_5",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'd like to transfer funds to another account.",
+          "triggerTextCn": "我想转账到另一个账户。",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "客户主动提出转账需求，启动交接流程",
+          "followUps": [
+            {
+              "text": "Sure, I can help with that. Could you please provide the recipient's account number and routing number?",
+              "text_cn": "当然可以帮您。请提供收款人的账户号和路由号。",
+              "audio_url": "COS:/qa/responses/daily_006_sub_5_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "客户在办理资金交接时常用开场句，适用于柜台或客户经理服务场景",
+          "audioUrl": "COS:/qa/questions/daily_006_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
+        },
+        {
+          "id": "daily_006_sub_5_qa_2",
+          "subSceneId": "daily_006_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you need to verify your identity before we proceed?",
+          "triggerTextCn": "在继续之前，您需要验证身份吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "银行职员在交接前要求身份核验，标准合规流程",
+          "followUps": [
+            {
+              "text": "Yes, here's my ID and passport.",
+              "text_cn": "好的，这是我的身份证和护照。",
+              "audio_url": "COS:/qa/responses/daily_006_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "职员标准提问，用户需简洁提供证件，避免冗长解释",
+          "audioUrl": "COS:/qa/questions/daily_006_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "daily_006_sub_5_qa_3",
+          "subSceneId": "daily_006_sub_5",
+          "dialogueMode": "user_asks",
+          "triggerText": "Could you confirm the transaction details before I sign?",
+          "triggerTextCn": "在我签字前，您能确认一下交易详情吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "客户在完成交接前要求复核信息，体现谨慎与专业",
+          "followUps": [
+            {
+              "text": "Of course. The amount is $1,500 going to account ending in 7890. Is that correct?",
+              "text_cn": "当然。金额是1500美元，转入尾号为7890的账户。对吗？",
+              "audio_url": "COS:/qa/responses/daily_006_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "客户在签字前确认关键信息，是银行交接环节中高频且安全的提问",
+          "audioUrl": "COS:/qa/questions/daily_006_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     }

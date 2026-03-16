@@ -1,13 +1,14 @@
 {
   "sceneId": "daily_003",
   "sceneName": "咖啡店点单",
-  "exportedAt": "2026-03-14T13:47:27.273Z",
+  "generatedAt": "2026-03-16T08:03:15.431Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_003_sub_1",
       "sceneId": "daily_003",
-      "name": "打招呼点单",
-      "description": "店员问候并引导点单",
+      "name": "问候迎宾",
+      "description": "顾客进店，店员礼貌问候并引导点单。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -15,29 +16,19 @@
           "id": "daily_003_sub_1_qa_1",
           "subSceneId": "daily_003_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Hey there! What can I get for you today?",
-          "triggerTextCn": "嗨！今天想喝点什么？",
+          "triggerText": "Welcome to Brew & Co! What can I get started for you today?",
+          "triggerTextCn": "欢迎来到Brew & Co！今天想点些什么呢？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "咖啡店迎宾问候，服务员主动开启点单流程",
           "followUps": [
             {
-              "text": "I'd like a latte, please.",
-              "text_cn": "我要一杯拿铁，谢谢。",
+              "text": "I'd like a latte and a blueberry muffin, please.",
+              "text_cn": "我要一杯拿铁和一个蓝莓松饼。",
               "audio_url": "COS:/qa/responses/daily_003_sub_1_qa_1_response0.mp3"
-            },
-            {
-              "text": "Uh, maybe a cappuccino?",
-              "text_cn": "呃，来杯卡布奇诺？",
-              "audio_url": "COS:/qa/responses/daily_003_sub_1_qa_1_response1.mp3"
-            },
-            {
-              "text": "What do you recommend?",
-              "text_cn": "你有什么推荐吗？",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用I'd like或What do you recommend自然开场",
+          "usageNote": "这是咖啡店最典型的迎宾开场白，顾客需直接回应点单需求，避免冗长解释。",
           "audioUrl": "COS:/qa/questions/daily_003_sub_1_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -46,112 +37,124 @@
           "id": "daily_003_sub_1_qa_2",
           "subSceneId": "daily_003_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "We've got a new caramel cold brew — super popular!",
-          "triggerTextCn": "我们新出焦糖冷萃，特别火！",
+          "triggerText": "Do you want that hot or iced?",
+          "triggerTextCn": "您要热的还是冰的？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "服务员确认饮品温度，常见于点单确认环节",
           "followUps": [
             {
-              "text": "Sounds good! I'll try that.",
-              "text_cn": "听起来不错，我就要这个。",
+              "text": "Hot, please.",
+              "text_cn": "热的，谢谢。",
               "audio_url": "COS:/qa/responses/daily_003_sub_1_qa_2_response0.mp3"
-            },
-            {
-              "text": "Nah, I'm good with hot coffee.",
-              "text_cn": "算了，我还是喝热的吧。",
-              "audio_url": "COS:/qa/responses/daily_003_sub_1_qa_2_response1.mp3"
-            },
-            {
-              "text": "Is it sweet?",
-              "text_cn": "甜吗？",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用Sounds good或I'll try表达兴趣",
+          "usageNote": "服务员在点单中常快速确认温度/大小等选项，顾客应简洁回应，无需额外说明。",
           "audioUrl": "COS:/qa/questions/daily_003_sub_1_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "daily_003_sub_1_qa_3",
+          "subSceneId": "daily_003_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Is this for here or to go?",
+          "triggerTextCn": "这是堂食还是外带？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员确认消费方式，点单收尾关键问题",
+          "followUps": [
+            {
+              "text": "To go, please.",
+              "text_cn": "外带，谢谢。",
+              "audio_url": "COS:/qa/responses/daily_003_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "几乎所有咖啡店都会在最后确认外带/堂食，顾客需明确回应，这是高频必会句型。",
+          "audioUrl": "COS:/qa/questions/daily_003_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_003_sub_2",
       "sceneId": "daily_003",
-      "name": "确认口味",
-      "description": "确认咖啡浓度、糖量和奶类",
+      "name": "询问推荐",
+      "description": "顾客请店员推荐热门饮品，表达偏好。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_003_sub_2_qa_1",
           "subSceneId": "daily_003_sub_2",
-          "dialogueMode": "user_responds",
-          "triggerText": "Want that with whole milk or oat?",
-          "triggerTextCn": "要全脂奶还是燕麦奶？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "What do you recommend?",
+          "triggerTextCn": "你有什么推荐的吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客主动询问咖啡店推荐饮品",
           "followUps": [
             {
-              "text": "Oat milk, please.",
-              "text_cn": "请给我燕麦奶。",
+              "text": "Our house blend latte is very popular—it’s smooth with a hint of caramel. Many customers love it.",
+              "text_cn": "我们的招牌拿铁非常受欢迎，口感顺滑，带一点焦糖味，很多顾客都喜欢。",
               "audio_url": "COS:/qa/responses/daily_003_sub_2_qa_1_response0.mp3"
-            },
-            {
-              "text": "Regular milk's fine.",
-              "text_cn": "普通牛奶就行。",
-              "audio_url": "COS:/qa/responses/daily_003_sub_2_qa_1_response1.mp3"
-            },
-            {
-              "text": "Do you have almond?",
-              "text_cn": "有杏仁奶吗？",
-              "audio_url": ""
             }
           ],
-          "usageNote": "直接说奶类名称，简洁有效",
+          "usageNote": "顾客在不确定点什么时，用这句话开启推荐对话，适用于初次到店或想尝试特色饮品的场景。",
           "audioUrl": "COS:/qa/questions/daily_003_sub_2_qa_1.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "daily_003_sub_2_qa_2",
           "subSceneId": "daily_003_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "How many sugars?",
-          "triggerTextCn": "要几勺糖？",
+          "triggerText": "Are you looking for something sweet or more bitter?",
+          "triggerTextCn": "您是想选甜一点的，还是苦味重一点的？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "服务员根据顾客需求引导选择口味偏好",
           "followUps": [
             {
-              "text": "One, please.",
-              "text_cn": "一勺就行。",
+              "text": "Something sweet, please—I’m in the mood for a treat.",
+              "text_cn": "想选甜一点的，我想犒劳一下自己。",
               "audio_url": "COS:/qa/responses/daily_003_sub_2_qa_2_response0.mp3"
-            },
-            {
-              "text": "None, I like it black.",
-              "text_cn": "不要糖，我喜欢黑咖啡。",
-              "audio_url": "COS:/qa/responses/daily_003_sub_2_qa_2_response1.mp3"
-            },
-            {
-              "text": "Two, and a splash of syrup.",
-              "text_cn": "两勺，再加点糖浆。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用None或black表达无糖偏好",
+          "usageNote": "服务员常用此问题缩小选择范围，顾客应简洁回应口味倾向，避免冗长解释。",
           "audioUrl": "COS:/qa/questions/daily_003_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "daily_003_sub_2_qa_3",
+          "subSceneId": "daily_003_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like to try our seasonal special? It’s a pumpkin spice cold brew.",
+          "triggerTextCn": "要不要试试我们的季节限定？是南瓜香料冷萃咖啡。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员主动推荐当季新品，促进销售",
+          "followUps": [
+            {
+              "text": "Yes, I’ll try that one!",
+              "text_cn": "好啊，我就要这个！",
+              "audio_url": "COS:/qa/responses/daily_003_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "服务员推荐新品时，顾客应直接表达兴趣或拒绝，避免犹豫不决或过度解释，保持自然流畅。",
+          "audioUrl": "COS:/qa/questions/daily_003_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_003_sub_3",
       "sceneId": "daily_003",
-      "name": "询问价格",
-      "description": "确认价格和是否需要外带",
+      "name": "确认口味",
+      "description": "顾客指定糖度、奶类和温度，店员复述确认。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -159,29 +162,19 @@
           "id": "daily_003_sub_3_qa_1",
           "subSceneId": "daily_003_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "That'll be $5.20. For here or to go?",
-          "triggerTextCn": "5块2，这里喝还是带走？",
+          "triggerText": "Do you want it with milk or sugar?",
+          "triggerTextCn": "您要加奶还是糖？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "咖啡店点单时，服务员确认饮品口味偏好",
           "followUps": [
             {
-              "text": "To go, please.",
-              "text_cn": "请打包带走。",
+              "text": "Just a splash of milk, no sugar, please.",
+              "text_cn": "请加一点牛奶，不要糖。",
               "audio_url": "COS:/qa/responses/daily_003_sub_3_qa_1_response0.mp3"
-            },
-            {
-              "text": "I'll sit here.",
-              "text_cn": "我在这儿喝。",
-              "audio_url": "COS:/qa/responses/daily_003_sub_3_qa_1_response1.mp3"
-            },
-            {
-              "text": "Can I get a discount?",
-              "text_cn": "能打折吗？",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用To go或I'll sit here明确需求",
+          "usageNote": "这是咖啡店最常见口味确认句式，用户需简洁明确回应，避免冗长解释。",
           "audioUrl": "COS:/qa/questions/daily_003_sub_3_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -190,104 +183,189 @@
           "id": "daily_003_sub_3_qa_2",
           "subSceneId": "daily_003_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "You're all set — just $5.20.",
-          "triggerTextCn": "好了，一共5块2。",
+          "triggerText": "Would you like it hot or iced?",
+          "triggerTextCn": "您要热的还是冰的？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "服务员确认饮品温度，是点单流程中的关键步骤",
           "followUps": [
             {
-              "text": "Here you go.",
-              "text_cn": "给你钱。",
+              "text": "Iced, please.",
+              "text_cn": "冰的，谢谢。",
               "audio_url": "COS:/qa/responses/daily_003_sub_3_qa_2_response0.mp3"
-            },
-            {
-              "text": "Can I pay with Apple Pay?",
-              "text_cn": "能用苹果支付吗？",
-              "audio_url": "COS:/qa/responses/daily_003_sub_3_qa_2_response1.mp3"
-            },
-            {
-              "text": "Do you take cash?",
-              "text_cn": "收现金吗？",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用Can I pay with...询问支付方式",
+          "usageNote": "此句高频出现于美式咖啡店，用户回答通常简短直接，无需额外说明。",
           "audioUrl": "COS:/qa/questions/daily_003_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "daily_003_sub_3_qa_3",
+          "subSceneId": "daily_003_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "What kind of flavor do you prefer? Vanilla, caramel, or original?",
+          "triggerTextCn": "您喜欢什么风味？香草、焦糖，还是原味？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员提供风味选项，引导顾客个性化定制饮品",
+          "followUps": [
+            {
+              "text": "Vanilla, please.",
+              "text_cn": "香草味，谢谢。",
+              "audio_url": "COS:/qa/responses/daily_003_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "连锁咖啡店标准话术，用户只需选择一项，无需解释理由，符合地道交流习惯。",
+          "audioUrl": "COS:/qa/questions/daily_003_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_003_sub_4",
       "sceneId": "daily_003",
-      "name": "道别离店",
-      "description": "完成支付后礼貌道别",
+      "name": "询问价格",
+      "description": "顾客礼貌询问总价，店员清晰报价。",
       "order": 4,
-      "estimatedMinutes": 3,
+      "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_003_sub_4_qa_1",
           "subSceneId": "daily_003_sub_4",
-          "dialogueMode": "user_responds",
-          "triggerText": "Here's your coffee, have a great day!",
-          "triggerTextCn": "您的咖啡，祝您今天愉快！",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "How much is this latte?",
+          "triggerTextCn": "这杯拿铁多少钱？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客询问单杯饮品价格",
           "followUps": [
             {
-              "text": "Thanks so much! You too!",
-              "text_cn": "太感谢了！你也是！",
+              "text": "That's $4.50.",
+              "text_cn": "4.50美元。",
               "audio_url": "COS:/qa/responses/daily_003_sub_4_qa_1_response0.mp3"
-            },
-            {
-              "text": "Appreciate it!",
-              "text_cn": "谢谢啦！",
-              "audio_url": "COS:/qa/responses/daily_003_sub_4_qa_1_response1.mp3"
-            },
-            {
-              "text": "See you tomorrow!",
-              "text_cn": "明天见！",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用Thanks so much或Appreciate it自然回应",
+          "usageNote": "用于直接询问具体饮品的价格，最常见于点单前确认预算。",
           "audioUrl": "COS:/qa/questions/daily_003_sub_4_qa_1.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "daily_003_sub_4_qa_2",
           "subSceneId": "daily_003_sub_4",
-          "dialogueMode": "user_responds",
-          "triggerText": "Your order's ready!",
-          "triggerTextCn": "您的单子好了！",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "What's the price for the large cold brew?",
+          "triggerTextCn": "大杯冰美式多少钱？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客询问不同杯型的价格差异",
           "followUps": [
             {
-              "text": "Perfect, thanks!",
-              "text_cn": "太好了，谢谢！",
+              "text": "The large is $5.25. The medium is $4.75.",
+              "text_cn": "大杯是5.25美元，中杯是4.75美元。",
               "audio_url": "COS:/qa/responses/daily_003_sub_4_qa_2_response0.mp3"
-            },
-            {
-              "text": "Cool, I'm good.",
-              "text_cn": "行，没问题。",
-              "audio_url": "COS:/qa/responses/daily_003_sub_4_qa_2_response1.mp3"
-            },
-            {
-              "text": "Wait, I forgot my cup!",
-              "text_cn": "等下，我忘了拿杯子！",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用Perfect或Cool快速确认收货",
+          "usageNote": "用于比较不同尺寸的价格，体现顾客对性价比的关注，高频真实场景。",
           "audioUrl": "COS:/qa/questions/daily_003_sub_4_qa_2.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 2
+        },
+        {
+          "id": "daily_003_sub_4_qa_3",
+          "subSceneId": "daily_003_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like to know the prices before ordering?",
+          "triggerTextCn": "您想先看看价格再点单吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员主动提供价格信息以协助点单",
+          "followUps": [
+            {
+              "text": "Yes, please. How much is the cappuccino?",
+              "text_cn": "好的，请告诉我，卡布奇诺多少钱？",
+              "audio_url": "COS:/qa/responses/daily_003_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "服务员主动引导顾客确认价格，体现服务主动性，顾客回应简洁直接，符合真实对话节奏。",
+          "audioUrl": "COS:/qa/questions/daily_003_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "daily_003_sub_5",
+      "sceneId": "daily_003",
+      "name": "完成支付",
+      "description": "顾客选择支付方式，店员致谢并递出饮品。",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_003_sub_5_qa_1",
+          "subSceneId": "daily_003_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "How would you like to pay?",
+          "triggerTextCn": "您想怎么付款？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员询问支付方式，顾客选择支付方法",
+          "followUps": [
+            {
+              "text": "I'll pay with my credit card.",
+              "text_cn": "我用信用卡支付。",
+              "audio_url": "COS:/qa/responses/daily_003_sub_5_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "这是咖啡店结账时最常见的一句询问，顾客需直接回应支付方式，避免冗长解释。",
+          "audioUrl": "COS:/qa/questions/daily_003_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "daily_003_sub_5_qa_2",
+          "subSceneId": "daily_003_sub_5",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can I pay with Apple Pay?",
+          "triggerTextCn": "我可以使用苹果支付吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客主动询问是否支持某种数字支付方式",
+          "followUps": [
+            {
+              "text": "Yes, we accept Apple Pay. Just tap your phone on the reader.",
+              "text_cn": "可以，我们支持Apple Pay，把手机靠近读卡器即可。",
+              "audio_url": "COS:/qa/responses/daily_003_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "在城市咖啡店中，顾客常主动确认移动支付是否可用，回应需简洁明确并附带操作提示。",
+          "audioUrl": "COS:/qa/questions/daily_003_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
+        },
+        {
+          "id": "daily_003_sub_5_qa_3",
+          "subSceneId": "daily_003_sub_5",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you take cash?",
+          "triggerTextCn": "你们收现金吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客确认是否接受现金支付，常见于游客或习惯现金支付的人群",
+          "followUps": [
+            {
+              "text": "Yes, we do. But we prefer card payments for hygiene reasons.",
+              "text_cn": "可以，但我们出于卫生考虑更推荐刷卡支付。",
+              "audio_url": "COS:/qa/responses/daily_003_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "这是全球咖啡店高频问题，回应常包含礼貌性偏好说明，但不拒绝现金，符合真实服务语境。",
+          "audioUrl": "COS:/qa/questions/daily_003_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     }

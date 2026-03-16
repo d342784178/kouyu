@@ -1,85 +1,87 @@
 {
   "sceneId": "daily_023",
   "sceneName": "照相馆拍照",
-  "exportedAt": "2026-03-14T13:47:27.306Z",
+  "generatedAt": "2026-03-16T08:11:00.817Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_023_sub_1",
       "sceneId": "daily_023",
-      "name": "问候接待",
-      "description": "顾客进店，摄影师打招呼并询问需求",
+      "name": "接待问候",
+      "description": "顾客到店，摄影师友好问候并确认拍照需求。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_023_sub_1_qa_1",
           "subSceneId": "daily_023_sub_1",
-          "dialogueMode": "user_responds",
-          "triggerText": "Hi there! What kind of photo do you need today?",
-          "triggerTextCn": "嗨！今天需要拍哪种照片？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Hi, I'd like to take some photos today.",
+          "triggerTextCn": "您好，我想今天拍些照片。",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客主动提出拍照需求，接待环节的典型开场",
           "followUps": [
             {
-              "text": "I'd like a passport photo, please.",
-              "text_cn": "我想拍一张护照照片。",
-              "audio_url": ""
-            },
-            {
-              "text": "Can I get a driver's license pic?",
-              "text_cn": "我能拍张驾照照吗？",
-              "audio_url": ""
-            },
-            {
-              "text": "Passport photo.",
-              "text_cn": "拍护照照。",
-              "audio_url": ""
+              "text": "Of course! We specialize in portraits, family shots, and professional headshots. What kind of photos are you looking for?",
+              "text_cn": "当然可以！我们擅长人像、家庭合影和职业证件照。您想拍哪种类型的照片呢？",
+              "audio_url": "COS:/qa/responses/daily_023_sub_1_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用I'd like或Can I get表达需求",
-          "audioUrl": null,
-          "learnRequirement": "speak_followup",
+          "usageNote": "顾客初次表达需求时的自然开场，服务员立即回应并引导选择服务类型",
+          "audioUrl": "COS:/qa/questions/daily_023_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "daily_023_sub_1_qa_2",
           "subSceneId": "daily_023_sub_1",
-          "dialogueMode": "user_responds",
-          "triggerText": "Got it. Standard size, right? 2x2 inches?",
-          "triggerTextCn": "好的，标准尺寸，2x2英寸对吧？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you have any packages for business portraits?",
+          "triggerTextCn": "你们有商务人像的套餐吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客询问具体服务套餐，体现核心业务咨询环节",
           "followUps": [
             {
-              "text": "Yes, that's perfect.",
-              "text_cn": "对，正好。",
-              "audio_url": ""
-            },
-            {
-              "text": "Hmm, I think it should be 3.5x4.5 cm.",
-              "text_cn": "呃，应该是3.5x4.5厘米。",
-              "audio_url": ""
-            },
-            {
-              "text": "Yeah, standard's fine.",
-              "text_cn": "嗯，标准就行。",
-              "audio_url": ""
+              "text": "Yes, we have three packages: Basic, Standard, and Premium. The Standard includes 3 outfits, 20 edited photos, and a digital album. Would you like to see the details?",
+              "text_cn": "有的，我们有三个套餐：基础版、标准版和高级版。标准版包含3套服装、20张精修照片和一个电子相册。您想看看详细内容吗？",
+              "audio_url": "COS:/qa/responses/daily_023_sub_1_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "确认尺寸时用Yes或具体数字回应",
-          "audioUrl": null,
-          "learnRequirement": "speak_followup",
+          "usageNote": "顾客针对具体服务类型提问，服务员提供清晰、结构化选项，符合真实商业场景",
+          "audioUrl": "COS:/qa/questions/daily_023_sub_1_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
           "order": 2
+        },
+        {
+          "id": "daily_023_sub_1_qa_3",
+          "subSceneId": "daily_023_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like to try our studio backgrounds or go for outdoor shots?",
+          "triggerTextCn": "您想用我们影棚的背景，还是选择户外拍摄？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员提供选择项，引导顾客做关键决策，典型服务推进环节",
+          "followUps": [
+            {
+              "text": "Let's do the studio one—I want a clean, professional look.",
+              "text_cn": "就选影棚吧，我想要干净专业的效果。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "服务员提供明确选项，顾客直接、简洁回应，符合服务场景中高效决策的自然对话习惯",
+          "audioUrl": "COS:/qa/questions/daily_023_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_023_sub_2",
       "sceneId": "daily_023",
-      "name": "姿势指导",
-      "description": "摄影师指导顾客调整姿势和表情",
+      "name": "确认尺寸",
+      "description": "双方确认证件照尺寸与用途，如护照或身份证。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -87,30 +89,20 @@
           "id": "daily_023_sub_2_qa_1",
           "subSceneId": "daily_023_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Okay, tilt your head a little left and smile naturally.",
-          "triggerTextCn": "好，头稍微往左偏，自然微笑。",
+          "triggerText": "How big would you like the photo to be?",
+          "triggerTextCn": "您想要多大尺寸的照片？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "照相馆工作人员询问顾客照片尺寸偏好",
           "followUps": [
             {
-              "text": "Like this?",
-              "text_cn": "这样吗？",
-              "audio_url": ""
-            },
-            {
-              "text": "I'm not good at smiling, can I just look serious?",
-              "text_cn": "我不太会笑，能严肃点吗？",
-              "audio_url": ""
-            },
-            {
-              "text": "Okay.",
-              "text_cn": "好的。",
-              "audio_url": ""
+              "text": "I'd like the 5x7 inch one, please.",
+              "text_cn": "我要5乘7英寸的。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_2_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用Like this?确认动作是否正确",
-          "audioUrl": null,
+          "usageNote": "顾客直接回应标准尺寸选项，简洁自然，符合服务场景高频表达",
+          "audioUrl": "COS:/qa/questions/daily_023_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
@@ -118,112 +110,124 @@
           "id": "daily_023_sub_2_qa_2",
           "subSceneId": "daily_023_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Don't look at the camera—look just above it.",
-          "triggerTextCn": "别看镜头，看它上面一点。",
+          "triggerText": "Do you want it framed or just as a print?",
+          "triggerTextCn": "您想要装框的，还是只是打印出来的？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "工作人员确认是否需要相框，属于尺寸确认后的常见延伸服务",
           "followUps": [
             {
-              "text": "Above the camera? Got it.",
-              "text_cn": "看镜头上面？明白了。",
-              "audio_url": ""
-            },
-            {
-              "text": "I'm confused, can you show me?",
-              "text_cn": "我不懂，能给我示范吗？",
-              "audio_url": ""
-            },
-            {
-              "text": "Alright.",
-              "text_cn": "行。",
-              "audio_url": ""
+              "text": "Just the print, thanks.",
+              "text_cn": "只要打印版，谢谢。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_2_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "用Got it或Alright表示理解指令",
-          "audioUrl": null,
+          "usageNote": "顾客常用简短回应，避免冗长，符合服务场景中高效沟通习惯",
+          "audioUrl": "COS:/qa/questions/daily_023_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "daily_023_sub_2_qa_3",
+          "subSceneId": "daily_023_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can I see the options for sizes and prices?",
+          "triggerTextCn": "我能看看有哪些尺寸和价格选项吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客主动要求查看尺寸与价格信息，典型主动确认行为",
+          "followUps": [
+            {
+              "text": "Sure! Here's our size chart: 4x6 for $8, 5x7 for $12, and 8x10 for $20.",
+              "text_cn": "当然！这是我们的尺寸价目表：4乘6英寸8美元，5乘7英寸12美元，8乘10英寸20美元。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客主动询问标准服务信息，是真实场景中极常见的发起对话方式",
+          "audioUrl": "COS:/qa/questions/daily_023_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_023_sub_3",
       "sceneId": "daily_023",
-      "name": "拍摄确认",
-      "description": "摄影师拍摄后询问是否满意",
+      "name": "调整姿势",
+      "description": "摄影师指导顾客摆正头位、表情和坐姿。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_023_sub_3_qa_1",
           "subSceneId": "daily_023_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "Here's the preview—how do you like it?",
-          "triggerTextCn": "这是预览图，你觉得怎么样？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can you help me adjust my posture?",
+          "triggerTextCn": "你能帮我调整一下姿势吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客请求帮助调整拍照姿势",
           "followUps": [
             {
-              "text": "It looks great, thanks!",
-              "text_cn": "看起来很棒，谢谢！",
-              "audio_url": ""
-            },
-            {
-              "text": "Can we try again? My eyes are closed.",
-              "text_cn": "能重拍吗？我眼睛闭着。",
-              "audio_url": ""
-            },
-            {
-              "text": "Perfect.",
-              "text_cn": "完美。",
-              "audio_url": ""
+              "text": "Of course! Let’s try standing a little more upright, with your shoulders back and chin slightly raised.",
+              "text_cn": "当然！我们试试站得更挺直一点，肩膀后展，下巴微微抬起。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_3_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "满意用Great/Perfect，不满意直接提要求",
-          "audioUrl": null,
-          "learnRequirement": "speak_followup",
+          "usageNote": "顾客主动请求帮助时的典型表达，适用于拍照前姿势调整环节",
+          "audioUrl": "COS:/qa/questions/daily_023_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "daily_023_sub_3_qa_2",
           "subSceneId": "daily_023_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "We can retake it if you want—no extra charge.",
-          "triggerTextCn": "如果你想重拍，我们免费重拍。",
+          "triggerText": "Could you tilt your head a bit to the left?",
+          "triggerTextCn": "你能把头稍微往左偏一点吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "摄影师指导顾客调整头部角度",
           "followUps": [
             {
-              "text": "Yes, please! This one's blurry.",
-              "text_cn": "请重拍！这张模糊了。",
-              "audio_url": ""
-            },
-            {
-              "text": "No, this is fine.",
-              "text_cn": "不用了，这张就行。",
-              "audio_url": ""
-            },
-            {
-              "text": "Okay, one more time.",
-              "text_cn": "好，再来一次。",
-              "audio_url": ""
+              "text": "Sure, like this?",
+              "text_cn": "好的，像这样吗？",
+              "audio_url": "COS:/qa/responses/daily_023_sub_3_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "用Yes, please或No, this is fine做决定",
-          "audioUrl": null,
+          "usageNote": "服务员给出具体姿势指令后，顾客简洁回应的高频模式",
+          "audioUrl": "COS:/qa/questions/daily_023_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "daily_023_sub_3_qa_3",
+          "subSceneId": "daily_023_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "Should I smile or keep a neutral expression?",
+          "triggerTextCn": "我该微笑还是保持中性表情？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问拍照时的表情选择",
+          "followUps": [
+            {
+              "text": "A natural smile works best for portraits—just relax and think of something happy.",
+              "text_cn": "肖像照最适合自然微笑——放松一点，想想让你开心的事。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客在不确定表情时主动询问，是拍照场景中极高频的沟通点",
+          "audioUrl": "COS:/qa/questions/daily_023_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_023_sub_4",
       "sceneId": "daily_023",
-      "name": "支付道别",
-      "description": "完成拍摄后确认付款并告别",
+      "name": "拍摄确认",
+      "description": "摄影师拍摄后，询问顾客是否满意并准备重拍。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -231,30 +235,20 @@
           "id": "daily_023_sub_4_qa_1",
           "subSceneId": "daily_023_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "That'll be $15. Cash or card?",
-          "triggerTextCn": "一共15美元，现金还是刷卡？",
+          "triggerText": "Do you want to see the preview before we print?",
+          "triggerTextCn": "我们打印前您想先看一下预览吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "摄影师确认是否查看照片预览",
           "followUps": [
             {
-              "text": "Card, please.",
-              "text_cn": "刷卡，谢谢。",
-              "audio_url": ""
-            },
-            {
-              "text": "I only have cash.",
-              "text_cn": "我只有现金。",
-              "audio_url": ""
-            },
-            {
-              "text": "Card.",
-              "text_cn": "刷卡。",
-              "audio_url": ""
+              "text": "Yes, please. I want to make sure the smile looks natural.",
+              "text_cn": "好的，请给我看一下。我想确保笑容看起来自然。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_4_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用Card/Cash直接回答支付方式",
-          "audioUrl": null,
+          "usageNote": "顾客在确认照片效果时常用表达，语气礼貌且直接，适合真实服务场景",
+          "audioUrl": "COS:/qa/questions/daily_023_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
@@ -262,32 +256,116 @@
           "id": "daily_023_sub_4_qa_2",
           "subSceneId": "daily_023_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Thanks! Your photos are ready in 10 minutes.",
-          "triggerTextCn": "谢谢！10分钟后取照片。",
+          "triggerText": "How many copies would you like?",
+          "triggerTextCn": "您需要多少份照片？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "工作人员确认照片打印数量",
           "followUps": [
             {
-              "text": "Great, thanks for your help!",
-              "text_cn": "太好了，谢谢帮忙！",
-              "audio_url": ""
-            },
-            {
-              "text": "See you later.",
-              "text_cn": "待会儿见。",
-              "audio_url": ""
-            },
-            {
-              "text": "Okay.",
-              "text_cn": "好的。",
-              "audio_url": ""
+              "text": "Three, please. One for me, one for my parents, and one for my friend.",
+              "text_cn": "三份，谢谢。一份给我，一份给父母，一份给朋友。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_4_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "道别时用Thanks/See you later更自然",
-          "audioUrl": null,
+          "usageNote": "高频询问数量，顾客回应简洁明确，符合真实消费习惯",
+          "audioUrl": "COS:/qa/questions/daily_023_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "daily_023_sub_4_qa_3",
+          "subSceneId": "daily_023_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can I get a copy of the digital file too?",
+          "triggerTextCn": "我可以要一份电子版照片吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客主动询问是否提供电子版照片",
+          "followUps": [
+            {
+              "text": "Of course! We include a free digital copy with every session. I'll email it to you later.",
+              "text_cn": "当然可以！每次拍摄都免费赠送电子版，稍后我会发到您的邮箱。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客主动提出附加需求的典型表达，体现真实服务场景中的延伸需求",
+          "audioUrl": "COS:/qa/questions/daily_023_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "daily_023_sub_5",
+      "sceneId": "daily_023",
+      "name": "取照结账",
+      "description": "顾客确认最终照片，完成付款并领取照片。",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_023_sub_5_qa_1",
+          "subSceneId": "daily_023_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Here are your photos. That'll be $35 total.",
+          "triggerTextCn": "这是您的照片，总共35美元。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "取照结账：服务员告知总价，等待顾客付款",
+          "followUps": [
+            {
+              "text": "Can I pay by card?",
+              "text_cn": "我可以刷卡吗？",
+              "audio_url": "COS:/qa/responses/daily_023_sub_5_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客在得知价格后，自然询问支付方式，是结账环节最常见回应。",
+          "audioUrl": "COS:/qa/questions/daily_023_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "daily_023_sub_5_qa_2",
+          "subSceneId": "daily_023_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Did you want to order any prints or albums?",
+          "triggerTextCn": "您需要额外订购照片或相册吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "取照结账：服务员主动推荐附加产品",
+          "followUps": [
+            {
+              "text": "Just the digital files, thanks.",
+              "text_cn": "只要电子版就好，谢谢。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客通常简洁回应是否需要附加服务，避免冗长解释，符合服务场景高效沟通习惯。",
+          "audioUrl": "COS:/qa/questions/daily_023_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "daily_023_sub_5_qa_3",
+          "subSceneId": "daily_023_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you need a receipt?",
+          "triggerTextCn": "您需要收据吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "取照结账：服务员确认是否需要收据，完成交易闭环",
+          "followUps": [
+            {
+              "text": "Yes, please. I'll need it for my records.",
+              "text_cn": "需要的，我要留着做记录。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "收据请求是结账流程的标准环节，顾客回应应明确简洁，体现真实场景中的礼貌与效率。",
+          "audioUrl": "COS:/qa/questions/daily_023_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     }

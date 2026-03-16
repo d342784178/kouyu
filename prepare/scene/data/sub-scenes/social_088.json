@@ -1,13 +1,14 @@
 {
   "sceneId": "social_088",
   "sceneName": "道别告别",
-  "exportedAt": "2026-03-14T13:47:27.340Z",
+  "generatedAt": "2026-03-16T08:20:07.233Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "social_088_sub_1",
       "sceneId": "social_088",
       "name": "聚会结束道别",
-      "description": "聚会结束，朋友提议回家并道别",
+      "description": "聚会结束，朋友提议离开并礼貌告别。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -15,30 +16,20 @@
           "id": "social_088_sub_1_qa_1",
           "subSceneId": "social_088_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Well, I should head out—got an early meeting tomorrow.",
-          "triggerTextCn": "我该走了，明天一大早有会。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "I'm heading out — see you soon!",
+          "triggerTextCn": "我要走了，回头见！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "聚会结束，朋友主动道别",
           "followUps": [
             {
-              "text": "Same here! Let's catch up next week?",
-              "text_cn": "我也是！咱们下周再聚？",
-              "audio_url": ""
-            },
-            {
-              "text": "Thanks for coming! Hope to see you soon!",
-              "text_cn": "谢谢来参加！期待很快再见！",
-              "audio_url": ""
-            },
-            {
-              "text": "Alright, take care!",
-              "text_cn": "好，保重！",
-              "audio_url": ""
+              "text": "Same here! Thanks for a great night!",
+              "text_cn": "我也是！谢谢你今晚的陪伴！",
+              "audio_url": "COS:/qa/responses/social_088_sub_1_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用提问式回应延续关系",
-          "audioUrl": null,
+          "usageNote": "用于回应朋友的自然道别，表达感谢并呼应对方情绪，语气轻松友好",
+          "audioUrl": "COS:/qa/questions/social_088_sub_1_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
@@ -46,112 +37,124 @@
           "id": "social_088_sub_1_qa_2",
           "subSceneId": "social_088_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "This was such a fun night—thanks for inviting me!",
-          "triggerTextCn": "今晚太开心了，谢谢你邀请我！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Are you leaving too?",
+          "triggerTextCn": "你也走吗？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友确认你是否一同离开，常见于聚会尾声",
           "followUps": [
             {
-              "text": "Anytime! Let's plan the next one soon.",
-              "text_cn": "随时欢迎！咱们快定下次吧。",
-              "audio_url": ""
-            },
-            {
-              "text": "No problem! You're always welcome.",
-              "text_cn": "别客气，你随时来都行。",
-              "audio_url": ""
-            },
-            {
-              "text": "Yeah, awesome night!",
-              "text_cn": "对啊，真棒的一晚！",
-              "audio_url": ""
+              "text": "Yeah, I should get going — let's grab coffee next time!",
+              "text_cn": "是啊，我也该走了，下次约咖啡！",
+              "audio_url": "COS:/qa/responses/social_088_sub_1_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "回应感谢时加未来约定更自然",
-          "audioUrl": null,
+          "usageNote": "回应对方是否同行的询问，可选择同行或独自离开，同时提议未来见面以维持关系",
+          "audioUrl": "COS:/qa/questions/social_088_sub_1_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_088_sub_1_qa_3",
+          "subSceneId": "social_088_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "This was such a fun night!",
+          "triggerTextCn": "今晚太开心了！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友表达对聚会的满意，自然过渡到道别",
+          "followUps": [
+            {
+              "text": "Totally! Can't wait to do this again soon.",
+              "text_cn": "没错！真希望很快再聚一次。",
+              "audio_url": "COS:/qa/responses/social_088_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "回应对方对聚会的正面评价，强化情感联结，为道别增添温暖感",
+          "audioUrl": "COS:/qa/questions/social_088_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_088_sub_2",
       "sceneId": "social_088",
-      "name": "确认下次见面",
-      "description": "道别前约定下次见面时间和方式",
+      "name": "表达感谢",
+      "description": "主人感谢客人出席，客人回应感激之情。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_088_sub_2_qa_1",
           "subSceneId": "social_088_sub_2",
-          "dialogueMode": "user_responds",
-          "triggerText": "We should do this again—how about next Friday?",
-          "triggerTextCn": "咱们再搞一次吧？下周五怎么样？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Thanks so much for helping me with the presentation!",
+          "triggerTextCn": "非常感谢你帮我做演示！",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友/同事刚帮忙完成一项任务，用户表达感谢",
           "followUps": [
             {
-              "text": "Perfect! I'll text you to confirm.",
-              "text_cn": "太好了！我发消息确认。",
-              "audio_url": ""
-            },
-            {
-              "text": "Friday works for me—let's make it happen!",
-              "text_cn": "周五可以，就这么定了！",
-              "audio_url": ""
-            },
-            {
-              "text": "Maybe next weekend?",
-              "text_cn": "要不下周末？",
-              "audio_url": ""
+              "text": "Of course! You did most of the work anyway — I just gave a hand.",
+              "text_cn": "当然！其实主要是你做的，我只是帮了个小忙。",
+              "audio_url": "COS:/qa/responses/social_088_sub_2_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用肯定句强化约定，避免模糊",
-          "audioUrl": null,
-          "learnRequirement": "speak_followup",
+          "usageNote": "用于向朋友或同事表达感谢后，对方谦虚回应的自然对话",
+          "audioUrl": "COS:/qa/questions/social_088_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "social_088_sub_2_qa_2",
           "subSceneId": "social_088_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "I'm kinda busy next week—can we do next Saturday?",
-          "triggerTextCn": "我下周有点忙，下周六行吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "You really saved the day with that last-minute fix!",
+          "triggerTextCn": "你真是救了场，帮了这么大的忙！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "同事主动感谢用户帮助，用户礼貌回应",
           "followUps": [
             {
-              "text": "Saturday's better for me too—let's lock it in!",
-              "text_cn": "周六我也方便，就这么定了！",
-              "audio_url": ""
-            },
-            {
-              "text": "Hmm, maybe Sunday instead?",
-              "text_cn": "嗯，要不改周日？",
-              "audio_url": ""
-            },
-            {
-              "text": "Sure, sounds good.",
-              "text_cn": "行，没问题。",
-              "audio_url": ""
+              "text": "Hey, no problem! Happy to help anytime.",
+              "text_cn": "别客气！随时乐意帮忙。",
+              "audio_url": "COS:/qa/responses/social_088_sub_2_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "灵活调整时间时保持积极语气",
-          "audioUrl": null,
+          "usageNote": "当对方表达感谢时，用户用简洁、温暖的方式回应，符合社交场景自然语气",
+          "audioUrl": "COS:/qa/questions/social_088_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_088_sub_2_qa_3",
+          "subSceneId": "social_088_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "I’ve got to head out — thanks again for hanging out tonight!",
+          "triggerTextCn": "我得走了——再次感谢今晚陪我！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友在道别时表达感谢，用户回应告别与感谢",
+          "followUps": [
+            {
+              "text": "Same here! Let’s do this again soon — take care!",
+              "text_cn": "我也是！咱们尽快再约一次——保重！",
+              "audio_url": "COS:/qa/responses/social_088_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "社交场景中道别时的典型感谢+回应模式，语气轻松真挚，适合朋友间使用",
+          "audioUrl": "COS:/qa/questions/social_088_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_088_sub_3",
       "sceneId": "social_088",
-      "name": "礼貌告别收尾",
-      "description": "最后告别，表达感谢与祝福",
+      "name": "约定再聚",
+      "description": "双方提议下次见面时间，达成共识。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -159,30 +162,20 @@
           "id": "social_088_sub_3_qa_1",
           "subSceneId": "social_088_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "I really had a great time—thanks again!",
-          "triggerTextCn": "我真的玩得很开心，再次感谢！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Let's get together next week!",
+          "triggerTextCn": "我们下周再聚吧！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友在道别时提议下次见面",
           "followUps": [
             {
-              "text": "Me too! Drive safe and talk soon!",
-              "text_cn": "我也是！路上小心，很快聊！",
-              "audio_url": ""
-            },
-            {
-              "text": "You're so welcome—take care!",
-              "text_cn": "别客气，保重！",
-              "audio_url": ""
-            },
-            {
-              "text": "Bye!",
-              "text_cn": "拜拜！",
-              "audio_url": ""
+              "text": "Sounds great! How about Friday evening?",
+              "text_cn": "太好了！周五晚上怎么样？",
+              "audio_url": "COS:/qa/responses/social_088_sub_3_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "回应时加安全祝福更显体贴",
-          "audioUrl": null,
+          "usageNote": "对朋友的再聚提议表示同意，并主动提出具体时间，自然且常见",
+          "audioUrl": "COS:/qa/questions/social_088_sub_3_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
@@ -190,32 +183,189 @@
           "id": "social_088_sub_3_qa_2",
           "subSceneId": "social_088_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Gotta run—my ride's here!",
-          "triggerTextCn": "得走了，车来了！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "We should hang out again soon.",
+          "triggerTextCn": "我们得再约一次了！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "同事在下班道别时表达想再次见面",
           "followUps": [
             {
-              "text": "No worries! Have a great night!",
-              "text_cn": "没事儿！祝你今晚愉快！",
-              "audio_url": ""
-            },
-            {
-              "text": "Okay, see you tomorrow!",
-              "text_cn": "好，明天见！",
-              "audio_url": ""
-            },
-            {
-              "text": "Bye!",
-              "text_cn": "拜！",
-              "audio_url": ""
+              "text": "Definitely! Let me know when you're free.",
+              "text_cn": "一定！你有空时告诉我一声。",
+              "audio_url": "COS:/qa/responses/social_088_sub_3_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "简短回应适合匆忙告别场景",
-          "audioUrl": null,
+          "usageNote": "回应非具体提议的再聚意向，保持开放但积极，符合日常社交习惯",
+          "audioUrl": "COS:/qa/questions/social_088_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_088_sub_3_qa_3",
+          "subSceneId": "social_088_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Catch you later!",
+          "triggerTextCn": "回头见！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友用轻松语气道别，隐含再次见面之意",
+          "followUps": [
+            {
+              "text": "Yeah, see you soon!",
+              "text_cn": "嗯，很快见！",
+              "audio_url": "COS:/qa/responses/social_088_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "对非正式道别语的简短回应，体现自然、轻松的社交语调",
+          "audioUrl": "COS:/qa/questions/social_088_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "social_088_sub_4",
+      "sceneId": "social_088",
+      "name": "温馨告别语",
+      "description": "使用温暖语句结束对话，如‘保重’‘路上小心’。",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "social_088_sub_4_qa_1",
+          "subSceneId": "social_088_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "See you tomorrow!",
+          "triggerTextCn": "明天见！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友在下班或聚会结束时温馨告别",
+          "followUps": [
+            {
+              "text": "Yeah, have a great night!",
+              "text_cn": "嗯，今晚好好休息！",
+              "audio_url": "COS:/qa/responses/social_088_sub_4_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "用于轻松、友好的日常告别，回应时可加入温暖语气词或祝福",
+          "audioUrl": "COS:/qa/questions/social_088_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "social_088_sub_4_qa_2",
+          "subSceneId": "social_088_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Take care!",
+          "triggerTextCn": "保重！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事在离开办公室或结束线上会议时表达关心",
+          "followUps": [
+            {
+              "text": "You too! Talk soon.",
+              "text_cn": "你也是！很快再聊。",
+              "audio_url": "COS:/qa/responses/social_088_sub_4_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "回应时用 'You too!' 表示回敬关心，'Talk soon' 比 'Goodbye' 更自然亲切",
+          "audioUrl": "COS:/qa/questions/social_088_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_088_sub_4_qa_3",
+          "subSceneId": "social_088_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "It was so nice hanging out with you!",
+          "triggerTextCn": "和你一起真开心！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友在聚会结束时表达情感，期待下次见面",
+          "followUps": [
+            {
+              "text": "Same here! Let’s do this again soon.",
+              "text_cn": "我也是！我们尽快再约一次。",
+              "audio_url": "COS:/qa/responses/social_088_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "用于表达情感共鸣的告别，回应时应呼应对方情绪并主动提议再聚",
+          "audioUrl": "COS:/qa/questions/social_088_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "social_088_sub_5",
+      "sceneId": "social_088",
+      "name": "挥手离场",
+      "description": "最后挥手致意，自然结束对话并离开。",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "social_088_sub_5_qa_1",
+          "subSceneId": "social_088_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "See you later!",
+          "triggerTextCn": "待会儿见！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友在办公室门口挥手告别，说‘待会儿见’",
+          "followUps": [
+            {
+              "text": "Yeah, later!",
+              "text_cn": "嗯，待会儿见！",
+              "audio_url": "COS:/qa/responses/social_088_sub_5_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "非正式场合常用，语气轻松，适合朋友或同事间日常告别",
+          "audioUrl": "COS:/qa/questions/social_088_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "social_088_sub_5_qa_2",
+          "subSceneId": "social_088_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "You heading out too?",
+          "triggerTextCn": "你也要走吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事在收拾包时问你是否也要离开",
+          "followUps": [
+            {
+              "text": "Yep, just left.",
+              "text_cn": "对，我刚走。",
+              "audio_url": "COS:/qa/responses/social_088_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "用于确认对方是否同步离场，回应简洁自然，避免冗长解释",
+          "audioUrl": "COS:/qa/questions/social_088_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_088_sub_5_qa_3",
+          "subSceneId": "social_088_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Take care!",
+          "triggerTextCn": "保重！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友在咖啡馆门口挥手告别，说‘保重’",
+          "followUps": [
+            {
+              "text": "You too! Catch you soon!",
+              "text_cn": "你也是！很快见！",
+              "audio_url": "COS:/qa/responses/social_088_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "表达关心的告别语，常用于关系较亲近的社交场合，回应需带积极语气",
+          "audioUrl": "COS:/qa/questions/social_088_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     }

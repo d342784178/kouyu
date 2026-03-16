@@ -1,13 +1,14 @@
 {
   "sceneId": "daily_018",
   "sceneName": "面包店买面包",
-  "exportedAt": "2026-03-14T13:47:27.298Z",
+  "generatedAt": "2026-03-16T08:09:10.461Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_018_sub_1",
       "sceneId": "daily_018",
-      "name": "打招呼问候",
-      "description": "顾客进店，店员礼貌问候",
+      "name": "问候进店",
+      "description": "顾客进入面包店，向店员礼貌打招呼。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -15,32 +16,64 @@
           "id": "daily_018_sub_1_qa_1",
           "subSceneId": "daily_018_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Hi there! How's it going today?",
-          "triggerTextCn": "嗨！今天过得怎么样？",
+          "triggerText": "Good morning! Welcome to Sweet Loaf!",
+          "triggerTextCn": "早上好！欢迎光临Sweet Loaf！",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客刚进店，服务员热情问候",
           "followUps": [
             {
-              "text": "Pretty good, thanks! I'm just looking for some bread.",
-              "text_cn": "还不错，谢谢！我就是来看看面包。",
+              "text": "Good morning! I'm just looking around.",
+              "text_cn": "早上好！我只是先看看。",
               "audio_url": "COS:/qa/responses/daily_018_sub_1_qa_1_response0.mp3"
-            },
-            {
-              "text": "Not bad! Got any fresh loaves?",
-              "text_cn": "还行，有新鲜面包吗？",
-              "audio_url": "COS:/qa/responses/daily_018_sub_1_qa_1_response1.mp3"
-            },
-            {
-              "text": "Fine!",
-              "text_cn": "挺好！",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用轻松语气回应问候，自然引入需求",
+          "usageNote": "这是顾客进店时最自然的回应，表达礼貌且不急于购买，符合轻松购物氛围",
           "audioUrl": "COS:/qa/questions/daily_018_sub_1_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
+        },
+        {
+          "id": "daily_018_sub_1_qa_2",
+          "subSceneId": "daily_018_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "How can I help you today?",
+          "triggerTextCn": "今天需要我帮您什么吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员在顾客进店后主动提供帮助",
+          "followUps": [
+            {
+              "text": "Hi, I'm not sure yet—what do people usually buy here?",
+              "text_cn": "嗨，我还不确定——这里大家通常买什么？",
+              "audio_url": "COS:/qa/responses/daily_018_sub_1_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客用开放式回应引导服务员推荐，是高频自然对话，避免生硬回答如'I want bread'",
+          "audioUrl": "COS:/qa/questions/daily_018_sub_1_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "daily_018_sub_1_qa_3",
+          "subSceneId": "daily_018_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Welcome! First time here?",
+          "triggerTextCn": "欢迎！是第一次来吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员通过提问建立亲切感，常见于小型面包店",
+          "followUps": [
+            {
+              "text": "Yes, I heard your croissants are amazing!",
+              "text_cn": "是的，我听说你们的牛角包特别棒！",
+              "audio_url": "COS:/qa/responses/daily_018_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客用赞美回应问候，既自然又推动对话向前，符合西方服务场景中积极互动习惯",
+          "audioUrl": "COS:/qa/questions/daily_018_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
@@ -48,184 +81,291 @@
       "id": "daily_018_sub_2",
       "sceneId": "daily_018",
       "name": "询问种类",
-      "description": "顾客询问有哪些面包可选",
+      "description": "顾客询问店内有哪些面包可选。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_018_sub_2_qa_1",
           "subSceneId": "daily_018_sub_2",
-          "dialogueMode": "user_responds",
-          "triggerText": "We've got sourdough, whole wheat, and croissants fresh today.",
-          "triggerTextCn": "今天我们有酸面包、全麦和牛角包，都是新鲜的。",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "What kinds of bread do you have today?",
+          "triggerTextCn": "你们今天有什么种类的面包？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客主动询问店内面包种类，开启选购对话",
           "followUps": [
             {
-              "text": "Oh cool! Can I try a slice of the sourdough?",
-              "text_cn": "太好了！我能尝一口酸面包吗？",
+              "text": "We have sourdough, whole wheat, rye, baguette, and a fresh cinnamon raisin loaf. The sourdough is our bestseller!",
+              "text_cn": "我们有酸面包、全麦面包、黑麦面包、法棍，还有新鲜的肉桂葡萄干面包。酸面包是我们最畅销的！",
               "audio_url": "COS:/qa/responses/daily_018_sub_2_qa_1_response0.mp3"
-            },
-            {
-              "text": "What's the special today?",
-              "text_cn": "今天有什么特价的？",
-              "audio_url": "COS:/qa/responses/daily_018_sub_2_qa_1_response1.mp3"
-            },
-            {
-              "text": "Sourdough, please.",
-              "text_cn": "我要酸面包。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "可礼貌请求试吃，或直接点单",
+          "usageNote": "顾客在初次进入面包店时常用此句了解选项，自然且高频",
           "audioUrl": "COS:/qa/questions/daily_018_sub_2_qa_1.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "daily_018_sub_2_qa_2",
           "subSceneId": "daily_018_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "The croissants are sold out, but we still have baguettes.",
-          "triggerTextCn": "牛角包卖完了，但还有法棍。",
+          "triggerText": "Are you looking for something sweet or savory?",
+          "triggerTextCn": "您是想买甜的还是咸的面包？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "服务员主动引导顾客明确偏好，促进决策",
           "followUps": [
             {
-              "text": "No problem, I'll take two baguettes then.",
-              "text_cn": "没关系，那我买两条法棍。",
+              "text": "Something sweet, please. Maybe the cinnamon raisin?",
+              "text_cn": "我想买甜的，也许肉桂葡萄干面包？",
               "audio_url": "COS:/qa/responses/daily_018_sub_2_qa_2_response0.mp3"
-            },
-            {
-              "text": "Hmm, do you have any rye?",
-              "text_cn": "嗯，有黑麦面包吗？",
-              "audio_url": "COS:/qa/responses/daily_018_sub_2_qa_2_response1.mp3"
-            },
-            {
-              "text": "Okay, baguettes it is.",
-              "text_cn": "好吧，就法棍了。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "灵活调整选择，表达明确购买意向",
+          "usageNote": "服务员常用此句缩小选择范围，顾客回应简洁直接，符合真实服务节奏",
           "audioUrl": "COS:/qa/questions/daily_018_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "daily_018_sub_2_qa_3",
+          "subSceneId": "daily_018_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you have any gluten-free options?",
+          "triggerTextCn": "你们有无麸质的面包吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客因饮食需求询问特殊种类，高频且关键的健康相关提问",
+          "followUps": [
+            {
+              "text": "Yes, we have a gluten-free oat bread and a flaxseed loaf. They're on the shelf by the window.",
+              "text_cn": "有的，我们有无麸质燕麦面包和亚麻籽面包，在窗边的货架上。",
+              "audio_url": "COS:/qa/responses/daily_018_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "针对特殊饮食需求的典型提问，真实场景中极常见，需掌握准确表达",
+          "audioUrl": "COS:/qa/questions/daily_018_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_018_sub_3",
       "sceneId": "daily_018",
-      "name": "确认价格",
-      "description": "顾客询问价格并确认总价",
+      "name": "表达购买",
+      "description": "顾客决定购买某种面包并明确表达意愿。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_018_sub_3_qa_1",
           "subSceneId": "daily_018_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "Each baguette is $3.50, and I'll throw in a butter sample for free.",
-          "triggerTextCn": "每条法棍3.5美元，我还送你一块黄油试吃。",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'd like to buy a loaf of sourdough bread, please.",
+          "triggerTextCn": "我想买一条酸面包。",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客主动表达购买意向，常见于直接点单场景",
           "followUps": [
             {
-              "text": "That's a deal! I'll take both.",
-              "text_cn": "太划算了！我全要了。",
+              "text": "Sure! That's $4.50. Would you like anything else today?",
+              "text_cn": "好的！4.50美元。今天还需要别的吗？",
               "audio_url": "COS:/qa/responses/daily_018_sub_3_qa_1_response0.mp3"
-            },
-            {
-              "text": "Wait, so that's $7 total?",
-              "text_cn": "等等，总共是7美元吗？",
-              "audio_url": "COS:/qa/responses/daily_018_sub_3_qa_1_response1.mp3"
-            },
-            {
-              "text": "Thanks for the butter!",
-              "text_cn": "谢谢黄油！",
-              "audio_url": ""
             }
           ],
-          "usageNote": "确认总价避免误会，表达感谢更得体",
+          "usageNote": "顾客直接表达购买需求，服务员回应价格并询问是否需要其他商品，是面包店最常见开场对话",
           "audioUrl": "COS:/qa/questions/daily_018_sub_3_qa_1.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 1
+        },
+        {
+          "id": "daily_018_sub_3_qa_2",
+          "subSceneId": "daily_018_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "What do you recommend?",
+          "triggerTextCn": "你推荐什么？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客不确定选什么，主动寻求推荐，高频用于新手或尝试新品时",
+          "followUps": [
+            {
+              "text": "Our fresh baguettes and cinnamon rolls are popular — they’re baked this morning.",
+              "text_cn": "我们新鲜的法棍和肉桂卷很受欢迎，是今天早上刚烤的。",
+              "audio_url": "COS:/qa/responses/daily_018_sub_3_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客寻求推荐时，服务员应给出具体、有吸引力的推荐并强调新鲜度，符合真实服务场景",
+          "audioUrl": "COS:/qa/questions/daily_018_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
+        },
+        {
+          "id": "daily_018_sub_3_qa_3",
+          "subSceneId": "daily_018_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "How would you like to pay?",
+          "triggerTextCn": "您想怎么付款？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "结账环节的标准提问，几乎所有服务场景都会出现",
+          "followUps": [
+            {
+              "text": "Cash is fine, thanks.",
+              "text_cn": "现金就可以，谢谢。",
+              "audio_url": "COS:/qa/responses/daily_018_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "服务员询问支付方式时，顾客应简洁回应，避免冗长解释，这是结账环节最自然的回应方式",
+          "audioUrl": "COS:/qa/questions/daily_018_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_018_sub_4",
       "sceneId": "daily_018",
-      "name": "完成支付",
-      "description": "顾客选择支付方式并结账",
+      "name": "确认价格",
+      "description": "顾客询问价格，店员回复并确认金额。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_018_sub_4_qa_1",
           "subSceneId": "daily_018_sub_4",
-          "dialogueMode": "user_responds",
-          "triggerText": "Cash or card?",
-          "triggerTextCn": "现金还是刷卡？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "How much is this sourdough loaf?",
+          "triggerTextCn": "这条酸面包多少钱？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客询问具体面包的价格",
           "followUps": [
             {
-              "text": "Card, please. I'll tap it.",
-              "text_cn": "刷卡，我刷一下。",
+              "text": "That's $4.50. It's our bestseller!",
+              "text_cn": "4.50美元，这是我们最畅销的！",
               "audio_url": "COS:/qa/responses/daily_018_sub_4_qa_1_response0.mp3"
-            },
-            {
-              "text": "Cash. Here's ten bucks.",
-              "text_cn": "现金，给你十块。",
-              "audio_url": "COS:/qa/responses/daily_018_sub_4_qa_1_response1.mp3"
-            },
-            {
-              "text": "Card.",
-              "text_cn": "刷卡。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "简短回答即可，清晰说明支付方式",
+          "usageNote": "用于直接询问单件商品价格，语气自然、常用",
           "audioUrl": "COS:/qa/questions/daily_018_sub_4_qa_1.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "daily_018_sub_4_qa_2",
           "subSceneId": "daily_018_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "All set! Here's your bread and change — $1.50 back.",
-          "triggerTextCn": "好了！这是您的面包和找零，1.5美元。",
+          "triggerText": "Would you like to pay by card or cash?",
+          "triggerTextCn": "您想刷卡还是付现金？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "店员在确认价格后引导支付方式",
           "followUps": [
             {
-              "text": "Thanks so much! Have a great day!",
-              "text_cn": "太感谢了！祝你今天愉快！",
+              "text": "Card, please.",
+              "text_cn": "刷卡吧。",
               "audio_url": "COS:/qa/responses/daily_018_sub_4_qa_2_response0.mp3"
-            },
-            {
-              "text": "Appreciate it. Bye!",
-              "text_cn": "谢谢，拜！",
-              "audio_url": "COS:/qa/responses/daily_018_sub_4_qa_2_response1.mp3"
-            },
-            {
-              "text": "Cool, thanks.",
-              "text_cn": "好的，谢谢。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "结账后记得道谢，提升交流温度",
+          "usageNote": "店员常见收银话术，用户回应需简洁明确",
           "audioUrl": "COS:/qa/questions/daily_018_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "daily_018_sub_4_qa_3",
+          "subSceneId": "daily_018_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "Is there a discount if I buy three loaves?",
+          "triggerTextCn": "如果我买三条面包有折扣吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客试探批量购买的优惠可能性",
+          "followUps": [
+            {
+              "text": "Yes! Buy two, get the third at half price.",
+              "text_cn": "有的！买两个，第三个半价。",
+              "audio_url": "COS:/qa/responses/daily_018_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客试探促销政策，回应需体现真实促销规则",
+          "audioUrl": "COS:/qa/questions/daily_018_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "daily_018_sub_5",
+      "sceneId": "daily_018",
+      "name": "完成支付",
+      "description": "顾客付款，店员找零并致谢，对话结束。",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_018_sub_5_qa_1",
+          "subSceneId": "daily_018_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "How would you like to pay?",
+          "triggerTextCn": "您想怎么付款？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "收银员询问支付方式，顾客需选择支付方式",
+          "followUps": [
+            {
+              "text": "I'll pay with cash, please.",
+              "text_cn": "我用现金支付。",
+              "audio_url": "COS:/qa/responses/daily_018_sub_5_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "这是收银员最常问的支付方式问题，顾客需简洁回应，避免冗长解释。",
+          "audioUrl": "COS:/qa/questions/daily_018_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "daily_018_sub_5_qa_2",
+          "subSceneId": "daily_018_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you have a loyalty card?",
+          "triggerTextCn": "您有会员卡吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员确认是否使用会员卡享受优惠，顾客需确认或否认",
+          "followUps": [
+            {
+              "text": "Yes, here it is.",
+              "text_cn": "有，给您。",
+              "audio_url": "COS:/qa/responses/daily_018_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "会员卡是面包店常见促销手段，顾客应能自然回应是否使用。",
+          "audioUrl": "COS:/qa/questions/daily_018_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "daily_018_sub_5_qa_3",
+          "subSceneId": "daily_018_sub_5",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can I get the total, please?",
+          "triggerTextCn": "能告诉我总价吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客主动询问总价，准备结账",
+          "followUps": [
+            {
+              "text": "That'll be $8.50 altogether.",
+              "text_cn": "总共是8.50美元。",
+              "audio_url": "COS:/qa/responses/daily_018_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客在结账前确认金额是高频行为，表达礼貌且直接。",
+          "audioUrl": "COS:/qa/questions/daily_018_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     }

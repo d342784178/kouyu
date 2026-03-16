@@ -1,85 +1,87 @@
 {
   "sceneId": "daily_030",
   "sceneName": "鞋店买鞋",
-  "exportedAt": "2026-03-14T13:47:27.319Z",
+  "generatedAt": "2026-03-16T08:14:13.440Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_030_sub_1",
       "sceneId": "daily_030",
-      "name": "进店问候",
-      "description": "店员热情打招呼，顾客回应",
+      "name": "进店询问",
+      "description": "顾客进店，向店员询问是否有运动鞋。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_030_sub_1_qa_1",
           "subSceneId": "daily_030_sub_1",
-          "dialogueMode": "user_responds",
-          "triggerText": "Hi there! How can I help you today?",
-          "triggerTextCn": "嗨！今天需要帮忙吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can you help me find a pair of running shoes?",
+          "triggerTextCn": "你能帮我找一双跑鞋吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客进店后主动寻求帮助，这是最常见的开场询问",
           "followUps": [
             {
-              "text": "I'm looking for some running shoes.",
-              "text_cn": "我想买双跑鞋。",
-              "audio_url": ""
-            },
-            {
-              "text": "Hey, yeah, I need new sneakers.",
-              "text_cn": "嘿，我需要双新运动鞋。",
-              "audio_url": ""
-            },
-            {
-              "text": "Uh, maybe just browsing.",
-              "text_cn": "呃，先看看。",
-              "audio_url": ""
+              "text": "Of course! What’s your size and do you need them for daily jogging or training?",
+              "text_cn": "当然可以！您穿多大码？是日常慢跑还是训练用？",
+              "audio_url": "COS:/qa/responses/daily_030_sub_1_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用简单句直接说明需求，别紧张",
-          "audioUrl": null,
-          "learnRequirement": "speak_followup",
+          "usageNote": "顾客在进店后表达需求的典型开场句，适用于任何运动鞋类咨询",
+          "audioUrl": "COS:/qa/questions/daily_030_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "daily_030_sub_1_qa_2",
           "subSceneId": "daily_030_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Awesome! What size do you usually wear?",
-          "triggerTextCn": "太好了！你平时穿几码？",
+          "triggerText": "Do you have these in size 9?",
+          "triggerTextCn": "这款鞋有9码吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "店员推荐商品后，确认顾客尺码需求的高频跟进问题",
           "followUps": [
             {
-              "text": "I'm a size 9, please.",
-              "text_cn": "我穿9码。",
-              "audio_url": ""
-            },
-            {
-              "text": "Uh, I think 8.5? Not sure.",
-              "text_cn": "大概是8.5？我不确定。",
-              "audio_url": ""
-            },
-            {
-              "text": "Size nine. Got it?",
-              "text_cn": "9码，明白了吗？",
-              "audio_url": ""
+              "text": "Yes, I’ll grab a pair for you.",
+              "text_cn": "有的，我马上去拿一双。",
+              "audio_url": "COS:/qa/responses/daily_030_sub_1_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "回答尺码要清晰，可加请或确认语气",
-          "audioUrl": null,
+          "usageNote": "店员在展示商品后常问尺码，顾客需简洁回应，避免冗长解释",
+          "audioUrl": "COS:/qa/questions/daily_030_sub_1_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "daily_030_sub_1_qa_3",
+          "subSceneId": "daily_030_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "How much do these cost?",
+          "triggerTextCn": "这双鞋多少钱？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客试穿后，店员主动报价格以推进成交的典型服务动作",
+          "followUps": [
+            {
+              "text": "They’re $89.99, but we’re having a 20% off sale this week.",
+              "text_cn": "原价89.99美元，但这周有八折优惠。",
+              "audio_url": "COS:/qa/responses/daily_030_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "价格询问是购买决策关键环节，顾客需能听懂并回应折扣信息",
+          "audioUrl": "COS:/qa/questions/daily_030_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_030_sub_2",
       "sceneId": "daily_030",
-      "name": "试穿确认",
-      "description": "店员拿鞋，顾客试穿并反馈",
+      "name": "确认尺码",
+      "description": "店员询问并确认顾客的鞋码尺寸。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -87,30 +89,20 @@
           "id": "daily_030_sub_2_qa_1",
           "subSceneId": "daily_030_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Here you go! Try these on.",
-          "triggerTextCn": "给你！试试这双。",
+          "triggerText": "What’s your usual shoe size?",
+          "triggerTextCn": "您平时穿多大码的鞋？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "店员询问顾客常规鞋码以推荐合适尺码",
           "followUps": [
             {
-              "text": "Thanks! They feel a bit tight.",
-              "text_cn": "谢谢！有点紧。",
-              "audio_url": ""
-            },
-            {
-              "text": "Cool, I'll try 'em.",
-              "text_cn": "好，我试试。",
-              "audio_url": ""
-            },
-            {
-              "text": "Are you sure this is the right size?",
-              "text_cn": "确定这是对的码数吗？",
-              "audio_url": ""
+              "text": "I usually wear a size 9.",
+              "text_cn": "我通常穿9码。",
+              "audio_url": "COS:/qa/responses/daily_030_sub_2_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "试穿后要诚实反馈舒适度",
-          "audioUrl": null,
+          "usageNote": "店员在顾客试鞋前常问此问题，顾客应直接回答标准尺码，避免冗长解释。",
+          "audioUrl": "COS:/qa/questions/daily_030_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
@@ -118,145 +110,262 @@
           "id": "daily_030_sub_2_qa_2",
           "subSceneId": "daily_030_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "How do they feel? Too big or small?",
-          "triggerTextCn": "感觉怎么样？太大还是太小？",
+          "triggerText": "Do you need a narrow, regular, or wide fit?",
+          "triggerTextCn": "您需要窄版、标准版还是宽版？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "店员确认脚型宽度以精准匹配鞋款",
           "followUps": [
             {
-              "text": "Perfect! Just right.",
-              "text_cn": "刚刚好！太合适了。",
-              "audio_url": ""
-            },
-            {
-              "text": "A little loose, maybe size 8?",
-              "text_cn": "有点松，能换8码吗？",
-              "audio_url": ""
-            },
-            {
-              "text": "Nah, too tight. Got another pair?",
-              "text_cn": "不行，太紧了，有别的吗？",
-              "audio_url": ""
+              "text": "Regular, please. I don’t have wide feet.",
+              "text_cn": "标准版就好，我的脚不宽。",
+              "audio_url": "COS:/qa/responses/daily_030_sub_2_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "用just right / too tight等表达感受",
-          "audioUrl": null,
+          "usageNote": "这是欧美鞋店高频问题，顾客只需选择一种宽度，无需额外说明。",
+          "audioUrl": "COS:/qa/questions/daily_030_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "daily_030_sub_2_qa_3",
+          "subSceneId": "daily_030_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can you try this pair in size 8.5?",
+          "triggerTextCn": "我能试试这双8.5码的吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客根据店员建议主动要求试穿特定尺码",
+          "followUps": [
+            {
+              "text": "Of course! I’ll get them for you right away.",
+              "text_cn": "当然！我马上去拿。",
+              "audio_url": "COS:/qa/responses/daily_030_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客在听到推荐后主动提出试穿，是自然且高频的跟进请求。",
+          "audioUrl": "COS:/qa/questions/daily_030_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_030_sub_3",
       "sceneId": "daily_030",
-      "name": "询问价格",
-      "description": "顾客确认价格，店员说明优惠",
+      "name": "试穿鞋子",
+      "description": "顾客试穿几双鞋，反馈舒适度。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_030_sub_3_qa_1",
           "subSceneId": "daily_030_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "These are $89. We've got a 20% off sale this week.",
-          "triggerTextCn": "这双89美元，这周打八折。",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can I try these on?",
+          "triggerTextCn": "我可以试穿这双吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客请求试穿鞋子",
           "followUps": [
             {
-              "text": "Wow, so it's $71.20? I'll take 'em!",
-              "text_cn": "哇，71.2美元？我买了！",
-              "audio_url": ""
-            },
-            {
-              "text": "Can you give me a better deal?",
-              "text_cn": "能再便宜点吗？",
-              "audio_url": ""
-            },
-            {
-              "text": "Hmm, I'll think about it.",
-              "text_cn": "嗯，我再想想。",
-              "audio_url": ""
+              "text": "Of course! What size do you usually wear?",
+              "text_cn": "当然可以！您平时穿多大码？",
+              "audio_url": "COS:/qa/responses/daily_030_sub_3_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "听到折扣要快速心算，果断回应",
-          "audioUrl": null,
-          "learnRequirement": "speak_followup",
+          "usageNote": "顾客在挑选鞋子后请求试穿时的自然开场，服务员通常会顺势询问尺码。",
+          "audioUrl": "COS:/qa/questions/daily_030_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
           "order": 1
+        },
+        {
+          "id": "daily_030_sub_3_qa_2",
+          "subSceneId": "daily_030_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do these feel comfortable?",
+          "triggerTextCn": "这双穿起来舒服吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员询问顾客试穿感受",
+          "followUps": [
+            {
+              "text": "A bit tight in the toes, maybe a half size up?",
+              "text_cn": "脚趾有点挤，能换大半码吗？",
+              "audio_url": "COS:/qa/responses/daily_030_sub_3_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "店员主动关心试穿体验，顾客应直接反馈舒适度并提出调整需求，避免冗长解释。",
+          "audioUrl": "COS:/qa/questions/daily_030_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "daily_030_sub_3_qa_3",
+          "subSceneId": "daily_030_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like to take a look at the wider fit?",
+          "triggerTextCn": "您要不要看看宽版的款式？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员根据顾客反馈推荐替代款型",
+          "followUps": [
+            {
+              "text": "Yes, please. I need something with more room.",
+              "text_cn": "好的，请拿一双给我看看，我需要更宽松的。",
+              "audio_url": "COS:/qa/responses/daily_030_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "店员基于顾客需求提供解决方案，顾客应简洁确认并明确需求，符合服务场景高效沟通习惯。",
+          "audioUrl": "COS:/qa/questions/daily_030_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_030_sub_4",
       "sceneId": "daily_030",
-      "name": "付款方式",
-      "description": "确认支付方式，完成交易",
+      "name": "询问价格",
+      "description": "顾客询问选定鞋子的价格。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_030_sub_4_qa_1",
           "subSceneId": "daily_030_sub_4",
-          "dialogueMode": "user_responds",
-          "triggerText": "How would you like to pay? Cash, card, or Apple Pay?",
-          "triggerTextCn": "您想怎么付？现金、刷卡还是苹果支付？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "How much are these shoes?",
+          "triggerTextCn": "这双鞋多少钱？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客直接询问商品价格",
           "followUps": [
             {
-              "text": "Card, please.",
-              "text_cn": "刷卡吧。",
-              "audio_url": ""
-            },
-            {
-              "text": "I'll use Apple Pay — it's faster.",
-              "text_cn": "我用苹果支付，更快。",
-              "audio_url": ""
-            },
-            {
-              "text": "Do you take WeChat?",
-              "text_cn": "你们收微信吗？",
-              "audio_url": ""
+              "text": "These are $89.99. They're on sale this week.",
+              "text_cn": "这双是89.99美元，这周正在打折。",
+              "audio_url": "COS:/qa/responses/daily_030_sub_4_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "选最熟悉的支付方式，别犹豫",
-          "audioUrl": null,
-          "learnRequirement": "speak_followup",
+          "usageNote": "最基础的价格询问句，适用于任何商品价格咨询",
+          "audioUrl": "COS:/qa/questions/daily_030_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "daily_030_sub_4_qa_2",
           "subSceneId": "daily_030_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "All set! Thanks for shopping with us.",
-          "triggerTextCn": "搞定啦！谢谢光临。",
+          "triggerText": "Do you have them in a size 9?",
+          "triggerTextCn": "你们有9码的吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "店员确认尺码后询问顾客需求",
           "followUps": [
             {
-              "text": "Thanks! Have a great day!",
-              "text_cn": "谢谢！祝你今天愉快！",
-              "audio_url": ""
-            },
-            {
-              "text": "Cool, bye!",
-              "text_cn": "好，拜拜！",
-              "audio_url": ""
-            },
-            {
-              "text": "You too! See you next time.",
-              "text_cn": "你也是，下次见。",
-              "audio_url": ""
+              "text": "Yes, size 9 is available. Want to try them on?",
+              "text_cn": "有的，9码有货。要试穿一下吗？",
+              "audio_url": "COS:/qa/responses/daily_030_sub_4_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "结束时礼貌道别，提升印象",
-          "audioUrl": null,
+          "usageNote": "店员在确认库存后自然引导顾客试穿，高频服务话术",
+          "audioUrl": "COS:/qa/questions/daily_030_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "daily_030_sub_4_qa_3",
+          "subSceneId": "daily_030_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "Is there any discount if I buy two pairs?",
+          "triggerTextCn": "如果我买两双，有优惠吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客试探批量购买折扣",
+          "followUps": [
+            {
+              "text": "Good question! Buy two, get 15% off the second pair.",
+              "text_cn": "问得好！买两双，第二双打八五折。",
+              "audio_url": "COS:/qa/responses/daily_030_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客主动争取优惠的典型表达，体现真实购物谈判场景",
+          "audioUrl": "COS:/qa/questions/daily_030_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "daily_030_sub_5",
+      "sceneId": "daily_030",
+      "name": "付款结账",
+      "description": "顾客确认付款方式并完成购买。",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_030_sub_5_qa_1",
+          "subSceneId": "daily_030_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "How would you like to pay?",
+          "triggerTextCn": "您想怎么付款？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "收银员在结账时询问付款方式",
+          "followUps": [
+            {
+              "text": "I'll pay with credit card.",
+              "text_cn": "我用信用卡支付。",
+              "audio_url": "COS:/qa/responses/daily_030_sub_5_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "这是结账时最常见付款方式询问，用户需简洁回应支付方式，避免冗长解释。",
+          "audioUrl": "COS:/qa/questions/daily_030_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "daily_030_sub_5_qa_2",
+          "subSceneId": "daily_030_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you need a receipt?",
+          "triggerTextCn": "需要收据吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "收银员在完成付款后确认是否需要收据",
+          "followUps": [
+            {
+              "text": "Yes, please. I need it for warranty.",
+              "text_cn": "需要，我要用它来保修。",
+              "audio_url": "COS:/qa/responses/daily_030_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "收据请求是结账环节的标准流程，用户应明确回应是否需要，常用理由如保修、报销等。",
+          "audioUrl": "COS:/qa/questions/daily_030_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "daily_030_sub_5_qa_3",
+          "subSceneId": "daily_030_sub_5",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can I get a discount if I buy two pairs?",
+          "triggerTextCn": "如果我买两双鞋，能打折吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客在结账前询问批量购买优惠",
+          "followUps": [
+            {
+              "text": "We have a buy-one-get-one-15%-off deal right now.",
+              "text_cn": "我们现在有买一送一享八五折的活动。",
+              "audio_url": "COS:/qa/responses/daily_030_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客在结账时询问折扣是高频行为，尤其在购买多件商品时，回应应自然包含促销信息。",
+          "audioUrl": "COS:/qa/questions/daily_030_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     }

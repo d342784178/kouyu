@@ -1,13 +1,14 @@
 {
   "sceneId": "social_087",
   "sceneName": "祝贺成功",
-  "exportedAt": "2026-03-14T13:47:27.338Z",
+  "generatedAt": "2026-03-16T08:19:37.851Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "social_087_sub_1",
       "sceneId": "social_087",
-      "name": "得知升职",
-      "description": "同事告诉你升职，你表达祝贺并赞赏努力",
+      "name": "得知喜讯",
+      "description": "同事告知你他升职，你第一时间表达惊喜与祝贺。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -15,30 +16,20 @@
           "id": "social_087_sub_1_qa_1",
           "subSceneId": "social_087_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Hey, you won't believe it—I just got promoted to team lead!",
-          "triggerTextCn": "嘿，你不敢相信，我刚升任团队主管了！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "I heard you got the promotion! Congratulations!",
+          "triggerTextCn": "我听说你升职了！恭喜！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友得知你升职，主动祝贺，你需要回应",
           "followUps": [
             {
-              "text": "No way! That's awesome—you totally earned it!",
-              "text_cn": "真的吗？太棒了！你完全配得上！",
-              "audio_url": ""
-            },
-            {
-              "text": "Congratulations! All your hard work finally paid off.",
-              "text_cn": "恭喜！你所有的努力终于有回报了。",
-              "audio_url": ""
-            },
-            {
-              "text": "Nice!",
-              "text_cn": "厉害！",
-              "audio_url": ""
+              "text": "Thanks so much! I'm really excited about it!",
+              "text_cn": "太感谢了！我真的很兴奋！",
+              "audio_url": "COS:/qa/responses/social_087_sub_1_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "非正式场合用No way!更显热情",
-          "audioUrl": null,
+          "usageNote": "用于回应朋友或同事的真诚祝贺，语气热情自然，适合日常社交",
+          "audioUrl": "COS:/qa/questions/social_087_sub_1_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
@@ -46,112 +37,124 @@
           "id": "social_087_sub_1_qa_2",
           "subSceneId": "social_087_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Thanks! I pulled a lot of late nights, but it was worth it.",
-          "triggerTextCn": "谢谢！我熬了很多夜，但值了。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Wow, you ran the marathon? That's amazing!",
+          "triggerTextCn": "哇，你跑完马拉松了？太厉害了！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友得知你完成马拉松，表达惊叹与祝贺，你需要回应",
           "followUps": [
             {
-              "text": "I know how hard you've been grinding—respect!",
-              "text_cn": "我知道你有多拼，真心佩服！",
-              "audio_url": ""
-            },
-            {
-              "text": "You've always been dedicated. This is just the beginning.",
-              "text_cn": "你一直很专注，这只是开始。",
-              "audio_url": ""
-            },
-            {
-              "text": "Cool.",
-              "text_cn": "不错。",
-              "audio_url": ""
+              "text": "I couldn't have done it without your support—thanks for cheering me on!",
+              "text_cn": "没有你的支持我根本做不到，谢谢你为我加油！",
+              "audio_url": "COS:/qa/responses/social_087_sub_1_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "用grinding强调努力，更地道",
-          "audioUrl": null,
+          "usageNote": "回应时可加入感谢，体现情感联结，比简单说“谢谢”更地道",
+          "audioUrl": "COS:/qa/questions/social_087_sub_1_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_087_sub_1_qa_3",
+          "subSceneId": "social_087_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "You got accepted into grad school? That's fantastic!",
+          "triggerTextCn": "你被研究生院录取了？太棒了！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事得知你被研究生院录取，表达祝贺，你需要回应",
+          "followUps": [
+            {
+              "text": "I'm so relieved and grateful—it's been a long journey!",
+              "text_cn": "我如释重负，也很感恩，这真是一段漫长的旅程！",
+              "audio_url": "COS:/qa/responses/social_087_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "回应中加入情绪词（relieved, grateful）和简短背景，增强真实感与共情",
+          "audioUrl": "COS:/qa/questions/social_087_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_087_sub_2",
       "sceneId": "social_087",
-      "name": "提议庆祝",
-      "description": "你提议一起吃饭庆祝对方的成就",
+      "name": "赞赏努力",
+      "description": "你具体称赞对方的付出与能力，增强祝贺的真诚感。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_087_sub_2_qa_1",
           "subSceneId": "social_087_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "We gotta celebrate this! Dinner on me this Friday?",
-          "triggerTextCn": "咱们得庆祝一下！这周五我请客吃饭？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "You totally crushed that presentation!",
+          "triggerTextCn": "你简直把演讲完美完成了！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "场景提示：用户提出邀请，对方回应是否参加。",
+          "scenarioHintCn": "朋友/同事赞赏你的努力表现",
           "followUps": [
             {
-              "text": "Absolutely! I’ve been dying to treat you anyway.",
-              "text_cn": "当然！我早想请你了。",
-              "audio_url": ""
-            },
-            {
-              "text": "That sounds perfect—I’ll bring my best toast.",
-              "text_cn": "太好了，我带最棒的祝酒词。",
-              "audio_url": ""
-            },
-            {
-              "text": "Sure, sounds good.",
-              "text_cn": "好啊，行。",
-              "audio_url": ""
+              "text": "Thanks! I stayed up all night practicing.",
+              "text_cn": "谢谢！我熬夜练习了。",
+              "audio_url": "COS:/qa/responses/social_087_sub_2_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用gotta和on me更显自然口语",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
+          "usageNote": "用于回应他人对你努力的直接赞赏，用具体细节（如熬夜）增强真实感",
+          "audioUrl": "COS:/qa/questions/social_087_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "social_087_sub_2_qa_2",
           "subSceneId": "social_087_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "I’m so grateful—this means a lot to me.",
-          "triggerTextCn": "我真的很感激，这对我意义重大。",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "I know how hard you worked on this project — amazing job!",
+          "triggerTextCn": "我知道你为这个项目付出了多少努力——太棒了！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "场景提示：用户提出邀请，对方回应是否参加。",
+          "scenarioHintCn": "同事认可你长期付出的努力",
           "followUps": [
             {
-              "text": "You deserve every bit of it. Let’s make it a night to remember!",
-              "text_cn": "你完全配得上，今晚要玩个痛快！",
-              "audio_url": ""
-            },
-            {
-              "text": "I’m just happy for you. Drinks after work tomorrow?",
-              "text_cn": "为你开心，明天下班后喝一杯？",
-              "audio_url": ""
-            },
-            {
-              "text": "Yeah, congrats again.",
-              "text_cn": "嗯，再恭喜一次。",
-              "audio_url": ""
+              "text": "Means a lot coming from you. I really pushed myself.",
+              "text_cn": "从你嘴里说出来真让我感动，我真的全力以赴了。",
+              "audio_url": "COS:/qa/responses/social_087_sub_2_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "用make it a night to remember提升氛围",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
+          "usageNote": "回应时表达感激+轻描淡写强调努力，符合英语社交中谦逊但真诚的风格",
+          "audioUrl": "COS:/qa/questions/social_087_sub_2_qa_2.mp3",
+          "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_087_sub_2_qa_3",
+          "subSceneId": "social_087_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "You didn’t give up even when it got tough — respect!",
+          "triggerTextCn": "即使困难你也没放弃，真让人敬佩！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友赞赏你在逆境中的坚持",
+          "followUps": [
+            {
+              "text": "I just kept going — glad it paid off!",
+              "text_cn": "我只是没停下，很高兴终于有回报了！",
+              "audio_url": "COS:/qa/responses/social_087_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "用简单口语表达坚持与欣慰，避免过度夸张，符合自然社交回应",
+          "audioUrl": "COS:/qa/questions/social_087_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_087_sub_3",
       "sceneId": "social_087",
-      "name": "表达敬佩",
-      "description": "你分享对方成就对你的激励作用",
+      "name": "提议庆祝",
+      "description": "你主动提议聚餐或喝咖啡，以行动表达支持与喜悦。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -159,30 +162,20 @@
           "id": "social_087_sub_3_qa_1",
           "subSceneId": "social_087_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "I’ve been watching your journey—you’ve inspired me to push harder.",
-          "triggerTextCn": "我一直关注你的成长，你激励我更努力了。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "That’s amazing! Let’s celebrate tonight — drinks on me?",
+          "triggerTextCn": "太棒了！今晚庆祝一下吧，我请客？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友祝贺你成功后提议去喝酒庆祝",
           "followUps": [
             {
-              "text": "Aw, that means a lot coming from you!",
-              "text_cn": "哇，你这么说我真的太感动了！",
-              "audio_url": ""
-            },
-            {
-              "text": "I’m honored—I hope you’re proud of your own progress too.",
-              "text_cn": "很荣幸，也希望你为自己的进步骄傲。",
-              "audio_url": ""
-            },
-            {
-              "text": "Cool, glad I helped.",
-              "text_cn": "不错，能帮上就好。",
-              "audio_url": ""
+              "text": "Yes, I’d love that! Where should we go?",
+              "text_cn": "当然好啊！我们去哪儿？",
+              "audio_url": "COS:/qa/responses/social_087_sub_3_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用coming from you强调对方认可的价值",
-          "audioUrl": null,
+          "usageNote": "这是对朋友热情提议的积极回应，自然且带互动性，适合社交场景",
+          "audioUrl": "COS:/qa/questions/social_087_sub_3_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
@@ -190,40 +183,51 @@
           "id": "social_087_sub_3_qa_2",
           "subSceneId": "social_087_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "I’m just getting started—I’ve got big goals ahead.",
-          "triggerTextCn": "我才刚起步，前面还有大目标呢。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Congrats! How about a quick dinner to celebrate?",
+          "triggerTextCn": "恭喜！要不我们去吃个饭庆祝一下？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "同事祝贺你升职并提议共进晚餐",
           "followUps": [
             {
-              "text": "Then I’ll be first in line cheering you on!",
-              "text_cn": "那我第一个给你加油！",
-              "audio_url": ""
-            },
-            {
-              "text": "You’ve got the drive—I know you’ll crush it.",
-              "text_cn": "你有冲劲，我相信你能搞定。",
-              "audio_url": ""
-            },
-            {
-              "text": "Okay, good luck.",
-              "text_cn": "好的，加油。",
-              "audio_url": ""
+              "text": "That sounds perfect! How about Italian tonight?",
+              "text_cn": "太棒了！今晚吃意大利菜怎么样？",
+              "audio_url": "COS:/qa/responses/social_087_sub_3_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "用crush it表达‘大获成功’更地道",
-          "audioUrl": null,
+          "usageNote": "回应时提出具体建议，体现主动参与，符合真实社交互动",
+          "audioUrl": "COS:/qa/questions/social_087_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_087_sub_3_qa_3",
+          "subSceneId": "social_087_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "You did it! Want to grab a coffee and toast to your success?",
+          "triggerTextCn": "你做到了！去喝杯咖啡，为你的成功干杯？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友祝贺你完成重要项目并提议简单庆祝",
+          "followUps": [
+            {
+              "text": "Absolutely! I’m free in 20 minutes — meet at the usual spot?",
+              "text_cn": "当然！我20分钟后有空，老地方见？",
+              "audio_url": "COS:/qa/responses/social_087_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "用具体时间和地点回应，简洁自然，体现真实朋友间的轻松互动",
+          "audioUrl": "COS:/qa/questions/social_087_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_087_sub_4",
       "sceneId": "social_087",
-      "name": "告别收尾",
-      "description": "对话结束前轻松告别，强化积极情绪",
+      "name": "接受感谢",
+      "description": "对方感谢你的支持，你谦逊回应并表达未来期待。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -231,30 +235,20 @@
           "id": "social_087_sub_4_qa_1",
           "subSceneId": "social_087_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Alright, I’ve got a meeting in five—gotta run!",
-          "triggerTextCn": "好了，我五分钟后开会，得走了！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Congrats on the promotion!",
+          "triggerTextCn": "恭喜你升职！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "同事祝贺你升职，你需要礼貌回应",
           "followUps": [
             {
-              "text": "Go crush it! Text me after—let’s lock in dinner plans!",
-              "text_cn": "去大干一场！开完会发我消息，定聚餐！",
-              "audio_url": ""
-            },
-            {
-              "text": "Congrats again—have a great meeting!",
-              "text_cn": "再恭喜一次，会议顺利！",
-              "audio_url": ""
-            },
-            {
-              "text": "Bye!",
-              "text_cn": "拜拜！",
-              "audio_url": ""
+              "text": "Thanks so much! I really appreciate it.",
+              "text_cn": "非常感谢！我真的很感激。",
+              "audio_url": "COS:/qa/responses/social_087_sub_4_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用crush it+Text me增强互动感",
-          "audioUrl": null,
+          "usageNote": "用于回应他人对你个人成就的祝贺，语气真诚但不过度夸张",
+          "audioUrl": "COS:/qa/questions/social_087_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
@@ -262,32 +256,116 @@
           "id": "social_087_sub_4_qa_2",
           "subSceneId": "social_087_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "You’re the real MVP—don’t forget to take a breath sometimes!",
-          "triggerTextCn": "你真是真·MVP，记得偶尔喘口气啊！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "You killed it on the project!",
+          "triggerTextCn": "你把这个项目做得太棒了！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "同事称赞你的工作成果，你需要得体回应",
           "followUps": [
             {
-              "text": "Haha, I’ll try—thanks for having my back!",
-              "text_cn": "哈哈，我会的，谢谢你支持我！",
-              "audio_url": ""
-            },
-            {
-              "text": "MVP? I’m just lucky. Talk tomorrow?",
-              "text_cn": "MVP？我就是运气好。明天聊？",
-              "audio_url": ""
-            },
-            {
-              "text": "Got it.",
-              "text_cn": "知道了。",
-              "audio_url": ""
+              "text": "That means a lot—thanks for your support!",
+              "text_cn": "这对我来说意义重大，谢谢你的支持！",
+              "audio_url": "COS:/qa/responses/social_087_sub_4_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "用have my back表达支持，更显亲密",
-          "audioUrl": null,
+          "usageNote": "回应时可加入感谢对方支持，体现团队意识，更显自然",
+          "audioUrl": "COS:/qa/questions/social_087_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_087_sub_4_qa_3",
+          "subSceneId": "social_087_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Way to go on the presentation!",
+          "triggerTextCn": "演讲太棒了！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友或同事为你精彩的演讲喝彩，你需要回应",
+          "followUps": [
+            {
+              "text": "Thanks! I was nervous, but I'm glad it went well.",
+              "text_cn": "谢谢！我有点紧张，但很高兴顺利完成了。",
+              "audio_url": "COS:/qa/responses/social_087_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "适当透露一点真实感受（如紧张）能让回应更真实、有温度",
+          "audioUrl": "COS:/qa/questions/social_087_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "social_087_sub_5",
+      "sceneId": "social_087",
+      "name": "约定时间",
+      "description": "双方确认庆祝时间地点，对话自然收尾。",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "social_087_sub_5_qa_1",
+          "subSceneId": "social_087_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Congrats on the promotion! When can we grab a drink to celebrate?",
+          "triggerTextCn": "恭喜升职！我们什么时候去喝一杯庆祝一下？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友祝贺你成功后，提议约定庆祝时间",
+          "followUps": [
+            {
+              "text": "Thanks! How about Friday evening?",
+              "text_cn": "谢谢！周五晚上怎么样？",
+              "audio_url": "COS:/qa/responses/social_087_sub_5_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "这是社交场景中最自然的回应方式，简洁、积极，直接提出时间选项，符合朋友间轻松语气",
+          "audioUrl": "COS:/qa/questions/social_087_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "social_087_sub_5_qa_2",
+          "subSceneId": "social_087_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "That’s awesome! What time works for you this week?",
+          "triggerTextCn": "太棒了！这周你什么时候有空？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事祝贺你完成项目后，主动询问可约定的时间",
+          "followUps": [
+            {
+              "text": "Thursday after 5 PM works for me.",
+              "text_cn": "周四下午5点后我有空。",
+              "audio_url": "COS:/qa/responses/social_087_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "回应聚焦于具体时间点，避免冗长解释，符合职场朋友间高效自然的沟通习惯",
+          "audioUrl": "COS:/qa/questions/social_087_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_087_sub_5_qa_3",
+          "subSceneId": "social_087_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Wow, you nailed it! Are you free for coffee tomorrow?",
+          "triggerTextCn": "哇，你太厉害了！明天有空喝杯咖啡吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友祝贺你取得重要成果后，提议次日简单庆祝",
+          "followUps": [
+            {
+              "text": "Yes, 3 PM is perfect!",
+              "text_cn": "好啊，下午3点正合适！",
+              "audio_url": "COS:/qa/responses/social_087_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "用简短肯定句+具体时间回应，体现热情与效率，是英语母语者在社交祝贺场景中最典型的回应方式",
+          "audioUrl": "COS:/qa/questions/social_087_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     }

@@ -1,118 +1,152 @@
 {
   "sceneId": "social_077",
   "sceneName": "约会聊天",
-  "exportedAt": "2026-03-14T13:47:27.323Z",
+  "generatedAt": "2026-03-16T08:15:13.550Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "social_077_sub_1",
       "sceneId": "social_077",
-      "name": "初次问候",
-      "description": "轻松开场，打破沉默",
+      "name": "破冰寒暄",
+      "description": "初见时轻松打招呼，评论咖啡馆环境，打破沉默。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_077_sub_1_qa_1",
           "subSceneId": "social_077_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "Hey, thanks for meeting up! This place is cozy, right?",
-          "triggerTextCn": "嗨，谢谢你来见面！这地方挺温馨的，对吧？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "So, how do you know Alex?",
+          "triggerTextCn": "那你和Alex是怎么认识的？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "如果是 user_responds 模式，服务方可能先打招呼或介绍环境",
+          "scenarioHintCn": "约会破冰寒暄：对方通过共同认识的人开启话题",
           "followUps": [
             {
-              "text": "Yeah, I love spots like this—perfect for chatting.",
-              "text_cn": "对啊，我喜欢这种地方，特别适合聊天。",
-              "audio_url": ""
-            },
-            {
-              "text": "Definitely! I’ve been wanting to try this café for weeks.",
-              "text_cn": "确实！我早就想来这家咖啡馆了。",
-              "audio_url": ""
-            },
-            {
-              "text": "It’s nice.",
-              "text_cn": "还不错。",
-              "audio_url": ""
+              "text": "We worked together at the same startup last year.",
+              "text_cn": "去年我们在同一家初创公司共事过。",
+              "audio_url": "COS:/qa/responses/social_077_sub_1_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用感叹句表达兴趣，避免只说‘嗯’",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
+          "usageNote": "用于回应关于共同认识者的自然提问，简洁真实，避免冗长解释",
+          "audioUrl": "COS:/qa/questions/social_077_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_followup",
           "order": 1
+        },
+        {
+          "id": "social_077_sub_1_qa_2",
+          "subSceneId": "social_077_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "What brings you here tonight?",
+          "triggerTextCn": "今晚是什么让你来这儿的？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "约会破冰寒暄：对方好奇你为何选择这个场合",
+          "followUps": [
+            {
+              "text": "I heard the vibe here is really chill, and I wanted to try something new.",
+              "text_cn": "听说这儿氛围很轻松，我想试试新鲜的地方。",
+              "audio_url": "COS:/qa/responses/social_077_sub_1_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "回应地点选择原因，语气轻松自然，符合社交破冰语境",
+          "audioUrl": "COS:/qa/questions/social_077_sub_1_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_077_sub_1_qa_3",
+          "subSceneId": "social_077_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you come here often?",
+          "triggerTextCn": "你常来这儿吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "约会破冰寒暄：通过习惯性行为建立共同话题",
+          "followUps": [
+            {
+              "text": "Not really — this is actually my first time. How about you?",
+              "text_cn": "不常来，这还是我第一次。你呢？",
+              "audio_url": "COS:/qa/responses/social_077_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "回应时带反问，推动对话继续，符合社交互动的自然节奏",
+          "audioUrl": "COS:/qa/questions/social_077_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_077_sub_2",
       "sceneId": "social_077",
-      "name": "寻找共同点",
-      "description": "通过兴趣开启深入对话",
+      "name": "寻找共鸣",
+      "description": "通过开放式问题探讨兴趣爱好，发现共同话题。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_077_sub_2_qa_1",
           "subSceneId": "social_077_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "So, what do you usually do to unwind after work?",
-          "triggerTextCn": "那你平时下班后怎么放松啊？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you ever just binge-watch a whole season in one weekend?",
+          "triggerTextCn": "你有没有过一整个周末一口气追完一季剧的时候？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "例如：你最近有什么兴趣爱好？",
+          "scenarioHintCn": "约会中寻找共同兴趣，建立情感共鸣",
           "followUps": [
             {
-              "text": "I’m big into hiking—last weekend I hit the trails near the lake.",
-              "text_cn": "我喜欢徒步，上周末去了湖边的小路。",
-              "audio_url": ""
-            },
-            {
-              "text": "Honestly? Binge-watching shows and eating ice cream.",
-              "text_cn": "说实话？追剧加吃冰淇淋。",
-              "audio_url": ""
-            },
-            {
-              "text": "I read.",
-              "text_cn": "我读书。",
-              "audio_url": ""
+              "text": "All the time! Last week I finished Stranger Things in two days.",
+              "text_cn": "经常啊！上周我两天就看完了《怪奇物语》。",
+              "audio_url": "COS:/qa/responses/social_077_sub_2_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用具体例子回应，别只说‘看电影’",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
+          "usageNote": "用于回应对方关于休闲习惯的提问，自然带出个人经历，促进共鸣",
+          "audioUrl": "COS:/qa/questions/social_077_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "social_077_sub_2_qa_2",
           "subSceneId": "social_077_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "No way! I just hiked the same trail last month—was the view as epic as you said?",
-          "triggerTextCn": "真的吗？我上个月刚走过那条路，风景真有你说的那么棒？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "What’s your go-to comfort food when you’re having a rough day?",
+          "triggerTextCn": "心情不好的时候，你最爱吃的安慰食物是什么？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "例如：你最近有什么兴趣爱好？",
+          "scenarioHintCn": "通过生活细节引发情感共鸣，拉近距离",
           "followUps": [
             {
-              "text": "Absolutely! I even saw a deer at sunrise—so surreal.",
-              "text_cn": "太棒了！日出时还看到一只鹿，超梦幻。",
-              "audio_url": ""
-            },
-            {
-              "text": "Kinda, but it was kinda crowded.",
-              "text_cn": "还行吧，就是人有点多。",
-              "audio_url": ""
-            },
-            {
-              "text": "You went there too? Cool!",
-              "text_cn": "你也去过？太巧了！",
-              "audio_url": ""
+              "text": "Definitely mac and cheese — it’s my childhood hug in a bowl.",
+              "text_cn": "绝对是通心粉奶酪，那是我童年时的拥抱。",
+              "audio_url": "COS:/qa/responses/social_077_sub_2_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "用‘No way!’等表达惊喜，强化连接感",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
+          "usageNote": "用比喻式表达增强情感温度，避免简单回答如‘意大利面’",
+          "audioUrl": "COS:/qa/questions/social_077_sub_2_qa_2.mp3",
+          "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_077_sub_2_qa_3",
+          "subSceneId": "social_077_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you still keep in touch with your high school friends?",
+          "triggerTextCn": "你还和高中朋友保持联系吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "通过回忆过去经历寻找共同价值观或情感记忆",
+          "followUps": [
+            {
+              "text": "Yeah, two of them are my best friends to this day — we even went on a trip last year.",
+              "text_cn": "是啊，其中两个到现在还是我最好的朋友，去年我们还一起去旅行了。",
+              "audio_url": "COS:/qa/responses/social_077_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "用具体细节（如‘去年旅行’）增强真实性，避免笼统回答如‘是的，我们还联系’",
+          "audioUrl": "COS:/qa/questions/social_077_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
@@ -120,89 +154,153 @@
       "id": "social_077_sub_3",
       "sceneId": "social_077",
       "name": "表达兴趣",
-      "description": "自然流露好感，不显刻意",
+      "description": "自然回应对方分享，用赞美和提问表达真诚关注。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_077_sub_3_qa_1",
           "subSceneId": "social_077_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "You seem super passionate about photography—what’s your favorite shot ever?",
-          "triggerTextCn": "你好像超爱摄影，拍过最满意的一张是哪张？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "What do you like to do on weekends?",
+          "triggerTextCn": "你周末喜欢做什么？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "如果是 user_responds 模式，场景可能是服务人员询问顾客需求",
+          "scenarioHintCn": "约会中对方询问兴趣爱好以表达兴趣",
           "followUps": [
             {
-              "text": "It’s a photo I took at dawn in Kyoto—everything was quiet, just mist and temples.",
-              "text_cn": "是我在京都清晨拍的，全是雾气和寺庙，特别安静。",
-              "audio_url": ""
-            },
-            {
-              "text": "I’m not that good, haha.",
-              "text_cn": "我没那么厉害，哈哈。",
-              "audio_url": ""
-            },
-            {
-              "text": "I’d love to see it sometime—maybe over coffee next week?",
-              "text_cn": "我想看看，下周还能约咖啡吗？",
-              "audio_url": ""
+              "text": "I love hiking and trying new coffee shops—how about you?",
+              "text_cn": "我喜欢徒步和尝试新的咖啡店，你呢？",
+              "audio_url": "COS:/qa/responses/social_077_sub_3_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "回应后顺势邀约，自然过渡到下次见面",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
+          "usageNote": "自然回应对方兴趣提问，同时反问以延续对话",
+          "audioUrl": "COS:/qa/questions/social_077_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_followup",
           "order": 1
+        },
+        {
+          "id": "social_077_sub_3_qa_2",
+          "subSceneId": "social_077_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "You seem really passionate about photography—what’s your favorite shot so far?",
+          "triggerTextCn": "你对摄影好像特别有热情——到目前为止最满意的作品是哪一张？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "对方通过具体细节表达对你爱好的兴趣",
+          "followUps": [
+            {
+              "text": "It’s a sunrise I caught at the beach last summer—still my favorite.",
+              "text_cn": "是去年夏天在海边拍的日出，到目前还是我最爱的一张。",
+              "audio_url": "COS:/qa/responses/social_077_sub_3_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "用具体例子回应赞美，保持真诚且开放结尾",
+          "audioUrl": "COS:/qa/questions/social_077_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_077_sub_3_qa_3",
+          "subSceneId": "social_077_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you want to grab coffee again next week?",
+          "triggerTextCn": "下周还想再一起喝杯咖啡吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "对方直接表达继续约会的意愿",
+          "followUps": [
+            {
+              "text": "I’d love to! How about Wednesday afternoon?",
+              "text_cn": "当然好啊！周三下午怎么样？",
+              "audio_url": "COS:/qa/responses/social_077_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "积极回应邀约，同时提出具体时间推动下一步",
+          "audioUrl": "COS:/qa/questions/social_077_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_077_sub_4",
       "sceneId": "social_077",
-      "name": "礼貌邀约",
-      "description": "提出下次见面，语气轻松不压力",
+      "name": "邀约下一次",
+      "description": "礼貌提出下次见面建议，结合共同兴趣自然收尾。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_077_sub_4_qa_1",
           "subSceneId": "social_077_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "I’ve really enjoyed talking with you tonight—would you be up for grabbing brunch next Sunday?",
-          "triggerTextCn": "今晚和你聊天超开心，周日要不要一起吃早午餐？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like to grab coffee next week?",
+          "triggerTextCn": "下周要不要一起去喝杯咖啡？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "场景提示：用户提出邀约，服务方/工作人员接受或婉拒",
+          "scenarioHintCn": "约会聊天：邀约下一次见面",
           "followUps": [
             {
-              "text": "That sounds perfect—I’ve been dying to try that new spot downtown.",
-              "text_cn": "太好了！我正想试试市中心那家新店。",
-              "audio_url": ""
-            },
-            {
-              "text": "Hmm, I’m kinda busy that weekend.",
-              "text_cn": "嗯，那周末我有点忙。",
-              "audio_url": ""
-            },
-            {
-              "text": "Sure! How about 11? I know a great pancake place.",
-              "text_cn": "好啊！11点行吗？我知道家超棒的煎饼店。",
-              "audio_url": ""
+              "text": "Sure, how about Wednesday afternoon?",
+              "text_cn": "当然，周三下午怎么样？",
+              "audio_url": "COS:/qa/responses/social_077_sub_4_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用‘I’ve been dying to...’表达期待，增强吸引力",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
+          "usageNote": "自然回应邀约并提出具体时间，符合朋友间轻松邀约的语境",
+          "audioUrl": "COS:/qa/questions/social_077_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_followup",
           "order": 1
+        },
+        {
+          "id": "social_077_sub_4_qa_2",
+          "subSceneId": "social_077_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "What time works for you next time?",
+          "triggerTextCn": "下次你什么时间方便？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "约会聊天：邀约下一次见面",
+          "followUps": [
+            {
+              "text": "Weekend is better for me — Saturday morning?",
+              "text_cn": "周末对我更方便，周六早上好吗？",
+              "audio_url": "COS:/qa/responses/social_077_sub_4_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "表达个人时间偏好并主动提议具体时段，体现积极回应",
+          "audioUrl": "COS:/qa/questions/social_077_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_077_sub_4_qa_3",
+          "subSceneId": "social_077_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "I had such a great time — wanna do this again soon?",
+          "triggerTextCn": "我玩得特别开心，咱们尽快再约一次吧？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "约会聊天：邀约下一次见面",
+          "followUps": [
+            {
+              "text": "Absolutely! Let’s plan it this week.",
+              "text_cn": "当然！咱们这周就定下来吧。",
+              "audio_url": "COS:/qa/responses/social_077_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "回应带有情感反馈的邀约，用简短有力的肯定句推进计划",
+          "audioUrl": "COS:/qa/questions/social_077_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_077_sub_5",
       "sceneId": "social_077",
-      "name": "温馨道别",
-      "description": "友好结束，留下好印象",
+      "name": "得体告别",
+      "description": "表达愉快体验，微笑道别，留下良好印象。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -210,32 +308,64 @@
           "id": "social_077_sub_5_qa_1",
           "subSceneId": "social_077_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "I should head out soon—this was such a great night.",
-          "triggerTextCn": "我该走了，今晚聊得太开心了。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "This has been such a nice evening, I should probably head out.",
+          "triggerTextCn": "今晚真的很愉快，我该走了。",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "约会结束时，对方主动提出告别，你如何得体回应？",
           "followUps": [
             {
-              "text": "Same here! Can’t wait for Sunday—have a safe trip home!",
-              "text_cn": "我也是！等周日见，路上小心！",
-              "audio_url": ""
-            },
-            {
-              "text": "Yeah, thanks for coming.",
-              "text_cn": "嗯，谢谢你能来。",
-              "audio_url": ""
-            },
-            {
-              "text": "You too! Text me if you change your mind about pancakes 😊",
-              "text_cn": "你也是！要是改主意想吃煎饼记得找我哦😊",
-              "audio_url": ""
+              "text": "Yeah, me too — thanks for a wonderful night!",
+              "text_cn": "是啊，我也是——谢谢你今晚的陪伴！",
+              "audio_url": "COS:/qa/responses/social_077_sub_5_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用表情符号或轻松语气收尾，减轻压力",
-          "audioUrl": null,
+          "usageNote": "用于自然、温暖地回应对方的告别，表达感谢并维持友好氛围",
+          "audioUrl": "COS:/qa/questions/social_077_sub_5_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
+        },
+        {
+          "id": "social_077_sub_5_qa_2",
+          "subSceneId": "social_077_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you want to grab coffee sometime next week?",
+          "triggerTextCn": "下周有空再一起喝杯咖啡吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "对方在告别前提出未来邀约，你如何礼貌回应？",
+          "followUps": [
+            {
+              "text": "I'd love that! Let me text you my schedule.",
+              "text_cn": "我很乐意！我发你我的时间表。",
+              "audio_url": "COS:/qa/responses/social_077_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "积极回应未来邀约，展现兴趣但不承诺具体时间，符合社交场合的自然节奏",
+          "audioUrl": "COS:/qa/questions/social_077_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_077_sub_5_qa_3",
+          "subSceneId": "social_077_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "I had a great time tonight. Safe ride home?",
+          "triggerTextCn": "今晚过得很开心，回家路上安全吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "对方在告别时表达关心，你如何简短而真诚地回应？",
+          "followUps": [
+            {
+              "text": "Thanks for asking — I'm good, you too!",
+              "text_cn": "谢谢你关心，我没事，你也一样！",
+              "audio_url": "COS:/qa/responses/social_077_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "回应对方的体贴关心，简短温暖，避免冗长，符合约会结束时的轻松氛围",
+          "audioUrl": "COS:/qa/questions/social_077_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     }

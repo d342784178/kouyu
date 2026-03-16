@@ -1,13 +1,14 @@
 {
   "sceneId": "daily_019",
   "sceneName": "花店买花",
-  "exportedAt": "2026-03-14T13:47:27.300Z",
+  "generatedAt": "2026-03-16T08:09:40.237Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_019_sub_1",
       "sceneId": "daily_019",
       "name": "进店问候",
-      "description": "顾客进店，店员热情打招呼",
+      "description": "顾客进店，店员热情迎接并询问需求。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -15,29 +16,19 @@
           "id": "daily_019_sub_1_qa_1",
           "subSceneId": "daily_019_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Hi there! How can I help you today?",
-          "triggerTextCn": "嗨！今天需要帮您什么忙吗？",
+          "triggerText": "Hi, welcome to Bloom & Co.! How can I help you today?",
+          "triggerTextCn": "您好，欢迎光临Bloom & Co.！有什么可以帮您的吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "花店店员主动问候顾客，开启服务对话",
           "followUps": [
             {
-              "text": "Hi! I'm looking for some flowers for my mom's birthday.",
-              "text_cn": "嗨！我想给妈妈买束花庆祝生日。",
+              "text": "I'm looking for flowers for my wife's birthday.",
+              "text_cn": "我想买些花给我妻子过生日。",
               "audio_url": "COS:/qa/responses/daily_019_sub_1_qa_1_response0.mp3"
-            },
-            {
-              "text": "Hey, got any nice roses?",
-              "text_cn": "嘿，有好看的玫瑰吗？",
-              "audio_url": "COS:/qa/responses/daily_019_sub_1_qa_1_response1.mp3"
-            },
-            {
-              "text": "Just browsing, thanks.",
-              "text_cn": "随便看看，谢谢。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用简单句表达目的，避免过度复杂",
+          "usageNote": "这是花店最典型的开场问候，顾客通常直接说明购买目的，无需冗长解释。",
           "audioUrl": "COS:/qa/questions/daily_019_sub_1_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -45,41 +36,52 @@
         {
           "id": "daily_019_sub_1_qa_2",
           "subSceneId": "daily_019_sub_1",
-          "dialogueMode": "user_responds",
-          "triggerText": "We've got fresh blooms in today—perfect for gifts!",
-          "triggerTextCn": "今天刚到新鲜花束，特别适合送礼！",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you have any fresh roses today?",
+          "triggerTextCn": "你们今天有新鲜的玫瑰吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客主动询问特定花材的现货情况",
           "followUps": [
             {
-              "text": "That's great! I need something bright and cheerful.",
-              "text_cn": "太好了！我想要明亮又喜庆的。",
+              "text": "Yes, we just got a fresh shipment this morning. Would you like red or pink?",
+              "text_cn": "有的，我们今天早上刚到货。您要红色的还是粉色的？",
               "audio_url": "COS:/qa/responses/daily_019_sub_1_qa_2_response0.mp3"
-            },
-            {
-              "text": "Cool, what's your bestseller?",
-              "text_cn": "不错，你们卖得最好的是啥？",
-              "audio_url": "COS:/qa/responses/daily_019_sub_1_qa_2_response1.mp3"
-            },
-            {
-              "text": "Hmm, maybe later.",
-              "text_cn": "嗯，再看看。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "回应时表达偏好，引导店员推荐",
+          "usageNote": "顾客询问具体花种是高频行为，店员通常立即回应并引导选择颜色或款式。",
           "audioUrl": "COS:/qa/questions/daily_019_sub_1_qa_2.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 2
+        },
+        {
+          "id": "daily_019_sub_1_qa_3",
+          "subSceneId": "daily_019_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like us to wrap it as a gift?",
+          "triggerTextCn": "您需要我们帮您包装成礼物吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员在顾客选好花后主动提供增值服务",
+          "followUps": [
+            {
+              "text": "Yes, please. And could you add a card that says 'Happy Birthday, my love'?",
+              "text_cn": "请帮我包装吧，还能加一张卡片，写上‘生日快乐，亲爱的’吗？",
+              "audio_url": "COS:/qa/responses/daily_019_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "包装加贺卡是花店服务的标准环节，顾客回应应简洁明确，避免模糊表达。",
+          "audioUrl": "COS:/qa/questions/daily_019_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_019_sub_2",
       "sceneId": "daily_019",
-      "name": "询问推荐",
-      "description": "顾客请求店员推荐合适花束",
+      "name": "咨询推荐",
+      "description": "顾客说明场合，店员推荐合适花束与搭配。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -87,29 +89,19 @@
           "id": "daily_019_sub_2_qa_1",
           "subSceneId": "daily_019_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "I'm buying flowers for my girlfriend—any recommendations?",
-          "triggerTextCn": "我给女朋友买花，有推荐吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "I'm looking for a bouquet for my wife's birthday. Do you have any recommendations?",
+          "triggerTextCn": "我想给妻子买一束花庆祝生日，有什么推荐吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客提出问题，服务方根据问题提供信息",
+          "scenarioHintCn": "顾客咨询适合生日的花束推荐",
           "followUps": [
             {
-              "text": "How about a mix of red roses and eucalyptus? Super romantic.",
-              "text_cn": "红玫瑰配尤加利叶怎么样？特别浪漫。",
+              "text": "Absolutely! Our rose and lily arrangement is very popular for birthdays—elegant, long-lasting, and fragrant. Would you like to add a card?",
+              "text_cn": "当然！我们的玫瑰与百合花束非常适合生日——优雅、持久且芳香。需要加一张贺卡吗？",
               "audio_url": "COS:/qa/responses/daily_019_sub_2_qa_1_response0.mp3"
-            },
-            {
-              "text": "Something colorful, not too expensive?",
-              "text_cn": "有没有颜色鲜艳但不太贵的？",
-              "audio_url": "COS:/qa/responses/daily_019_sub_2_qa_1_response1.mp3"
-            },
-            {
-              "text": "I'll take whatever you think she'll love.",
-              "text_cn": "你选她会喜欢的就行。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用具体需求引导推荐，如颜色、预算",
+          "usageNote": "顾客主动寻求推荐时的典型开场，服务员回应应包含具体推荐+附加服务选项",
           "audioUrl": "COS:/qa/questions/daily_019_sub_2_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -117,41 +109,52 @@
         {
           "id": "daily_019_sub_2_qa_2",
           "subSceneId": "daily_019_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "Most people go for the Classic Red Bouquet—it's timeless.",
-          "triggerTextCn": "大多数人选经典红花束，永不过时。",
+          "dialogueMode": "user_responds",
+          "triggerText": "Are these flowers for a special occasion?",
+          "triggerTextCn": "这些花是为特别场合准备的吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客提出问题，服务方根据问题提供信息",
+          "scenarioHintCn": "服务员主动询问购买用途以精准推荐",
           "followUps": [
             {
-              "text": "Perfect! I'll take that one, please.",
-              "text_cn": "太好了，我就要这个。",
+              "text": "Yes, it's for my mom's anniversary. Something bright and cheerful would be perfect.",
+              "text_cn": "是的，给我妈妈庆祝周年纪念。想要明亮欢快一点的。",
               "audio_url": "COS:/qa/responses/daily_019_sub_2_qa_2_response0.mp3"
-            },
-            {
-              "text": "Any chance you can add a card?",
-              "text_cn": "能加张贺卡吗？",
-              "audio_url": "COS:/qa/responses/daily_019_sub_2_qa_2_response1.mp3"
-            },
-            {
-              "text": "Hmm, maybe something less traditional?",
-              "text_cn": "嗯，有没有不那么传统的？",
-              "audio_url": ""
             }
           ],
-          "usageNote": "确认选择时可附加服务请求",
+          "usageNote": "服务员通过提问引导顾客表达需求，顾客回应需简洁明确，不冗长",
           "audioUrl": "COS:/qa/questions/daily_019_sub_2_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "daily_019_sub_2_qa_3",
+          "subSceneId": "daily_019_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you have any options under $50?",
+          "triggerTextCn": "有50美元以下的选择吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客明确预算范围，寻求性价比推荐",
+          "followUps": [
+            {
+              "text": "Sure! Our small sunflower and daisy mix is $35—vibrant, fresh, and perfect for everyday joy. I can wrap it in pretty paper for you.",
+              "text_cn": "当然！我们的小束向日葵和雏菊组合只要35美元——鲜艳清新，适合日常表达喜悦。我可以帮您包上漂亮的包装纸。",
+              "audio_url": "COS:/qa/responses/daily_019_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客直接提出预算限制，服务员回应需包含具体价格、花材、附加服务，体现专业与贴心",
+          "audioUrl": "COS:/qa/questions/daily_019_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_019_sub_3",
       "sceneId": "daily_019",
-      "name": "定制需求",
-      "description": "顾客提出个性化定制要求",
+      "name": "表达偏好",
+      "description": "顾客提出颜色、花种或风格偏好，确认定制需求。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -159,29 +162,19 @@
           "id": "daily_019_sub_3_qa_1",
           "subSceneId": "daily_019_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "Can you make it with pink roses instead? And maybe include a little teddy bear?",
-          "triggerTextCn": "能换成粉玫瑰吗？再加个小熊玩偶？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Do you have any roses in stock?",
+          "triggerTextCn": "你们有玫瑰吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客提出要求，等待服务方回应是否可以满足需求",
+          "scenarioHintCn": "顾客询问特定花材的库存情况",
           "followUps": [
             {
-              "text": "Sure! That’ll be an extra $8. Want me to wrap it up?",
-              "text_cn": "当然！多8美元，要包好送吗？",
+              "text": "Yes, we have fresh red and pink roses today. Would you like to see them?",
+              "text_cn": "有的，我们今天有新鲜的红色和粉色玫瑰。要看看吗？",
               "audio_url": "COS:/qa/responses/daily_019_sub_3_qa_1_response0.mp3"
-            },
-            {
-              "text": "Yeah, please! And can you write 'I love you' on the card?",
-              "text_cn": "要的！贺卡上写‘我爱你’行吗？",
-              "audio_url": "COS:/qa/responses/daily_019_sub_3_qa_1_response1.mp3"
-            },
-            {
-              "text": "Nah, forget the bear.",
-              "text_cn": "算了，别加玩偶了。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "明确附加要求，确认是否收费",
+          "usageNote": "顾客在花店明确表达对某种花的偏好，是高频开场提问",
           "audioUrl": "COS:/qa/questions/daily_019_sub_3_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -190,104 +183,189 @@
           "id": "daily_019_sub_3_qa_2",
           "subSceneId": "daily_019_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "We can do that! The total’s $42 with delivery.",
-          "triggerTextCn": "可以！连配送一共42美元。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "What would you recommend for a birthday?",
+          "triggerTextCn": "生日送花，你有什么推荐吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客提出要求，等待服务方回应是否可以满足需求",
+          "scenarioHintCn": "顾客请求推荐适合特定场合的花束",
           "followUps": [
             {
-              "text": "Great, I'll pay by card. Can you deliver it by 6 PM?",
-              "text_cn": "好的，我刷卡。能6点前送到吗？",
+              "text": "I'd suggest a mixed bouquet with sunflowers, lilies, and carnations — bright and cheerful for birthdays.",
+              "text_cn": "我推荐一束混合花艺，包含向日葵、百合和康乃馨，明亮又喜庆，适合生日。",
               "audio_url": "COS:/qa/responses/daily_019_sub_3_qa_2_response0.mp3"
-            },
-            {
-              "text": "Wait, is delivery free?",
-              "text_cn": "等等，配送免费吗？",
-              "audio_url": "COS:/qa/responses/daily_019_sub_3_qa_2_response1.mp3"
-            },
-            {
-              "text": "I'll take it.",
-              "text_cn": "我买了。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "确认价格后立即提出交付要求",
+          "usageNote": "顾客主动寻求建议，是服务场景中表达偏好的核心互动",
           "audioUrl": "COS:/qa/questions/daily_019_sub_3_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
+        },
+        {
+          "id": "daily_019_sub_3_qa_3",
+          "subSceneId": "daily_019_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like it wrapped in paper or a vase?",
+          "triggerTextCn": "您希望用包装纸包起来，还是插在花瓶里？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员提供包装选项，顾客需表达偏好",
+          "followUps": [
+            {
+              "text": "Paper, please. I’ll give it as a gift.",
+              "text_cn": "用包装纸吧，这是要送人的。",
+              "audio_url": "COS:/qa/responses/daily_019_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "店员提供选择时，顾客简洁明确表达偏好，是服务闭环的关键回应",
+          "audioUrl": "COS:/qa/questions/daily_019_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_019_sub_4",
       "sceneId": "daily_019",
-      "name": "结账道别",
-      "description": "完成支付并礼貌告别",
+      "name": "询问价格",
+      "description": "顾客咨询价格及附加服务（如贺卡、包装）。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_019_sub_4_qa_1",
           "subSceneId": "daily_019_sub_4",
-          "dialogueMode": "user_responds",
-          "triggerText": "Here’s your receipt and the flowers—hope she loves them!",
-          "triggerTextCn": "这是收据和花束，希望她会喜欢！",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "How much are these roses?",
+          "triggerTextCn": "这些玫瑰多少钱？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客询问特定花束的价格",
           "followUps": [
             {
-              "text": "Thanks so much! You’ve been amazing.",
-              "text_cn": "太感谢了！你太棒了！",
+              "text": "These roses are $15 a dozen. They're fresh and have a lovely scent.",
+              "text_cn": "这些玫瑰每打15美元，新鲜且香味很好。",
               "audio_url": "COS:/qa/responses/daily_019_sub_4_qa_1_response0.mp3"
-            },
-            {
-              "text": "Appreciate it. See ya!",
-              "text_cn": "谢谢，回头见！",
-              "audio_url": "COS:/qa/responses/daily_019_sub_4_qa_1_response1.mp3"
-            },
-            {
-              "text": "I’ll be back next week.",
-              "text_cn": "我下周还来。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "表达感谢并暗示复购，提升对话自然度",
+          "usageNote": "顾客直接询问具体花品价格，是最常见的价格询问方式",
           "audioUrl": "COS:/qa/questions/daily_019_sub_4_qa_1.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "daily_019_sub_4_qa_2",
           "subSceneId": "daily_019_sub_4",
-          "dialogueMode": "user_responds",
-          "triggerText": "Have a wonderful day!",
-          "triggerTextCn": "祝你今天愉快！",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you have any flowers under $20?",
+          "triggerTextCn": "有20美元以下的花吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客在预算范围内询问可选花品",
           "followUps": [
             {
-              "text": "You too! Bye!",
-              "text_cn": "你也是！拜！",
+              "text": "Yes, we have carnations for $12 and chrysanthemums for $18. Both are great for gifts.",
+              "text_cn": "有的，康乃馨12美元，菊花18美元，都很适合送礼。",
               "audio_url": "COS:/qa/responses/daily_019_sub_4_qa_2_response0.mp3"
-            },
-            {
-              "text": "Thanks again, have a good one!",
-              "text_cn": "再谢一次，你也开心！",
-              "audio_url": "COS:/qa/responses/daily_019_sub_4_qa_2_response1.mp3"
-            },
-            {
-              "text": "Okay, bye.",
-              "text_cn": "好，再见。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "简短回应即可，保持友好自然",
+          "usageNote": "顾客主动提出预算范围，是购物中非常自然的谈判方式",
           "audioUrl": "COS:/qa/questions/daily_019_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
+        },
+        {
+          "id": "daily_019_sub_4_qa_3",
+          "subSceneId": "daily_019_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like to add a card?",
+          "triggerTextCn": "您要加一张贺卡吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员在结账前询问是否添加贺卡（附加服务）",
+          "followUps": [
+            {
+              "text": "Yes, please. I'll write 'Happy Birthday' on it.",
+              "text_cn": "好的，请加一张。我写上‘生日快乐’。",
+              "audio_url": "COS:/qa/responses/daily_019_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "店员主动提供增值服务，顾客简洁回应，符合真实服务流程",
+          "audioUrl": "COS:/qa/questions/daily_019_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "daily_019_sub_5",
+      "sceneId": "daily_019",
+      "name": "完成交易",
+      "description": "顾客付款，店员确认配送信息并致谢。",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_019_sub_5_qa_1",
+          "subSceneId": "daily_019_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "What would you like to buy today?",
+          "triggerTextCn": "今天想买什么花呢？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员主动询问顾客购买需求，开启交易流程",
+          "followUps": [
+            {
+              "text": "I'd like a bouquet of red roses for my wife's birthday.",
+              "text_cn": "我想买一束红玫瑰，给我妻子庆祝生日。",
+              "audio_url": "COS:/qa/responses/daily_019_sub_5_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "这是花店最典型的开场询问，顾客需明确表达购买意图，回应应具体说明花种和用途。",
+          "audioUrl": "COS:/qa/questions/daily_019_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "daily_019_sub_5_qa_2",
+          "subSceneId": "daily_019_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "How would you like to pay?",
+          "triggerTextCn": "您想怎么付款？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "交易即将完成时，服务员确认支付方式",
+          "followUps": [
+            {
+              "text": "Cash is fine, thanks.",
+              "text_cn": "用现金就好，谢谢。",
+              "audio_url": "COS:/qa/responses/daily_019_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "支付环节必须自然简洁，避免冗长解释。'Cash is fine'是地道高频表达，符合服务场景的高效沟通习惯。",
+          "audioUrl": "COS:/qa/questions/daily_019_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "daily_019_sub_5_qa_3",
+          "subSceneId": "daily_019_sub_5",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you offer delivery?",
+          "triggerTextCn": "你们提供送货服务吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客主动询问附加服务，常见于需要送花到别处的场景",
+          "followUps": [
+            {
+              "text": "Yes, we deliver within the city for $5. Would you like to arrange it?",
+              "text_cn": "有的，市内配送收费5美元，需要安排吗？",
+              "audio_url": "COS:/qa/responses/daily_019_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客主动询问配送服务是高频需求，尤其在节日或特殊场合。回应包含价格和进一步确认，符合真实服务流程。",
+          "audioUrl": "COS:/qa/questions/daily_019_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     }

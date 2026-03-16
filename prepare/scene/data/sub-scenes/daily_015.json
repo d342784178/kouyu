@@ -1,13 +1,14 @@
 {
   "sceneId": "daily_015",
   "sceneName": "快餐店取餐",
-  "exportedAt": "2026-03-14T13:47:27.292Z",
+  "generatedAt": "2026-03-16T08:07:51.385Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_015_sub_1",
       "sceneId": "daily_015",
-      "name": "报取餐名",
-      "description": "告知店员取餐姓名和订单号",
+      "name": "报取餐号",
+      "description": "顾客向店员报出取餐号或姓名，表明来意。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -15,32 +16,64 @@
           "id": "daily_015_sub_1_qa_1",
           "subSceneId": "daily_015_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Hi, I'm here to pick up an order.",
-          "triggerTextCn": "你好，我来取餐。",
+          "triggerText": "What's your order number?",
+          "triggerTextCn": "您的取餐号是多少？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "服务员在取餐台核对顾客取餐号",
           "followUps": [
             {
-              "text": "Yeah, name's Alex, order #1234.",
-              "text_cn": "我叫Alex，订单号1234。",
+              "text": "It's 42.",
+              "text_cn": "是42号。",
               "audio_url": "COS:/qa/responses/daily_015_sub_1_qa_1_response0.mp3"
-            },
-            {
-              "text": "I'm Alex with order number 1234, please.",
-              "text_cn": "我是Alex，订单号1234，麻烦了。",
-              "audio_url": "COS:/qa/responses/daily_015_sub_1_qa_1_response1.mp3"
-            },
-            {
-              "text": "Alex, 1234.",
-              "text_cn": "Alex，1234。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "报名字+订单号，简洁清晰",
+          "usageNote": "顾客听到服务员询问取餐号时，直接报出数字即可，无需多余解释。",
           "audioUrl": "COS:/qa/questions/daily_015_sub_1_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
+        },
+        {
+          "id": "daily_015_sub_1_qa_2",
+          "subSceneId": "daily_015_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'm here to pick up order number 42.",
+          "triggerTextCn": "我来取42号餐。",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客主动报出取餐号以领取餐品",
+          "followUps": [
+            {
+              "text": "One moment, please. I'll get that for you.",
+              "text_cn": "请稍等，我马上为您取来。",
+              "audio_url": "COS:/qa/responses/daily_015_sub_1_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客主动报号是常见且礼貌的做法，服务员通常会确认并取餐。",
+          "audioUrl": "COS:/qa/questions/daily_015_sub_1_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
+        },
+        {
+          "id": "daily_015_sub_1_qa_3",
+          "subSceneId": "daily_015_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Did you say 42?",
+          "triggerTextCn": "您说的是42号吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员为确认取餐号而复述以避免出错",
+          "followUps": [
+            {
+              "text": "Yes, that's right.",
+              "text_cn": "对，没错。",
+              "audio_url": "COS:/qa/responses/daily_015_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "服务员常通过复述确认信息，顾客只需简单确认即可，避免冗长回答。",
+          "audioUrl": "COS:/qa/questions/daily_015_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
@@ -48,7 +81,7 @@
       "id": "daily_015_sub_2",
       "sceneId": "daily_015",
       "name": "核对订单",
-      "description": "店员确认订单内容是否正确",
+      "description": "店员核对订单内容，顾客确认菜品无误。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -56,62 +89,63 @@
           "id": "daily_015_sub_2_qa_1",
           "subSceneId": "daily_015_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "One cheeseburger, fries, and a Coke, right?",
-          "triggerTextCn": "一个芝士汉堡、薯条和可乐，对吧？",
+          "triggerText": "Can I check your order number?",
+          "triggerTextCn": "我能核对一下您的订单号吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "快餐店取餐时，服务员核对订单信息",
           "followUps": [
             {
-              "text": "Yep, that's it. Thanks!",
-              "text_cn": "对，就是这些，谢谢！",
+              "text": "Sure, it's #1234.",
+              "text_cn": "当然，订单号是#1234。",
               "audio_url": "COS:/qa/responses/daily_015_sub_2_qa_1_response0.mp3"
-            },
-            {
-              "text": "Actually, I ordered a diet Coke, not regular.",
-              "text_cn": "其实我点的是无糖可乐。",
-              "audio_url": "COS:/qa/responses/daily_015_sub_2_qa_1_response1.mp3"
-            },
-            {
-              "text": "Correct.",
-              "text_cn": "没错。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "发现错误要立即纠正",
+          "usageNote": "顾客在取餐时被要求提供订单号，回应应简洁明确，避免冗长解释。",
           "audioUrl": "COS:/qa/questions/daily_015_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
-          "order": 2
+          "order": 1
         },
         {
           "id": "daily_015_sub_2_qa_2",
           "subSceneId": "daily_015_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "No problem, I'll fix that right away.",
-          "triggerTextCn": "没问题，我马上改。",
+          "triggerText": "Is this your order? I have a burger, fries, and a Coke.",
+          "triggerTextCn": "这是您的订单吗？我这里有汉堡、薯条和可乐。",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "服务员确认订单内容以避免拿错餐品",
           "followUps": [
             {
-              "text": "Thanks, I appreciate it!",
-              "text_cn": "谢谢，太好了！",
+              "text": "Yes, that's mine. Thanks!",
+              "text_cn": "是的，这是我的。谢谢！",
               "audio_url": "COS:/qa/responses/daily_015_sub_2_qa_2_response0.mp3"
-            },
-            {
-              "text": "No worries, take your time.",
-              "text_cn": "不急，慢慢来。",
-              "audio_url": "COS:/qa/responses/daily_015_sub_2_qa_2_response1.mp3"
-            },
-            {
-              "text": "Cool.",
-              "text_cn": "好的。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "表达感谢或宽容都可",
+          "usageNote": "顾客需快速确认餐品是否正确，回应应直接、礼貌，不添加无关信息。",
           "audioUrl": "COS:/qa/questions/daily_015_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "daily_015_sub_2_qa_3",
+          "subSceneId": "daily_015_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you have a receipt or order confirmation?",
+          "triggerTextCn": "您有收据或订单确认信息吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客不确定订单是否已录入，主动询问核对方式",
+          "followUps": [
+            {
+              "text": "I can look it up with your name or phone number. What’s your name?",
+              "text_cn": "我可以用您的姓名或电话号码查询。您叫什么名字？",
+              "audio_url": "COS:/qa/responses/daily_015_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客在无订单号时主动提供信息以协助核对，是高频求助表达，符合真实场景。",
+          "audioUrl": "COS:/qa/questions/daily_015_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -119,8 +153,8 @@
     {
       "id": "daily_015_sub_3",
       "sceneId": "daily_015",
-      "name": "确认打包方式",
-      "description": "询问是否需要餐具或堂食",
+      "name": "确认取餐方式",
+      "description": "顾客询问是否可堂食或需打包，店员回应。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -128,40 +162,72 @@
           "id": "daily_015_sub_3_qa_1",
           "subSceneId": "daily_015_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "You want that to go, or eat in?",
-          "triggerTextCn": "要外带还是在这吃？",
+          "triggerText": "Is this order for here or to go?",
+          "triggerTextCn": "这份餐是堂食还是外带？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "服务员确认取餐方式",
           "followUps": [
             {
-              "text": "To go, please. And can I get a napkin?",
-              "text_cn": "外带，能给我一张纸巾吗？",
+              "text": "To go, please.",
+              "text_cn": "请外带。",
               "audio_url": "COS:/qa/responses/daily_015_sub_3_qa_1_response0.mp3"
-            },
-            {
-              "text": "I'll eat here, thanks.",
-              "text_cn": "我在这吃，谢谢。",
-              "audio_url": "COS:/qa/responses/daily_015_sub_3_qa_1_response1.mp3"
-            },
-            {
-              "text": "Takeaway.",
-              "text_cn": "外带。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "明确说to go或eat in",
+          "usageNote": "这是快餐店取餐时最常见确认方式的提问，用户只需简洁回答 'to go' 或 'for here'。",
           "audioUrl": "COS:/qa/questions/daily_015_sub_3_qa_1.mp3",
           "learnRequirement": "speak_followup",
-          "order": 4
+          "order": 1
+        },
+        {
+          "id": "daily_015_sub_3_qa_2",
+          "subSceneId": "daily_015_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "What's your name or order number?",
+          "triggerTextCn": "请问您的姓名或订单号是多少？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员核对取餐信息",
+          "followUps": [
+            {
+              "text": "It's John, order #1234.",
+              "text_cn": "我叫John，订单号1234。",
+              "audio_url": "COS:/qa/responses/daily_015_sub_3_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "取餐时服务员常通过姓名或订单号核对，用户应直接提供信息，避免冗长解释。",
+          "audioUrl": "COS:/qa/questions/daily_015_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "daily_015_sub_3_qa_3",
+          "subSceneId": "daily_015_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can I pick up my order now?",
+          "triggerTextCn": "我可以现在取餐吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客确认是否可取餐",
+          "followUps": [
+            {
+              "text": "Sure, your order is ready. Number 1234, right?",
+              "text_cn": "当然，您的餐好了。是1234号吗？",
+              "audio_url": "COS:/qa/responses/daily_015_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客到达取餐区时常用此句确认，服务员会立即回应并核对订单号，自然且高频。",
+          "audioUrl": "COS:/qa/questions/daily_015_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_015_sub_4",
       "sceneId": "daily_015",
-      "name": "支付与道别",
-      "description": "完成支付后礼貌告别",
+      "name": "支付尾款",
+      "description": "若需补差价，顾客完成支付，店员确认收款。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -169,63 +235,137 @@
           "id": "daily_015_sub_4_qa_1",
           "subSceneId": "daily_015_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "All set! Your total was $8.50.",
-          "triggerTextCn": "好了，总共8.5美元。",
+          "triggerText": "That'll be $12.50. How would you like to pay?",
+          "triggerTextCn": "总共12.50美元，您想怎么支付？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "快餐店取餐时，服务员询问支付方式",
           "followUps": [
             {
-              "text": "Here you go. Have a great day!",
-              "text_cn": "给你钱，祝你今天愉快！",
+              "text": "I'll pay with cash.",
+              "text_cn": "我用现金支付。",
               "audio_url": "COS:/qa/responses/daily_015_sub_4_qa_1_response0.mp3"
-            },
-            {
-              "text": "Paid. Thanks!",
-              "text_cn": "付了，谢谢！",
-              "audio_url": "COS:/qa/responses/daily_015_sub_4_qa_1_response1.mp3"
-            },
-            {
-              "text": "Got it. You too!",
-              "text_cn": "收到了，你也是！",
-              "audio_url": ""
             }
           ],
-          "usageNote": "支付后加一句祝福更自然",
+          "usageNote": "这是最常见、最自然的支付方式回应，适用于大多数快餐店场景。",
           "audioUrl": "COS:/qa/questions/daily_015_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
-          "order": 5
+          "order": 1
         },
         {
           "id": "daily_015_sub_4_qa_2",
           "subSceneId": "daily_015_sub_4",
-          "dialogueMode": "user_responds",
-          "triggerText": "Thanks for coming in!",
-          "triggerTextCn": "谢谢光临！",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you have a receipt for this order?",
+          "triggerTextCn": "您有这张订单的收据吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客取餐时确认是否需要收据，用于报销或核对",
           "followUps": [
             {
-              "text": "Thanks, bye!",
-              "text_cn": "谢谢，拜！",
+              "text": "Sure, here you go. Would you like it printed or emailed?",
+              "text_cn": "当然，给您。您要打印的还是邮件发送的？",
               "audio_url": "COS:/qa/responses/daily_015_sub_4_qa_2_response0.mp3"
-            },
-            {
-              "text": "Appreciate it, see you next time!",
-              "text_cn": "感谢，下次见！",
-              "audio_url": "COS:/qa/responses/daily_015_sub_4_qa_2_response1.mp3"
-            },
-            {
-              "text": "Bye!",
-              "text_cn": "拜！",
-              "audio_url": ""
             }
           ],
-          "usageNote": "简短道别最常用",
+          "usageNote": "顾客主动询问收据是高频行为，尤其在商务或报销场景中。",
           "audioUrl": "COS:/qa/questions/daily_015_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
+        },
+        {
+          "id": "daily_015_sub_4_qa_3",
+          "subSceneId": "daily_015_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "I think I was charged extra. Can you check the total?",
+          "triggerTextCn": "我觉得我被多收了，能帮我核对一下总额吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客对账单金额有疑问，要求核对支付金额",
+          "followUps": [
+            {
+              "text": "Let me check that for you... Oh, you're right. The drink was $1.50, not $2.50. I'll refund the extra $1.",
+              "text_cn": "我帮您查一下……哦，您说得对，饮料是1.50美元，不是2.50美元。我退还您多收的1美元。",
+              "audio_url": "COS:/qa/responses/daily_015_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客质疑金额是真实场景中非常典型的沟通，体现礼貌且直接的表达方式。",
+          "audioUrl": "COS:/qa/questions/daily_015_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "daily_015_sub_5",
+      "sceneId": "daily_015",
+      "name": "礼貌道别",
+      "description": "顾客感谢店员，礼貌告别，结束对话。",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_015_sub_5_qa_1",
+          "subSceneId": "daily_015_sub_5",
+          "dialogueMode": "user_asks",
+          "triggerText": "Thanks for your help!",
+          "triggerTextCn": "谢谢你的帮助！",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客取餐后礼貌致谢，服务员回应道别",
+          "followUps": [
+            {
+              "text": "You're welcome! Have a great day!",
+              "text_cn": "不客气！祝你今天愉快！",
+              "audio_url": "COS:/qa/responses/daily_015_sub_5_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客在取餐后表达感谢，是地道的道别开场，服务员常用此回应以体现服务温度。",
+          "audioUrl": "COS:/qa/questions/daily_015_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
+        },
+        {
+          "id": "daily_015_sub_5_qa_2",
+          "subSceneId": "daily_015_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Have a nice day!",
+          "triggerTextCn": "祝你今天愉快！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员在递出餐品后主动道别，顾客需礼貌回应",
+          "followUps": [
+            {
+              "text": "You too! Thanks again!",
+              "text_cn": "你也是！再次感谢！",
+              "audio_url": "COS:/qa/responses/daily_015_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "服务员常用此句道别，顾客回应应简短温暖，避免冗长，符合快餐店快节奏氛围。",
+          "audioUrl": "COS:/qa/questions/daily_015_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
-          "order": 6
+          "order": 2
+        },
+        {
+          "id": "daily_015_sub_5_qa_3",
+          "subSceneId": "daily_015_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Is everything okay with your order?",
+          "triggerTextCn": "您的餐品还满意吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员确认顾客满意度后准备结束服务，顾客需礼貌确认并道别",
+          "followUps": [
+            {
+              "text": "Perfect, thanks! Have a good one!",
+              "text_cn": "非常满意，谢谢！你也一样！",
+              "audio_url": "COS:/qa/responses/daily_015_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "这是快餐店标准服务收尾话术，顾客回应需包含确认+回礼，体现自然礼貌互动。",
+          "audioUrl": "COS:/qa/questions/daily_015_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     }

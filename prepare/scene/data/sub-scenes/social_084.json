@@ -1,13 +1,14 @@
 {
   "sceneId": "social_084",
   "sceneName": "拒绝邀请",
-  "exportedAt": "2026-03-14T13:47:27.333Z",
+  "generatedAt": "2026-03-16T08:18:02.609Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "social_084_sub_1",
       "sceneId": "social_084",
-      "name": "周末聚会邀请",
-      "description": "朋友邀你周末聚餐，你有安排要婉拒",
+      "name": "朋友邀聚餐",
+      "description": "朋友邀请周末聚餐，需礼貌拒绝并提议改期。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -15,30 +16,20 @@
           "id": "social_084_sub_1_qa_1",
           "subSceneId": "social_084_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Hey, we're hitting up that new Italian place this Saturday—you in?",
-          "triggerTextCn": "嘿，我们周六去那家新意大利餐厅，来吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Hey, we're grabbing dinner at Thai Basil this Friday, want to join?",
+          "triggerTextCn": "嘿，我们周五去泰国芭莎吃晚饭，一起来吗？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友邀请聚餐，你需要礼貌拒绝",
           "followUps": [
             {
-              "text": "Thanks so much for inviting me! I already have plans that day, but let's catch up next weekend?",
-              "text_cn": "谢谢你邀请我！那天我已经有安排了，咱们下周再约？",
-              "audio_url": ""
-            },
-            {
-              "text": "Aw, that sounds awesome, but I'm swamped this weekend. Maybe next time?",
-              "text_cn": "听起来太棒了，但这周我忙疯了，下次吧？",
-              "audio_url": ""
-            },
-            {
-              "text": "Not this time, sorry!",
-              "text_cn": "这次不了，抱歉！",
-              "audio_url": ""
+              "text": "Thanks for inviting me! I'm already booked that night, but let's plan for next week?",
+              "text_cn": "谢谢你邀请我！那天我已经有安排了，不过我们下周再约吧？",
+              "audio_url": "COS:/qa/responses/social_084_sub_1_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用三明治法：感谢+拒绝+改期，更显礼貌",
-          "audioUrl": null,
+          "usageNote": "用感谢开头+简短理由+提出替代方案，是地道且友好的拒绝方式",
+          "audioUrl": "COS:/qa/questions/social_084_sub_1_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
@@ -46,176 +37,335 @@
           "id": "social_084_sub_1_qa_2",
           "subSceneId": "social_084_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "C'mon, it'll be fun! You never come out anymore.",
-          "triggerTextCn": "来嘛，肯定好玩！你最近都不出门了。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Wanna grab some burgers after work tomorrow?",
+          "triggerTextCn": "明天下班后一起去吃汉堡吗？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "同事/朋友临时邀约聚餐，需委婉拒绝",
           "followUps": [
             {
-              "text": "I really miss hanging out with you guys—I promise I'll make it next time. This weekend’s just not possible.",
-              "text_cn": "我真的想和你们聚，这次真不行，下次一定！",
-              "audio_url": ""
-            },
-            {
-              "text": "I know, I’ve been a ghost lately. But I’m recharging at home this weekend—thanks for getting me!",
-              "text_cn": "我知道我最近消失太多，这周想在家休息，谢啦！",
-              "audio_url": ""
-            },
-            {
-              "text": "Yeah, maybe next week.",
-              "text_cn": "嗯，下周再说吧。",
-              "audio_url": ""
+              "text": "I'd love to, but I'm swamped with deadlines tomorrow. How about next Tuesday?",
+              "text_cn": "我很想参加，但明天截止日期压得我喘不过气，下周二怎么样？",
+              "audio_url": "COS:/qa/responses/social_084_sub_1_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "回应时加入情感共鸣，减轻拒绝感",
-          "audioUrl": null,
+          "usageNote": "表达意愿+真实压力理由+主动提议新时间，避免冷拒",
+          "audioUrl": "COS:/qa/questions/social_084_sub_1_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_084_sub_1_qa_3",
+          "subSceneId": "social_084_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "We're having a little get-together at my place this Saturday — you in?",
+          "triggerTextCn": "这周六在我家搞个小聚会，来吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "非正式朋友聚会邀约，需自然拒绝而不伤感情",
+          "followUps": [
+            {
+              "text": "That sounds fun! But I'm out of town this weekend — let me know when you do it again!",
+              "text_cn": "听起来很棒！但我这周末不在城里，下次再办记得叫我！",
+              "audio_url": "COS:/qa/responses/social_084_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "先肯定邀请+外部原因拒绝+表达期待未来互动，维持关系",
+          "audioUrl": "COS:/qa/questions/social_084_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_084_sub_2",
       "sceneId": "social_084",
-      "name": "同事聚餐邀约",
-      "description": "同事邀请参加下班后聚餐，你有事推辞",
+      "name": "同事邀聚会",
+      "description": "同事邀请参加下班后酒会，需感谢并说明已有安排。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_084_sub_2_qa_1",
           "subSceneId": "social_084_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "We're grabbing drinks after work—join us? Everyone’s going!",
-          "triggerTextCn": "下班后一起去喝一杯？大家都去！",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hey, we're grabbing drinks after work Friday — you in?",
+          "triggerTextCn": "嘿，我们周五下班后去喝一杯，来吗？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "例如：同事提出邀请，用户需要回应",
+          "scenarioHintCn": "同事邀请下班后聚会，用户需要礼貌拒绝",
           "followUps": [
             {
-              "text": "That sounds like so much fun! I’ve got a doctor’s appointment, but I’d love to join next time!",
-              "text_cn": "听起来太棒了！我有预约，下次一定参加！",
-              "audio_url": ""
-            },
-            {
-              "text": "Ugh, I wish I could! But I’ve got family dinner tonight. You guys have fun!",
-              "text_cn": "真想参加！但今晚要陪家人，你们玩得开心！",
-              "audio_url": ""
-            },
-            {
-              "text": "Nah, I'm good.",
-              "text_cn": "不了，我不去了。",
-              "audio_url": ""
+              "text": "Thanks for the invite, but I’ve got plans this Friday.",
+              "text_cn": "谢谢邀请，但我这周五已经有安排了。",
+              "audio_url": "COS:/qa/responses/social_084_sub_2_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用具体理由增强可信度，避免敷衍",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
+          "usageNote": "常用且自然的拒绝方式，表达感谢后直接说明已有安排，避免过度解释",
+          "audioUrl": "COS:/qa/questions/social_084_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "social_084_sub_2_qa_2",
           "subSceneId": "social_084_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "Come on, it’s just one drink—you always say no!",
-          "triggerTextCn": "来嘛，就一杯，你每次都拒绝！",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "The team’s having a BBQ next Saturday — wanna come?",
+          "triggerTextCn": "团队下周六要办烧烤，来吗？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "例如：同事提出邀请，用户需要回应",
+          "scenarioHintCn": "同事组织团队聚会，用户想婉拒但保持友好",
           "followUps": [
             {
-              "text": "I know I’ve been a party pooper lately—I’m working on it! Let me treat you all next Friday?",
-              "text_cn": "我知道我最近扫兴，我在改！下周五我请你们？",
-              "audio_url": ""
-            },
-            {
-              "text": "Haha, guilty! But I’m trying to cut back this month. Appreciate the invite!",
-              "text_cn": "哈哈，我认了！这个月在戒酒，谢谢邀请！",
-              "audio_url": ""
-            },
-            {
-              "text": "Not tonight.",
-              "text_cn": "今晚不行。",
-              "audio_url": ""
+              "text": "That sounds fun, but I’m going to take it easy that weekend.",
+              "text_cn": "听起来很棒，但我这周末想放松一下。",
+              "audio_url": "COS:/qa/responses/social_084_sub_2_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "用幽默或自我改进表达，软化拒绝",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
+          "usageNote": "用正面评价开头（That sounds fun）缓和拒绝语气，适合职场社交场景",
+          "audioUrl": "COS:/qa/questions/social_084_sub_2_qa_2.mp3",
+          "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_084_sub_2_qa_3",
+          "subSceneId": "social_084_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "We’re doing a karaoke night Thursday — you’re coming, right?",
+          "triggerTextCn": "周四我们去K歌，你来吧，对吧？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事半强制性邀请，用户需温和但坚定地拒绝",
+          "followUps": [
+            {
+              "text": "I’d love to, but I’m swamped with work this week — maybe next time?",
+              "text_cn": "我很想参加，但这周工作太忙了，下次吧？",
+              "audio_url": "COS:/qa/responses/social_084_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "表达意愿+现实理由+留有余地，是职场中最得体的拒绝方式之一",
+          "audioUrl": "COS:/qa/questions/social_084_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_084_sub_3",
       "sceneId": "social_084",
-      "name": "朋友邀约旅行",
-      "description": "朋友提议短途旅行，你预算紧张要婉拒",
+      "name": "邻居邀串门",
+      "description": "邻居热情邀请周末来家喝茶，需婉拒并表达歉意。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_084_sub_3_qa_1",
           "subSceneId": "social_084_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "We’re doing a weekend road trip to the mountains—want to come? It’s super cheap!",
-          "triggerTextCn": "我们周末去山里自驾游，一起来？超便宜的！",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hey, would you like to come over for coffee this weekend?",
+          "triggerTextCn": "嘿，这周末来我家喝杯咖啡吗？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "场景提示：用户询问朋友是否愿意加入旅行计划。",
+          "scenarioHintCn": "邻居邀请你周末去家里喝咖啡",
           "followUps": [
             {
-              "text": "That sounds amazing—I’ve been dying to go! But my wallet’s crying this month. Can I join the next one?",
-              "text_cn": "太棒了！我超想参加，但这个月钱包在哭，下次能去吗？",
-              "audio_url": ""
-            },
-            {
-              "text": "Oh wow, I love road trips! But I’m broke until payday. Let me know when you plan again!",
-              "text_cn": "哇，我超爱自驾游！但要等发薪日，下次记得喊我！",
-              "audio_url": ""
-            },
-            {
-              "text": "Nah, I’m good.",
-              "text_cn": "不了，我不去。",
-              "audio_url": ""
+              "text": "Thanks so much for inviting me! I’m swamped this weekend, but let’s plan for next week?",
+              "text_cn": "太感谢邀请了！这周末我特别忙，咱们下周再约吧？",
+              "audio_url": "COS:/qa/responses/social_084_sub_3_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用经济理由+未来期待，保留关系温度",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
+          "usageNote": "礼貌拒绝并提出替代方案，维持友好关系",
+          "audioUrl": "COS:/qa/questions/social_084_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "social_084_sub_3_qa_2",
           "subSceneId": "social_084_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "Seriously? You always have an excuse!",
-          "triggerTextCn": "真的吗？你每次都找借口！",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "Any chance you can drop by for a quick chat on Saturday?",
+          "triggerTextCn": "周六有空来聊会儿吗？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "场景提示：用户询问朋友是否愿意加入旅行计划。",
+          "scenarioHintCn": "邻居想在周六简单拜访聊天",
           "followUps": [
             {
-              "text": "I know, I’m the worst friend for trips right now. But I’m saving up for next season—I’ll be your #1 travel buddy!",
-              "text_cn": "我知道我最近最扫兴，但我正在存钱，下季我当你的头号旅伴！",
-              "audio_url": ""
-            },
-            {
-              "text": "Haha, fair point! I’m just being extra careful this year. But I’ll bring snacks next time!",
-              "text_cn": "哈哈，说得对！今年我特别谨慎，下次我带零食！",
-              "audio_url": ""
-            },
-            {
-              "text": "Yeah, maybe next time.",
-              "text_cn": "嗯，下次再说吧。",
-              "audio_url": ""
+              "text": "I’d love to, but I’ve got family stuff that day. Let me know when you’re free next time!",
+              "text_cn": "我很想来，但那天有家事。下次有空告诉我一声！",
+              "audio_url": "COS:/qa/responses/social_084_sub_3_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "用自嘲+承诺未来，化解对方情绪",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
+          "usageNote": "表达意愿后委婉拒绝，保持开放态度",
+          "audioUrl": "COS:/qa/questions/social_084_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_084_sub_3_qa_3",
+          "subSceneId": "social_084_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "We’re having a little get-together on Sunday — you should join!",
+          "triggerTextCn": "周日我们有个小聚会，你也来吧！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "邻居组织小型聚会并邀请你参加",
+          "followUps": [
+            {
+              "text": "That sounds fun! I’m tied up Sunday, but I’d love to catch up soon — maybe coffee next week?",
+              "text_cn": "听起来很棒！周日我有安排，但咱们下周找个时间喝杯咖啡聊聊吧？",
+              "audio_url": "COS:/qa/responses/social_084_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "肯定邀请后婉拒，主动提议替代时间，体现积极态度",
+          "audioUrl": "COS:/qa/questions/social_084_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "social_084_sub_4",
+      "sceneId": "social_084",
+      "name": "同学邀旅行",
+      "description": "同学提议假期结伴旅行，需谢绝并说明经济原因。",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "social_084_sub_4_qa_1",
+          "subSceneId": "social_084_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hey, we're planning a weekend trip to the mountains next month—want to join?",
+          "triggerTextCn": "嘿，我们下个月计划去山里度周末，要一起来吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同学邀请一起旅行，用户需要礼貌拒绝",
+          "followUps": [
+            {
+              "text": "That sounds awesome, but I already have plans that weekend. Maybe next time?",
+              "text_cn": "听起来很棒，但我那周末已经有安排了。下次吧？",
+              "audio_url": "COS:/qa/responses/social_084_sub_4_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "用于礼貌拒绝朋友的旅行邀请，表达欣赏但委婉推辞，保留未来可能性",
+          "audioUrl": "COS:/qa/questions/social_084_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "social_084_sub_4_qa_2",
+          "subSceneId": "social_084_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "So, are you coming with us on the beach trip next Friday?",
+          "triggerTextCn": "所以，你周五会和我们一起去海边旅行吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同学再次确认是否参加旅行，用户需明确拒绝",
+          "followUps": [
+            {
+              "text": "I’d love to, but I can’t—I’ve got a big exam coming up. Have fun though!",
+              "text_cn": "我很想参加，但我不行，马上有场大考了。你们玩得开心！",
+              "audio_url": "COS:/qa/responses/social_084_sub_4_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "用于因学业压力拒绝邀请，语气积极但坚定，表达祝福以维持关系",
+          "audioUrl": "COS:/qa/questions/social_084_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_084_sub_4_qa_3",
+          "subSceneId": "social_084_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "We’re booking the van for Saturday—do you want in?",
+          "triggerTextCn": "我们正在订周六的面包车，你要加入吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同学已开始安排出行，用户需在最后时刻婉拒",
+          "followUps": [
+            {
+              "text": "Thanks for inviting me—I really appreciate it, but I’m going to sit this one out. Let me know how it goes!",
+              "text_cn": "谢谢你邀请我，真的很感激，但这次我就不去了。告诉我你们玩得怎么样！",
+              "audio_url": "COS:/qa/responses/social_084_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "用于在行程已确定后拒绝，强调感谢与关心，避免让对方感到被忽视",
+          "audioUrl": "COS:/qa/questions/social_084_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "social_084_sub_5",
+      "sceneId": "social_084",
+      "name": "上司邀活动",
+      "description": "上司邀请参加非强制社交活动，需得体拒绝并表达感谢。",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "social_084_sub_5_qa_1",
+          "subSceneId": "social_084_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hey, we're going out for drinks after work this Friday—want to join?",
+          "triggerTextCn": "嘿，我们周五下班后去喝一杯，一起来吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "上司邀请参加下班后社交活动，需礼貌拒绝",
+          "followUps": [
+            {
+              "text": "Thanks for the invite! I’ve got some family stuff to take care of that night, but let’s plan something next week!",
+              "text_cn": "谢谢邀请！那天我有点家事要处理，不过咱们下周再约吧！",
+              "audio_url": "COS:/qa/responses/social_084_sub_5_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "用感谢开头 + 简单理由 + 提出替代方案，既礼貌又保持关系",
+          "audioUrl": "COS:/qa/questions/social_084_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "social_084_sub_5_qa_2",
+          "subSceneId": "social_084_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "The team is organizing a weekend hiking trip—would you be interested?",
+          "triggerTextCn": "团队要组织周末徒步旅行，你有兴趣参加吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事/上司邀请周末团队活动，需委婉拒绝",
+          "followUps": [
+            {
+              "text": "That sounds fun! I’m actually booked up this weekend, but I’d love to join the next one if you’re planning another.",
+              "text_cn": "听起来很棒！这周末我已经排满了，但如果下次还有活动，我很乐意参加！",
+              "audio_url": "COS:/qa/responses/social_084_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "先肯定活动 + 用‘booked up’自然表达忙碌 + 表达未来参与意愿，降低拒绝感",
+          "audioUrl": "COS:/qa/questions/social_084_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_084_sub_5_qa_3",
+          "subSceneId": "social_084_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "We’re having a casual dinner at Marco’s on Thursday—can you make it?",
+          "triggerTextCn": "周四我们去Marco’s吃个便饭，能来吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "上司邀请非正式聚餐，需得体拒绝",
+          "followUps": [
+            {
+              "text": "I really appreciate you including me, but I’ve already made plans for Thursday. Hope you all have a great night!",
+              "text_cn": "真的很感谢你邀请我，但我周四已经有安排了，祝你们玩得开心！",
+              "audio_url": "COS:/qa/responses/social_084_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "强调感激 + 明确已有安排 + 表达祝福，避免解释过多，保持自然得体",
+          "audioUrl": "COS:/qa/questions/social_084_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     }

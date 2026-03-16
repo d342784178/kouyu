@@ -1,13 +1,14 @@
 {
   "sceneId": "social_086",
   "sceneName": "安慰朋友",
-  "exportedAt": "2026-03-14T13:47:27.336Z",
+  "generatedAt": "2026-03-16T08:19:05.895Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "social_086_sub_1",
       "sceneId": "social_086",
       "name": "察觉情绪",
-      "description": "朋友情绪低落，你主动关心",
+      "description": "朋友情绪低落，你主动关心并开启对话。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -15,40 +16,72 @@
           "id": "social_086_sub_1_qa_1",
           "subSceneId": "social_086_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "I'm just so drained lately...",
-          "triggerTextCn": "我最近真的好累...",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "You seem down today. Everything okay?",
+          "triggerTextCn": "你今天看起来情绪不高，还好吗？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友察觉你情绪低落，主动关心",
           "followUps": [
             {
-              "text": "Hey, you're not alone—I'm here for you.",
-              "text_cn": "嘿，你不是一个人，我陪着你。",
-              "audio_url": ""
-            },
-            {
-              "text": "That sounds rough. Want to talk about it?",
-              "text_cn": "听起来好累啊，想聊聊吗？",
-              "audio_url": ""
-            },
-            {
-              "text": "Yeah, me too.",
-              "text_cn": "嗯，我也是。",
-              "audio_url": ""
+              "text": "Yeah, I just had a rough day. Thanks for asking.",
+              "text_cn": "是啊，今天过得不太顺，谢谢你关心。",
+              "audio_url": "COS:/qa/responses/social_086_sub_1_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用温和语气表达关心，别急着给建议",
-          "audioUrl": null,
+          "usageNote": "当朋友察觉你情绪低落时，用简短真诚的回应表达感谢，不需过度解释，保持自然",
+          "audioUrl": "COS:/qa/questions/social_086_sub_1_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
+        },
+        {
+          "id": "social_086_sub_1_qa_2",
+          "subSceneId": "social_086_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "You’ve been quiet all evening. Want to talk about it?",
+          "triggerTextCn": "你今晚一直很安静，想聊聊吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友注意到你沉默寡言，邀请你倾诉",
+          "followUps": [
+            {
+              "text": "I’m just a bit overwhelmed with work. But I appreciate you noticing.",
+              "text_cn": "我只是工作有点压得慌，但谢谢你注意到了。",
+              "audio_url": "COS:/qa/responses/social_086_sub_1_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "回应时承认情绪但不过度倾诉，同时肯定对方的关心，符合社交安慰的平衡感",
+          "audioUrl": "COS:/qa/questions/social_086_sub_1_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_086_sub_1_qa_3",
+          "subSceneId": "social_086_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "I can tell something’s bothering you. Want to grab coffee and chat?",
+          "triggerTextCn": "我感觉你有心事，要不要一起去喝杯咖啡聊聊？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友主动提议陪伴式安慰，提供倾诉机会",
+          "followUps": [
+            {
+              "text": "That actually sounds nice. I could use a break.",
+              "text_cn": "这听起来真好，我确实需要休息一下。",
+              "audio_url": "COS:/qa/responses/social_086_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "接受安慰时用积极但简洁的回应，表达感激并接受提议，避免拒绝或过度解释",
+          "audioUrl": "COS:/qa/questions/social_086_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_086_sub_2",
       "sceneId": "social_086",
-      "name": "确认困扰",
-      "description": "引导朋友说出具体烦恼",
+      "name": "表达同情",
+      "description": "用恰当语言回应朋友的挫折，展现理解与共情。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -56,40 +89,72 @@
           "id": "social_086_sub_2_qa_1",
           "subSceneId": "social_086_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "I got passed over for the promotion again...",
-          "triggerTextCn": "我又没被提拔...",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "I'm so sorry to hear about your dad.",
+          "triggerTextCn": "听到你爸爸的事，我很难过。",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友得知学习者家人去世，表达同情",
           "followUps": [
             {
-              "text": "That's so unfair. You totally deserved it.",
-              "text_cn": "太不公平了，你完全配得上。",
-              "audio_url": ""
-            },
-            {
-              "text": "What happened? I wanna understand.",
-              "text_cn": "发生啥了？我想懂你的感受。",
-              "audio_url": ""
-            },
-            {
-              "text": "Ugh, again? I'm so sorry.",
-              "text_cn": "又来了？真替你难过。",
-              "audio_url": ""
+              "text": "Thanks, it's been really hard lately.",
+              "text_cn": "谢谢，最近真的很难熬。",
+              "audio_url": "COS:/qa/responses/social_086_sub_2_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用开放式提问，让对方多说",
-          "audioUrl": null,
+          "usageNote": "这是对他人表达哀悼时最自然、最常见的回应，既接受安慰又不压抑情绪，适合日常社交场景。",
+          "audioUrl": "COS:/qa/questions/social_086_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "social_086_sub_2_qa_2",
+          "subSceneId": "social_086_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "You must be so overwhelmed right now.",
+          "triggerTextCn": "你现在一定压力很大吧。",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友观察到学习者情绪低落，主动共情",
+          "followUps": [
+            {
+              "text": "Yeah, I just need someone to listen.",
+              "text_cn": "是啊，我现在只是需要有人听我说说。",
+              "audio_url": "COS:/qa/responses/social_086_sub_2_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "当对方准确说出你的感受时，这种回应既真实又开放，鼓励进一步倾诉，是高情商社交的典型表达。",
+          "audioUrl": "COS:/qa/questions/social_086_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_086_sub_2_qa_3",
+          "subSceneId": "social_086_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "I know how much you cared for her.",
+          "triggerTextCn": "我知道你有多在乎她。",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友安慰失去宠物或亲人的学习者，强调情感价值",
+          "followUps": [
+            {
+              "text": "I just miss her so much... I appreciate you saying that.",
+              "text_cn": "我只是好想她……谢谢你这么说。",
+              "audio_url": "COS:/qa/responses/social_086_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "回应中包含情感流露（I miss her）与感谢（I appreciate），符合英语母语者在悲伤时的典型表达方式，避免过度压抑或夸张。",
+          "audioUrl": "COS:/qa/questions/social_086_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_086_sub_3",
       "sceneId": "social_086",
-      "name": "情绪安抚",
-      "description": "用共情语言缓解对方负面情绪",
+      "name": "安抚情绪",
+      "description": "帮助朋友平复激动情绪，减轻心理压力。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -97,30 +162,62 @@
           "id": "social_086_sub_3_qa_1",
           "subSceneId": "social_086_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "I feel like such a failure...",
-          "triggerTextCn": "我觉得自己好失败...",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "You seem really down today. What’s going on?",
+          "triggerTextCn": "你今天看起来很低落，怎么了？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友注意到你情绪低落，主动关心",
           "followUps": [
             {
-              "text": "You're not a failure—you're learning.",
-              "text_cn": "你不是失败，你只是在成长。",
-              "audio_url": ""
-            },
-            {
-              "text": "Hey, remember when you nailed that project last year? You've got this.",
-              "text_cn": "记得你去年那个项目多棒吗？你肯定行。",
-              "audio_url": ""
-            },
-            {
-              "text": "Don't say that.",
-              "text_cn": "别这么说。",
-              "audio_url": ""
+              "text": "I just had a really rough day at work. Nothing major, but I’m just drained.",
+              "text_cn": "今天工作特别糟，也没啥大事，就是感觉被掏空了。",
+              "audio_url": "COS:/qa/responses/social_086_sub_3_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用具体回忆增强信心，避免空泛安慰",
-          "audioUrl": null,
+          "usageNote": "用于回应朋友对你情绪的观察，表达真实感受但不过度负面，保持自然",
+          "audioUrl": "COS:/qa/questions/social_086_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "social_086_sub_3_qa_2",
+          "subSceneId": "social_086_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you want to talk about it?",
+          "triggerTextCn": "你想聊聊吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友提供倾诉机会，等待你回应",
+          "followUps": [
+            {
+              "text": "Yeah, actually… I just need someone to listen for a bit.",
+              "text_cn": "嗯，其实……我只是需要有人听我说一会儿。",
+              "audio_url": "COS:/qa/responses/social_086_sub_3_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "当朋友主动提供倾听时，用此回应表达需求，不强求建议，符合社交安慰场景的自然节奏",
+          "audioUrl": "COS:/qa/questions/social_086_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_086_sub_3_qa_3",
+          "subSceneId": "social_086_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "I’m here for you, no matter what.",
+          "triggerTextCn": "无论怎样，我都在你身边。",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友表达无条件支持，安慰你的情绪",
+          "followUps": [
+            {
+              "text": "Thanks, that means a lot. I just needed to hear that.",
+              "text_cn": "谢谢你，这对我来说很重要。我就是需要听到这句话。",
+              "audio_url": "COS:/qa/responses/social_086_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "回应朋友的情感支持时，简洁真诚，避免过度解释，突出情感认同",
+          "audioUrl": "COS:/qa/questions/social_086_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
         }
@@ -130,7 +227,7 @@
       "id": "social_086_sub_4",
       "sceneId": "social_086",
       "name": "转移焦点",
-      "description": "轻推话题，帮助对方放松心情",
+      "description": "引导话题转向积极方向，提供希望与支持。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -138,71 +235,72 @@
           "id": "social_086_sub_4_qa_1",
           "subSceneId": "social_086_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "I just can't get anything right lately.",
-          "triggerTextCn": "最近我啥都做不好。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Hey, I know things are rough right now, but have you seen that new cat video online?",
+          "triggerTextCn": "嘿，我知道你现在很难受，但你看过网上那个新猫视频吗？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友试图用轻松内容转移注意力，安慰情绪低落的你",
           "followUps": [
             {
-              "text": "I know. How about we grab coffee and talk about something silly?",
-              "text_cn": "我懂，咱去喝杯咖啡，聊点轻松的？",
-              "audio_url": ""
-            },
-            {
-              "text": "Let's watch that dumb cat video you love.",
-              "text_cn": "咱看那个你最爱的蠢猫视频吧。",
-              "audio_url": ""
-            },
-            {
-              "text": "Maybe you need a break.",
-              "text_cn": "你可能需要休息。",
-              "audio_url": ""
+              "text": "Oh wow, I haven’t seen it yet—send me the link!",
+              "text_cn": "哦天哪，我还没看过——发我链接吧！",
+              "audio_url": "COS:/qa/responses/social_086_sub_4_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用具体邀约转移注意力，别只说‘别想太多’",
-          "audioUrl": null,
+          "usageNote": "当朋友用轻松话题转移你的负面情绪时，用积极回应表示接受安慰，避免继续沉溺于烦恼",
+          "audioUrl": "COS:/qa/questions/social_086_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
-          "order": 4
+          "order": 1
         },
         {
           "id": "social_086_sub_4_qa_2",
           "subSceneId": "social_086_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "I'm just tired of all this stress.",
-          "triggerTextCn": "我真的受够这些压力了。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Seriously, let’s not think about it tonight—what’s your plan for the weekend?",
+          "triggerTextCn": "真的，今晚别想这事了——你周末有什么计划？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友主动引导你从烦恼转向未来计划，帮助情绪切换",
           "followUps": [
             {
-              "text": "Let's go for a walk after work—fresh air helps.",
-              "text_cn": "下班后去散个步吧，新鲜空气有用。",
-              "audio_url": ""
-            },
-            {
-              "text": "Yeah, stress sucks. Wanna binge-watch something?",
-              "text_cn": "压力真烦，想一起刷剧吗？",
-              "audio_url": ""
-            },
-            {
-              "text": "I get it.",
-              "text_cn": "我懂。",
-              "audio_url": ""
+              "text": "I’m thinking of hiking that trail we talked about—maybe you wanna come?",
+              "text_cn": "我正想爬我们说过的那条步道——你要不要一起来？",
+              "audio_url": "COS:/qa/responses/social_086_sub_4_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "提供简单可行的放松方案，增强行动感",
-          "audioUrl": null,
+          "usageNote": "回应时用具体计划表达愿意参与新活动，体现情绪恢复的积极信号",
+          "audioUrl": "COS:/qa/questions/social_086_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
-          "order": 5
+          "order": 2
+        },
+        {
+          "id": "social_086_sub_4_qa_3",
+          "subSceneId": "social_086_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Come on, I bet you haven’t tried that new ramen place yet—let’s go tomorrow!",
+          "triggerTextCn": "来吧，你肯定还没试过那家新拉面店——我们明天去吧！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友用具体邀约（美食）作为情绪出口，推动行动代替沉思",
+          "followUps": [
+            {
+              "text": "Actually, that sounds perfect—I could really use a good bowl of ramen right now.",
+              "text_cn": "其实这主意太棒了——我现在真需要一碗好拉面。",
+              "audio_url": "COS:/qa/responses/social_086_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "用‘I could really use...’表达真实需求，既接受安慰又自然流露情绪转变",
+          "audioUrl": "COS:/qa/questions/social_086_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_086_sub_5",
       "sceneId": "social_086",
-      "name": "温和告别",
-      "description": "结束对话，留下持续支持感",
+      "name": "鼓励行动",
+      "description": "温和鼓励朋友采取下一步行动，重建信心。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -210,32 +308,64 @@
           "id": "social_086_sub_5_qa_1",
           "subSceneId": "social_086_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Thanks for listening. I feel a bit better.",
-          "triggerTextCn": "谢谢你听我说，我感觉好多了。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "I know you're feeling overwhelmed, but have you thought about just starting with a 10-minute walk today?",
+          "triggerTextCn": "我知道你现在压力很大，但你有没有想过今天先去散个10分钟的步？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友鼓励你从微小行动开始应对压力",
           "followUps": [
             {
-              "text": "Anytime. I'm just a text away.",
-              "text_cn": "随时找我，发条消息就行。",
-              "audio_url": ""
-            },
-            {
-              "text": "Glad I could help. Let's do coffee this weekend?",
-              "text_cn": "能帮上忙真好，这周末喝咖啡？",
-              "audio_url": ""
-            },
-            {
-              "text": "No problem.",
-              "text_cn": "没事。",
-              "audio_url": ""
+              "text": "You're right—I'll step outside for 10 minutes after lunch.",
+              "text_cn": "你说得对，我午饭后出去走10分钟。",
+              "audio_url": "COS:/qa/responses/social_086_sub_5_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用具体承诺强化支持感，别冷淡结束",
-          "audioUrl": null,
+          "usageNote": "用于回应朋友的温和鼓励，表达愿意采取具体小行动，语气积极但不夸张",
+          "audioUrl": "COS:/qa/questions/social_086_sub_5_qa_1.mp3",
           "learnRequirement": "speak_followup",
-          "order": 6
+          "order": 1
+        },
+        {
+          "id": "social_086_sub_5_qa_2",
+          "subSceneId": "social_086_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "You don’t have to fix everything at once—what’s one small thing you can do this week?",
+          "triggerTextCn": "你不需要一下子解决所有问题——这周你能做的一件小事是什么？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友引导你聚焦可实现的小目标，避免被压力压垮",
+          "followUps": [
+            {
+              "text": "I’ll reply to those three overdue emails—just that, no more.",
+              "text_cn": "我就回那三封 overdue 的邮件，就做这一件，不多做。",
+              "audio_url": "COS:/qa/responses/social_086_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "回应鼓励时用具体、有限的目标表达行动意愿，体现务实态度",
+          "audioUrl": "COS:/qa/questions/social_086_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_086_sub_5_qa_3",
+          "subSceneId": "social_086_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "I believe in you. What’s the first step you’re going to take?",
+          "triggerTextCn": "我相信你。你准备迈出的第一步是什么？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友表达信任并推动你明确行动方向",
+          "followUps": [
+            {
+              "text": "I’m calling my advisor tomorrow morning—just to ask for advice.",
+              "text_cn": "我明天早上给导师打个电话，就问问建议。",
+              "audio_url": "COS:/qa/responses/social_086_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "回应时用明确的时间+最小行动，展现信心与执行力，避免空泛承诺",
+          "audioUrl": "COS:/qa/questions/social_086_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     }

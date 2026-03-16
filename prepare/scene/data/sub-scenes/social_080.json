@@ -1,13 +1,14 @@
 {
   "sceneId": "social_080",
   "sceneName": "节日问候",
-  "exportedAt": "2026-03-14T13:47:27.328Z",
+  "generatedAt": "2026-03-16T08:16:46.013Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "social_080_sub_1",
       "sceneId": "social_080",
-      "name": "偶遇问候",
-      "description": "节日偶遇时互相打招呼并表达祝福",
+      "name": "节日打招呼",
+      "description": "偶遇时用圣诞/新年祝福开启对话，如'Merry Christmas!'",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -15,103 +16,136 @@
           "id": "social_080_sub_1_qa_1",
           "subSceneId": "social_080_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Hey! Merry Christmas!",
-          "triggerTextCn": "嘿！圣诞快乐！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Happy holidays!",
+          "triggerTextCn": "节日快乐！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友在节日期间主动打招呼",
           "followUps": [
             {
-              "text": "Merry Christmas! How's your holiday going?",
-              "text_cn": "圣诞快乐！假期过得怎么样？",
-              "audio_url": ""
-            },
-            {
-              "text": "Same to you! Got any plans?",
-              "text_cn": "你也一样！有安排吗？",
-              "audio_url": ""
-            },
-            {
-              "text": "Thanks! Happy holidays!",
-              "text_cn": "谢谢！节日快乐！",
-              "audio_url": ""
+              "text": "Thanks! Same to you!",
+              "text_cn": "谢谢！你也一样！",
+              "audio_url": "COS:/qa/responses/social_080_sub_1_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用简短祝福回应，自然接话题",
-          "audioUrl": null,
+          "usageNote": "这是最自然、最常用的节日回应，简洁友好，适合朋友或同事间使用",
+          "audioUrl": "COS:/qa/questions/social_080_sub_1_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
+        },
+        {
+          "id": "social_080_sub_1_qa_2",
+          "subSceneId": "social_080_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "How’s your holiday going so far?",
+          "triggerTextCn": "你的假期过得怎么样？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事在节日期间关心对方的假期安排",
+          "followUps": [
+            {
+              "text": "It’s been great! Just relaxing with family. How about you?",
+              "text_cn": "很棒！和家人一起放松。你呢？",
+              "audio_url": "COS:/qa/responses/social_080_sub_1_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "用于展开节日对话，体现自然关心，避免只说‘很好’而无互动",
+          "audioUrl": "COS:/qa/questions/social_080_sub_1_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_080_sub_1_qa_3",
+          "subSceneId": "social_080_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Merry Christmas!",
+          "triggerTextCn": "圣诞快乐！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友在圣诞节当天互相问候",
+          "followUps": [
+            {
+              "text": "Merry Christmas! Hope you get some well-deserved rest.",
+              "text_cn": "圣诞快乐！希望你能好好休息一下。",
+              "audio_url": "COS:/qa/responses/social_080_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "回应时加入一句温暖的祝福，比单纯重复更显真诚，符合社交场景情感需求",
+          "audioUrl": "COS:/qa/questions/social_080_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_080_sub_2",
       "sceneId": "social_080",
-      "name": "询问计划",
-      "description": "自然询问对方假期安排",
+      "name": "询问假期计划",
+      "description": "自然询问对方节日安排，如'What are your plans?'",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_080_sub_2_qa_1",
           "subSceneId": "social_080_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "You're not working on Christmas Day, right?",
-          "triggerTextCn": "你圣诞节那天不上班吧？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "Any plans for the holiday?",
+          "triggerTextCn": "假期有什么计划吗？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "适合询问对方假期安排或计划",
+          "scenarioHintCn": "朋友或同事在节日临近时自然询问你的假期安排",
           "followUps": [
             {
-              "text": "Nah, I'm off! Gonna chill with family.",
-              "text_cn": "不上班，我陪家人放松。",
-              "audio_url": ""
-            },
-            {
-              "text": "Nope, I'm flying to my parents'. You?",
-              "text_cn": "不上班，我飞去父母那。你呢？",
-              "audio_url": ""
-            },
-            {
-              "text": "Yeah, just a quiet day at home.",
-              "text_cn": "对，就在家安静过。",
-              "audio_url": ""
+              "text": "I'm thinking of visiting my parents in the countryside.",
+              "text_cn": "我打算去乡下看望父母。",
+              "audio_url": "COS:/qa/responses/social_080_sub_2_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用缩写和口语回应，显自然",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
-          "order": 2
+          "usageNote": "用于轻松社交场合中回应他人对假期的关心，语气自然、简洁",
+          "audioUrl": "COS:/qa/questions/social_080_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
         },
         {
           "id": "social_080_sub_2_qa_2",
           "subSceneId": "social_080_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "What about New Year's? Any big plans?",
-          "triggerTextCn": "新年呢？有什么大计划吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "Are you traveling anywhere this break?",
+          "triggerTextCn": "这次假期有去哪里旅行吗？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "适合询问对方假期安排或计划",
+          "scenarioHintCn": "同事在节前闲聊时询问你的出行计划",
           "followUps": [
             {
-              "text": "I'm meeting friends for dinner, then fireworks!",
-              "text_cn": "和朋友吃晚饭，然后看烟花！",
-              "audio_url": ""
-            },
-            {
-              "text": "Not really, just bed early 😴",
-              "text_cn": "没啥，早点睡觉😴",
-              "audio_url": ""
-            },
-            {
-              "text": "Still deciding, maybe a trip.",
-              "text_cn": "还没定，可能去旅行。",
-              "audio_url": ""
+              "text": "Not really, just staying home and relaxing.",
+              "text_cn": "没有，就待在家休息一下。",
+              "audio_url": "COS:/qa/responses/social_080_sub_2_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "可幽默或简短回应，拉近距离",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
+          "usageNote": "适用于不想远行时的礼貌、真实回应，避免过度解释",
+          "audioUrl": "COS:/qa/questions/social_080_sub_2_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_080_sub_2_qa_3",
+          "subSceneId": "social_080_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "What about you? Got any fun plans?",
+          "triggerTextCn": "你呢？有什么有趣的安排吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "对方在分享自己计划后，自然反问你的安排，推动对话",
+          "followUps": [
+            {
+              "text": "I'm planning a short trip to the coast with some friends.",
+              "text_cn": "我打算和几个朋友去海边短途旅行。",
+              "audio_url": "COS:/qa/responses/social_080_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "用于回应他人提问后自然反问，体现社交互动的双向性",
+          "audioUrl": "COS:/qa/questions/social_080_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -119,8 +153,8 @@
     {
       "id": "social_080_sub_3",
       "sceneId": "social_080",
-      "name": "确认安排",
-      "description": "确认彼此节日活动是否冲突或可约",
+      "name": "分享个人安排",
+      "description": "简单回应自己的节日计划，如'I'll stay home and relax.'",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -128,40 +162,72 @@
           "id": "social_080_sub_3_qa_1",
           "subSceneId": "social_080_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "I'm having a small get-together on Dec 28th — you free?",
-          "triggerTextCn": "我28号有个小聚会，你有空吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "What are you doing for the holidays?",
+          "triggerTextCn": "你假期有什么安排？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "场景提示：在社交场合，通常由一方提出邀请或询问对方计划",
+          "scenarioHintCn": "朋友间闲聊节日计划",
           "followUps": [
             {
-              "text": "Sure! I'd love to come. What time?",
-              "text_cn": "当然！我很想去，几点？",
-              "audio_url": ""
-            },
-            {
-              "text": "Hmm, I'm busy that day, but thanks!",
-              "text_cn": "哎呀，那天有事，谢谢啦！",
-              "audio_url": ""
-            },
-            {
-              "text": "Maybe! Let me check my calendar.",
-              "text_cn": "可能吧，我查下日程。",
-              "audio_url": ""
+              "text": "I'm heading to my parents' place for Christmas dinner and then relaxing at home.",
+              "text_cn": "我打算去父母家吃圣诞晚餐，之后就在家休息。",
+              "audio_url": "COS:/qa/responses/social_080_sub_3_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "表达意愿或婉拒都可，保持礼貌",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
-          "order": 4
+          "usageNote": "用于向朋友自然询问节日安排，回应通常简洁真实，包含具体计划和情感语气。",
+          "audioUrl": "COS:/qa/questions/social_080_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "social_080_sub_3_qa_2",
+          "subSceneId": "social_080_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Any plans for New Year’s Eve?",
+          "triggerTextCn": "新年夜有什么计划吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事在办公室闲聊新年安排",
+          "followUps": [
+            {
+              "text": "Just staying in — maybe watch a movie and order pizza. Quiet but nice!",
+              "text_cn": "就在家待着，可能看个电影点个披萨，安静但挺舒服的！",
+              "audio_url": "COS:/qa/responses/social_080_sub_3_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "peer主动提问，用户回应应体现轻松、真实的生活选择，避免过度正式或冗长。",
+          "audioUrl": "COS:/qa/questions/social_080_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_080_sub_3_qa_3",
+          "subSceneId": "social_080_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Are you going to the office party this Friday?",
+          "triggerTextCn": "这周五你去公司派对吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事之间确认节日活动参与情况",
+          "followUps": [
+            {
+              "text": "Yeah, I wouldn’t miss it! Hope to see you there!",
+              "text_cn": "当然去！希望在那里见到你！",
+              "audio_url": "COS:/qa/responses/social_080_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "社交场景中常见确认性提问，回应应积极、简短、带情感，体现人际联结。",
+          "audioUrl": "COS:/qa/questions/social_080_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_080_sub_4",
       "sceneId": "social_080",
-      "name": "自然道别",
-      "description": "结束对话，留下温暖印象",
+      "name": "表达美好祝愿",
+      "description": "再次祝福对方，加强友好氛围，如'Have a wonderful holiday!'",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -169,63 +235,137 @@
           "id": "social_080_sub_4_qa_1",
           "subSceneId": "social_080_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Gotta run — my sister's waiting!",
-          "triggerTextCn": "得走了，我姐在等我！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Happy holidays! Hope you have a wonderful time with your family.",
+          "triggerTextCn": "节日快乐！希望你和家人度过美好时光。",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友在节日发送祝福，期待你的回应",
           "followUps": [
             {
-              "text": "No problem! Have a awesome holiday!",
-              "text_cn": "没事！祝你假期超棒！",
-              "audio_url": ""
-            },
-            {
-              "text": "See you soon! Happy New Year!",
-              "text_cn": "回头见！新年快乐！",
-              "audio_url": ""
-            },
-            {
-              "text": "Bye! Enjoy your day!",
-              "text_cn": "拜拜！好好享受！",
-              "audio_url": ""
+              "text": "Thanks so much! Wishing you and yours a joyful season too!",
+              "text_cn": "太感谢了！也祝你和你的家人节日愉快！",
+              "audio_url": "COS:/qa/responses/social_080_sub_4_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "道别时加祝福，更显真诚",
-          "audioUrl": null,
+          "usageNote": "用于回应朋友或同事的节日祝福，语气温暖、简洁、自然，常用于社交媒体或短信",
+          "audioUrl": "COS:/qa/questions/social_080_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
-          "order": 5
+          "order": 1
         },
         {
           "id": "social_080_sub_4_qa_2",
           "subSceneId": "social_080_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "It was great catching up!",
-          "triggerTextCn": "能聊真好！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Merry Christmas! How’s your holiday going so far?",
+          "triggerTextCn": "圣诞快乐！你的假期过得怎么样？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "同事在节日当天主动关心你的假期安排",
           "followUps": [
             {
-              "text": "Same here! Let's do this again soon!",
-              "text_cn": "我也是！咱们尽快再聚！",
-              "audio_url": ""
-            },
-            {
-              "text": "Definitely! Take care!",
-              "text_cn": "一定！保重！",
-              "audio_url": ""
-            },
-            {
-              "text": "Yeah, bye!",
-              "text_cn": "嗯，拜！",
-              "audio_url": ""
+              "text": "It’s been lovely—just relaxing at home. Hope you’re enjoying it too!",
+              "text_cn": "挺好的，就在家放松。希望你也在享受假期！",
+              "audio_url": "COS:/qa/responses/social_080_sub_4_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "简短回应也可，但建议加祝福",
-          "audioUrl": null,
+          "usageNote": "回应他人节日问候时，可加入简单个人状态，保持积极但不过度展开",
+          "audioUrl": "COS:/qa/questions/social_080_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
-          "order": 6
+          "order": 2
+        },
+        {
+          "id": "social_080_sub_4_qa_3",
+          "subSceneId": "social_080_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Happy New Year! Any big plans for the weekend?",
+          "triggerTextCn": "新年快乐！周末有什么安排吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友在新年期间询问你的节日计划，表达关心",
+          "followUps": [
+            {
+              "text": "Not much—just catching up with friends. Looking forward to a great year ahead!",
+              "text_cn": "没什么特别的，就是和朋友聚聚。期待新的一年！",
+              "audio_url": "COS:/qa/responses/social_080_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "回应节日问候时，可轻描淡写提及计划，顺势表达对未来的积极期待，符合社交语境",
+          "audioUrl": "COS:/qa/questions/social_080_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "social_080_sub_5",
+      "sceneId": "social_080",
+      "name": "礼貌告别",
+      "description": "用轻松语句结束对话，如'Catch you later, happy holidays!'",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "social_080_sub_5_qa_1",
+          "subSceneId": "social_080_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hope you have a wonderful holiday!",
+          "triggerTextCn": "祝你假期愉快！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友在节日聚会结束时礼貌告别并送上祝福",
+          "followUps": [
+            {
+              "text": "Thanks so much! You too — have a great one!",
+              "text_cn": "太感谢了！你也是——玩得开心！",
+              "audio_url": "COS:/qa/responses/social_080_sub_5_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "这是节日告别中最自然的回应方式，表达感谢并回赠祝福，语气轻松友好",
+          "audioUrl": "COS:/qa/questions/social_080_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "social_080_sub_5_qa_2",
+          "subSceneId": "social_080_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Have a safe trip home!",
+          "triggerTextCn": "回家路上注意安全！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事在节日后告别时关心对方出行安全",
+          "followUps": [
+            {
+              "text": "I will, thanks! See you after the break!",
+              "text_cn": "我会的，谢谢！假期后见！",
+              "audio_url": "COS:/qa/responses/social_080_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "回应需简洁带感谢+未来见面预期，避免冗长解释，符合社交场景的自然节奏",
+          "audioUrl": "COS:/qa/questions/social_080_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_080_sub_5_qa_3",
+          "subSceneId": "social_080_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Happy holidays! Let’s catch up soon.",
+          "triggerTextCn": "节日快乐！我们尽快再聚吧。",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友在节日告别时表达未来联系意愿",
+          "followUps": [
+            {
+              "text": "Absolutely! Let’s plan something next week.",
+              "text_cn": "当然！我们下周安排一下吧。",
+              "audio_url": "COS:/qa/responses/social_080_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "回应需积极回应未来计划，体现社交维系的真诚，避免只说'好的'或沉默",
+          "audioUrl": "COS:/qa/questions/social_080_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     }

@@ -1,85 +1,87 @@
 {
   "sceneId": "social_085",
   "sceneName": "赞美他人",
-  "exportedAt": "2026-03-14T13:47:27.334Z",
+  "generatedAt": "2026-03-16T08:18:35.624Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "social_085_sub_1",
       "sceneId": "social_085",
-      "name": "夸新发型",
-      "description": "朋友新剪了发型，你真诚赞美并回应",
+      "name": "夸奖新发型",
+      "description": "朋友刚剪了新发型，你自然赞美并对方开心回应。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_085_sub_1_qa_1",
           "subSceneId": "social_085_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "Hey, I just got a new haircut—what do you think?",
-          "triggerTextCn": "嘿，我刚剪了新发型，你觉得怎么样？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "I love your new haircut!",
+          "triggerTextCn": "我喜欢你的新发型！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "如果是 user_responds 模式，场景可能是服务人员询问顾客对服务的满意度",
+          "scenarioHintCn": "朋友夸奖你的新发型，你需要自然回应",
           "followUps": [
             {
-              "text": "Wow, it looks awesome! Really suits you.",
-              "text_cn": "哇，太棒了！特别适合你。",
-              "audio_url": ""
-            },
-            {
-              "text": "Nice! You always pull off cool styles.",
-              "text_cn": "不错！你总能驾驭酷酷的造型。",
-              "audio_url": ""
-            },
-            {
-              "text": "Looks good!",
-              "text_cn": "看起来不错！",
-              "audio_url": ""
+              "text": "Thanks! I’ve been wanting to try something fresh.",
+              "text_cn": "谢谢！我一直想换个新风格。",
+              "audio_url": "COS:/qa/responses/social_085_sub_1_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "赞美要具体，避免只说‘好看’",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
+          "usageNote": "这是最自然的回应方式，表达感谢并简单说明动机，避免过度谦虚或冷淡。",
+          "audioUrl": "COS:/qa/questions/social_085_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "social_085_sub_1_qa_2",
           "subSceneId": "social_085_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "Thanks! I was kinda nervous about it.",
-          "triggerTextCn": "谢谢！我其实有点担心。",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "Wow, you look so different — in a good way!",
+          "triggerTextCn": "哇，你看起来完全不一样了——但超棒的！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "如果是 user_responds 模式，场景可能是服务人员询问顾客对服务的满意度",
+          "scenarioHintCn": "同事惊讶地称赞你新发型，需礼貌且轻松回应",
           "followUps": [
             {
-              "text": "Don't be! You nailed it. Seriously.",
-              "text_cn": "别担心！你剪得太棒了，真的。",
-              "audio_url": ""
-            },
-            {
-              "text": "Nah, you're overthinking. It's perfect.",
-              "text_cn": "别想太多，完美极了。",
-              "audio_url": ""
-            },
-            {
-              "text": "You're welcome!",
-              "text_cn": "不客气！",
-              "audio_url": ""
+              "text": "Haha, thanks! I took a big risk, but I’m loving it.",
+              "text_cn": "哈哈，谢谢！我冒险了一把，但现在超喜欢。",
+              "audio_url": "COS:/qa/responses/social_085_sub_1_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "回应担忧时要增强对方信心",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
+          "usageNote": "用 'took a big risk' 增加真实感，'loving it' 是地道口语表达，比 'I like it' 更生动。",
+          "audioUrl": "COS:/qa/questions/social_085_sub_1_qa_2.mp3",
+          "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_085_sub_1_qa_3",
+          "subSceneId": "social_085_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Did you get your hair done? It looks amazing!",
+          "triggerTextCn": "你去剪头发了？看起来太棒了！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友注意到你发型变化并直接赞美，需简短真诚回应",
+          "followUps": [
+            {
+              "text": "Yes! I went to that new salon downtown. Glad you like it!",
+              "text_cn": "是啊！我去 downtown 那家新理发店了，你喜欢我就太开心了！",
+              "audio_url": "COS:/qa/responses/social_085_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "回应包含具体信息（地点）和情感反馈（Glad you like it），既自然又促进对话延续。",
+          "audioUrl": "COS:/qa/questions/social_085_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_085_sub_2",
       "sceneId": "social_085",
-      "name": "赞工作表现",
-      "description": "同事完成项目，你当面给予赞美",
+      "name": "称赞工作成果",
+      "description": "同事完成重要项目，你真诚赞美并对方谦逊致谢。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -87,71 +89,72 @@
           "id": "social_085_sub_2_qa_1",
           "subSceneId": "social_085_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "I just finished the Q3 report—hope it meets your expectations.",
-          "triggerTextCn": "我刚做完第三季度报告，希望符合你的期望。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "I love the presentation you gave yesterday!",
+          "triggerTextCn": "我超喜欢你昨天做的演示！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "同事称赞你的工作成果",
           "followUps": [
             {
-              "text": "This is next-level work. You saved us so much time!",
-              "text_cn": "这水平太牛了！你省了我们好多时间。",
-              "audio_url": ""
-            },
-            {
-              "text": "Seriously impressed. Clean, clear, and thorough.",
-              "text_cn": "真的印象深刻，清晰又全面。",
-              "audio_url": ""
-            },
-            {
-              "text": "Looks good.",
-              "text_cn": "看起来不错。",
-              "audio_url": ""
+              "text": "Thanks! I really appreciate you saying that.",
+              "text_cn": "谢谢！我很感激你这么说。",
+              "audio_url": "COS:/qa/responses/social_085_sub_2_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "职场赞美要具体，突出价值",
-          "audioUrl": null,
+          "usageNote": "当同事主动赞美你的工作成果时，用简洁真诚的回应表达感谢，避免过度谦虚或转移话题。",
+          "audioUrl": "COS:/qa/questions/social_085_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "social_085_sub_2_qa_2",
           "subSceneId": "social_085_sub_2",
-          "dialogueMode": "user_responds",
-          "triggerText": "Thanks, I really appreciate you saying that.",
-          "triggerTextCn": "谢谢，我很感激你这么说。",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "How did you manage to finish the project so quickly?",
+          "triggerTextCn": "你怎么这么快就把项目完成了？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友/同事询问你高效完成工作的秘诀",
           "followUps": [
             {
-              "text": "You deserve it—keep killing it!",
-              "text_cn": "你配得上！继续加油！",
-              "audio_url": ""
-            },
-            {
-              "text": "Anytime. You're a rockstar.",
-              "text_cn": "随时欢迎。你就是大佬。",
-              "audio_url": ""
-            },
-            {
-              "text": "Of course! Happy to help.",
-              "text_cn": "当然！乐意帮忙。",
-              "audio_url": ""
+              "text": "I broke it into small tasks and focused on one at a time. Thanks for noticing!",
+              "text_cn": "我把任务拆成小块，一次专注一个。谢谢你注意到了！",
+              "audio_url": "COS:/qa/responses/social_085_sub_2_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "回应感谢时要肯定对方价值",
-          "audioUrl": null,
+          "usageNote": "在社交场景中，向他人询问工作成果背后的策略是常见赞美方式，回应应体现谦逊与感谢。",
+          "audioUrl": "COS:/qa/questions/social_085_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_085_sub_2_qa_3",
+          "subSceneId": "social_085_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Your report really made a difference in the meeting.",
+          "triggerTextCn": "你的报告在会议上真的产生了很大影响。",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事肯定你的工作对团队的贡献",
+          "followUps": [
+            {
+              "text": "That means a lot—I worked hard to make it clear and useful.",
+              "text_cn": "这太有意义了——我花了很多心思让它清晰实用。",
+              "audio_url": "COS:/qa/responses/social_085_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "回应赞美时，加入具体努力细节（如‘clear and useful’）能让感谢更真实、有温度。",
+          "audioUrl": "COS:/qa/questions/social_085_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_085_sub_3",
       "sceneId": "social_085",
-      "name": "回应赞美",
-      "description": "你被夸后，得体回应不尴尬",
+      "name": "回应外貌赞美",
+      "description": "别人夸你穿得好看，你得体接受并回赞对方品味。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -159,30 +162,20 @@
           "id": "social_085_sub_3_qa_1",
           "subSceneId": "social_085_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "You're always so calm under pressure—I admire that.",
-          "triggerTextCn": "你总能在压力下保持冷静，我很佩服。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "You look amazing today!",
+          "triggerTextCn": "你今天看起来太棒了！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友或同事赞美你的外貌，你需要得体回应",
           "followUps": [
             {
-              "text": "That's so kind of you to say—I'm still learning!",
-              "text_cn": "你这么说太暖心了，我还在学呢！",
-              "audio_url": ""
-            },
-            {
-              "text": "Thanks! I just try to breathe and focus.",
-              "text_cn": "谢谢！我就深呼吸，专注点。",
-              "audio_url": ""
-            },
-            {
-              "text": "Oh, stop it.",
-              "text_cn": "哎呀，别说了。",
-              "audio_url": ""
+              "text": "Thanks! I just tried a new hairstyle.",
+              "text_cn": "谢谢！我刚换了新发型。",
+              "audio_url": "COS:/qa/responses/social_085_sub_3_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "回应赞美别否定自己，轻描淡写即可",
-          "audioUrl": null,
+          "usageNote": "用简单感谢+小细节回应，显得真诚而不夸张",
+          "audioUrl": "COS:/qa/questions/social_085_sub_3_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
@@ -190,104 +183,189 @@
           "id": "social_085_sub_3_qa_2",
           "subSceneId": "social_085_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "I mean it—you handled that client like a pro.",
-          "triggerTextCn": "我是认真的，你处理客户像专业人士。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "That outfit is so stylish!",
+          "triggerTextCn": "这件衣服太有品位了！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "同事称赞你的穿着，你需要自然回应",
           "followUps": [
             {
-              "text": "Thanks! I learned a lot from watching you, actually.",
-              "text_cn": "谢谢！其实我从你身上学了很多。",
-              "audio_url": ""
-            },
-            {
-              "text": "Aww, you're making me blush!",
-              "text_cn": "哎呀，你让我脸红了！",
-              "audio_url": ""
-            },
-            {
-              "text": "Yeah, it worked out.",
-              "text_cn": "嗯，还好搞定了。",
-              "audio_url": ""
+              "text": "I’m glad you like it! I found it at that little boutique downtown.",
+              "text_cn": "你喜欢我就太开心了！我是在市中心那家小精品店找到的。",
+              "audio_url": "COS:/qa/responses/social_085_sub_3_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "可回赞对方，让对话更自然",
-          "audioUrl": null,
+          "usageNote": "表达感谢并补充一点购买细节，增加对话温度但不冗长",
+          "audioUrl": "COS:/qa/questions/social_085_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_085_sub_3_qa_3",
+          "subSceneId": "social_085_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "You’ve lost weight—you’re glowing!",
+          "triggerTextCn": "你瘦了！气色真好！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友注意到你体型变化并给予赞美，需得体回应",
+          "followUps": [
+            {
+              "text": "Aw, thank you! I’ve been trying to stay active and eat better.",
+              "text_cn": "哎呀，谢谢你！我最近在努力多运动、吃得更健康。",
+              "audio_url": "COS:/qa/responses/social_085_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "避免过度谦虚或否认，用积极但不炫耀的方式回应，保持社交平衡",
+          "audioUrl": "COS:/qa/questions/social_085_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_085_sub_4",
       "sceneId": "social_085",
-      "name": "夸穿搭",
-      "description": "朋友穿了新衣服，你自然赞美",
+      "name": "谦虚回应表扬",
+      "description": "被夸英语进步快，你礼貌感谢并归功于他人帮助。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_085_sub_4_qa_1",
           "subSceneId": "social_085_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "So, what do you think of my new jacket?",
-          "triggerTextCn": "你觉得我这件新夹克怎么样？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "You did an amazing job on the presentation!",
+          "triggerTextCn": "你的演讲太棒了！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "如果是 user_responds 模式，场景可能是服务人员询问顾客对产品的看法",
+          "scenarioHintCn": "同事赞美你的工作表现，你需要谦虚回应",
           "followUps": [
             {
-              "text": "Dude, that color is insane on you!",
-              "text_cn": "老兄，这颜色在你身上太绝了！",
-              "audio_url": ""
-            },
-            {
-              "text": "It's super stylish—I'd steal it if I could.",
-              "text_cn": "超有型，我要能偷走就好了。",
-              "audio_url": ""
-            },
-            {
-              "text": "Looks cool.",
-              "text_cn": "看起来很酷。",
-              "audio_url": ""
+              "text": "Thanks! I really appreciate that—I couldn't have done it without your help.",
+              "text_cn": "谢谢！我很感激，没有你的帮助我做不到。",
+              "audio_url": "COS:/qa/responses/social_085_sub_4_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用夸张语气让赞美更生动",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
+          "usageNote": "用感谢+归功他人的方式回应赞美，既谦虚又体现团队意识，非常地道",
+          "audioUrl": "COS:/qa/questions/social_085_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "social_085_sub_4_qa_2",
           "subSceneId": "social_085_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "I got it on sale—50% off!",
-          "triggerTextCn": "我打折买的，五折！",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "I love your outfit today—it looks so stylish!",
+          "triggerTextCn": "你今天穿的衣服真好看，太有品位了！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "如果是 user_responds 模式，场景可能是服务人员询问顾客对产品的看法",
+          "scenarioHintCn": "朋友赞美你的穿着，你需要得体谦虚地回应",
           "followUps": [
             {
-              "text": "Even better—you scored a steal!",
-              "text_cn": "更棒了！你捡到宝了！",
-              "audio_url": ""
-            },
-            {
-              "text": "Smart move! You're a shopping ninja.",
-              "text_cn": "聪明！你简直是购物忍者。",
-              "audio_url": ""
-            },
-            {
-              "text": "Nice!",
-              "text_cn": "不错！",
-              "audio_url": ""
+              "text": "Oh, thanks! I just grabbed this off the rack—I’m glad you like it!",
+              "text_cn": "哦，谢谢！我只是随手挑的，你喜欢我就太开心了！",
+              "audio_url": "COS:/qa/responses/social_085_sub_4_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "结合价格夸，赞美更显真诚",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
+          "usageNote": "用轻描淡写的语气淡化赞美，配合真诚感谢，符合英语母语者日常谦虚回应习惯",
+          "audioUrl": "COS:/qa/questions/social_085_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_085_sub_4_qa_3",
+          "subSceneId": "social_085_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "You’re so good at handling difficult clients!",
+          "triggerTextCn": "你真擅长处理难缠的客户！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事称赞你的专业能力，你需要低调回应",
+          "followUps": [
+            {
+              "text": "That’s kind of you to say—I’m still learning, but I’m glad it’s working out.",
+              "text_cn": "你这么说真好听，我还在学习中，但很高兴能有好的结果。",
+              "audio_url": "COS:/qa/responses/social_085_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "用‘still learning’表达谦逊，同时肯定对方的肯定，避免过度自夸或冷淡回应",
+          "audioUrl": "COS:/qa/questions/social_085_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "social_085_sub_5",
+      "sceneId": "social_085",
+      "name": "双向赞美互动",
+      "description": "两人互相赞美对方的演讲和着装，气氛轻松融洽。",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "social_085_sub_5_qa_1",
+          "subSceneId": "social_085_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "I love your presentation today — you made the data so clear!",
+          "triggerTextCn": "我太喜欢你今天的演示了——你把数据讲得特别清晰！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事赞美你的工作表现，你需要自然回赞",
+          "followUps": [
+            {
+              "text": "Thanks! I really admired how you handled the Q&A — you kept it calm and confident.",
+              "text_cn": "谢谢！我特别佩服你回答提问的方式，又冷静又自信。",
+              "audio_url": "COS:/qa/responses/social_085_sub_5_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "当别人赞美你的专业表现时，用‘Thanks!’回应并回赞对方的具体优点，体现双向互动和真诚。",
+          "audioUrl": "COS:/qa/questions/social_085_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "social_085_sub_5_qa_2",
+          "subSceneId": "social_085_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Your outfit is so stylish today — where did you get that jacket?",
+          "triggerTextCn": "你今天这身衣服太有范儿了——这件夹克在哪买的？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友赞美你的穿着，你需要自然回赞并延续轻松对话",
+          "followUps": [
+            {
+              "text": "Oh thanks! I love your shoes — they totally match your vibe!",
+              "text_cn": "哦谢谢！我超喜欢你的鞋子——和你的风格绝配！",
+              "audio_url": "COS:/qa/responses/social_085_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "回应外貌赞美时，避免只说‘谢谢’，应快速回赞对方的细节，保持对话平衡和友好氛围。",
+          "audioUrl": "COS:/qa/questions/social_085_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_085_sub_5_qa_3",
+          "subSceneId": "social_085_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "You always know how to lift the team’s spirits — I don’t know how you do it!",
+          "triggerTextCn": "你总能带动团队气氛——我不知道你是怎么做到的！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事赞美你的情绪价值或领导力，你需要谦逊回赞并强化关系",
+          "followUps": [
+            {
+              "text": "That means a lot — you’re the one who keeps everyone organized and on track!",
+              "text_cn": "这太让我感动了——真正让团队有条不紊的是你啊！",
+              "audio_url": "COS:/qa/responses/social_085_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "面对较高层次的赞美（如领导力、情绪价值），用‘That means a lot’表达感激，再具体回赞对方的贡献，建立深层联结。",
+          "audioUrl": "COS:/qa/questions/social_085_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     }

@@ -1,13 +1,14 @@
 {
   "sceneId": "daily_029",
   "sceneName": "玩具店买玩具",
-  "exportedAt": "2026-03-14T13:47:27.318Z",
+  "generatedAt": "2026-03-16T08:13:49.689Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_029_sub_1",
       "sceneId": "daily_029",
-      "name": "打招呼询问",
-      "description": "家长进店后向店员礼貌问候并询问玩具位置",
+      "name": "寻找玩具",
+      "description": "家长询问玩具所在货架位置。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -15,30 +16,20 @@
           "id": "daily_029_sub_1_qa_1",
           "subSceneId": "daily_029_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "Hi there! Do you know where the action figures are?",
-          "triggerTextCn": "你好！你知道动作玩偶在哪儿吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Do you have any toys for 5-year-old boys?",
+          "triggerTextCn": "你们有适合5岁男孩的玩具吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "如果是 user_responds 模式，工作人员可能会先打招呼",
+          "scenarioHintCn": "顾客询问适合特定年龄男孩的玩具",
           "followUps": [
             {
-              "text": "Sure! They're down aisle 3, next to the dolls.",
-              "text_cn": "当然！在3号通道，玩偶旁边。",
-              "audio_url": ""
-            },
-            {
-              "text": "Aisle 3, just past the puzzles.",
-              "text_cn": "3号通道，过了拼图就到。",
-              "audio_url": ""
-            },
-            {
-              "text": "Over there!",
-              "text_cn": "就在那儿！",
-              "audio_url": ""
+              "text": "Yes, we have a great selection of action figures and building sets in aisle 3. Would you like me to show you?",
+              "text_cn": "有的，我们在三号货架有很棒的玩具士兵和积木套装。要我带您去看看吗？",
+              "audio_url": "COS:/qa/responses/daily_029_sub_1_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用简单方向词引导用户表达位置",
-          "audioUrl": null,
+          "usageNote": "顾客主动询问特定年龄段玩具，是玩具店最常见开场问题之一，服务员通常会引导至具体区域。",
+          "audioUrl": "COS:/qa/questions/daily_029_sub_1_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
         },
@@ -46,40 +37,51 @@
           "id": "daily_029_sub_1_qa_2",
           "subSceneId": "daily_029_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "Thanks! And do you have any with batteries included?",
-          "triggerTextCn": "谢谢！有带电池的吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Is this toy battery-operated?",
+          "triggerTextCn": "这个玩具是需要电池的吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "如果是 user_responds 模式，工作人员可能会先打招呼",
+          "scenarioHintCn": "顾客在查看商品时确认功能细节",
           "followUps": [
             {
-              "text": "Most do! This one comes with 4 AA batteries.",
-              "text_cn": "大多数都有！这个配了4节AA电池。",
-              "audio_url": ""
-            },
-            {
-              "text": "Yeah, check the box—it says 'batteries included'.",
-              "text_cn": "有，看包装，上面写着‘含电池’。",
-              "audio_url": ""
-            },
-            {
-              "text": "Not sure, let me check.",
-              "text_cn": "我不确定，我去看看。",
-              "audio_url": ""
+              "text": "Yes, it needs 3 AA batteries, which are sold separately near the checkout. We also have a pack with rechargeable ones.",
+              "text_cn": "是的，需要3节AA电池，放在收银台附近单独售卖。我们也有可充电电池套装。",
+              "audio_url": "COS:/qa/responses/daily_029_sub_1_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "强调‘batteries included’关键表达",
-          "audioUrl": null,
+          "usageNote": "顾客在决定购买前常确认玩具是否需电池、是否另购，这是促成交易的关键细节询问。",
+          "audioUrl": "COS:/qa/questions/daily_029_sub_1_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
+        },
+        {
+          "id": "daily_029_sub_1_qa_3",
+          "subSceneId": "daily_029_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Are you looking for something special for a birthday?",
+          "triggerTextCn": "您是想为生日找特别的玩具吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员主动询问购买用途以推荐商品",
+          "followUps": [
+            {
+              "text": "Yes, it's for my nephew's 6th birthday. Any bestsellers this week?",
+              "text_cn": "是的，是我侄子的6岁生日。这周有什么畅销款吗？",
+              "audio_url": "COS:/qa/responses/daily_029_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "店员通过询问购买目的（如生日）来提供个性化推荐，顾客应简洁回应需求，避免冗长解释。",
+          "audioUrl": "COS:/qa/questions/daily_029_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_029_sub_2",
       "sceneId": "daily_029",
-      "name": "询价确认",
-      "description": "家长询问价格并确认是否符合预算",
+      "name": "询问价格",
+      "description": "家长咨询玩具的售价。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -87,30 +89,20 @@
           "id": "daily_029_sub_2_qa_1",
           "subSceneId": "daily_029_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "How much is this robot?",
-          "triggerTextCn": "这个机器人多少钱？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "How much is this teddy bear?",
+          "triggerTextCn": "这只泰迪熊多少钱？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问价格，服务方回答",
+          "scenarioHintCn": "顾客询问具体玩具的价格",
           "followUps": [
             {
-              "text": "It's $24.99. It's on sale today!",
-              "text_cn": "24.99美元，今天打折！",
-              "audio_url": ""
-            },
-            {
-              "text": "Twenty-five bucks, roughly.",
-              "text_cn": "大概25美元。",
-              "audio_url": ""
-            },
-            {
-              "text": "Let me scan it for you.",
-              "text_cn": "我帮你扫一下价格。",
-              "audio_url": ""
+              "text": "It's $15. It's on sale this week.",
+              "text_cn": "15美元，这周正在促销。",
+              "audio_url": "COS:/qa/responses/daily_029_sub_2_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "训练用buck/price表达价格的口语习惯",
-          "audioUrl": null,
+          "usageNote": "顾客直接询问单件商品价格，是最基础也最常使用的询价句型",
+          "audioUrl": "COS:/qa/questions/daily_029_sub_2_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
         },
@@ -118,40 +110,51 @@
           "id": "daily_029_sub_2_qa_2",
           "subSceneId": "daily_029_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "That's a bit over my budget. Do you have anything cheaper?",
-          "triggerTextCn": "有点超预算了，有便宜点的吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Do you have any discounts for multiple items?",
+          "triggerTextCn": "买多件有折扣吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问价格，服务方回答",
+          "scenarioHintCn": "顾客询问批量购买的优惠信息",
           "followUps": [
             {
-              "text": "How about this one? It's $15 and still super fun.",
-              "text_cn": "这个怎么样？15美元，也很有趣。",
-              "audio_url": ""
-            },
-            {
-              "text": "We've got a $12 version—same features, less flashy.",
-              "text_cn": "有12美元的版本，功能一样，没那么花哨。",
-              "audio_url": ""
-            },
-            {
-              "text": "Sorry, not right now.",
-              "text_cn": "抱歉，现在没有。",
-              "audio_url": ""
+              "text": "Yes! Buy two toys, get 10% off. Would you like to pick another one?",
+              "text_cn": "有的！买两件玩具享九折，要再挑一件吗？",
+              "audio_url": "COS:/qa/responses/daily_029_sub_2_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "引导用户用‘cheaper’表达价格比较",
-          "audioUrl": null,
+          "usageNote": "顾客在比较价格时自然提出的批量优惠问题，体现真实购物心理",
+          "audioUrl": "COS:/qa/questions/daily_029_sub_2_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
+        },
+        {
+          "id": "daily_029_sub_2_qa_3",
+          "subSceneId": "daily_029_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Is this price including tax?",
+          "triggerTextCn": "这个价格包含税吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员在报出价格后主动澄清是否含税，避免后续误解",
+          "followUps": [
+            {
+              "text": "No, tax is extra. It'll be about $1 more.",
+              "text_cn": "不含税，大概再多1美元。",
+              "audio_url": "COS:/qa/responses/daily_029_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "店员主动澄清价格细节是服务场景中的专业表现，顾客需能听懂并回应",
+          "audioUrl": "COS:/qa/questions/daily_029_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_029_sub_3",
       "sceneId": "daily_029",
-      "name": "支付方式",
-      "description": "家长确认付款方式并完成结账",
+      "name": "确认电池",
+      "description": "家长问玩具是否需要电池及是否包含。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -159,30 +162,20 @@
           "id": "daily_029_sub_3_qa_1",
           "subSceneId": "daily_029_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "I'll take this one. Can I pay with card?",
-          "triggerTextCn": "我就要这个了，能刷卡吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Does this toy need batteries?",
+          "triggerTextCn": "这个玩具需要电池吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "服务方可能回答：Yes, you can. 或 We accept cards.",
+          "scenarioHintCn": "顾客在购买玩具前确认是否需要电池",
           "followUps": [
             {
-              "text": "Sure! Tap or insert—it's got NFC.",
-              "text_cn": "当然！刷卡或插卡，支持NFC。",
-              "audio_url": ""
-            },
-            {
-              "text": "Cash or card? We take both.",
-              "text_cn": "现金还是刷卡？都收。",
-              "audio_url": ""
-            },
-            {
-              "text": "Yeah, just swipe it.",
-              "text_cn": "对，刷一下就行。",
-              "audio_url": ""
+              "text": "Yes, it requires 3 AA batteries, which are sold separately near the checkout.",
+              "text_cn": "是的，它需要3节AA电池，电池在收银台附近单独售卖。",
+              "audio_url": "COS:/qa/responses/daily_029_sub_3_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "强调‘tap/insert/swipe’等支付动词",
-          "audioUrl": null,
+          "usageNote": "顾客在决定购买前确认玩具是否自带电池，避免到家后无法使用。",
+          "audioUrl": "COS:/qa/questions/daily_029_sub_3_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
         },
@@ -190,104 +183,189 @@
           "id": "daily_029_sub_3_qa_2",
           "subSceneId": "daily_029_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "Do you accept Apple Pay?",
-          "triggerTextCn": "你们支持苹果支付吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Do these batteries come with the toy?",
+          "triggerTextCn": "这些电池是和玩具一起提供的吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "服务方可能回答：Yes, you can. 或 We accept cards.",
+          "scenarioHintCn": "顾客确认玩具包装内是否包含电池",
           "followUps": [
             {
-              "text": "Yep! Just hold your phone near the reader.",
-              "text_cn": "支持！把手机靠近读卡器就行。",
-              "audio_url": ""
-            },
-            {
-              "text": "Sorry, not yet—we're upgrading.",
-              "text_cn": "抱歉，还没开通，正在升级。",
-              "audio_url": ""
-            },
-            {
-              "text": "We do! You're all set.",
-              "text_cn": "支持！没问题。",
-              "audio_url": ""
+              "text": "No, the batteries aren't included. You'll need to buy them at the counter.",
+              "text_cn": "不包含，您需要在收银台另行购买电池。",
+              "audio_url": "COS:/qa/responses/daily_029_sub_3_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "训练用户询问新型支付方式",
-          "audioUrl": null,
+          "usageNote": "用于明确商品是否含电池，避免误解或额外花费。",
+          "audioUrl": "COS:/qa/questions/daily_029_sub_3_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
+        },
+        {
+          "id": "daily_029_sub_3_qa_3",
+          "subSceneId": "daily_029_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like to buy batteries along with the toy?",
+          "triggerTextCn": "您要一起买电池吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员主动询问顾客是否需要配套购买电池",
+          "followUps": [
+            {
+              "text": "Yes, please. I'll take a pack of AA batteries.",
+              "text_cn": "好的，请给我一包AA电池。",
+              "audio_url": "COS:/qa/responses/daily_029_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "店员常见促销或服务性提问，顾客需简洁回应购买意愿。",
+          "audioUrl": "COS:/qa/questions/daily_029_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_029_sub_4",
       "sceneId": "daily_029",
-      "name": "礼貌道别",
-      "description": "完成购买后家长与店员礼貌告别",
+      "name": "支付方式",
+      "description": "家长询问可使用的付款方式。",
       "order": 4,
-      "estimatedMinutes": 3,
+      "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_029_sub_4_qa_1",
           "subSceneId": "daily_029_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Thanks so much for your help!",
-          "triggerTextCn": "非常感谢你的帮助！",
+          "triggerText": "How would you like to pay?",
+          "triggerTextCn": "您想怎么付款？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "收银员询问支付方式",
           "followUps": [
             {
-              "text": "You're welcome! Have a great day!",
-              "text_cn": "不客气！祝你今天愉快！",
-              "audio_url": ""
-            },
-            {
-              "text": "No problem! Enjoy the toy!",
-              "text_cn": "小事！玩得开心！",
-              "audio_url": ""
-            },
-            {
-              "text": "Sure thing!",
-              "text_cn": "没问题！",
-              "audio_url": ""
+              "text": "I'll pay with credit card.",
+              "text_cn": "我用信用卡支付。",
+              "audio_url": "COS:/qa/responses/daily_029_sub_4_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "练习感谢与回应的自然口语模式",
-          "audioUrl": null,
+          "usageNote": "这是收银员最常问的支付方式问题，顾客需简洁回应支付方式，避免冗长解释。",
+          "audioUrl": "COS:/qa/questions/daily_029_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_029_sub_4_qa_2",
           "subSceneId": "daily_029_sub_4",
-          "dialogueMode": "user_responds",
-          "triggerText": "I'll be back next week for my kid's birthday!",
-          "triggerTextCn": "我下周还会来，给我孩子买生日礼物！",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you accept Apple Pay?",
+          "triggerTextCn": "你们接受苹果支付吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客确认是否支持移动支付",
           "followUps": [
             {
-              "text": "Awesome! We'll have new stuff in then!",
-              "text_cn": "太好了！到时会有新品！",
-              "audio_url": ""
-            },
-            {
-              "text": "Cool! Tell your kid we said hi!",
-              "text_cn": "太棒了！替我们跟孩子问好！",
-              "audio_url": ""
-            },
-            {
-              "text": "See ya!",
-              "text_cn": "再见！",
-              "audio_url": ""
+              "text": "Yes, we do. Just tap your phone on the reader.",
+              "text_cn": "可以的，把手机靠近读卡器即可。",
+              "audio_url": "COS:/qa/responses/daily_029_sub_4_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "鼓励用户表达未来计划，增强对话延续性",
-          "audioUrl": null,
+          "usageNote": "顾客在使用非现金支付前常确认支持方式，回应需明确并附带简单操作提示。",
+          "audioUrl": "COS:/qa/questions/daily_029_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
+        },
+        {
+          "id": "daily_029_sub_4_qa_3",
+          "subSceneId": "daily_029_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can I pay in cash?",
+          "triggerTextCn": "我可以付现金吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问是否接受现金支付",
+          "followUps": [
+            {
+              "text": "Of course! Here's your change, $5 back.",
+              "text_cn": "当然可以！这是找零，退您5美元。",
+              "audio_url": "COS:/qa/responses/daily_029_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "现金支付仍是常见需求，顾客直接询问，服务员应确认并立即完成找零动作，体现服务闭环。",
+          "audioUrl": "COS:/qa/questions/daily_029_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "daily_029_sub_5",
+      "sceneId": "daily_029",
+      "name": "礼貌道别",
+      "description": "家长感谢店员并礼貌告别。",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_029_sub_5_qa_1",
+          "subSceneId": "daily_029_sub_5",
+          "dialogueMode": "user_asks",
+          "triggerText": "Thank you so much for your help!",
+          "triggerTextCn": "非常感谢你的帮助！",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客买完玩具后向服务员致谢，礼貌道别",
+          "followUps": [
+            {
+              "text": "You're very welcome! Have a wonderful day!",
+              "text_cn": "不客气！祝你今天愉快！",
+              "audio_url": "COS:/qa/responses/daily_029_sub_5_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客在完成购买后表达感谢，服务员用温暖、积极的语气回应，是道别环节的标准搭配",
+          "audioUrl": "COS:/qa/questions/daily_029_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
+        },
+        {
+          "id": "daily_029_sub_5_qa_2",
+          "subSceneId": "daily_029_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Have a great day!",
+          "triggerTextCn": "祝你今天愉快！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员在顾客离开前主动道别，顾客需礼貌回应",
+          "followUps": [
+            {
+              "text": "Thanks! You too!",
+              "text_cn": "谢谢！你也是！",
+              "audio_url": "COS:/qa/responses/daily_029_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "服务员常用此句道别，顾客回应应简短友好，避免冗长，符合英语母语者自然习惯",
+          "audioUrl": "COS:/qa/questions/daily_029_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "daily_029_sub_5_qa_3",
+          "subSceneId": "daily_029_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "See you next time!",
+          "triggerTextCn": "下次见！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员在顾客离开时表达期待再次光临，顾客需回应以示礼貌",
+          "followUps": [
+            {
+              "text": "Definitely! My kid loved this toy!",
+              "text_cn": "一定会的！我孩子超爱这个玩具！",
+              "audio_url": "COS:/qa/responses/daily_029_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "此句体现服务行业的情感连接，顾客回应可加入简短正面反馈，增强真实感与亲和力",
+          "audioUrl": "COS:/qa/questions/daily_029_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     }

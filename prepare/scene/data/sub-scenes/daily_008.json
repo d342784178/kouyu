@@ -1,13 +1,14 @@
 {
   "sceneId": "daily_008",
   "sceneName": "寄快递",
-  "exportedAt": "2026-03-14T13:47:27.280Z",
+  "generatedAt": "2026-03-16T08:04:47.470Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_008_sub_1",
       "sceneId": "daily_008",
-      "name": "打招呼咨询",
-      "description": "顾客向工作人员问候并询问寄快递服务",
+      "name": "咨询寄送",
+      "description": "顾客询问寄快递的流程和可选服务。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -15,40 +16,72 @@
           "id": "daily_008_sub_1_qa_1",
           "subSceneId": "daily_008_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "Hi there! Can you help me send a package?",
-          "triggerTextCn": "嗨！你能帮我寄个包裹吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "I'd like to send this package overseas. What do I need to do?",
+          "triggerTextCn": "我想寄这个包裹到国外，我需要做什么？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "如果是 user_asks 模式，服务方/工作人员应礼貌回应并提供帮助",
+          "scenarioHintCn": "顾客咨询国际寄送流程",
           "followUps": [
             {
-              "text": "Of course! Where you sending it?",
-              "text_cn": "当然可以！寄到哪儿？",
+              "text": "We'll need to weigh it, fill out a customs form, and choose a service—express or standard. Do you have the recipient's address?",
+              "text_cn": "我们需要称重、填写报关单，并选择服务类型——加急或标准。您有收件人的地址吗？",
               "audio_url": "COS:/qa/responses/daily_008_sub_1_qa_1_response0.mp3"
-            },
-            {
-              "text": "Sure thing! Just tell me the destination.",
-              "text_cn": "没问题！说下目的地就行。",
-              "audio_url": "COS:/qa/responses/daily_008_sub_1_qa_1_response1.mp3"
-            },
-            {
-              "text": "Yeah, sure.",
-              "text_cn": "嗯，可以。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "常用开头句，适合初学者模仿",
+          "usageNote": "顾客主动询问寄送流程，适用于初次寄国际快递的场景，表达礼貌且自然。",
           "audioUrl": "COS:/qa/questions/daily_008_sub_1_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
+        },
+        {
+          "id": "daily_008_sub_1_qa_2",
+          "subSceneId": "daily_008_sub_1",
+          "dialogueMode": "user_asks",
+          "triggerText": "How much will it cost to ship this to Canada?",
+          "triggerTextCn": "寄到加拿大要多少钱？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问具体运费",
+          "followUps": [
+            {
+              "text": "It's $45 for express delivery, which takes 3–5 business days. Or $28 for economy, which takes 7–10 days. Which one do you prefer?",
+              "text_cn": "加急是45美元，3到5个工作日送达；经济型是28美元，7到10天送达。您选哪个？",
+              "audio_url": "COS:/qa/responses/daily_008_sub_1_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客直接询问价格，是寄快递中最常见的追问，服务员会顺势提供选项引导决策。",
+          "audioUrl": "COS:/qa/questions/daily_008_sub_1_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
+        },
+        {
+          "id": "daily_008_sub_1_qa_3",
+          "subSceneId": "daily_008_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you need a photo ID for this shipment?",
+          "triggerTextCn": "寄这个包裹需要身份证吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "工作人员确认寄件人身份信息",
+          "followUps": [
+            {
+              "text": "Yes, please show me your driver's license or passport.",
+              "text_cn": "需要，请出示您的驾照或护照。",
+              "audio_url": "COS:/qa/responses/daily_008_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "工作人员依法要求身份验证，用户需简洁回应并出示证件，符合真实服务流程。",
+          "audioUrl": "COS:/qa/questions/daily_008_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_008_sub_2",
       "sceneId": "daily_008",
-      "name": "说明目的地",
-      "description": "顾客告知包裹寄送地址和国家",
+      "name": "说明地址",
+      "description": "顾客提供收件人地址和联系方式。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -56,62 +89,63 @@
           "id": "daily_008_sub_2_qa_1",
           "subSceneId": "daily_008_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "I need to send this to Tokyo, Japan.",
-          "triggerTextCn": "我要寄到日本东京。",
+          "triggerText": "Can you tell me the full address where you'd like to send this package?",
+          "triggerTextCn": "您能告诉我这个包裹要寄到的完整地址吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "快递员确认收件地址",
           "followUps": [
             {
-              "text": "Got it. Is it a box or an envelope?",
-              "text_cn": "好的，是纸箱还是信封？",
+              "text": "Sure, it's 123 Maple Street, Apartment 5B, Springfield, IL 62701.",
+              "text_cn": "当然，是伊利诺伊州斯普林菲尔德市枫树街123号5B公寓，邮编62701。",
               "audio_url": "COS:/qa/responses/daily_008_sub_2_qa_1_response0.mp3"
-            },
-            {
-              "text": "Tokyo? Okay, we got that.",
-              "text_cn": "东京？知道了。",
-              "audio_url": "COS:/qa/responses/daily_008_sub_2_qa_1_response1.mp3"
-            },
-            {
-              "text": "Japan? That's overseas.",
-              "text_cn": "日本？那是国际件。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "明确地址是计算运费的关键",
+          "usageNote": "用户需清晰、完整地提供地址，包括街道、门牌、公寓号、城市和邮编。",
           "audioUrl": "COS:/qa/questions/daily_008_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
-          "order": 2
+          "order": 1
         },
         {
           "id": "daily_008_sub_2_qa_2",
           "subSceneId": "daily_008_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you need the full address?",
-          "triggerTextCn": "你需要完整地址吗？",
+          "triggerText": "Is the recipient's address the same as yours?",
+          "triggerTextCn": "收件人的地址和您的地址一样吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "快递员确认收件人地址是否与寄件人不同",
           "followUps": [
             {
-              "text": "Yeah, just the zip code and street name’s fine.",
-              "text_cn": "对，有邮编和街道名就行。",
+              "text": "No, it's different. I'm sending it to my sister at 456 Oak Avenue, Chicago.",
+              "text_cn": "不一样，是寄给我妹妹，地址是芝加哥橡树大道456号。",
               "audio_url": "COS:/qa/responses/daily_008_sub_2_qa_2_response0.mp3"
-            },
-            {
-              "text": "Please give me the full address to be safe.",
-              "text_cn": "为保险起见，请给我完整地址。",
-              "audio_url": "COS:/qa/responses/daily_008_sub_2_qa_2_response1.mp3"
-            },
-            {
-              "text": "Zip code’s enough.",
-              "text_cn": "有邮编就够了。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "根据对方要求决定提供信息详略",
+          "usageNote": "用户需明确说明收件地址与寄件地址是否不同，并提供准确收件信息。",
           "audioUrl": "COS:/qa/questions/daily_008_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "daily_008_sub_2_qa_3",
+          "subSceneId": "daily_008_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Could you please confirm the address one more time? I want to make sure I got it right.",
+          "triggerTextCn": "您能再确认一遍地址吗？我想确保我记对了。",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "寄件人主动要求核对地址以防出错",
+          "followUps": [
+            {
+              "text": "Of course! It's 789 Pine Road, Unit 12, Riverside, CA 92507. That's Pine Road, not Maple.",
+              "text_cn": "当然！是加利福尼亚州里弗赛德市松树路789号12单元，邮编92507。注意是松树路，不是枫树路。",
+              "audio_url": "COS:/qa/responses/daily_008_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "用户主动要求复核地址，体现谨慎和礼貌，是真实场景中非常常见的行为。",
+          "audioUrl": "COS:/qa/questions/daily_008_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -119,8 +153,8 @@
     {
       "id": "daily_008_sub_3",
       "sceneId": "daily_008",
-      "name": "询问运费和方式",
-      "description": "顾客询问不同快递方式的价格和时效",
+      "name": "询问运费",
+      "description": "顾客询问不同快递方式的费用和时间。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -128,71 +162,72 @@
           "id": "daily_008_sub_3_qa_1",
           "subSceneId": "daily_008_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "How much for standard shipping and express?",
-          "triggerTextCn": "普通快递和特快多少钱？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "How much will it cost to ship this package to New York?",
+          "triggerTextCn": "寄这个包裹到纽约要多少钱？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问快递费用和方式，服务方提供信息",
+          "scenarioHintCn": "顾客询问国际快递运费",
           "followUps": [
             {
-              "text": "Standard’s $15, express is $35 — arrives in 3 days.",
-              "text_cn": "普通15刀，特快35刀，3天到。",
+              "text": "It'll be $45 for standard shipping, or $75 for express delivery within 2 business days.",
+              "text_cn": "普通快递是45美元，两天内送达的加急服务是75美元。",
               "audio_url": "COS:/qa/responses/daily_008_sub_3_qa_1_response0.mp3"
-            },
-            {
-              "text": "Express is double, but faster.",
-              "text_cn": "特快贵一倍，但快。",
-              "audio_url": "COS:/qa/responses/daily_008_sub_3_qa_1_response1.mp3"
-            },
-            {
-              "text": "I’ll take the cheaper one.",
-              "text_cn": "我选便宜的。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "对比价格时用but连接更自然",
+          "usageNote": "用于直接询问具体目的地的运费，是顾客最常问的开场问题",
           "audioUrl": "COS:/qa/questions/daily_008_sub_3_qa_1.mp3",
           "learnRequirement": "speak_trigger",
-          "order": 4
+          "order": 1
         },
         {
           "id": "daily_008_sub_3_qa_2",
           "subSceneId": "daily_008_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "Can I get it there by Friday?",
-          "triggerTextCn": "能周五前送到吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Do you offer any discounts for heavy packages?",
+          "triggerTextCn": "大件包裹有折扣吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问快递费用和方式，服务方提供信息",
+          "scenarioHintCn": "顾客询问大件或重物的运费优惠",
           "followUps": [
             {
-              "text": "Express can, standard won’t make it.",
-              "text_cn": "特快可以，普通送不到。",
+              "text": "Yes, if your package weighs over 5 kg, we offer a 10% discount on standard shipping.",
+              "text_cn": "有的，如果包裹重量超过5公斤，普通快递可享九折优惠。",
               "audio_url": "COS:/qa/responses/daily_008_sub_3_qa_2_response0.mp3"
-            },
-            {
-              "text": "Depends on when you ship it.",
-              "text_cn": "看你什么时候寄。",
-              "audio_url": "COS:/qa/responses/daily_008_sub_3_qa_2_response1.mp3"
-            },
-            {
-              "text": "Friday? No way.",
-              "text_cn": "周五？不可能。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用won’t / can’t 表达否定更地道",
+          "usageNote": "顾客常为重物或批量寄送寻求优惠，体现真实议价行为",
           "audioUrl": "COS:/qa/questions/daily_008_sub_3_qa_2.mp3",
           "learnRequirement": "speak_trigger",
-          "order": 5
+          "order": 2
+        },
+        {
+          "id": "daily_008_sub_3_qa_3",
+          "subSceneId": "daily_008_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Is this the fastest option available?",
+          "triggerTextCn": "这是目前最快的服务吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员推荐加急服务后，确认顾客是否接受",
+          "followUps": [
+            {
+              "text": "Yes, please. I need it there by tomorrow.",
+              "text_cn": "是的，我要选这个，明天之前必须送到。",
+              "audio_url": "COS:/qa/responses/daily_008_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "服务员主动确认顾客选择，顾客需简洁明确回应，符合服务场景高效交互习惯",
+          "audioUrl": "COS:/qa/questions/daily_008_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_008_sub_4",
       "sceneId": "daily_008",
-      "name": "确认收件信息",
-      "description": "工作人员核对寄送信息并确认最终选择",
+      "name": "选择方式",
+      "description": "顾客根据价格和速度选择快递服务。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -200,104 +235,137 @@
           "id": "daily_008_sub_4_qa_1",
           "subSceneId": "daily_008_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "So you want express to Tokyo, right?",
-          "triggerTextCn": "你要选特快寄东京，对吧？",
+          "triggerText": "How would you like to ship this package?",
+          "triggerTextCn": "您想怎么寄这个包裹？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "快递员询问寄送方式",
           "followUps": [
             {
-              "text": "Yep, that’s the one.",
-              "text_cn": "对，就选这个。",
+              "text": "I'd like to use express delivery, please.",
+              "text_cn": "我想用快递服务。",
               "audio_url": "COS:/qa/responses/daily_008_sub_4_qa_1_response0.mp3"
-            },
-            {
-              "text": "Yes, please. I’ll pay with my card.",
-              "text_cn": "是的，请用我的卡付款。",
-              "audio_url": "COS:/qa/responses/daily_008_sub_4_qa_1_response1.mp3"
-            },
-            {
-              "text": "Right.",
-              "text_cn": "没错。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用Yep/Right更口语化，适合日常",
+          "usageNote": "这是寄快递时最常见的一句服务询问，顾客需明确选择寄送方式（如普通、加急、次日达等）。",
           "audioUrl": "COS:/qa/questions/daily_008_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
-          "order": 6
+          "order": 1
         },
         {
           "id": "daily_008_sub_4_qa_2",
           "subSceneId": "daily_008_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Here’s your receipt and tracking number.",
-          "triggerTextCn": "这是你的收据和追踪号。",
+          "triggerText": "Do you need insurance for this package?",
+          "triggerTextCn": "您需要为这个包裹购买保险吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "工作人员询问是否加保",
           "followUps": [
             {
-              "text": "Thanks! I’ll text the number to the receiver.",
-              "text_cn": "谢谢！我发追踪号给收件人。",
+              "text": "Yes, please. It's valuable.",
+              "text_cn": "需要，这个东西很贵重。",
               "audio_url": "COS:/qa/responses/daily_008_sub_4_qa_2_response0.mp3"
-            },
-            {
-              "text": "Awesome, I’ll check online later.",
-              "text_cn": "太好了，我晚点上网查。",
-              "audio_url": "COS:/qa/responses/daily_008_sub_4_qa_2_response1.mp3"
-            },
-            {
-              "text": "Okay.",
-              "text_cn": "好的。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "回应时加动作描述更真实",
+          "usageNote": "保险是寄贵重物品时的高频附加服务，顾客通常简短回应是否需要，无需长篇解释。",
           "audioUrl": "COS:/qa/questions/daily_008_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
-          "order": 7
+          "order": 2
+        },
+        {
+          "id": "daily_008_sub_4_qa_3",
+          "subSceneId": "daily_008_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "What's the difference between standard and express shipping?",
+          "triggerTextCn": "普通快递和加急快递有什么区别？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客主动询问不同寄送方式的区别",
+          "followUps": [
+            {
+              "text": "Standard takes 3–5 business days and is cheaper. Express is 1–2 days and costs more.",
+              "text_cn": "普通快递3到5个工作日，价格更低；加急是1到2天，费用更高。",
+              "audio_url": "COS:/qa/responses/daily_008_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客在做决策前常会主动询问服务差异，这是体现自主沟通能力的关键句型。",
+          "audioUrl": "COS:/qa/questions/daily_008_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_008_sub_5",
       "sceneId": "daily_008",
-      "name": "道别离开",
-      "description": "顾客感谢工作人员并礼貌告别",
+      "name": "确认送达",
+      "description": "顾客确认寄送信息并获取运单号和预计送达时间。",
       "order": 5,
-      "estimatedMinutes": 3,
+      "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_008_sub_5_qa_1",
           "subSceneId": "daily_008_sub_5",
-          "dialogueMode": "user_responds",
-          "triggerText": "All set! Have a great day!",
-          "triggerTextCn": "搞定啦！祝你今天愉快！",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can you confirm the delivery address is correct?",
+          "triggerTextCn": "您能确认一下收件地址正确吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "寄快递时，用户主动确认收件地址是否准确",
           "followUps": [
             {
-              "text": "You too! Thanks a lot!",
-              "text_cn": "你也是！非常感谢！",
+              "text": "Yes, it's 123 Maple Street, Apt 5B, Springfield. I've double-checked it in our system.",
+              "text_cn": "是的，地址是斯普林菲尔德枫树街123号5B公寓，我们系统里也核对过了。",
               "audio_url": "COS:/qa/responses/daily_008_sub_5_qa_1_response0.mp3"
-            },
-            {
-              "text": "Appreciate it!",
-              "text_cn": "太感谢了！",
-              "audio_url": "COS:/qa/responses/daily_008_sub_5_qa_1_response1.mp3"
-            },
-            {
-              "text": "Bye!",
-              "text_cn": "拜拜！",
-              "audio_url": ""
             }
           ],
-          "usageNote": "道别用You too!最自然实用",
+          "usageNote": "用户在寄快递前主动确认地址，避免投递错误，是高频且关键的确认环节",
           "audioUrl": "COS:/qa/questions/daily_008_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
+        },
+        {
+          "id": "daily_008_sub_5_qa_2",
+          "subSceneId": "daily_008_sub_5",
+          "dialogueMode": "user_asks",
+          "triggerText": "Will you be able to deliver it by Friday?",
+          "triggerTextCn": "你们能保证在周五前送达吗？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "用户询问快递的预计送达时间，确认是否满足紧急需求",
+          "followUps": [
+            {
+              "text": "We can guarantee delivery by Friday if you choose express shipping. That’s an extra $8.",
+              "text_cn": "如果您选择特快服务，我们可以保证周五送达，额外收费8美元。",
+              "audio_url": "COS:/qa/responses/daily_008_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "用户关心时效性，是寄快递场景中最常见的确认送达时间的提问方式",
+          "audioUrl": "COS:/qa/questions/daily_008_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
+        },
+        {
+          "id": "daily_008_sub_5_qa_3",
+          "subSceneId": "daily_008_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you need a signature upon delivery?",
+          "triggerTextCn": "派送时需要签收吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "快递员/客服询问是否需要签收，是确认送达流程的标准步骤",
+          "followUps": [
+            {
+              "text": "Yes, please. I want to make sure it’s handed to the recipient personally.",
+              "text_cn": "需要的，请确保亲手交给收件人。",
+              "audio_url": "COS:/qa/responses/daily_008_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "服务人员主动询问签收要求，用户需明确回应，是送达确认环节的核心互动",
+          "audioUrl": "COS:/qa/questions/daily_008_sub_5_qa_3.mp3",
           "learnRequirement": "speak_followup",
-          "order": 8
+          "order": 3
         }
       ]
     }

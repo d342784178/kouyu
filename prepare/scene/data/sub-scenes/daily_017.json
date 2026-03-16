@@ -1,13 +1,14 @@
 {
   "sceneId": "daily_017",
   "sceneName": "水果店买水果",
-  "exportedAt": "2026-03-14T13:47:27.296Z",
+  "generatedAt": "2026-03-16T08:08:42.023Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_017_sub_1",
       "sceneId": "daily_017",
-      "name": "打招呼问候",
-      "description": "顾客进店与店员礼貌打招呼",
+      "name": "询问货品",
+      "description": "顾客询问水果店是否有某种水果可售。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -15,29 +16,19 @@
           "id": "daily_017_sub_1_qa_1",
           "subSceneId": "daily_017_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "Hi there! Got any fresh apples today?",
-          "triggerTextCn": "嗨！今天有新鲜苹果吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "What fruits do you have today?",
+          "triggerTextCn": "你们今天有什么水果？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动询问水果店是否有特定水果",
+          "scenarioHintCn": "顾客询问店内当前供应的水果种类",
           "followUps": [
             {
-              "text": "Yeah, we just got a big shipment!",
-              "text_cn": "有啊，刚到一批新鲜的！",
+              "text": "We have fresh apples, bananas, strawberries, and mangoes today. The strawberries are on sale!",
+              "text_cn": "我们今天有新鲜的苹果、香蕉、草莓和芒果，草莓正在打折！",
               "audio_url": "COS:/qa/responses/daily_017_sub_1_qa_1_response0.mp3"
-            },
-            {
-              "text": "Of course! We have Fuji and Gala.",
-              "text_cn": "当然有，有富士和嘎啦苹果。",
-              "audio_url": "COS:/qa/responses/daily_017_sub_1_qa_1_response1.mp3"
-            },
-            {
-              "text": "Sure do!",
-              "text_cn": "有的！",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用Yeah/Sure do更自然，避免纯正式回答",
+          "usageNote": "顾客初次进入水果店时常用开场问句，用于了解当日货品。",
           "audioUrl": "COS:/qa/questions/daily_017_sub_1_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -46,40 +37,51 @@
           "id": "daily_017_sub_1_qa_2",
           "subSceneId": "daily_017_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "How's it going?",
-          "triggerTextCn": "最近怎么样？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "How much are these apples?",
+          "triggerTextCn": "这些苹果多少钱？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动询问水果店是否有特定水果",
+          "scenarioHintCn": "顾客针对具体商品询问价格",
           "followUps": [
             {
-              "text": "Pretty good, thanks! You?",
-              "text_cn": "还不错，谢谢！你呢？",
+              "text": "They're $2 per pound. Would you like a bag?",
+              "text_cn": "两美元一磅，要装一袋吗？",
               "audio_url": "COS:/qa/responses/daily_017_sub_1_qa_2_response0.mp3"
-            },
-            {
-              "text": "Can't complain! How about you?",
-              "text_cn": "没啥好抱怨的！你呢？",
-              "audio_url": "COS:/qa/responses/daily_017_sub_1_qa_2_response1.mp3"
-            },
-            {
-              "text": "Fine.",
-              "text_cn": "还行。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "简单回应Fine即可，但建议加反问更礼貌",
+          "usageNote": "顾客在挑选后确认价格的高频句式，常伴随购买意向。",
           "audioUrl": "COS:/qa/questions/daily_017_sub_1_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
+        },
+        {
+          "id": "daily_017_sub_1_qa_3",
+          "subSceneId": "daily_017_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you want them weighed or by the bag?",
+          "triggerTextCn": "您要称重买还是按袋买？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员在顾客选好水果后询问购买方式",
+          "followUps": [
+            {
+              "text": "I'll take two pounds weighed, please.",
+              "text_cn": "请称两磅。",
+              "audio_url": "COS:/qa/responses/daily_017_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "店员在结账前确认计量方式的标准提问，顾客需简洁回应。",
+          "audioUrl": "COS:/qa/questions/daily_017_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_017_sub_2",
       "sceneId": "daily_017",
-      "name": "询问价格与种类",
-      "description": "顾客询问水果价格和可选种类",
+      "name": "咨询价格",
+      "description": "顾客询问指定水果的单价和促销信息。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -87,29 +89,19 @@
           "id": "daily_017_sub_2_qa_1",
           "subSceneId": "daily_017_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "How much are these strawberries?",
-          "triggerTextCn": "这些草莓多少钱一斤？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "How much are these apples?",
+          "triggerTextCn": "这些苹果多少钱？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问价格，服务方提供价格信息",
+          "scenarioHintCn": "顾客询问具体水果的价格",
           "followUps": [
             {
-              "text": "They're $5 a pound.",
-              "text_cn": "五美元一磅。",
+              "text": "They're $2 per pound. Would you like to try one?",
+              "text_cn": "两美元一磅，要尝一个吗？",
               "audio_url": "COS:/qa/responses/daily_017_sub_2_qa_1_response0.mp3"
-            },
-            {
-              "text": "That's $4.99 per kg — on sale today!",
-              "text_cn": "每公斤4.99美元，今天特价！",
-              "audio_url": "COS:/qa/responses/daily_017_sub_2_qa_1_response1.mp3"
-            },
-            {
-              "text": "Five bucks.",
-              "text_cn": "五块钱。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "口语中常用bucks代替dollars，更自然",
+          "usageNote": "顾客在挑选水果后直接询问单价，是水果店最常见提问方式",
           "audioUrl": "COS:/qa/questions/daily_017_sub_2_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -118,176 +110,262 @@
           "id": "daily_017_sub_2_qa_2",
           "subSceneId": "daily_017_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "Do you have any ripe mangoes?",
-          "triggerTextCn": "有熟的芒果吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Do you have any fresh strawberries today?",
+          "triggerTextCn": "今天有新鲜的草莓吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问价格，服务方提供价格信息",
+          "scenarioHintCn": "顾客确认特定水果的现货情况",
           "followUps": [
             {
-              "text": "Yeah, right here — they're sweet and juicy!",
-              "text_cn": "有，在这儿，又甜又多汁！",
+              "text": "Yes, we just got a delivery this morning. They're sweet and in season.",
+              "text_cn": "有的，今天早上刚到货，很甜，正是当季。",
               "audio_url": "COS:/qa/responses/daily_017_sub_2_qa_2_response0.mp3"
-            },
-            {
-              "text": "We do, but they're a bit pricey.",
-              "text_cn": "有，但有点贵。",
-              "audio_url": "COS:/qa/responses/daily_017_sub_2_qa_2_response1.mp3"
-            },
-            {
-              "text": "Sorry, they're sold out.",
-              "text_cn": "抱歉，卖完了。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用Yeah比Yes更口语，可加表情描述增强真实感",
+          "usageNote": "顾客主动确认水果新鲜度和供应情况，高频用于选购时令水果",
           "audioUrl": "COS:/qa/questions/daily_017_sub_2_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
+        },
+        {
+          "id": "daily_017_sub_2_qa_3",
+          "subSceneId": "daily_017_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Are you paying by cash or card?",
+          "triggerTextCn": "您是用现金还是刷卡？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员在结账时询问支付方式",
+          "followUps": [
+            {
+              "text": "Card, please.",
+              "text_cn": "刷卡吧。",
+              "audio_url": "COS:/qa/responses/daily_017_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "店员在结账环节的标准提问，顾客回应需简洁直接，避免冗长解释",
+          "audioUrl": "COS:/qa/questions/daily_017_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_017_sub_3",
       "sceneId": "daily_017",
-      "name": "指定重量与挑选",
-      "description": "顾客要求称重并挑选水果",
+      "name": "指定重量",
+      "description": "顾客说明需要购买的水果重量或数量。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_017_sub_3_qa_1",
           "subSceneId": "daily_017_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "Can I get two pounds of grapes, please?",
-          "triggerTextCn": "能给我称两磅葡萄吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can I get one kilo of apples, please?",
+          "triggerTextCn": "请给我一公斤苹果好吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客明确要求指定重量的水果",
           "followUps": [
             {
-              "text": "Sure thing! Red or green?",
-              "text_cn": "没问题！红的还是绿的？",
+              "text": "Sure! That’ll be $3.50. Would you like them bagged?",
+              "text_cn": "当然！一共3.50美元。需要装袋吗？",
               "audio_url": "COS:/qa/responses/daily_017_sub_3_qa_1_response0.mp3"
-            },
-            {
-              "text": "Of course — I'll grab a bunch for you.",
-              "text_cn": "当然，我给你挑一串。",
-              "audio_url": "COS:/qa/responses/daily_017_sub_3_qa_1_response1.mp3"
-            },
-            {
-              "text": "Two pounds? Got it.",
-              "text_cn": "两磅？好的。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用Sure thing比Sure更口语，适合日常购物",
+          "usageNote": "顾客直接提出重量需求，是水果店最常见请求方式，适用于初学者掌握基础购物句型",
           "audioUrl": "COS:/qa/questions/daily_017_sub_3_qa_1.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "daily_017_sub_3_qa_2",
           "subSceneId": "daily_017_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "I'll take these apples — but can you pick the juiciest ones?",
-          "triggerTextCn": "我要这些苹果，但能挑最汁多的吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "How much does this mango weigh?",
+          "triggerTextCn": "这个芒果多重？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客询问单个水果重量以决定是否购买",
           "followUps": [
             {
-              "text": "Absolutely! These are the sweetest in stock.",
-              "text_cn": "当然！这些是店里最甜的。",
+              "text": "It’s about 400 grams. We sell them by the kilo, so that’s roughly $2.80.",
+              "text_cn": "大约400克。我们按公斤卖，所以是2.80美元左右。",
               "audio_url": "COS:/qa/responses/daily_017_sub_3_qa_2_response0.mp3"
-            },
-            {
-              "text": "Sure, I'll hand-pick the best for you.",
-              "text_cn": "好的，我亲自挑最好的给你。",
-              "audio_url": "COS:/qa/responses/daily_017_sub_3_qa_2_response1.mp3"
-            },
-            {
-              "text": "Okay, here you go.",
-              "text_cn": "好的，给你。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用Absolutely/Hand-pick体现服务态度，适合练习礼貌表达",
+          "usageNote": "顾客在不确定重量时主动询问，体现真实购物中的决策过程，高频用于价格估算",
           "audioUrl": "COS:/qa/questions/daily_017_sub_3_qa_2.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 2
+        },
+        {
+          "id": "daily_017_sub_3_qa_3",
+          "subSceneId": "daily_017_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like 500 grams or a kilo?",
+          "triggerTextCn": "您要500克还是1公斤？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员主动提供重量选项以促成交易",
+          "followUps": [
+            {
+              "text": "I’ll take a kilo, please.",
+              "text_cn": "我要一公斤。",
+              "audio_url": "COS:/qa/responses/daily_017_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "店员提供选择是服务场景中的标准话术，帮助顾客快速决策，必须掌握的回应句型",
+          "audioUrl": "COS:/qa/questions/daily_017_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_017_sub_4",
       "sceneId": "daily_017",
-      "name": "结账与道别",
-      "description": "完成付款并礼貌告别",
+      "name": "确认总价",
+      "description": "店员报出总价，顾客确认是否正确。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_017_sub_4_qa_1",
           "subSceneId": "daily_017_sub_4",
-          "dialogueMode": "user_responds",
-          "triggerText": "That'll be $12.40 total.",
-          "triggerTextCn": "一共12.40美元。",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "How much is the total?",
+          "triggerTextCn": "总共多少钱？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客确认所选水果的总价",
           "followUps": [
             {
-              "text": "Here you go — cash only?",
-              "text_cn": "给你，只收现金吗？",
+              "text": "That'll be $12.50 altogether.",
+              "text_cn": "总共12.50美元。",
               "audio_url": "COS:/qa/responses/daily_017_sub_4_qa_1_response0.mp3"
-            },
-            {
-              "text": "I'll pay with my card, please.",
-              "text_cn": "我用卡支付。",
-              "audio_url": "COS:/qa/responses/daily_017_sub_4_qa_1_response1.mp3"
-            },
-            {
-              "text": "Got it.",
-              "text_cn": "好的。",
-              "audio_url": ""
             }
           ],
-          "usageNote": "Here you go是递钱时的自然表达，必学短语",
+          "usageNote": "顾客在挑选完水果后，直接询问总价，是最自然、高频的确认方式。",
           "audioUrl": "COS:/qa/questions/daily_017_sub_4_qa_1.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "daily_017_sub_4_qa_2",
           "subSceneId": "daily_017_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Thanks so much! Have a great day!",
-          "triggerTextCn": "非常感谢！祝你今天愉快！",
+          "triggerText": "That comes to $12.50. Will you be paying with cash or card?",
+          "triggerTextCn": "总共12.50美元。您是用现金还是刷卡？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "店员报出总价后，询问支付方式，顾客需回应支付偏好",
           "followUps": [
             {
-              "text": "You're welcome! See you tomorrow!",
-              "text_cn": "不客气！明天见！",
+              "text": "I'll pay with card, please.",
+              "text_cn": "我用刷卡支付。",
               "audio_url": "COS:/qa/responses/daily_017_sub_4_qa_2_response0.mp3"
-            },
-            {
-              "text": "Thank you! Bye!",
-              "text_cn": "谢谢！拜！",
-              "audio_url": "COS:/qa/responses/daily_017_sub_4_qa_2_response1.mp3"
-            },
-            {
-              "text": "Appreciate it! Take care!",
-              "text_cn": "谢谢！保重！",
-              "audio_url": ""
             }
           ],
-          "usageNote": "用See you tomorrow比Bye更显常客关系",
+          "usageNote": "店员在报总价后通常会自然询问支付方式，顾客需简洁回应，避免冗长解释。",
           "audioUrl": "COS:/qa/questions/daily_017_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "daily_017_sub_4_qa_3",
+          "subSceneId": "daily_017_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you need a bag for your fruit?",
+          "triggerTextCn": "您需要袋子装水果吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员在确认总价后，顺带询问是否需要购物袋，属于典型服务环节",
+          "followUps": [
+            {
+              "text": "Yes, please. A plastic one is fine.",
+              "text_cn": "需要，谢谢，塑料袋就行。",
+              "audio_url": "COS:/qa/responses/daily_017_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "店员常在结账前询问是否需要袋子，顾客应直接回应‘yes’或‘no’，搭配简单说明更自然。",
+          "audioUrl": "COS:/qa/questions/daily_017_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "daily_017_sub_5",
+      "sceneId": "daily_017",
+      "name": "结账离店",
+      "description": "顾客付款并致谢，店员礼貌道别。",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_017_sub_5_qa_1",
+          "subSceneId": "daily_017_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "How would you like to pay?",
+          "triggerTextCn": "您想怎么付款？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "结账时服务员询问付款方式",
+          "followUps": [
+            {
+              "text": "I'll pay with my card, please.",
+              "text_cn": "我用卡支付。",
+              "audio_url": "COS:/qa/responses/daily_017_sub_5_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "这是结账环节最常见付款方式询问，回应应简洁明确，避免冗长解释。",
+          "audioUrl": "COS:/qa/questions/daily_017_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "daily_017_sub_5_qa_2",
+          "subSceneId": "daily_017_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you need bags?",
+          "triggerTextCn": "需要袋子吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "结账后服务员询问是否需要购物袋",
+          "followUps": [
+            {
+              "text": "Yes, please. One plastic bag is fine.",
+              "text_cn": "需要，一个塑料袋就够了。",
+              "audio_url": "COS:/qa/responses/daily_017_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "水果店结账时常见附加服务询问，用户通常只需简单确认或拒绝，无需额外说明。",
+          "audioUrl": "COS:/qa/questions/daily_017_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "daily_017_sub_5_qa_3",
+          "subSceneId": "daily_017_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thanks for coming! Have a great day!",
+          "triggerTextCn": "谢谢光临！祝你今天愉快！",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "结账离店时服务员礼貌道别",
+          "followUps": [
+            {
+              "text": "Thanks, you too!",
+              "text_cn": "谢谢，你也是！",
+              "audio_url": "COS:/qa/responses/daily_017_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "服务场景离店时的标准礼貌回应，用户只需简短回谢，体现自然社交礼仪。",
+          "audioUrl": "COS:/qa/questions/daily_017_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     }

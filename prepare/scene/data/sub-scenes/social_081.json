@@ -1,13 +1,14 @@
 {
   "sceneId": "social_081",
   "sceneName": "道歉解释",
-  "exportedAt": "2026-03-14T13:47:27.329Z",
+  "generatedAt": "2026-03-16T08:24:47.432Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "social_081_sub_1",
       "sceneId": "social_081",
-      "name": "迟到道歉",
-      "description": "因堵车迟到，向朋友真诚道歉",
+      "name": "迟到致歉",
+      "description": "朋友因交通堵塞迟到，首次道歉并简要说明原因。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -15,30 +16,20 @@
           "id": "social_081_sub_1_qa_1",
           "subSceneId": "social_081_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Hey, sorry I'm late—traffic was insane!",
-          "triggerTextCn": "嘿，抱歉我迟到了，路上堵得要命！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Hey, you're late again—what happened?",
+          "triggerTextCn": "嘿，你又迟到了，出什么事了？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友因你迟到而直接询问原因，需自然道歉并简短解释",
           "followUps": [
             {
-              "text": "No worries, I get it—traffic’s a nightmare today.",
-              "text_cn": "别在意，今天交通太糟了。",
-              "audio_url": ""
-            },
-            {
-              "text": "That’s okay, but next time text me if you’re stuck?",
-              "text_cn": "没事，下次堵车记得发个消息？",
-              "audio_url": ""
-            },
-            {
-              "text": "It’s fine.",
-              "text_cn": "没事。",
-              "audio_url": ""
+              "text": "Sorry! My alarm didn’t go off, and I got stuck in traffic. I’ll set two alarms next time.",
+              "text_cn": "对不起！闹钟没响，还遇上堵车了。下次我设两个闹钟。",
+              "audio_url": "COS:/qa/responses/social_081_sub_1_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用轻松语气缓解对方愧疚感",
-          "audioUrl": null,
+          "usageNote": "用于朋友/同事直接质问迟到原因时，回应需包含道歉+简短合理原因+改进承诺，避免过度辩解",
+          "audioUrl": "COS:/qa/questions/social_081_sub_1_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
@@ -46,40 +37,51 @@
           "id": "social_081_sub_1_qa_2",
           "subSceneId": "social_081_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "I really hate keeping you waiting—can I buy you coffee?",
-          "triggerTextCn": "我真的不想让你等，我请你喝咖啡吧？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "You missed the start—everything’s already underway.",
+          "triggerTextCn": "你错过了开始，活动都已经开始了。",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "同事/朋友表达你迟到已影响集体安排，需表达歉意并缓和气氛",
           "followUps": [
             {
-              "text": "That’s so nice of you—latte with oat milk, please!",
-              "text_cn": "你太贴心了，燕麦拿铁谢谢！",
-              "audio_url": ""
-            },
-            {
-              "text": "Nah, don’t stress—just be on time next time!",
-              "text_cn": "别客气，下次准点就行！",
-              "audio_url": ""
-            },
-            {
-              "text": "Sure, thanks!",
-              "text_cn": "好啊，谢谢！",
-              "audio_url": ""
+              "text": "I know, I’m really sorry. I’ll grab a coffee and join you right away.",
+              "text_cn": "我知道，真的很抱歉。我马上去买杯咖啡过来加入你们。",
+              "audio_url": "COS:/qa/responses/social_081_sub_1_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "补偿提议要具体，显得真诚",
-          "audioUrl": null,
+          "usageNote": "用于迟到已造成影响时，回应需承认后果+真诚道歉+立即补救行动，语气轻快避免沉重",
+          "audioUrl": "COS:/qa/questions/social_081_sub_1_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_081_sub_1_qa_3",
+          "subSceneId": "social_081_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Alright, I get it. But can you try to be on time next time?",
+          "triggerTextCn": "好吧，我明白了。但下次你能准时点吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "对方已接受道歉，但提出未来期望，需积极回应承诺",
+          "followUps": [
+            {
+              "text": "Absolutely—I’ve already changed my routine. No more excuses!",
+              "text_cn": "当然！我已经调整了作息，绝对不会再找借口了！",
+              "audio_url": "COS:/qa/responses/social_081_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "用于对方给出宽容但有期待的回应时，学习者需用坚定积极语气承诺改进，增强信任感",
+          "audioUrl": "COS:/qa/questions/social_081_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_081_sub_2",
       "sceneId": "social_081",
-      "name": "工作失误",
-      "description": "因疏忽错过截止时间，向同事道歉",
+      "name": "真诚解释",
+      "description": "详细说明迟到的突发状况，语气诚恳，避免借口。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -87,30 +89,20 @@
           "id": "social_081_sub_2_qa_1",
           "subSceneId": "social_081_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "I messed up the report—I sent the wrong version.",
-          "triggerTextCn": "我搞砸了报告，发错版本了。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Hey, you missed our plan to grab coffee yesterday.",
+          "triggerTextCn": "嘿，你昨天没来和我们喝咖啡。",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友因你失约而略带不满，你需要真诚解释并道歉",
           "followUps": [
             {
-              "text": "Ugh, that’s rough—but can you resend it by 3?",
-              "text_cn": "糟了，但你能三点前重发吗？",
-              "audio_url": ""
-            },
-            {
-              "text": "I’m so sorry—I’ll fix it right away and add a summary.",
-              "text_cn": "太抱歉了，我马上重发并加个摘要。",
-              "audio_url": ""
-            },
-            {
-              "text": "Okay.",
-              "text_cn": "知道了。",
-              "audio_url": ""
+              "text": "I'm really sorry—I got swamped with an urgent work email and lost track of time. It was totally unfair to you.",
+              "text_cn": "真的很抱歉，我被一封紧急工作邮件困住了，完全忘了时间。这对你太不公平了。",
+              "audio_url": "COS:/qa/responses/social_081_sub_2_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "道歉后立即给出解决方案",
-          "audioUrl": null,
+          "usageNote": "用于朋友因你失约而表达失望时，用具体原因+情感共鸣表达真诚歉意",
+          "audioUrl": "COS:/qa/questions/social_081_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
@@ -118,40 +110,51 @@
           "id": "social_081_sub_2_qa_2",
           "subSceneId": "social_081_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "I’ll make it up to you—next team lunch’s on me.",
-          "triggerTextCn": "我一定补偿你，下次团队聚餐我请。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "You didn't reply to my message for three days—did I do something wrong?",
+          "triggerTextCn": "你三天都没回我消息，是我做错什么了吗？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "同事/朋友因未收到回复而感到被忽视，需澄清并安抚情绪",
           "followUps": [
             {
-              "text": "Deal! But no more mistakes, okay?",
-              "text_cn": "一言为定，别再出错了哈！",
-              "audio_url": ""
-            },
-            {
-              "text": "Thanks, that’s really thoughtful.",
-              "text_cn": "谢谢你，真贴心。",
-              "audio_url": ""
-            },
-            {
-              "text": "Cool.",
-              "text_cn": "行。",
-              "audio_url": ""
+              "text": "No, not at all—I’ve been dealing with a family issue and just haven’t had the mental space to respond. I owe you a proper apology.",
+              "text_cn": "不是的，完全不是你的问题，我最近在处理家里的事，一直没精力回复。我欠你一个正式的道歉。",
+              "audio_url": "COS:/qa/responses/social_081_sub_2_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "补偿要具体，语气带点幽默更好",
-          "audioUrl": null,
+          "usageNote": "用于对方怀疑被冷落时，用真实但不过度倾诉的理由+主动担责，重建信任",
+          "audioUrl": "COS:/qa/questions/social_081_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_081_sub_2_qa_3",
+          "subSceneId": "social_081_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Wait, you forgot to send me the report I asked for last week?",
+          "triggerTextCn": "等等，你忘了发我上周要的报告？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事因你遗漏工作事项而质疑你的可靠性，需专业而诚恳地解释",
+          "followUps": [
+            {
+              "text": "You're right—I messed up. I thought I’d sent it, but the file didn’t upload properly. I’m resending it now and will double-check everything going forward.",
+              "text_cn": "你说得对，是我搞砸了。我以为发了，但文件没上传成功。我现在就重发，并且以后一定双重确认。",
+              "audio_url": "COS:/qa/responses/social_081_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "用于职场同事指出疏漏时，承认错误+说明技术性原因+承诺改进，体现责任感",
+          "audioUrl": "COS:/qa/questions/social_081_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_081_sub_3",
       "sceneId": "social_081",
-      "name": "取消计划",
-      "description": "临时取消约会，向朋友解释原因",
+      "name": "表达愧疚",
+      "description": "承认对方时间被浪费，表达真实歉意与自责。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -159,30 +162,20 @@
           "id": "social_081_sub_3_qa_1",
           "subSceneId": "social_081_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "I’m so sorry—I’ve gotta cancel tonight. My dog’s sick.",
-          "triggerTextCn": "太抱歉了，今晚得取消，我狗生病了。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "I was really counting on you to help with the presentation.",
+          "triggerTextCn": "我本来指望你帮我做演示的。",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友因你失约而感到失望，你需要道歉并解释",
           "followUps": [
             {
-              "text": "Oh no! Hope Fido’s okay—let’s reschedule?",
-              "text_cn": "天啊！希望狗狗没事，我们改天再约？",
-              "audio_url": ""
-            },
-            {
-              "text": "That’s fine—just text me when you’re free.",
-              "text_cn": "没事，你有空再约我。",
-              "audio_url": ""
-            },
-            {
-              "text": "Okay.",
-              "text_cn": "行。",
-              "audio_url": ""
+              "text": "I'm so sorry—I totally let you down. My dog got sick and I had to take him to the vet last minute.",
+              "text_cn": "真的很抱歉，我让你失望了。我狗突然生病，我临时带它去看兽医了。",
+              "audio_url": "COS:/qa/responses/social_081_sub_3_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "解释原因要真实，避免借口感",
-          "audioUrl": null,
+          "usageNote": "用于因突发状况失约时的真诚道歉，需包含具体原因和情感承认",
+          "audioUrl": "COS:/qa/questions/social_081_sub_3_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
@@ -190,32 +183,189 @@
           "id": "social_081_sub_3_qa_2",
           "subSceneId": "social_081_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "I’ll make it up to you—how about dinner this weekend?",
-          "triggerTextCn": "我一定补偿你，这周末一起吃饭？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "You forgot our plans again... I'm starting to feel like you don't care.",
+          "triggerTextCn": "你又忘了我们的约定……我开始觉得你根本不重视我。",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友因你反复失约而表达情感受伤，你需要道歉并承诺改变",
           "followUps": [
             {
-              "text": "Yes! Italian? I’ve been craving pasta!",
-              "text_cn": "好啊！意式？我想吃意面了！",
-              "audio_url": ""
-            },
-            {
-              "text": "Sure, but no more last-minute cancels!",
-              "text_cn": "行，但别再临时取消了！",
-              "audio_url": ""
-            },
-            {
-              "text": "Sounds good.",
-              "text_cn": "听起来不错。",
-              "audio_url": ""
+              "text": "You're right—I've been careless, and that's not fair to you. I'm truly sorry, and I'll put our plans in my calendar with reminders.",
+              "text_cn": "你说得对，我太粗心了，这对你不公平。我真的很抱歉，以后我会把我们的约定记进日历并设提醒。",
+              "audio_url": "COS:/qa/responses/social_081_sub_3_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "提出具体补偿方案，提升诚意",
-          "audioUrl": null,
+          "usageNote": "用于重复性疏忽后的道歉，需承认模式问题并提出具体改进措施",
+          "audioUrl": "COS:/qa/questions/social_081_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_081_sub_3_qa_3",
+          "subSceneId": "social_081_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Are we okay now?",
+          "triggerTextCn": "我们现在没事了吧？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "对方在你道歉后试探关系是否修复，你需要确认并安抚情绪",
+          "followUps": [
+            {
+              "text": "Yes, I really value our friendship, and I'm working on being more reliable. Thanks for giving me another chance.",
+              "text_cn": "是的，我真的很珍惜我们的友谊，也在努力变得更可靠。谢谢你再给我一次机会。",
+              "audio_url": "COS:/qa/responses/social_081_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "用于道歉后确认关系修复，需表达重视与积极态度，避免敷衍",
+          "audioUrl": "COS:/qa/questions/social_081_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "social_081_sub_4",
+      "sceneId": "social_081",
+      "name": "提出补偿",
+      "description": "主动提议请咖啡或改期补回，缓解对方情绪。",
+      "order": 4,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "social_081_sub_4_qa_1",
+          "subSceneId": "social_081_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "I really feel bad about missing your birthday — how about I take you out for dinner this weekend?",
+          "triggerTextCn": "我真抱歉错过了你的生日——这周末我请你吃饭好吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友因错过重要事件提出补偿",
+          "followUps": [
+            {
+              "text": "That’s so kind of you — dinner sounds perfect!",
+              "text_cn": "你太贴心了！吃饭再好不过了！",
+              "audio_url": "COS:/qa/responses/social_081_sub_4_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "用于接受对方的补偿提议，表达感激且语气自然",
+          "audioUrl": "COS:/qa/questions/social_081_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "social_081_sub_4_qa_2",
+          "subSceneId": "social_081_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Sorry I spilled coffee on your laptop — I’ll buy you a new one or cover the repair cost.",
+          "triggerTextCn": "对不起我把咖啡洒在你笔记本上了，我来给你买新的或承担维修费用。",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事因意外损坏物品主动提出赔偿",
+          "followUps": [
+            {
+              "text": "Thanks, but a repair’s fine — no need to replace it.",
+              "text_cn": "谢谢你，但修一下就行，不用换新的。",
+              "audio_url": "COS:/qa/responses/social_081_sub_4_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "用于礼貌拒绝全额赔偿，体现体谅，常见于职场社交",
+          "audioUrl": "COS:/qa/questions/social_081_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_081_sub_4_qa_3",
+          "subSceneId": "social_081_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "I know I was late again — how about I handle next week’s group coffee run?",
+          "triggerTextCn": "我知道我又迟到了——要不这周的团队咖啡我来请？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事因频繁迟到提出以服务补偿",
+          "followUps": [
+            {
+              "text": "Deal! Just don’t be late next time — coffee’s on you!",
+              "text_cn": "成交！但下次别迟到了，咖啡你请！",
+              "audio_url": "COS:/qa/responses/social_081_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "用于轻松接受以服务形式补偿，语气带点幽默，符合年轻职场社交",
+          "audioUrl": "COS:/qa/questions/social_081_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "social_081_sub_5",
+      "sceneId": "social_081",
+      "name": "修复关系",
+      "description": "用轻松话题转移气氛，重建友好互动。",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "social_081_sub_5_qa_1",
+          "subSceneId": "social_081_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hey, you've been avoiding me lately. What's going on?",
+          "triggerTextCn": "嘿，你最近都在躲我，怎么了？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友注意到你疏远，主动询问原因，你需要解释并道歉",
+          "followUps": [
+            {
+              "text": "I'm really sorry—I've been stressed with work and didn't mean to ghost you. It wasn't personal.",
+              "text_cn": "真的很抱歉，我最近工作压力大，不是故意冷落你，这真的不是针对你。",
+              "audio_url": "COS:/qa/responses/social_081_sub_5_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "用于朋友察觉疏远时，自然表达歉意并澄清非恶意意图",
+          "audioUrl": "COS:/qa/questions/social_081_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "social_081_sub_5_qa_2",
+          "subSceneId": "social_081_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "I felt hurt when you canceled our plans last minute again.",
+          "triggerTextCn": "你又一次临时取消我们的计划，我感觉很受伤。",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友表达情绪受伤，你需要真诚道歉并说明原因，重建信任",
+          "followUps": [
+            {
+              "text": "You're totally right—I let you down, and I hate that I made you feel unimportant. I'll do better, I promise.",
+              "text_cn": "你说得对，我让你失望了，我讨厌自己让你觉得不重要。我一定会改，我保证。",
+              "audio_url": "COS:/qa/responses/social_081_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "用于承认对方情绪、承担责任，避免找借口，强调改变意愿",
+          "audioUrl": "COS:/qa/questions/social_081_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_081_sub_5_qa_3",
+          "subSceneId": "social_081_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Can we grab coffee this week? I miss hanging out.",
+          "triggerTextCn": "这周能一起喝杯咖啡吗？我挺想和你聊聊的。",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友主动提出和解邀约，你需要积极回应并表达珍惜关系的态度",
+          "followUps": [
+            {
+              "text": "I'd love that. Let me pick the place—I owe you a coffee and a real apology.",
+              "text_cn": "我太想去了！我来选地方吧，我欠你一杯咖啡，也欠你一个真心的道歉。",
+              "audio_url": "COS:/qa/responses/social_081_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "用于接受和解邀请，主动承担行动责任，强化修复诚意",
+          "audioUrl": "COS:/qa/questions/social_081_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     }

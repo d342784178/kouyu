@@ -1,13 +1,14 @@
 {
   "sceneId": "daily_022",
   "sceneName": "宠物店咨询",
-  "exportedAt": "2026-03-14T13:47:27.303Z",
+  "generatedAt": "2026-03-16T08:10:35.168Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_022_sub_1",
       "sceneId": "daily_022",
-      "name": "进门问候",
-      "description": "顾客进店与店员打招呼并说明来意",
+      "name": "咨询需求",
+      "description": "顾客说明想养公寓宠物，询问适合品种。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -15,30 +16,20 @@
           "id": "daily_022_sub_1_qa_1",
           "subSceneId": "daily_022_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "Hi there! I'm looking for a pet that's good for apartments.",
-          "triggerTextCn": "嗨！我在找适合公寓养的宠物。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "I'm looking for a low-maintenance pet for my apartment. What do you recommend?",
+          "triggerTextCn": "我想要一只适合公寓、好打理的宠物，你有什么推荐吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "店员可以回应顾客的问候并询问具体需求",
+          "scenarioHintCn": "顾客咨询适合公寓饲养的低维护宠物",
           "followUps": [
             {
-              "text": "Hey! I can help with that. What kind of pet are you thinking of?",
-              "text_cn": "嗨！我可以帮您。您想养哪种宠物？",
-              "audio_url": ""
-            },
-            {
-              "text": "Of course! We've got lots of apartment-friendly pets.",
-              "text_cn": "当然！我们有很多适合公寓养的宠物。",
-              "audio_url": ""
-            },
-            {
-              "text": "Sure thing.",
-              "text_cn": "好的。",
-              "audio_url": ""
+              "text": "Cats or small rodents like hamsters are great for apartments—they don’t need much space or daily walks.",
+              "text_cn": "猫或小型啮齿动物比如仓鼠非常适合公寓饲养——它们不需要大空间，也不用每天遛。",
+              "audio_url": "COS:/qa/responses/daily_022_sub_1_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用简单句表达需求，避免长句",
-          "audioUrl": null,
+          "usageNote": "顾客主动咨询宠物推荐，适用于初次到店、不确定选什么宠物的场景。",
+          "audioUrl": "COS:/qa/questions/daily_022_sub_1_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
         },
@@ -46,40 +37,51 @@
           "id": "daily_022_sub_1_qa_2",
           "subSceneId": "daily_022_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "I've never had a pet before, so I need something low-maintenance.",
-          "triggerTextCn": "我以前没养过宠物，想要个好打理的。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Do you have any puppies that are already vaccinated?",
+          "triggerTextCn": "你们有已经打过疫苗的小狗吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "店员可以回应顾客的问候并询问具体需求",
+          "scenarioHintCn": "顾客询问宠物健康状况与疫苗接种情况",
           "followUps": [
             {
-              "text": "No worries! Cats or small dogs like Cavaliers are perfect starters.",
-              "text_cn": "别担心！猫或小型犬比如卡瓦利尔很适合新手。",
-              "audio_url": ""
-            },
-            {
-              "text": "Hmm, maybe a hamster? Super easy.",
-              "text_cn": "嗯，养仓鼠？超简单。",
-              "audio_url": ""
-            },
-            {
-              "text": "I'd recommend a fish.",
-              "text_cn": "我建议养鱼。",
-              "audio_url": ""
+              "text": "Yes, all our puppies are up to date on their core vaccines. Here’s their health record you can take home.",
+              "text_cn": "有的，我们所有小狗都已完成核心疫苗接种。这是您可以带回家的健康记录。",
+              "audio_url": "COS:/qa/responses/daily_022_sub_1_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "新手可直接问推荐，简化决策",
-          "audioUrl": null,
+          "usageNote": "家长或首次养宠者常关注健康保障，此问题是购买决策的关键环节。",
+          "audioUrl": "COS:/qa/questions/daily_022_sub_1_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
+        },
+        {
+          "id": "daily_022_sub_1_qa_3",
+          "subSceneId": "daily_022_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "How much does it cost to adopt a cat from here?",
+          "triggerTextCn": "从你们这里领养一只猫要多少钱？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员询问领养费用，引导顾客进入交易流程",
+          "followUps": [
+            {
+              "text": "It’s $120, which includes spaying/neutering, microchip, and first vaccine.",
+              "text_cn": "120美元，包含绝育、芯片植入和第一次疫苗。",
+              "audio_url": "COS:/qa/responses/daily_022_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "店员主动说明费用结构，顾客需明确回应是否接受，是成交前的关键确认点。",
+          "audioUrl": "COS:/qa/questions/daily_022_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_022_sub_2",
       "sceneId": "daily_022",
-      "name": "询问品种",
-      "description": "顾客询问具体宠物品种的特性",
+      "name": "品种对比",
+      "description": "店员介绍几种小型宠物的特性与适应性。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -87,30 +89,20 @@
           "id": "daily_022_sub_2_qa_1",
           "subSceneId": "daily_022_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "How loud are Cavalier King Charles dogs? I'm in an apartment.",
-          "triggerTextCn": "卡瓦利尔犬叫得大声吗？我住公寓。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "What's the difference between a Labrador and a Golden Retriever?",
+          "triggerTextCn": "拉布拉多和金毛有什么区别？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问，店员回答。",
+          "scenarioHintCn": "顾客在对比两种常见犬种的体型和性格",
           "followUps": [
             {
-              "text": "Not really—they're quiet and chill. Perfect for condos!",
-              "text_cn": "不太叫，性格安静，特别适合公寓！",
-              "audio_url": ""
-            },
-            {
-              "text": "They bark sometimes, but not too much.",
-              "text_cn": "偶尔叫，但不多。",
-              "audio_url": ""
-            },
-            {
-              "text": "Quiet.",
-              "text_cn": "很安静。",
-              "audio_url": ""
+              "text": "Both are friendly and great with kids, but Labradors are more energetic and need more exercise, while Golden Retrievers are calmer and easier to train.",
+              "text_cn": "两者都很友善，适合有孩子家庭，但拉布拉多更活跃，需要更多运动；金毛则更安静，更容易训练。",
+              "audio_url": "COS:/qa/responses/daily_022_sub_2_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用具体问题锁定关键需求",
-          "audioUrl": null,
+          "usageNote": "用于比较两种相似犬种的典型特征，帮助顾客根据生活方式做选择",
+          "audioUrl": "COS:/qa/questions/daily_022_sub_2_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
         },
@@ -118,40 +110,51 @@
           "id": "daily_022_sub_2_qa_2",
           "subSceneId": "daily_022_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "Do they need a lot of exercise?",
-          "triggerTextCn": "它们需要很多运动吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Which breed is better for an apartment, a Poodle or a Beagle?",
+          "triggerTextCn": "在公寓养，贵宾犬和比格犬哪个更好？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问，店员回答。",
+          "scenarioHintCn": "顾客询问适合小空间饲养的犬种",
           "followUps": [
             {
-              "text": "A short walk and some playtime daily’s enough.",
-              "text_cn": "每天散散步、玩会儿就够了。",
-              "audio_url": ""
-            },
-            {
-              "text": "Nah, they’re couch potatoes.",
-              "text_cn": "不用，它们爱窝着。",
-              "audio_url": ""
-            },
-            {
-              "text": "Minimal exercise needed.",
-              "text_cn": "几乎不用运动。",
-              "audio_url": ""
+              "text": "Poodles are quieter and don't shed much, so they're ideal for apartments. Beagles bark a lot and need space to explore, so they're better with a yard.",
+              "text_cn": "贵宾犬安静、掉毛少，非常适合公寓；比格犬爱叫且需要活动空间，更适合有院子的家庭。",
+              "audio_url": "COS:/qa/responses/daily_022_sub_2_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "用口语词如 couch potatoes 增强真实感",
-          "audioUrl": null,
+          "usageNote": "顾客常因居住环境限制而询问犬种适应性，需明确空间与噪音因素",
+          "audioUrl": "COS:/qa/questions/daily_022_sub_2_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
+        },
+        {
+          "id": "daily_022_sub_2_qa_3",
+          "subSceneId": "daily_022_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you have any hypoallergenic dogs available?",
+          "triggerTextCn": "你们有低致敏性的狗狗吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员主动询问顾客是否有过敏需求，引导选择合适品种",
+          "followUps": [
+            {
+              "text": "Yes, I'd recommend a Bichon Frise or a Shih Tzu—they shed very little and are good for people with allergies.",
+              "text_cn": "有的，我推荐博美或西施犬，它们掉毛少，适合过敏体质的人。",
+              "audio_url": "COS:/qa/responses/daily_022_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "服务员主动识别顾客潜在需求，是服务场景中关键的主动服务话术",
+          "audioUrl": "COS:/qa/questions/daily_022_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_022_sub_3",
       "sceneId": "daily_022",
-      "name": "确认价格与细节",
-      "description": "顾客询问价格、包含服务及购买条件",
+      "name": "价格询问",
+      "description": "顾客询问不同宠物的价格及额外费用。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -159,104 +162,210 @@
           "id": "daily_022_sub_3_qa_1",
           "subSceneId": "daily_022_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "How much is the puppy? Does the price include shots?",
-          "triggerTextCn": "小狗多少钱？价格包含疫苗吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "How much does this puppy cost?",
+          "triggerTextCn": "这只小狗多少钱？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问，店员回答价格和疫苗信息",
+          "scenarioHintCn": "顾客询问具体宠物的价格",
           "followUps": [
             {
-              "text": "It's $800, and yeah, all shots and microchip are included.",
-              "text_cn": "800美元，疫苗和芯片都包了。",
-              "audio_url": ""
-            },
-            {
-              "text": "The shots are extra—about $100 more.",
-              "text_cn": "疫苗另算，多100美金。",
-              "audio_url": ""
-            },
-            {
-              "text": "Included.",
-              "text_cn": "包含在内。",
-              "audio_url": ""
+              "text": "This puppy is $450. It's been vaccinated and microchipped.",
+              "text_cn": "这只小狗450美元，已经接种了疫苗并植入了芯片。",
+              "audio_url": "COS:/qa/responses/daily_022_sub_3_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "直接问是否包含服务，避免后续纠纷",
-          "audioUrl": null,
+          "usageNote": "用于直接询问单个宠物的价格，是顾客最常问的开场问题",
+          "audioUrl": "COS:/qa/questions/daily_022_sub_3_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "daily_022_sub_3_qa_2",
           "subSceneId": "daily_022_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can I take it home today?",
-          "triggerTextCn": "我能今天带它回家吗？",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you have any discounts for adopting two pets?",
+          "triggerTextCn": "如果我领养两只宠物，有优惠吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问，店员回答价格和疫苗信息",
+          "scenarioHintCn": "店员主动询问是否考虑多养一只以提供套餐优惠",
           "followUps": [
             {
-              "text": "Sure! Just sign the paperwork and pay, and you're good to go.",
-              "text_cn": "当然！签个单、付款就能走。",
-              "audio_url": ""
-            },
-            {
-              "text": "We need a home check first—sorry.",
-              "text_cn": "得先家访，抱歉。",
-              "audio_url": ""
-            },
-            {
-              "text": "Not today.",
-              "text_cn": "今天不行。",
-              "audio_url": ""
+              "text": "Yes, if I adopt two, I'd like the bundle discount.",
+              "text_cn": "是的，如果我领养两只，我想享受组合优惠。",
+              "audio_url": "COS:/qa/responses/daily_022_sub_3_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "询问提货条件，明确下一步动作",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
+          "usageNote": "店员常以促销为由引导多购，顾客需自然回应意愿",
+          "audioUrl": "COS:/qa/questions/daily_022_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "daily_022_sub_3_qa_3",
+          "subSceneId": "daily_022_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "What’s the monthly cost for feeding and care for a small dog?",
+          "triggerTextCn": "养一只小型犬每月的喂养和护理费用大概是多少？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客在决定购买前，询问长期饲养成本",
+          "followUps": [
+            {
+              "text": "About $60–80 a month for food, treats, and basic grooming. We sell affordable supplies here too.",
+              "text_cn": "每月大约60到80美元用于食物、零食和基础美容。我们这里也有平价用品出售。",
+              "audio_url": "COS:/qa/responses/daily_022_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客评估长期开销的关键问题，体现理性消费思维",
+          "audioUrl": "COS:/qa/questions/daily_022_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     },
     {
       "id": "daily_022_sub_4",
       "sceneId": "daily_022",
-      "name": "道别与感谢",
-      "description": "顾客决定购买后与店员礼貌道别",
+      "name": "养护建议",
+      "description": "店员提供喂养、清洁和日常护理建议。",
       "order": 4,
-      "estimatedMinutes": 3,
+      "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_022_sub_4_qa_1",
           "subSceneId": "daily_022_sub_4",
-          "dialogueMode": "user_responds",
-          "triggerText": "I'll take him! Thanks so much for your help.",
-          "triggerTextCn": "我就要这只了！太感谢你的帮助了。",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "What kind of food should I feed my new puppy?",
+          "triggerTextCn": "我新买的小狗应该喂什么食物？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "顾客咨询新生幼犬的饮食建议",
           "followUps": [
             {
-              "text": "Awesome! Here’s your care guide—call us if you got any questions.",
-              "text_cn": "太棒了！这是护理指南，有事随时打电话。",
-              "audio_url": ""
-            },
-            {
-              "text": "No problem! Enjoy your new buddy!",
-              "text_cn": "不客气！好好享受新伙伴！",
-              "audio_url": ""
-            },
-            {
-              "text": "Thanks!",
-              "text_cn": "谢谢！",
-              "audio_url": ""
+              "text": "For puppies under 6 months, we recommend a high-protein puppy formula. Avoid human food—it can upset their stomach.",
+              "text_cn": "六个月以下的幼犬，我们推荐高蛋白幼犬专用粮。避免喂人类食物，可能会引起肠胃不适。",
+              "audio_url": "COS:/qa/responses/daily_022_sub_4_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "道别时表达感谢并确认后续支持",
-          "audioUrl": null,
-          "learnRequirement": "speak_followup",
+          "usageNote": "顾客询问宠物基础饮食建议时的典型对话，适用于新手宠物主人。",
+          "audioUrl": "COS:/qa/questions/daily_022_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
           "order": 1
+        },
+        {
+          "id": "daily_022_sub_4_qa_2",
+          "subSceneId": "daily_022_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "How often should I brush his coat?",
+          "triggerTextCn": "我应该多久给他梳一次毛？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客咨询宠物毛发护理频率",
+          "followUps": [
+            {
+              "text": "For a short-haired breed like this, once a week is enough. But if it’s long-haired, we suggest daily brushing to prevent tangles.",
+              "text_cn": "像这种短毛品种，每周一次就够了。但如果是长毛品种，建议每天梳理，防止打结。",
+              "audio_url": "COS:/qa/responses/daily_022_sub_4_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客在购买宠物后，针对毛发护理的高频追问，体现个性化养护建议。",
+          "audioUrl": "COS:/qa/questions/daily_022_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
+        },
+        {
+          "id": "daily_022_sub_4_qa_3",
+          "subSceneId": "daily_022_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you have any tips for helping him adjust to the new home?",
+          "triggerTextCn": "有什么建议可以帮助它适应新家吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "店员主动提供宠物适应新环境的建议，引导顾客回应",
+          "followUps": [
+            {
+              "text": "Yes, I’ll keep his old blanket with him and stick to a routine—same feeding and walk times.",
+              "text_cn": "有的，我会让他带着原来的毯子，并保持固定作息——喂食和散步时间不变。",
+              "audio_url": "COS:/qa/responses/daily_022_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "店员主动提供养护建议时，顾客自然回应的典型方式，体现积极互动与实际执行意愿。",
+          "audioUrl": "COS:/qa/questions/daily_022_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "daily_022_sub_5",
+      "sceneId": "daily_022",
+      "name": "决定购买",
+      "description": "顾客确认选择，完成购买流程。",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "daily_022_sub_5_qa_1",
+          "subSceneId": "daily_022_sub_5",
+          "dialogueMode": "user_asks",
+          "triggerText": "What do you recommend for a first-time pet owner?",
+          "triggerTextCn": "对于第一次养宠物的人，你推荐什么？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客询问适合新手的宠物类型",
+          "followUps": [
+            {
+              "text": "I'd suggest a hamster or a goldfish—they're low-maintenance and great for beginners.",
+              "text_cn": "我建议养仓鼠或金鱼，它们容易照顾，非常适合新手。",
+              "audio_url": "COS:/qa/responses/daily_022_sub_5_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客在犹豫选择哪种宠物时，常用此句寻求专业建议。",
+          "audioUrl": "COS:/qa/questions/daily_022_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
+        },
+        {
+          "id": "daily_022_sub_5_qa_2",
+          "subSceneId": "daily_022_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Does this puppy have all its vaccinations?",
+          "triggerTextCn": "这只小狗打过所有疫苗了吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员确认宠物健康状况后询问顾客是否关心疫苗情况",
+          "followUps": [
+            {
+              "text": "Yes, he’s fully vaccinated and has a health certificate.",
+              "text_cn": "是的，他已经打完所有疫苗，并有健康证明。",
+              "audio_url": "COS:/qa/responses/daily_022_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客在决定购买前，常主动确认宠物健康信息，回应需简洁明确。",
+          "audioUrl": "COS:/qa/questions/daily_022_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "daily_022_sub_5_qa_3",
+          "subSceneId": "daily_022_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like to buy the cage and food too?",
+          "triggerTextCn": "您要不要顺便买笼子和饲料？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员在顾客决定购买宠物后，推荐配套用品",
+          "followUps": [
+            {
+              "text": "Yes, please. I’ll take the starter kit.",
+              "text_cn": "好的，请给我一套入门套装。",
+              "audio_url": "COS:/qa/responses/daily_022_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客在最终决定购买时，常直接接受推荐，回应应自然、果断。",
+          "audioUrl": "COS:/qa/questions/daily_022_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     }

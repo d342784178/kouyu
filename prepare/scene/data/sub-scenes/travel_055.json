@@ -1,13 +1,14 @@
 {
   "sceneId": "travel_055",
   "sceneName": "问路导航",
-  "exportedAt": "2026-03-14T13:47:27.369Z",
+  "generatedAt": "2026-03-16T08:21:06.675Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "travel_055_sub_1",
       "sceneId": "travel_055",
-      "name": "礼貌打招呼",
-      "description": "礼貌打断路人开始问路",
+      "name": "礼貌打断",
+      "description": "游客礼貌地向路人搭话，请求问路。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -15,29 +16,19 @@
           "id": "travel_055_sub_1_qa_1",
           "subSceneId": "travel_055_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "Excuse me, could I ask for a quick favor?",
-          "triggerTextCn": "不好意思，能麻烦您一下吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Excuse me, could I ask you a quick question?",
+          "triggerTextCn": "不好意思，我能问您一个问题吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "场景提示：用户需要礼貌地打断他人，表达请求",
+          "scenarioHintCn": "顾客礼貌打断服务员，准备问路",
           "followUps": [
             {
-              "text": "Of course, what can I help you with?",
-              "text_cn": "当然，有什么可以帮您的？",
+              "text": "Of course, go ahead.",
+              "text_cn": "当然可以，请说。",
               "audio_url": "COS:/qa/responses/travel_055_sub_1_qa_1_response0.mp3"
-            },
-            {
-              "text": "Sure, go ahead.",
-              "text_cn": "当然，说吧。",
-              "audio_url": "COS:/qa/responses/travel_055_sub_1_qa_1_response1.mp3"
-            },
-            {
-              "text": "Yeah, what is it?",
-              "text_cn": "嗯，什么事？",
-              "audio_url": "COS:/qa/responses/travel_055_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于礼貌开启问路对话",
+          "usageNote": "用于在服务人员忙碌时礼貌地引起注意，是英语母语者最常用的打断开场白之一。",
           "audioUrl": "COS:/qa/questions/travel_055_sub_1_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -46,24 +37,19 @@
           "id": "travel_055_sub_1_qa_2",
           "subSceneId": "travel_055_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "I'm looking for the nearest subway station. Could you point me in the right direction?",
-          "triggerTextCn": "我在找最近的地铁站，您能指一下方向吗？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Sorry to interrupt, but could you tell me how to get to the nearest restroom?",
+          "triggerTextCn": "抱歉打扰一下，您能告诉我最近的洗手间怎么走吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "场景提示：用户需要礼貌地打断他人，表达请求",
+          "scenarioHintCn": "顾客在餐厅或商场中礼貌打断服务人员问路",
           "followUps": [
             {
-              "text": "",
-              "text_cn": "",
+              "text": "Sure, it's just down the hall to the left, past the elevators.",
+              "text_cn": "当然，沿着走廊左转，经过电梯就到了。",
               "audio_url": "COS:/qa/responses/travel_055_sub_1_qa_2_response0.mp3"
-            },
-            {
-              "text": "",
-              "text_cn": "",
-              "audio_url": "COS:/qa/responses/travel_055_sub_1_qa_2_response1.mp3"
             }
           ],
-          "usageNote": "询问具体地点的标准表达",
+          "usageNote": "高频使用于服务场景中，表达礼貌请求帮助，结构简洁自然，适合初学者模仿。",
           "audioUrl": "COS:/qa/questions/travel_055_sub_1_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
@@ -71,176 +57,104 @@
         {
           "id": "travel_055_sub_1_qa_3",
           "subSceneId": "travel_055_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "Sorry, I'm not from around here either. I'm not sure.",
-          "triggerTextCn": "抱歉，我也不是本地人，我不太确定。",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you have a moment? I need directions to the hospital.",
+          "triggerTextCn": "您有空吗？我需要去最近的医院怎么走？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "场景提示：用户需要礼貌地打断他人，表达请求",
+          "scenarioHintCn": "服务员主动询问顾客是否需要帮助（常见于医院或大型商场服务台）",
           "followUps": [
             {
-              "text": "",
-              "text_cn": "",
+              "text": "Yes, please. The hospital is a five-minute walk from here, turn right at the bus stop.",
+              "text_cn": "有的，请说。医院离这儿步行五分钟，到公交站右转就行。",
               "audio_url": "COS:/qa/responses/travel_055_sub_1_qa_3_response0.mp3"
-            },
-            {
-              "text": "",
-              "text_cn": "",
-              "audio_url": "COS:/qa/responses/travel_055_sub_1_qa_3_response1.mp3"
             }
           ],
-          "usageNote": "对方不知道时的应对",
+          "usageNote": "服务人员主动提供帮助是专业服务的典型表现，用户需能自然回应需求，此句为高频应答模板。",
           "audioUrl": "COS:/qa/questions/travel_055_sub_1_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
-        },
-        {
-          "id": "travel_055_sub_1_qa_4",
-          "subSceneId": "travel_055_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "You can also use Google Maps — it's very accurate around here.",
-          "triggerTextCn": "您也可以用谷歌地图，这附近很准确。",
-          "triggerSpeakerRole": "staff",
-          "scenarioHint": null,
-          "scenarioHintCn": "场景提示：用户需要礼貌地打断他人，表达请求",
-          "followUps": [
-            {
-              "text": "",
-              "text_cn": "",
-              "audio_url": "COS:/qa/responses/travel_055_sub_1_qa_4_response0.mp3"
-            }
-          ],
-          "usageNote": "对方建议使用导航软件",
-          "audioUrl": "COS:/qa/questions/travel_055_sub_1_qa_4.mp3",
-          "learnRequirement": "speak_trigger",
-          "order": 4
         }
       ]
     },
     {
       "id": "travel_055_sub_2",
       "sceneId": "travel_055",
-      "name": "询问目的地",
-      "description": "清楚说出你要去的地方",
+      "name": "询问地点",
+      "description": "询问目的地的具体位置和方向。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
+          "id": "travel_055_sub_2_qa_1",
+          "subSceneId": "travel_055_sub_2",
+          "dialogueMode": "user_asks",
+          "triggerText": "Excuse me, could you tell me where the nearest restaurant is?",
+          "triggerTextCn": "不好意思，请问最近的餐厅在哪里？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "游客在陌生街区向路人询问餐厅位置",
+          "followUps": [
+            {
+              "text": "Sure! Just walk two blocks straight ahead, then turn right at the bank. The restaurant is on the corner.",
+              "text_cn": "当然！直走两个街区，然后在银行右转，餐厅就在拐角处。",
+              "audio_url": "COS:/qa/responses/travel_055_sub_2_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "这是最基础的问路句型，适用于任何城市环境，语气礼貌且通用。",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
+        },
+        {
           "id": "travel_055_sub_2_qa_2",
           "subSceneId": "travel_055_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "That's right. You'll see a big fountain — that's the landmark.",
-          "triggerTextCn": "对的。您会看到一个大喷泉，那就是地标。",
+          "triggerText": "Is this the way to the hospital?",
+          "triggerTextCn": "这条路是去往医院的吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "便利店店员被顾客确认前往医院的方向",
           "followUps": [
             {
-              "text": "",
-              "text_cn": "",
+              "text": "No, it’s not. You need to go back to the main road and turn left — the hospital is next to the post office.",
+              "text_cn": "不是的，您得回到主路左转——医院就在邮局旁边。",
               "audio_url": "COS:/qa/responses/travel_055_sub_2_qa_2_response0.mp3"
-            },
-            {
-              "text": "",
-              "text_cn": "",
-              "audio_url": "COS:/qa/responses/travel_055_sub_2_qa_2_response1.mp3"
             }
           ],
-          "usageNote": "确认地标帮助辨认方向",
+          "usageNote": "当对方给出方向时，用户需快速确认或纠正，回应应简洁明确，避免冗长解释。",
           "audioUrl": "COS:/qa/questions/travel_055_sub_2_qa_2.mp3",
-          "learnRequirement": "speak_followup",
-          "order": 2
-        },
-        {
-          "id": "travel_055_sub_2_qa_1",
-          "subSceneId": "travel_055_sub_2",
-          "dialogueMode": "user_responds",
-          "triggerText": "Do you know how to get to the Central Museum?",
-          "triggerTextCn": "你知道怎么去中央博物馆吗？",
-          "triggerSpeakerRole": "staff",
-          "scenarioHint": null,
-          "scenarioHintCn": null,
-          "followUps": [
-            {
-              "text": "Yes, it's just two blocks north on Main Street.",
-              "text_cn": "知道，沿着主街向北两个街区。",
-              "audio_url": "COS:/qa/responses/travel_055_sub_2_qa_1_response0.mp3"
-            },
-            {
-              "text": "Sorry, I'm not from around here.",
-              "text_cn": "抱歉，我不是本地人。",
-              "audio_url": "COS:/qa/responses/travel_055_sub_2_qa_1_response1.mp3"
-            },
-            {
-              "text": "Walk straight, then turn left at the bank.",
-              "text_cn": "直走，到银行左转。",
-              "audio_url": "COS:/qa/responses/travel_055_sub_2_qa_1_response2.mp3"
-            }
-          ],
-          "usageNote": "询问具体地点的常用句型",
-          "audioUrl": "COS:/qa/questions/travel_055_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "travel_055_sub_2_qa_3",
           "subSceneId": "travel_055_sub_2",
-          "dialogueMode": "user_responds",
-          "triggerText": "It's about a 10-minute walk. You can't miss it.",
-          "triggerTextCn": "大约走10分钟，您不会错过的。",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you know if there’s a pharmacy nearby?",
+          "triggerTextCn": "你知道附近有药店吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "旅客在酒店前台询问最近的药店",
           "followUps": [
             {
-              "text": "",
-              "text_cn": "",
+              "text": "Yes, there’s one just across the street — it’s open until 10 PM.",
+              "text_cn": "有的，就在马路对面，营业到晚上10点。",
               "audio_url": "COS:/qa/responses/travel_055_sub_2_qa_3_response0.mp3"
-            },
-            {
-              "text": "",
-              "text_cn": "",
-              "audio_url": "COS:/qa/responses/travel_055_sub_2_qa_3_response1.mp3"
             }
           ],
-          "usageNote": "询问距离和时间",
+          "usageNote": "询问‘附近是否有…’是高频实用句型，常用于紧急或日常需求场景，回答通常附带实用细节（如营业时间）。",
           "audioUrl": "COS:/qa/questions/travel_055_sub_2_qa_3.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 3
-        },
-        {
-          "id": "travel_055_sub_2_qa_4",
-          "subSceneId": "travel_055_sub_2",
-          "dialogueMode": "user_responds",
-          "triggerText": "You're welcome! Enjoy your visit!",
-          "triggerTextCn": "不客气！祝您参观愉快！",
-          "triggerSpeakerRole": "staff",
-          "scenarioHint": null,
-          "scenarioHintCn": null,
-          "followUps": [
-            {
-              "text": "",
-              "text_cn": "",
-              "audio_url": "COS:/qa/responses/travel_055_sub_2_qa_4_response0.mp3"
-            },
-            {
-              "text": "",
-              "text_cn": "",
-              "audio_url": "COS:/qa/responses/travel_055_sub_2_qa_4_response1.mp3"
-            }
-          ],
-          "usageNote": "道谢后的礼貌回应",
-          "audioUrl": "COS:/qa/questions/travel_055_sub_2_qa_4.mp3",
-          "learnRequirement": "speak_followup",
-          "order": 4
         }
       ]
     },
     {
       "id": "travel_055_sub_3",
       "sceneId": "travel_055",
-      "name": "确认方向",
-      "description": "确认左右、前后等方位指引",
+      "name": "确认路线",
+      "description": "确认行走方向、地标和距离信息。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -248,116 +162,72 @@
           "id": "travel_055_sub_3_qa_1",
           "subSceneId": "travel_055_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "Is it far from here? And do I turn left or right after the post office?",
-          "triggerTextCn": "离这儿远吗？过了邮局是左转还是右转？",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Could you tell me how to get to the nearest subway station from here?",
+          "triggerTextCn": "你能告诉我从这儿怎么去最近的地铁站吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "在询问方向时，应先礼貌地打招呼，然后提出具体问题。",
+          "scenarioHintCn": "顾客在餐厅外向服务员询问前往地铁站的路线",
           "followUps": [
             {
-              "text": "It's about five minutes walk. Turn left after the post office.",
-              "text_cn": "大概五分钟路程，邮局后左转。",
+              "text": "Sure! Walk straight for two blocks, then turn left at the traffic light. The station entrance is right across from the bank.",
+              "text_cn": "当然！直走两个街区，到红绿灯处左转，车站入口就在银行对面。",
               "audio_url": "COS:/qa/responses/travel_055_sub_3_qa_1_response0.mp3"
-            },
-            {
-              "text": "Not far, and yes, left at the post office.",
-              "text_cn": "不远，邮局那儿左转。",
-              "audio_url": "COS:/qa/responses/travel_055_sub_3_qa_1_response1.mp3"
-            },
-            {
-              "text": "You're good, just keep going.",
-              "text_cn": "没问题，一直走就行。",
-              "audio_url": "COS:/qa/responses/travel_055_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "确认方向和距离的关键提问",
+          "usageNote": "用于向本地服务人员询问具体步行路线，语气礼貌但直接，适合初学者模仿",
           "audioUrl": "COS:/qa/questions/travel_055_sub_3_qa_1.mp3",
           "learnRequirement": "speak_trigger",
-          "order": 3
+          "order": 1
+        },
+        {
+          "id": "travel_055_sub_3_qa_2",
+          "subSceneId": "travel_055_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Are you sure this is the right way to the hospital?",
+          "triggerTextCn": "你确定这条路是去医院的吗？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员在指路后发现顾客犹豫，主动确认顾客是否理解正确",
+          "followUps": [
+            {
+              "text": "Yes, I’m sure. The hospital is just past the post office — you can’t miss the big red building.",
+              "text_cn": "是的，我确定。过了邮局就是医院，那栋红色的大楼一眼就能看到。",
+              "audio_url": "COS:/qa/responses/travel_055_sub_3_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "服务员主动确认顾客是否理解路线，是服务场景中体现专业性的高频回应，用户需简洁确认或追问",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
         },
         {
           "id": "travel_055_sub_3_qa_3",
           "subSceneId": "travel_055_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "In that case, you need to turn around and walk back about 200 meters.",
-          "triggerTextCn": "那样的话，您需要转身往回走大约200米。",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Is it faster to walk or take a bus to the post office?",
+          "triggerTextCn": "去邮局是走路快还是坐公交快？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "在询问方向时，应先礼貌地打招呼，然后提出具体问题。",
+          "scenarioHintCn": "顾客在银行门口询问前往邮局的最佳交通方式",
           "followUps": [
             {
-              "text": "",
-              "text_cn": "",
+              "text": "Walking’s quicker — it’s only 10 minutes away. The bus takes longer because of the stops.",
+              "text_cn": "走路更快，只有10分钟路程。公交要停好多站，反而更慢。",
               "audio_url": "COS:/qa/responses/travel_055_sub_3_qa_3_response0.mp3"
-            },
-            {
-              "text": "",
-              "text_cn": "",
-              "audio_url": "COS:/qa/responses/travel_055_sub_3_qa_3_response1.mp3"
             }
           ],
-          "usageNote": "走错方向时的纠正指引",
+          "usageNote": "顾客主动比较交通方式，体现真实场景中的决策需求，回应需包含时间对比和理由",
           "audioUrl": "COS:/qa/questions/travel_055_sub_3_qa_3.mp3",
           "learnRequirement": "speak_trigger",
           "order": 3
-        },
-        {
-          "id": "travel_055_sub_3_qa_2",
-          "subSceneId": "travel_055_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "Is it far from here?",
-          "triggerTextCn": "离这儿远吗？",
-          "triggerSpeakerRole": "staff",
-          "scenarioHint": null,
-          "scenarioHintCn": "在询问方向时，应先礼貌地打招呼，然后提出具体问题。",
-          "followUps": [
-            {
-              "text": "",
-              "text_cn": "",
-              "audio_url": "COS:/qa/responses/travel_055_sub_3_qa_2_response0.mp3"
-            },
-            {
-              "text": "",
-              "text_cn": "",
-              "audio_url": "COS:/qa/responses/travel_055_sub_3_qa_2_response1.mp3"
-            },
-            {
-              "audio_url": "https://kouyu-scene-1300762139.cos.ap-guangzhou.myqcloud.com/qa-audio/responses/travel_055_sub_3_qa_2_response2.mp3"
-            }
-          ],
-          "usageNote": "用is it far?确认距离很实用",
-          "audioUrl": "COS:/qa/questions/travel_055_sub_3_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
-          "order": 4
-        },
-        {
-          "id": "travel_055_sub_3_qa_4",
-          "subSceneId": "travel_055_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "No problem at all. It happens to everyone in a new city!",
-          "triggerTextCn": "完全没问题。在陌生城市迷路是常有的事！",
-          "triggerSpeakerRole": "staff",
-          "scenarioHint": null,
-          "scenarioHintCn": "在询问方向时，应先礼貌地打招呼，然后提出具体问题。",
-          "followUps": [
-            {
-              "text": "",
-              "text_cn": "",
-              "audio_url": "COS:/qa/responses/travel_055_sub_3_qa_4_response0.mp3"
-            }
-          ],
-          "usageNote": "对方安慰的友好回应",
-          "audioUrl": "COS:/qa/questions/travel_055_sub_3_qa_4.mp3",
-          "learnRequirement": "speak_trigger",
-          "order": 4
         }
       ]
     },
     {
       "id": "travel_055_sub_4",
       "sceneId": "travel_055",
-      "name": "道谢告别",
-      "description": "表达感谢并礼貌结束对话",
+      "name": "重复确认",
+      "description": "复述路线以确保理解无误。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -365,32 +235,137 @@
           "id": "travel_055_sub_4_qa_1",
           "subSceneId": "travel_055_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Thanks so much for your help!",
-          "triggerTextCn": "非常感谢你的帮助！",
+          "triggerText": "So you're saying the hospital is on the corner of Main and 5th?",
+          "triggerTextCn": "所以你是说医院在主街和第五街的拐角处？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "服务员/路人重复确认用户询问的路线信息",
           "followUps": [
             {
-              "text": "You're welcome! Have a great day!",
-              "text_cn": "不客气，祝你今天愉快！",
+              "text": "Yes, that's right. You can't miss it — it's the big white building with the red cross.",
+              "text_cn": "是的，没错。你不可能错过——那是带有红色十字标志的大白楼。",
               "audio_url": "COS:/qa/responses/travel_055_sub_4_qa_1_response0.mp3"
-            },
-            {
-              "text": "No problem, enjoy the museum!",
-              "text_cn": "没事，好好参观博物馆吧！",
-              "audio_url": "COS:/qa/responses/travel_055_sub_4_qa_1_response1.mp3"
-            },
-            {
-              "text": "Anytime!",
-              "text_cn": "随时欢迎！",
-              "audio_url": "COS:/qa/responses/travel_055_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "表达感谢并结束对话",
+          "usageNote": "用于确认导航信息时，用户重复对方说法以确保理解无误，是问路场景中最自然的确认方式。",
           "audioUrl": "COS:/qa/questions/travel_055_sub_4_qa_1.mp3",
-          "learnRequirement": "listen_only",
-          "order": 5
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "travel_055_sub_4_qa_2",
+          "subSceneId": "travel_055_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Just to double-check, you said to turn left after the bank, not the post office?",
+          "triggerTextCn": "再确认一下，你是说在银行左转，而不是邮局？",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "服务员/路人重复确认用户询问的路线细节",
+          "followUps": [
+            {
+              "text": "Exactly — left after the bank. The post office is two blocks past it.",
+              "text_cn": "没错——在银行左转。邮局在它再往前两个街区。",
+              "audio_url": "COS:/qa/responses/travel_055_sub_4_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "用户通过重复关键节点（如银行 vs 邮局）来排除歧义，是高频且实用的确认表达。",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "travel_055_sub_4_qa_3",
+          "subSceneId": "travel_055_sub_4",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can you repeat the directions to the pharmacy? I want to make sure I got it right.",
+          "triggerTextCn": "你能重复一遍去药房的路线吗？我想确认我有没有听对。",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "用户主动请求重复导航指示以确保准确",
+          "followUps": [
+            {
+              "text": "Of course! Walk straight for two blocks, then turn right at the gas station. The pharmacy is right across from the bus stop.",
+              "text_cn": "当然！直走两个街区，然后在加油站右转。药房就在公交站对面。",
+              "audio_url": "COS:/qa/responses/travel_055_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "用户主动请求重复信息，是真实场景中体现礼貌与谨慎的典型表达，非常常见于外语学习者。",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "travel_055_sub_5",
+      "sceneId": "travel_055",
+      "name": "表达感谢",
+      "description": "对路人帮助表示真诚感谢并告别。",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "travel_055_sub_5_qa_1",
+          "subSceneId": "travel_055_sub_5",
+          "dialogueMode": "user_asks",
+          "triggerText": "Thank you so much for your help!",
+          "triggerTextCn": "非常感谢你的帮助！",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客在得到方向指引后表达感谢",
+          "followUps": [
+            {
+              "text": "You're very welcome! Have a great day!",
+              "text_cn": "不客气！祝你今天愉快！",
+              "audio_url": "COS:/qa/responses/travel_055_sub_5_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "顾客在获得帮助后自然表达感谢，服务员常用此回应，语气友好且标准",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 1
+        },
+        {
+          "id": "travel_055_sub_5_qa_2",
+          "subSceneId": "travel_055_sub_5",
+          "dialogueMode": "user_asks",
+          "triggerText": "I really appreciate you taking the time to guide me.",
+          "triggerTextCn": "非常感谢你花时间为我指路。",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客对详细指路表示真诚感谢",
+          "followUps": [
+            {
+              "text": "My pleasure! If you need anything else, just ask.",
+              "text_cn": "很乐意帮忙！如果还需要什么，随时问我。",
+              "audio_url": "COS:/qa/responses/travel_055_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "使用更正式的感谢表达时，服务员会用温暖且开放式的回应，增强服务体验",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 2
+        },
+        {
+          "id": "travel_055_sub_5_qa_3",
+          "subSceneId": "travel_055_sub_5",
+          "dialogueMode": "user_asks",
+          "triggerText": "Thanks a lot! You've been so kind.",
+          "triggerTextCn": "太感谢了！你真是太好了。",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "顾客在被热情帮助后表达情感性感谢",
+          "followUps": [
+            {
+              "text": "Aw, thank you! Hope you find your way easily!",
+              "text_cn": "哎呀，谢谢你！希望你一路顺利！",
+              "audio_url": "COS:/qa/responses/travel_055_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "当顾客使用情感化语言（如 'so kind'）时，服务员会用更口语化、带情感的回应，体现自然人际互动",
+          "audioUrl": "COS:/qa/questions/travel_055_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_trigger",
+          "order": 3
         }
       ]
     }

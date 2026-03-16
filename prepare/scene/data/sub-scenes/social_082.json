@@ -1,13 +1,14 @@
 {
   "sceneId": "social_082",
   "sceneName": "感谢表达",
-  "exportedAt": "2026-03-14T13:47:27.330Z",
+  "generatedAt": "2026-03-16T08:25:17.204Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "social_082_sub_1",
       "sceneId": "social_082",
-      "name": "帮忙搬东西",
-      "description": "朋友帮你搬重物后表达感谢",
+      "name": "借笔记致谢",
+      "description": "朋友帮你抄了课堂笔记，你表达真诚感谢。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -15,30 +16,20 @@
           "id": "social_082_sub_1_qa_1",
           "subSceneId": "social_082_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Thanks a million for helping me move this couch!",
-          "triggerTextCn": "太感谢你帮我搬沙发了！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Hope it helps!",
+          "triggerTextCn": "希望对你有帮助！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友借出笔记后，你向对方表达感谢",
           "followUps": [
             {
-              "text": "Don't mention it!",
-              "text_cn": "别客气！",
-              "audio_url": ""
-            },
-            {
-              "text": "You're welcome, anytime!",
-              "text_cn": "不客气，随时找我！",
-              "audio_url": ""
-            },
-            {
-              "text": "No big deal, I love helping you.",
-              "text_cn": "小事一桩，帮你我乐意。",
-              "audio_url": ""
+              "text": "Thanks so much! This is exactly what I needed.",
+              "text_cn": "太感谢了！这正是我需要的。",
+              "audio_url": "COS:/qa/responses/social_082_sub_1_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "非正式场合用，表达亲切感谢",
-          "audioUrl": null,
+          "usageNote": "用于朋友主动提供帮助后，自然表达真诚感谢，语气亲切但不夸张",
+          "audioUrl": "COS:/qa/questions/social_082_sub_1_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
@@ -46,40 +37,51 @@
           "id": "social_082_sub_1_qa_2",
           "subSceneId": "social_082_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "I'd never have gotten it done without you!",
-          "triggerTextCn": "没你我真搬不动这沙发！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "You didn't have to share your notes!",
+          "triggerTextCn": "你其实不用把笔记借给我的！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友主动分享笔记，你感到意外并想表达感激",
           "followUps": [
             {
-              "text": "You're a lifesaver!",
-              "text_cn": "你真是我的救星！",
-              "audio_url": ""
-            },
-            {
-              "text": "Happy to help!",
-              "text_cn": "乐意效劳！",
-              "audio_url": ""
-            },
-            {
-              "text": "Anytime, seriously.",
-              "text_cn": "随时都行，真的。",
-              "audio_url": ""
+              "text": "I really appreciate it—I’d have been lost without this.",
+              "text_cn": "我真的非常感激，没有这些笔记我真不知道怎么办。",
+              "audio_url": "COS:/qa/responses/social_082_sub_1_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "强调对方关键作用，适合深度感谢",
-          "audioUrl": null,
+          "usageNote": "回应对方谦逊的表达，强调帮助的实际价值，增强情感真实感",
+          "audioUrl": "COS:/qa/questions/social_082_sub_1_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_082_sub_1_qa_3",
+          "subSceneId": "social_082_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Let me know if you need anything else!",
+          "triggerTextCn": "如果还需要什么，告诉我！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友借出笔记并表示愿意继续帮忙，你表达感谢并结束对话",
+          "followUps": [
+            {
+              "text": "You're a lifesaver—I’ll definitely take you out for coffee next week!",
+              "text_cn": "你真是救了我命了！下周我一定请你喝咖啡！",
+              "audio_url": "COS:/qa/responses/social_082_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "在对方表达持续支持后，用具体回馈（请喝咖啡）表达感谢，符合朋友间自然互动",
+          "audioUrl": "COS:/qa/questions/social_082_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_082_sub_2",
       "sceneId": "social_082",
-      "name": "借书帮忙",
-      "description": "朋友帮你找到稀缺书籍后致谢",
+      "name": "帮忙搬东西",
+      "description": "朋友帮你搬重物，你用夸张表达感谢。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -87,30 +89,20 @@
           "id": "social_082_sub_2_qa_1",
           "subSceneId": "social_082_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "How did you even find that out-of-print book? Thanks so much!",
-          "triggerTextCn": "你怎么找到这本绝版书的？太感谢了！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Hey, no problem!",
+          "triggerTextCn": "嘿，没什么的！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友帮你搬完东西后轻描淡写地回应",
           "followUps": [
             {
-              "text": "No problem, I know how much you wanted it.",
-              "text_cn": "不麻烦，我知道你多想要。",
-              "audio_url": ""
-            },
-            {
-              "text": "You're totally welcome!",
-              "text_cn": "完全不用谢！",
-              "audio_url": ""
-            },
-            {
-              "text": "It was nothing!",
-              "text_cn": "小菜一碟！",
-              "audio_url": ""
+              "text": "Thanks so much! I really appreciate it.",
+              "text_cn": "太感谢了！我真的非常感激。",
+              "audio_url": "COS:/qa/responses/social_082_sub_2_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "回应高价值帮助，语气真诚自然",
-          "audioUrl": null,
+          "usageNote": "用于对朋友的帮忙表达真诚感谢，语气自然温暖，适合日常社交场景",
+          "audioUrl": "COS:/qa/questions/social_082_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
@@ -118,40 +110,51 @@
           "id": "social_082_sub_2_qa_2",
           "subSceneId": "social_082_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "I owe you one for this!",
-          "triggerTextCn": "这事我记你一笔人情！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Let me know if you need help again!",
+          "triggerTextCn": "下次需要帮忙随时告诉我！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友搬完东西后主动表示愿意继续帮忙",
           "followUps": [
             {
-              "text": "Pay me back with coffee next week!",
-              "text_cn": "下周请我喝杯咖啡就行！",
-              "audio_url": ""
-            },
-            {
-              "text": "Just return the favor when I need it!",
-              "text_cn": "等我需要时你帮我就成！",
-              "audio_url": ""
-            },
-            {
-              "text": "Forget it, really.",
-              "text_cn": "别放在心上。",
-              "audio_url": ""
+              "text": "I will for sure! You're a lifesaver.",
+              "text_cn": "我一定会的！你真是救了我一命。",
+              "audio_url": "COS:/qa/responses/social_082_sub_2_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "回应人情债，轻松化解压力",
-          "audioUrl": null,
+          "usageNote": "回应对方的善意支持，表达感激并暗示未来会回报，增强社交纽带",
+          "audioUrl": "COS:/qa/questions/social_082_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_082_sub_2_qa_3",
+          "subSceneId": "social_082_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "You owe me coffee now!",
+          "triggerTextCn": "现在你欠我一杯咖啡了！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友用幽默方式回应你的感谢，暗示未来请客",
+          "followUps": [
+            {
+              "text": "Haha, deal! Coffee's on me this Friday.",
+              "text_cn": "哈哈，成交！这周五我请客。",
+              "audio_url": "COS:/qa/responses/social_082_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "回应朋友的轻松调侃，既表达感谢又接受社交互惠，体现自然的友谊互动",
+          "audioUrl": "COS:/qa/questions/social_082_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_082_sub_3",
       "sceneId": "social_082",
-      "name": "加班代班",
-      "description": "同事替你加班后表达感谢",
+      "name": "加班代打卡",
+      "description": "同事帮你顶班打卡，你礼貌回应感谢。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -159,30 +162,20 @@
           "id": "social_082_sub_3_qa_1",
           "subSceneId": "social_082_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Seriously, thanks for covering my shift tonight!",
-          "triggerTextCn": "真的太感谢你今晚替我加班！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Hey, you forgot to clock in, right? I can swipe for you.",
+          "triggerTextCn": "嘿，你忘记打卡了吧？我可以帮你刷一下。",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "同事主动提出代为打卡，用户需回应感谢或接受",
           "followUps": [
             {
-              "text": "Anytime, you'd do the same for me.",
-              "text_cn": "随时都行，你也会帮我。",
-              "audio_url": ""
-            },
-            {
-              "text": "No worries, I had nothing else planned.",
-              "text_cn": "别担心，我也没别的事。",
-              "audio_url": ""
-            },
-            {
-              "text": "You're a legend!",
-              "text_cn": "你太牛了！",
-              "audio_url": ""
+              "text": "Oh wow, thanks so much! You're a lifesaver.",
+              "text_cn": "天啊，太感谢了！你真是救了我。",
+              "audio_url": "COS:/qa/responses/social_082_sub_3_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "职场中用，兼顾礼貌与亲和力",
-          "audioUrl": null,
+          "usageNote": "用于同事主动帮忙代打卡时，自然表达感激，语气亲切但不过度正式",
+          "audioUrl": "COS:/qa/questions/social_082_sub_3_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
@@ -190,40 +183,51 @@
           "id": "social_082_sub_3_qa_2",
           "subSceneId": "social_082_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "I'm buying you dinner tomorrow, promise!",
-          "triggerTextCn": "明天我请你吃饭，一定！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Need a hand with clocking in? I'm heading out anyway.",
+          "triggerTextCn": "需要我帮你打卡吗？我正好要走。",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "同事顺路提出代打卡，用户需礼貌回应感谢",
           "followUps": [
             {
-              "text": "Deal! But no need to rush.",
-              "text_cn": "一言为定！不过别急。",
-              "audio_url": ""
-            },
-            {
-              "text": "Just pay it forward next time!",
-              "text_cn": "下次你帮别人就行。",
-              "audio_url": ""
-            },
-            {
-              "text": "I'll hold you to that!",
-              "text_cn": "我可记着了啊！",
-              "audio_url": ""
+              "text": "Seriously? That’s so kind of you—thank you!",
+              "text_cn": "真的吗？你太好了，太感谢了！",
+              "audio_url": "COS:/qa/responses/social_082_sub_3_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "回应请客承诺，轻松幽默收尾",
-          "audioUrl": null,
+          "usageNote": "表达惊喜与真诚感谢，适合日常职场社交，语气轻松但有温度",
+          "audioUrl": "COS:/qa/questions/social_082_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_082_sub_3_qa_3",
+          "subSceneId": "social_082_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "I’ll cover your clock-in. Don’t worry about it.",
+          "triggerTextCn": "我帮你打卡，别担心。",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事主动承担代打卡责任，用户需表达感谢",
+          "followUps": [
+            {
+              "text": "You’re awesome—I owe you one!",
+              "text_cn": "你太棒了！我欠你一个人情！",
+              "audio_url": "COS:/qa/responses/social_082_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "口语化表达感激，'I owe you one' 是英语母语者常用短语，体现关系亲近",
+          "audioUrl": "COS:/qa/questions/social_082_sub_3_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_082_sub_4",
       "sceneId": "social_082",
-      "name": "照顾宠物",
-      "description": "朋友帮你照看宠物后致谢",
+      "name": "深夜陪聊",
+      "description": "朋友深夜听你倾诉，你表达深切感激。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -231,30 +235,20 @@
           "id": "social_082_sub_4_qa_1",
           "subSceneId": "social_082_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "My dog is so happy—he even licked your face!",
-          "triggerTextCn": "我狗太开心了，都亲你脸了！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "You stayed up with me all night — I really appreciate it.",
+          "triggerTextCn": "你陪了我一整晚，我真的非常感激。",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "深夜陪聊后，朋友表达感谢",
           "followUps": [
             {
-              "text": "He's adorable—I’d do it again tomorrow!",
-              "text_cn": "他太可爱了，明天还乐意！",
-              "audio_url": ""
-            },
-            {
-              "text": "It was the least I could do!",
-              "text_cn": "这是我该做的！",
-              "audio_url": ""
-            },
-            {
-              "text": "Puppy love is the best payment!",
-              "text_cn": "狗狗的爱就是最好报酬！",
-              "audio_url": ""
+              "text": "Of course! I'm just glad I could be there for you.",
+              "text_cn": "当然！我很高兴能陪在你身边。",
+              "audio_url": "COS:/qa/responses/social_082_sub_4_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用宠物互动强化情感联结",
-          "audioUrl": null,
+          "usageNote": "用于回应朋友深夜陪伴后的真诚感谢，语气温暖自然，避免过度正式",
+          "audioUrl": "COS:/qa/questions/social_082_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
         },
@@ -262,32 +256,116 @@
           "id": "social_082_sub_4_qa_2",
           "subSceneId": "social_082_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "You're the best pet-sitter ever!",
-          "triggerTextCn": "你是我见过最棒的宠物保姆！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Thanks for listening when I was falling apart.",
+          "triggerTextCn": "谢谢你在我情绪崩溃时听我说话。",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "深夜倾诉后，表达对倾听的感激",
           "followUps": [
             {
-              "text": "Thanks! You're the best friend ever.",
-              "text_cn": "谢谢！你才是最好的朋友。",
-              "audio_url": ""
-            },
-            {
-              "text": "Just doing my part!",
-              "text_cn": "尽本分而已！",
-              "audio_url": ""
-            },
-            {
-              "text": "I'm flattered!",
-              "text_cn": "太夸奖了！",
-              "audio_url": ""
+              "text": "Anytime. You know I’ve got your back.",
+              "text_cn": "随时都在，你知道我永远支持你。",
+              "audio_url": "COS:/qa/responses/social_082_sub_4_qa_2_response0.mp3"
             }
           ],
-          "usageNote": "回应极高赞美，��持谦逊自然",
-          "audioUrl": null,
+          "usageNote": "朋友间表达情感支持后的典型回应，强调可靠性和亲密感，避免客套话",
+          "audioUrl": "COS:/qa/questions/social_082_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_082_sub_4_qa_3",
+          "subSceneId": "social_082_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "I know it’s 3 a.m. — thanks for not hanging up.",
+          "triggerTextCn": "我知道现在是凌晨三点，谢谢你没挂电话。",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "深夜聊天结束时，对耐心陪伴表示感谢",
+          "followUps": [
+            {
+              "text": "Don’t even mention it. I’d do it again in a heartbeat.",
+              "text_cn": "别客气，我随时都愿意再陪你一次。",
+              "audio_url": "COS:/qa/responses/social_082_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "体现深夜陪伴的特殊性，回应需传递情感温度，避免机械式感谢",
+          "audioUrl": "COS:/qa/questions/social_082_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
+        }
+      ]
+    },
+    {
+      "id": "social_082_sub_5",
+      "sceneId": "social_082",
+      "name": "回应感谢",
+      "description": "你帮了朋友，对方道谢，你得体回应。",
+      "order": 5,
+      "estimatedMinutes": 5,
+      "qaPairs": [
+        {
+          "id": "social_082_sub_5_qa_1",
+          "subSceneId": "social_082_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thanks so much for helping me with the presentation!",
+          "triggerTextCn": "太感谢你帮我做演示了！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事帮你完成工作后表达感谢，你如何回应",
+          "followUps": [
+            {
+              "text": "No problem! Happy to help.",
+              "text_cn": "不客气！很乐意帮忙。",
+              "audio_url": "COS:/qa/responses/social_082_sub_5_qa_1_response0.mp3"
+            }
+          ],
+          "usageNote": "最常用、最自然的回应，适用于朋友或同事间轻松场景",
+          "audioUrl": "COS:/qa/questions/social_082_sub_5_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "social_082_sub_5_qa_2",
+          "subSceneId": "social_082_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "I really appreciate you covering my shift!",
+          "triggerTextCn": "真的很感谢你替我值夜班！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事替你承担额外责任后，你如何礼貌回应",
+          "followUps": [
+            {
+              "text": "Of course! Anytime you need a hand, just say the word.",
+              "text_cn": "当然！下次你需要帮忙，随时说一声。",
+              "audio_url": "COS:/qa/responses/social_082_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "表达乐意再次帮忙，增强人际关系，比简单说 'You're welcome' 更有温度",
+          "audioUrl": "COS:/qa/questions/social_082_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_082_sub_5_qa_3",
+          "subSceneId": "social_082_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thanks for grabbing coffee for me!",
+          "triggerTextCn": "谢谢你帮我买咖啡！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友/同事为你做小善举后，你如何自然回应",
+          "followUps": [
+            {
+              "text": "Haha, it's the least I could do!",
+              "text_cn": "哈哈，这算不了什么！",
+              "audio_url": "COS:/qa/responses/social_082_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "用轻松语气弱化对方的感谢，体现亲密关系，非常地道的社交回应",
+          "audioUrl": "COS:/qa/questions/social_082_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     }

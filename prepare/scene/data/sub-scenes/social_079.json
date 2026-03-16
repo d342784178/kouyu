@@ -1,46 +1,79 @@
 {
   "sceneId": "social_079",
   "sceneName": "生日祝福",
-  "exportedAt": "2026-03-14T13:47:27.326Z",
+  "generatedAt": "2026-03-16T08:16:17.573Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "social_079_sub_1",
       "sceneId": "social_079",
       "name": "生日问候",
-      "description": "朋友见面时第一句生日祝福",
+      "description": "朋友见面时送上生日祝福，使用简单问候语。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_079_sub_1_qa_1",
           "subSceneId": "social_079_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "Hey! Happy birthday!",
-          "triggerTextCn": "嘿！生日快乐！",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "Happy birthday!",
+          "triggerTextCn": "生日快乐！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "在询问生日计划或赠送礼物时，使用 user_asks 模式",
+          "scenarioHintCn": "朋友或同事向你祝贺生日，你需要礼貌回应",
           "followUps": [
             {
-              "text": "Thanks! I'm so happy you came!",
-              "text_cn": "谢谢！你来我太开心了！",
-              "audio_url": ""
-            },
-            {
-              "text": "Wow, thanks a lot!",
-              "text_cn": "哇，太感谢了！",
-              "audio_url": ""
-            },
-            {
-              "text": "Hey, thanks!",
-              "text_cn": "嘿，谢谢！",
-              "audio_url": ""
+              "text": "Thanks so much! You made my day!",
+              "text_cn": "太感谢了！你让我今天特别开心！",
+              "audio_url": "COS:/qa/responses/social_079_sub_1_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "回应祝福要带感激语气",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
+          "usageNote": "这是最自然、高频的生日回应，表达感激并传递积极情绪，适用于朋友或同事间",
+          "audioUrl": "COS:/qa/questions/social_079_sub_1_qa_1.mp3",
+          "learnRequirement": "speak_followup",
           "order": 1
+        },
+        {
+          "id": "social_079_sub_1_qa_2",
+          "subSceneId": "social_079_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "How are you celebrating today?",
+          "triggerTextCn": "你今天怎么庆祝呀？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友询问你的生日计划，你需要简短分享安排",
+          "followUps": [
+            {
+              "text": "Just having dinner with a few friends. Nothing fancy!",
+              "text_cn": "就和几个朋友吃顿饭，没搞什么大阵仗！",
+              "audio_url": "COS:/qa/responses/social_079_sub_1_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "回应应轻松自然，避免过度详细，符合社交场景中低调分享的习惯",
+          "audioUrl": "COS:/qa/questions/social_079_sub_1_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_079_sub_1_qa_3",
+          "subSceneId": "social_079_sub_1",
+          "dialogueMode": "user_responds",
+          "triggerText": "Did you get any cool gifts?",
+          "triggerTextCn": "收到什么酷礼物了吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事好奇你是否收到礼物，需简短回应并保持友好",
+          "followUps": [
+            {
+              "text": "Yeah, my roommate got me that coffee maker I wanted. So excited!",
+              "text_cn": "对，我室友送了我一直想要的咖啡机，太开心了！",
+              "audio_url": "COS:/qa/responses/social_079_sub_1_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "回应应带点小兴奋，体现真实情感，避免只说‘嗯’或‘还行’，增强口语表现力",
+          "audioUrl": "COS:/qa/questions/social_079_sub_1_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
@@ -48,40 +81,72 @@
       "id": "social_079_sub_2",
       "sceneId": "social_079",
       "name": "询问计划",
-      "description": "关心对方生日怎么过",
+      "description": "询问对方生日当天的安排，表达关心。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_079_sub_2_qa_1",
           "subSceneId": "social_079_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "What're you up to today?",
-          "triggerTextCn": "今天有什么安排呀？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "What are you doing for your birthday?",
+          "triggerTextCn": "你生日打算怎么过？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "适用于朋友间询问对方生日当天的安排",
+          "scenarioHintCn": "朋友询问你的生日计划",
           "followUps": [
             {
-              "text": "I'm having dinner with my family, then a small party!",
-              "text_cn": "和家人吃晚饭，然后有个小派对！",
-              "audio_url": ""
-            },
-            {
-              "text": "Just chillin' at home, honestly.",
-              "text_cn": "老实说，就在家放松。",
-              "audio_url": ""
-            },
-            {
-              "text": "Going out with friends, wanna join?",
-              "text_cn": "和朋友出去，要一起来吗？",
-              "audio_url": ""
+              "text": "I'm thinking of having a small dinner with a few friends.",
+              "text_cn": "我打算和几个朋友吃顿简单的晚饭。",
+              "audio_url": "COS:/qa/responses/social_079_sub_2_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "用口语缩写让对话更自然",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
+          "usageNote": "用于回应朋友对生日安排的自然询问，简洁真实，避免过度详细",
+          "audioUrl": "COS:/qa/questions/social_079_sub_2_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "social_079_sub_2_qa_2",
+          "subSceneId": "social_079_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Any plans for your birthday this year?",
+          "triggerTextCn": "今年生日有什么计划吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事礼貌询问生日安排",
+          "followUps": [
+            {
+              "text": "Maybe just a cake at work and a movie night.",
+              "text_cn": "可能就公司吃个蛋糕，晚上看个电影。",
+              "audio_url": "COS:/qa/responses/social_079_sub_2_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "职场社交中常见轻量级回应，体现自然随意的语气，不显刻意",
+          "audioUrl": "COS:/qa/questions/social_079_sub_2_qa_2.mp3",
+          "learnRequirement": "speak_followup",
           "order": 2
+        },
+        {
+          "id": "social_079_sub_2_qa_3",
+          "subSceneId": "social_079_sub_2",
+          "dialogueMode": "user_responds",
+          "triggerText": "Are you going out somewhere for your birthday?",
+          "triggerTextCn": "你生日会出去玩吗？",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友试探性询问是否外出庆祝",
+          "followUps": [
+            {
+              "text": "Nah, staying in this time — just chill with my roommate.",
+              "text_cn": "不去了，这次待在家，和室友放松一下。",
+              "audio_url": "COS:/qa/responses/social_079_sub_2_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "使用非正式口语表达（Nah, chill）体现真实朋友间对话风格，符合年轻人社交习惯",
+          "audioUrl": "COS:/qa/questions/social_079_sub_2_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
@@ -89,7 +154,7 @@
       "id": "social_079_sub_3",
       "sceneId": "social_079",
       "name": "赠送礼物",
-      "description": "送礼物时的礼貌表达",
+      "description": "送出礼物并附上礼貌的祝福语句。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -97,30 +162,62 @@
           "id": "social_079_sub_3_qa_1",
           "subSceneId": "social_079_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "I got you something—hope you like it!",
-          "triggerTextCn": "我给你带了礼物，希望你喜欢！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "I got you a little something for your birthday.",
+          "triggerTextCn": "我给你带了点小礼物庆祝生日。",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友赠送生日礼物时的典型开场",
           "followUps": [
             {
-              "text": "Oh my gosh, you shouldn't have! It's perfect!",
-              "text_cn": "天啊，你太客气了！太棒了！",
-              "audio_url": ""
-            },
-            {
-              "text": "Really? Thanks, I'll love it!",
-              "text_cn": "真的吗？谢谢，我肯定会喜欢！",
-              "audio_url": ""
-            },
-            {
-              "text": "Aw, thanks!",
-              "text_cn": "哎呀，谢谢！",
-              "audio_url": ""
+              "text": "Oh wow, you didn’t have to! But thank you so much—I love it!",
+              "text_cn": "天啊，你不用这么破费的！但真的太谢谢你了——我超喜欢！",
+              "audio_url": "COS:/qa/responses/social_079_sub_3_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "收到礼物要立刻表达惊喜",
-          "audioUrl": null,
+          "usageNote": "当朋友递上礼物时，用此回应表达惊喜与真诚感谢，语气自然亲切，适合社交场景。",
+          "audioUrl": "COS:/qa/questions/social_079_sub_3_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "social_079_sub_3_qa_2",
+          "subSceneId": "social_079_sub_3",
+          "dialogueMode": "user_asks",
+          "triggerText": "What did you get me?",
+          "triggerTextCn": "你给我买了什么？",
+          "triggerSpeakerRole": "customer",
+          "scenarioHint": null,
+          "scenarioHintCn": "收礼者好奇礼物内容，直接询问",
+          "followUps": [
+            {
+              "text": "Just a small book by your favorite author—you said you wanted to read it!",
+              "text_cn": "就是一本你最爱的作家写的书——你说过想读它！",
+              "audio_url": "COS:/qa/responses/social_079_sub_3_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "送礼者用轻松语气解释礼物选择，体现用心，是朋友间常见回应方式。",
+          "audioUrl": "COS:/qa/questions/social_079_sub_3_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_079_sub_3_qa_3",
+          "subSceneId": "social_079_sub_3",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hope you like it—I picked it because I remembered you mentioned you needed a new coffee mug.",
+          "triggerTextCn": "希望你喜欢！我记得你说过需要一个新的咖啡杯，就挑了这个。",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "送礼者解释礼物选择理由，增强情感联结",
+          "followUps": [
+            {
+              "text": "You remembered that?! That’s so thoughtful—I’m already using it this morning!",
+              "text_cn": "你还记得这个？！太贴心了——我今天早上已经在用了！",
+              "audio_url": "COS:/qa/responses/social_079_sub_3_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "回应需体现感动与即时反馈，突出社交场景中‘被记住’的情感价值，真实自然。",
+          "audioUrl": "COS:/qa/questions/social_079_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
         }
@@ -129,49 +226,81 @@
     {
       "id": "social_079_sub_4",
       "sceneId": "social_079",
-      "name": "确认后续",
-      "description": "确认是否还有后续聚会",
+      "name": "表达感谢",
+      "description": "寿星对祝福和礼物表示感谢。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_079_sub_4_qa_1",
           "subSceneId": "social_079_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Wanna grab coffee next week?",
-          "triggerTextCn": "下周要不要一起喝咖啡？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thanks so much for the birthday card!",
+          "triggerTextCn": "谢谢你送的生日贺卡！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "适用于朋友间邀请对方进行社交活动",
+          "scenarioHintCn": "朋友送你生日贺卡，你表达感谢",
           "followUps": [
             {
-              "text": "Definitely! Let me check my calendar.",
-              "text_cn": "当然！我看看日程。",
-              "audio_url": ""
-            },
-            {
-              "text": "Sounds good, but I'm busy Friday.",
-              "text_cn": "好啊，不过周五我有事。",
-              "audio_url": ""
-            },
-            {
-              "text": "Yeah, next Tuesday?",
-              "text_cn": "好啊，下周二怎么样？",
-              "audio_url": ""
+              "text": "I really appreciated it — it made my day!",
+              "text_cn": "我真的很感激，它让我的一天特别开心！",
+              "audio_url": "COS:/qa/responses/social_079_sub_4_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "回应邀约要给出具体建议",
-          "audioUrl": null,
-          "learnRequirement": "speak_trigger",
-          "order": 4
+          "usageNote": "用于回应他人送的生日小礼物或心意，语气温暖真诚，适合朋友间使用",
+          "audioUrl": "COS:/qa/questions/social_079_sub_4_qa_1.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 1
+        },
+        {
+          "id": "social_079_sub_4_qa_2",
+          "subSceneId": "social_079_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "Happy birthday! Hope you had a great day!",
+          "triggerTextCn": "生日快乐！希望你过了愉快的一天！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事在生日当天祝福你，你表达感谢",
+          "followUps": [
+            {
+              "text": "Thank you! I had a wonderful time thanks to you all.",
+              "text_cn": "谢谢你！因为有你们，我度过了非常美好的一天。",
+              "audio_url": "COS:/qa/responses/social_079_sub_4_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "回应群体祝福时的简洁得体表达，适用于职场或朋友聚会场景",
+          "audioUrl": "COS:/qa/questions/social_079_sub_4_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_079_sub_4_qa_3",
+          "subSceneId": "social_079_sub_4",
+          "dialogueMode": "user_responds",
+          "triggerText": "You didn’t have to get me anything, but I love the cake!",
+          "triggerTextCn": "你本不必送我礼物的，但我超爱这个蛋糕！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友送了生日蛋糕，你既表达感谢又夸赞礼物",
+          "followUps": [
+            {
+              "text": "That’s so thoughtful of you — thank you for making it so special!",
+              "text_cn": "你太贴心了，谢谢你让这一天这么特别！",
+              "audio_url": "COS:/qa/responses/social_079_sub_4_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "用于回应有心意的礼物或手工礼物，强调对方的用心，自然且情感饱满",
+          "audioUrl": "COS:/qa/questions/social_079_sub_4_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     },
     {
       "id": "social_079_sub_5",
       "sceneId": "social_079",
-      "name": "礼貌道别",
-      "description": "生日聚会结束时告别",
+      "name": "告别祝福",
+      "description": "分别时再次祝福，结束温馨对话。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -179,32 +308,64 @@
           "id": "social_079_sub_5_qa_1",
           "subSceneId": "social_079_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Gotta run—thanks again for the awesome day!",
-          "triggerTextCn": "我得走了，今天太棒了，谢谢！",
-          "triggerSpeakerRole": "staff",
+          "triggerText": "Happy birthday! Hope you have an amazing one before you head off!",
+          "triggerTextCn": "生日快乐！在你离开之前，希望你度过精彩的一天！",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": null,
+          "scenarioHintCn": "朋友在你即将离开或出差前送上生日祝福并告别",
           "followUps": [
             {
-              "text": "Bye! Call me when you're free!",
-              "text_cn": "拜拜！有空记得找我！",
-              "audio_url": ""
-            },
-            {
-              "text": "Take care, and happy birthday again!",
-              "text_cn": "保重，再祝你生日快乐！",
-              "audio_url": ""
-            },
-            {
-              "text": "See ya!",
-              "text_cn": "回头见！",
-              "audio_url": ""
+              "text": "Thanks so much! I’ll make the most of it—and let’s catch up soon!",
+              "text_cn": "太感谢了！我一定会好好享受，咱们尽快再聚！",
+              "audio_url": "COS:/qa/responses/social_079_sub_5_qa_1_response0.mp3"
             }
           ],
-          "usageNote": "告别要重复祝福更显礼貌",
-          "audioUrl": null,
+          "usageNote": "用于朋友在你即将离开时表达生日祝福后的自然回应，语气温暖且带期待重逢",
+          "audioUrl": "COS:/qa/questions/social_079_sub_5_qa_1.mp3",
           "learnRequirement": "speak_followup",
-          "order": 5
+          "order": 1
+        },
+        {
+          "id": "social_079_sub_5_qa_2",
+          "subSceneId": "social_079_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Happy birthday! Don’t forget to celebrate before you leave!",
+          "triggerTextCn": "生日快乐！走之前别忘了好好庆祝一下！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "同事/朋友提醒你离开前别错过生日庆祝",
+          "followUps": [
+            {
+              "text": "I won’t! I’m meeting a few friends for dinner tonight—wish me luck!",
+              "text_cn": "我不会忘的！今晚和几个朋友吃晚饭，祝我好运！",
+              "audio_url": "COS:/qa/responses/social_079_sub_5_qa_2_response0.mp3"
+            }
+          ],
+          "usageNote": "回应中包含具体庆祝计划，体现真实社交互动，避免笼统回答",
+          "audioUrl": "COS:/qa/questions/social_079_sub_5_qa_2.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 2
+        },
+        {
+          "id": "social_079_sub_5_qa_3",
+          "subSceneId": "social_079_sub_5",
+          "dialogueMode": "user_responds",
+          "triggerText": "Happy birthday, and safe travels wherever you're going next!",
+          "triggerTextCn": "生日快乐，无论你接下来去哪里，一路平安！",
+          "triggerSpeakerRole": "peer",
+          "scenarioHint": null,
+          "scenarioHintCn": "朋友在你生日当天同时为你即将出行送别祝福",
+          "followUps": [
+            {
+              "text": "That means a lot—thank you! I’ll send pics from the road!",
+              "text_cn": "这太暖心了，谢谢！我会在路上发照片给你们！",
+              "audio_url": "COS:/qa/responses/social_079_sub_5_qa_3_response0.mp3"
+            }
+          ],
+          "usageNote": "结合生日与告别双重情感，回应需体现感激与分享意愿，符合自然社交语境",
+          "audioUrl": "COS:/qa/questions/social_079_sub_5_qa_3.mp3",
+          "learnRequirement": "speak_followup",
+          "order": 3
         }
       ]
     }
