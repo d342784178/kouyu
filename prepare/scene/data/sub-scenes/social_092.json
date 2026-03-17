@@ -1,14 +1,14 @@
 {
   "sceneId": "social_092",
   "sceneName": "邻里交流",
-  "generatedAt": "2026-03-17T03:10:33.112Z",
+  "generatedAt": "2026-03-17T03:36:28.902Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "social_092_sub_1",
       "sceneId": "social_092",
-      "name": "偶遇寒暄",
-      "description": "新搬来的居民在楼道遇见邻居，主动打招呼开启对话。",
+      "name": "偶遇打招呼",
+      "description": "新搬来的居民在楼道遇见邻居，主动微笑问候开启对话。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -16,29 +16,29 @@
           "id": "social_092_sub_1_qa_1",
           "subSceneId": "social_092_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Hey, you're new around here, right?",
-          "triggerTextCn": "嘿，你是新搬来的吧？",
+          "triggerText": "Hey, you're the new neighbor, right?",
+          "triggerTextCn": "嘿，你是新搬来的邻居吧？",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "邻里偶遇寒暄：对方认出你是新邻居并主动搭话",
+          "scenarioHintCn": "邻里偶遇，对方认出你是新搬来的并主动打招呼",
           "followUps": [
             {
-              "text": "Yes, just moved in last week! I'm Alex.",
-              "text_cn": "是的，上周刚搬来！我是亚历克斯。",
+              "text": "Yes, I just moved in last week! I'm Alex.",
+              "text_cn": "是的，我上周刚搬来！我是亚历克斯。",
               "audio_url": "COS:/qa/responses/social_092_sub_1_qa_1_response0.mp3"
             },
             {
-              "text": "Yeah, I am. Sorry, I'm in a rush right now!",
-              "text_cn": "对，是我。不好意思，我现在赶时间！",
+              "text": "That's right! I'm a bit shy, but nice to meet you.",
+              "text_cn": "对，我是。我有点内向，但很高兴认识你。",
               "audio_url": "COS:/qa/responses/social_092_sub_1_qa_1_response1.mp3"
             },
             {
-              "text": "Actually, I've lived here for a few months — I just haven't seen you before!",
-              "text_cn": "其实我住这儿几个月了，只是之前没碰见过你！",
+              "text": "Yep! By the way, do you know where the nearest grocery store is?",
+              "text_cn": "对！顺便问一下，最近的杂货店在哪？",
               "audio_url": "COS:/qa/responses/social_092_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于邻居主动识别你为新住户时的自然回应，体现社交弹性",
+          "usageNote": "这是邻里偶遇中最常见的开场白之一，回应时可根据性格选择热情、内敛或带问题的版本，自然推动对话。",
           "audioUrl": "COS:/qa/questions/social_092_sub_1_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -47,29 +47,29 @@
           "id": "social_092_sub_1_qa_2",
           "subSceneId": "social_092_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "How's the new place treating you?",
-          "triggerTextCn": "新家住得还顺心吗？",
+          "triggerText": "How’s it going with the move?",
+          "triggerTextCn": "搬家还顺利吗？",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "邻里偶遇寒暄：对方关心你对新居的适应情况",
+          "scenarioHintCn": "邻居关心你的搬家进展，表达友好",
           "followUps": [
             {
-              "text": "Pretty good! The neighbors are super friendly, and the park nearby is a bonus.",
-              "text_cn": "还不错！邻居都很友善，附近还有个公园，真是加分项。",
+              "text": "Pretty good! Just unpacking the kitchen now.",
+              "text_cn": "还不错！现在正在 unpack 厨房。",
               "audio_url": "COS:/qa/responses/social_092_sub_1_qa_2_response0.mp3"
             },
             {
-              "text": "It's okay, but the noise from upstairs is driving me crazy.",
-              "text_cn": "还行吧，就是楼上的噪音快把我逼疯了。",
+              "text": "It’s been a mess, but I’m getting there.",
+              "text_cn": "乱成一团，但我在慢慢搞定。",
               "audio_url": "COS:/qa/responses/social_092_sub_1_qa_2_response1.mp3"
             },
             {
-              "text": "Still unpacking — but I’m getting there!",
-              "text_cn": "还在 unpacking，但慢慢来着！",
+              "text": "Not bad! I’m still waiting for my furniture to arrive.",
+              "text_cn": "还行，就是家具还没到。",
               "audio_url": "COS:/qa/responses/social_092_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "回应关于居住体验的问题，可展现积极、真实或略带幽默的态度",
+          "usageNote": "邻居常以关心搬家为切入点建立联系，回应时可选择乐观、真实或略带延迟的状态，避免过于负面或敷衍。",
           "audioUrl": "COS:/qa/questions/social_092_sub_1_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -78,29 +78,29 @@
           "id": "social_092_sub_1_qa_3",
           "subSceneId": "social_092_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "You're out walking your dog? I haven't seen him before.",
-          "triggerTextCn": "你出来遛狗啊？我之前没见过它。",
+          "triggerText": "You’ve got a cute dog!",
+          "triggerTextCn": "你有一只可爱的小狗！",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "邻里偶遇寒暄：对方注意到你的宠物并以此开启话题",
+          "scenarioHintCn": "邻居注意到你养宠物并主动赞美，开启轻松对话",
           "followUps": [
             {
-              "text": "Yeah, this is Max! He's a golden retriever — super social, loves meeting people.",
-              "text_cn": "对，这是Max！金毛犬，特别爱社交，喜欢认识新朋友。",
+              "text": "Thanks! He’s a rescue pup—his name’s Max.",
+              "text_cn": "谢谢！他是收养的，叫马克斯。",
               "audio_url": "COS:/qa/responses/social_092_sub_1_qa_3_response0.mp3"
             },
             {
-              "text": "Uh, actually, he's not mine — I'm just dog-sitting for my neighbor.",
-              "text_cn": "呃，其实他不是我的，我只是帮邻居照看几天。",
+              "text": "Yeah, he’s a handful—but I love him.",
+              "text_cn": "是啊，他挺闹腾的，但我超爱他。",
               "audio_url": "COS:/qa/responses/social_092_sub_1_qa_3_response1.mp3"
             },
             {
-              "text": "I don't have a dog — I'm just out for a quick walk.",
-              "text_cn": "我没养狗，只是出来散个步。",
+              "text": "Oh, you like dogs? I’m planning a neighborhood dog walk next weekend!",
+              "text_cn": "哦，你喜欢狗吗？我正计划下周末搞个社区遛狗活动！",
               "audio_url": "COS:/qa/responses/social_092_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "当邻居误认宠物归属时，提供三种应对策略：接纳、澄清、纠正，增强真实对话适应力",
+          "usageNote": "赞美宠物是邻里社交的高成功率话题，回应可侧重情感表达、幽默或顺势建立社群联系，避免只说‘谢谢’而终止对话。",
           "audioUrl": "COS:/qa/questions/social_092_sub_1_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -111,7 +111,7 @@
       "id": "social_092_sub_2",
       "sceneId": "social_092",
       "name": "自我介绍",
-      "description": "双方互相介绍姓名和搬来时间，建立初步联系。",
+      "description": "双方互相介绍姓名和搬来时间，表达友好态度。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -123,25 +123,25 @@
           "triggerTextCn": "嗨，我是新搬来的，就住在隔壁。你叫什么名字？",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "邻居主动自我介绍并询问姓名，学习者回应",
+          "scenarioHintCn": "邻居主动自我介绍并询问你的名字",
           "followUps": [
             {
-              "text": "Nice to meet you! I'm Alex. I've lived here for three years.",
-              "text_cn": "很高兴认识你！我是亚历克斯，住这儿三年了。",
+              "text": "I'm Alex — nice to meet you! I've lived here for three years.",
+              "text_cn": "我是Alex，很高兴认识你！我住这儿三年了。",
               "audio_url": "COS:/qa/responses/social_092_sub_2_qa_1_response0.mp3"
             },
             {
-              "text": "Hi, I'm Jamie. Nice to meet you too — hope we can be good neighbors!",
-              "text_cn": "嗨，我是杰米，也很高兴认识你，希望我们能成为好邻居！",
+              "text": "Oh, hi. I'm Jamie. Just moved in last week — still getting used to the place.",
+              "text_cn": "哦，你好，我是Jamie，上周刚搬来，还在适应环境。",
               "audio_url": "COS:/qa/responses/social_092_sub_2_qa_1_response1.mp3"
             },
             {
-              "text": "Oh, hi. I'm Taylor. Just settling in — nice to meet you.",
-              "text_cn": "哦，嗨，我是泰勒，刚搬来安顿，很高兴认识你。",
+              "text": "Jamie. And you? I'm still figuring out who's who around here.",
+              "text_cn": "Jamie。那你呢？我还在搞清楚邻居们都是谁。",
               "audio_url": "COS:/qa/responses/social_092_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "适用于初次见面的邻里寒暄，回应时可根据性格选择热情、礼貌或保守风格",
+          "usageNote": "用于邻里初次见面时的自然自我介绍回应，语气应轻松友好，避免过于正式或冷淡。",
           "audioUrl": "COS:/qa/questions/social_092_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -150,29 +150,29 @@
           "id": "social_092_sub_2_qa_2",
           "subSceneId": "social_092_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "You're the new person in 3B, right? How long have you been here?",
-          "triggerTextCn": "你是3B的新住户吧？你搬来多久了？",
+          "triggerText": "I saw you walking your dog — are you the one who lives in the blue house?",
+          "triggerTextCn": "我看到你遛狗了——你是住在蓝色房子里的那位吗？",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "邻居确认身份并询问入住时间，学习者回应",
+          "scenarioHintCn": "邻居通过观察特征（如宠物、房屋）确认身份并开启对话",
           "followUps": [
             {
-              "text": "Yeah! I moved in last Friday — still unpacking, haha.",
-              "text_cn": "对！我上周五搬进来的，还在拆箱子呢，哈哈。",
+              "text": "Yes, that's me! I have a golden retriever named Max. He loves the park down the street.",
+              "text_cn": "对，就是我！我有一只金毛叫Max，他超爱街尾的那个公园。",
               "audio_url": "COS:/qa/responses/social_092_sub_2_qa_2_response0.mp3"
             },
             {
-              "text": "Actually, I moved in two weeks ago — I was away on business first.",
-              "text_cn": "其实我两周前就搬来了，之前因为出差耽搁了。",
+              "text": "Yep, that's my place. I'm still learning the neighborhood — any tips on the best local spots?",
+              "text_cn": "没错，那就是我家。我还在熟悉社区，有什么推荐的好地方吗？",
               "audio_url": "COS:/qa/responses/social_092_sub_2_qa_2_response1.mp3"
             },
             {
-              "text": "Uh, yeah — I'm in 3B. Just got here yesterday.",
-              "text_cn": "呃，对，我住3B，昨天刚到。",
+              "text": "Actually, I'm in the green house — the one with the porch swing. I think we're next to each other!",
+              "text_cn": "其实我住在绿色房子里——就是有秋千的那个，我觉得我们是邻居！",
               "audio_url": "COS:/qa/responses/social_092_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "邻居可能通过楼号确认身份，回应时可结合真实经历调整细节，增强自然感",
+          "usageNote": "当邻居通过非直接方式（如宠物、房屋）识别你时，回应需清晰、自然，可顺势展开话题。",
           "audioUrl": "COS:/qa/questions/social_092_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -181,29 +181,29 @@
           "id": "social_092_sub_2_qa_3",
           "subSceneId": "social_092_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you have any pets? I've got a dog and sometimes he barks late at night.",
-          "triggerTextCn": "你养宠物吗？我养了条狗，有时半夜会叫。",
+          "triggerText": "Hey, I'm Tina from 3B. We've seen each other around but never really talked — what do you do?",
+          "triggerTextCn": "嘿，我是3B的Tina，我们经常碰面但一直没聊过——你是做什么的？",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "邻居提及宠物问题，试探性沟通，学习者回应",
+          "scenarioHintCn": "邻居在多次碰面后主动开启更深入的自我介绍对话",
           "followUps": [
             {
-              "text": "I do! I have a cat — sorry if she’s noisy sometimes!",
-              "text_cn": "我有！我养了只猫，如果她吵到你了我先道歉！",
+              "text": "I'm a graphic designer — work from home mostly. I'm always happy to chat when I'm not buried in deadlines!",
+              "text_cn": "我是平面设计师，主要在家办公。只要不是赶截止日期，我很乐意聊天！",
               "audio_url": "COS:/qa/responses/social_092_sub_2_qa_3_response0.mp3"
             },
             {
-              "text": "No pets for me — but I totally get it. Dogs are part of the family!",
-              "text_cn": "我没养宠物，但我完全理解，狗就是家人！",
+              "text": "I'm a teacher — elementary school. I'm usually out the door by 7 a.m., so we haven't crossed paths much.",
+              "text_cn": "我是小学老师，早上七点就出门了，所以一直没机会碰面。",
               "audio_url": "COS:/qa/responses/social_092_sub_2_qa_3_response1.mp3"
             },
             {
-              "text": "I used to have a dog, but he passed away last year. I’m not ready for another yet.",
-              "text_cn": "我以前有条狗，去年去世了，现在还没准备好养新的。",
+              "text": "I'm between jobs right now — just taking some time to reset. But I'm hoping to start something new soon.",
+              "text_cn": "我目前在换工作间隙，想休息调整一下，不过很快会开始新计划。",
               "audio_url": "COS:/qa/responses/social_092_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "宠物话题常是邻里破冰关键，回应需兼顾诚实与社交敏感性，避免生硬拒绝",
+          "usageNote": "当对话从表面寒暄转向职业等更私人话题时，回应应保持真诚但不过度暴露，符合邻里社交的分寸感。",
           "audioUrl": "COS:/qa/questions/social_092_sub_2_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -226,25 +226,25 @@
           "triggerTextCn": "你知道楼里有洗衣房吗？",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "邻里询问小区公共设施",
+          "scenarioHintCn": "邻居询问小区公共设施",
           "followUps": [
             {
-              "text": "Yes, it's on the basement floor, next to the gym.",
-              "text_cn": "有的，在地下室，健身房旁边。",
+              "text": "Yes, it's on the second floor next to the elevator. It's free for residents.",
+              "text_cn": "有的，在二楼电梯旁，居民免费使用。",
               "audio_url": "COS:/qa/responses/social_092_sub_3_qa_1_response0.mp3"
             },
             {
-              "text": "I'm not sure—I just moved in last month.",
-              "text_cn": "我不太确定，我上个月才搬来。",
+              "text": "I'm not sure, but I can check with the property manager for you.",
+              "text_cn": "我不太确定，但我可以帮你问问物业。",
               "audio_url": "COS:/qa/responses/social_092_sub_3_qa_1_response1.mp3"
             },
             {
-              "text": "You might want to check with the front desk—they handle all building amenities.",
-              "text_cn": "你最好问问前台，他们管所有公共设施。",
+              "text": "Actually, I just use the laundromat down the street — it's cheaper and faster.",
+              "text_cn": "其实我用街角的自助洗衣店，更便宜也更快。",
               "audio_url": "COS:/qa/responses/social_092_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于邻里间自然询问公共设施，回应需体现友好与真实生活状态",
+          "usageNote": "用于邻里间自然询问公共设施，回应需体现友好与实用性",
           "audioUrl": "COS:/qa/questions/social_092_sub_3_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -254,28 +254,28 @@
           "subSceneId": "social_092_sub_3",
           "dialogueMode": "user_responds",
           "triggerText": "Is there a bike storage area around here?",
-          "triggerTextCn": "这附近有自行车存放处吗？",
+          "triggerTextCn": "这儿有自行车存放处吗？",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "邻里询问自行车存放设施",
+          "scenarioHintCn": "邻居询问自行车存放设施",
           "followUps": [
             {
-              "text": "Yeah, there's one right by the east entrance—just look for the locked gate.",
-              "text_cn": "有的，在东门旁边，找那个上锁的门就行。",
+              "text": "Yes, there's a covered rack right behind the main entrance. You need a keycard.",
+              "text_cn": "有的，主入口后面有个有遮盖的车架，需要门禁卡。",
               "audio_url": "COS:/qa/responses/social_092_sub_3_qa_2_response0.mp3"
             },
             {
-              "text": "I've never seen one—I usually take my bike inside my apartment.",
-              "text_cn": "我从没见过，我一般把车带进公寓里。",
+              "text": "I don't think so — I leave mine outside, but I cover it with a rainproof tarp.",
+              "text_cn": "我觉得没有，我都是停在外面，但会盖防雨罩。",
               "audio_url": "COS:/qa/responses/social_092_sub_3_qa_2_response1.mp3"
             },
             {
-              "text": "I think there used to be one, but I heard they removed it last month.",
-              "text_cn": "我记得以前有，但听说上个月拆了。",
+              "text": "Wait, I think there's one in the basement — let me ask my roommate to confirm.",
+              "text_cn": "等等，我觉得地下室好像有一个，我问问室友确认一下。",
               "audio_url": "COS:/qa/responses/social_092_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "回应需反映真实社区变化与个人经验，避免机械回答",
+          "usageNote": "回应需体现邻里互助感，避免简单回答'不知道'或'没有'",
           "audioUrl": "COS:/qa/questions/social_092_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -284,29 +284,29 @@
           "id": "social_092_sub_3_qa_3",
           "subSceneId": "social_092_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Are pets allowed in the common areas?",
-          "triggerTextCn": "宠物可以进公共区域吗？",
+          "triggerText": "Have you used the community garden yet?",
+          "triggerTextCn": "你用过社区花园吗？",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "邻里询问宠物政策",
+          "scenarioHintCn": "邻居询问社区共享空间使用情况",
           "followUps": [
             {
-              "text": "Yes, as long as they're on a leash and you clean up after them.",
-              "text_cn": "可以，只要拴着牵引绳并清理粪便就行。",
+              "text": "Yes! I grow tomatoes and basil — it's so relaxing. You can sign up next Monday.",
+              "text_cn": "用过！我种了番茄和罗勒，特别放松。下周一可以报名。",
               "audio_url": "COS:/qa/responses/social_092_sub_3_qa_3_response0.mp3"
             },
             {
-              "text": "No, the rules say no pets in the lobby or garden—sorry!",
-              "text_cn": "不行，规定说大堂和花园不能带宠物，抱歉！",
+              "text": "I haven't tried it — I'm not great with plants, but it looks lovely.",
+              "text_cn": "我还没试过，不太会种植物，但看起来真漂亮。",
               "audio_url": "COS:/qa/responses/social_092_sub_3_qa_3_response1.mp3"
             },
             {
-              "text": "It depends—some people bring theirs in quietly, but officially it's not allowed.",
-              "text_cn": "看情况吧，有些人偷偷带进来，但官方是不允许的。",
+              "text": "I signed up last year but gave up — the watering schedule was too strict.",
+              "text_cn": "我去年报了名但放弃了，浇水时间太死板了。",
               "audio_url": "COS:/qa/responses/social_092_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "宠物政策常涉及隐性规则，回应应体现社区文化与现实弹性",
+          "usageNote": "回应应反映真实生活体验，避免过度正面或敷衍，体现邻里真实互动",
           "audioUrl": "COS:/qa/questions/social_092_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -325,29 +325,29 @@
           "id": "social_092_sub_4_qa_1",
           "subSceneId": "social_092_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Welcome to the neighborhood! I'm Sam, I live next door.",
-          "triggerTextCn": "欢迎搬来！我是萨姆，就住在隔壁。",
+          "triggerText": "Welcome to the neighborhood! I'm Sam, I live right across the street.",
+          "triggerTextCn": "欢迎搬来！我是萨姆，就住在马路对面。",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
           "scenarioHintCn": "新邻居搬来，老邻居主动表达欢迎",
           "followUps": [
             {
-              "text": "Thanks, Sam! I'm Lisa. I'm so excited to be here!",
-              "text_cn": "谢谢你，萨姆！我是丽莎，我太兴奋了！",
+              "text": "Thanks, Sam! I'm Alex — I just moved in yesterday. I'm really excited to be here!",
+              "text_cn": "谢谢，萨姆！我是亚历克斯，我昨天刚搬来，真的很高兴能住在这儿！",
               "audio_url": "COS:/qa/responses/social_092_sub_4_qa_1_response0.mp3"
             },
             {
-              "text": "Hi Sam, nice to meet you. I'm still settling in, but I appreciate it!",
-              "text_cn": "嗨，萨姆，很高兴认识你。我还在安顿，但很感谢！",
+              "text": "Oh, hi Sam! I'm Jamie. I appreciate the welcome — still getting settled, but I'm glad to be here.",
+              "text_cn": "哦，你好萨姆！我是杰米，谢谢你的欢迎——还在整理东西，但很高兴搬来了。",
               "audio_url": "COS:/qa/responses/social_092_sub_4_qa_1_response1.mp3"
             },
             {
-              "text": "Oh wow, thanks! I’m Alex. Do you know where the nearest grocery store is?",
-              "text_cn": "哦天哪，谢谢！我是亚历克斯。你知道最近的杂货店在哪吗？",
+              "text": "Wow, thanks! I'm Taylor. I hope I won't be too noisy — I'm still figuring out the place.",
+              "text_cn": "哇，谢谢！我是泰勒，希望我不会太吵——我还在熟悉这个家。",
               "audio_url": "COS:/qa/responses/social_092_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于新邻居初到时，回应对方的热情欢迎，可根据性格和状态选择不同语气的回应",
+          "usageNote": "用于新邻居初次见面时，回应对方的热情欢迎，体现自然社交反应",
           "audioUrl": "COS:/qa/questions/social_092_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -356,29 +356,29 @@
           "id": "social_092_sub_4_qa_2",
           "subSceneId": "social_092_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Hey, I saw you moving in—welcome! Let me know if you need help with anything.",
-          "triggerTextCn": "嘿，我看到你搬进来了——欢迎！需要帮忙随时说。",
+          "triggerText": "Hey, welcome! I saw your boxes — need any help carrying stuff in?",
+          "triggerTextCn": "嘿，欢迎！我看到你的箱子了——需要帮忙搬东西吗？",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "邻居主动提供帮助以表达欢迎",
+          "scenarioHintCn": "邻居主动提出帮助搬运行李，表达欢迎",
           "followUps": [
             {
-              "text": "That’s so kind of you! I might take you up on that—could you point me to the trash day schedule?",
-              "text_cn": "你太好了！我可能真要麻烦你——能告诉我垃圾日安排吗？",
+              "text": "That's so kind of you! I could really use a hand with this heavy bookshelf.",
+              "text_cn": "你太好了！我确实需要帮忙搬这个沉重的书架。",
               "audio_url": "COS:/qa/responses/social_092_sub_4_qa_2_response0.mp3"
             },
             {
-              "text": "Thanks, I really appreciate it. I’m good for now, but I’ll definitely reach out if I get stuck!",
-              "text_cn": "谢谢，我很感激。我现在还好，但卡住时一定会找你！",
+              "text": "Thanks for offering — I'm good for now, but I'll definitely take you up on it if I get stuck!",
+              "text_cn": "谢谢你的好意，我现在还好，但如果卡住了一定会找你帮忙！",
               "audio_url": "COS:/qa/responses/social_092_sub_4_qa_2_response1.mp3"
             },
             {
-              "text": "Wow, you’re awesome! I’m actually looking for someone to carpool with—any advice?",
-              "text_cn": "哇，你太棒了！我正想找人拼车——有什么建议吗？",
+              "text": "Actually, my friend’s coming in 20 minutes — but maybe we can grab coffee later to say thanks?",
+              "text_cn": "其实我朋友20分钟后就到，不过我们之后可以喝杯咖啡，当面谢谢你？",
               "audio_url": "COS:/qa/responses/social_092_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "当邻居主动提出帮助时，回应可体现开放、谨慎或顺势建立联系三种态度",
+          "usageNote": "当邻居主动提供帮助时，用户可根据自身情况选择接受、婉拒或转化关系",
           "audioUrl": "COS:/qa/questions/social_092_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -387,29 +387,29 @@
           "id": "social_092_sub_4_qa_3",
           "subSceneId": "social_092_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "I made some cookies—thought you might like some! Welcome aboard!",
-          "triggerTextCn": "我烤了些饼干，想着你可能会喜欢！欢迎加入！",
+          "triggerText": "Welcome! I’m Linda from 3B. We’re having a little potluck next Saturday — you should come!",
+          "triggerTextCn": "欢迎！我是3B的琳达，下周六我们有个小聚餐，你一定要来！",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "邻居用小礼物表达欢迎",
+          "scenarioHintCn": "邻居邀请参加社区聚会，表达欢迎与融入意图",
           "followUps": [
             {
-              "text": "Oh my gosh, these are amazing! Thank you so much—I’ll bring you something tomorrow!",
-              "text_cn": "天啊，太好吃了！太谢谢你了——明天我回赠你点什么！",
+              "text": "That sounds amazing! I’d love to come — what should I bring?",
+              "text_cn": "听起来太棒了！我一定来——我该带点什么？",
               "audio_url": "COS:/qa/responses/social_092_sub_4_qa_3_response0.mp3"
             },
             {
-              "text": "That’s so thoughtful! I’m actually on a diet, but I’ll save one for later!",
-              "text_cn": "太贴心了！我正在节食，但我会留一个以后吃！",
+              "text": "Oh, that’s so nice of you — I’d love to, but I’m out of town that weekend. Can I join next time?",
+              "text_cn": "你太贴心了！我很想参加，但那周末我外出。下次我能参加吗？",
               "audio_url": "COS:/qa/responses/social_092_sub_4_qa_3_response1.mp3"
             },
             {
-              "text": "You didn’t have to do that—but I’m really touched. I’m Maya, by the way!",
-              "text_cn": "你本不必这样的——但我真的很感动。对了，我叫玛雅！",
+              "text": "I’m still getting used to things here… but thanks for inviting me. I’ll think about it!",
+              "text_cn": "我还在适应这里……谢谢你邀请我，我会考虑的！",
               "audio_url": "COS:/qa/responses/social_092_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "面对邻居送小礼物的欢迎方式，回应需体现文化习惯中的礼尚往来与情感回应",
+          "usageNote": "用于回应邻居的社交邀请，体现不同社交舒适度和参与意愿",
           "audioUrl": "COS:/qa/questions/social_092_sub_4_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -420,7 +420,7 @@
       "id": "social_092_sub_5",
       "sceneId": "social_092",
       "name": "礼貌告别",
-      "description": "双方友好道别，约定未来再聊，结束对话。",
+      "description": "双方友好道别，约定下次再见，结束对话。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -432,25 +432,25 @@
           "triggerTextCn": "嗯，我该走了。",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "邻里间礼貌告别场景",
+          "scenarioHintCn": "邻居礼貌告知即将离开，学习者需得体回应",
           "followUps": [
             {
-              "text": "Oh, okay! Let’s catch up again soon!",
-              "text_cn": "哦，好的！咱们改天再聊！",
+              "text": "Thanks for the chat! Take care!",
+              "text_cn": "谢谢聊天！保重！",
               "audio_url": "COS:/qa/responses/social_092_sub_5_qa_1_response0.mp3"
             },
             {
-              "text": "Sure, thanks for the chat — have a great evening!",
-              "text_cn": "当然，谢谢聊天，祝你晚上愉快！",
+              "text": "Oh, okay! Let’s catch up again soon.",
+              "text_cn": "哦，好的！我们尽快再聚吧。",
               "audio_url": "COS:/qa/responses/social_092_sub_5_qa_1_response1.mp3"
             },
             {
-              "text": "Wait, before you go — can you water my plants this week?",
-              "text_cn": "等一下，你走之前能帮我浇一下花吗？",
+              "text": "Sure, I’ll walk you to the door.",
+              "text_cn": "当然，我送你到门口。",
               "audio_url": "COS:/qa/responses/social_092_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于邻居主动告别时，你如何自然、得体地回应。避免冷淡或过度拖延，保持友好但不冗长。",
+          "usageNote": "用于邻居主动告别时的自然回应，语气应温暖但不夸张，符合日常邻里互动节奏",
           "audioUrl": "COS:/qa/questions/social_092_sub_5_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -459,29 +459,29 @@
           "id": "social_092_sub_5_qa_2",
           "subSceneId": "social_092_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "I’ve got to run — nice seeing you!",
-          "triggerTextCn": "我得走了，很高兴见到你！",
+          "triggerText": "I’ve got to run — got a meeting in 10.",
+          "triggerTextCn": "我得走了，10分钟后有个会。",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "邻里间礼貌告别场景",
+          "scenarioHintCn": "邻居因时间紧迫匆忙告别，学习者需快速得体回应",
           "followUps": [
             {
-              "text": "Same here! Take care!",
-              "text_cn": "我也是！保重！",
+              "text": "No problem — go ahead, and good luck with your meeting!",
+              "text_cn": "没关系，快去吧，祝你会议顺利！",
               "audio_url": "COS:/qa/responses/social_092_sub_5_qa_2_response0.mp3"
             },
             {
-              "text": "You too! Oh, by the way, my dog’s barking again — any advice?",
-              "text_cn": "你也是！对了，我家狗又叫了，有建议吗？",
+              "text": "Oh, same here — I’m late too!",
+              "text_cn": "哦，我也是，我也快迟到了！",
               "audio_url": "COS:/qa/responses/social_092_sub_5_qa_2_response1.mp3"
             },
             {
-              "text": "Alright, see you tomorrow at the mailbox!",
-              "text_cn": "好，明天邮箱那儿见！",
+              "text": "Alright, see you tomorrow at the mailbox?",
+              "text_cn": "好的，明天邮箱边见？",
               "audio_url": "COS:/qa/responses/social_092_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "当对方用轻松语气告别时，回应应保持轻快，可顺势建立日常联系点，如共用信箱、遛狗等。",
+          "usageNote": "适用于对方因时间紧张告别的场景，回应需简洁、有同理心，避免冗长",
           "audioUrl": "COS:/qa/questions/social_092_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -490,29 +490,29 @@
           "id": "social_092_sub_5_qa_3",
           "subSceneId": "social_092_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "I’m heading home — it’s been lovely chatting.",
-          "triggerTextCn": "我回家了，和你聊天真开心。",
+          "triggerText": "It was nice catching up — I’ll let you get back to your evening.",
+          "triggerTextCn": "很高兴聊了这么多，不打扰你过晚上了。",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "邻里间礼貌告别场景",
+          "scenarioHintCn": "邻居体贴地结束对话，为学习者留出空间，学习者需礼貌回应",
           "followUps": [
             {
-              "text": "It really has! Let’s make coffee next week?",
-              "text_cn": "真的很有意思！下周一起喝咖啡？",
+              "text": "Thanks for stopping by — you’re always welcome!",
+              "text_cn": "谢谢你过来串门，随时欢迎你来！",
               "audio_url": "COS:/qa/responses/social_092_sub_5_qa_3_response0.mp3"
             },
             {
-              "text": "Absolutely — have a safe trip home!",
-              "text_cn": "当然！路上小心！",
+              "text": "Same here — let me know if you need help with your garden next week!",
+              "text_cn": "我也是！下周如果你需要帮忙打理花园，记得告诉我！",
               "audio_url": "COS:/qa/responses/social_092_sub_5_qa_3_response1.mp3"
             },
             {
-              "text": "Oh, wait — do you know if the trash pickup is moved this week?",
-              "text_cn": "等等，你知道这周垃圾收集时间改了吗？",
+              "text": "Absolutely — have a lovely evening!",
+              "text_cn": "当然，祝你今晚愉快！",
               "audio_url": "COS:/qa/responses/social_092_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "当对方表达情感温度时，回应可选择加深联系、单纯礼貌回应，或利用机会解决实际问题，三者皆自然。",
+          "usageNote": "当对方表现出体贴和尊重时，回应应体现同等礼貌与温度，避免冷淡或过度热情",
           "audioUrl": "COS:/qa/questions/social_092_sub_5_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3

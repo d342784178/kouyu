@@ -1,7 +1,7 @@
 {
   "sceneId": "travel_072",
   "sceneName": "叫出租车",
-  "generatedAt": "2026-03-17T03:17:04.399Z",
+  "generatedAt": "2026-03-17T03:41:31.276Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
@@ -15,61 +15,61 @@
         {
           "id": "travel_072_sub_1_qa_1",
           "subSceneId": "travel_072_sub_1",
-          "dialogueMode": "user_responds",
-          "triggerText": "What time would you like the taxi to pick you up?",
-          "triggerTextCn": "您希望出租车什么时候来接您？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can you book me a taxi for 7 PM tonight?",
+          "triggerTextCn": "你能帮我预约今晚7点的出租车吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "预约出租车：确认接车时间",
+          "scenarioHintCn": "用户预约出租车时间",
           "followUps": [
             {
-              "text": "Can you come in 20 minutes? I’m just finishing dinner.",
-              "text_cn": "20分钟后能来吗？我刚吃完饭。",
+              "text": "Sure! I’ve booked a taxi for 7 PM sharp. It will wait outside your location.",
+              "text_cn": "当然！已为您预约了7点整的出租车，会在您所在地等候。",
               "audio_url": "COS:/qa/responses/travel_072_sub_1_qa_1_response0.mp3"
             },
             {
-              "text": "I need it at 8 PM sharp — I have a flight.",
-              "text_cn": "我需要晚上8点准时到，我有航班。",
+              "text": "I’m sorry, but we’re fully booked at 7 PM. Can you make it at 7:30 instead?",
+              "text_cn": "抱歉，7点的车已满。您能改到7:30吗？",
               "audio_url": "COS:/qa/responses/travel_072_sub_1_qa_1_response1.mp3"
             },
             {
-              "text": "Is it possible to book for tomorrow morning at 7 AM?",
-              "text_cn": "能预约明天早上7点吗？",
+              "text": "We can book it, but there’s a $5 surcharge for evening rides after 6 PM.",
+              "text_cn": "可以预约，但晚上6点后乘车加收5美元附加费。",
               "audio_url": "COS:/qa/responses/travel_072_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于预约出租车时回应接车时间询问，体现不同时间需求：即时、紧急、提前预约",
+          "usageNote": "用于预约出租车时间，常见于餐厅或酒店离店前的请求",
           "audioUrl": "COS:/qa/questions/travel_072_sub_1_qa_1.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "travel_072_sub_1_qa_2",
           "subSceneId": "travel_072_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Would you like a standard car or a larger vehicle?",
-          "triggerTextCn": "您需要普通轿车还是更大的车型？",
+          "triggerText": "What’s your pickup location?",
+          "triggerTextCn": "您的上车地点是哪里？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "预约出租车：确认车型需求",
+          "scenarioHintCn": "司机确认上车地点",
           "followUps": [
             {
-              "text": "A standard car is fine, just me.",
-              "text_cn": "普通轿车就行，就我一个人。",
+              "text": "I’m at 123 Main Street, right outside the restaurant.",
+              "text_cn": "我在主街123号，餐厅正门外。",
               "audio_url": "COS:/qa/responses/travel_072_sub_1_qa_2_response0.mp3"
             },
             {
-              "text": "I need an SUV — I’ve got three suitcases and my kid.",
-              "text_cn": "我要SUV，我有三个行李箱和孩子。",
+              "text": "Actually, I’m not sure — can you send me the address via text?",
+              "text_cn": "其实我不太确定，你能把地址发短信给我吗？",
               "audio_url": "COS:/qa/responses/travel_072_sub_1_qa_2_response1.mp3"
             },
             {
-              "text": "Do you have electric cars? I prefer eco-friendly options.",
-              "text_cn": "你们有电动车吗？我更喜欢环保车型。",
+              "text": "Wait, I’m changing plans — can you pick me up at the subway station instead?",
+              "text_cn": "等等，我改变计划了，能改到地铁站接我吗？",
               "audio_url": "COS:/qa/responses/travel_072_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "用于回应车型选择问题，体现人数、行李、环保偏好等不同需求",
+          "usageNote": "司机在确认上车点时的常见提问，用户需清晰回应或灵活调整",
           "audioUrl": "COS:/qa/questions/travel_072_sub_1_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -78,29 +78,29 @@
           "id": "travel_072_sub_1_qa_3",
           "subSceneId": "travel_072_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you need a receipt for this ride?",
-          "triggerTextCn": "您需要这张行程的发票吗？",
+          "triggerText": "Will you need a car seat for a child?",
+          "triggerTextCn": "您需要儿童安全座椅吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "预约出租车：确认是否需要发票",
+          "scenarioHintCn": "司机询问特殊需求",
           "followUps": [
             {
-              "text": "Yes, please email it to me.",
-              "text_cn": "请发邮件给我。",
+              "text": "Yes, please — I have a 3-year-old with me.",
+              "text_cn": "需要，我带了一个3岁的孩子。",
               "audio_url": "COS:/qa/responses/travel_072_sub_1_qa_3_response0.mp3"
             },
             {
-              "text": "No, thanks — I’m paying personally.",
-              "text_cn": "不用了，谢谢，我自费。",
+              "text": "No, thanks — we’re traveling with just adults.",
+              "text_cn": "不用了，谢谢，我们只有成人。",
               "audio_url": "COS:/qa/responses/travel_072_sub_1_qa_3_response1.mp3"
             },
             {
-              "text": "Can I get a printed receipt? My company requires it.",
-              "text_cn": "能给我纸质发票吗？公司要求报销。",
+              "text": "I’m not sure — do you have them available? I might need one.",
+              "text_cn": "我不确定，你们有提供吗？我可能需要一个。",
               "audio_url": "COS:/qa/responses/travel_072_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "用于回应发票需求，体现报销方式、个人/公务用途等不同情况",
+          "usageNote": "出租车公司常问的特殊需求问题，尤其在家庭出行场景中高频出现",
           "audioUrl": "COS:/qa/questions/travel_072_sub_1_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -131,17 +131,17 @@
               "audio_url": "COS:/qa/responses/travel_072_sub_2_qa_1_response0.mp3"
             },
             {
-              "text": "The Hilton Hotel on 5th Avenue.",
-              "text_cn": "第五大道的希尔顿酒店。",
+              "text": "I need to go to 456 Oak Street, near the big red building.",
+              "text_cn": "我要去橡树街456号，靠近那栋红色大楼。",
               "audio_url": "COS:/qa/responses/travel_072_sub_2_qa_1_response1.mp3"
             },
             {
-              "text": "Can you drop me off at the airport? I have a flight in 40 minutes.",
+              "text": "Can you drop me at the airport? I have a flight in 40 minutes.",
               "text_cn": "能送我去机场吗？我40分钟后有航班。",
               "audio_url": "COS:/qa/responses/travel_072_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是出租车司机最常问的开场问题，用户需清晰、简洁地回答目的地，可附加时间或特殊需求。",
+          "usageNote": "司机常以简短的'Where to?'开场，用户应直接说明目的地，避免冗长描述。",
           "audioUrl": "COS:/qa/questions/travel_072_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -149,61 +149,61 @@
         {
           "id": "travel_072_sub_2_qa_2",
           "subSceneId": "travel_072_sub_2",
-          "dialogueMode": "user_responds",
-          "triggerText": "Are you heading downtown?",
-          "triggerTextCn": "你是去市中心吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Is the hotel on Main Street your final stop?",
+          "triggerTextCn": "主街的酒店是您的最终目的地吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "司机根据路线确认目的地是否顺路",
+          "scenarioHintCn": "乘客确认是否需中途停靠",
           "followUps": [
             {
-              "text": "Yes, I need to get off near City Hall.",
-              "text_cn": "是的，我要在市政厅附近下车。",
+              "text": "Yes, that’s it. I don’t need to stop anywhere else.",
+              "text_cn": "是的，就是那里，我不需要再停了。",
               "audio_url": "COS:/qa/responses/travel_072_sub_2_qa_2_response0.mp3"
             },
             {
-              "text": "Actually, I'm going to the suburbs — just outside the city.",
-              "text_cn": "其实我要去郊区——城外一点。",
+              "text": "Actually, can you make a quick stop at a gas station first? I need to buy some water.",
+              "text_cn": "其实能先在加油站停一下吗？我想买点水。",
               "audio_url": "COS:/qa/responses/travel_072_sub_2_qa_2_response1.mp3"
             },
             {
-              "text": "I'm not sure — can you check the address on my phone?",
-              "text_cn": "我不太确定，能看下我手机上的地址吗？",
+              "text": "No, after the hotel, please take me to the train station.",
+              "text_cn": "不是，从酒店出来后，请送我去火车站。",
               "audio_url": "COS:/qa/responses/travel_072_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "司机常通过模糊区域确认乘客目的地，用户需明确是否匹配，或主动提供更精确信息。",
+          "usageNote": "乘客可主动确认或调整路线，司机通常会配合，但需清晰说明后续需求。",
           "audioUrl": "COS:/qa/questions/travel_072_sub_2_qa_2.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 2
         },
         {
           "id": "travel_072_sub_2_qa_3",
           "subSceneId": "travel_072_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Is this your final destination?",
-          "triggerTextCn": "这是你最终下车的地方吗？",
+          "triggerText": "Do you know how long it’ll take to get there?",
+          "triggerTextCn": "您知道到那儿要多久吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "司机在接近目的地前确认是否需中途停靠",
+          "scenarioHintCn": "司机询问是否了解路况或时间预期",
           "followUps": [
             {
-              "text": "Yes, right here at this corner.",
-              "text_cn": "是的，就在这个拐角下车。",
+              "text": "I’m in a hurry — is there a faster route?",
+              "text_cn": "我赶时间，有更快的路吗？",
               "audio_url": "COS:/qa/responses/travel_072_sub_2_qa_3_response0.mp3"
             },
             {
-              "text": "No, I need to stop at a pharmacy first, then go to the apartment.",
-              "text_cn": "不是，我先要在药店停一下，再去公寓。",
+              "text": "No rush, just take the most direct way.",
+              "text_cn": "不着急，走最直接的路就行。",
               "audio_url": "COS:/qa/responses/travel_072_sub_2_qa_3_response1.mp3"
             },
             {
-              "text": "Actually, I might need to change the drop-off — can we pause while I call them?",
-              "text_cn": "其实我可能要改下车地点，能停一下让我打个电话确认吗？",
+              "text": "Can you check the traffic app? I want to avoid the highway.",
+              "text_cn": "能查下导航吗？我想避开高速。",
               "audio_url": "COS:/qa/responses/travel_072_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "司机在接近地点前会确认是否为最终下车点，用户需提前规划是否需中途停靠，避免误会。",
+          "usageNote": "司机常主动询问时间预期，用户可根据自身需求提出路线偏好，表达清晰更易获得配合。",
           "audioUrl": "COS:/qa/questions/travel_072_sub_2_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -213,8 +213,8 @@
     {
       "id": "travel_072_sub_3",
       "sceneId": "travel_072",
-      "name": "确认地址",
-      "description": "客服复述地址，乘客确认无误。",
+      "name": "确认时间",
+      "description": "乘客询问并确认出租车到达的预计时间。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -222,29 +222,29 @@
           "id": "travel_072_sub_3_qa_1",
           "subSceneId": "travel_072_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Can you confirm your pickup address?",
-          "triggerTextCn": "能确认一下您的上车地址吗？",
+          "triggerText": "What time would you like to be picked up?",
+          "triggerTextCn": "您希望什么时候接您？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "出租车司机确认乘客上车地址",
+          "scenarioHintCn": "出租车司机确认接客时间",
           "followUps": [
             {
-              "text": "Yes, 123 Main Street, near the big red building.",
-              "text_cn": "是的，主街123号，靠近那个红色大楼。",
+              "text": "Can you pick me up at 7:30 PM? I just finished dinner.",
+              "text_cn": "能7点半来接我吗？我刚吃完饭。",
               "audio_url": "COS:/qa/responses/travel_072_sub_3_qa_1_response0.mp3"
             },
             {
-              "text": "Actually, I just got a new address — can you change it to 456 Oak Avenue?",
-              "text_cn": "其实我地址改了，能改成橡树街456号吗？",
+              "text": "Actually, I might be a bit late—can we make it 8:00 instead?",
+              "text_cn": "我可能晚一点，能改到8点吗？",
               "audio_url": "COS:/qa/responses/travel_072_sub_3_qa_1_response1.mp3"
             },
             {
-              "text": "I'm not sure — can you check the app? It should be there.",
-              "text_cn": "我不太确定，能查一下App吗？上面应该有。",
+              "text": "I’m not sure yet—can you call me 10 minutes before you arrive?",
+              "text_cn": "我还不确定，你能到前10分钟打电话给我吗？",
               "audio_url": "COS:/qa/responses/travel_072_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "司机常在出发前确认地址，用户需清晰回应或主动更新信息，避免误接。",
+          "usageNote": "用于出租车服务中司机确认接客时间，用户可根据自身情况灵活回应，体现真实场景中的时间协商。",
           "audioUrl": "COS:/qa/questions/travel_072_sub_3_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -253,29 +253,29 @@
           "id": "travel_072_sub_3_qa_2",
           "subSceneId": "travel_072_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Is it the apartment with the blue door?",
-          "triggerTextCn": "是那扇蓝色门的公寓吗？",
+          "triggerText": "Are you ready to leave now?",
+          "triggerTextCn": "您现在就走吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "司机根据地标确认具体位置",
+          "scenarioHintCn": "出租车司机确认是否立即出发",
           "followUps": [
             {
-              "text": "Yes, that's right — it's on the second floor.",
-              "text_cn": "对，就是那个，二楼。",
+              "text": "Yes, I’m ready—just let me grab my bag.",
+              "text_cn": "是的，我准备好了，等我拿一下包。",
               "audio_url": "COS:/qa/responses/travel_072_sub_3_qa_2_response0.mp3"
             },
             {
-              "text": "No, it's the one with the yellow door — the blue one is next door.",
-              "text_cn": "不对，是黄色门的，蓝色的是隔壁。",
+              "text": "Not yet—I’m waiting for my friend. Can you wait 5 minutes?",
+              "text_cn": "还没，我在等朋友，能等5分钟吗？",
               "audio_url": "COS:/qa/responses/travel_072_sub_3_qa_2_response1.mp3"
             },
             {
-              "text": "I'm not sure — I've never been there before.",
-              "text_cn": "我不确定，我从来没去过那里。",
+              "text": "Actually, I changed my mind—I’ll take a ride later.",
+              "text_cn": "我改变主意了，我稍后再打车。",
               "audio_url": "COS:/qa/responses/travel_072_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "司机常使用视觉地标确认位置，用户需能准确识别或坦诚不知，避免误导。",
+          "usageNote": "司机常在乘客上车前确认是否立即出发，用户回应需体现即时决策或临时变更，符合真实服务场景。",
           "audioUrl": "COS:/qa/questions/travel_072_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -284,29 +284,29 @@
           "id": "travel_072_sub_3_qa_3",
           "subSceneId": "travel_072_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Are you sure this is the correct location?",
-          "triggerTextCn": "您确定这是正确的地点吗？",
+          "triggerText": "Do you want to leave right away, or wait until a specific time?",
+          "triggerTextCn": "您现在就走，还是想等一个特定时间？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "司机对地址存疑，主动核实",
+          "scenarioHintCn": "司机提供两种时间选择，引导用户决策",
           "followUps": [
             {
-              "text": "Positive — I just got off the bus here five minutes ago.",
-              "text_cn": "确定，我五分钟前刚在这儿下公交。",
+              "text": "I’d like to leave right away, please.",
+              "text_cn": "我现在就走，谢谢。",
               "audio_url": "COS:/qa/responses/travel_072_sub_3_qa_3_response0.mp3"
             },
             {
-              "text": "Wait, I think I'm in the wrong neighborhood — can we pause for a second?",
-              "text_cn": "等等，我觉得我搞错区域了，能停一下吗？",
+              "text": "I’d prefer to wait until 8:15—I have a meeting ending then.",
+              "text_cn": "我希望能等到8点15分，我那时有个会议结束。",
               "audio_url": "COS:/qa/responses/travel_072_sub_3_qa_3_response1.mp3"
             },
             {
-              "text": "I think the app is wrong — can you try searching 'Starbucks on 5th'?",
-              "text_cn": "我觉得App出错了，你能搜一下‘第五街的星巴克’吗？",
+              "text": "Either is fine—I’m flexible.",
+              "text_cn": "都可以，我时间灵活。",
               "audio_url": "COS:/qa/responses/travel_072_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "司机对地址存疑时会主动询问，用户需能快速判断是否准确，或提出替代方案，避免绕路。",
+          "usageNote": "司机主动提供选项以提高效率，用户回应应体现时间偏好或灵活性，是高频且自然的对话模式。",
           "audioUrl": "COS:/qa/questions/travel_072_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -316,100 +316,100 @@
     {
       "id": "travel_072_sub_4",
       "sceneId": "travel_072",
-      "name": "询问等待时间",
-      "description": "乘客询问车辆预计到达时间。",
+      "name": "支付方式",
+      "description": "乘客询问并确认可用的付款方式。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_072_sub_4_qa_1",
           "subSceneId": "travel_072_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "How long will it take for the taxi to arrive?",
-          "triggerTextCn": "出租车多久能到？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "How would you like to pay?",
+          "triggerTextCn": "您想怎么支付？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "乘客在餐厅外打电话叫车，询问等待时间",
+          "scenarioHintCn": "出租车到达目的地后，司机询问支付方式",
           "followUps": [
             {
-              "text": "About 5 minutes, I'm just two blocks away.",
-              "text_cn": "大约5分钟，我离您只有两个街区。",
+              "text": "I'll pay by card, please.",
+              "text_cn": "我刷卡，谢谢。",
               "audio_url": "COS:/qa/responses/travel_072_sub_4_qa_1_response0.mp3"
             },
             {
-              "text": "Sorry, it might take 15–20 minutes — traffic is heavy right now.",
-              "text_cn": "抱歉，可能需要15到20分钟，现在交通很堵。",
+              "text": "Do you accept cash? I only have bills.",
+              "text_cn": "你们收现金吗？我只有纸币。",
               "audio_url": "COS:/qa/responses/travel_072_sub_4_qa_1_response1.mp3"
             },
             {
-              "text": "I'm currently assigned to another fare — can you wait for the next one?",
-              "text_cn": "我目前正在接另一位乘客，您能等下一班车吗？",
+              "text": "Can I use Apple Pay? My card’s in my phone.",
+              "text_cn": "可以用Apple Pay吗？我的卡存在手机里。",
               "audio_url": "COS:/qa/responses/travel_072_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于在叫车后主动询问预计到达时间，适用于电话或App叫车场景",
+          "usageNote": "这是出租车支付环节最典型的询问句，乘客需根据自身支付方式回应，避免沉默或含糊。",
           "audioUrl": "COS:/qa/questions/travel_072_sub_4_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "travel_072_sub_4_qa_2",
           "subSceneId": "travel_072_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can you tell me how long I’ll have to wait?",
-          "triggerTextCn": "你能告诉我我要等多久吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Cash or card?",
+          "triggerTextCn": "现金还是刷卡？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "乘客在雨中等车，语气略显焦急，向调度员确认时间",
+          "scenarioHintCn": "司机快速确认支付方式，常见于高峰时段或短途行程",
           "followUps": [
             {
-              "text": "Your ride is confirmed — ETA is 3 minutes.",
-              "text_cn": "您的车辆已确认，预计3分钟到达。",
+              "text": "Card, thanks.",
+              "text_cn": "刷卡，谢谢。",
               "audio_url": "COS:/qa/responses/travel_072_sub_4_qa_2_response0.mp3"
             },
             {
-              "text": "We're experiencing a high demand right now — wait time is around 25 minutes.",
-              "text_cn": "目前需求量很大，等待时间约为25分钟。",
+              "text": "I'm sorry, I don't have cash right now.",
+              "text_cn": "不好意思，我现在没带现金。",
               "audio_url": "COS:/qa/responses/travel_072_sub_4_qa_2_response1.mp3"
             },
             {
-              "text": "I'm sorry, but no drivers are available nearby. Would you like to try again later?",
-              "text_cn": "很抱歉，附近没有可用司机。您想稍后再试吗？",
+              "text": "Do you take Google Pay? I can try.",
+              "text_cn": "你们收Google Pay吗？我可以试试。",
               "audio_url": "COS:/qa/responses/travel_072_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "用于表达轻微焦虑时的礼貌询问，常见于恶劣天气或高峰时段",
+          "usageNote": "司机常用简略问法，用户回应也应简洁，但需明确表达支付偏好或障碍。",
           "audioUrl": "COS:/qa/questions/travel_072_sub_4_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "travel_072_sub_4_qa_3",
           "subSceneId": "travel_072_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Is the taxi coming soon?",
-          "triggerTextCn": "出租车快到了吗？",
+          "triggerText": "Payment method, please?",
+          "triggerTextCn": "请告知支付方式？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "出租车公司客服主动致电确认乘客是否仍在等待",
+          "scenarioHintCn": "司机在系统提示后礼貌确认支付方式，常见于网约车或高端服务",
           "followUps": [
             {
-              "text": "Yes, he's just turning onto my street — I see him!",
-              "text_cn": "是的，他正拐进我这条街，我看到车了！",
+              "text": "I'll pay with my digital wallet.",
+              "text_cn": "我用数字钱包支付。",
               "audio_url": "COS:/qa/responses/travel_072_sub_4_qa_3_response0.mp3"
             },
             {
-              "text": "Not yet — I've been waiting 20 minutes. Is there a problem?",
-              "text_cn": "还没到，我已经等了20分钟。出什么问题了吗？",
+              "text": "Actually, I'm out of cards—can I pay later via app?",
+              "text_cn": "其实我没带卡，能通过App稍后支付吗？",
               "audio_url": "COS:/qa/responses/travel_072_sub_4_qa_3_response1.mp3"
             },
             {
-              "text": "Actually, I changed my mind — I'll take the bus instead.",
-              "text_cn": "其实我改变主意了，我改坐公交吧。",
+              "text": "Either is fine, whatever's easier for you.",
+              "text_cn": "都可以，哪种方便你就用哪种。",
               "audio_url": "COS:/qa/responses/travel_072_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "客服主动跟进时，用户可能有积极、不满或取消三种典型反应，需掌握自然回应",
+          "usageNote": "此句更正式，适合用于网约车或国际服务场景，用户回应需体现灵活性或问题解决意识。",
           "audioUrl": "COS:/qa/questions/travel_072_sub_4_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -419,8 +419,8 @@
     {
       "id": "travel_072_sub_5",
       "sceneId": "travel_072",
-      "name": "确认支付方式",
-      "description": "乘客询问并确认付款方式（现金/刷卡）。",
+      "name": "结束通话",
+      "description": "乘客感谢客服，礼貌结束通话。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -428,29 +428,29 @@
           "id": "travel_072_sub_5_qa_1",
           "subSceneId": "travel_072_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "How would you like to pay?",
-          "triggerTextCn": "您想怎么支付？",
+          "triggerText": "Where should I drop you off?",
+          "triggerTextCn": "您要在哪里下车？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "叫出租车后，司机确认支付方式",
+          "scenarioHintCn": "出租车司机在结束行程前确认下车地点",
           "followUps": [
             {
-              "text": "I'll pay by card, please.",
-              "text_cn": "我刷卡，谢谢。",
+              "text": "Just here, please. This is my building.",
+              "text_cn": "就在这里，谢谢，这就是我的楼。",
               "audio_url": "COS:/qa/responses/travel_072_sub_5_qa_1_response0.mp3"
             },
             {
-              "text": "Do you accept cash?",
-              "text_cn": "你们收现金吗？",
+              "text": "Can you go one more block? I need to be at the corner for safety.",
+              "text_cn": "能再开一个街区吗？我想在拐角下车更安全。",
               "audio_url": "COS:/qa/responses/travel_072_sub_5_qa_1_response1.mp3"
             },
             {
-              "text": "Can I use Apple Pay or Google Pay?",
-              "text_cn": "可以用Apple Pay或Google Pay吗？",
+              "text": "Actually, I’m not sure—can you check the address on my app?",
+              "text_cn": "其实我不太确定，能帮我看看我App里的地址吗？",
               "audio_url": "COS:/qa/responses/travel_072_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是出租车司机最常问的支付方式问题，用户需根据自身支付工具选择回应，避免沉默或含糊。",
+          "usageNote": "司机在到达目的地前会确认下车位置，用户需清晰、简洁回应，避免模糊表述。",
           "audioUrl": "COS:/qa/questions/travel_072_sub_5_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -459,29 +459,29 @@
           "id": "travel_072_sub_5_qa_2",
           "subSceneId": "travel_072_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Cash or card?",
-          "triggerTextCn": "现金还是刷卡？",
+          "triggerText": "How would you like to pay?",
+          "triggerTextCn": "您想怎么付款？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "出租车司机快速确认支付方式（简洁版提问）",
+          "scenarioHintCn": "出租车司机在行程结束时询问支付方式",
           "followUps": [
             {
-              "text": "Card, thanks.",
-              "text_cn": "刷卡，谢谢。",
+              "text": "I’ll pay by card, thanks.",
+              "text_cn": "我刷卡支付，谢谢。",
               "audio_url": "COS:/qa/responses/travel_072_sub_5_qa_2_response0.mp3"
             },
             {
-              "text": "I don't have cash right now — can I pay with my phone?",
-              "text_cn": "我现在没带现金，能用手机支付吗？",
+              "text": "Do you take cash? I only have bills.",
+              "text_cn": "收现金吗？我只有纸币。",
               "audio_url": "COS:/qa/responses/travel_072_sub_5_qa_2_response1.mp3"
             },
             {
-              "text": "Actually, I'm not sure if my card works here — can I try cash instead?",
-              "text_cn": "其实我不确定我的卡能不能用，能改用现金吗？",
+              "text": "I already paid through the app.",
+              "text_cn": "我已经在App里付过了。",
               "audio_url": "COS:/qa/responses/travel_072_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "司机常简化提问为'Cash or card?'，用户回应需直接但保留灵活性，体现真实对话中的犹豫与调整。",
+          "usageNote": "支付方式需明确说明，避免沉默或含糊回应，司机常需快速完成交易。",
           "audioUrl": "COS:/qa/questions/travel_072_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -490,29 +490,29 @@
           "id": "travel_072_sub_5_qa_3",
           "subSceneId": "travel_072_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Payment method, please?",
-          "triggerTextCn": "请告知支付方式？",
+          "triggerText": "Thanks for riding with us. Have a great day!",
+          "triggerTextCn": "感谢乘坐，祝您今天愉快！",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "出租车司机在到达后礼貌确认支付方式（正式语气）",
+          "scenarioHintCn": "司机在结束通话时表达感谢，用户需礼貌回应",
           "followUps": [
             {
-              "text": "I'll use my contactless card.",
-              "text_cn": "我用非接触式刷卡。",
+              "text": "Thanks, you too!",
+              "text_cn": "谢谢，你也是！",
               "audio_url": "COS:/qa/responses/travel_072_sub_5_qa_3_response0.mp3"
             },
             {
-              "text": "I'm sorry, I only have cash — is that okay?",
-              "text_cn": "不好意思，我只有现金，可以吗？",
+              "text": "You were very helpful—thank you!",
+              "text_cn": "您很帮忙，谢谢！",
               "audio_url": "COS:/qa/responses/travel_072_sub_5_qa_3_response1.mp3"
             },
             {
-              "text": "I'll pay via WeChat Pay — do you have a QR code?",
-              "text_cn": "我用微信支付，有二维码吗？",
+              "text": "No problem, appreciate the ride.",
+              "text_cn": "没问题，感谢车程。",
               "audio_url": "COS:/qa/responses/travel_072_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "此句更正式，常见于服务意识较强的司机。用户回应应包含具体支付工具名称，体现对本地支付习惯的了解。",
+          "usageNote": "结束通话时的感谢是礼貌闭环，用户应至少简短回应，避免沉默。",
           "audioUrl": "COS:/qa/questions/travel_072_sub_5_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3

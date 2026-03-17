@@ -1,7 +1,7 @@
 {
   "sceneId": "travel_064",
   "sceneName": "行李寄存",
-  "generatedAt": "2026-03-17T03:14:38.149Z",
+  "generatedAt": "2026-03-17T03:40:19.494Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
@@ -17,10 +17,10 @@
           "subSceneId": "travel_064_sub_1",
           "dialogueMode": "user_asks",
           "triggerText": "Where is the luggage storage?",
-          "triggerTextCn": "行李寄存处在哪里？",
+          "triggerTextCn": "请问寄存处在哪里？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动寻找寄存处位置",
+          "scenarioHintCn": "顾客询问寄存处位置",
           "followUps": [
             {
               "text": "It's just around the corner, next to the restrooms.",
@@ -28,48 +28,48 @@
               "audio_url": "COS:/qa/responses/travel_064_sub_1_qa_1_response0.mp3"
             },
             {
-              "text": "I'm sorry, the luggage storage is closed for maintenance today.",
-              "text_cn": "抱歉，今天行李寄存处因维修关闭。",
+              "text": "We don't have a dedicated storage area, but you can leave it at the front desk.",
+              "text_cn": "我们没有专门的寄存处，但可以放在前台。",
               "audio_url": "COS:/qa/responses/travel_064_sub_1_qa_1_response1.mp3"
             },
             {
-              "text": "We don't have a dedicated storage, but we can hold your bags at the counter for up to 2 hours.",
-              "text_cn": "我们没有专用寄存处，但可以在前台帮您保管最多2小时。",
+              "text": "I'm sorry, we're full today — please check with the concierge downstairs.",
+              "text_cn": "抱歉，今天寄存位已满，请到楼下礼宾台咨询。",
               "audio_url": "COS:/qa/responses/travel_064_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客初次询问寄存位置时的典型回应，涵盖正常、异常和替代情况",
+          "usageNote": "用于顾客主动询问寄存位置的场景，帮助学习者理解不同回应情境",
           "audioUrl": "COS:/qa/questions/travel_064_sub_1_qa_1.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "travel_064_sub_1_qa_2",
           "subSceneId": "travel_064_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you need a locker or a storage room?",
-          "triggerTextCn": "您需要储物柜还是寄存室？",
+          "triggerText": "How many bags are you checking?",
+          "triggerTextCn": "您要寄存几个行李？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员提供寄存方式选择",
+          "scenarioHintCn": "服务员询问寄存行李数量",
           "followUps": [
             {
-              "text": "I'll take a locker, please. It's just for a few hours.",
-              "text_cn": "我要一个储物柜，就几个小时。",
+              "text": "Just one suitcase, please.",
+              "text_cn": "一个行李箱就好。",
               "audio_url": "COS:/qa/responses/travel_064_sub_1_qa_2_response0.mp3"
             },
             {
-              "text": "A storage room would be better—I have a large suitcase.",
-              "text_cn": "寄存室更好，我有个大行李箱。",
+              "text": "Two — one large suitcase and a backpack.",
+              "text_cn": "两个：一个大行李箱和一个背包。",
               "audio_url": "COS:/qa/responses/travel_064_sub_1_qa_2_response1.mp3"
             },
             {
-              "text": "I'm not sure—what's the difference?",
-              "text_cn": "我不确定，这两者有什么区别？",
+              "text": "Actually, I'm not sure — can I leave it here and decide later?",
+              "text_cn": "其实我不确定，我可以先放在这儿，稍后再决定吗？",
               "audio_url": "COS:/qa/responses/travel_064_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "服务员提供选项时，顾客可能明确选择、因行李大小调整、或需要解释",
+          "usageNote": "帮助学习者应对服务员关于行李数量的常见提问，掌握不同回应策略",
           "audioUrl": "COS:/qa/questions/travel_064_sub_1_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -78,29 +78,29 @@
           "id": "travel_064_sub_1_qa_3",
           "subSceneId": "travel_064_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "How long will you be leaving your bags?",
-          "triggerTextCn": "您要寄存多久？",
+          "triggerText": "There's a small fee for storage — is that okay?",
+          "triggerTextCn": "寄存需要收取少量费用，可以吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员确认寄存时长以决定收费或安排",
+          "scenarioHintCn": "服务员告知寄存收费并确认意愿",
           "followUps": [
             {
-              "text": "Just a few hours—I'll be back before dinner.",
-              "text_cn": "就几个小时，晚饭前回来。",
+              "text": "Sure, that's fine.",
+              "text_cn": "好的，没问题。",
               "audio_url": "COS:/qa/responses/travel_064_sub_1_qa_3_response0.mp3"
             },
             {
-              "text": "All day—I'm checking into my hotel at 6 PM.",
-              "text_cn": "一整天，我下午6点才入住酒店。",
+              "text": "Is there a free option? I'm only staying an hour.",
+              "text_cn": "有免费寄存吗？我只待一个小时。",
               "audio_url": "COS:/qa/responses/travel_064_sub_1_qa_3_response1.mp3"
             },
             {
-              "text": "I'm not sure yet—I might extend it if the tour runs late.",
-              "text_cn": "还不确定，如果游览推迟我可能会延长。",
+              "text": "Actually, I'll take it with me — I don't want to risk losing it.",
+              "text_cn": "我还是自己带着吧，怕弄丢。",
               "audio_url": "COS:/qa/responses/travel_064_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "服务员确认寄存时长是关键环节，顾客回应需体现时间灵活性、明确性或不确定性",
+          "usageNote": "训练学习者面对收费确认时的三种典型回应：接受、协商、拒绝",
           "audioUrl": "COS:/qa/questions/travel_064_sub_1_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -111,7 +111,7 @@
       "id": "travel_064_sub_2",
       "sceneId": "travel_064",
       "name": "咨询收费标准",
-      "description": "旅客询问寄存费用及按小时还是按天计费。",
+      "description": "旅客询问寄存费用及计费方式，工作人员说明价格规则。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -123,25 +123,25 @@
           "triggerTextCn": "您要寄存多久？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "咨询行李寄存收费标准",
+          "scenarioHintCn": "行李寄存：咨询收费标准",
           "followUps": [
             {
-              "text": "Just for a few hours — I’ll pick it up after lunch.",
-              "text_cn": "只寄存几个小时，我午饭后就来取。",
+              "text": "Just for a few hours — I’ll pick it up before dinner.",
+              "text_cn": "只寄存几个小时，晚饭前取回。",
               "audio_url": "COS:/qa/responses/travel_064_sub_2_qa_1_response0.mp3"
             },
             {
-              "text": "I need it for the whole day — I’m checking into my hotel tonight.",
-              "text_cn": "我要寄存一整天，今晚才去酒店入住。",
+              "text": "I need it for the whole day — can I leave it until tomorrow morning?",
+              "text_cn": "我要寄存一整天，能留到明天早上吗？",
               "audio_url": "COS:/qa/responses/travel_064_sub_2_qa_1_response1.mp3"
             },
             {
-              "text": "Actually, I might leave it until tomorrow morning. Is that okay?",
-              "text_cn": "我可能要寄到明天早上，可以吗？",
+              "text": "I’m not sure yet — can I pay hourly and extend later?",
+              "text_cn": "我还不确定，能按小时付费然后延长时间吗？",
               "audio_url": "COS:/qa/responses/travel_064_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于询问寄存时长以确定费用，是收费计算的关键前提",
+          "usageNote": "用于确认寄存时长以获取准确报价，是收费计算的关键前提。",
           "audioUrl": "COS:/qa/questions/travel_064_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -150,29 +150,29 @@
           "id": "travel_064_sub_2_qa_2",
           "subSceneId": "travel_064_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "The fee is $5 per hour or $15 for up to 24 hours. Does that work for you?",
-          "triggerTextCn": "每小时5美元，或24小时内15美元。这样可以吗？",
+          "triggerText": "The fee is $5 per hour or $15 for up to 24 hours.",
+          "triggerTextCn": "收费是每小时5美元，或24小时内15美元。",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "咨询行李寄存收费标准",
+          "scenarioHintCn": "行李寄存：咨询收费标准",
           "followUps": [
             {
-              "text": "I’ll go with the daily rate — I’m staying all day.",
-              "text_cn": "我选全天价，我要寄一整天。",
+              "text": "I’ll go with the daily rate then — that’s a better deal.",
+              "text_cn": "那我选全天价吧，更划算。",
               "audio_url": "COS:/qa/responses/travel_064_sub_2_qa_2_response0.mp3"
             },
             {
-              "text": "Can I pay by the hour instead? I might leave earlier.",
-              "text_cn": "我可以按小时付费吗？我可能早一点取。",
+              "text": "Do you offer discounts for students or seniors?",
+              "text_cn": "你们对学生或老人有优惠吗？",
               "audio_url": "COS:/qa/responses/travel_064_sub_2_qa_2_response1.mp3"
             },
             {
-              "text": "Is there a discount for students?",
-              "text_cn": "学生有优惠吗？",
+              "text": "Can I pay by card, or do I need cash?",
+              "text_cn": "我可以刷卡吗？还是必须用现金？",
               "audio_url": "COS:/qa/responses/travel_064_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "服务员报价后，用户根据自身需求选择支付方式或询问优惠，是收费确认的核心环节",
+          "usageNote": "在得知价格后，用户可能选择方案、询问优惠或确认支付方式，是决策关键环节。",
           "audioUrl": "COS:/qa/questions/travel_064_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -181,29 +181,29 @@
           "id": "travel_064_sub_2_qa_3",
           "subSceneId": "travel_064_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "Do you charge extra for oversized or heavy bags?",
-          "triggerTextCn": "大件或重行李会额外收费吗？",
+          "triggerText": "Is there a maximum size or weight limit for luggage?",
+          "triggerTextCn": "行李有尺寸或重量限制吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "咨询行李寄存收费标准",
+          "scenarioHintCn": "行李寄存：咨询收费标准",
           "followUps": [
             {
-              "text": "Yes, anything over 20 kg or larger than 70x50x30 cm is an extra $3.",
-              "text_cn": "是的，超过20公斤或尺寸大于70x50x30厘米的行李加收3美元。",
+              "text": "No limits — we accept suitcases, backpacks, and even ski gear.",
+              "text_cn": "没有限制，我们接受行李箱、背包甚至滑雪装备。",
               "audio_url": "COS:/qa/responses/travel_064_sub_2_qa_3_response0.mp3"
             },
             {
-              "text": "No extra charge — we treat all bags the same, regardless of size.",
-              "text_cn": "不额外收费，我们对所有行李一视同仁。",
+              "text": "We can’t store items over 30 kg or larger than 80x50x30 cm — sorry.",
+              "text_cn": "超过30公斤或尺寸大于80x50x30厘米的物品我们无法寄存，抱歉。",
               "audio_url": "COS:/qa/responses/travel_064_sub_2_qa_3_response1.mp3"
             },
             {
-              "text": "We don’t accept bags over 30 kg for safety reasons — sorry!",
-              "text_cn": "出于安全原因，我们不接收超过30公斤的行李，抱歉！",
+              "text": "Extra-large items cost an additional $10 — would you like to proceed?",
+              "text_cn": "超大件额外收费10美元，您要继续寄存吗？",
               "audio_url": "COS:/qa/responses/travel_064_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "用户主动询问特殊行李收费政策，是高频但易被忽略的关键问题",
+          "usageNote": "用户主动询问寄存限制，是避免后续纠纷的重要提问，服务员需根据政策灵活回应。",
           "audioUrl": "COS:/qa/questions/travel_064_sub_2_qa_3.mp3",
           "learnRequirement": "speak_trigger",
           "order": 3
@@ -214,7 +214,7 @@
       "id": "travel_064_sub_3",
       "sceneId": "travel_064",
       "name": "确认取件时间",
-      "description": "旅客确认寄存期限和最晚取件时间，避免超时。",
+      "description": "旅客确认寄存期限与取件截止时间，工作人员提供提醒。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -226,7 +226,7 @@
           "triggerTextCn": "您想什么时候来取行李？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "行李寄存服务中，服务员确认取件时间",
+          "scenarioHintCn": "行李寄存后，服务员确认取件时间",
           "followUps": [
             {
               "text": "I'll pick it up this afternoon, around 4 PM.",
@@ -234,17 +234,17 @@
               "audio_url": "COS:/qa/responses/travel_064_sub_3_qa_1_response0.mp3"
             },
             {
-              "text": "Can I pick it up tomorrow morning instead?",
-              "text_cn": "我明天早上取可以吗？",
+              "text": "Can I leave it until tomorrow morning? I'm in a hurry now.",
+              "text_cn": "可以明天早上再来取吗？我现在很赶。",
               "audio_url": "COS:/qa/responses/travel_064_sub_3_qa_1_response1.mp3"
             },
             {
-              "text": "I'm not sure yet — can I call you later to confirm?",
-              "text_cn": "我还不确定，能稍后打电话确认吗？",
+              "text": "Actually, I'm not sure yet—can I call you when I decide?",
+              "text_cn": "我还不确定，能等我决定好了再打电话确认吗？",
               "audio_url": "COS:/qa/responses/travel_064_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于行李寄存服务中，顾客回应取件时间安排，体现灵活性与礼貌",
+          "usageNote": "用于行李寄存服务中，服务员主动询问取件时间，用户根据自身安排给出不同回应，体现真实灵活性。",
           "audioUrl": "COS:/qa/questions/travel_064_sub_3_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -253,29 +253,29 @@
           "id": "travel_064_sub_3_qa_2",
           "subSceneId": "travel_064_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "Do you have a time limit for storage?",
-          "triggerTextCn": "行李存放有时间限制吗？",
+          "triggerText": "Do you have a time limit for storing luggage?",
+          "triggerTextCn": "行李寄存有时间限制吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动询问寄存时限，确认是否可过夜或长时间存放",
+          "scenarioHintCn": "顾客主动询问寄存时长限制，以规划取件时间",
           "followUps": [
             {
-              "text": "We allow up to 72 hours. After that, there's a daily fee.",
-              "text_cn": "最多可存放72小时，超时后每天收取额外费用。",
+              "text": "We hold luggage for up to 48 hours at no extra charge.",
+              "text_cn": "我们免费寄存最多48小时。",
               "audio_url": "COS:/qa/responses/travel_064_sub_3_qa_2_response0.mp3"
             },
             {
-              "text": "No time limit for registered guests — you can leave it until your next visit.",
-              "text_cn": "对本店住客没有时间限制，您可以留到下次来访时取。",
+              "text": "After 24 hours, there's a small daily fee. Would you like to extend it?",
+              "text_cn": "超过24小时会收取少量每日费用，您要延长吗？",
               "audio_url": "COS:/qa/responses/travel_064_sub_3_qa_2_response1.mp3"
             },
             {
-              "text": "Sorry, we only hold luggage for 24 hours. After that, we have to move it to storage.",
-              "text_cn": "抱歉，我们只保留24小时，之后会转至专用储物间。",
+              "text": "We can store it for a few days, but we need your contact info in case we need to reach you.",
+              "text_cn": "我们可以帮您寄存几天，但需要留下您的联系方式以便联系。",
               "audio_url": "COS:/qa/responses/travel_064_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客主动询问寄存时限，服务员根据不同政策回应，体现服务差异",
+          "usageNote": "顾客主动询问寄存时限，服务员根据不同政策给出三种典型回应，帮助学习者理解服务弹性。",
           "audioUrl": "COS:/qa/questions/travel_064_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -284,29 +284,29 @@
           "id": "travel_064_sub_3_qa_3",
           "subSceneId": "travel_064_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "Can I leave it here until Friday?",
-          "triggerTextCn": "我可以把它放在这里到周五吗？",
+          "triggerText": "I'm planning to collect it later today—will it still be here?",
+          "triggerTextCn": "我计划今天晚些时候来取，到时候还在吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客提出具体取件日期，确认是否可长期寄存",
+          "scenarioHintCn": "顾客表达取件意图，但不确定服务是否保障",
           "followUps": [
             {
-              "text": "Yes, that’s fine — just leave your name and phone number, and we’ll hold it for you.",
-              "text_cn": "可以，没问题，留下您的姓名和电话，我们会帮您保管。",
+              "text": "Absolutely! We keep all items securely until you return, even if it's after closing.",
+              "text_cn": "当然！我们会安全保管您的行李，即使过了营业时间也一样。",
               "audio_url": "COS:/qa/responses/travel_064_sub_3_qa_3_response0.mp3"
             },
             {
-              "text": "We can hold it until Friday, but there’s a $5 fee per day after 48 hours.",
-              "text_cn": "可以保留到周五，但48小时后每天收取5美元费用。",
+              "text": "Yes, but please make sure to come before 10 PM—we lock the storage room after that.",
+              "text_cn": "可以，但请在晚上10点前取走，之后储物间会上锁。",
               "audio_url": "COS:/qa/responses/travel_064_sub_3_qa_3_response1.mp3"
             },
             {
-              "text": "I'm sorry, but we can't store luggage for more than 48 hours — we don't have space.",
-              "text_cn": "很抱歉，我们最多只能存48小时，没有更多空间了。",
+              "text": "We can only hold it until the end of today. If you don't come by midnight, we'll transfer it to our long-term storage.",
+              "text_cn": "我们只能保管到今天结束。如果午夜前不来取，我们会转到长期存储区。",
               "audio_url": "COS:/qa/responses/travel_064_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客提出具体取件日期，服务员根据政策给出三种典型回应，涵盖同意、有条件同意和拒绝",
+          "usageNote": "顾客表达不确定的取件计划，服务员根据不同运营规则给出三种回应，帮助学习者掌握如何应对时间焦虑。",
           "audioUrl": "COS:/qa/questions/travel_064_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -317,7 +317,7 @@
       "id": "travel_064_sub_4",
       "sceneId": "travel_064",
       "name": "询问物品安全",
-      "description": "旅客担心行李安全，询问监控和防盗措施。",
+      "description": "旅客担心行李安全，工作人员说明监控与保管措施。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -329,7 +329,7 @@
           "triggerTextCn": "我的行李放在这里安全吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问行李寄存的安全性",
+          "scenarioHintCn": "顾客询问寄存物品的安全性",
           "followUps": [
             {
               "text": "Absolutely! We have 24/7 surveillance and locked storage.",
@@ -338,16 +338,16 @@
             },
             {
               "text": "It’s secure, but please don’t leave valuables like passports or cash inside.",
-              "text_cn": "是安全的，但请不要把护照或现金等贵重物品放在里面。",
+              "text_cn": "物品是安全的，但请不要把护照或现金等贵重物品放在里面。",
               "audio_url": "COS:/qa/responses/travel_064_sub_4_qa_1_response1.mp3"
             },
             {
-              "text": "We offer a security tag and receipt — you’ll need both to retrieve your bag.",
-              "text_cn": "我们会提供安全标签和取件凭据，取行李时必须两者齐全。",
+              "text": "We guarantee safety — your bag will be tagged and stored behind the counter.",
+              "text_cn": "我们保证安全，您的行李会贴标签并存放在柜台后方。",
               "audio_url": "COS:/qa/responses/travel_064_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客对寄存安全有疑虑时的典型提问，服务员应根据政策回应，既安抚情绪又明确规则。",
+          "usageNote": "顾客对寄存安全有疑虑时使用，服务员需根据政策提供不同层次的保证",
           "audioUrl": "COS:/qa/questions/travel_064_sub_4_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -356,29 +356,29 @@
           "id": "travel_064_sub_4_qa_2",
           "subSceneId": "travel_064_sub_4",
           "dialogueMode": "user_asks",
-          "triggerText": "Do you guarantee that nothing will be stolen?",
-          "triggerTextCn": "你们能保证行李不会被偷吗？",
+          "triggerText": "Can you make sure no one else takes my bag?",
+          "triggerTextCn": "你们能确保没人拿错我的包吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客对寄存安全性提出更高要求，寻求责任承诺",
+          "scenarioHintCn": "顾客担心行李被误取或错拿",
           "followUps": [
             {
-              "text": "We can’t guarantee 100% against theft, but we take full responsibility if it happens due to our negligence.",
-              "text_cn": "我们无法100%保证不被盗，但如果因我们的疏忽导致丢失，我们全责赔偿。",
+              "text": "We’ll give you a claim ticket — only the person with the ticket can pick it up.",
+              "text_cn": "我们会给您一张取件凭条，只有持票人才能领取。",
               "audio_url": "COS:/qa/responses/travel_064_sub_4_qa_2_response0.mp3"
             },
             {
-              "text": "We don’t offer insurance, but you’re welcome to use our secure lockers with personal locks.",
-              "text_cn": "我们不提供保险，但您可以使用带个人锁的保险柜。",
+              "text": "We don’t allow anyone to collect luggage without showing ID and matching the tag.",
+              "text_cn": "没有出示身份证并核对标签，任何人不得领取行李。",
               "audio_url": "COS:/qa/responses/travel_064_sub_4_qa_2_response1.mp3"
             },
             {
-              "text": "Actually, we’ve had zero theft incidents in the past three years — our system is very reliable.",
-              "text_cn": "事实上，过去三年我们从未发生过失窃事件，我们的系统非常可靠。",
+              "text": "We’ve never had a mix-up, but if you’re worried, we can store it in a private locker.",
+              "text_cn": "我们从未出过差错，但如果您担心，我们可以把您的行李放进私人储物柜。",
               "audio_url": "COS:/qa/responses/travel_064_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客对责任归属敏感时的进阶提问，服务员需平衡法律边界与客户心理需求。",
+          "usageNote": "顾客对取件流程有疑虑时使用，服务员需说明防错机制",
           "audioUrl": "COS:/qa/questions/travel_064_sub_4_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
@@ -387,29 +387,29 @@
           "id": "travel_064_sub_4_qa_3",
           "subSceneId": "travel_064_sub_4",
           "dialogueMode": "user_asks",
-          "triggerText": "Can I check on my bag later if I’m worried?",
-          "triggerTextCn": "如果我担心，之后能来看看我的行李吗？",
+          "triggerText": "What happens if my luggage gets damaged?",
+          "triggerTextCn": "如果我的行李损坏了怎么办？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客希望获得监控或查看行李的权限，体现控制欲与不安",
+          "scenarioHintCn": "顾客询问寄存期间的赔偿责任",
           "followUps": [
             {
-              "text": "Of course! You can check your bag anytime before closing — just show your receipt.",
-              "text_cn": "当然可以！在关门前随时可以来查看，出示凭据即可。",
+              "text": "We’re not liable for damage unless it’s due to our negligence — we recommend travel insurance.",
+              "text_cn": "除非是我们的疏忽导致损坏，否则我们不承担责任，建议您购买旅行保险。",
               "audio_url": "COS:/qa/responses/travel_064_sub_4_qa_3_response0.mp3"
             },
             {
-              "text": "Sorry, for security reasons, we don’t allow customers to access stored items once checked in.",
-              "text_cn": "抱歉，出于安全考虑，行李寄存后不允许顾客自行取回查看。",
+              "text": "We inspect all items on check-in and check-out — if damage occurs while in our care, we’ll cover repairs.",
+              "text_cn": "我们会在寄存和领取时检查行李，若在我们保管期间损坏，我们会承担维修费用。",
               "audio_url": "COS:/qa/responses/travel_064_sub_4_qa_3_response1.mp3"
             },
             {
-              "text": "We can give you a photo of your bag after you check it in — would you like that?",
-              "text_cn": "我们可以在您寄存后拍一张行李的照片，您需要吗？",
+              "text": "We have a damage report form — if something happens, just let us know immediately and we’ll help you file it.",
+              "text_cn": "我们有损坏报告表，如果发生问题，请立即告知，我们会协助您填写。",
               "audio_url": "COS:/qa/responses/travel_064_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客希望获得心理安全感时的非典型但真实需求，服务员需灵活应对，避免机械拒绝。",
+          "usageNote": "顾客关注风险与责任时使用，服务员需根据政策提供不同回应层级",
           "audioUrl": "COS:/qa/questions/travel_064_sub_4_qa_3.mp3",
           "learnRequirement": "speak_trigger",
           "order": 3
@@ -419,8 +419,8 @@
     {
       "id": "travel_064_sub_5",
       "sceneId": "travel_064",
-      "name": "领取寄存物品",
-      "description": "旅客凭票取回行李，工作人员核对信息并交还。",
+      "name": "完成寄存手续",
+      "description": "旅客领取寄存凭证，工作人员确认信息并致谢。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -428,29 +428,29 @@
           "id": "travel_064_sub_5_qa_1",
           "subSceneId": "travel_064_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Can I have your claim ticket, please?",
-          "triggerTextCn": "请出示您的取件凭证，好吗？",
+          "triggerText": "How long will you be leaving your luggage?",
+          "triggerTextCn": "您要寄存多久？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "领取寄存物品时，服务员要求出示凭证",
+          "scenarioHintCn": "确认寄存时长",
           "followUps": [
             {
-              "text": "Here it is. I kept it safe.",
-              "text_cn": "在这儿呢，我一直好好保存着。",
+              "text": "Just for a few hours — I’ll pick it up after lunch.",
+              "text_cn": "只寄存几个小时，午饭后就来取。",
               "audio_url": "COS:/qa/responses/travel_064_sub_5_qa_1_response0.mp3"
             },
             {
-              "text": "Oh no, I lost it. Can I still get my bag?",
-              "text_cn": "哦不，我弄丢了。我还能取到行李吗？",
+              "text": "I’ll be away for the whole day — can I collect it tomorrow morning?",
+              "text_cn": "我今天一整天都不在，明天早上能来取吗？",
               "audio_url": "COS:/qa/responses/travel_064_sub_5_qa_1_response1.mp3"
             },
             {
-              "text": "Is this the right one? I’m not sure which number I got.",
-              "text_cn": "这是对的吗？我不太记得自己拿到的是哪个号码了。",
+              "text": "I’m not sure yet — maybe overnight? Can I decide later?",
+              "text_cn": "我还不确定，可能寄存一晚？能等会儿再决定吗？",
               "audio_url": "COS:/qa/responses/travel_064_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是领取寄存物品时最核心的确认环节，用户可能因遗忘、丢失或混淆凭证而产生不同反应，需掌握应对策略。",
+          "usageNote": "用于回应寄存时长询问，体现用户对时间安排的不同规划，是寄存流程中最常见的互动环节之一。",
           "audioUrl": "COS:/qa/questions/travel_064_sub_5_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -459,29 +459,29 @@
           "id": "travel_064_sub_5_qa_2",
           "subSceneId": "travel_064_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "What’s the item description?",
-          "triggerTextCn": "请描述一下您的物品是什么？",
+          "triggerText": "Do you need a claim ticket for your luggage?",
+          "triggerTextCn": "您需要寄存凭证吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员为确认物品归属，要求用户描述寄存物",
+          "scenarioHintCn": "确认是否需要取件凭证",
           "followUps": [
             {
-              "text": "It’s a black leather suitcase with a red tag.",
-              "text_cn": "是一个黑色皮箱，上面有红色标签。",
+              "text": "Yes, please — I don’t want to lose it.",
+              "text_cn": "需要，谢谢，我不想弄丢。",
               "audio_url": "COS:/qa/responses/travel_064_sub_5_qa_2_response0.mp3"
             },
             {
-              "text": "I’m not sure—it’s just a big duffel bag. I didn’t notice the tag.",
-              "text_cn": "我不太确定，就是一个大旅行包，没注意标签。",
+              "text": "No, I’ll remember the locker number.",
+              "text_cn": "不用了，我会记住储物柜编号。",
               "audio_url": "COS:/qa/responses/travel_064_sub_5_qa_2_response1.mp3"
             },
             {
-              "text": "It’s my laptop bag—silver zipper, blue fabric. I’ll open it to prove it’s mine.",
-              "text_cn": "是我的笔记本电脑包，银色拉链，蓝色布料，我可以打开证明是我的。",
+              "text": "Can I get a digital receipt instead? I prefer not to carry paper.",
+              "text_cn": "能发电子收据吗？我不喜欢带纸质单据。",
               "audio_url": "COS:/qa/responses/travel_064_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "服务员常通过物品描述核对身份，用户需能简洁准确描述，或在无法描述时提供替代方案。",
+          "usageNote": "涉及取件凭证的偏好差异，反映现代用户对便利性与安全性的不同权衡，是高频但易被忽略的细节。",
           "audioUrl": "COS:/qa/questions/travel_064_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -490,29 +490,29 @@
           "id": "travel_064_sub_5_qa_3",
           "subSceneId": "travel_064_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you have any storage fees to pay?",
-          "triggerTextCn": "您需要支付寄存费用吗？",
+          "triggerText": "Is there anything valuable inside?",
+          "triggerTextCn": "行李里有贵重物品吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员询问是否需支付寄存费（可能免费或超时收费）",
+          "scenarioHintCn": "询问是否含贵重物品（责任界定）",
           "followUps": [
             {
-              "text": "No, it’s free for under 2 hours—I just need to pick it up.",
-              "text_cn": "不用，两小时内免费，我只是来取行李。",
+              "text": "Yes, my passport and wallet — can you store them separately?",
+              "text_cn": "有，我的护照和钱包，能单独存放吗？",
               "audio_url": "COS:/qa/responses/travel_064_sub_5_qa_3_response0.mp3"
             },
             {
-              "text": "How much is the fee? I didn’t know there was a charge.",
-              "text_cn": "费用是多少？我不知道要收费。",
+              "text": "No, just clothes and a book — nothing valuable.",
+              "text_cn": "没有，只有衣服和一本书，不值钱。",
               "audio_url": "COS:/qa/responses/travel_064_sub_5_qa_3_response1.mp3"
             },
             {
-              "text": "I’ll pay by card—can I get a receipt?",
-              "text_cn": "我刷卡支付，能给我一张收据吗？",
+              "text": "I’m not sure — there might be some jewelry. Should I declare it?",
+              "text_cn": "我不确定，可能有首饰，需要申报吗？",
               "audio_url": "COS:/qa/responses/travel_064_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "寄存费政策因场所而异，用户可能不知情、接受或质疑收费，需准备不同回应方式。",
+          "usageNote": "涉及责任划分与安全规范，是服务人员必须询问的关键环节，用户回应体现对物品价值的认知差异。",
           "audioUrl": "COS:/qa/questions/travel_064_sub_5_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3

@@ -1,14 +1,14 @@
 {
   "sceneId": "daily_027",
   "sceneName": "五金店买工具",
-  "generatedAt": "2026-03-17T02:54:55.597Z",
+  "generatedAt": "2026-03-17T03:23:00.435Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_027_sub_1",
       "sceneId": "daily_027",
       "name": "寻找工具",
-      "description": "顾客向店员说明需要购买电钻，描述使用场景和基本需求。",
+      "description": "顾客向店员询问电钻位置，初步表达购买需求。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -16,31 +16,31 @@
           "id": "daily_027_sub_1_qa_1",
           "subSceneId": "daily_027_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "Do you have a hammer?",
-          "triggerTextCn": "你们有锤子吗？",
+          "triggerText": "Do you have a hammer that’s good for drywall?",
+          "triggerTextCn": "你们有适合石膏板用的锤子吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问具体工具是否有货",
+          "scenarioHintCn": "顾客寻找特定用途的工具",
           "followUps": [
             {
-              "text": "Yes, we have several types — standard, claw, and sledge. Which one do you need?",
-              "text_cn": "有的，我们有几种：普通锤、羊角锤和大锤。您要哪一种？",
+              "text": "Yes, we have the 20-ounce drywall hammer over by the nails. It has a magnetic nail starter.",
+              "text_cn": "有的，钉子区那边有20盎司的石膏板锤，带磁性钉子定位器。",
               "audio_url": "COS:/qa/responses/daily_027_sub_1_qa_1_response0.mp3"
             },
             {
-              "text": "Sorry, we're out of hammers right now, but we expect a shipment tomorrow.",
-              "text_cn": "抱歉，目前锤子缺货，但明天到货。",
+              "text": "We don’t carry drywall hammers, but the standard claw hammer works fine for light drywall work.",
+              "text_cn": "我们没有专门的石膏板锤，但普通爪锤轻活也能应付。",
               "audio_url": "COS:/qa/responses/daily_027_sub_1_qa_1_response1.mp3"
             },
             {
-              "text": "We don't keep hammers on the floor — let me get one from the back for you.",
-              "text_cn": "锤子不摆在外架，我到后面给您拿一个。",
+              "text": "Actually, we just got a new batch of rubber-mallet hammers for drywall—would you like to try one?",
+              "text_cn": "我们刚到了一批专为石膏板设计的橡胶锤，要试试吗？",
               "audio_url": "COS:/qa/responses/daily_027_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客询问具体工具库存时的典型回应，涵盖有货、缺货、需取货三种情况",
+          "usageNote": "顾客询问特定工具时，店员可能推荐匹配款、替代款或新品，需灵活应对。",
           "audioUrl": "COS:/qa/questions/daily_027_sub_1_qa_1.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
@@ -48,28 +48,28 @@
           "subSceneId": "daily_027_sub_1",
           "dialogueMode": "user_responds",
           "triggerText": "Are you looking for something specific?",
-          "triggerTextCn": "您在找什么具体的工具吗？",
+          "triggerTextCn": "您是想找某种特定的工具吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "店员主动询问顾客需求以提供帮助",
+          "scenarioHintCn": "店员主动询问顾客需求",
           "followUps": [
             {
-              "text": "Yes, I need a 10mm socket wrench for my car repair.",
-              "text_cn": "是的，我需要一个10毫米的套筒扳手修车。",
+              "text": "Yes, I need a 1/2-inch socket wrench for tightening bolts on the shed.",
+              "text_cn": "是的，我需要一个1/2英寸的套筒扳手来拧棚子上的螺栓。",
               "audio_url": "COS:/qa/responses/daily_027_sub_1_qa_2_response0.mp3"
             },
             {
-              "text": "I'm not sure — I need to fix a leaky faucet, but I don't know what tool to use.",
-              "text_cn": "我不确定——我需要修一个漏水的水龙头，但不知道该用什么工具。",
+              "text": "I’m not sure—I’m fixing a leaky faucet but don’t know which tool fits.",
+              "text_cn": "我不确定，我在修漏水水龙头，但不知道该用哪个工具。",
               "audio_url": "COS:/qa/responses/daily_027_sub_1_qa_2_response1.mp3"
             },
             {
-              "text": "Just something to tighten these bolts — any basic set will do.",
-              "text_cn": "随便找个能拧紧这些螺栓的就行，基本工具套装就行。",
+              "text": "I just need something to open this stubborn lid—any suggestions?",
+              "text_cn": "我只是想找东西打开这个卡死的盖子，有什么推荐吗？",
               "audio_url": "COS:/qa/responses/daily_027_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "店员主动询问时，顾客可能清晰表达、模糊求助或接受建议，体现真实交流多样性",
+          "usageNote": "店员常以开放式问题引导顾客表达需求，顾客回应应体现真实犹豫或明确性。",
           "audioUrl": "COS:/qa/questions/daily_027_sub_1_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -78,31 +78,31 @@
           "id": "daily_027_sub_1_qa_3",
           "subSceneId": "daily_027_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "Can you show me where the screwdrivers are?",
-          "triggerTextCn": "你能带我去看看螺丝刀在哪吗？",
+          "triggerText": "Can I borrow a tape measure to check the size first?",
+          "triggerTextCn": "我可以先借个卷尺量一下尺寸吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客请求引导至工具摆放区",
+          "scenarioHintCn": "顾客希望先测量再购买，避免买错",
           "followUps": [
             {
-              "text": "Sure, they're in aisle 3, right next to the pliers — I'll walk you there.",
-              "text_cn": "当然，三号通道，和钳子放在一起——我带您去。",
+              "text": "Of course! Here you go—just bring it back when you’re done.",
+              "text_cn": "当然可以！给你，量完记得还回来。",
               "audio_url": "COS:/qa/responses/daily_027_sub_1_qa_3_response0.mp3"
             },
             {
-              "text": "They're on the third shelf in the tool wall — just look for the red handles.",
-              "text_cn": "在工具墙的第三层，找红色手柄的就行。",
+              "text": "We can lend one, but we need a $5 deposit to make sure it comes back.",
+              "text_cn": "我们可以借，但需要5美元押金，确保归还。",
               "audio_url": "COS:/qa/responses/daily_027_sub_1_qa_3_response1.mp3"
             },
             {
-              "text": "We have two types — flathead and Phillips. Let me grab a few for you to choose from.",
-              "text_cn": "我们有两种：一字和十字，我拿几个让您选一下。",
+              "text": "Sorry, we don’t lend tools out, but I can measure it for you right here.",
+              "text_cn": "抱歉，我们不外借工具，但我可以在这儿帮您量一下。",
               "audio_url": "COS:/qa/responses/daily_027_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客请求指引时，店员可能陪同、指示或主动取货，体现服务主动性差异",
+          "usageNote": "顾客常想先测量再购买，店员回应因店铺政策而异，需掌握三种常见回应模式。",
           "audioUrl": "COS:/qa/questions/daily_027_sub_1_qa_3.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -111,7 +111,7 @@
       "id": "daily_027_sub_2",
       "sceneId": "daily_027",
       "name": "询问功能",
-      "description": "顾客咨询电钻电池续航、转速和重量等关键性能参数。",
+      "description": "顾客咨询电钻电池续航、转速等核心功能细节。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -119,29 +119,29 @@
           "id": "daily_027_sub_2_qa_1",
           "subSceneId": "daily_027_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "This hammer is for driving nails, right?",
-          "triggerTextCn": "这个锤子是用来钉钉子的，对吧？",
+          "triggerText": "Can this hammer be used to drive nails?",
+          "triggerTextCn": "这个锤子能用来敲钉子吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客确认工具基本功能",
+          "scenarioHintCn": "询问工具功能",
           "followUps": [
             {
-              "text": "Yes, it's a standard claw hammer designed for driving nails and pulling them out.",
-              "text_cn": "是的，这是标准的羊角锤，用于钉钉子和拔钉子。",
+              "text": "Yes, it's a standard claw hammer designed specifically for driving nails.",
+              "text_cn": "可以，这是标准的羊角锤，专为敲钉子设计。",
               "audio_url": "COS:/qa/responses/daily_027_sub_2_qa_1_response0.mp3"
             },
             {
-              "text": "Actually, it's also great for light demolition work like breaking tiles or drywall.",
-              "text_cn": "实际上，它也适合轻度拆除工作，比如砸瓷砖或石膏板。",
+              "text": "It can, but it's also great for breaking small tiles or light demolition work.",
+              "text_cn": "可以，但它也适合砸小瓷砖或轻度拆卸工作。",
               "audio_url": "COS:/qa/responses/daily_027_sub_2_qa_1_response1.mp3"
             },
             {
-              "text": "Not quite — this is a ball-peen hammer, better for metalworking, not nails.",
-              "text_cn": "不太对——这是圆头锤，适合金属加工，不是用来钉钉子的。",
+              "text": "Technically yes, but for heavy-duty nails, we recommend our heavy hammer instead.",
+              "text_cn": "理论上可以，但如果是重钉，我们建议用更重的锤子。",
               "audio_url": "COS:/qa/responses/daily_027_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在不确定工具用途时，用此句确认，服务员需根据实际工具类型给出准确回应。",
+          "usageNote": "顾客在不确定工具用途时，用此句确认基本功能，服务员应明确功能边界并可推荐适配选项。",
           "audioUrl": "COS:/qa/questions/daily_027_sub_2_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -150,29 +150,29 @@
           "id": "daily_027_sub_2_qa_2",
           "subSceneId": "daily_027_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you need this wrench for tightening bolts or loosening them?",
-          "triggerTextCn": "您是要用这个扳手来拧紧螺栓还是松开螺栓？",
+          "triggerText": "Do you need manual tools or power tools?",
+          "triggerTextCn": "您需要手动工具还是电动工具？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "店员询问具体使用目的以推荐合适工具",
+          "scenarioHintCn": "服务员引导选择工具类型",
           "followUps": [
             {
-              "text": "I need to tighten them — they're loose on my bike.",
-              "text_cn": "我要拧紧它们——我的自行车螺栓松了。",
+              "text": "I need manual tools—I'm working in a place without electricity.",
+              "text_cn": "我要手动工具，我工作的地方没电。",
               "audio_url": "COS:/qa/responses/daily_027_sub_2_qa_2_response0.mp3"
             },
             {
-              "text": "I'm loosening them to replace a part.",
-              "text_cn": "我要松开它们来更换零件。",
+              "text": "Power tools, please—I need to get this job done fast.",
+              "text_cn": "我要电动工具，我得赶紧干完活。",
               "audio_url": "COS:/qa/responses/daily_027_sub_2_qa_2_response1.mp3"
             },
             {
-              "text": "I'm not sure — I just need something that fits this size.",
-              "text_cn": "我不太确定，我只需要一个能匹配这个尺寸的。",
+              "text": "I'm not sure—what do you recommend for drilling into wood?",
+              "text_cn": "我不确定，钻木头你推荐哪种？",
               "audio_url": "COS:/qa/responses/daily_027_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "店员通过此问题引导顾客明确需求，顾客应直接说明使用目的，避免模糊回答。",
+          "usageNote": "服务员常通过此问题引导顾客明确需求，顾客应直接表达偏好或主动寻求推荐。",
           "audioUrl": "COS:/qa/questions/daily_027_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -181,29 +181,29 @@
           "id": "daily_027_sub_2_qa_3",
           "subSceneId": "daily_027_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "Can this saw cut through metal?",
-          "triggerTextCn": "这把锯子能锯金属吗？",
+          "triggerText": "Can this wrench adjust to different sizes?",
+          "triggerTextCn": "这个扳手能调节大小吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问工具是否适用于特定材质",
+          "scenarioHintCn": "询问工具可调节性",
           "followUps": [
             {
-              "text": "Yes, it's a metal-cutting reciprocating saw with a bi-metal blade.",
-              "text_cn": "可以，这是带双金属锯片的往复式金属切割锯。",
+              "text": "Yes, it's an adjustable wrench—turn the knob to fit nuts from 8mm to 15mm.",
+              "text_cn": "可以，这是活动扳手，旋转旋钮可适配8mm到15mm的螺母。",
               "audio_url": "COS:/qa/responses/daily_027_sub_2_qa_3_response0.mp3"
             },
             {
-              "text": "No, this is a wood saw — it'll dull instantly on metal.",
-              "text_cn": "不行，这是木工锯，碰到金属会立刻变钝。",
+              "text": "No, it's a fixed-size wrench—this one is exactly 10mm.",
+              "text_cn": "不能，这是固定尺寸扳手，正好是10mm的。",
               "audio_url": "COS:/qa/responses/daily_027_sub_2_qa_3_response1.mp3"
             },
             {
-              "text": "It can handle thin sheet metal, but for thick pipes, you'll need a different blade.",
-              "text_cn": "它可以锯薄金属板，但如果是厚管材，您需要换专用锯片。",
+              "text": "It doesn't adjust, but we have a 7-piece adjustable set over there if you need versatility.",
+              "text_cn": "这个不能调，但那边有一套7件套的活动扳手，更适合多用途。",
               "audio_url": "COS:/qa/responses/daily_027_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客询问材质兼容性时，服务员需根据工具规格给出明确、有区分度的回应，避免笼统回答。",
+          "usageNote": "顾客常通过此句确认工具的灵活性，服务员应清晰说明是否可调，并主动提供替代方案以提升购买率。",
           "audioUrl": "COS:/qa/questions/daily_027_sub_2_qa_3.mp3",
           "learnRequirement": "speak_trigger",
           "order": 3
@@ -214,7 +214,7 @@
       "id": "daily_027_sub_3",
       "sceneId": "daily_027",
       "name": "确认库存",
-      "description": "店员检查库存，告知现货型号及备货情况，顾客确认选择。",
+      "description": "店员检查库存，告知现货情况及替代型号选项。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -226,7 +226,7 @@
           "triggerTextCn": "你们有这种锤子现货吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客确认特定工具是否有库存",
+          "scenarioHintCn": "确认库存",
           "followUps": [
             {
               "text": "Yes, we have it right here in aisle 3.",
@@ -235,7 +235,7 @@
             },
             {
               "text": "Sorry, we're out of stock right now, but we can get it in by tomorrow.",
-              "text_cn": "抱歉，目前缺货，但明天可以到货。",
+              "text_cn": "抱歉，现在缺货，但明天可以到货。",
               "audio_url": "COS:/qa/responses/daily_027_sub_3_qa_1_response1.mp3"
             },
             {
@@ -244,7 +244,7 @@
               "audio_url": "COS:/qa/responses/daily_027_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客询问具体工具库存时，店员根据不同库存状态给出三种典型回应。",
+          "usageNote": "顾客询问具体工具是否在售，店员根据库存情况给出三种典型回应，涵盖有货、可补货、已停售三种真实情境。",
           "audioUrl": "COS:/qa/questions/daily_027_sub_3_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -252,30 +252,30 @@
         {
           "id": "daily_027_sub_3_qa_2",
           "subSceneId": "daily_027_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "Which size are you looking for?",
-          "triggerTextCn": "您需要多大尺寸的？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Is the 12-inch wrench available?",
+          "triggerTextCn": "12英寸的扳手有货吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "店员询问工具尺寸以确认库存匹配",
+          "scenarioHintCn": "确认库存",
           "followUps": [
             {
-              "text": "I need the 10mm set.",
-              "text_cn": "我要10毫米的那套。",
+              "text": "We have it in both metric and standard sizes — which one do you need?",
+              "text_cn": "我们有公制和英制两种，您要哪一种？",
               "audio_url": "COS:/qa/responses/daily_027_sub_3_qa_2_response0.mp3"
             },
             {
-              "text": "I'm not sure — what sizes do you have?",
-              "text_cn": "我不太确定，你们有哪些尺寸？",
+              "text": "We only have the 10-inch version left — is that okay?",
+              "text_cn": "现在只剩10英寸的了，可以吗？",
               "audio_url": "COS:/qa/responses/daily_027_sub_3_qa_2_response1.mp3"
             },
             {
-              "text": "Does it come in 8mm or 12mm? I'm not sure which one fits.",
-              "text_cn": "有8毫米或12毫米的吗？我不确定哪个合适。",
+              "text": "I'll check our warehouse system — give me a minute.",
+              "text_cn": "我查一下仓库系统，等我一分钟。",
               "audio_url": "COS:/qa/responses/daily_027_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "店员询问尺寸时，顾客可能明确、模糊或犹豫，需掌握三种自然回应方式。",
+          "usageNote": "顾客询问特定尺寸工具，店员回应包含：提供选择、推荐替代品、需查询系统三种真实服务反应。",
           "audioUrl": "COS:/qa/questions/daily_027_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -284,29 +284,29 @@
           "id": "daily_027_sub_3_qa_3",
           "subSceneId": "daily_027_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "Can you check if you have a set of socket wrenches?",
-          "triggerTextCn": "你能帮我查一下有没有套筒扳手吗？",
+          "triggerText": "Do you have any drill bits for metal?",
+          "triggerTextCn": "你们有金属钻头吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客请求店员查询一组工具的库存情况",
+          "scenarioHintCn": "确认库存",
           "followUps": [
             {
-              "text": "Yes, we have three sets in the back — I'll grab one for you.",
-              "text_cn": "有的，后面有三套，我马上拿一套给你。",
+              "text": "Yes, we have a full set — 1/16 inch to 1/2 inch.",
+              "text_cn": "有的，我们有一整套，从1/16英寸到1/2英寸。",
               "audio_url": "COS:/qa/responses/daily_027_sub_3_qa_3_response0.mp3"
             },
             {
-              "text": "We're out of stock, but I can order it for you — it'll take 2–3 days.",
-              "text_cn": "目前缺货，但我可以为您下单，需要2-3天到货。",
+              "text": "We only have the smaller sizes — the larger ones are on backorder.",
+              "text_cn": "我们只有小尺寸的，大尺寸正在补货中。",
               "audio_url": "COS:/qa/responses/daily_027_sub_3_qa_3_response1.mp3"
             },
             {
-              "text": "We don't carry socket wrench sets anymore — only individual pieces.",
-              "text_cn": "我们不再卖成套的套筒扳手，只有单件。",
+              "text": "We don't sell drill bits separately — you'd need to buy a kit.",
+              "text_cn": "我们不单独卖钻头，必须买整套。",
               "audio_url": "COS:/qa/responses/daily_027_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客请求查询工具库存时，店员根据库存状态给出三种典型回应，涵盖即时满足、延迟满足和无解决方案。",
+          "usageNote": "顾客询问钻头库存，店员回应涵盖：现货齐全、部分缺货、销售政策限制三种典型业务场景，符合五金店真实运营逻辑。",
           "audioUrl": "COS:/qa/questions/daily_027_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -317,7 +317,7 @@
       "id": "daily_027_sub_4",
       "sceneId": "daily_027",
       "name": "议价折扣",
-      "description": "顾客询问是否有折扣或赠品，店员提供促销方案并达成一致。",
+      "description": "顾客请求折扣，店员协商价格或赠送配件。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -325,29 +325,29 @@
           "id": "daily_027_sub_4_qa_1",
           "subSceneId": "daily_027_sub_4",
           "dialogueMode": "user_asks",
-          "triggerText": "Can you give me a discount on these tools?",
-          "triggerTextCn": "这些工具能打个折吗？",
+          "triggerText": "Can you give me a discount if I buy two?",
+          "triggerTextCn": "如果我买两个，能打折吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客在五金店询问工具折扣",
+          "scenarioHintCn": "顾客主动询问批量购买折扣",
           "followUps": [
             {
-              "text": "Sure! I can give you 15% off since you're buying three items.",
-              "text_cn": "当然！您买了三件，我可以给您打八五折。",
+              "text": "Sure! Buy two and get 15% off — that’s the best deal today.",
+              "text_cn": "当然！买两个打八五折，这是今天最优惠的价格。",
               "audio_url": "COS:/qa/responses/daily_027_sub_4_qa_1_response0.mp3"
             },
             {
-              "text": "I'm sorry, but our prices are already at wholesale rates — no discounts possible.",
-              "text_cn": "抱歉，我们的价格已经是批发价了，无法再打折。",
+              "text": "I wish I could, but our prices are fixed by corporate policy.",
+              "text_cn": "我很想答应，但公司政策规定价格不能调整。",
               "audio_url": "COS:/qa/responses/daily_027_sub_4_qa_1_response1.mp3"
             },
             {
-              "text": "If you buy the hammer and wrench together, I can knock off $5 total.",
-              "text_cn": "如果您把锤子和扳手一起买，我可以总共减5美元。",
+              "text": "How about this: buy two, and I’ll throw in a free pair of gloves?",
+              "text_cn": "这样吧：买两个，我送您一副免费手套。",
               "audio_url": "COS:/qa/responses/daily_027_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客主动议价时，服务员可能因数量、捆绑或定价政策给出不同回应，需学会识别并应对各种态度。",
+          "usageNote": "顾客试探性议价的常见开场，适用于价格敏感型消费者。",
           "audioUrl": "COS:/qa/questions/daily_027_sub_4_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -355,61 +355,61 @@
         {
           "id": "daily_027_sub_4_qa_2",
           "subSceneId": "daily_027_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "I saw the same wrench online for less — can you match it?",
-          "triggerTextCn": "我在网上看到同样的扳手更便宜，你们能价格匹配吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Are you looking for a bulk discount?",
+          "triggerTextCn": "您是想买批量折扣吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客以线上价格为由要求价格匹配",
+          "scenarioHintCn": "店员主动询问是否需要批量优惠",
           "followUps": [
             {
-              "text": "We don't do price matching, but I can throw in a free set of drill bits with this purchase.",
-              "text_cn": "我们不支持价格匹配，但买这个我可以送您一套钻头。",
+              "text": "Yes, I’m buying five hammers — can you give me 20% off?",
+              "text_cn": "是的，我要买五个锤子，能给20%折扣吗？",
               "audio_url": "COS:/qa/responses/daily_027_sub_4_qa_2_response0.mp3"
             },
             {
-              "text": "Let me check the online price — if it's the exact same model, I'll match it.",
-              "text_cn": "让我查一下网价，如果是完全相同的型号，我给您匹配。",
+              "text": "Nah, I just need one. But thanks for asking!",
+              "text_cn": "不用了，我只需要一个，不过还是谢谢！",
               "audio_url": "COS:/qa/responses/daily_027_sub_4_qa_2_response1.mp3"
             },
             {
-              "text": "We don't match online prices, but we offer a 30-day price guarantee — if it drops later, we'll refund the difference.",
-              "text_cn": "我们不匹配网价，但提供30天价格保障，如果之后降价，我们会退还差价。",
+              "text": "I’m not sure yet — can you tell me the price per unit first?",
+              "text_cn": "我还不确定，能先告诉我单件价格吗？",
               "audio_url": "COS:/qa/responses/daily_027_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客用线上价格施压时，店员可能用赠品、核查机制或价格保障作为应对策略，需掌握不同回应背后的销售逻辑。",
+          "usageNote": "店员主动推进销售的典型话术，用户回应需体现真实购买意图。",
           "audioUrl": "COS:/qa/questions/daily_027_sub_4_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_027_sub_4_qa_3",
           "subSceneId": "daily_027_sub_4",
           "dialogueMode": "user_asks",
-          "triggerText": "I'm just looking, but if I buy today, is there any deal?",
-          "triggerTextCn": "我先看看，但如果今天买，有优惠吗？",
+          "triggerText": "I saw this same hammer online for $15. Can you match it?",
+          "triggerTextCn": "我在网上看到同样的锤子卖15美元，你们能比价吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客试探性询问当日购买优惠",
+          "scenarioHintCn": "顾客用网络价格施压要求价格匹配",
           "followUps": [
             {
-              "text": "Actually, we have a weekend sale — everything in this aisle is 20% off until Monday.",
-              "text_cn": "正好，我们这周末有促销——这一排商品周一前都打八折。",
+              "text": "You’re in luck — I can match that price. Here’s your hammer.",
+              "text_cn": "你运气不错，我可以匹配这个价格。这是你的锤子。",
               "audio_url": "COS:/qa/responses/daily_027_sub_4_qa_3_response0.mp3"
             },
             {
-              "text": "We don't have any special deals today, but I can hold this item for you for 24 hours.",
-              "text_cn": "今天没有特别优惠，但我可以为您保留这件商品24小时。",
+              "text": "I can’t match online prices, but I’ll throw in a lifetime warranty.",
+              "text_cn": "我不能匹配网价，但我可以送终身保修。",
               "audio_url": "COS:/qa/responses/daily_027_sub_4_qa_3_response1.mp3"
             },
             {
-              "text": "If you're serious about buying, I can call the manager — sometimes they approve last-minute discounts.",
-              "text_cn": "如果您真打算买，我可以叫经理，有时他们会批准临时折扣。",
+              "text": "Actually, this model is heavier-duty than the online one — want to upgrade? It’s only $3 more.",
+              "text_cn": "其实这款比网上的更耐用，要不要升级？只多3美元。",
               "audio_url": "COS:/qa/responses/daily_027_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客试探性询问优惠时，店员可能主动告知促销、提供保留服务或建议找经理，需学会识别销售话术中的机会信号。",
+          "usageNote": "顾客常用网络比价策略，店员回应需体现灵活性与销售技巧。",
           "audioUrl": "COS:/qa/questions/daily_027_sub_4_qa_3.mp3",
           "learnRequirement": "speak_trigger",
           "order": 3
@@ -420,7 +420,7 @@
       "id": "daily_027_sub_5",
       "sceneId": "daily_027",
       "name": "了解保修",
-      "description": "顾客确认保修期限和售后政策，店员提供书面说明。",
+      "description": "顾客确认保修期限与售后政策，完成购买决策。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -436,21 +436,21 @@
           "followUps": [
             {
               "text": "Yes, it comes with a 1-year limited warranty. Just keep your receipt.",
-              "text_cn": "有的，提供一年有限保修，请保留好收据。",
+              "text_cn": "有的，提供一年有限保修，保留好收据即可。",
               "audio_url": "COS:/qa/responses/daily_027_sub_5_qa_1_response0.mp3"
             },
             {
-              "text": "No warranty on this item—it's sold as-is.",
-              "text_cn": "这个商品没有保修，售出不退不换。",
+              "text": "No warranty on this item, but we offer an extended protection plan for $10.",
+              "text_cn": "这个商品没有保修，但我们提供10美元的延保服务。",
               "audio_url": "COS:/qa/responses/daily_027_sub_5_qa_1_response1.mp3"
             },
             {
-              "text": "We offer a 2-year extended warranty for $15. Would you like to add it?",
-              "text_cn": "我们可以提供2年延保服务，15美元，您要加购吗？",
+              "text": "It’s covered under manufacturer’s warranty only — you’ll need to contact them directly.",
+              "text_cn": "仅享受制造商保修，您需要直接联系厂家。",
               "audio_url": "COS:/qa/responses/daily_027_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在购买工具时确认保修范围，服务员需根据商品类型给出明确答复，包括标准保修、无保修或付费延保选项。",
+          "usageNote": "顾客在购买工具时确认保修范围的常见问题，回应需明确保修类型、期限和责任方",
           "audioUrl": "COS:/qa/questions/daily_027_sub_5_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -459,29 +459,29 @@
           "id": "daily_027_sub_5_qa_2",
           "subSceneId": "daily_027_sub_5",
           "dialogueMode": "user_asks",
-          "triggerText": "What do I need to do if it breaks?",
-          "triggerTextCn": "如果坏了我该怎么做？",
+          "triggerText": "What if it breaks after a few months?",
+          "triggerTextCn": "如果几个月后坏了怎么办？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客进一步询问保修流程",
+          "scenarioHintCn": "顾客担心工具短期损坏，进一步确认保修覆盖范围",
           "followUps": [
             {
-              "text": "Bring it back with the receipt and we'll replace it or repair it free of charge.",
-              "text_cn": "带着收据回来，我们会免费更换或维修。",
+              "text": "If it fails due to a manufacturing defect within 6 months, we’ll replace it free of charge.",
+              "text_cn": "如果六个月内因制造缺陷损坏，我们会免费更换。",
               "audio_url": "COS:/qa/responses/daily_027_sub_5_qa_2_response0.mp3"
             },
             {
-              "text": "You'll need to send it to our service center—we cover return shipping.",
-              "text_cn": "您需要寄回我们的服务中心，我们承担退货运费。",
+              "text": "Accidental damage isn’t covered — but we can offer a discount on a new one.",
+              "text_cn": "意外损坏不保修，但我们可提供新工具的折扣。",
               "audio_url": "COS:/qa/responses/daily_027_sub_5_qa_2_response1.mp3"
             },
             {
-              "text": "Warranty doesn't cover damage from misuse. You'd need to pay for repairs.",
-              "text_cn": "保修不涵盖不当使用造成的损坏，维修需自费。",
+              "text": "We don’t handle returns after 30 days, but the manufacturer might still honor the warranty.",
+              "text_cn": "30天后我们不接受退货，但制造商可能仍承认保修。",
               "audio_url": "COS:/qa/responses/daily_027_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客在确认保修存在后，会追问具体流程，服务员需区分责任归属，明确免费服务与自费情况。",
+          "usageNote": "顾客对保修期限和免责条款的追问，回应需区分责任类型（制造缺陷 vs. 使用不当）",
           "audioUrl": "COS:/qa/questions/daily_027_sub_5_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
@@ -490,29 +490,29 @@
           "id": "daily_027_sub_5_qa_3",
           "subSceneId": "daily_027_sub_5",
           "dialogueMode": "user_asks",
-          "triggerText": "Is the warranty valid if I bought it online?",
-          "triggerTextCn": "如果我是在网上买的，保修还有效吗？",
+          "triggerText": "Can I get the warranty in writing?",
+          "triggerTextCn": "能给我一份书面保修凭证吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问跨渠道购买的保修有效性",
+          "scenarioHintCn": "顾客要求书面保修证明，确认权益保障",
           "followUps": [
             {
-              "text": "Yes, as long as you have the original receipt and it's the same model we sell here.",
-              "text_cn": "可以，只要您有原始收据，且型号与我们店内销售的一致。",
+              "text": "Absolutely — your receipt doubles as the warranty card. We’ll email a digital copy too.",
+              "text_cn": "当然可以，收据就是保修凭证，我们还会发送电子版。",
               "audio_url": "COS:/qa/responses/daily_027_sub_5_qa_3_response0.mp3"
             },
             {
-              "text": "No, warranties only apply to items purchased directly from our store.",
-              "text_cn": "不行，保修仅限于本店直接购买的商品。",
+              "text": "We don’t issue separate warranty documents, but the product page online has full terms.",
+              "text_cn": "我们不单独出具保修文件，但产品官网有完整条款。",
               "audio_url": "COS:/qa/responses/daily_027_sub_5_qa_3_response1.mp3"
             },
             {
-              "text": "We can check the serial number online—let me look it up for you.",
-              "text_cn": "我们可以查一下序列号，我帮您查一下。",
+              "text": "I can print a warranty form for you right now — just sign here and give me your email.",
+              "text_cn": "我现在就可以为您打印保修单，签个名并提供邮箱即可。",
               "audio_url": "COS:/qa/responses/daily_027_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客常因线上购买产生疑虑，服务员需明确政策边界，或主动协助验证，避免客户误解。",
+          "usageNote": "顾客对保修凭证形式的确认，回应需说明凭证类型（收据/电子/纸质）和获取方式",
           "audioUrl": "COS:/qa/questions/daily_027_sub_5_qa_3.mp3",
           "learnRequirement": "speak_trigger",
           "order": 3

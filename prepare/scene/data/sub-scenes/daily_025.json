@@ -1,14 +1,14 @@
 {
   "sceneId": "daily_025",
   "sceneName": "报刊亭买杂志",
-  "generatedAt": "2026-03-17T02:53:06.027Z",
+  "generatedAt": "2026-03-17T03:21:34.627Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_025_sub_1",
       "sceneId": "daily_025",
       "name": "询问杂志",
-      "description": "顾客询问报刊亭是否有最新杂志。",
+      "description": "顾客询问报刊亭是否有最新杂志可售。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -23,53 +23,53 @@
           "scenarioHintCn": "顾客询问是否有英文杂志",
           "followUps": [
             {
-              "text": "Yes, we have a few — National Geographic, The Economist, and Time.",
-              "text_cn": "有的，我们有《国家地理》《经济学人》和《时代》。",
+              "text": "Yes, we have the latest National Geographic and The Economist.",
+              "text_cn": "有的，我们有最新一期的《国家地理》和《经济学人》。",
               "audio_url": "COS:/qa/responses/daily_025_sub_1_qa_1_response0.mp3"
             },
             {
-              "text": "Sorry, we’re out of English ones this week, but we’ll get a new shipment tomorrow.",
-              "text_cn": "抱歉，这周英文杂志卖完了，明天到新货。",
+              "text": "We're out of English ones right now, but we have a few Chinese-English bilingual magazines.",
+              "text_cn": "目前英文杂志卖完了，但我们有几本中英双语的。",
               "audio_url": "COS:/qa/responses/daily_025_sub_1_qa_1_response1.mp3"
             },
             {
-              "text": "We don’t carry English magazines, but I can recommend the nearest bookstore downtown.",
-              "text_cn": "我们不卖英文杂志，但我可以推荐市中心最近的书店。",
+              "text": "I'm sorry, we don't carry any English magazines at this location.",
+              "text_cn": "抱歉，这个店不卖英文杂志。",
               "audio_url": "COS:/qa/responses/daily_025_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客首次询问杂志时的典型开场问题，服务员需根据库存灵活回应",
+          "usageNote": "顾客初次询问杂志库存时的典型开场白，适用于初学者建立基础询问能力。",
           "audioUrl": "COS:/qa/questions/daily_025_sub_1_qa_1.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 1
         },
         {
           "id": "daily_025_sub_1_qa_2",
           "subSceneId": "daily_025_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Are you looking for something specific?",
-          "triggerTextCn": "您有特别想看的类型吗？",
+          "triggerText": "Would you like the latest issue or a back copy?",
+          "triggerTextCn": "您要最新一期还是往期的？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员主动询问顾客需求以提供推荐",
+          "scenarioHintCn": "服务员确认顾客想要新刊还是旧刊",
           "followUps": [
             {
-              "text": "Yes, I need a tech magazine — maybe Wired or Popular Science.",
-              "text_cn": "有的，我想找科技类杂志，比如《Wired》或《大众科学》。",
+              "text": "I'll take the latest issue, please.",
+              "text_cn": "我要最新一期，谢谢。",
               "audio_url": "COS:/qa/responses/daily_025_sub_1_qa_2_response0.mp3"
             },
             {
-              "text": "I’m not sure — something with travel or culture would be good.",
-              "text_cn": "我不确定，最好是关于旅行或文化的。",
+              "text": "Do you have last month's Time magazine? I need it for my English class.",
+              "text_cn": "你们有上个月的《时代》杂志吗？我英语课要用。",
               "audio_url": "COS:/qa/responses/daily_025_sub_1_qa_2_response1.mp3"
             },
             {
-              "text": "Hmm, I’m not sure what’s new — can you show me what’s popular?",
-              "text_cn": "嗯，我不清楚最近有什么新刊，你能给我看看畅销的吗？",
+              "text": "Hmm, I'm not sure—what's popular this month?",
+              "text_cn": "嗯，我不确定——这个月什么比较受欢迎？",
               "audio_url": "COS:/qa/responses/daily_025_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "服务员常用开放式提问引导顾客表达需求，用户回应应体现真实决策状态",
+          "usageNote": "服务员引导顾客做选择的常见提问，帮助学习者掌握表达偏好和需求。",
           "audioUrl": "COS:/qa/questions/daily_025_sub_1_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -78,29 +78,29 @@
           "id": "daily_025_sub_1_qa_3",
           "subSceneId": "daily_025_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Would you like to pay for these now?",
-          "triggerTextCn": "您现在要付款吗？",
+          "triggerText": "Will you be paying with cash or card?",
+          "triggerTextCn": "您是用现金还是刷卡？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "结账环节的标准询问",
+          "scenarioHintCn": "服务员询问支付方式",
           "followUps": [
             {
-              "text": "I’ll pay by card, please.",
-              "text_cn": "我刷卡，谢谢。",
+              "text": "Card, please.",
+              "text_cn": "刷卡，谢谢。",
               "audio_url": "COS:/qa/responses/daily_025_sub_1_qa_3_response0.mp3"
             },
             {
-              "text": "Do you take cash? I only have bills.",
-              "text_cn": "你们收现金吗？我只有纸币。",
+              "text": "Cash is fine.",
+              "text_cn": "现金就可以。",
               "audio_url": "COS:/qa/responses/daily_025_sub_1_qa_3_response1.mp3"
             },
             {
-              "text": "Can I just take one for now and come back for the other later?",
-              "text_cn": "我能先买一本，回头再来买另一本吗？",
+              "text": "Do you take Apple Pay or WeChat Pay?",
+              "text_cn": "你们支持Apple Pay或微信支付吗？",
               "audio_url": "COS:/qa/responses/daily_025_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "结账时顾客可能因支付方式、预算或计划变化而有不同反应，需掌握灵活回应",
+          "usageNote": "结账环节的核心对话，覆盖主流支付方式，贴近真实生活场景。",
           "audioUrl": "COS:/qa/questions/daily_025_sub_1_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -126,22 +126,22 @@
           "scenarioHintCn": "报刊亭买杂志，确认价格后顾客付款方式选择",
           "followUps": [
             {
-              "text": "I'll pay with cash.",
-              "text_cn": "我用现金支付。",
+              "text": "Here you go, cash.",
+              "text_cn": "给，现金。",
               "audio_url": "COS:/qa/responses/daily_025_sub_2_qa_1_response0.mp3"
             },
             {
-              "text": "Do you take Apple Pay?",
-              "text_cn": "你们支持Apple Pay吗？",
+              "text": "Do you take Apple Pay? I don't have cash.",
+              "text_cn": "你们收Apple Pay吗？我没带现金。",
               "audio_url": "COS:/qa/responses/daily_025_sub_2_qa_1_response1.mp3"
             },
             {
-              "text": "Actually, I only have a $10 bill — can you give me change?",
-              "text_cn": "我只有10美元钞票，能找零吗？",
+              "text": "Oops, I only have a $10 bill. Can you give me change?",
+              "text_cn": "糟了，我只有10美元，能找零吗？",
               "audio_url": "COS:/qa/responses/daily_025_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于价格确认后，顾客表达付款方式的自然回应，涵盖常见支付场景",
+          "usageNote": "用于顾客在确认价格后，根据自身支付方式做出自然回应的场景，涵盖常见支付困境。",
           "audioUrl": "COS:/qa/questions/daily_025_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -162,17 +162,17 @@
               "audio_url": "COS:/qa/responses/daily_025_sub_2_qa_2_response0.mp3"
             },
             {
-              "text": "Actually, there's a 10% discount if you buy two — want to add another?",
+              "text": "Actually, there's a 10% discount if you buy two — want to grab another?",
               "text_cn": "其实买两本有10%折扣，要再拿一本吗？",
               "audio_url": "COS:/qa/responses/daily_025_sub_2_qa_2_response1.mp3"
             },
             {
-              "text": "Sorry, I just realized I priced it wrong — it's actually $5.50.",
-              "text_cn": "抱歉，我刚才标错价了，其实是5.5美元。",
+              "text": "Sorry, I just raised the price last week — it's $5 now.",
+              "text_cn": "抱歉，我上周刚涨价了，现在是5美元。",
               "audio_url": "COS:/qa/responses/daily_025_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客对价格提出质疑时，服务员可能给出的三种典型回应：确认、促销、更正",
+          "usageNote": "顾客主动确认价格时，服务员可能给出标准答复、促销建议或价格调整，体现真实商业动态。",
           "audioUrl": "COS:/qa/questions/daily_025_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -185,25 +185,25 @@
           "triggerTextCn": "这本杂志多少钱？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客挑选杂志后，主动询问价格",
+          "scenarioHintCn": "顾客挑选杂志后询问具体价格",
           "followUps": [
             {
-              "text": "That one's $3.99.",
-              "text_cn": "这本3.99美元。",
+              "text": "That one's $3.99 — it's on sale this week.",
+              "text_cn": "这本3.99美元，这周特价。",
               "audio_url": "COS:/qa/responses/daily_025_sub_2_qa_3_response0.mp3"
             },
             {
-              "text": "It's on sale today — only $2.50, normally $4.",
-              "text_cn": "今天特价，只要2.5美元，原价4美元。",
+              "text": "We don't sell that one anymore — it's out of stock.",
+              "text_cn": "我们不卖这本了，已经断货了。",
               "audio_url": "COS:/qa/responses/daily_025_sub_2_qa_3_response1.mp3"
             },
             {
-              "text": "I'm sorry, we just sold out of that issue — would you like the latest one instead?",
-              "text_cn": "抱歉，那期卖完了，要换最新一期吗？",
+              "text": "It's $5.50, but if you take the weekly bundle, it's $8 for three.",
+              "text_cn": "单本5.5美元，但如果买周套餐，三本只要8美元。",
               "audio_url": "COS:/qa/responses/daily_025_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客询问价格时，服务员可能给出的三种典型回应：正常报价、促销信息、缺货替代",
+          "usageNote": "顾客询问价格时，服务员可能给出标准价、缺货通知或促销方案，反映真实报刊亭的库存与销售策略。",
           "audioUrl": "COS:/qa/questions/daily_025_sub_2_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -214,7 +214,7 @@
       "id": "daily_025_sub_3",
       "sceneId": "daily_025",
       "name": "表达购买",
-      "description": "顾客决定购买并明确说出所需物品。",
+      "description": "顾客决定购买指定杂志和饮料。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -260,22 +260,22 @@
           "scenarioHintCn": "报刊亭服务员询问支付方式",
           "followUps": [
             {
-              "text": "I'll pay with my card, please.",
-              "text_cn": "我刷卡支付，谢谢。",
+              "text": "Cash, please. Here you go.",
+              "text_cn": "现金，谢谢。给你。",
               "audio_url": "COS:/qa/responses/daily_025_sub_3_qa_2_response0.mp3"
             },
             {
-              "text": "Do you take cash? I only have bills.",
-              "text_cn": "你们收现金吗？我只有纸币。",
+              "text": "Can I use my phone? I've got Apple Pay.",
+              "text_cn": "我能用手机支付吗？我有Apple Pay。",
               "audio_url": "COS:/qa/responses/daily_025_sub_3_qa_2_response1.mp3"
             },
             {
-              "text": "Can I use WeChat Pay? I don't have cash right now.",
-              "text_cn": "能用微信支付吗？我现在没带现金。",
+              "text": "Do you take contactless cards?",
+              "text_cn": "你们收非接触式卡片吗？",
               "audio_url": "COS:/qa/responses/daily_025_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "覆盖主流支付方式的询问与回应，体现真实场景中顾客对支付方式的灵活选择与条件限制。",
+          "usageNote": "覆盖现金、移动支付和非接触式银行卡三种主流支付方式，符合真实场景中顾客的多样化支付习惯。",
           "audioUrl": "COS:/qa/questions/daily_025_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -288,25 +288,25 @@
           "triggerTextCn": "需要袋子吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "报刊亭服务员在结账后询问是否需要包装",
+          "scenarioHintCn": "报刊亭服务员询问是否需要包装",
           "followUps": [
             {
-              "text": "Yes, please — I'm walking a bit.",
-              "text_cn": "要的，谢谢，我要走一段路。",
+              "text": "Yes, please. I'm carrying a few things.",
+              "text_cn": "要的，谢谢，我还要拿其他东西。",
               "audio_url": "COS:/qa/responses/daily_025_sub_3_qa_3_response0.mp3"
             },
             {
-              "text": "No, thanks. I'll just carry it.",
+              "text": "No, thanks. I'll just hold it.",
               "text_cn": "不用了，谢谢，我拿着就行。",
               "audio_url": "COS:/qa/responses/daily_025_sub_3_qa_3_response1.mp3"
             },
             {
               "text": "Do you have reusable bags? I forgot mine.",
-              "text_cn": "你们有环保袋吗？我忘记带了。",
+              "text_cn": "你们有环保袋吗？我忘带了。",
               "audio_url": "COS:/qa/responses/daily_025_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "体现结账后服务细节，顾客对包装的需求因携带方式、环保意识或临时状况而异，真实自然。",
+          "usageNote": "体现顾客对包装的不同需求：实用需求、简洁需求和环保意识，符合现代城市消费者的真实行为。",
           "audioUrl": "COS:/qa/questions/daily_025_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -317,7 +317,7 @@
       "id": "daily_025_sub_4",
       "sceneId": "daily_025",
       "name": "支付找零",
-      "description": "顾客付款，店员找零并确认金额。",
+      "description": "顾客付款，店员找零并确认交易完成。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -332,8 +332,8 @@
           "scenarioHintCn": "报刊亭购买杂志，完成支付环节",
           "followUps": [
             {
-              "text": "I'll pay with cash. Here's ten dollars.",
-              "text_cn": "我用现金支付，这是十美元。",
+              "text": "I'll pay with cash, here's ten dollars.",
+              "text_cn": "我用现金，这是十美元。",
               "audio_url": "COS:/qa/responses/daily_025_sub_4_qa_1_response0.mp3"
             },
             {
@@ -342,12 +342,12 @@
               "audio_url": "COS:/qa/responses/daily_025_sub_4_qa_1_response1.mp3"
             },
             {
-              "text": "Do you give change for a twenty?",
-              "text_cn": "我用二十美元，能找零吗？",
+              "text": "Do you take Apple Pay? I only have my phone.",
+              "text_cn": "你们收Apple Pay吗？我只有手机。",
               "audio_url": "COS:/qa/responses/daily_025_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是报刊亭支付环节最常出现的询问句，顾客需根据自身支付方式回应，注意区分现金支付时是否需要找零。",
+          "usageNote": "适用于顾客在报刊亭结账时被询问支付方式的典型场景，涵盖主流支付方式的自然回应。",
           "audioUrl": "COS:/qa/questions/daily_025_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -356,29 +356,29 @@
           "id": "daily_025_sub_4_qa_2",
           "subSceneId": "daily_025_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "That's $4.50.",
-          "triggerTextCn": "一共是4.5美元。",
+          "triggerText": "That's $4.50. Here's your change.",
+          "triggerTextCn": "一共4.5美元，这是找您的零钱。",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "报刊亭告知价格后，顾客准备支付并确认找零",
+          "scenarioHintCn": "报刊亭完成支付后，服务员递出找零",
           "followUps": [
             {
-              "text": "Here's five dollars. Keep the change.",
-              "text_cn": "给你五美元，零钱不用找了。",
+              "text": "Thanks! You gave me too much — you gave me $6 back.",
+              "text_cn": "谢谢！您多找了，您给了我6美元。",
               "audio_url": "COS:/qa/responses/daily_025_sub_4_qa_2_response0.mp3"
             },
             {
-              "text": "I only have a ten. Can you break it?",
-              "text_cn": "我只有十美元，能换开吗？",
+              "text": "No problem, keep the extra 50 cents.",
+              "text_cn": "没关系，多的50美分您留着吧。",
               "audio_url": "COS:/qa/responses/daily_025_sub_4_qa_2_response1.mp3"
             },
             {
-              "text": "I'll pay with my phone. Do you have QR code?",
-              "text_cn": "我用手机支付，有二维码吗？",
+              "text": "Wait, I think you missed a dollar.",
+              "text_cn": "等一下，我觉得您少找了一美元。",
               "audio_url": "COS:/qa/responses/daily_025_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "店员报出价格后，顾客常根据手头现金或支付工具做出反应，需掌握灵活应对方式。",
+          "usageNote": "顾客在收到找零时的三种典型反应：纠错、让利、质疑，覆盖真实场景中常见互动。",
           "audioUrl": "COS:/qa/questions/daily_025_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -387,31 +387,31 @@
           "id": "daily_025_sub_4_qa_3",
           "subSceneId": "daily_025_sub_4",
           "dialogueMode": "user_asks",
-          "triggerText": "Do you have exact change?",
-          "triggerTextCn": "你有零钱吗？",
+          "triggerText": "Do you have any change for a twenty?",
+          "triggerTextCn": "您有二十美元的零钱吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客确认报刊亭能否提供找零服务",
+          "scenarioHintCn": "顾客想用大额钞票支付，提前确认能否兑换零钱",
           "followUps": [
             {
-              "text": "Yes, we do. Just a moment.",
-              "text_cn": "有的，稍等一下。",
+              "text": "Sure, I can break that for you. That’ll be $4.50.",
+              "text_cn": "当然可以，我帮您换。一共4.5美元。",
               "audio_url": "COS:/qa/responses/daily_025_sub_4_qa_3_response0.mp3"
             },
             {
-              "text": "Sorry, we're low on small bills today.",
-              "text_cn": "抱歉，今天小面额钞票不够了。",
+              "text": "I'm sorry, I only have coins left — maybe try the gas station next door?",
+              "text_cn": "抱歉，我这儿只有硬币了，要不您去隔壁加油站试试？",
               "audio_url": "COS:/qa/responses/daily_025_sub_4_qa_3_response1.mp3"
             },
             {
-              "text": "You can use the change machine next door.",
-              "text_cn": "你可以去隔壁的换零钱机处理。",
+              "text": "I can give you a dollar off if you pay with the twenty.",
+              "text_cn": "如果您用二十美元支付，我可以给您便宜一美元。",
               "audio_url": "COS:/qa/responses/daily_025_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客在支付前常主动确认找零能力，尤其在使用大额钞票时，此问句在小型零售点高频出现。",
+          "usageNote": "顾客主动询问兑换零钱，是高频前置动作，服务员回应包含成功、拒绝、变通三种真实策略。",
           "audioUrl": "COS:/qa/questions/daily_025_sub_4_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -428,11 +428,11 @@
           "id": "daily_025_sub_5_qa_1",
           "subSceneId": "daily_025_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Thanks for coming by!",
-          "triggerTextCn": "谢谢光临！",
+          "triggerText": "Thanks for stopping by!",
+          "triggerTextCn": "谢谢您的光临！",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "报刊亭买完杂志后，服务员道别",
+          "scenarioHintCn": "报刊亭结账后，服务员道别，顾客回应",
           "followUps": [
             {
               "text": "Thank you! Have a great day!",
@@ -440,17 +440,17 @@
               "audio_url": "COS:/qa/responses/daily_025_sub_5_qa_1_response0.mp3"
             },
             {
-              "text": "I will! This magazine was perfect.",
-              "text_cn": "我会的！这本杂志太棒了。",
+              "text": "You too! I'll be back next week.",
+              "text_cn": "你也是！我下周再来。",
               "audio_url": "COS:/qa/responses/daily_025_sub_5_qa_1_response1.mp3"
             },
             {
-              "text": "Thanks again—I’ll be back next week!",
-              "text_cn": "再次谢谢！我下周还来！",
+              "text": "Appreciate it — the magazine was just what I needed!",
+              "text_cn": "太感谢了，这本杂志正是我需要的！",
               "audio_url": "COS:/qa/responses/daily_025_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "适用于服务结束时的自然道别场景，体现礼貌与消费满意度",
+          "usageNote": "适用于报刊亭、便利店等小型零售场景的结账后道别环节，自然且高频",
           "audioUrl": "COS:/qa/questions/daily_025_sub_5_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -460,28 +460,28 @@
           "subSceneId": "daily_025_sub_5",
           "dialogueMode": "user_responds",
           "triggerText": "Have a nice one!",
-          "triggerTextCn": "祝你今天顺利！",
+          "triggerTextCn": "祝你过得愉快！",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "报刊亭结账后，服务员用非正式方式道别",
+          "scenarioHintCn": "服务员用非正式口语道别，顾客回应",
           "followUps": [
             {
-              "text": "You too!",
-              "text_cn": "你也是！",
+              "text": "You as well! Thanks again!",
+              "text_cn": "你也是！再次感谢！",
               "audio_url": "COS:/qa/responses/daily_025_sub_5_qa_2_response0.mp3"
             },
             {
-              "text": "Thanks, I really appreciate your help!",
-              "text_cn": "谢谢，真的很感谢你的帮助！",
+              "text": "Yeah, thanks — this was quick and easy!",
+              "text_cn": "是啊，谢谢，这过程又快又方便！",
               "audio_url": "COS:/qa/responses/daily_025_sub_5_qa_2_response1.mp3"
             },
             {
-              "text": "Same to you—love your selection!",
-              "text_cn": "你也是！我喜欢你们的杂志选择！",
+              "text": "I really appreciate your help!",
+              "text_cn": "我真的很感谢你的帮助！",
               "audio_url": "COS:/qa/responses/daily_025_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "适用于轻松、非正式的服务场景，回应需自然、简短、有温度",
+          "usageNote": "适用于非正式、轻松的服务场景，常见于年轻店员或社区报刊亭",
           "audioUrl": "COS:/qa/questions/daily_025_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -490,29 +490,29 @@
           "id": "daily_025_sub_5_qa_3",
           "subSceneId": "daily_025_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "All set! See you soon!",
-          "triggerTextCn": "搞定啦！期待再见！",
+          "triggerText": "All set! Take care!",
+          "triggerTextCn": "搞定啦！保重！",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员在顾客常来的情况下，用熟客语气道别",
+          "scenarioHintCn": "服务员完成交易后用温暖语气道别",
           "followUps": [
             {
-              "text": "Definitely! I’m picking up the new issue next Friday.",
-              "text_cn": "当然！我下周五来拿新一期。",
+              "text": "Thanks! You're the best!",
+              "text_cn": "谢谢！你太棒了！",
               "audio_url": "COS:/qa/responses/daily_025_sub_5_qa_3_response0.mp3"
             },
             {
-              "text": "Hope so! You always have the best magazines.",
-              "text_cn": "希望如此！你们总能有最好的杂志。",
+              "text": "Will do — see you tomorrow!",
+              "text_cn": "一定！明天见！",
               "audio_url": "COS:/qa/responses/daily_025_sub_5_qa_3_response1.mp3"
             },
             {
-              "text": "Thanks! I’ll bring my friend next time!",
-              "text_cn": "谢谢！下次我带朋友一起来！",
+              "text": "Thanks, I really needed this today.",
+              "text_cn": "谢谢，我今天真的需要这本杂志。",
               "audio_url": "COS:/qa/responses/daily_025_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "适用于熟客场景，回应需体现关系延续性与情感连接",
+          "usageNote": "适用于服务态度热情、顾客情绪积极的场景，强化人际温度",
           "audioUrl": "COS:/qa/questions/daily_025_sub_5_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3

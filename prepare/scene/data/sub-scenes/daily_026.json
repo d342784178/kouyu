@@ -1,14 +1,14 @@
 {
   "sceneId": "daily_026",
   "sceneName": "菜市场买菜",
-  "generatedAt": "2026-03-17T02:53:56.929Z",
+  "generatedAt": "2026-03-17T03:22:13.683Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_026_sub_1",
       "sceneId": "daily_026",
       "name": "询问价格",
-      "description": "向摊主询问蔬菜的单价和促销信息。",
+      "description": "顾客询问蔬菜单价，摊主回答常见蔬菜价格。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -16,29 +16,29 @@
           "id": "daily_026_sub_1_qa_1",
           "subSceneId": "daily_026_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "How much is this tomato?",
-          "triggerTextCn": "这个西红柿多少钱？",
+          "triggerText": "How much is these tomatoes?",
+          "triggerTextCn": "这些西红柿多少钱？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问单种蔬菜价格",
+          "scenarioHintCn": "顾客询问具体商品价格",
           "followUps": [
             {
-              "text": "That's $2 per pound. Fresh and ripe!",
-              "text_cn": "两美元一磅，新鲜又熟透！",
+              "text": "They're $3 per pound.",
+              "text_cn": "三美元一磅。",
               "audio_url": "COS:/qa/responses/daily_026_sub_1_qa_1_response0.mp3"
             },
             {
-              "text": "Sorry, we just raised the price to $2.50 — supply is low this week.",
-              "text_cn": "抱歉，价格刚涨到2.5美元，这周货少。",
+              "text": "They're on sale today—just $2 a pound if you buy two pounds.",
+              "text_cn": "今天特价，买两磅只要两美元一磅。",
               "audio_url": "COS:/qa/responses/daily_026_sub_1_qa_1_response1.mp3"
             },
             {
-              "text": "You can get two pounds for $3 if you take more.",
-              "text_cn": "如果你买两磅，只要3美元。",
+              "text": "Sorry, we just sold out—we got fresh ones coming in tomorrow.",
+              "text_cn": "抱歉，刚卖完了，明天有新货。",
               "audio_url": "COS:/qa/responses/daily_026_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在询问具体商品价格时，摊主可能根据库存、促销或议价空间给出不同回应。",
+          "usageNote": "顾客询问单价时，摊主可能给出标准价、促销价或告知缺货，需灵活应对。",
           "audioUrl": "COS:/qa/questions/daily_026_sub_1_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -46,61 +46,61 @@
         {
           "id": "daily_026_sub_1_qa_2",
           "subSceneId": "daily_026_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "What’s the price for these peppers?",
-          "triggerTextCn": "这些辣椒多少钱？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "How many do you want?",
+          "triggerTextCn": "你要多少？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问多种商品的总价或单价",
+          "scenarioHintCn": "摊主确认购买数量",
           "followUps": [
             {
-              "text": "Each one is $1.50, or $6 for a full bag of four.",
-              "text_cn": "每个1.5美元，一袋四个装只要6美元。",
+              "text": "I'll take one pound, please.",
+              "text_cn": "我要一磅，谢谢。",
               "audio_url": "COS:/qa/responses/daily_026_sub_1_qa_2_response0.mp3"
             },
             {
-              "text": "These are a bit spicy — they’re $2 each because they’re imported.",
-              "text_cn": "这些比较辣，是进口的，每个2美元。",
+              "text": "Hmm, maybe two pounds—but can you give me a discount if I buy more?",
+              "text_cn": "嗯，可能要两磅，但如果我买得多能便宜点吗？",
               "audio_url": "COS:/qa/responses/daily_026_sub_1_qa_2_response1.mp3"
             },
             {
-              "text": "I can let you have them for $1 each if you take all six.",
-              "text_cn": "如果你全买下六个，每个1美元给你。",
+              "text": "Just half a pound—I'm cooking for one today.",
+              "text_cn": "半磅就够了，今天我一个人吃。",
               "audio_url": "COS:/qa/responses/daily_026_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客询问多件商品时，摊主常提供组合价或议价选项，体现市场交易灵活性。",
+          "usageNote": "摊主常主动问数量，顾客回应需清晰表达需求，可附带议价或说明原因。",
           "audioUrl": "COS:/qa/questions/daily_026_sub_1_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_026_sub_1_qa_3",
           "subSceneId": "daily_026_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "Are these apples on sale today?",
-          "triggerTextCn": "今天这些苹果打折吗？",
+          "triggerText": "Do you have any cheaper ones?",
+          "triggerTextCn": "有更便宜的吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动询问促销信息",
+          "scenarioHintCn": "顾客寻求性价比更高的替代选项",
           "followUps": [
             {
-              "text": "Yes! Buy two, get one free — ends tonight!",
-              "text_cn": "是的！买二送一，今晚截止！",
+              "text": "These green peppers are a bit less expensive and just as fresh.",
+              "text_cn": "这些青椒便宜一点，但同样新鲜。",
               "audio_url": "COS:/qa/responses/daily_026_sub_1_qa_3_response0.mp3"
             },
             {
-              "text": "No sale today, but they’re already our lowest price this month.",
-              "text_cn": "今天没促销，但已经是本月最低价了。",
+              "text": "I can drop the price to $2.50 if you take the whole bag.",
+              "text_cn": "如果你整袋拿走，我可以降到2.5美元。",
               "audio_url": "COS:/qa/responses/daily_026_sub_1_qa_3_response1.mp3"
             },
             {
-              "text": "We don’t have sales, but I can give you a little discount if you buy five or more.",
-              "text_cn": "我们不搞促销，但如果你买五个以上，我可以给你点折扣。",
+              "text": "I'm sorry, but these are already my lowest price—I can't go lower.",
+              "text_cn": "抱歉，这已经是最低价了，不能再降了。",
               "audio_url": "COS:/qa/responses/daily_026_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客询问促销时，摊主可能回应官方活动、价格底线或灵活议价，反映市场真实互动。",
+          "usageNote": "顾客试探价格底线时，摊主可能推荐替代品、提供批量优惠或明确拒绝议价，需准备多种回应。",
           "audioUrl": "COS:/qa/questions/daily_026_sub_1_qa_3.mp3",
           "learnRequirement": "speak_trigger",
           "order": 3
@@ -111,7 +111,7 @@
       "id": "daily_026_sub_2",
       "sceneId": "daily_026",
       "name": "挑选商品",
-      "description": "挑选新鲜蔬菜并确认品种与质量。",
+      "description": "顾客挑选新鲜蔬菜，摊主推荐并确认选择。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -119,29 +119,29 @@
           "id": "daily_026_sub_2_qa_1",
           "subSceneId": "daily_026_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "Do you have any fresh tomatoes today?",
-          "triggerTextCn": "你们今天有新鲜的番茄吗？",
+          "triggerText": "Can you recommend something fresh today?",
+          "triggerTextCn": "今天有什么新鲜推荐吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问商品新鲜度",
+          "scenarioHintCn": "顾客询问当日新鲜推荐，服务员回应",
           "followUps": [
             {
-              "text": "Yes, we just got them in this morning—very sweet and firm.",
-              "text_cn": "有的，今天早上刚到的，很甜也很结实。",
+              "text": "The spinach and tomatoes just came in this morning—very crisp!",
+              "text_cn": "菠菜和番茄是今早刚到的，非常新鲜！",
               "audio_url": "COS:/qa/responses/daily_026_sub_2_qa_1_response0.mp3"
             },
             {
-              "text": "Sorry, the tomatoes sold out by noon. We have canned ones instead.",
-              "text_cn": "抱歉，番茄中午就卖完了，我们有罐装的。",
+              "text": "Our strawberries are in season right now—sweet and juicy, perfect for eating raw.",
+              "text_cn": "我们的草莓正当季，香甜多汁，直接吃很棒。",
               "audio_url": "COS:/qa/responses/daily_026_sub_2_qa_1_response1.mp3"
             },
             {
-              "text": "They’re on the back shelf—slightly bruised but still good for cooking.",
-              "text_cn": "在后面的货架上，有点磕碰，但做菜没问题。",
+              "text": "I’d suggest the salmon—it’s been filleted fresh this morning and still has that ocean smell.",
+              "text_cn": "我推荐三文鱼，今早刚处理过，还有海味。",
               "audio_url": "COS:/qa/responses/daily_026_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客常用于确认食材新鲜度，服务员回应需体现库存状态与替代方案",
+          "usageNote": "用于在菜市场询问当日推荐商品，适用于想尝试新鲜或时令食材的学习者。",
           "audioUrl": "COS:/qa/questions/daily_026_sub_2_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -150,29 +150,29 @@
           "id": "daily_026_sub_2_qa_2",
           "subSceneId": "daily_026_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "How much are these peppers?",
-          "triggerTextCn": "这些辣椒多少钱？",
+          "triggerText": "Would you like them weighed or by piece?",
+          "triggerTextCn": "您要称重买还是按个买？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "摊主询问顾客购买意向",
+          "scenarioHintCn": "服务员询问购买方式，顾客选择计价方式",
           "followUps": [
             {
-              "text": "I’ll take two pounds, please.",
-              "text_cn": "我要两磅。",
+              "text": "I’ll take them by weight—about two pounds.",
+              "text_cn": "我要称重买，大概两磅。",
               "audio_url": "COS:/qa/responses/daily_026_sub_2_qa_2_response0.mp3"
             },
             {
-              "text": "Are they on sale today? I’m just looking.",
-              "text_cn": "今天打折吗？我只是看看。",
+              "text": "I’ll take three, please—I just need them for garnish.",
+              "text_cn": "我要三个，我只需要用来装饰。",
               "audio_url": "COS:/qa/responses/daily_026_sub_2_qa_2_response1.mp3"
             },
             {
-              "text": "Can I get a discount if I buy five pounds?",
-              "text_cn": "如果我买五磅，能打折吗？",
+              "text": "Hmm, how much does a pound usually cost? I’m not sure.",
+              "text_cn": "嗯，一磅通常多少钱？我不太确定。",
               "audio_url": "COS:/qa/responses/daily_026_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "摊主常用价格询问引导顾客决策，顾客回应需体现购买意愿或议价行为",
+          "usageNote": "菜市场常见计价方式询问，学习者需掌握如何根据用途选择购买方式。",
           "audioUrl": "COS:/qa/questions/daily_026_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -181,29 +181,29 @@
           "id": "daily_026_sub_2_qa_3",
           "subSceneId": "daily_026_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "Which one do you recommend for stir-fry?",
-          "triggerTextCn": "哪种适合炒菜？",
+          "triggerText": "Do you have any discounts for buying in bulk?",
+          "triggerTextCn": "买得多有优惠吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客寻求专业推荐",
+          "scenarioHintCn": "顾客询问批量购买优惠，服务员回应促销政策",
           "followUps": [
             {
-              "text": "The green ones—they’re crisp and not too spicy. Perfect for stir-fry.",
-              "text_cn": "绿色的，脆嫩不辣，特别适合炒菜。",
+              "text": "Yes! If you buy five or more, I’ll give you 15% off.",
+              "text_cn": "有！买五个以上，我给您打八五折。",
               "audio_url": "COS:/qa/responses/daily_026_sub_2_qa_3_response0.mp3"
             },
             {
-              "text": "If you like heat, go for the red ones—they’re hotter but more flavorful.",
-              "text_cn": "如果你喜欢辣，选红色的，更辣但味道更浓。",
+              "text": "No discount, but I’ll throw in an extra onion for free if you take a full bag.",
+              "text_cn": "没有折扣，但如果您买一整袋，我送您一个洋葱。",
               "audio_url": "COS:/qa/responses/daily_026_sub_2_qa_3_response1.mp3"
             },
             {
-              "text": "Actually, the organic ones are better for stir-fry—less pesticide residue.",
-              "text_cn": "其实有机的更适合炒菜，农残更少。",
+              "text": "Actually, if you take the carrots and potatoes together, I can bundle them at a lower price.",
+              "text_cn": "其实，如果您一起买胡萝卜和土豆，我可以打包优惠价。",
               "audio_url": "COS:/qa/responses/daily_026_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客常寻求摊主经验建议，服务员回应需体现专业性与产品差异",
+          "usageNote": "适用于想节省开支、批量采购的学习者，掌握如何自然询问并应对促销回应。",
           "audioUrl": "COS:/qa/questions/daily_026_sub_2_qa_3.mp3",
           "learnRequirement": "speak_trigger",
           "order": 3
@@ -214,7 +214,7 @@
       "id": "daily_026_sub_3",
       "sceneId": "daily_026",
       "name": "确认数量",
-      "description": "说明所需重量或数量，与摊主核对。",
+      "description": "顾客说明所需重量或数量，摊主称重并复述确认。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -222,29 +222,29 @@
           "id": "daily_026_sub_3_qa_1",
           "subSceneId": "daily_026_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "How many pounds of tomatoes would you like?",
-          "triggerTextCn": "您要多少磅番茄？",
+          "triggerText": "How many kilos of tomatoes would you like?",
+          "triggerTextCn": "您要多少公斤番茄？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "菜市场买菜 - 确认数量",
+          "scenarioHintCn": "菜市场买菜：确认数量",
           "followUps": [
             {
-              "text": "Two pounds, please.",
-              "text_cn": "请给我两磅。",
+              "text": "One kilo, please.",
+              "text_cn": "一公斤，谢谢。",
               "audio_url": "COS:/qa/responses/daily_026_sub_3_qa_1_response0.mp3"
             },
             {
-              "text": "Do you have smaller ones? I only need one pound.",
-              "text_cn": "你们有小一点的吗？我只需要一磅。",
+              "text": "Can I get half a kilo instead? I don't need that much.",
+              "text_cn": "能给我半公斤吗？我不需要那么多。",
               "audio_url": "COS:/qa/responses/daily_026_sub_3_qa_1_response1.mp3"
             },
             {
-              "text": "Hmm, let me check the price first. How much per pound?",
-              "text_cn": "嗯，我先看看价格，每磅多少钱？",
+              "text": "I'll take two, but let me check the price first.",
+              "text_cn": "我要两公斤，但先看看价格。",
               "audio_url": "COS:/qa/responses/daily_026_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于顾客在选购蔬菜时，摊主询问数量，顾客根据需求、预算或商品规格做出回应。",
+          "usageNote": "用于顾客在购买蔬菜水果时，回应摊主对数量的询问，体现灵活调整购买量的真实场景。",
           "audioUrl": "COS:/qa/questions/daily_026_sub_3_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -253,29 +253,29 @@
           "id": "daily_026_sub_3_qa_2",
           "subSceneId": "daily_026_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "How many apples are you taking?",
-          "triggerTextCn": "你要拿几个苹果？",
+          "triggerText": "Do you want six eggs or a dozen?",
+          "triggerTextCn": "您要六个鸡蛋还是一打？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "菜市场买菜 - 确认数量",
+          "scenarioHintCn": "菜市场买菜：确认数量",
           "followUps": [
             {
-              "text": "Six, but can I get a discount if I buy a dozen?",
-              "text_cn": "六个，但如果我买一打能打折吗？",
+              "text": "A dozen, please. I'm cooking for a big family.",
+              "text_cn": "我要一打，我要给一家人做饭。",
               "audio_url": "COS:/qa/responses/daily_026_sub_3_qa_2_response0.mp3"
             },
             {
-              "text": "Just three—I’m not cooking today.",
-              "text_cn": "三个就够了，我今天不做饭。",
+              "text": "Just three, please. I only need them for breakfast.",
+              "text_cn": "只要三个，我早餐用就够了。",
               "audio_url": "COS:/qa/responses/daily_026_sub_3_qa_2_response1.mp3"
             },
             {
-              "text": "I’ll take five, but I need them to be ripe.",
-              "text_cn": "我要五个，但必须是熟的。",
+              "text": "Hmm, I'm not sure… do you have smaller packs?",
+              "text_cn": "嗯，我不确定……你们有小包装的吗？",
               "audio_url": "COS:/qa/responses/daily_026_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "用于顾客挑选水果时，摊主确认数量，顾客可能结合数量、价格、品质综合回应。",
+          "usageNote": "摊主提供标准数量选项时，顾客可接受、调整或质疑标准选项，体现真实购物中的决策过程。",
           "audioUrl": "COS:/qa/questions/daily_026_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -284,29 +284,29 @@
           "id": "daily_026_sub_3_qa_3",
           "subSceneId": "daily_026_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "How many eggs do you want?",
-          "triggerTextCn": "您要多少鸡蛋？",
+          "triggerText": "How many peppers are you taking?",
+          "triggerTextCn": "你要买几个辣椒？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "菜市场买菜 - 确认数量",
+          "scenarioHintCn": "菜市场买菜：确认数量",
           "followUps": [
             {
-              "text": "A dozen, please.",
-              "text_cn": "请给我一打。",
+              "text": "Four, but can I pick them myself?",
+              "text_cn": "四个，但我能自己挑吗？",
               "audio_url": "COS:/qa/responses/daily_026_sub_3_qa_3_response0.mp3"
             },
             {
-              "text": "I’ll take ten—I broke two last time.",
-              "text_cn": "我要十个，上次打碎了两个。",
+              "text": "I'll take the bag you already packed.",
+              "text_cn": "我就要你已经装好的那袋。",
               "audio_url": "COS:/qa/responses/daily_026_sub_3_qa_3_response1.mp3"
             },
             {
-              "text": "Actually, I’ll skip eggs today—I’ll come back tomorrow.",
-              "text_cn": "其实我今天先不买了，明天再来。",
+              "text": "Wait, are these fresh? Let me see the batch first.",
+              "text_cn": "等等，这些新鲜吗？让我先看看这一批。",
               "audio_url": "COS:/qa/responses/daily_026_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "用于顾客选购易碎品如鸡蛋时，摊主确认数量，顾客可能因损耗、计划变更或价格考虑调整决定。",
+          "usageNote": "顾客在确认数量前可能附加质量检查、自选或信任预装等行为，反映菜市场互动的多样性。",
           "audioUrl": "COS:/qa/questions/daily_026_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -317,7 +317,7 @@
       "id": "daily_026_sub_4",
       "sceneId": "daily_026",
       "name": "计算总价",
-      "description": "确认总金额，询问是否可优惠。",
+      "description": "摊主报出总价，顾客核对金额并询问是否优惠。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -325,29 +325,29 @@
           "id": "daily_026_sub_4_qa_1",
           "subSceneId": "daily_026_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "That'll be $12.50. How would you like to pay?",
-          "triggerTextCn": "总共12.5美元，您怎么支付？",
+          "triggerText": "That'll be $12.50 in total. How would you like to pay?",
+          "triggerTextCn": "总共12.50美元，您怎么支付？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "菜市场买菜，摊主报出总价后询问支付方式",
+          "scenarioHintCn": "菜市场摊主报出总价后询问支付方式",
           "followUps": [
             {
-              "text": "I'll pay with cash.",
-              "text_cn": "我用现金支付。",
+              "text": "I'll pay with cash, here's $15.",
+              "text_cn": "我用现金，给你15块。",
               "audio_url": "COS:/qa/responses/daily_026_sub_4_qa_1_response0.mp3"
             },
             {
-              "text": "Do you take WeChat Pay? I don't have change.",
-              "text_cn": "你们收微信支付吗？我没零钱。",
+              "text": "Can I pay by WeChat? I need to scan your QR code.",
+              "text_cn": "我能用微信支付吗？我需要扫您的二维码。",
               "audio_url": "COS:/qa/responses/daily_026_sub_4_qa_1_response1.mp3"
             },
             {
-              "text": "Can I pay half cash and half by card?",
-              "text_cn": "我可以一半现金、一半刷卡吗？",
+              "text": "Do you take cards? I only have a debit card.",
+              "text_cn": "你们收银行卡吗？我只有借记卡。",
               "audio_url": "COS:/qa/responses/daily_026_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "适用于摊主报完价后，顾客选择支付方式的典型场景，体现真实市场中灵活支付习惯",
+          "usageNote": "适用于摊主报完总价后，顾客选择支付方式的自然回应场景，强调真实口语中的简略表达和非正式语气",
           "audioUrl": "COS:/qa/questions/daily_026_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -356,29 +356,29 @@
           "id": "daily_026_sub_4_qa_2",
           "subSceneId": "daily_026_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Total is $8.75. Cash or card?",
-          "triggerTextCn": "总共8.75美元，现金还是刷卡？",
+          "triggerText": "Total is $8.75. Payment, please?",
+          "triggerTextCn": "总共8.75美元，请付款？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "菜市场买菜，摊主简化支付方式询问",
+          "scenarioHintCn": "摊主简洁催促付款，顾客回应支付方式",
           "followUps": [
             {
-              "text": "Card, please. I only have a $20 bill.",
-              "text_cn": "刷卡吧，我只有20美元钞票。",
+              "text": "Just cash, no card here.",
+              "text_cn": "只付现金，没带卡。",
               "audio_url": "COS:/qa/responses/daily_026_sub_4_qa_2_response0.mp3"
             },
             {
-              "text": "I'm good with cash—I’ve got exact change.",
-              "text_cn": "我用现金，正好有零钱。",
+              "text": "Wait a sec—I need to check if my phone has enough balance.",
+              "text_cn": "等一下，我得看看手机余额够不够。",
               "audio_url": "COS:/qa/responses/daily_026_sub_4_qa_2_response1.mp3"
             },
             {
-              "text": "Wait, can I just take half? I forgot my wallet.",
-              "text_cn": "等等，我能只买一半吗？我忘带钱包了。",
+              "text": "Can you split it? $5 cash and $3.75 on Alipay?",
+              "text_cn": "能分开付吗？5美元现金，3.75美元支付宝？",
               "audio_url": "COS:/qa/responses/daily_026_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "反映顾客在支付时可能因现金不足、忘带钱包等突发状况调整决策的真实互动",
+          "usageNote": "体现真实菜市场中摊主常用短句催促付款，顾客回应需自然、口语化，常含犹豫或混合支付需求",
           "audioUrl": "COS:/qa/questions/daily_026_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -387,29 +387,29 @@
           "id": "daily_026_sub_4_qa_3",
           "subSceneId": "daily_026_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "That comes to $15.20. How are you paying?",
-          "triggerTextCn": "一共15.20美元，您怎么付？",
+          "triggerText": "That comes to $21. How are you paying?",
+          "triggerTextCn": "一共21美元，您怎么付？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "菜市场买菜，摊主确认总价后正式询问支付方式",
+          "scenarioHintCn": "摊主确认总价后直接询问支付方式，常见于忙碌摊位",
           "followUps": [
             {
-              "text": "Apple Pay, please.",
-              "text_cn": "请用Apple Pay。",
+              "text": "I'm good with cash—I’ve got exact change.",
+              "text_cn": "我用现金，正好有零钱。",
               "audio_url": "COS:/qa/responses/daily_026_sub_4_qa_3_response0.mp3"
             },
             {
-              "text": "I don’t have a card—can I pay with my phone?",
-              "text_cn": "我没带卡，能用手机付吗？",
+              "text": "Actually, I’m out of cash—can I pay tomorrow?",
+              "text_cn": "其实我没带现金了，能明天付吗？",
               "audio_url": "COS:/qa/responses/daily_026_sub_4_qa_3_response1.mp3"
             },
             {
-              "text": "Actually, I’ll just take the tomatoes and skip the peppers—can you adjust it?",
-              "text_cn": "其实我只买番茄，不买辣椒了，能重新算一下吗？",
+              "text": "Apple Pay works, right? I’ll just tap my phone.",
+              "text_cn": "能用Apple Pay吗？我直接碰一下手机就行。",
               "audio_url": "COS:/qa/responses/daily_026_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "体现顾客在支付前可能临时调整购物清单，需重新计算的自然对话转折",
+          "usageNote": "适用于快节奏菜市场环境，顾客回应需体现真实生活中的突发状况（如没带钱、技术确认），增强对话真实感",
           "audioUrl": "COS:/qa/questions/daily_026_sub_4_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -420,7 +420,7 @@
       "id": "daily_026_sub_5",
       "sceneId": "daily_026",
       "name": "完成付款",
-      "description": "支付现金或扫码，礼貌道别并拿好商品。",
+      "description": "顾客付款，摊主找零并道别，完成交易。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -435,22 +435,22 @@
           "scenarioHintCn": "菜市场买菜，完成付款环节",
           "followUps": [
             {
-              "text": "I'll pay by cash, please.",
-              "text_cn": "我用现金支付，谢谢。",
+              "text": "I'll pay by card, please.",
+              "text_cn": "我刷卡，谢谢。",
               "audio_url": "COS:/qa/responses/daily_026_sub_5_qa_1_response0.mp3"
             },
             {
-              "text": "Can I use WeChat Pay? I don't have cash on me.",
-              "text_cn": "我能用微信支付吗？我没带现金。",
+              "text": "Do you accept cash? I only have bills today.",
+              "text_cn": "你们收现金吗？我今天只有现金。",
               "audio_url": "COS:/qa/responses/daily_026_sub_5_qa_1_response1.mp3"
             },
             {
-              "text": "Do you take cards? I only have a debit card.",
-              "text_cn": "你们收银行卡吗？我只有借记卡。",
+              "text": "Can I use WeChat Pay? My card’s not working.",
+              "text_cn": "能用微信支付吗？我的卡刷不了了。",
               "audio_url": "COS:/qa/responses/daily_026_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是菜市场付款时最常被问到的问题，顾客需根据自身支付方式灵活回应，注意口语中常省略主语或使用缩略表达。",
+          "usageNote": "这是菜市场付款时最常听到的收银提问，顾客需根据自身支付方式灵活回应。",
           "audioUrl": "COS:/qa/questions/daily_026_sub_5_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -459,29 +459,29 @@
           "id": "daily_026_sub_5_qa_2",
           "subSceneId": "daily_026_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "That's 38 yuan.",
+          "triggerText": "That’s 38 yuan.",
           "triggerTextCn": "一共38元。",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
           "scenarioHintCn": "菜市场买菜，完成付款环节",
           "followUps": [
             {
-              "text": "Here's 50, keep the change.",
+              "text": "Here’s 50, keep the change.",
               "text_cn": "给你50，不用找了。",
               "audio_url": "COS:/qa/responses/daily_026_sub_5_qa_2_response0.mp3"
             },
             {
-              "text": "Do you have smaller bills? I only have a 100-yuan note.",
-              "text_cn": "有零钱吗？我只有100元。",
+              "text": "I only have a 100-yuan note, can you break it?",
+              "text_cn": "我只有100元，能换开吗？",
               "audio_url": "COS:/qa/responses/daily_026_sub_5_qa_2_response1.mp3"
             },
             {
-              "text": "I only have 35, can I take less? Maybe skip the peppers?",
-              "text_cn": "我只有35块，能少买点吗？比如不买辣椒了？",
+              "text": "Wait, I think I overbought—can I return the tomatoes?",
+              "text_cn": "等等，我买多了，能退两个番茄吗？",
               "audio_url": "COS:/qa/responses/daily_026_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "摊主报完价后，顾客常根据手头现金或需求做出反应，回应需体现真实场景中的灵活协商。",
+          "usageNote": "摊主报出总价后，顾客可能选择支付方式、要求找零或临时修改购买内容，需自然应对。",
           "audioUrl": "COS:/qa/questions/daily_026_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -489,30 +489,30 @@
         {
           "id": "daily_026_sub_5_qa_3",
           "subSceneId": "daily_026_sub_5",
-          "dialogueMode": "user_responds",
-          "triggerText": "Payment completed, thank you!",
-          "triggerTextCn": "付款成功，谢谢！",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you have change for a 100?",
+          "triggerTextCn": "你有100元的零钱吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
           "scenarioHintCn": "菜市场买菜，完成付款环节",
           "followUps": [
             {
-              "text": "Thanks! Have a nice day!",
-              "text_cn": "谢谢！祝你今天愉快！",
+              "text": "Sorry, I only have small bills left.",
+              "text_cn": "不好意思，我只剩零钱了。",
               "audio_url": "COS:/qa/responses/daily_026_sub_5_qa_3_response0.mp3"
             },
             {
-              "text": "Wait, did you give me the right change?",
-              "text_cn": "等一下，找零对吗？",
+              "text": "Sure, here’s 62 back.",
+              "text_cn": "当然，找你62元。",
               "audio_url": "COS:/qa/responses/daily_026_sub_5_qa_3_response1.mp3"
             },
             {
-              "text": "Can I get a bag? I didn't bring one.",
-              "text_cn": "能给我个袋子吗？我没带。",
+              "text": "How about I add a few more veggies? Then you won’t need to give change.",
+              "text_cn": "要不我再买点菜？这样你就不用找零了。",
               "audio_url": "COS:/qa/responses/daily_026_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "付款完成后常伴随后续小需求或确认，真实对话中顾客可能在感谢后立即提出新要求，体现自然延展。",
+          "usageNote": "顾客主动询问找零是常见行为，摊主回应可能涉及拒绝、接受或促销引导，需理解不同应对策略。",
           "audioUrl": "COS:/qa/questions/daily_026_sub_5_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
