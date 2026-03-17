@@ -131,6 +131,39 @@ const STEP2_PROMPT = `你是英语口语教学内容设计专家。请为以下�
 - 避免生僻、罕见或不自然的表达
 
 ================================================================================
+【关键：followUps必须包含2-3个不同的回答】
+================================================================================
+
+每个问答对的 followUps 必须包含 2-3 个【不同情况】的回答，而不是同一回答的不同表述！
+
+✅ 正确示例（不同情况）：
+{
+  "triggerText": "How would you like to pay?",
+  "followUps": [
+    {"text": "I'll pay by card, please.", "text_cn": "我刷卡，谢谢。", "situation": "刷卡支付"},
+    {"text": "Do you accept cash?", "text_cn": "你们收现金吗？", "situation": "现金支付"},
+    {"text": "Can I use Apple Pay?", "text_cn": "可以用Apple Pay吗？", "situation": "移动支付"}
+  ]
+}
+
+❌ 错误示例（同一回答的不同表述）：
+{
+  "triggerText": "How would you like to pay?",
+  "followUps": [
+    {"text": "I'll pay by card.", "text_cn": "我刷卡。"},
+    {"text": "Card, please.", "text_cn": "刷卡，谢谢。"},
+    {"text": "I'd like to use my card.", "text_cn": "我想用卡支付。"}
+  ]
+}
+
+【不同情况的维度】：
+- 不同选择：刷卡/现金/移动支付
+- 不同态度：同意/拒绝/犹豫
+- 不同条件：有时间/没时间/需要确认
+- 不同偏好：喜欢/不喜欢/无所谓
+- 不同结果：成功/失败/需要等待
+
+================================================================================
 【第一步：理解两种对话模式】
 ================================================================================
 
@@ -144,7 +177,7 @@ const STEP2_PROMPT = `你是英语口语教学内容设计专家。请为以下�
 - 名称：user_responds
 - triggerText = 对方的问题（如"How would you like to pay?"）
 - triggerSpeakerRole = "staff"（服务场景）或"peer"（社交场景）
-- followUps = 用户的回答
+- followUps = 用户的不同回答（2-3个不同情况）
 
 【重要】user_asks的triggerSpeakerRole永远是"customer"，不管是服务场景还是社交场景！
 
@@ -159,8 +192,8 @@ const STEP2_PROMPT = `你是英语口语教学内容设计专家。请为以下�
    - 如果是服务员说的 → dialogueMode = "user_responds", triggerSpeakerRole = "staff"
 
 2. followUps是谁说的？
-   - user_asks模式 → followUps是服务员说的
-   - user_responds模式 → followUps是用户说的
+   - user_asks模式 → followUps是服务员说的（2-3个不同情况的回答）
+   - user_responds模式 → followUps是用户说的（2-3个不同情况的回答）
 
 ================================================================================
 【第三步：避免常见错误 - 必须严格遵守】
@@ -201,7 +234,9 @@ const STEP2_PROMPT = `你是英语口语教学内容设计专家。请为以下�
       "triggerSpeakerRole": "customer 或 staff 或 peer",
       "scenarioHintCn": "场景提示（中文）",
       "followUps": [
-        {"text": "回应（英文）", "text_cn": "回应（中文）"}
+        {"text": "回答1（英文）", "text_cn": "回答1（中文）", "situation": "情况说明"},
+        {"text": "回答2（英文）", "text_cn": "回答2（中文）", "situation": "情况说明"},
+        {"text": "回答3（英文）", "text_cn": "回答3（中文）", "situation": "情况说明"}
       ],
       "usageNote": "使用说明",
       "learnRequirement": "speak_trigger 或 speak_followup",

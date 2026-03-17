@@ -1,7 +1,7 @@
 {
   "sceneId": "travel_071",
   "sceneName": "酒店退房",
-  "generatedAt": "2026-03-16T08:23:30.124Z",
+  "generatedAt": "2026-03-17T03:16:16.883Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
@@ -15,41 +15,61 @@
         {
           "id": "travel_071_sub_1_qa_1",
           "subSceneId": "travel_071_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "I'd like to check out, please.",
-          "triggerTextCn": "我想退房。",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Are you checking out today?",
+          "triggerTextCn": "您今天退房吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "客人主动提出退房请求",
+          "scenarioHintCn": "酒店前台确认退房时间",
           "followUps": [
             {
-              "text": "Sure, I can help with that. Could I have your room number and name, please?",
-              "text_cn": "当然可以，我来帮您。请提供您的房号和姓名。",
+              "text": "Yes, I’d like to check out now.",
+              "text_cn": "是的，我现在就退房。",
               "audio_url": "COS:/qa/responses/travel_071_sub_1_qa_1_response0.mp3"
+            },
+            {
+              "text": "Actually, can I extend my stay until tomorrow?",
+              "text_cn": "其实，我可以延到明天再退房吗？",
+              "audio_url": "COS:/qa/responses/travel_071_sub_1_qa_1_response1.mp3"
+            },
+            {
+              "text": "Not yet—I’m waiting for my roommate to finish packing.",
+              "text_cn": "还没，我在等室友收拾完行李。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "客人在退房时最自然的开场白，直接表达需求，服务员会顺势收集信息。",
+          "usageNote": "用于回应前台对退房时间的确认，体现不同时间安排和需求",
           "audioUrl": "COS:/qa/questions/travel_071_sub_1_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "travel_071_sub_1_qa_2",
           "subSceneId": "travel_071_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Did you use the minibar or pay for any extras?",
-          "triggerTextCn": "您有使用迷你吧或产生其他额外费用吗？",
+          "triggerText": "How would you like to settle your bill?",
+          "triggerTextCn": "您想如何结账？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员核对额外消费，客人需确认费用",
+          "scenarioHintCn": "前台询问支付方式",
           "followUps": [
             {
-              "text": "No, I didn't use anything. Just the room charge, please.",
-              "text_cn": "没有，我没用任何东西，只付房费就行。",
+              "text": "I’ll pay with my credit card.",
+              "text_cn": "我用信用卡支付。",
               "audio_url": "COS:/qa/responses/travel_071_sub_1_qa_2_response0.mp3"
+            },
+            {
+              "text": "Do you accept mobile payment like Alipay?",
+              "text_cn": "你们接受支付宝这样的移动支付吗？",
+              "audio_url": "COS:/qa/responses/travel_071_sub_1_qa_2_response1.mp3"
+            },
+            {
+              "text": "Can I get a receipt first? I need to submit it for reimbursement.",
+              "text_cn": "我能先要一张发票吗？我需要报销。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "服务员常在退房时确认额外消费，客人应简洁明确回应，避免模糊表达。",
+          "usageNote": "回应结账方式询问，覆盖主流支付方式及报销需求",
           "audioUrl": "COS:/qa/questions/travel_071_sub_1_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -58,19 +78,29 @@
           "id": "travel_071_sub_1_qa_3",
           "subSceneId": "travel_071_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "How would you like to settle the bill?",
-          "triggerTextCn": "您想如何结账？",
+          "triggerText": "Did you enjoy your stay with us?",
+          "triggerTextCn": "您对我们的服务还满意吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员询问支付方式，客人需选择支付手段",
+          "scenarioHintCn": "前台进行服务反馈征询",
           "followUps": [
             {
-              "text": "I'll pay with my credit card, please.",
-              "text_cn": "我用信用卡支付。",
+              "text": "Yes, everything was perfect—thank you!",
+              "text_cn": "是的，一切都很好，谢谢！",
               "audio_url": "COS:/qa/responses/travel_071_sub_1_qa_3_response0.mp3"
+            },
+            {
+              "text": "It was good, but the Wi-Fi was slow in my room.",
+              "text_cn": "还不错，但我的房间网速有点慢。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_1_qa_3_response1.mp3"
+            },
+            {
+              "text": "I’m not sure—I didn’t use many services.",
+              "text_cn": "我不太确定，因为我没怎么使用其他服务。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "结账环节的核心问题，客人需直接说明支付方式，避免冗长解释。",
+          "usageNote": "回应满意度调查，体现真实、自然、有差异的反馈态度",
           "audioUrl": "COS:/qa/questions/travel_071_sub_1_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -88,62 +118,92 @@
         {
           "id": "travel_071_sub_2_qa_1",
           "subSceneId": "travel_071_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "Could I please see a breakdown of my charges?",
-          "triggerTextCn": "我能看一下我的费用明细吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Here's your itemized bill for the stay. Does everything look correct?",
+          "triggerTextCn": "这是您本次住宿的详细账单，请核对一下是否正确？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "客人要求核对房费明细，确认是否有额外消费",
+          "scenarioHintCn": "酒店退房时核对房费明细",
           "followUps": [
             {
-              "text": "Of course! Here’s your itemized bill: room rate for 3 nights, breakfast for two, and a $15 minibar charge.",
-              "text_cn": "当然可以！这是您的详细账单：3晚房费、两人早餐，以及15美元的迷你吧费用。",
+              "text": "Yes, everything looks good. I'll pay by credit card.",
+              "text_cn": "好的，都正确，我刷卡支付。",
               "audio_url": "COS:/qa/responses/travel_071_sub_2_qa_1_response0.mp3"
+            },
+            {
+              "text": "Actually, I think there's a mistake — I didn't use the minibar last night.",
+              "text_cn": "等等，我觉得有错误——我昨晚没用过迷你吧。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_2_qa_1_response1.mp3"
+            },
+            {
+              "text": "Could you please explain the resort fee? I didn't see it when I booked.",
+              "text_cn": "能解释一下度假村附加费吗？我预订时没看到这项。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "客人在退房时主动要求核对账单，是高频且礼貌的表达方式，适用于任何有附加消费的场景。",
+          "usageNote": "用于退房时核对账单的典型对话，帮助学习者识别常见费用项目并学会礼貌质疑或确认",
           "audioUrl": "COS:/qa/questions/travel_071_sub_2_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "travel_071_sub_2_qa_2",
           "subSceneId": "travel_071_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "Just to confirm, there’s no resort fee or city tax included, right?",
-          "triggerTextCn": "我确认一下，没有包含度假村费或城市税，对吧？",
-          "triggerSpeakerRole": "customer",
-          "scenarioHint": "客人对账单中可能隐藏的费用提出质疑，避免退房时产生争议",
-          "scenarioHintCn": null,
+          "dialogueMode": "user_responds",
+          "triggerText": "Your total comes to $320, including taxes and the resort fee.",
+          "triggerTextCn": "您的总费用是320美元，包含税费和度假村附加费。",
+          "triggerSpeakerRole": "staff",
+          "scenarioHint": null,
+          "scenarioHintCn": "酒店退房时告知最终金额",
           "followUps": [
             {
-              "text": "Actually, the resort fee is already included in your rate, but city tax is extra — it’s $12.50.",
-              "text_cn": "实际上，度假村费已包含在房费里，但城市税是额外的，共12.50美元。",
+              "text": "That's fine, I'll pay with my card.",
+              "text_cn": "没问题，我刷卡支付。",
               "audio_url": "COS:/qa/responses/travel_071_sub_2_qa_2_response0.mp3"
+            },
+            {
+              "text": "Wait, I had a discount code — can you check if it was applied?",
+              "text_cn": "等等，我有优惠码，能查一下是否已使用吗？",
+              "audio_url": "COS:/qa/responses/travel_071_sub_2_qa_2_response1.mp3"
+            },
+            {
+              "text": "Can I pay in cash instead? I need to split the cost with my roommate.",
+              "text_cn": "我可以付现金吗？我需要和室友分摊费用。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "客人用‘just to confirm’礼貌地确认隐性费用，是英语母语者常见表达，避免误解。",
+          "usageNote": "帮助学习者应对金额告知场景，掌握确认、质疑和请求调整的自然表达",
           "audioUrl": "COS:/qa/questions/travel_071_sub_2_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "travel_071_sub_2_qa_3",
           "subSceneId": "travel_071_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Your total comes to $345.60. How would you like to settle this?",
-          "triggerTextCn": "您的总费用是345.60美元，您想如何支付？",
+          "triggerText": "Did you use any extra services like laundry or room service?",
+          "triggerTextCn": "您是否使用了洗衣或客房服务等额外服务？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员提供最终账单后，询问支付方式，是退房流程的标准环节",
+          "scenarioHintCn": "酒店退房时询问是否有额外消费",
           "followUps": [
             {
-              "text": "I’ll pay with my credit card, please.",
-              "text_cn": "我用信用卡支付。",
+              "text": "No, I didn't use anything extra.",
+              "text_cn": "没有，我没用任何额外服务。",
               "audio_url": "COS:/qa/responses/travel_071_sub_2_qa_3_response0.mp3"
+            },
+            {
+              "text": "I ordered room service twice — can you add it to the bill?",
+              "text_cn": "我点了两次客房服务，能加到账单里吗？",
+              "audio_url": "COS:/qa/responses/travel_071_sub_2_qa_3_response1.mp3"
+            },
+            {
+              "text": "I'm not sure — could you check if there's a charge for the late checkout?",
+              "text_cn": "我不太确定，能查一下延迟退房有没有收费吗？",
+              "audio_url": "COS:/qa/responses/travel_071_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "服务员在核对完费用后自然过渡到支付环节，用户回应需简洁直接，避免冗长解释。",
+          "usageNote": "训练学习者应对服务使用情况的询问，掌握诚实回应、主动申报和请求核查的表达方式",
           "audioUrl": "COS:/qa/questions/travel_071_sub_2_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -161,64 +221,94 @@
         {
           "id": "travel_071_sub_3_qa_1",
           "subSceneId": "travel_071_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "Could I check out now?",
-          "triggerTextCn": "我现在可以退房吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "How would you like to pay?",
+          "triggerTextCn": "您想怎么付款？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "客人主动请求退房，启动支付结算流程",
+          "scenarioHintCn": "酒店退房时的支付结算环节",
           "followUps": [
             {
-              "text": "Of course! Let me pull up your account. How would you like to pay?",
-              "text_cn": "当然可以！我来调出您的账单。您想怎么支付？",
+              "text": "I'll pay by credit card, please.",
+              "text_cn": "我用信用卡支付，谢谢。",
               "audio_url": "COS:/qa/responses/travel_071_sub_3_qa_1_response0.mp3"
+            },
+            {
+              "text": "Do you accept cash? I only have USD.",
+              "text_cn": "你们收现金吗？我只有美元。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_3_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can I pay with Apple Pay? My card’s already linked.",
+              "text_cn": "可以用Apple Pay吗？我的卡已经绑好了。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "客人在退房时常用开场白，自然且礼貌，适用于任何酒店场景",
+          "usageNote": "这是退房时最常遇到的付款方式询问，学习者需掌握多种支付方式的表达。",
           "audioUrl": "COS:/qa/questions/travel_071_sub_3_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "travel_071_sub_3_qa_2",
           "subSceneId": "travel_071_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "How would you like to pay?",
-          "triggerTextCn": "您想怎么支付？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Could you check the final bill one more time?",
+          "triggerTextCn": "能再帮我核对一下最终账单吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员询问支付方式，进入结算核心环节",
+          "scenarioHintCn": "退房时对账单金额有疑问，主动请求复核",
           "followUps": [
             {
-              "text": "I'll pay with my credit card, please.",
-              "text_cn": "我用信用卡支付。",
+              "text": "Sure, here it is — you were charged for the room and minibar, but not for the late checkout fee since you checked out just 10 minutes past.",
+              "text_cn": "当然，这是账单：您被收取了房费和迷你吧费用，但没有收延迟退房费，因为您只超了10分钟。",
               "audio_url": "COS:/qa/responses/travel_071_sub_3_qa_2_response0.mp3"
+            },
+            {
+              "text": "Actually, there’s a mistake — you charged me for two nights, but I only stayed one night with a complimentary upgrade.",
+              "text_cn": "其实有个错误——你们收了我两晚的房费，但我只住了一晚，而且是免费升级的。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_3_qa_2_response1.mp3"
+            },
+            {
+              "text": "Let me see... Oh, I see — the breakfast was added by accident. Please remove it.",
+              "text_cn": "让我看看……哦，我明白了——早餐是误加的，请删掉吧。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "酒店前台最常问的支付问题，用户需能快速回应常见支付方式",
+          "usageNote": "用户主动核对账单是高频行为，尤其在涉及附加费用时，需掌握质疑与确认的自然表达。",
           "audioUrl": "COS:/qa/questions/travel_071_sub_3_qa_2.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 2
         },
         {
           "id": "travel_071_sub_3_qa_3",
           "subSceneId": "travel_071_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "Here's your receipt. Any charges you'd like to clarify?",
-          "triggerTextCn": "这是您的账单收据，有哪项费用需要说明吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you have any additional charges or taxes to add?",
+          "triggerTextCn": "还有其他附加费用或税费要加吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员提供账单并确认无异议，完成结算闭环",
+          "scenarioHintCn": "退房前确认最终总金额，避免意外收费",
           "followUps": [
             {
-              "text": "No, everything looks correct. Thank you!",
-              "text_cn": "没有，一切都没问题，谢谢！",
+              "text": "No, that’s all — the room, tax, and service fee are included. Your total is $189.50.",
+              "text_cn": "没有了，房费、税和服务费都已包含，总计189.50美元。",
               "audio_url": "COS:/qa/responses/travel_071_sub_3_qa_3_response0.mp3"
+            },
+            {
+              "text": "Actually, there’s a $25 resort fee that wasn’t mentioned at check-in — it’s standard for this hotel.",
+              "text_cn": "实际上，还有一笔25美元的度假村费用，入住时没提到，这是本酒店的常规收费。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_3_qa_3_response1.mp3"
+            },
+            {
+              "text": "We can waive the resort fee since you’re a loyalty member — I’ll adjust it now.",
+              "text_cn": "因为您是会员，我们可以免除度假村费用，我现在帮您调整。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "标准收尾提问，用户需能确认账单并礼貌致谢，体现完整服务流程",
+          "usageNote": "用户主动确认费用细节是避免纠纷的关键，学习者需理解不同酒店收费政策的表达方式。",
           "audioUrl": "COS:/qa/questions/travel_071_sub_3_qa_3.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -234,62 +324,92 @@
         {
           "id": "travel_071_sub_4_qa_1",
           "subSceneId": "travel_071_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Could I get a receipt for my stay, please?",
-          "triggerTextCn": "我能要一张住宿发票吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like a receipt for your stay?",
+          "triggerTextCn": "您需要住宿发票吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "客人主动索要发票",
+          "scenarioHintCn": "酒店退房时服务员主动询问是否需要发票",
           "followUps": [
             {
-              "text": "Of course! Here’s your receipt. Would you like it emailed or printed?",
-              "text_cn": "当然可以！这是您的发票，需要邮件发送还是打印一份？",
+              "text": "Yes, please. I need it for expense reimbursement.",
+              "text_cn": "需要的，我需要报销用。",
               "audio_url": "COS:/qa/responses/travel_071_sub_4_qa_1_response0.mp3"
+            },
+            {
+              "text": "No, thanks. I don't need it.",
+              "text_cn": "不用了，谢谢，我不需要。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_4_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can you email it to me instead? My address is john@example.com.",
+              "text_cn": "能发到我邮箱吗？我的邮箱是 john@example.com。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是最自然、最常用的索要发票表达，适用于全球英语国家酒店场景。",
+          "usageNote": "这是退房时最常见的一句询问，用户需根据报销需求或偏好选择回应方式。",
           "audioUrl": "COS:/qa/questions/travel_071_sub_4_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "travel_071_sub_4_qa_2",
           "subSceneId": "travel_071_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Do you provide receipts for hotel stays?",
-          "triggerTextCn": "你们提供住宿发票吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "I can print your receipt right away. What's your name and reservation number?",
+          "triggerTextCn": "我可以马上为您打印发票，请提供您的姓名和预订号。",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "客人不确定是否能开具发票，先确认政策",
+          "scenarioHintCn": "服务员准备开具发票，需确认用户身份信息",
           "followUps": [
             {
-              "text": "Yes, we issue receipts for all stays. I’ll print one for you right away.",
-              "text_cn": "是的，我们为所有住宿提供发票，我马上为您打印一份。",
+              "text": "It's Sarah Chen, reservation #789456.",
+              "text_cn": "我是陈莎拉，预订号是789456。",
               "audio_url": "COS:/qa/responses/travel_071_sub_4_qa_2_response0.mp3"
+            },
+            {
+              "text": "I'm not sure about the number... can you check under 'Smith'?",
+              "text_cn": "我不太记得预订号了，能帮我查一下姓Smith的吗？",
+              "audio_url": "COS:/qa/responses/travel_071_sub_4_qa_2_response1.mp3"
+            },
+            {
+              "text": "Actually, I think I already got one at check-in. Do you have a digital copy?",
+              "text_cn": "其实我入住时已经拿过一张了，你们有电子版吗？",
+              "audio_url": "COS:/qa/responses/travel_071_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "适用于对服务流程不熟悉的客人，语气礼貌且常见于国际酒店。",
+          "usageNote": "服务员需核实身份才能开票，用户可能因记忆模糊或已领取而有不同反应。",
           "audioUrl": "COS:/qa/questions/travel_071_sub_4_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "travel_071_sub_4_qa_3",
           "subSceneId": "travel_071_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Would you like a receipt for your stay?",
-          "triggerTextCn": "您需要住宿发票吗？",
+          "triggerText": "We can issue a receipt for the room and the breakfast separately. Which one do you need?",
+          "triggerTextCn": "我们可以分别为您开具房费和早餐的发票，您需要哪一张？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员主动询问是否需要发票（常见于退房流程）",
+          "scenarioHintCn": "酒店提供分项发票，需用户明确需求",
           "followUps": [
             {
-              "text": "Yes, please. Could you email it to me? My email is john.doe@example.com.",
-              "text_cn": "需要的，请 emailed 给我，我的邮箱是 john.doe@example.com。",
+              "text": "Just the room charge, please. Breakfast was personal.",
+              "text_cn": "只要房费就行，早餐是我个人消费的。",
               "audio_url": "COS:/qa/responses/travel_071_sub_4_qa_3_response0.mp3"
+            },
+            {
+              "text": "I need both. My company requires itemized receipts.",
+              "text_cn": "两张都需要，公司要求明细发票。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_4_qa_3_response1.mp3"
+            },
+            {
+              "text": "Can I get one combined receipt with both listed? It's easier for me.",
+              "text_cn": "能开一张合并的发票，把两项都列上吗？对我更方便。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "服务员主动提供发票是标准服务流程，用户回应需简洁明确，包含必要信息。",
+          "usageNote": "部分酒店支持分项开票，用户需根据报销政策明确需求，避免后续麻烦。",
           "audioUrl": "COS:/qa/questions/travel_071_sub_4_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -299,30 +419,40 @@
     {
       "id": "travel_071_sub_5",
       "sceneId": "travel_071",
-      "name": "道别离店",
-      "description": "客人感谢服务并礼貌告别前台。",
+      "name": "礼貌告别",
+      "description": "客人感谢服务并道别，前台致谢送行。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_071_sub_5_qa_1",
           "subSceneId": "travel_071_sub_5",
-          "dialogueMode": "user_asks",
-          "triggerText": "Could I check out now?",
-          "triggerTextCn": "我现在可以退房吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Did you enjoy your stay with us?",
+          "triggerTextCn": "您对我们的住宿还满意吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "客人主动请求退房，是离店场景中最常见的开场白",
+          "scenarioHintCn": "酒店退房时，服务员礼貌问候并收集反馈",
           "followUps": [
             {
-              "text": "Of course! Let me pull up your account. Did you use the minibar or pay for any extras?",
-              "text_cn": "当然可以！我来查一下您的账单。您有使用迷你吧或产生其他额外费用吗？",
+              "text": "Yes, everything was perfect! Thank you!",
+              "text_cn": "是的，一切都很好！谢谢！",
               "audio_url": "COS:/qa/responses/travel_071_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "It was good, but the Wi-Fi was a bit slow.",
+              "text_cn": "还不错，就是Wi-Fi有点慢。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "Honestly, I had a rough night. The room was noisy.",
+              "text_cn": "说实话，我昨晚睡得不好，房间太吵了。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "客人在退房时直接询问是否可办理退房，是自然且高频的表达，服务员会顺势核对账单。",
+          "usageNote": "这是酒店退房时服务员常问的反馈问题，用于提升服务。用户回应应自然真实，可表达满意、中性反馈或温和投诉。",
           "audioUrl": "COS:/qa/questions/travel_071_sub_5_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
@@ -330,18 +460,28 @@
           "subSceneId": "travel_071_sub_5",
           "dialogueMode": "user_responds",
           "triggerText": "How would you like to settle your bill?",
-          "triggerTextCn": "您想如何结算账单？",
+          "triggerTextCn": "您想如何结账？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员在核对账单后，询问支付方式，是退房流程中的标准环节",
+          "scenarioHintCn": "酒店退房时，前台确认支付方式",
           "followUps": [
             {
               "text": "I'll pay with my credit card, please.",
-              "text_cn": "我用信用卡支付。",
+              "text_cn": "我用信用卡支付，谢谢。",
               "audio_url": "COS:/qa/responses/travel_071_sub_5_qa_2_response0.mp3"
+            },
+            {
+              "text": "Can I pay in cash? I have some local currency.",
+              "text_cn": "我可以付现金吗？我有当地货币。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_5_qa_2_response1.mp3"
+            },
+            {
+              "text": "Could I add this to my room charge? I haven't settled it yet.",
+              "text_cn": "我能把这笔费用加到房费里吗？我还没结清。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "服务员询问支付方式时，客人应直接说明支付方式，避免冗长解释，符合真实服务场景的简洁性。",
+          "usageNote": "结账是退房核心环节，用户需明确支付方式。回答应简洁、符合真实场景，避免冗长解释。",
           "audioUrl": "COS:/qa/questions/travel_071_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -350,19 +490,29 @@
           "id": "travel_071_sub_5_qa_3",
           "subSceneId": "travel_071_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Did you enjoy your stay with us?",
-          "triggerTextCn": "您对我们的服务还满意吗？",
+          "triggerText": "Will you be checking in again soon?",
+          "triggerTextCn": "您下次还会再来入住吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "退房时服务员常以礼貌性问候收尾，既是服务流程，也是收集反馈的机会",
+          "scenarioHintCn": "酒店退房时，服务员礼貌告别并尝试建立客户忠诚度",
           "followUps": [
             {
-              "text": "Yes, everything was perfect—thank you!",
-              "text_cn": "是的，一切都很好，谢谢！",
+              "text": "Absolutely! I loved the location and service.",
+              "text_cn": "当然会！我特别喜欢这里的地理位置和服务。",
               "audio_url": "COS:/qa/responses/travel_071_sub_5_qa_3_response0.mp3"
+            },
+            {
+              "text": "I'm not sure yet—it depends on my work schedule.",
+              "text_cn": "还不确定，要看我的工作安排。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_5_qa_3_response1.mp3"
+            },
+            {
+              "text": "Probably not—I live in another city now.",
+              "text_cn": "可能不会了，我现在住在另一个城市。",
+              "audio_url": "COS:/qa/responses/travel_071_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "这是酒店服务中典型的结束语，客人应给予简短积极回应，体现礼貌与自然交流。",
+          "usageNote": "这是退房环节的礼貌告别话术，用于建立情感连接。用户回应应体现真实态度，避免机械回答‘yes’或‘no’。",
           "audioUrl": "COS:/qa/questions/travel_071_sub_5_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3

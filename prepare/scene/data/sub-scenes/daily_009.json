@@ -1,7 +1,7 @@
 {
   "sceneId": "daily_009",
   "sceneName": "加油站加油",
-  "generatedAt": "2026-03-16T08:05:09.488Z",
+  "generatedAt": "2026-03-17T02:41:46.397Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
@@ -15,62 +15,92 @@
         {
           "id": "daily_009_sub_1_qa_1",
           "subSceneId": "daily_009_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can I get a full tank, please?",
-          "triggerTextCn": "请给我加满一箱油，好吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "What type of fuel do you need?",
+          "triggerTextCn": "您需要哪种燃油？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动请求加油",
+          "scenarioHintCn": "加油站员工询问燃油类型",
           "followUps": [
             {
-              "text": "Sure thing. Would you like regular, mid-grade, or premium?",
-              "text_cn": "当然可以。您要普通、中档还是高级汽油？",
+              "text": "Regular, please.",
+              "text_cn": "请加普通汽油。",
               "audio_url": "COS:/qa/responses/daily_009_sub_1_qa_1_response0.mp3"
+            },
+            {
+              "text": "I need premium, my car requires it.",
+              "text_cn": "我要加高级汽油，我的车要求用这个。",
+              "audio_url": "COS:/qa/responses/daily_009_sub_1_qa_1_response1.mp3"
+            },
+            {
+              "text": "What’s the difference between regular and mid-grade?",
+              "text_cn": "普通和中档汽油有什么区别？",
+              "audio_url": "COS:/qa/responses/daily_009_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在到达加油机时最常使用的开场请求，用于启动加油流程。",
+          "usageNote": "用于确认加油类型，是加油站最常见开场问题之一。",
           "audioUrl": "COS:/qa/questions/daily_009_sub_1_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_009_sub_1_qa_2",
           "subSceneId": "daily_009_sub_1",
-          "dialogueMode": "user_responds",
-          "triggerText": "How would you like to pay?",
-          "triggerTextCn": "您想怎么付款？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Would you like to fill up the tank?",
+          "triggerTextCn": "您要加满油箱吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员询问付款方式",
+          "scenarioHintCn": "顾客主动询问是否需要加满油箱",
           "followUps": [
             {
-              "text": "I'll pay with my card, please.",
-              "text_cn": "我用卡片支付。",
+              "text": "Yes, please. I’m running low.",
+              "text_cn": "是的，请加满，我快没油了。",
               "audio_url": "COS:/qa/responses/daily_009_sub_1_qa_2_response0.mp3"
+            },
+            {
+              "text": "No, just $20 worth, please. I don’t want to overfill.",
+              "text_cn": "不用加满，加20美元的就行，我不想加太满。",
+              "audio_url": "COS:/qa/responses/daily_009_sub_1_qa_2_response1.mp3"
+            },
+            {
+              "text": "Can you just top it off? I’m almost full.",
+              "text_cn": "能帮我补一点吗？油箱快满了。",
+              "audio_url": "COS:/qa/responses/daily_009_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "加油站员工在加油完成后最标准的付款询问，顾客需简洁回应支付方式。",
+          "usageNote": "顾客主动询问加油量，体现对油量控制的个性化需求。",
           "audioUrl": "COS:/qa/questions/daily_009_sub_1_qa_2.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 2
         },
         {
           "id": "daily_009_sub_1_qa_3",
           "subSceneId": "daily_009_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you want me to check your oil and tires?",
-          "triggerTextCn": "您需要我检查一下机油和轮胎吗？",
+          "triggerText": "How would you like to pay?",
+          "triggerTextCn": "您想怎么付款？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员提供免费附加服务",
+          "scenarioHintCn": "加油站员工询问支付方式",
           "followUps": [
             {
-              "text": "Yes, please. That would be helpful.",
-              "text_cn": "好的，请帮我检查一下，谢谢。",
+              "text": "I’ll swipe my card.",
+              "text_cn": "我刷卡。",
               "audio_url": "COS:/qa/responses/daily_009_sub_1_qa_3_response0.mp3"
+            },
+            {
+              "text": "Do you take Apple Pay or Google Pay?",
+              "text_cn": "你们支持Apple Pay或Google Pay吗？",
+              "audio_url": "COS:/qa/responses/daily_009_sub_1_qa_3_response1.mp3"
+            },
+            {
+              "text": "I have cash, but is there a minimum for card?",
+              "text_cn": "我有现金，但刷卡有最低消费限制吗？",
+              "audio_url": "COS:/qa/responses/daily_009_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "加油站员工常主动提供免费检查服务，顾客应能自然接受或婉拒，此处为典型接受回应。",
+          "usageNote": "支付环节高频问题，需掌握多种支付方式的表达。",
           "audioUrl": "COS:/qa/questions/daily_009_sub_1_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -89,19 +119,29 @@
           "id": "daily_009_sub_2_qa_1",
           "subSceneId": "daily_009_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "What kind of gas do you need?",
+          "triggerText": "Which type of gasoline do you need?",
           "triggerTextCn": "您需要哪种汽油？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "加油站员工询问油号，确认加油类型",
+          "scenarioHintCn": "加油站工作人员确认加油类型",
           "followUps": [
             {
-              "text": "Regular, please.",
-              "text_cn": "请加普通汽油。",
+              "text": "I need 87, please. That's what my car manual says.",
+              "text_cn": "我要87号，我车的用户手册上这么写的。",
               "audio_url": "COS:/qa/responses/daily_009_sub_2_qa_1_response0.mp3"
+            },
+            {
+              "text": "What do you recommend for a sedan?",
+              "text_cn": "对于轿车，你推荐哪种？",
+              "audio_url": "COS:/qa/responses/daily_009_sub_2_qa_1_response1.mp3"
+            },
+            {
+              "text": "I'm not sure—can I use 91 instead of 89?",
+              "text_cn": "我不确定，能用91代替89吗？",
+              "audio_url": "COS:/qa/responses/daily_009_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是加油站最常见的一问一答，员工主动确认油号，顾客简洁回应。适用于初学者掌握基础加油用语。",
+          "usageNote": "这是加油站最常见确认油号的开场问题，用户回应需体现对车辆需求的认知或寻求专业建议。",
           "audioUrl": "COS:/qa/questions/daily_009_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -110,19 +150,29 @@
           "id": "daily_009_sub_2_qa_2",
           "subSceneId": "daily_009_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you want regular, mid-grade, or premium?",
-          "triggerTextCn": "您要普通、中档还是高级汽油？",
+          "triggerText": "Regular, mid-grade, or premium?",
+          "triggerTextCn": "您要普通、中等还是高级汽油？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "员工提供油号选项，顾客选择",
+          "scenarioHintCn": "加油站工作人员用通俗分类询问油品等级",
           "followUps": [
             {
-              "text": "I'll take mid-grade.",
-              "text_cn": "我要中档的。",
+              "text": "Regular, thanks. My SUV runs fine on it.",
+              "text_cn": "普通就行，谢谢，我的SUV用这个就够了。",
               "audio_url": "COS:/qa/responses/daily_009_sub_2_qa_2_response0.mp3"
+            },
+            {
+              "text": "Premium, please—I heard it cleans the engine better.",
+              "text_cn": "我要高级的，听说它能清洁发动机。",
+              "audio_url": "COS:/qa/responses/daily_009_sub_2_qa_2_response1.mp3"
+            },
+            {
+              "text": "Is there a difference in price between mid-grade and premium?",
+              "text_cn": "中等和高级之间价格差多少？",
+              "audio_url": "COS:/qa/responses/daily_009_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "员工明确列出三种常见油号选项，顾客直接选择。真实场景高频出现，适合练习选择性回应。",
+          "usageNote": "工作人员常使用通俗术语（Regular/Mid-grade/Premium）提问，用户回应应体现决策依据：车辆需求、认知、经济考量。",
           "audioUrl": "COS:/qa/questions/daily_009_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -130,22 +180,32 @@
         {
           "id": "daily_009_sub_2_qa_3",
           "subSceneId": "daily_009_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "What do you recommend for my car?",
-          "triggerTextCn": "我的车该加哪种油？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you know what octane your car takes?",
+          "triggerTextCn": "你知道你的车需要几号油吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客不确定油号，主动询问员工建议",
+          "scenarioHintCn": "工作人员确认用户是否了解车辆油品要求",
           "followUps": [
             {
-              "text": "Most standard cars run fine on regular. Check your owner’s manual if you're unsure.",
-              "text_cn": "大多数普通车用普通汽油就行，不确定的话可以看车主手册。",
+              "text": "Yeah, it's 89. I checked the fuel cap last time.",
+              "text_cn": "知道，是89号，上次我看过油箱盖上的说明。",
               "audio_url": "COS:/qa/responses/daily_009_sub_2_qa_3_response0.mp3"
+            },
+            {
+              "text": "Actually, I'm not sure—I just got this car.",
+              "text_cn": "其实我不确定，这车是我刚买的。",
+              "audio_url": "COS:/qa/responses/daily_009_sub_2_qa_3_response1.mp3"
+            },
+            {
+              "text": "I think it's 87, but I'll take whatever you suggest.",
+              "text_cn": "我觉得是87号，但你建议什么我都行。",
+              "audio_url": "COS:/qa/responses/daily_009_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客主动寻求建议，员工给出专业但非技术性的建议，语气自然友好，是真实场景中非常典型的求助对话。",
+          "usageNote": "此问题常用于判断用户是否具备基本汽车知识，回应应体现用户的知识水平、经验状态和信任倾向。",
           "audioUrl": "COS:/qa/questions/daily_009_sub_2_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -161,41 +221,61 @@
         {
           "id": "daily_009_sub_3_qa_1",
           "subSceneId": "daily_009_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "How much is it per gallon?",
-          "triggerTextCn": "每加仑多少钱？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "How would you like to pay?",
+          "triggerTextCn": "您想怎么付款？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问汽油单价",
+          "scenarioHintCn": "加油站加油后询问支付方式",
           "followUps": [
             {
-              "text": "It's $3.75 for regular and $4.25 for premium.",
-              "text_cn": "普通汽油每加仑3.75美元，高级汽油是4.25美元。",
+              "text": "I'll pay by card, please.",
+              "text_cn": "我刷卡，谢谢。",
               "audio_url": "COS:/qa/responses/daily_009_sub_3_qa_1_response0.mp3"
+            },
+            {
+              "text": "Do you accept cash?",
+              "text_cn": "你们收现金吗？",
+              "audio_url": "COS:/qa/responses/daily_009_sub_3_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can I use Apple Pay?",
+              "text_cn": "可以用Apple Pay吗？",
+              "audio_url": "COS:/qa/responses/daily_009_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在选择油品前询问价格，是加油场景中最基础的询价句式。",
+          "usageNote": "这是加油站结账时最常见的一句询问，顾客需根据自身支付习惯回应，三种回答覆盖主流支付方式。",
           "audioUrl": "COS:/qa/questions/daily_009_sub_3_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_009_sub_3_qa_2",
           "subSceneId": "daily_009_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "How much do I owe?",
-          "triggerTextCn": "我该付多少钱？",
+          "triggerText": "The total is $45.99. Do you want to fill up?",
+          "triggerTextCn": "总共是45.99美元，您要加满吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员在加油后询问应付金额",
+          "scenarioHintCn": "加油站员工提示金额后询问是否加满油",
           "followUps": [
             {
-              "text": "That'll be $42.60.",
-              "text_cn": "一共42.60美元。",
+              "text": "Yes, please, fill it up.",
+              "text_cn": "是的，请加满。",
               "audio_url": "COS:/qa/responses/daily_009_sub_3_qa_2_response0.mp3"
+            },
+            {
+              "text": "No, just $20 worth is fine.",
+              "text_cn": "不用，加20美元就够了。",
+              "audio_url": "COS:/qa/responses/daily_009_sub_3_qa_2_response1.mp3"
+            },
+            {
+              "text": "Can you check how much is left in my tank?",
+              "text_cn": "你能帮我看看油箱还剩多少吗？",
+              "audio_url": "COS:/qa/responses/daily_009_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "服务员在完成加油后自然询问金额，顾客需简洁回应总价，避免冗长解释。",
+          "usageNote": "员工常在显示金额后主动询问是否加满，顾客回应需体现油量需求差异，避免只说‘yes’或‘no’。",
           "audioUrl": "COS:/qa/questions/daily_009_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -203,22 +283,32 @@
         {
           "id": "daily_009_sub_3_qa_3",
           "subSceneId": "daily_009_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "Do you have diesel?",
-          "triggerTextCn": "你们有柴油吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like to check the oil or clean the windows?",
+          "triggerTextCn": "您需要检查机油或清洁车窗吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客确认是否提供柴油及价格",
+          "scenarioHintCn": "加油站员工提供附加服务建议（通常收费）",
           "followUps": [
             {
-              "text": "Yes, diesel is $4.10 a gallon. Would you like to fill up?",
-              "text_cn": "有的，柴油每加仑4.10美元。要加满吗？",
+              "text": "Yes, please clean the front windshield.",
+              "text_cn": "请帮我清洁前挡风玻璃。",
               "audio_url": "COS:/qa/responses/daily_009_sub_3_qa_3_response0.mp3"
+            },
+            {
+              "text": "No thanks, I'm in a hurry.",
+              "text_cn": "不用了，我赶时间。",
+              "audio_url": "COS:/qa/responses/daily_009_sub_3_qa_3_response1.mp3"
+            },
+            {
+              "text": "How much is the window cleaning?",
+              "text_cn": "清洁车窗多少钱？",
+              "audio_url": "COS:/qa/responses/daily_009_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客明确询问特定油品（如柴油）及其价格，是高频且实用的询价变体。",
+          "usageNote": "员工常在结账前推荐增值服务，顾客回应需体现态度差异：接受、拒绝或需更多信息，避免机械回答‘yes/no’。",
           "audioUrl": "COS:/qa/questions/daily_009_sub_3_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -239,15 +329,25 @@
           "triggerTextCn": "您想怎么付款？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "加油站员工询问支付方式，顾客选择支付方式",
+          "scenarioHintCn": "加油站支付费用环节",
           "followUps": [
             {
-              "text": "I'll pay with credit card.",
-              "text_cn": "我用信用卡支付。",
+              "text": "I'll pay by credit card, please.",
+              "text_cn": "我刷卡付款，谢谢。",
               "audio_url": "COS:/qa/responses/daily_009_sub_4_qa_1_response0.mp3"
+            },
+            {
+              "text": "Do you take cash? I only have bills.",
+              "text_cn": "你们收现金吗？我只有纸币。",
+              "audio_url": "COS:/qa/responses/daily_009_sub_4_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can I use Apple Pay? My card’s not working.",
+              "text_cn": "能用Apple Pay吗？我的卡刷不了了。",
+              "audio_url": "COS:/qa/responses/daily_009_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是加油站支付环节最常见提问，顾客需直接说明支付方式，避免冗长解释。",
+          "usageNote": "这是加油站结账时最核心的支付方式询问，学习者需掌握多种支付方式的自然表达。",
           "audioUrl": "COS:/qa/questions/daily_009_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -256,19 +356,29 @@
           "id": "daily_009_sub_4_qa_2",
           "subSceneId": "daily_009_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you need a receipt?",
-          "triggerTextCn": "需要发票吗？",
+          "triggerText": "That’ll be $42.80. Do you want a receipt?",
+          "triggerTextCn": "一共42.80美元，需要收据吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "员工确认是否需要打印收据，顾客做出明确回应",
+          "scenarioHintCn": "加油站支付费用环节",
           "followUps": [
             {
-              "text": "Yes, please.",
-              "text_cn": "需要，谢谢。",
+              "text": "Yes, please. I need it for expense reporting.",
+              "text_cn": "要的，我需要报销。",
               "audio_url": "COS:/qa/responses/daily_009_sub_4_qa_2_response0.mp3"
+            },
+            {
+              "text": "No, thanks. I’m in a hurry.",
+              "text_cn": "不用了，谢谢，我赶时间。",
+              "audio_url": "COS:/qa/responses/daily_009_sub_4_qa_2_response1.mp3"
+            },
+            {
+              "text": "Can you email it to me instead?",
+              "text_cn": "能发到我邮箱吗？",
+              "audio_url": "COS:/qa/responses/daily_009_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "收据请求是支付后标准流程，顾客只需简单回应'Yes'或'No'，无需额外说明。",
+          "usageNote": "收据请求是支付后高频环节，不同需求（报销/赶时间/电子化）体现真实语用差异。",
           "audioUrl": "COS:/qa/questions/daily_009_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -276,22 +386,32 @@
         {
           "id": "daily_009_sub_4_qa_3",
           "subSceneId": "daily_009_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can I get a pump number?",
-          "triggerTextCn": "能告诉我加油机编号吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Did you fill up or just top off?",
+          "triggerTextCn": "您是加满油，还是只加一点？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动询问加油机编号，用于后续对账或报销",
+          "scenarioHintCn": "加油站支付费用环节",
           "followUps": [
             {
-              "text": "Sure, it's Pump 3.",
-              "text_cn": "当然，是3号加油机。",
+              "text": "Fill it up, please.",
+              "text_cn": "请加满。",
               "audio_url": "COS:/qa/responses/daily_009_sub_4_qa_3_response0.mp3"
+            },
+            {
+              "text": "Just $20 worth, I’m almost full.",
+              "text_cn": "加20美元的就行，油箱快满了。",
+              "audio_url": "COS:/qa/responses/daily_009_sub_4_qa_3_response1.mp3"
+            },
+            {
+              "text": "I’m not sure—can you check my tank level?",
+              "text_cn": "我不确定，你能帮我看看油箱还剩多少吗？",
+              "audio_url": "COS:/qa/responses/daily_009_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客在支付前或支付后常为报销或记录索要编号，这是高频但易被忽略的实用表达。",
+          "usageNote": "工作人员常通过此问题确认加油量，影响最终金额，学习者需能清晰表达意图。",
           "audioUrl": "COS:/qa/questions/daily_009_sub_4_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -307,41 +427,61 @@
         {
           "id": "daily_009_sub_5_qa_1",
           "subSceneId": "daily_009_sub_5",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can I get a receipt, please?",
-          "triggerTextCn": "能给我一张收据吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like a receipt?",
+          "triggerTextCn": "您需要收据吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "加油后顾客主动索取收据",
+          "scenarioHintCn": "加油站加油后，服务员询问是否需要收据",
           "followUps": [
             {
-              "text": "Sure, here you go. Would you like it printed or emailed?",
-              "text_cn": "当然，给您。您要打印的还是邮件发送的？",
+              "text": "Yes, please. I need it for expense reimbursement.",
+              "text_cn": "需要，谢谢，我要用于报销。",
               "audio_url": "COS:/qa/responses/daily_009_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "No, thanks. I don't need it.",
+              "text_cn": "不用了，谢谢，我不需要。",
+              "audio_url": "COS:/qa/responses/daily_009_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can you email it to me instead?",
+              "text_cn": "能发到我邮箱吗？",
+              "audio_url": "COS:/qa/responses/daily_009_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是最常见、最礼貌的索取收据方式，适用于所有加油站场景。",
+          "usageNote": "这是加油站最常见的一句收据确认语，用户可根据实际需求选择是否索取、是否需要纸质或电子版。",
           "audioUrl": "COS:/qa/questions/daily_009_sub_5_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_009_sub_5_qa_2",
           "subSceneId": "daily_009_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you need a receipt?",
-          "triggerTextCn": "您需要收据吗？",
+          "triggerText": "Do you want a receipt for this transaction?",
+          "triggerTextCn": "您要这张交易的收据吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员在完成加油后主动询问是否需要收据",
+          "scenarioHintCn": "加油完成，收银员再次确认收据需求",
           "followUps": [
             {
-              "text": "Yes, please. I need it for expense reporting.",
-              "text_cn": "需要，谢谢，我用于报销。",
+              "text": "Yes, and can you print the pump number too?",
+              "text_cn": "要的，能打印上加油机编号吗？",
               "audio_url": "COS:/qa/responses/daily_009_sub_5_qa_2_response0.mp3"
+            },
+            {
+              "text": "I already have one from last time — no need.",
+              "text_cn": "我上次已经拿了，这次不用了。",
+              "audio_url": "COS:/qa/responses/daily_009_sub_5_qa_2_response1.mp3"
+            },
+            {
+              "text": "Wait, actually — yes, I do need it after all.",
+              "text_cn": "等等，其实我还是需要一张。",
+              "audio_url": "COS:/qa/responses/daily_009_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "服务员常在结账时自然询问，用户应简洁明确回应，避免冗长解释。",
+          "usageNote": "此句更口语化，常用于员工在交易完成后再次确认，用户回应需体现真实决策变化或细节需求。",
           "audioUrl": "COS:/qa/questions/daily_009_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -349,22 +489,32 @@
         {
           "id": "daily_009_sub_5_qa_3",
           "subSceneId": "daily_009_sub_5",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can you email the receipt to this address?",
-          "triggerTextCn": "能把收据发到这个邮箱吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Receipt? Yes or no?",
+          "triggerTextCn": "收据？要还是不要？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客请求电子收据，常见于商务出行或报销场景",
+          "scenarioHintCn": "高峰期，服务员快速确认收据需求",
           "followUps": [
             {
-              "text": "Of course. Just scan the QR code on the screen or enter your email.",
-              "text_cn": "当然可以，请扫描屏幕上的二维码或输入您的邮箱。",
+              "text": "Yes, please — and can you make it out to 'ABC Company'?",
+              "text_cn": "要的，请开抬头为‘ABC公司’。",
               "audio_url": "COS:/qa/responses/daily_009_sub_5_qa_3_response0.mp3"
+            },
+            {
+              "text": "Nope, I'm good.",
+              "text_cn": "不用了，我好了。",
+              "audio_url": "COS:/qa/responses/daily_009_sub_5_qa_3_response1.mp3"
+            },
+            {
+              "text": "Do you have one in digital form? I don't have paper handy.",
+              "text_cn": "你们有电子版的吗？我没带纸。",
+              "audio_url": "COS:/qa/responses/daily_009_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "现代加油站普遍支持电子收据，此表达体现实用性和现代服务意识。",
+          "usageNote": "此句为高度口语化、快速服务场景中的典型问法，用户回应需体现效率与情境适应性。",
           "audioUrl": "COS:/qa/questions/daily_009_sub_5_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]

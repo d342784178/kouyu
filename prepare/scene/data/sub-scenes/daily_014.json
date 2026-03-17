@@ -1,14 +1,14 @@
 {
   "sceneId": "daily_014",
   "sceneName": "电影院购票",
-  "generatedAt": "2026-03-16T08:07:27.743Z",
+  "generatedAt": "2026-03-17T03:14:08.600Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_014_sub_1",
       "sceneId": "daily_014",
-      "name": "询问场次",
-      "description": "询问电影放映时间与可用场次。",
+      "name": "查询场次",
+      "description": "询问电影放映时间与排片信息。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -16,19 +16,29 @@
           "id": "daily_014_sub_1_qa_1",
           "subSceneId": "daily_014_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "What times are available for the new Marvel movie?",
-          "triggerTextCn": "《新漫威电影》有哪些场次？",
+          "triggerText": "What showtimes do you have for Avengers today?",
+          "triggerTextCn": "今天复仇者联盟有哪些场次？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问热门电影的放映时间",
+          "scenarioHintCn": "顾客询问特定电影的放映时间",
           "followUps": [
             {
-              "text": "We have showings at 5:30 PM, 7:45 PM, and 10:15 PM. The 7:45 is the IMAX version.",
-              "text_cn": "我们有下午5:30、7:45和晚上10:15的场次，7:45的是IMAX版本。",
+              "text": "We have showings at 2 PM, 5 PM, and 8 PM.",
+              "text_cn": "我们有下午2点、5点和8点的场次。",
               "audio_url": "COS:/qa/responses/daily_014_sub_1_qa_1_response0.mp3"
+            },
+            {
+              "text": "Sorry, the 8 PM show is sold out, but we have 2 PM and 5 PM left.",
+              "text_cn": "抱歉，晚上8点的场次已售罄，但下午2点和5点还有票。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_1_qa_1_response1.mp3"
+            },
+            {
+              "text": "We only have the 3D version at 5 PM and IMAX at 8 PM.",
+              "text_cn": "我们只有下午5点的3D版和晚上8点的IMAX版。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客主动询问具体影片的放映时间，是购票前最常见提问之一",
+          "usageNote": "顾客常用于查询热门电影的放映时间，服务员需明确场次、版本和余票状态。",
           "audioUrl": "COS:/qa/questions/daily_014_sub_1_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -36,43 +46,63 @@
         {
           "id": "daily_014_sub_1_qa_2",
           "subSceneId": "daily_014_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "Do you have any matinee showings today?",
-          "triggerTextCn": "今天有下午场吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like to reserve seats or pick your own?",
+          "triggerTextCn": "您想预留座位还是自己选座？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问是否提供下午场（价格通常更低）",
+          "scenarioHintCn": "售票员询问顾客选座偏好",
           "followUps": [
             {
-              "text": "Yes, we have one at 3:00 PM for all current releases. It’s the cheapest ticket option.",
-              "text_cn": "有的，所有正在上映的电影下午3点有一场，这是最便宜的票。",
+              "text": "I'd like to reserve seats, please — middle row, center.",
+              "text_cn": "我想预留座位，请选中间排正中央。",
               "audio_url": "COS:/qa/responses/daily_014_sub_1_qa_2_response0.mp3"
+            },
+            {
+              "text": "Just pick the best available for me.",
+              "text_cn": "帮我选最好的位置就行。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_1_qa_2_response1.mp3"
+            },
+            {
+              "text": "Can I see the seating map first?",
+              "text_cn": "我能先看看座位图吗？",
+              "audio_url": "COS:/qa/responses/daily_014_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "询问下午场是英语母语者常见省钱策略，高频实用表达",
+          "usageNote": "售票员常用此句引导顾客选座，顾客回应应体现选座偏好或需求。",
           "audioUrl": "COS:/qa/questions/daily_014_sub_1_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_014_sub_1_qa_3",
           "subSceneId": "daily_014_sub_1",
-          "dialogueMode": "user_responds",
-          "triggerText": "Would you like to upgrade to 3D or IMAX?",
-          "triggerTextCn": "您要升级到3D或IMAX吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you have any discounts for students or seniors?",
+          "triggerTextCn": "你们有学生或老人优惠吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "售票员在确认场次后推荐升级观影体验",
+          "scenarioHintCn": "顾客询问票价优惠资格",
           "followUps": [
             {
-              "text": "Yes, I’ll take the IMAX, please.",
-              "text_cn": "好的，请给我IMAX的。",
+              "text": "Yes, students get 20% off with a valid ID, and seniors over 65 get 15% off.",
+              "text_cn": "有的，凭有效学生证可享8折，65岁以上老人享85折。",
               "audio_url": "COS:/qa/responses/daily_014_sub_1_qa_3_response0.mp3"
+            },
+            {
+              "text": "We don't offer student discounts, but we have a 2 PM weekday special for $8.",
+              "text_cn": "我们没有学生优惠，但工作日下午2点有特价票，仅8美元。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_1_qa_3_response1.mp3"
+            },
+            {
+              "text": "Sorry, no discounts today — it's a new release and all tickets are full price.",
+              "text_cn": "抱歉，今天没有优惠，这是新片上映，所有票都是全价。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "服务员主动推荐升级选项是标准服务流程，顾客需简洁回应",
+          "usageNote": "顾客常询问优惠，服务员需根据政策、日期和影片类型灵活回应。",
           "audioUrl": "COS:/qa/questions/daily_014_sub_1_qa_3.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -81,69 +111,99 @@
       "id": "daily_014_sub_2",
       "sceneId": "daily_014",
       "name": "确认票价",
-      "description": "咨询不同座位的票价差异。",
+      "description": "了解不同座位类型的票价差异。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_014_sub_2_qa_1",
           "subSceneId": "daily_014_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "How much is the ticket for the 8 PM show?",
-          "triggerTextCn": "晚上8点的电影票多少钱？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "How much is the ticket for this show?",
+          "triggerTextCn": "这场电影的票多少钱？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问特定场次的票价",
+          "scenarioHintCn": "顾客询问当前场次票价，服务员回应后顾客选择支付方式",
           "followUps": [
             {
-              "text": "It's $12 for adults and $9 for children. 3D is an extra $3.",
-              "text_cn": "成人票12美元，儿童票9美元，3D版本另加3美元。",
+              "text": "That’s $12 for adults, and $8 for children. I’ll take two adult tickets.",
+              "text_cn": "成人票12美元，儿童票8美元。我要两张成人票。",
               "audio_url": "COS:/qa/responses/daily_014_sub_2_qa_1_response0.mp3"
+            },
+            {
+              "text": "Is there a discount for students? I have my student ID.",
+              "text_cn": "学生有优惠吗？我有学生证。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_2_qa_1_response1.mp3"
+            },
+            {
+              "text": "Hmm, that’s a bit more than I expected. Do you have any matinee showings cheaper?",
+              "text_cn": "嗯，比我想的贵一点。有便宜一点的下午场吗？",
+              "audio_url": "COS:/qa/responses/daily_014_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客主动询问票价，适用于首次购票或不确定价格时的自然提问",
+          "usageNote": "用于顾客在得知票价后做出购买决策的典型回应，涵盖接受、询优惠、换时段三种真实反应",
           "audioUrl": "COS:/qa/questions/daily_014_sub_2_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_014_sub_2_qa_2",
           "subSceneId": "daily_014_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "Do you have any discounts for students?",
-          "triggerTextCn": "学生有优惠吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like to upgrade to 3D or IMAX?",
+          "triggerTextCn": "您要升级到3D或IMAX吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客确认是否提供学生票价优惠",
+          "scenarioHintCn": "服务员推荐升级观影体验，顾客根据偏好回应",
           "followUps": [
             {
-              "text": "Yes, with a valid student ID, it's $10 for regular and $13 for 3D.",
-              "text_cn": "有的，出示有效学生证，普通票10美元，3D票13美元。",
+              "text": "Yes, I’ll take the IMAX version — I love the big screen!",
+              "text_cn": "要，我要IMAX的，我喜欢大银幕！",
               "audio_url": "COS:/qa/responses/daily_014_sub_2_qa_2_response0.mp3"
+            },
+            {
+              "text": "No thanks, the regular screen is fine. I’m on a budget.",
+              "text_cn": "不用了，普通屏幕就行，我预算有限。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_2_qa_2_response1.mp3"
+            },
+            {
+              "text": "What’s the price difference? I’m not sure which one to pick.",
+              "text_cn": "价格差多少？我不确定选哪个。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "学生群体高频提问，用于确认身份优惠，体现真实消费场景",
+          "usageNote": "服务员推荐升级服务时，顾客的三种典型回应：接受、拒绝、犹豫需更多信息",
           "audioUrl": "COS:/qa/questions/daily_014_sub_2_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_014_sub_2_qa_3",
           "subSceneId": "daily_014_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "The 7 PM show is $11, and the 9:30 is $13. Which one would you like?",
-          "triggerTextCn": "晚上7点的场次是11美元，9:30的是13美元，您想选哪一场？",
+          "triggerText": "The regular ticket is $10, but the 3D costs $15. Which one would you like?",
+          "triggerTextCn": "普通票10美元，3D票15美元。您想要哪一种？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员提供两个场次价格后，要求顾客确认选择",
+          "scenarioHintCn": "服务员明确给出两种票价选项，顾客做出选择",
           "followUps": [
             {
-              "text": "I'll take the 7 PM one, please.",
-              "text_cn": "我要7点的那场，谢谢。",
+              "text": "I’ll go with the 3D — it’s worth the extra $5.",
+              "text_cn": "我要3D的，多5美元值得。",
               "audio_url": "COS:/qa/responses/daily_014_sub_2_qa_3_response0.mp3"
+            },
+            {
+              "text": "I’ll take the regular one. I don’t really notice the difference.",
+              "text_cn": "我要普通票，我感觉不出差别。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_2_qa_3_response1.mp3"
+            },
+            {
+              "text": "Do you have any combo deals with popcorn? Maybe I’ll get the 3D if it’s cheaper with food.",
+              "text_cn": "有爆米花套餐优惠吗？如果和食物一起买能便宜点，我就选3D。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "服务员主动提供选项并引导决策，顾客需简洁明确回应，符合服务场景高效沟通习惯",
+          "usageNote": "顾客在明确价格对比下做出决策，涵盖价值判断、经济考量和捆绑优惠谈判三种真实行为",
           "audioUrl": "COS:/qa/questions/daily_014_sub_2_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -161,41 +221,61 @@
         {
           "id": "daily_014_sub_3_qa_1",
           "subSceneId": "daily_014_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can I see the seating chart?",
-          "triggerTextCn": "我能看一下座位图吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like front, middle, or back seats?",
+          "triggerTextCn": "您想要前排、中排还是后排的座位？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客请求查看座位分布图以选择位置",
+          "scenarioHintCn": "电影院售票员询问观众偏好座位区域",
           "followUps": [
             {
-              "text": "Of course! Here’s the interactive map. The front rows are quieter, and the center section has the best view.",
-              "text_cn": "当然！这是互动座位图。前排比较安静，中间区域视野最佳。",
+              "text": "Front row, please—I love the immersive experience.",
+              "text_cn": "请给我前排的，我喜欢沉浸式体验。",
               "audio_url": "COS:/qa/responses/daily_014_sub_3_qa_1_response0.mp3"
+            },
+            {
+              "text": "Middle row is fine—I don’t want to strain my neck.",
+              "text_cn": "中排就行，我不想脖子酸。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_3_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can you show me where the best views are? I’m not sure.",
+              "text_cn": "你能给我看看哪里视野最好吗？我不太确定。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在选座初期常用此句请求查看座位布局，服务员通常会引导选择。",
+          "usageNote": "用于顾客在选座时回应影院工作人员的座位区域询问，体现个人观影偏好或需求。",
           "audioUrl": "COS:/qa/questions/daily_014_sub_3_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_014_sub_3_qa_2",
           "subSceneId": "daily_014_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you have any seats left in the middle row?",
-          "triggerTextCn": "中间排还有座位吗？",
+          "triggerText": "Do you prefer aisle or center seats?",
+          "triggerTextCn": "您更喜欢靠过道还是中间的座位？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员主动询问顾客偏好的座位区域",
+          "scenarioHintCn": "售票员进一步确认座位具体位置偏好",
           "followUps": [
             {
-              "text": "Yes, rows 8 to 10 are still available.",
-              "text_cn": "有的，第8到第10排还有空位。",
+              "text": "Aisle, please—I might need to get up during the movie.",
+              "text_cn": "请给我靠过道的，我可能看电影中途要起身。",
               "audio_url": "COS:/qa/responses/daily_014_sub_3_qa_2_response0.mp3"
+            },
+            {
+              "text": "Center, no matter what—I don’t want to miss anything.",
+              "text_cn": "中间的就行，我不想错过任何画面。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_3_qa_2_response1.mp3"
+            },
+            {
+              "text": "Is there any seat with extra legroom?",
+              "text_cn": "有腿部空间更大的座位吗？",
+              "audio_url": "COS:/qa/responses/daily_014_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "服务员常通过确认偏好区域来推进选座流程，用户需简洁回应可用选项。",
+          "usageNote": "用于顾客回应关于靠过道或中间座位的细节询问，体现对舒适性或观影体验的个性化需求。",
           "audioUrl": "COS:/qa/questions/daily_014_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -204,19 +284,29 @@
           "id": "daily_014_sub_3_qa_3",
           "subSceneId": "daily_014_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Would you like aisle or window?",
-          "triggerTextCn": "您要靠过道的还是靠窗的座位？",
+          "triggerText": "We have two seats together—would you like them side by side or across?",
+          "triggerTextCn": "我们有两张连座，您想要并排坐还是对面坐？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员在确认具体座位时提供两种常见选择",
+          "scenarioHintCn": "售票员为同行顾客确认座位排列方式",
           "followUps": [
             {
-              "text": "Aisle, please. I might need to get up during the movie.",
-              "text_cn": "请给我靠过道的，看电影时可能需要起身。",
+              "text": "Side by side—we want to watch the movie together.",
+              "text_cn": "并排坐，我们想一起看电影。",
               "audio_url": "COS:/qa/responses/daily_014_sub_3_qa_3_response0.mp3"
+            },
+            {
+              "text": "Across, please—I like to share snacks without leaning.",
+              "text_cn": "对面坐吧，我想分享零食但不想弯腰。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_3_qa_3_response1.mp3"
+            },
+            {
+              "text": "Actually, can we split up? I’ll sit alone.",
+              "text_cn": "其实我们分开坐吧，我自己坐一排。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "这是选座环节的高频细化问题，用户应直接表达偏好，避免冗长解释。",
+          "usageNote": "用于顾客在购买双人票时回应座位排列方式的询问，体现社交互动或个人空间偏好变化。",
           "audioUrl": "COS:/qa/questions/daily_014_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -226,8 +316,8 @@
     {
       "id": "daily_014_sub_4",
       "sceneId": "daily_014",
-      "name": "完成支付",
-      "description": "选择支付方式并确认购票信息。",
+      "name": "支付购票",
+      "description": "完成付款并领取电影票或电子码。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -239,15 +329,25 @@
           "triggerTextCn": "您想怎么支付？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "电影院售票员询问支付方式，顾客需选择支付方法",
+          "scenarioHintCn": "电影院购票支付环节",
           "followUps": [
             {
-              "text": "I'll pay with my credit card.",
-              "text_cn": "我用信用卡支付。",
+              "text": "I'll pay by credit card, please.",
+              "text_cn": "我用信用卡支付，谢谢。",
               "audio_url": "COS:/qa/responses/daily_014_sub_4_qa_1_response0.mp3"
+            },
+            {
+              "text": "Do you accept cash? I only have bills today.",
+              "text_cn": "你们收现金吗？我今天只有现金。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_4_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can I use Apple Pay? My card’s not working.",
+              "text_cn": "能用Apple Pay吗？我的卡刷不了了。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是支付环节最典型的询问句，顾客需直接回应支付方式，避免冗长解释。",
+          "usageNote": "用于支付环节的常见询问，学习者需掌握多种支付方式的表达及应对突发状况（如卡片失效）",
           "audioUrl": "COS:/qa/questions/daily_014_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -256,19 +356,29 @@
           "id": "daily_014_sub_4_qa_2",
           "subSceneId": "daily_014_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you have a membership card or discount code?",
-          "triggerTextCn": "您有会员卡或优惠码吗？",
+          "triggerText": "That’ll be $12 total. Any popcorn or drinks to go with that?",
+          "triggerTextCn": "总共12美元。需要加点爆米花或饮料吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "售票员确认是否有优惠资格，顾客需回应是否使用优惠",
+          "scenarioHintCn": "购票后附加商品推荐环节",
           "followUps": [
             {
-              "text": "Yes, here's my membership card.",
-              "text_cn": "有，这是我的会员卡。",
+              "text": "Yes, I'll take a large popcorn and a soda, please.",
+              "text_cn": "要，来份大份爆米花和一杯苏打水。",
               "audio_url": "COS:/qa/responses/daily_014_sub_4_qa_2_response0.mp3"
+            },
+            {
+              "text": "No thanks, I’m on a budget today.",
+              "text_cn": "不用了，今天我预算有限。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_4_qa_2_response1.mp3"
+            },
+            {
+              "text": "Hmm, let me check the prices first.",
+              "text_cn": "嗯，让我先看看价格。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "影院常问优惠信息，顾客应简洁确认或否认，避免无关细节。",
+          "usageNote": "影院常见附加销售话术，学习者需能自然回应推荐，表达接受、拒绝或犹豫态度",
           "audioUrl": "COS:/qa/questions/daily_014_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -276,22 +386,32 @@
         {
           "id": "daily_014_sub_4_qa_3",
           "subSceneId": "daily_014_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "The total is $12.50. Is that all?",
-          "triggerTextCn": "总共是12.50美元，就这些吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Did you book online or at the counter?",
+          "triggerTextCn": "您是在线订票还是在窗口买的？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客确认金额无误后，询问是否需额外服务（如爆米花）",
+          "scenarioHintCn": "核对购票方式以确认支付状态",
           "followUps": [
             {
-              "text": "Yes, that's all. Thank you!",
-              "text_cn": "是的，就这些，谢谢！",
+              "text": "I booked online, but I need to pick up the tickets here.",
+              "text_cn": "我在线订的，但需要在这里取票。",
               "audio_url": "COS:/qa/responses/daily_014_sub_4_qa_3_response0.mp3"
+            },
+            {
+              "text": "I paid right here at the counter.",
+              "text_cn": "我刚才在柜台付的钱。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_4_qa_3_response1.mp3"
+            },
+            {
+              "text": "I’m not sure—I got the ticket from my friend.",
+              "text_cn": "我不太确定，票是我朋友给我的。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客在支付前确认金额和是否需附加服务，是自然且高频的确认行为。",
+          "usageNote": "用于核对支付与取票流程，学习者需能清晰说明购票渠道及支付状态，避免取票纠纷",
           "audioUrl": "COS:/qa/questions/daily_014_sub_4_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -299,49 +419,69 @@
     {
       "id": "daily_014_sub_5",
       "sceneId": "daily_014",
-      "name": "领取票券",
-      "description": "索取纸质票或电子码并致谢。",
+      "name": "确认细节",
+      "description": "核对电影名称、时间与座位号无误。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_014_sub_5_qa_1",
           "subSceneId": "daily_014_sub_5",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can I pick up my tickets for the 7:30 show?",
-          "triggerTextCn": "我可以取7:30场次的票吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "What time would you like to watch?",
+          "triggerTextCn": "您想看哪个场次？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客到取票机或窗口询问取票",
+          "scenarioHintCn": "电影院购票 - 确认观影时间",
           "followUps": [
             {
-              "text": "Sure! Can I have your name or confirmation number?",
-              "text_cn": "当然！请提供您的姓名或预订编号。",
+              "text": "The 7:30 PM show, please.",
+              "text_cn": "请给我晚上7:30的场次。",
               "audio_url": "COS:/qa/responses/daily_014_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "Is there anything after 9 PM? I’m running late.",
+              "text_cn": "有晚上9点之后的场次吗？我可能会晚到。",
+              "audio_url": "COS:/qa/responses/daily_014_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "Actually, I’m not sure—what’s the least crowded showing?",
+              "text_cn": "其实我不确定——哪一场人最少？",
+              "audio_url": "COS:/qa/responses/daily_014_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客主动询问取票，是取票场景中最常见的开场白。",
+          "usageNote": "用于确认观影时间，常见于购票流程中，用户可能直接选择、请求调整或寻求建议。",
           "audioUrl": "COS:/qa/questions/daily_014_sub_5_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_014_sub_5_qa_2",
           "subSceneId": "daily_014_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you need the physical ticket or will the mobile ticket work?",
-          "triggerTextCn": "您需要纸质票还是手机票就可以？",
+          "triggerText": "Would you like 2D or 3D?",
+          "triggerTextCn": "您要2D还是3D？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "工作人员确认取票形式（纸质/电子）",
+          "scenarioHintCn": "电影院购票 - 确认影片格式",
           "followUps": [
             {
-              "text": "I'll take the mobile one, thanks.",
-              "text_cn": "我要手机票，谢谢。",
+              "text": "2D is fine, thanks. I don’t need 3D.",
+              "text_cn": "2D就可以了，谢谢，我不需要3D。",
               "audio_url": "COS:/qa/responses/daily_014_sub_5_qa_2_response0.mp3"
+            },
+            {
+              "text": "3D, please—but is there an extra charge?",
+              "text_cn": "请给我3D的，但有额外费用吗？",
+              "audio_url": "COS:/qa/responses/daily_014_sub_5_qa_2_response1.mp3"
+            },
+            {
+              "text": "Hmm, I’ve never seen 3D before—what’s the difference?",
+              "text_cn": "嗯，我从没看过3D，有什么区别？",
+              "audio_url": "COS:/qa/responses/daily_014_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "工作人员常问是否使用电子票，顾客需简洁回应，避免冗长解释。",
+          "usageNote": "购票时确认影片格式，用户可能直接选择、询问价格或因不了解而寻求建议。",
           "audioUrl": "COS:/qa/questions/daily_014_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -350,19 +490,29 @@
           "id": "daily_014_sub_5_qa_3",
           "subSceneId": "daily_014_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Your tickets are ready. Here you go!",
-          "triggerTextCn": "您的票已经准备好，给您！",
+          "triggerText": "How many tickets?",
+          "triggerTextCn": "要几张票？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "工作人员完成取票流程并递出票券",
+          "scenarioHintCn": "电影院购票 - 确认购票数量",
           "followUps": [
             {
-              "text": "Thanks! Is this seat number 12A?",
-              "text_cn": "谢谢！这是12A座位吗？",
+              "text": "Two, please.",
+              "text_cn": "两张，谢谢。",
               "audio_url": "COS:/qa/responses/daily_014_sub_5_qa_3_response0.mp3"
+            },
+            {
+              "text": "Actually, one more person might join—can I buy three and change later if needed?",
+              "text_cn": "可能还有一人要来——我可以先买三张，之后再改吗？",
+              "audio_url": "COS:/qa/responses/daily_014_sub_5_qa_3_response1.mp3"
+            },
+            {
+              "text": "Just one—but do you have any discounts for students?",
+              "text_cn": "一张就行——你们有学生优惠吗？",
+              "audio_url": "COS:/qa/responses/daily_014_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客在取票后自然确认座位信息，是高频跟进问题，体现真实交互。",
+          "usageNote": "确认购票数量时，用户可能直接说明、因人数变动请求弹性处理，或结合优惠询问。",
           "audioUrl": "COS:/qa/questions/daily_014_sub_5_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3

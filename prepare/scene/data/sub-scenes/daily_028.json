@@ -1,14 +1,14 @@
 {
   "sceneId": "daily_028",
   "sceneName": "文具店买文具",
-  "generatedAt": "2026-03-16T08:13:22.044Z",
+  "generatedAt": "2026-03-17T02:55:51.066Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_028_sub_1",
       "sceneId": "daily_028",
       "name": "寻找文具",
-      "description": "顾客询问笔记本和笔的位置，店员指引方向。",
+      "description": "顾客询问笔记本和笔的位置，店员指引。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -20,15 +20,25 @@
           "triggerTextCn": "你们有自动铅笔吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客在寻找特定文具",
+          "scenarioHintCn": "顾客询问特定文具是否有货",
           "followUps": [
             {
-              "text": "Yes, we do. They're in aisle 3, next to the erasers.",
-              "text_cn": "有的，在3号货架，橡皮旁边。",
+              "text": "Yes, we have them in the stationery aisle, right next to the erasers.",
+              "text_cn": "有的，在文具区，就在橡皮旁边。",
               "audio_url": "COS:/qa/responses/daily_028_sub_1_qa_1_response0.mp3"
+            },
+            {
+              "text": "I'm sorry, we're out of stock right now, but we'll get a new shipment tomorrow.",
+              "text_cn": "抱歉，目前缺货，但明天会有新货到。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_1_qa_1_response1.mp3"
+            },
+            {
+              "text": "We don't have mechanical pencils, but these retractable lead pencils work similarly and are on sale.",
+              "text_cn": "我们没有自动铅笔，但这些伸缩铅笔功能类似，现在正在促销。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客询问具体文具是否在售，是购物中最常见的起始问题。",
+          "usageNote": "顾客询问具体文具是否存在时，店员可能有库存、缺货或推荐替代品三种回应，帮助学习者应对不同库存状况。",
           "audioUrl": "COS:/qa/questions/daily_028_sub_1_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -37,19 +47,29 @@
           "id": "daily_028_sub_1_qa_2",
           "subSceneId": "daily_028_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Can I help you find something?",
-          "triggerTextCn": "需要我帮您找什么吗？",
+          "triggerText": "Are you looking for something specific today?",
+          "triggerTextCn": "您今天有特别想找的东西吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "店员主动提供帮助，引导顾客表达需求",
+          "scenarioHintCn": "店员主动询问顾客需求，引导购买",
           "followUps": [
             {
-              "text": "Yes, I'm looking for a good quality ruler and some highlighters.",
-              "text_cn": "有的，我在找一把质量好的尺子和一些荧光笔。",
+              "text": "Yes, I need a set of colored markers for my art class.",
+              "text_cn": "是的，我需要一套彩色马克笔给美术课用。",
               "audio_url": "COS:/qa/responses/daily_028_sub_1_qa_2_response0.mp3"
+            },
+            {
+              "text": "I'm not sure—I just need some pens and maybe a notebook, but I'm not sure what's best.",
+              "text_cn": "我不太确定，我只需要一些笔和一本笔记本，但不知道选哪个好。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_1_qa_2_response1.mp3"
+            },
+            {
+              "text": "Just browsing—I might buy something if I see a good deal.",
+              "text_cn": "我只是看看，如果看到划算的可能会买。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "店员主动询问需求是服务场景中的标准开场，顾客需简洁回应具体物品。",
+          "usageNote": "店员常主动询问需求，顾客回应可能因目标明确性不同而有差异，学习者需掌握三种自然回应方式。",
           "audioUrl": "COS:/qa/questions/daily_028_sub_1_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -58,19 +78,29 @@
           "id": "daily_028_sub_1_qa_3",
           "subSceneId": "daily_028_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "Do you take cash or card?",
-          "triggerTextCn": "你们收现金还是刷卡？",
+          "triggerText": "Can I get a discount if I buy more than five items?",
+          "triggerTextCn": "如果我买超过五件，能打折吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客在结账前确认支付方式",
+          "scenarioHintCn": "顾客询问批量购买折扣政策",
           "followUps": [
             {
-              "text": "We accept both. Card is faster, but cash is fine too.",
-              "text_cn": "两种都收，刷卡更快，但现金也可以。",
+              "text": "Absolutely! We offer a 10% discount on purchases of six or more items.",
+              "text_cn": "当然可以！买六件及以上享受10%折扣。",
               "audio_url": "COS:/qa/responses/daily_028_sub_1_qa_3_response0.mp3"
+            },
+            {
+              "text": "Sorry, we don't do discounts on stationery, but I can throw in a free pencil case with your purchase.",
+              "text_cn": "抱歉，文具不打折，但我可以送您一个免费铅笔盒。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_1_qa_3_response1.mp3"
+            },
+            {
+              "text": "I'd need to check with the manager—I'll be right back.",
+              "text_cn": "我得问问经理，马上回来。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "结账前确认支付方式是高频环节，顾客需自然询问，避免沉默等待。",
+          "usageNote": "顾客询问批量折扣时，店员可能直接同意、拒绝但提供替代优惠，或需请示上级，学习者应熟悉这三种典型回应。",
           "audioUrl": "COS:/qa/questions/daily_028_sub_1_qa_3.mp3",
           "learnRequirement": "speak_trigger",
           "order": 3
@@ -81,7 +111,7 @@
       "id": "daily_028_sub_2",
       "sceneId": "daily_028",
       "name": "询问规格",
-      "description": "顾客咨询笔记本页数和笔的笔芯粗细。",
+      "description": "顾客确认笔记本大小和笔的类型，店员解答。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -89,19 +119,29 @@
           "id": "daily_028_sub_2_qa_1",
           "subSceneId": "daily_028_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "Do you have this notebook in a smaller size?",
-          "triggerTextCn": "这种笔记本有小一点的尺寸吗？",
+          "triggerText": "Do you have this notebook in A5 size?",
+          "triggerTextCn": "这种笔记本有A5尺寸的吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问文具的具体规格（如尺寸、页数、厚度等）",
+          "scenarioHintCn": "顾客询问具体文具的尺寸规格",
           "followUps": [
             {
-              "text": "Yes, we have a compact version with 100 pages. It's about half the thickness.",
-              "text_cn": "有的，我们有紧凑版，100页，厚度大约是一半。",
+              "text": "Yes, we have A5 in both lined and grid pages. Would you like to see them?",
+              "text_cn": "有的，A5尺寸有横线和网格两种，要看一下吗？",
               "audio_url": "COS:/qa/responses/daily_028_sub_2_qa_1_response0.mp3"
+            },
+            {
+              "text": "Sorry, we only carry A4 for this model, but we have a similar one in A5 over there.",
+              "text_cn": "抱歉，这个型号只有A4，但那边有类似款式的A5。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_2_qa_1_response1.mp3"
+            },
+            {
+              "text": "Unfortunately, we don’t stock A5 for this brand. Would you like me to check if we can order it?",
+              "text_cn": "很抱歉，这个品牌没有A5尺寸。要我帮您查一下能否订货吗？",
+              "audio_url": "COS:/qa/responses/daily_028_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客主动询问商品的物理规格，适用于购买笔记本、文件夹、笔等文具时的常见需求",
+          "usageNote": "用于顾客明确询问某款文具的具体尺寸，店员需根据库存情况给出三种典型回应：有货、有替代品、可订货。",
           "audioUrl": "COS:/qa/questions/daily_028_sub_2_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -110,19 +150,29 @@
           "id": "daily_028_sub_2_qa_2",
           "subSceneId": "daily_028_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "What's the difference between these two pens?",
+          "triggerText": "What’s the difference between these two pens?",
           "triggerTextCn": "这两支笔有什么区别？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客对比同类商品的规格差异（如笔尖粗细、墨水类型、是否可替换芯）",
+          "scenarioHintCn": "顾客对比两款相似文具的规格差异",
           "followUps": [
             {
-              "text": "One has a fine tip for detailed writing, the other is medium for everyday use. The fine one uses gel ink, the medium uses oil-based.",
-              "text_cn": "一支是细尖，适合精细书写；另一支是中尖，适合日常使用。细尖用凝胶墨水，中尖用油性墨水。",
+              "text": "This one has a fine tip (0.5mm) for precise writing, while the other has a medium tip (0.7mm) for smoother flow.",
+              "text_cn": "这支笔是细尖（0.5毫米），适合精准书写；另一支是中尖（0.7毫米），书写更顺滑。",
               "audio_url": "COS:/qa/responses/daily_028_sub_2_qa_2_response0.mp3"
+            },
+            {
+              "text": "The first is water-resistant ink, ideal for left-handed users; the second is quick-drying but smudges easily.",
+              "text_cn": "第一支是防水墨水，适合左撇子；第二支速干但容易晕染。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_2_qa_2_response1.mp3"
+            },
+            {
+              "text": "They’re the same pen, just different colors. The price is identical.",
+              "text_cn": "这两支笔是一样的，只是颜色不同，价格也一样。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客通过对比提问明确产品规格差异，是选购文具时最典型的决策辅助对话",
+          "usageNote": "顾客常通过对比询问文具细节，店员需根据功能、墨水、外观等维度给出真实差异说明。",
           "audioUrl": "COS:/qa/questions/daily_028_sub_2_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
@@ -130,22 +180,32 @@
         {
           "id": "daily_028_sub_2_qa_3",
           "subSceneId": "daily_028_sub_2",
-          "dialogueMode": "user_responds",
-          "triggerText": "Do you carry refillable pencils with 0.7mm leads?",
-          "triggerTextCn": "你们有带0.7毫米铅芯的可替换铅笔吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Is this pencil set suitable for kids?",
+          "triggerTextCn": "这套铅笔适合孩子用吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "店员主动确认顾客需要的精确规格（常见于顾客犹豫或模糊表达时）",
+          "scenarioHintCn": "顾客询问文具是否适合特定人群（如儿童）",
           "followUps": [
             {
-              "text": "Yes, we have those. The mechanical pencils with 0.7mm leads are on the second shelf.",
-              "text_cn": "有的，机械铅笔0.7毫米铅芯在第二层货架上。",
+              "text": "Yes, these are non-toxic, thick-barrel pencils with soft leads—perfect for small hands.",
+              "text_cn": "是的，这些铅笔无毒、笔杆粗、铅芯软，特别适合孩子的小手使用。",
               "audio_url": "COS:/qa/responses/daily_028_sub_2_qa_3_response0.mp3"
+            },
+            {
+              "text": "They’re standard pencils—fine for older kids, but younger ones might find them too thin.",
+              "text_cn": "这是普通铅笔，适合大一点的孩子，但太小的孩子会觉得太细。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_2_qa_3_response1.mp3"
+            },
+            {
+              "text": "Actually, we have a special kids’ line with ergonomic grips and break-resistant leads—would you like to see those?",
+              "text_cn": "其实我们有专为儿童设计的系列，带防滑握柄和防断铅芯，要看一下吗？",
+              "audio_url": "COS:/qa/responses/daily_028_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "店员通过精准提问确认顾客需求，避免误解规格，是服务场景中高效引导成交的关键话术",
+          "usageNote": "家长常询问文具是否适合儿童，店员需根据安全性、握感、铅芯硬度等给出针对性回应，避免笼统回答。",
           "audioUrl": "COS:/qa/questions/daily_028_sub_2_qa_3.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -154,69 +214,99 @@
       "id": "daily_028_sub_3",
       "sceneId": "daily_028",
       "name": "确认价格",
-      "description": "顾客询问商品价格，店员告知并确认总数。",
+      "description": "顾客询问总价，店员告知并确认商品数量。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_028_sub_3_qa_1",
           "subSceneId": "daily_028_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "How much is this notebook?",
-          "triggerTextCn": "这本笔记本多少钱？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "That's $3.50 for the set.",
+          "triggerTextCn": "这套文具是3.5美元。",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问单件文具的价格",
+          "scenarioHintCn": "文具店：服务员告知价格，顾客回应",
           "followUps": [
             {
-              "text": "That's $2.50.",
-              "text_cn": "2.50美元。",
+              "text": "I'll take it.",
+              "text_cn": "我买了。",
               "audio_url": "COS:/qa/responses/daily_028_sub_3_qa_1_response0.mp3"
+            },
+            {
+              "text": "Can you give me a discount? I'm buying three sets.",
+              "text_cn": "能便宜点吗？我要买三套。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_3_qa_1_response1.mp3"
+            },
+            {
+              "text": "Do you have a cheaper option? This is a bit over my budget.",
+              "text_cn": "有更便宜的吗？这个超了我的预算。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在确认具体商品价格时常用句，简洁直接，适合初学者模仿",
+          "usageNote": "用于顾客听到价格后的自然回应，涵盖接受、议价、换品三种典型反应，符合真实购物场景。",
           "audioUrl": "COS:/qa/questions/daily_028_sub_3_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_028_sub_3_qa_2",
           "subSceneId": "daily_028_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "Do these pens cost the same?",
-          "triggerTextCn": "这些笔价格一样吗？",
+          "triggerText": "How much is this pencil case?",
+          "triggerTextCn": "这个铅笔盒多少钱？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客比较同类商品价格",
+          "scenarioHintCn": "文具店：顾客主动询问单件商品价格",
           "followUps": [
             {
-              "text": "Yes, all three are $1.20 each.",
-              "text_cn": "是的，这三支都是每支1.20美元。",
+              "text": "It's $2.99, but it's on sale today for $2.50.",
+              "text_cn": "原价2.99美元，今天促销价2.50美元。",
               "audio_url": "COS:/qa/responses/daily_028_sub_3_qa_2_response0.mp3"
+            },
+            {
+              "text": "Sorry, we don't sell that item anymore — it's been discontinued.",
+              "text_cn": "抱歉，这款已经停售了。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_3_qa_2_response1.mp3"
+            },
+            {
+              "text": "It's $3.50, and if you buy two, you get 10% off.",
+              "text_cn": "3.5美元，买两个打九折。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "用于比较多个相似商品价格，体现自然对话中的细节确认",
+          "usageNote": "顾客询问价格时，服务员可能给出标准价、缺货通知或促销信息，覆盖真实服务中的三种常见回应。",
           "audioUrl": "COS:/qa/questions/daily_028_sub_3_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_028_sub_3_qa_3",
           "subSceneId": "daily_028_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "The total comes to $8.75.",
-          "triggerTextCn": "总共是8.75美元。",
+          "triggerText": "The total comes to $12.75.",
+          "triggerTextCn": "总计是12.75美元。",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "店员告知总价，等待顾客确认或回应",
+          "scenarioHintCn": "文具店：收银员报总价，顾客确认是否接受",
           "followUps": [
             {
-              "text": "Okay, that works.",
-              "text_cn": "好的，可以。",
+              "text": "Perfect, I'll pay with my card.",
+              "text_cn": "很好，我刷卡。",
               "audio_url": "COS:/qa/responses/daily_028_sub_3_qa_3_response0.mp3"
+            },
+            {
+              "text": "Wait, I think I got the wrong item — can I swap this notebook for the cheaper one?",
+              "text_cn": "等等，我拿错东西了，能换回便宜的那本笔记本吗？",
+              "audio_url": "COS:/qa/responses/daily_028_sub_3_qa_3_response1.mp3"
+            },
+            {
+              "text": "Do you accept coupons? I have a 10% off voucher.",
+              "text_cn": "你们收优惠券吗？我有一张九折券。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "店员报总价后，顾客最自然、简洁的确认回应，避免冗长解释",
+          "usageNote": "收银员报总价后，顾客可能直接付款、要求换货或使用优惠券，三种回应体现真实购物中的灵活决策。",
           "audioUrl": "COS:/qa/questions/daily_028_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -239,15 +329,25 @@
           "triggerTextCn": "您想怎么付款？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "收银员在结账时询问付款方式",
+          "scenarioHintCn": "文具店结账时收银员询问支付方式",
           "followUps": [
             {
-              "text": "I'll pay with credit card.",
-              "text_cn": "我用信用卡支付。",
+              "text": "I'll pay by card, please.",
+              "text_cn": "我刷卡，谢谢。",
               "audio_url": "COS:/qa/responses/daily_028_sub_4_qa_1_response0.mp3"
+            },
+            {
+              "text": "Do you accept cash? I only have bills today.",
+              "text_cn": "你们收现金吗？我今天只有现金。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_4_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can I use Apple Pay? My card’s not working.",
+              "text_cn": "可以用Apple Pay吗？我的卡刷不了了。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是结账环节最典型的付款方式询问，顾客需直接回应支付方式，避免冗长解释。",
+          "usageNote": "结账时最常见的支付方式询问，用户需根据自身情况选择支付方式并清晰表达。",
           "audioUrl": "COS:/qa/questions/daily_028_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -256,19 +356,29 @@
           "id": "daily_028_sub_4_qa_2",
           "subSceneId": "daily_028_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you need a bag for these?",
-          "triggerTextCn": "这些需要袋子吗？",
+          "triggerText": "That’s $12.45 total.",
+          "triggerTextCn": "总共是12.45美元。",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "收银员在装好商品后询问是否需要购物袋",
+          "scenarioHintCn": "收银员报出总价后，顾客决定支付方式或提出疑问",
           "followUps": [
             {
-              "text": "Yes, please. A plastic one is fine.",
-              "text_cn": "需要，谢谢，塑料袋就行。",
+              "text": "Here’s $15. Keep the change.",
+              "text_cn": "给你15美元，零钱不用找了。",
               "audio_url": "COS:/qa/responses/daily_028_sub_4_qa_2_response0.mp3"
+            },
+            {
+              "text": "Wait, I think I got the wrong price—I only bought 3 pens and a notebook.",
+              "text_cn": "等一下，我觉得价格不对，我只买了3支笔和一个笔记本。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_4_qa_2_response1.mp3"
+            },
+            {
+              "text": "I’ll just take the notebook then—I don’t have enough right now.",
+              "text_cn": "那我只买笔记本吧，我现在钱不够。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "收银员常在结账末尾确认是否需要袋子，顾客应简洁回应，避免无关信息。",
+          "usageNote": "顾客在得知总价后可能选择支付、质疑价格或调整购物内容，需灵活应对不同反应。",
           "audioUrl": "COS:/qa/questions/daily_028_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -276,22 +386,32 @@
         {
           "id": "daily_028_sub_4_qa_3",
           "subSceneId": "daily_028_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Could you tell me how much this notebook costs?",
-          "triggerTextCn": "请问这本笔记本多少钱？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you have a loyalty card?",
+          "triggerTextCn": "您有会员卡吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客在结账前确认商品价格",
+          "scenarioHintCn": "收银员询问是否使用会员卡享受折扣",
           "followUps": [
             {
-              "text": "It's $2.50. Would you like to take it?",
-              "text_cn": "2.5美元。您要买吗？",
+              "text": "Yes, here it is. I forgot to use it last time.",
+              "text_cn": "有，给您。上次忘了用。",
               "audio_url": "COS:/qa/responses/daily_028_sub_4_qa_3_response0.mp3"
+            },
+            {
+              "text": "No, but can I sign up now?",
+              "text_cn": "没有，但我现在能注册吗？",
+              "audio_url": "COS:/qa/responses/daily_028_sub_4_qa_3_response1.mp3"
+            },
+            {
+              "text": "No thanks, I’m just buying a few things today.",
+              "text_cn": "不用了，我今天就买几样东西。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客在决定购买前确认价格是高频行为，回应包含价格和引导确认，符合真实服务流程。",
+          "usageNote": "会员卡询问是文具店常见促销环节，顾客可能接受、申请或婉拒，需掌握自然回应方式。",
           "audioUrl": "COS:/qa/questions/daily_028_sub_4_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -300,29 +420,39 @@
       "id": "daily_028_sub_5",
       "sceneId": "daily_028",
       "name": "礼貌告别",
-      "description": "顾客致谢，店员欢迎再来，结束对话。",
+      "description": "顾客致谢，店员回应并欢迎再次光临。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_028_sub_5_qa_1",
           "subSceneId": "daily_028_sub_5",
-          "dialogueMode": "user_asks",
-          "triggerText": "Thank you so much for your help!",
-          "triggerTextCn": "非常感谢您的帮助！",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thank you for shopping with us!",
+          "triggerTextCn": "感谢您的光临！",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客买完文具后向店员致谢，礼貌告别",
+          "scenarioHintCn": "文具店结账后，店员礼貌告别",
           "followUps": [
             {
-              "text": "You're welcome! Have a great day!",
-              "text_cn": "不客气！祝你今天愉快！",
+              "text": "Thank you, have a great day!",
+              "text_cn": "谢谢，祝你今天愉快！",
               "audio_url": "COS:/qa/responses/daily_028_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "I’ll be back next week—I need more notebooks.",
+              "text_cn": "我下周还来，还需要买些笔记本。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "Thanks! The pens were perfect.",
+              "text_cn": "谢谢！这些笔太棒了。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在结账后表达感谢，是礼貌告别的典型表达，店员应回应以温暖结束对话",
+          "usageNote": "适用于结账后店员道别时的自然回应，体现礼貌与满意度",
           "audioUrl": "COS:/qa/questions/daily_028_sub_5_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
@@ -330,18 +460,28 @@
           "subSceneId": "daily_028_sub_5",
           "dialogueMode": "user_responds",
           "triggerText": "Have a nice day!",
-          "triggerTextCn": "祝你今天愉快！",
+          "triggerTextCn": "祝你有美好的一天！",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "店员在顾客结账后主动礼貌告别，顾客需回应",
+          "scenarioHintCn": "店员在顾客离开前再次温馨告别",
           "followUps": [
             {
-              "text": "Thanks, you too!",
-              "text_cn": "谢谢，你也是！",
+              "text": "You too!",
+              "text_cn": "你也是！",
               "audio_url": "COS:/qa/responses/daily_028_sub_5_qa_2_response0.mp3"
+            },
+            {
+              "text": "Thanks for your help—I really appreciate it.",
+              "text_cn": "谢谢你的帮助，我真的很感激。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_5_qa_2_response1.mp3"
+            },
+            {
+              "text": "Same to you! Bye!",
+              "text_cn": "你也是！再见！",
+              "audio_url": "COS:/qa/responses/daily_028_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "店员常用此句结束服务，顾客应回应简短友好，避免沉默或冗长回答",
+          "usageNote": "适用于店员使用更口语化告别语时，顾客的自然回应",
           "audioUrl": "COS:/qa/questions/daily_028_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -349,22 +489,32 @@
         {
           "id": "daily_028_sub_5_qa_3",
           "subSceneId": "daily_028_sub_5",
-          "dialogueMode": "user_asks",
-          "triggerText": "I'll be seeing you!",
-          "triggerTextCn": "那我改天再来看你！",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "See you soon!",
+          "triggerTextCn": "很快再见！",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客计划再次光顾，用轻松语气告别",
+          "scenarioHintCn": "店员根据顾客购买行为预判再次光临并道别",
           "followUps": [
             {
-              "text": "Looking forward to it! Come back anytime!",
-              "text_cn": "期待您的再次光临！随时欢迎！",
+              "text": "Hope so! I’m running out of erasers again.",
+              "text_cn": "希望如此！我的橡皮又快用完了。",
               "audio_url": "COS:/qa/responses/daily_028_sub_5_qa_3_response0.mp3"
+            },
+            {
+              "text": "I’m not sure—I’ll check with my teacher first.",
+              "text_cn": "我不确定，得先问问老师。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_5_qa_3_response1.mp3"
+            },
+            {
+              "text": "Definitely! Your stationery is the best in town.",
+              "text_cn": "一定！你们的文具是城里最好的。",
+              "audio_url": "COS:/qa/responses/daily_028_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客表达未来再次购买意愿，店员回应应热情开放，增强客户粘性",
+          "usageNote": "适用于店员基于顾客行为做出预测性告别时，顾客的多样化回应",
           "audioUrl": "COS:/qa/questions/daily_028_sub_5_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]

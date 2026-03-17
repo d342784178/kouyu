@@ -1,7 +1,7 @@
 {
   "sceneId": "daily_020",
   "sceneName": "眼镜店配眼镜",
-  "generatedAt": "2026-03-16T08:10:05.834Z",
+  "generatedAt": "2026-03-17T03:18:32.242Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
@@ -15,62 +15,92 @@
         {
           "id": "daily_020_sub_1_qa_1",
           "subSceneId": "daily_020_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "I need a new pair of glasses, but I'm not sure what prescription I have.",
-          "triggerTextCn": "我需要一副新眼镜，但我不确定我的度数是多少。",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "What seems to be the problem with your vision?",
+          "triggerTextCn": "您的视力有什么问题？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客不确定自己的验光数据，主动寻求帮助",
+          "scenarioHintCn": "验光咨询：服务员询问视力问题",
           "followUps": [
             {
-              "text": "No problem! We can do a free eye exam right here. Would you like to schedule it now?",
-              "text_cn": "没问题！我们可以在这里为您免费验光。您现在就预约吗？",
+              "text": "I can't see distant objects clearly, especially while driving.",
+              "text_cn": "我看不清远处的东西，尤其是开车时。",
               "audio_url": "COS:/qa/responses/daily_020_sub_1_qa_1_response0.mp3"
+            },
+            {
+              "text": "My eyes get tired quickly when reading, and words sometimes blur.",
+              "text_cn": "阅读时眼睛容易疲劳，字有时会模糊。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_1_qa_1_response1.mp3"
+            },
+            {
+              "text": "I'm not sure—I just feel my glasses aren't working well anymore.",
+              "text_cn": "我不太确定，只是觉得现在的眼镜不太管用了。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在不清楚自己视力状况时的典型开场白，用于启动验光服务流程",
+          "usageNote": "用于验光初诊阶段，顾客描述视力困扰，服务员据此推荐检查项目",
           "audioUrl": "COS:/qa/questions/daily_020_sub_1_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_020_sub_1_qa_2",
           "subSceneId": "daily_020_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "Do you have any frames that are lightweight and suitable for daily wear?",
-          "triggerTextCn": "你们有轻便、适合日常佩戴的眼镜框吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you wear contacts or just glasses?",
+          "triggerTextCn": "您平时戴隐形眼镜还是框架眼镜？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问适合日常使用的镜框类型",
+          "scenarioHintCn": "验光咨询：服务员确认佩戴习惯",
           "followUps": [
             {
-              "text": "Absolutely! Our titanium and acetate frames are very popular for comfort. Let me show you a few options.",
-              "text_cn": "当然有！我们的钛合金和醋酸纤维镜框非常舒适，很受欢迎。我给您看看几款。",
+              "text": "I only wear glasses—I find contacts uncomfortable.",
+              "text_cn": "我只戴框架眼镜，觉得隐形眼镜不舒服。",
               "audio_url": "COS:/qa/responses/daily_020_sub_1_qa_2_response0.mp3"
+            },
+            {
+              "text": "I wear contacts most days, but switch to glasses for sports.",
+              "text_cn": "我平时戴隐形，但运动时换框架眼镜。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_1_qa_2_response1.mp3"
+            },
+            {
+              "text": "I've never worn contacts—can you tell me if I'm a good candidate?",
+              "text_cn": "我从来没戴过隐形眼镜，您能告诉我我适合吗？",
+              "audio_url": "COS:/qa/responses/daily_020_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客在选择镜框时对材质和舒适度提出具体需求的高频表达",
+          "usageNote": "用于判断顾客佩戴习惯，决定验光重点或推荐镜片类型",
           "audioUrl": "COS:/qa/questions/daily_020_sub_1_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_020_sub_1_qa_3",
           "subSceneId": "daily_020_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "How long does it usually take to get your glasses ready?",
-          "triggerTextCn": "通常需要多久能取到眼镜？",
+          "triggerText": "Would you like to try some frames before we order?",
+          "triggerTextCn": "在下单前，您想试戴几副镜框吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "店员询问顾客取镜时间偏好，以安排制作进度",
+          "scenarioHintCn": "验光咨询：服务员建议试戴镜框",
           "followUps": [
             {
-              "text": "In about a week, if that works.",
-              "text_cn": "大概一周后，这样可以吗？",
+              "text": "Yes, please—I want to see how they look with my face shape.",
+              "text_cn": "好的，请给我试试，我想看看哪种适合我的脸型。",
               "audio_url": "COS:/qa/responses/daily_020_sub_1_qa_3_response0.mp3"
+            },
+            {
+              "text": "No, I'm good—I already know what style I want.",
+              "text_cn": "不用了，我已经知道想要什么款式了。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_1_qa_3_response1.mp3"
+            },
+            {
+              "text": "Can I take a few home to show my partner? I'll decide tomorrow.",
+              "text_cn": "我能带几副回家给伴侣看看吗？我明天再决定。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "店员在确认服务周期后，顾客简洁回应取镜时间的自然回应方式",
+          "usageNote": "用于选镜框环节，顾客表达不同决策风格，服务员需灵活应对",
           "audioUrl": "COS:/qa/questions/daily_020_sub_1_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -88,41 +118,61 @@
         {
           "id": "daily_020_sub_2_qa_1",
           "subSceneId": "daily_020_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "What styles do you have in stock?",
-          "triggerTextCn": "你们有哪些款式？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Which frame style are you leaning toward?",
+          "triggerTextCn": "您倾向于哪种镜框款式？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动询问店内镜框款式，开启挑选流程",
+          "scenarioHintCn": "眼镜店配镜 - 挑选镜框",
           "followUps": [
             {
-              "text": "We have modern metal frames, classic plastic ones, and lightweight titanium. Would you like to try some on?",
-              "text_cn": "我们有现代金属框、经典塑料框和轻质钛框。要试戴几副吗？",
+              "text": "I like these slim metal ones—they look professional.",
+              "text_cn": "我喜欢这些细金属框的，看起来很专业。",
               "audio_url": "COS:/qa/responses/daily_020_sub_2_qa_1_response0.mp3"
+            },
+            {
+              "text": "I'm not sure—I like the tortoiseshell but worry they're too big.",
+              "text_cn": "我不确定，我喜欢玳瑁色的，但担心太大了。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_2_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can you show me something more colorful? I want to stand out.",
+              "text_cn": "能给我看看颜色更鲜艳一点的吗？我想突出个性。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在初次接触店员时常用此句开启对话，自然且通用",
+          "usageNote": "用于顾客在试戴后表达偏好或犹豫时，服务员引导决策的自然对话场景。",
           "audioUrl": "COS:/qa/questions/daily_020_sub_2_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_020_sub_2_qa_2",
           "subSceneId": "daily_020_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Which frame would suit my face shape?",
-          "triggerTextCn": "哪种镜框适合我的脸型？",
+          "triggerText": "Do you prefer lightweight frames or don't mind a bit of weight for durability?",
+          "triggerTextCn": "您更喜欢轻便的镜框，还是可以接受稍重一点但更耐用的？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "店员根据顾客外貌特征主动建议适合的镜框类型",
+          "scenarioHintCn": "眼镜店配镜 - 挑选镜框",
           "followUps": [
             {
-              "text": "I have an oval face, so I think round or rectangular frames would work well.",
-              "text_cn": "我是椭圆脸，我觉得圆形或矩形镜框会比较合适。",
+              "text": "Lightweight is a must—I wear glasses all day.",
+              "text_cn": "必须轻便，我整天都戴眼镜。",
               "audio_url": "COS:/qa/responses/daily_020_sub_2_qa_2_response0.mp3"
+            },
+            {
+              "text": "I'd rather have something sturdy—I break glasses easily.",
+              "text_cn": "我宁愿选结实一点的，我容易弄坏眼镜。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_2_qa_2_response1.mp3"
+            },
+            {
+              "text": "Does it matter? I just want them to look good.",
+              "text_cn": "这有关系吗？我只在乎看起来好不好看。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "店员常根据顾客脸型提问，顾客需简洁回应，避免冗长解释",
+          "usageNote": "服务员询问材质偏好，用户根据使用习惯或审美给出不同优先级回应。",
           "audioUrl": "COS:/qa/questions/daily_020_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -130,22 +180,32 @@
         {
           "id": "daily_020_sub_2_qa_3",
           "subSceneId": "daily_020_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can I see how they look with my prescription?",
-          "triggerTextCn": "我能看看戴上有度数的镜片是什么效果吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Are you looking for something classic or more trendy?",
+          "triggerTextCn": "您是想要经典款，还是更时尚潮流的款式？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客希望确认镜框佩戴后的实际视觉效果，是选框关键环节",
+          "scenarioHintCn": "眼镜店配镜 - 挑选镜框",
           "followUps": [
             {
-              "text": "Of course! We can fit temporary lenses so you can see the real look in the mirror.",
-              "text_cn": "当然可以！我们可以装上临时镜片，让您在镜子里看到真实效果。",
+              "text": "Classic, please—I don’t want to replace them every year.",
+              "text_cn": "请给我经典款，我不想每年都换新眼镜。",
               "audio_url": "COS:/qa/responses/daily_020_sub_2_qa_3_response0.mp3"
+            },
+            {
+              "text": "Trendy! I want to match my outfit this season.",
+              "text_cn": "要潮流款！我想和我这季的穿搭搭配。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_2_qa_3_response1.mp3"
+            },
+            {
+              "text": "Actually, I’m open—just show me what’s popular right now.",
+              "text_cn": "其实我都行，给我看看现在最流行的款式吧。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客在最终决策前常提出此需求，体现真实消费心理",
+          "usageNote": "店员通过风格定位帮助顾客缩小选择范围，用户回应体现消费心理差异。",
           "audioUrl": "COS:/qa/questions/daily_020_sub_2_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -161,41 +221,61 @@
         {
           "id": "daily_020_sub_3_qa_1",
           "subSceneId": "daily_020_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "Do you recommend single vision or progressive lenses?",
-          "triggerTextCn": "您推荐单光镜片还是渐进镜片？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like standard, anti-reflective, or blue light blocking lenses?",
+          "triggerTextCn": "您想要普通镜片、防反射镜片还是防蓝光镜片？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客在询问不同镜片类型的适用性",
+          "scenarioHintCn": "眼镜店配镜：选择镜片类型",
           "followUps": [
             {
-              "text": "If you're over 40 and use both computer and phone, progressives are ideal. They eliminate the need for reading glasses.",
-              "text_cn": "如果您超过40岁，同时使用电脑和手机，渐进镜片最合适，可以省去另配老花镜的麻烦。",
+              "text": "I'll go with anti-reflective, please. I work on screens all day.",
+              "text_cn": "我要防反射镜片，我整天对着屏幕。",
               "audio_url": "COS:/qa/responses/daily_020_sub_3_qa_1_response0.mp3"
+            },
+            {
+              "text": "What's the difference between blue light and anti-reflective? I'm not sure.",
+              "text_cn": "防蓝光和防反射有什么区别？我不太确定。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_3_qa_1_response1.mp3"
+            },
+            {
+              "text": "Just the standard ones, thanks. I don't need extra features.",
+              "text_cn": "普通镜片就行，谢谢，我不需要额外功能。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客主动询问镜片类型建议，适用于初次配镜或升级镜片的用户",
+          "usageNote": "用于顾客在专业建议下做出镜片选择，体现不同消费态度和需求层次",
           "audioUrl": "COS:/qa/questions/daily_020_sub_3_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_020_sub_3_qa_2",
           "subSceneId": "daily_020_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Would you like anti-reflective coating or blue light protection?",
-          "triggerTextCn": "您需要防反射涂层还是防蓝光保护？",
+          "triggerText": "Do you want single vision or progressive lenses?",
+          "triggerTextCn": "您需要单光镜片还是渐进镜片？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "店员推荐镜片附加功能，顾客需做出选择",
+          "scenarioHintCn": "眼镜店配镜：选择镜片设计（单光/渐进）",
           "followUps": [
             {
-              "text": "I work long hours on screens, so blue light protection, please.",
-              "text_cn": "我每天长时间看屏幕，请给我防蓝光的。",
+              "text": "Progressive, please. I need to see both far and close up.",
+              "text_cn": "我要渐进镜片，我需要看清远近两个距离。",
               "audio_url": "COS:/qa/responses/daily_020_sub_3_qa_2_response0.mp3"
+            },
+            {
+              "text": "Single vision is fine. I only need help with distance.",
+              "text_cn": "单光就行，我只需要矫正远视。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_3_qa_2_response1.mp3"
+            },
+            {
+              "text": "I’ve never worn progressives. Are they hard to get used to?",
+              "text_cn": "我从没戴过渐进镜片，适应起来难吗？",
+              "audio_url": "COS:/qa/responses/daily_020_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "店员提供常见附加服务选项，顾客需简洁明确回应，避免冗长解释",
+          "usageNote": "针对不同视力需求（如老花、单纯远视）和使用经验设计的典型回应",
           "audioUrl": "COS:/qa/questions/daily_020_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -204,19 +284,29 @@
           "id": "daily_020_sub_3_qa_3",
           "subSceneId": "daily_020_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Are you looking for thin, lightweight lenses?",
-          "triggerTextCn": "您想要薄而轻的镜片吗？",
+          "triggerText": "Would you like scratch-resistant or UV-protective coating?",
+          "triggerTextCn": "您需要加防刮涂层还是防紫外线涂层？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "店员根据度数推荐镜片材质，引导顾客关注佩戴舒适度",
+          "scenarioHintCn": "眼镜店配镜：选择镜片附加涂层",
           "followUps": [
             {
-              "text": "Yes, I have a high prescription, so thinner lenses would be better.",
-              "text_cn": "是的，我的度数比较高，薄一点的镜片更好。",
+              "text": "Both, please. I’m outside a lot and I’m clumsy with my glasses.",
+              "text_cn": "两个都要，我经常在户外，而且戴眼镜容易刮花。",
               "audio_url": "COS:/qa/responses/daily_020_sub_3_qa_3_response0.mp3"
+            },
+            {
+              "text": "Just UV protection. I don’t mind if they scratch a little.",
+              "text_cn": "只要防紫外线就行，刮花我无所谓。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_3_qa_3_response1.mp3"
+            },
+            {
+              "text": "Is there an extra cost for these? I’m on a tight budget.",
+              "text_cn": "这些涂层要加钱吗？我预算比较紧。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "店员基于顾客度数主动引导选择高折射率镜片，顾客需直接回应需求",
+          "usageNote": "反映顾客在附加功能与预算之间的权衡，是服务场景中高频决策点",
           "audioUrl": "COS:/qa/questions/daily_020_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -234,62 +324,92 @@
         {
           "id": "daily_020_sub_4_qa_1",
           "subSceneId": "daily_020_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "How much does this pair cost?",
-          "triggerTextCn": "这副眼镜多少钱？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "The total comes to $245, including the frames and lenses. How would you like to pay?",
+          "triggerTextCn": "镜框和镜片总共是245美元，您想怎么支付？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问具体眼镜的价格",
+          "scenarioHintCn": "确认价格后支付方式选择",
           "followUps": [
             {
-              "text": "This pair is $120, including the frames and basic lenses.",
-              "text_cn": "这副眼镜120美元，包含镜框和基础镜片。",
+              "text": "I'll pay by credit card.",
+              "text_cn": "我用信用卡支付。",
               "audio_url": "COS:/qa/responses/daily_020_sub_4_qa_1_response0.mp3"
+            },
+            {
+              "text": "Do you accept cash? I only have cash today.",
+              "text_cn": "你们收现金吗？我今天只带了现金。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_4_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can I pay half now and the rest next week? I'm waiting for my reimbursement.",
+              "text_cn": "我可以现在付一半，剩下部分下周再付吗？我在等报销款。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在看到心仪眼镜后，直接询问价格的最常见表达",
+          "usageNote": "用于结账环节，顾客根据自身支付能力选择支付方式，服务员通常会接受常见选项。",
           "audioUrl": "COS:/qa/questions/daily_020_sub_4_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_020_sub_4_qa_2",
           "subSceneId": "daily_020_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Do you have any discounts or promotions right now?",
-          "triggerTextCn": "现在有折扣或优惠活动吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "The basic lenses are $120, but if you want anti-glare or blue light protection, it's an extra $60. Do you want those features?",
+          "triggerTextCn": "基础镜片是120美元，但如果您想要防眩光或防蓝光功能，需额外60美元。您需要这些功能吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动询问价格优惠可能性",
+          "scenarioHintCn": "确认镜片升级选项及附加费用",
           "followUps": [
             {
-              "text": "Yes, we're offering 20% off for first-time customers and free lens coating.",
-              "text_cn": "有的，首次光顾的顾客享受8折优惠，还免费赠送镜片镀膜。",
+              "text": "Yes, I work on a computer all day—definitely add the blue light filter.",
+              "text_cn": "要的，我整天用电脑，一定要加防蓝光功能。",
               "audio_url": "COS:/qa/responses/daily_020_sub_4_qa_2_response0.mp3"
+            },
+            {
+              "text": "I'll stick with the basic ones—I'm on a tight budget this month.",
+              "text_cn": "我还是选基础款吧，这个月预算紧张。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_4_qa_2_response1.mp3"
+            },
+            {
+              "text": "Can you tell me how much longer the blue light coating lasts? I'm not sure it's worth it.",
+              "text_cn": "能告诉我防蓝光涂层能用多久吗？我不确定值不值。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客在确认价格后常会试探是否有优惠，体现真实消费心理",
+          "usageNote": "顾客常在此环节因价格犹豫，需自然表达需求、预算或寻求信息。",
           "audioUrl": "COS:/qa/questions/daily_020_sub_4_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_020_sub_4_qa_3",
           "subSceneId": "daily_020_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "The total comes to $185 with the premium lenses and anti-glare coating.",
-          "triggerTextCn": "加上高级镜片和防眩光镀膜，总价是185美元。",
+          "triggerText": "Just to confirm, you're happy with the price and the frame style? No changes?",
+          "triggerTextCn": "我再确认一下，您对价格和镜框款式都满意吗？不需要更改了吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "店员报出最终总价，等待顾客确认",
+          "scenarioHintCn": "最终确认价格与款式无异议",
           "followUps": [
             {
-              "text": "Okay, I'll take it.",
-              "text_cn": "好的，我就买这副。",
+              "text": "Yes, perfect—I'll take it.",
+              "text_cn": "是的，很好，我就要这个了。",
               "audio_url": "COS:/qa/responses/daily_020_sub_4_qa_3_response0.mp3"
+            },
+            {
+              "text": "Actually, can I see the silver frame again? I'm not sure this one suits me.",
+              "text_cn": "其实，我能再看看银色的那副吗？我不确定这副适合我。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_4_qa_3_response1.mp3"
+            },
+            {
+              "text": "Is there any discount if I buy two pairs? My sister needs glasses too.",
+              "text_cn": "如果我买两副，有折扣吗？我妹妹也需要配眼镜。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "店员完成价格汇总后，顾客最自然、简洁的确认回应，避免冗长解释",
+          "usageNote": "这是结账前的关键确认点，顾客可能确认、反悔或提出附加请求，需灵活应对。",
           "audioUrl": "COS:/qa/questions/daily_020_sub_4_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -300,48 +420,68 @@
       "id": "daily_020_sub_5",
       "sceneId": "daily_020",
       "name": "取货时间",
-      "description": "顾客确认配镜完成时间及取货注意事项。",
+      "description": "顾客确认配镜完成时间及取货流程。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_020_sub_5_qa_1",
           "subSceneId": "daily_020_sub_5",
-          "dialogueMode": "user_asks",
-          "triggerText": "When can I pick up my glasses?",
-          "triggerTextCn": "我什么时候可以取眼镜？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "When would you like to pick up your glasses?",
+          "triggerTextCn": "您想什么时候来取眼镜？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问取货时间",
+          "scenarioHintCn": "眼镜店取货时间确认",
           "followUps": [
             {
-              "text": "They'll be ready in two business days, so you can come back on Thursday.",
-              "text_cn": "需要两个工作日，您周四来取就可以了。",
+              "text": "I can pick them up tomorrow afternoon.",
+              "text_cn": "我明天下午来取。",
               "audio_url": "COS:/qa/responses/daily_020_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "Can I pick them up next week? I'm traveling this weekend.",
+              "text_cn": "我这周末要旅行，能下周来取吗？",
+              "audio_url": "COS:/qa/responses/daily_020_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "Are they ready yet? I thought it would be ready today.",
+              "text_cn": "眼镜已经做好了吗？我以为今天就能取。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客主动询问取货时间，是取货子场景中最常见的开场问题。",
+          "usageNote": "用于确认取货时间，常见于店员主动询问用户方便的时间点。",
           "audioUrl": "COS:/qa/questions/daily_020_sub_5_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_020_sub_5_qa_2",
           "subSceneId": "daily_020_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Will your glasses be ready by Friday?",
-          "triggerTextCn": "我的眼镜周五能好吗？",
+          "triggerText": "Your glasses will be ready in two business days. Does that work for you?",
+          "triggerTextCn": "您的眼镜两个工作日内可以准备好，这样可以吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "店员确认顾客能否在特定时间取货",
+          "scenarioHintCn": "眼镜店告知取货时间并确认用户接受",
           "followUps": [
             {
-              "text": "Yes, Friday works perfectly.",
-              "text_cn": "可以，周五正好。",
+              "text": "Yes, that’s perfect. I’ll come on Wednesday.",
+              "text_cn": "好的，太完美了，我周三来取。",
               "audio_url": "COS:/qa/responses/daily_020_sub_5_qa_2_response0.mp3"
+            },
+            {
+              "text": "Is it possible to get them by tomorrow? I have an important meeting.",
+              "text_cn": "能明天拿到吗？我有个重要会议。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_5_qa_2_response1.mp3"
+            },
+            {
+              "text": "Actually, I’m not sure—I’ll call you if my schedule changes.",
+              "text_cn": "其实我还不确定，如果时间有变我再打电话给您。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "店员常主动确认顾客的时间安排，用户需简洁回应是否可行，避免冗长解释。",
+          "usageNote": "店员告知预计完成时间后，用户可能接受、请求提前或表示不确定。",
           "audioUrl": "COS:/qa/questions/daily_020_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -349,22 +489,32 @@
         {
           "id": "daily_020_sub_5_qa_3",
           "subSceneId": "daily_020_sub_5",
-          "dialogueMode": "user_asks",
-          "triggerText": "Do you need a deposit or ID to pick them up?",
-          "triggerTextCn": "取眼镜时需要押金或身份证吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "We finished your glasses earlier than expected. Can you come in today?",
+          "triggerTextCn": "您的眼镜比预期提前做好了，今天能来取吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客确认取货所需材料",
+          "scenarioHintCn": "眼镜店通知提前完成，询问是否可立即取货",
           "followUps": [
             {
-              "text": "Just your receipt and a photo ID, please.",
-              "text_cn": "请带上收据和带照片的身份证件。",
+              "text": "Really? That’s great! I’ll stop by after work.",
+              "text_cn": "真的吗？太好了！我下班后就来取。",
               "audio_url": "COS:/qa/responses/daily_020_sub_5_qa_3_response0.mp3"
+            },
+            {
+              "text": "I’m sorry, but I can’t make it today—I’m out of town.",
+              "text_cn": "抱歉，我今天不在城里，没法来取。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_5_qa_3_response1.mp3"
+            },
+            {
+              "text": "Can I send someone else to pick them up? I’ll give them the receipt.",
+              "text_cn": "我可以让人代取吗？我会把取货单给他们。",
+              "audio_url": "COS:/qa/responses/daily_020_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "取货前确认所需凭证是高频环节，顾客常主动询问避免白跑一趟。",
+          "usageNote": "店员通知提前完成时，用户可能欣然接受、婉拒或提出代取方案。",
           "audioUrl": "COS:/qa/questions/daily_020_sub_5_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]

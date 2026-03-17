@@ -1,55 +1,75 @@
 {
   "sceneId": "travel_057",
   "sceneName": "机场登机",
-  "generatedAt": "2026-03-16T08:21:54.859Z",
+  "generatedAt": "2026-03-17T03:13:00.470Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "travel_057_sub_1",
       "sceneId": "travel_057",
       "name": "确认登机口",
-      "description": "乘客询问登机口位置，地勤人员提供准确信息。",
+      "description": "乘客询问并确认当前航班的登机口位置。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_057_sub_1_qa_1",
           "subSceneId": "travel_057_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "What's my boarding gate?",
-          "triggerTextCn": "我的登机口是哪个？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Could you please confirm your boarding gate?",
+          "triggerTextCn": "请问您能确认一下您的登机口吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "旅客主动询问登机口信息",
+          "scenarioHintCn": "机场工作人员核对乘客登机口信息",
           "followUps": [
             {
-              "text": "Your gate is B12. The boarding starts in 15 minutes.",
-              "text_cn": "您的登机口是B12，登机将在15分钟后开始。",
+              "text": "Gate B12, I just checked the screen.",
+              "text_cn": "B12登机口，我刚看了显示屏。",
               "audio_url": "COS:/qa/responses/travel_057_sub_1_qa_1_response0.mp3"
+            },
+            {
+              "text": "I'm not sure—was it changed? The board says B8.",
+              "text_cn": "我不确定——改了吗？告示牌上写的是B8。",
+              "audio_url": "COS:/qa/responses/travel_057_sub_1_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can you check if it's still B12? My flight was delayed.",
+              "text_cn": "您能帮我确认一下还是B12吗？我的航班延误了。",
+              "audio_url": "COS:/qa/responses/travel_057_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "旅客在航站楼内查看屏幕后仍不确定时，直接向工作人员确认登机口的典型问法。",
+          "usageNote": "用于在登机前核对登机口信息，常见于机场广播或柜台询问后",
           "audioUrl": "COS:/qa/questions/travel_057_sub_1_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "travel_057_sub_1_qa_2",
           "subSceneId": "travel_057_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "Has the flight to Los Angeles been updated?",
-          "triggerTextCn": "飞洛杉矶的航班信息有更新吗？",
+          "triggerText": "Is this the correct gate for Flight CA183 to Shanghai?",
+          "triggerTextCn": "这是飞往上海的CA183航班的正确登机口吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "旅客发现屏幕信息变动，主动核实登机口变更",
+          "scenarioHintCn": "乘客主动确认登机口是否正确",
           "followUps": [
             {
-              "text": "Yes, it's been changed to Gate C7 due to gate reassignment. Please proceed there now.",
-              "text_cn": "是的，由于登机口调整，已改为C7登机口，请立即前往。",
+              "text": "Yes, that's correct. Boarding starts in 15 minutes.",
+              "text_cn": "是的，没错。登机将在15分钟后开始。",
               "audio_url": "COS:/qa/responses/travel_057_sub_1_qa_2_response0.mp3"
+            },
+            {
+              "text": "Actually, it's been moved to Gate C5 due to gate reassignment.",
+              "text_cn": "实际上，由于登机口调整，已改到C5登机口。",
+              "audio_url": "COS:/qa/responses/travel_057_sub_1_qa_2_response1.mp3"
+            },
+            {
+              "text": "I'm sorry, that flight has been canceled. Please see the counter for rebooking.",
+              "text_cn": "很抱歉，该航班已取消，请前往柜台重新安排。",
+              "audio_url": "COS:/qa/responses/travel_057_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "当航班信息临时变更时，旅客主动确认最新登机口的高频问法，体现真实场景中的应变需求。",
+          "usageNote": "乘客在不确定时主动确认登机口，是高频求助场景",
           "audioUrl": "COS:/qa/questions/travel_057_sub_1_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
@@ -57,22 +77,32 @@
         {
           "id": "travel_057_sub_1_qa_3",
           "subSceneId": "travel_057_sub_1",
-          "dialogueMode": "user_responds",
-          "triggerText": "Could you please confirm your boarding gate?",
-          "triggerTextCn": "请您确认一下您的登机口？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you know if Gate A3 is still open?",
+          "triggerTextCn": "您知道A3登机口还开着吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "工作人员在登机前核对旅客登机口信息",
+          "scenarioHintCn": "乘客因赶时间或信息混乱，询问登机口状态",
           "followUps": [
             {
-              "text": "Sure, it's Gate A3.",
-              "text_cn": "好的，是A3登机口。",
+              "text": "Yes, it's still open—boarding is about to begin.",
+              "text_cn": "是的，还在开放，马上就要开始登机了。",
               "audio_url": "COS:/qa/responses/travel_057_sub_1_qa_3_response0.mp3"
+            },
+            {
+              "text": "No, it closed 10 minutes ago. You need to go to Gate A7 instead.",
+              "text_cn": "不，10分钟前已经关闭了，您需要去A7登机口。",
+              "audio_url": "COS:/qa/responses/travel_057_sub_1_qa_3_response1.mp3"
+            },
+            {
+              "text": "I'm not sure—I'm not assigned to that gate. Try the information desk.",
+              "text_cn": "我不确定——我不负责那个登机口，建议去信息台问问。",
+              "audio_url": "COS:/qa/responses/travel_057_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "工作人员在登机口前例行核对旅客信息时的标准提问，旅客需简洁准确回应。",
+          "usageNote": "乘客在时间紧张或信息模糊时询问登机口状态，体现真实焦虑场景",
           "audioUrl": "COS:/qa/questions/travel_057_sub_1_qa_3.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -81,7 +111,7 @@
       "id": "travel_057_sub_2",
       "sceneId": "travel_057",
       "name": "出示证件",
-      "description": "乘客出示登机牌和护照，地勤人员核对信息。",
+      "description": "乘客向地勤出示登机牌和护照进行核验。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -89,19 +119,29 @@
           "id": "travel_057_sub_2_qa_1",
           "subSceneId": "travel_057_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Can I see your passport and boarding pass, please?",
-          "triggerTextCn": "请出示您的护照和登机牌。",
+          "triggerText": "Could I see your passport and boarding pass, please?",
+          "triggerTextCn": "请出示您的护照和登机牌，好吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "机场安检或登机口工作人员要求出示证件",
+          "scenarioHintCn": "机场登机：出示证件",
           "followUps": [
             {
-              "text": "Sure, here you go.",
-              "text_cn": "当然，给您。",
+              "text": "Here you go. I've already checked in online.",
+              "text_cn": "给您，我已经在线值机了。",
               "audio_url": "COS:/qa/responses/travel_057_sub_2_qa_1_response0.mp3"
+            },
+            {
+              "text": "Sorry, I lost my boarding pass. Can I get a new one?",
+              "text_cn": "抱歉，我弄丢了登机牌，能帮我重新打印一张吗？",
+              "audio_url": "COS:/qa/responses/travel_057_sub_2_qa_1_response1.mp3"
+            },
+            {
+              "text": "I'm sorry, my passport expired last month. What should I do?",
+              "text_cn": "不好意思，我的护照上个月过期了，我该怎么办？",
+              "audio_url": "COS:/qa/responses/travel_057_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是登机时最常见、最标准的工作人员请求，用户需简洁回应并递出证件。",
+          "usageNote": "这是登机口最常见的证件查验对话，用户需根据自身证件状态做出真实回应。",
           "audioUrl": "COS:/qa/questions/travel_057_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -110,19 +150,29 @@
           "id": "travel_057_sub_2_qa_2",
           "subSceneId": "travel_057_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you have a valid ID and boarding pass?",
-          "triggerTextCn": "您有有效的身份证件和登机牌吗？",
+          "triggerText": "Is this your only piece of carry-on luggage?",
+          "triggerTextCn": "这是您唯一的随身行李吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "工作人员在登机前核对旅客证件完整性",
+          "scenarioHintCn": "机场登机：出示证件（伴随行李确认）",
           "followUps": [
             {
-              "text": "Yes, I have both.",
-              "text_cn": "是的，我都有。",
+              "text": "Yes, just this one. I checked the rest.",
+              "text_cn": "是的，就这一件，其余的已托运。",
               "audio_url": "COS:/qa/responses/travel_057_sub_2_qa_2_response0.mp3"
+            },
+            {
+              "text": "Actually, I have a small backpack too. Is that okay?",
+              "text_cn": "其实我还有一件小背包，可以吗？",
+              "audio_url": "COS:/qa/responses/travel_057_sub_2_qa_2_response1.mp3"
+            },
+            {
+              "text": "No, I have a second bag, but I thought it was allowed.",
+              "text_cn": "不是，我还有第二个包，我以为是允许的。",
+              "audio_url": "COS:/qa/responses/travel_057_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "工作人员常以确认式提问核对证件，用户只需简短确认，无需多余解释。",
+          "usageNote": "工作人员常在查验证件时同步确认随身行李数量，用户需清晰说明行李情况。",
           "audioUrl": "COS:/qa/questions/travel_057_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -130,22 +180,32 @@
         {
           "id": "travel_057_sub_2_qa_3",
           "subSceneId": "travel_057_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "What documents do I need to show for boarding?",
-          "triggerTextCn": "我登机需要出示什么证件？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you have a visa for your destination?",
+          "triggerTextCn": "您有目的地国家的签证吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "旅客不确定登机所需证件，主动询问工作人员",
+          "scenarioHintCn": "机场登机：国际航班证件核查",
           "followUps": [
             {
-              "text": "You'll need your passport and boarding pass. International flights require a valid passport.",
-              "text_cn": "您需要出示护照和登机牌。国际航班必须持有有效护照。",
+              "text": "Yes, it's in my passport. Here it is.",
+              "text_cn": "有的，在护照里，给您。",
               "audio_url": "COS:/qa/responses/travel_057_sub_2_qa_3_response0.mp3"
+            },
+            {
+              "text": "I don't need one — I'm a citizen of the destination country.",
+              "text_cn": "我不需要，我是目的地国家的公民。",
+              "audio_url": "COS:/qa/responses/travel_057_sub_2_qa_3_response1.mp3"
+            },
+            {
+              "text": "I'm not sure — I thought my e-visa was enough. Can you check?",
+              "text_cn": "我不确定，我以为电子签证就够了，您能帮我确认一下吗？",
+              "audio_url": "COS:/qa/responses/travel_057_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "旅客在不确定流程时主动询问，是高频真实场景，回应需明确列出所需文件。",
+          "usageNote": "国际航班登机时，签证状态是关键核查点，用户需根据真实情况回应，避免因误解导致登机失败。",
           "audioUrl": "COS:/qa/questions/travel_057_sub_2_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -154,48 +214,68 @@
       "id": "travel_057_sub_3",
       "sceneId": "travel_057",
       "name": "检查行李",
-      "description": "地勤询问随身行李尺寸，确认符合登机要求。",
+      "description": "地勤询问随身行李尺寸并确认符合规定。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_057_sub_3_qa_1",
           "subSceneId": "travel_057_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "Is this bag within the weight limit?",
-          "triggerTextCn": "这个行李在重量限制内吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Is this your checked bag?",
+          "triggerTextCn": "这是您的托运行李吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "乘客询问行李是否超重",
+          "scenarioHintCn": "机场安检人员确认行李归属",
           "followUps": [
             {
-              "text": "It's 23 kilograms, just under the 23 kg limit. You're good to go.",
-              "text_cn": "23公斤，刚好在23公斤的限制内，可以登机。",
+              "text": "Yes, this is mine.",
+              "text_cn": "是的，这是我的。",
               "audio_url": "COS:/qa/responses/travel_057_sub_3_qa_1_response0.mp3"
+            },
+            {
+              "text": "No, it’s my friend’s. I’ll ask him.",
+              "text_cn": "不是我的，是我朋友的，我去找他。",
+              "audio_url": "COS:/qa/responses/travel_057_sub_3_qa_1_response1.mp3"
+            },
+            {
+              "text": "I’m not sure — can you check the tag?",
+              "text_cn": "我不确定，能帮我看看标签吗？",
+              "audio_url": "COS:/qa/responses/travel_057_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "乘客在安检或值机柜台确认行李重量是否符合规定时使用，语气礼貌直接。",
+          "usageNote": "用于确认行李所有权，是登机前安检的标准流程。",
           "audioUrl": "COS:/qa/questions/travel_057_sub_3_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "travel_057_sub_3_qa_2",
           "subSceneId": "travel_057_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you need to check this carry-on?",
-          "triggerTextCn": "需要托运这件随身行李吗？",
+          "triggerText": "Does this bag exceed the weight limit?",
+          "triggerTextCn": "这个行李超重了吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "安检人员询问乘客是否需要托运随身行李",
+          "scenarioHintCn": "旅客询问行李是否超重",
           "followUps": [
             {
-              "text": "No, it fits under the seat. I'll keep it with me.",
-              "text_cn": "不用，能放进前排座椅下方，我会随身带着。",
+              "text": "Yes, it’s 2 kg over. You’ll need to pay an excess fee.",
+              "text_cn": "是的，超了2公斤，需要支付超重费。",
               "audio_url": "COS:/qa/responses/travel_057_sub_3_qa_2_response0.mp3"
+            },
+            {
+              "text": "No, it’s within the limit — you’re good to go.",
+              "text_cn": "没有超重，可以正常托运。",
+              "audio_url": "COS:/qa/responses/travel_057_sub_3_qa_2_response1.mp3"
+            },
+            {
+              "text": "It’s slightly over — would you like to remove something?",
+              "text_cn": "稍微超了一点，您要取出些物品吗？",
+              "audio_url": "COS:/qa/responses/travel_057_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "工作人员确认随身行李是否需托运，用户应简洁明确回应，避免冗长解释。",
+          "usageNote": "旅客常因担心超重主动询问，回应需清晰说明结果与选项。",
           "audioUrl": "COS:/qa/questions/travel_057_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -204,19 +284,29 @@
           "id": "travel_057_sub_3_qa_3",
           "subSceneId": "travel_057_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Could you please open this bag for inspection?",
-          "triggerTextCn": "能麻烦您打开这个包接受检查吗？",
+          "triggerText": "Do you have any prohibited items in this bag?",
+          "triggerTextCn": "这个行李里有禁运物品吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "安检人员要求打开行李进行安全检查",
+          "scenarioHintCn": "安检人员检查违禁品",
           "followUps": [
             {
-              "text": "Sure, here you go. It's just clothes and toiletries.",
-              "text_cn": "当然，给您。里面只是衣服和洗漱用品。",
+              "text": "No, everything is fine — just clothes and toiletries.",
+              "text_cn": "没有，只有衣服和洗漱用品。",
               "audio_url": "COS:/qa/responses/travel_057_sub_3_qa_3_response0.mp3"
+            },
+            {
+              "text": "I have a bottle of lotion — is that okay?",
+              "text_cn": "我有一瓶润肤露，可以带吗？",
+              "audio_url": "COS:/qa/responses/travel_057_sub_3_qa_3_response1.mp3"
+            },
+            {
+              "text": "Oh no — I forgot I had a knife in my pocket. I’ll check it in.",
+              "text_cn": "天啊，我忘了口袋里有把小刀，我来托运。",
+              "audio_url": "COS:/qa/responses/travel_057_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "安检人员要求开包检查时，乘客应配合并简要说明内容，语气礼貌且直接。",
+          "usageNote": "安检关键环节，用户可能不知情携带违禁品，回应需体现真实反应与应对。",
           "audioUrl": "COS:/qa/questions/travel_057_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -227,48 +317,68 @@
       "id": "travel_057_sub_4",
       "sceneId": "travel_057",
       "name": "登机指引",
-      "description": "地勤告知登机时间与通道，提醒乘客排队等候。",
+      "description": "地勤告知登机顺序和登机时间，指引乘客排队。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_057_sub_4_qa_1",
           "subSceneId": "travel_057_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Could you please confirm my boarding gate?",
-          "triggerTextCn": "您能帮我确认一下登机口吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Could I see your boarding pass and passport, please?",
+          "triggerTextCn": "请出示您的登机牌和护照。",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "旅客在机场询问登机口信息",
+          "scenarioHintCn": "登机口工作人员核对身份和登机信息",
           "followUps": [
             {
-              "text": "Certainly! Your flight is boarding at Gate B12. Please proceed there and have your boarding pass ready.",
-              "text_cn": "当然！您的航班在B12登机口登机，请前往该处并准备好登机牌。",
+              "text": "Here you go. I have my digital boarding pass on my phone.",
+              "text_cn": "给您，我的登机牌在手机上。",
               "audio_url": "COS:/qa/responses/travel_057_sub_4_qa_1_response0.mp3"
+            },
+            {
+              "text": "Sorry, I left my passport at home. Can I still check in?",
+              "text_cn": "抱歉，我把护照忘在家里了，还能办理登机吗？",
+              "audio_url": "COS:/qa/responses/travel_057_sub_4_qa_1_response1.mp3"
+            },
+            {
+              "text": "I'm sorry, I don't have my boarding pass. Can you help me reprint it?",
+              "text_cn": "不好意思，我没拿到登机牌，能帮我重新打印一份吗？",
+              "audio_url": "COS:/qa/responses/travel_057_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "旅客在到达登机区后，不确定登机口时常用此句询问工作人员",
+          "usageNote": "这是登机流程中最常见的身份核验环节，用户需准备证件，可能遇到电子/纸质/缺失等不同情况。",
           "audioUrl": "COS:/qa/questions/travel_057_sub_4_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "travel_057_sub_4_qa_2",
           "subSceneId": "travel_057_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Have you checked in online?",
-          "triggerTextCn": "您在线办理过登机手续了吗？",
+          "triggerText": "Which gate are you boarding from?",
+          "triggerTextCn": "您从哪个登机口登机？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "机场工作人员询问旅客是否已完成在线值机",
+          "scenarioHintCn": "工作人员确认登机口信息，引导乘客前往正确区域",
           "followUps": [
             {
-              "text": "Yes, I checked in online and have my mobile boarding pass.",
-              "text_cn": "是的，我已经在线值机了，有手机登机牌。",
+              "text": "Gate B12, I think. My flight is UA245 to Tokyo.",
+              "text_cn": "应该是B12登机口，我的航班是UA245飞东京。",
               "audio_url": "COS:/qa/responses/travel_057_sub_4_qa_2_response0.mp3"
+            },
+            {
+              "text": "I'm not sure. Can you check my flight on the screen?",
+              "text_cn": "我不确定，您能帮我查一下屏幕上的航班信息吗？",
+              "audio_url": "COS:/qa/responses/travel_057_sub_4_qa_2_response1.mp3"
+            },
+            {
+              "text": "I just landed from a connecting flight. Is this the right gate?",
+              "text_cn": "我刚从转机航班下来，这是正确的登机口吗？",
+              "audio_url": "COS:/qa/responses/travel_057_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "工作人员常以此句快速判断旅客是否需要柜台办理手续，回应应简洁明确",
+          "usageNote": "登机口确认是登机前关键步骤，用户可能因转机、信息混乱或不熟悉机场而需要帮助。",
           "audioUrl": "COS:/qa/questions/travel_057_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -276,22 +386,32 @@
         {
           "id": "travel_057_sub_4_qa_3",
           "subSceneId": "travel_057_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Is this the correct line for international flights?",
-          "triggerTextCn": "这是国际航班的排队通道吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you have any bags to check?",
+          "triggerTextCn": "您有需要托运的行李吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "旅客在安检或登机口前确认自己是否在正确的队伍中",
+          "scenarioHintCn": "登机前确认行李托运状态，区分随身与托运行李",
           "followUps": [
             {
-              "text": "Yes, this is the international departures line. Please make sure your passport and visa are ready for inspection.",
-              "text_cn": "是的，这是国际航班出发通道。请确保您的护照和签证已准备好接受检查。",
+              "text": "Yes, one suitcase, please. Here's the tag.",
+              "text_cn": "是的，一件托运行李，这是行李标签。",
               "audio_url": "COS:/qa/responses/travel_057_sub_4_qa_3_response0.mp3"
+            },
+            {
+              "text": "No, just this carry-on. I'm trying to avoid baggage fees.",
+              "text_cn": "没有，只有这个随身包，我想避免托运费。",
+              "audio_url": "COS:/qa/responses/travel_057_sub_4_qa_3_response1.mp3"
+            },
+            {
+              "text": "I'm not sure—can you help me weigh it? I think it might be over the limit.",
+              "text_cn": "我不确定，能帮我称一下吗？我觉得可能超重了。",
+              "audio_url": "COS:/qa/responses/travel_057_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "国际旅客常因流程复杂而确认队伍正确性，此句是高频实用表达",
+          "usageNote": "行李检查是登机前高频环节，用户可能因费用、超重或不确定规则而有不同反应。",
           "audioUrl": "COS:/qa/questions/travel_057_sub_4_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -300,7 +420,7 @@
       "id": "travel_057_sub_5",
       "sceneId": "travel_057",
       "name": "道别登机",
-      "description": "地勤祝福旅程愉快，乘客礼貌回应并前往登机。",
+      "description": "乘客感谢地勤，顺利前往登机通道。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -308,19 +428,29 @@
           "id": "travel_057_sub_5_qa_1",
           "subSceneId": "travel_057_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Your boarding pass, please.",
-          "triggerTextCn": "请出示您的登机牌。",
+          "triggerText": "Your gate is 23B. Do you have your boarding pass?",
+          "triggerTextCn": "您的登机口是23B。您有登机牌吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "登机口工作人员核对登机信息",
+          "scenarioHintCn": "机场登机时，工作人员核对登机牌",
           "followUps": [
             {
-              "text": "Here you go. Thanks!",
-              "text_cn": "给您，谢谢！",
+              "text": "Yes, here it is. I scanned it at the kiosk.",
+              "text_cn": "有的，给您，我在自助机上扫过了。",
               "audio_url": "COS:/qa/responses/travel_057_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "I haven't printed it yet—can I get it here?",
+              "text_cn": "我还没打印，能在这里打印吗？",
+              "audio_url": "COS:/qa/responses/travel_057_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "I think I lost it… can you help me reprint?",
+              "text_cn": "我觉得我弄丢了……能帮我重新打印一份吗？",
+              "audio_url": "COS:/qa/responses/travel_057_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是登机口最常见的开场白，用户需快速递出登机牌并礼貌回应。",
+          "usageNote": "用于登机前核对登机凭证的典型对话，覆盖顺利、未打印、丢失三种常见情况",
           "audioUrl": "COS:/qa/questions/travel_057_sub_5_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -328,41 +458,61 @@
         {
           "id": "travel_057_sub_5_qa_2",
           "subSceneId": "travel_057_sub_5",
-          "dialogueMode": "user_asks",
-          "triggerText": "Is this the correct gate for Flight AA123 to Los Angeles?",
-          "triggerTextCn": "这是飞往洛杉矶的AA123航班的正确登机口吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Is this your final destination?",
+          "triggerTextCn": "这是您的最终目的地吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "旅客确认登机口信息以防走错",
+          "scenarioHintCn": "登机前确认乘客是否中转或直达",
           "followUps": [
             {
-              "text": "Yes, that's correct. Gate B7, boarding starts in 15 minutes.",
-              "text_cn": "是的，没错。B7登机口，15分钟后开始登机。",
+              "text": "Yes, I'm staying in Los Angeles.",
+              "text_cn": "是的，我在洛杉矶下机。",
               "audio_url": "COS:/qa/responses/travel_057_sub_5_qa_2_response0.mp3"
+            },
+            {
+              "text": "No, I'm connecting to San Francisco—do I need to recheck my bag?",
+              "text_cn": "不是，我要转机去旧金山——需要重新托运行李吗？",
+              "audio_url": "COS:/qa/responses/travel_057_sub_5_qa_2_response1.mp3"
+            },
+            {
+              "text": "I'm not sure—I have a 3-hour layover. Will I make it?",
+              "text_cn": "我不太确定——我有3小时中转，来得及吗？",
+              "audio_url": "COS:/qa/responses/travel_057_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "旅客在不确定登机口时的典型询问，语气礼貌且信息明确。",
+          "usageNote": "工作人员确认行程终点，用户回应涵盖直达、中转、焦虑中转三种真实反应",
           "audioUrl": "COS:/qa/questions/travel_057_sub_5_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "travel_057_sub_5_qa_3",
           "subSceneId": "travel_057_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Have a great trip!",
-          "triggerTextCn": "祝您旅途愉快！",
+          "triggerText": "Any carry-on bags?",
+          "triggerTextCn": "有随身行李吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "工作人员在旅客登机前致以告别祝福",
+          "scenarioHintCn": "登机口前检查随身行李数量或尺寸",
           "followUps": [
             {
-              "text": "Thank you! You too!",
-              "text_cn": "谢谢！您也是！",
+              "text": "Just one small backpack—I'll put it under the seat.",
+              "text_cn": "只有一个小型背包，我会放在座位底下。",
               "audio_url": "COS:/qa/responses/travel_057_sub_5_qa_3_response0.mp3"
+            },
+            {
+              "text": "I have two bags—can I check one at the gate?",
+              "text_cn": "我有两个包，能在登机口托运一个吗？",
+              "audio_url": "COS:/qa/responses/travel_057_sub_5_qa_3_response1.mp3"
+            },
+            {
+              "text": "I'm not sure—this one might be too big. Can you check?",
+              "text_cn": "我不确定——这个包可能超大，能帮我看看吗？",
+              "audio_url": "COS:/qa/responses/travel_057_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "登机道别时的自然社交回应，简洁温暖，符合英语母语者习惯。",
+          "usageNote": "登机前常见行李检查对话，回应涵盖合规、超限、不确定三种典型用户反应",
           "audioUrl": "COS:/qa/questions/travel_057_sub_5_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3

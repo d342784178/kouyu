@@ -1,55 +1,75 @@
 {
   "sceneId": "social_076",
   "sceneName": "自我介绍",
-  "generatedAt": "2026-03-16T08:14:42.934Z",
+  "generatedAt": "2026-03-17T02:58:27.193Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "social_076_sub_1",
       "sceneId": "social_076",
-      "name": "初次打招呼",
-      "description": "在社交场合主动微笑问候，开启自然对话。",
+      "name": "开场寒暄",
+      "description": "在聚会中主动微笑打招呼，开启自然对话。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "social_076_sub_1_qa_1",
           "subSceneId": "social_076_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "Hi, I'm Alex. What's your name?",
-          "triggerTextCn": "嗨，我是亚历克斯，你叫什么名字？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hey, I haven't seen you in a while! How have you been?",
+          "triggerTextCn": "嘿，好久没见了！你最近怎么样？",
+          "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "社交场景：初次打招呼，自我介绍",
+          "scenarioHintCn": "社交场合中朋友/同事开场寒暄，询问近况",
           "followUps": [
             {
-              "text": "Nice to meet you, Alex! I'm Jamie. I work in marketing.",
-              "text_cn": "很高兴认识你，亚历克斯！我是杰米，我在市场部工作。",
+              "text": "Not bad! Just been swamped with work, but hanging in there.",
+              "text_cn": "还不错！最近工作忙得不可开交，但还撑得住。",
               "audio_url": "COS:/qa/responses/social_076_sub_1_qa_1_response0.mp3"
+            },
+            {
+              "text": "Pretty good! I started a new hobby—painting. You ever tried it?",
+              "text_cn": "挺好的！我开始了一个新爱好——画画。你试过吗？",
+              "audio_url": "COS:/qa/responses/social_076_sub_1_qa_1_response1.mp3"
+            },
+            {
+              "text": "To be honest, it’s been a bit rough lately.",
+              "text_cn": "说实话，最近有点难熬。",
+              "audio_url": "COS:/qa/responses/social_076_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于主动开启社交对话，自然引入自我介绍并询问对方信息",
+          "usageNote": "适用于朋友或同事间非正式寒暄，回应时可根据关系亲疏选择开放或保守的语气",
           "audioUrl": "COS:/qa/questions/social_076_sub_1_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "social_076_sub_1_qa_2",
           "subSceneId": "social_076_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Hey, you're new here, right? What do you do?",
-          "triggerTextCn": "嘿，你是新来的吧？你是做什么工作的？",
+          "triggerText": "So, what have you been up to lately?",
+          "triggerTextCn": "那你最近在忙什么？",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "社交场景：同事/同学初次见面，主动询问背景",
+          "scenarioHintCn": "社交场合中对方主动询问近况，开启个人话题",
           "followUps": [
             {
-              "text": "Yeah, I just joined last week. I'm a software developer.",
-              "text_cn": "对，我上周刚加入，我是软件开发工程师。",
+              "text": "I’ve been traveling a bit—just came back from a weekend trip to the mountains.",
+              "text_cn": "我最近出去旅行了，刚从一次周末登山旅行回来。",
               "audio_url": "COS:/qa/responses/social_076_sub_1_qa_2_response0.mp3"
+            },
+            {
+              "text": "Not much—just working and binge-watching shows. You?",
+              "text_cn": "没什么特别的，就是上班和追剧。你呢？",
+              "audio_url": "COS:/qa/responses/social_076_sub_1_qa_2_response1.mp3"
+            },
+            {
+              "text": "Actually, I switched jobs last month—I’m in marketing now!",
+              "text_cn": "其实我上个月换工作了，现在做市场了！",
+              "audio_url": "COS:/qa/responses/social_076_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "peer在社交场合中自然提问，用户需简洁回应职业背景，避免冗长",
+          "usageNote": "回应时建议结合真实生活细节，避免笼统回答如'I'm fine'，以促进自然交流",
           "audioUrl": "COS:/qa/questions/social_076_sub_1_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -58,19 +78,29 @@
           "id": "social_076_sub_1_qa_3",
           "subSceneId": "social_076_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "How do you know the host?",
-          "triggerTextCn": "你怎么认识主人的？",
+          "triggerText": "You’re new here, right? How’s everything going so far?",
+          "triggerTextCn": "你是新来的吧？到这儿感觉怎么样？",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "社交场景：聚会中陌生人开启对话，探寻共同联系",
+          "scenarioHintCn": "新同事/新成员融入社交圈时，他人表达关心",
           "followUps": [
             {
-              "text": "We met at a conference last year. I'm in the same industry.",
-              "text_cn": "去年在一次会议上认识的，我在同一个行业。",
+              "text": "It’s been great! Everyone’s been super friendly, and I’m already starting to feel at home.",
+              "text_cn": "感觉很棒！大家都特别友好，我已经开始有家的感觉了。",
               "audio_url": "COS:/qa/responses/social_076_sub_1_qa_3_response0.mp3"
+            },
+            {
+              "text": "It’s a bit overwhelming, but I’m learning fast. Still figuring out the team dynamics.",
+              "text_cn": "有点应接不暇，但我学得挺快的，还在摸清团队的相处方式。",
+              "audio_url": "COS:/qa/responses/social_076_sub_1_qa_3_response1.mp3"
+            },
+            {
+              "text": "Honestly? I’m still lost—can you help me find the break room?",
+              "text_cn": "说实话？我还在迷路呢——你能帮我找一下休息室吗？",
+              "audio_url": "COS:/qa/responses/social_076_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "在社交聚会中常见破冰问题，回应应简明并建立共同点",
+          "usageNote": "适用于职场新人，回应时可结合具体细节（如地点、人名）增强真实感，避免空泛赞美或抱怨",
           "audioUrl": "COS:/qa/questions/social_076_sub_1_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -89,19 +119,29 @@
           "id": "social_076_sub_2_qa_1",
           "subSceneId": "social_076_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Hi, I'm Alex. What's your name?",
-          "triggerTextCn": "嗨，我是Alex，你叫什么名字？",
+          "triggerText": "What do you do?",
+          "triggerTextCn": "你是做什么的？",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "社交场合中，对方主动打招呼并开启自我介绍",
+          "scenarioHintCn": "社交场合中，对方询问你的职业或日常角色",
           "followUps": [
             {
-              "text": "Hi Alex, I'm Jamie. I just started working at the marketing team last week.",
-              "text_cn": "嗨，Alex，我是Jamie，我上周刚加入市场部。",
+              "text": "I'm a software engineer at a startup.",
+              "text_cn": "我在一家初创公司做软件工程师。",
               "audio_url": "COS:/qa/responses/social_076_sub_2_qa_1_response0.mp3"
+            },
+            {
+              "text": "I'm currently a student majoring in design.",
+              "text_cn": "我目前是设计专业的学生。",
+              "audio_url": "COS:/qa/responses/social_076_sub_2_qa_1_response1.mp3"
+            },
+            {
+              "text": "I'm between jobs right now, focusing on freelance projects.",
+              "text_cn": "我目前在换工作，主要做自由职业项目。",
+              "audio_url": "COS:/qa/responses/social_076_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于初次见面时回应对方的自我介绍，简洁自然地提供姓名和背景信息",
+          "usageNote": "用于回应关于职业或身份的常见社交提问，避免只说 'I work' 或 'I'm a student'，加入细节更自然",
           "audioUrl": "COS:/qa/questions/social_076_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -110,19 +150,29 @@
           "id": "social_076_sub_2_qa_2",
           "subSceneId": "social_076_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "So, what do you do in your free time?",
-          "triggerTextCn": "那你平时空闲时喜欢做什么？",
+          "triggerText": "Where are you from?",
+          "triggerTextCn": "你来自哪里？",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "对方在初步介绍后，进一步询问个人兴趣以加深交流",
+          "scenarioHintCn": "社交场合中，对方试图建立地域联系或寻找共同点",
           "followUps": [
             {
-              "text": "I love hiking on weekends and lately I've been learning guitar — still pretty bad at it though!",
-              "text_cn": "我喜欢周末去徒步，最近还在学吉他——不过还很菜就是了！",
+              "text": "I'm from Shanghai, but I moved to Beijing two years ago.",
+              "text_cn": "我来自上海，但两年前搬到了北京。",
               "audio_url": "COS:/qa/responses/social_076_sub_2_qa_2_response0.mp3"
+            },
+            {
+              "text": "I'm originally from Canada, but I've been living here for five years.",
+              "text_cn": "我原本是加拿大人，但已经在这里住了五年。",
+              "audio_url": "COS:/qa/responses/social_076_sub_2_qa_2_response1.mp3"
+            },
+            {
+              "text": "I'm from a small town in the south—I'm still getting used to city life!",
+              "text_cn": "我来自南方的一个小镇，还在适应城市生活呢！",
+              "audio_url": "COS:/qa/responses/social_076_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "回应兴趣类问题时，用轻松语气加入一点自嘲，更显真实自然",
+          "usageNote": "回答时加入迁移或适应信息，比单纯说 'I'm from X' 更有对话延展性",
           "audioUrl": "COS:/qa/questions/social_076_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -131,19 +181,29 @@
           "id": "social_076_sub_2_qa_3",
           "subSceneId": "social_076_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Nice to meet you! Where are you from originally?",
-          "triggerTextCn": "很高兴认识你！你老家是哪里的？",
+          "triggerText": "How do you know Alex?",
+          "triggerTextCn": "你怎么认识Alex的？",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "对方在建立初步联系后，询问成长背景以拓展对话",
+          "scenarioHintCn": "在聚会或社交活动中，对方通过共同认识的人切入话题",
           "followUps": [
             {
-              "text": "I'm from Chicago, but I've been living in Boston for the past three years. It's been a great change!",
-              "text_cn": "我来自芝加哥，但过去三年一直住在波士顿，感觉特别棒！",
+              "text": "We met at university—we were in the same study group.",
+              "text_cn": "我们在大学认识的，当时在一个学习小组。",
               "audio_url": "COS:/qa/responses/social_076_sub_2_qa_3_response0.mp3"
+            },
+            {
+              "text": "We're neighbors—we live in the same building.",
+              "text_cn": "我们是邻居，住在同一栋楼。",
+              "audio_url": "COS:/qa/responses/social_076_sub_2_qa_3_response1.mp3"
+            },
+            {
+              "text": "Actually, I don't know him well—I just got invited to this party.",
+              "text_cn": "其实我不太熟他，只是被邀请来参加这个派对。",
+              "audio_url": "COS:/qa/responses/social_076_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "回答出身地时，自然带出当前居住地和感受，体现积极社交态度",
+          "usageNote": "回应关于共同认识的人时，可选择建立联系、弱化关系或坦诚陌生，体现社交灵活性",
           "audioUrl": "COS:/qa/questions/social_076_sub_2_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -161,20 +221,30 @@
         {
           "id": "social_076_sub_3_qa_1",
           "subSceneId": "social_076_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "What do you do for work?",
-          "triggerTextCn": "你是做什么工作的？",
-          "triggerSpeakerRole": "peer",
+          "dialogueMode": "user_asks",
+          "triggerText": "What do you do?",
+          "triggerTextCn": "你是做什么的？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "社交场合中，对方主动询问你的职业",
+          "scenarioHintCn": "社交场合中，初次见面询问对方职业",
           "followUps": [
             {
-              "text": "I'm a software engineer at a startup.",
-              "text_cn": "我在一家初创公司做软件工程师。",
+              "text": "I'm a software engineer at a startup. I love building apps that solve real problems.",
+              "text_cn": "我在一家初创公司做软件工程师，我喜欢开发解决实际问题的应用。",
               "audio_url": "COS:/qa/responses/social_076_sub_3_qa_1_response0.mp3"
+            },
+            {
+              "text": "I work in marketing — pretty standard stuff, to be honest.",
+              "text_cn": "我做市场工作——说实话，挺普通的。",
+              "audio_url": "COS:/qa/responses/social_076_sub_3_qa_1_response1.mp3"
+            },
+            {
+              "text": "Actually, I'm between jobs right now — I'm exploring some new opportunities.",
+              "text_cn": "其实我目前在换工作，正在探索一些新机会。",
+              "audio_url": "COS:/qa/responses/social_076_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "简洁回答职业，避免冗长解释，适合初次社交寒暄",
+          "usageNote": "用于社交场合中自然询问对方职业，回应应体现不同态度：热情、低调或坦诚过渡期",
           "audioUrl": "COS:/qa/questions/social_076_sub_3_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -182,20 +252,30 @@
         {
           "id": "social_076_sub_3_qa_2",
           "subSceneId": "social_076_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "Where are you from originally?",
-          "triggerTextCn": "你老家是哪里的？",
-          "triggerSpeakerRole": "peer",
+          "dialogueMode": "user_asks",
+          "triggerText": "Where are you from?",
+          "triggerTextCn": "你来自哪里？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "朋友或同事想了解你的背景，建立连接",
+          "scenarioHintCn": "社交场合中，通过地域建立联系",
           "followUps": [
             {
-              "text": "I'm from Shanghai, but I've been living in Beijing for three years.",
-              "text_cn": "我来自上海，但已经在北京住了三年。",
+              "text": "I'm from Toronto, but I've been living in Berlin for the past three years.",
+              "text_cn": "我来自多伦多，但过去三年一直住在柏林。",
               "audio_url": "COS:/qa/responses/social_076_sub_3_qa_2_response0.mp3"
+            },
+            {
+              "text": "I'm from a small town in the south — you probably haven't heard of it!",
+              "text_cn": "我来自南方的一个小镇，你可能没听过！",
+              "audio_url": "COS:/qa/responses/social_076_sub_3_qa_2_response1.mp3"
+            },
+            {
+              "text": "I was born in Japan, but I grew up in the U.S. — so I kind of straddle two cultures.",
+              "text_cn": "我出生在日本，但在美国长大——所以我算是跨越两种文化。",
+              "audio_url": "COS:/qa/responses/social_076_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "回答包含原籍+当前居住地，自然展现生活轨迹，符合社交习惯",
+          "usageNote": "询问出身地是社交破冰高频句，回应应体现地理迁移、文化身份或谦逊态度",
           "audioUrl": "COS:/qa/questions/social_076_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -203,20 +283,30 @@
         {
           "id": "social_076_sub_3_qa_3",
           "subSceneId": "social_076_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "How do you know the host?",
-          "triggerTextCn": "你怎么认识主人的？",
-          "triggerSpeakerRole": "peer",
+          "dialogueMode": "user_asks",
+          "triggerText": "How do you know [Name]?",
+          "triggerTextCn": "你怎么认识[名字]的？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "在聚会中，陌生人通过共同联系人开启对话",
+          "scenarioHintCn": "在共同熟人介绍的社交场合中，询问关系来源",
           "followUps": [
             {
-              "text": "We met at university — we were in the same study group.",
-              "text_cn": "我们在大学认识的，当时在一个学习小组。",
+              "text": "We met at a hiking group last year — we’ve been friends ever since.",
+              "text_cn": "去年我们在一个徒步小组认识的，从那以后就成了朋友。",
               "audio_url": "COS:/qa/responses/social_076_sub_3_qa_3_response0.mp3"
+            },
+            {
+              "text": "We worked together at the same company — I left last month, actually.",
+              "text_cn": "我们以前在同一家公司上班——其实我上个月刚离职。",
+              "audio_url": "COS:/qa/responses/social_076_sub_3_qa_3_response1.mp3"
+            },
+            {
+              "text": "Actually, I don’t know them well — we were just introduced tonight.",
+              "text_cn": "其实我也不太认识他们——今晚才刚被介绍认识。",
+              "audio_url": "COS:/qa/responses/social_076_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "用简单过去时说明关系来源，避免过度细节，保持轻松语气",
+          "usageNote": "用于社交圈交叉场景，回应需体现关系深度、时间背景或诚实边界，避免虚假夸大",
           "audioUrl": "COS:/qa/questions/social_076_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -227,7 +317,7 @@
       "id": "social_076_sub_4",
       "sceneId": "social_076",
       "name": "寻找共鸣",
-      "description": "基于共同爱好或背景，延伸话题建立连接。",
+      "description": "根据对方回答发现共同爱好，延伸话题加深互动。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -235,19 +325,29 @@
           "id": "social_076_sub_4_qa_1",
           "subSceneId": "social_076_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you also work from home sometimes?",
-          "triggerTextCn": "你也会有时候在家上班吗？",
+          "triggerText": "Where are you from originally?",
+          "triggerTextCn": "你最初是哪里人？",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "社交场景：同事间寻找共同生活经验以建立联系",
+          "scenarioHintCn": "社交场景中通过出身地寻找共同背景",
           "followUps": [
             {
-              "text": "Yes, twice a week! It's a game-changer for my morning routine.",
-              "text_cn": "是啊，每周两次！对我的早晨安排帮助太大了。",
+              "text": "I'm from Chengdu — have you ever been there? The food is unreal!",
+              "text_cn": "我来自成都——你去过吗？那里的美食太棒了！",
               "audio_url": "COS:/qa/responses/social_076_sub_4_qa_1_response0.mp3"
+            },
+            {
+              "text": "Actually, I grew up in a small town in Guangdong, but I moved to the city for college.",
+              "text_cn": "其实我出生在广东的一个小镇，后来上大学才搬到城市。",
+              "audio_url": "COS:/qa/responses/social_076_sub_4_qa_1_response1.mp3"
+            },
+            {
+              "text": "I was born in Beijing, but I’ve lived in five different cities — I’m kind of a nomad!",
+              "text_cn": "我出生在北京，但搬过五个城市，算个漂泊者了！",
+              "audio_url": "COS:/qa/responses/social_076_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于回应对方关于生活习惯的试探性提问，表达共鸣并自然延伸话题",
+          "usageNote": "用于社交场合中建立初步连接，回应时最好加入个人细节或情感，引导对方继续分享",
           "audioUrl": "COS:/qa/questions/social_076_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -256,19 +356,29 @@
           "id": "social_076_sub_4_qa_2",
           "subSceneId": "social_076_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "You're into hiking too? I've been trying to get out more this year.",
-          "triggerTextCn": "你也喜欢徒步吗？我今年一直在努力多出去走走。",
+          "triggerText": "Do you like hiking on weekends?",
+          "triggerTextCn": "你周末喜欢去徒步吗？",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "社交场景：通过共同兴趣建立情感连接",
+          "scenarioHintCn": "通过兴趣爱好寻找共同活动偏好",
           "followUps": [
             {
-              "text": "Absolutely! Last month I hiked Mount Tai—best escape from the city.",
-              "text_cn": "当然！上个月我爬了泰山，真是逃离城市最好的方式。",
+              "text": "Yes! I go hiking every Saturday — last week I found this amazing trail near the lake.",
+              "text_cn": "是的！我每周六都去徒步——上周发现了一条湖边超棒的小径。",
               "audio_url": "COS:/qa/responses/social_076_sub_4_qa_2_response0.mp3"
+            },
+            {
+              "text": "Not really — I’m more of a coffee shop person, but I envy people who do!",
+              "text_cn": "不太喜欢，我更爱待在咖啡馆，但我挺羡慕能徒步的人！",
+              "audio_url": "COS:/qa/responses/social_076_sub_4_qa_2_response1.mp3"
+            },
+            {
+              "text": "I used to hate it, but my roommate got me into it last year — now I’m hooked!",
+              "text_cn": "我以前讨厌徒步，但去年室友带我试了一次，现在上瘾了！",
+              "audio_url": "COS:/qa/responses/social_076_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "回应对方关于兴趣爱好的分享，用具体经历强化共鸣，避免简单回答'是的'",
+          "usageNote": "回应兴趣类问题时，避免简单‘yes/no’，加入转变、原因或情感更易引发深入对话",
           "audioUrl": "COS:/qa/questions/social_076_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -277,19 +387,29 @@
           "id": "social_076_sub_4_qa_3",
           "subSceneId": "social_076_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you ever feel overwhelmed by all the meetings?",
-          "triggerTextCn": "你有没有觉得会议多到让人喘不过气？",
+          "triggerText": "What’s your favorite way to unwind after work?",
+          "triggerTextCn": "下班后你最喜欢怎么放松？",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "社交场景：同事间吐槽工作压力以建立情感认同",
+          "scenarioHintCn": "通过日常习惯寻找生活节奏的共鸣",
           "followUps": [
             {
-              "text": "All the time! I’ve started blocking 'no meeting' hours—saved my sanity.",
-              "text_cn": "经常啊！我开始预留‘无会议时间’了，真的救了我。",
+              "text": "I binge-watch K-dramas — last night I finished an entire season in one sitting!",
+              "text_cn": "我追韩剧上瘾——昨晚一晚上看完了整季！",
               "audio_url": "COS:/qa/responses/social_076_sub_4_qa_3_response0.mp3"
+            },
+            {
+              "text": "I meditate for 15 minutes — it’s boring, but it actually works.",
+              "text_cn": "我冥想15分钟——有点无聊，但真的有效。",
+              "audio_url": "COS:/qa/responses/social_076_sub_4_qa_3_response1.mp3"
+            },
+            {
+              "text": "I don’t really unwind — I just keep working on side projects. I know, I need help!",
+              "text_cn": "我其实不怎么放松，总在搞副业。我知道，我该求助了！",
+              "audio_url": "COS:/qa/responses/social_076_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "回应对方对职场压力的共鸣式提问，用幽默+小技巧增强真实感和亲和力",
+          "usageNote": "回应放松方式时，加入一点自嘲、反差或小缺点，能显著提升真实感和共鸣度",
           "audioUrl": "COS:/qa/questions/social_076_sub_4_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -308,19 +428,29 @@
           "id": "social_076_sub_5_qa_1",
           "subSceneId": "social_076_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Well, I should head out — it's getting late.",
-          "triggerTextCn": "我该走了，时间不早了。",
+          "triggerText": "It was great talking with you!",
+          "triggerTextCn": "和你聊天真开心！",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "社交场合，朋友主动告别",
+          "scenarioHintCn": "社交场景：朋友/同事礼貌告别",
           "followUps": [
             {
-              "text": "Yeah, me too — thanks for hanging out!",
-              "text_cn": "是啊，我也是——谢谢你陪我！",
+              "text": "Same here! Let’s grab coffee next week.",
+              "text_cn": "我也是！下周我们喝杯咖啡吧。",
               "audio_url": "COS:/qa/responses/social_076_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "Thanks! Have a great evening!",
+              "text_cn": "谢谢！祝你今晚愉快！",
+              "audio_url": "COS:/qa/responses/social_076_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "Yeah, I should head out—I’ve got an early meeting tomorrow.",
+              "text_cn": "是啊，我得走了，明天一早有会。",
+              "audio_url": "COS:/qa/responses/social_076_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于自然回应朋友的告别，表达感谢并同步表达离开意愿，语气轻松友好",
+          "usageNote": "用于朋友或同事间自然结束对话，避免冷场或突兀离开",
           "audioUrl": "COS:/qa/questions/social_076_sub_5_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -329,19 +459,29 @@
           "id": "social_076_sub_5_qa_2",
           "subSceneId": "social_076_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "It was great catching up — let's do this again soon!",
-          "triggerTextCn": "聊得真开心，我们尽快再聚吧！",
+          "triggerText": "I’ve got to run, but it was nice seeing you!",
+          "triggerTextCn": "我得走了，不过见到你真好！",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "同事/朋友结束闲聊，礼貌告别并提议再约",
+          "scenarioHintCn": "社交场景：对方匆忙告别时的礼貌回应",
           "followUps": [
             {
-              "text": "Absolutely! Let me know when you're free next week.",
-              "text_cn": "当然！下周有空告诉我一声。",
+              "text": "No problem! Let’s catch up soon!",
+              "text_cn": "没问题！我们尽快再联系！",
               "audio_url": "COS:/qa/responses/social_076_sub_5_qa_2_response0.mp3"
+            },
+            {
+              "text": "You too! Take care!",
+              "text_cn": "你也是！保重！",
+              "audio_url": "COS:/qa/responses/social_076_sub_5_qa_2_response1.mp3"
+            },
+            {
+              "text": "Wait, can we exchange numbers? I’d love to stay in touch.",
+              "text_cn": "等一下，我们能交换下联系方式吗？我想保持联系。",
+              "audio_url": "COS:/qa/responses/social_076_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "回应对方的友好告别提议，既接受邀请又主动推进下次见面，符合社交习惯",
+          "usageNote": "适用于对方因时间紧张而提前告别的场景，回应需体现理解与温度",
           "audioUrl": "COS:/qa/questions/social_076_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -350,19 +490,29 @@
           "id": "social_076_sub_5_qa_3",
           "subSceneId": "social_076_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "I've got to run — but really enjoyed talking with you!",
-          "triggerTextCn": "我得走了，但和你聊天真的很开心！",
+          "triggerText": "Well, I should get going—thanks for the chat!",
+          "triggerTextCn": "我该走了，谢谢你的聊天！",
           "triggerSpeakerRole": "peer",
           "scenarioHint": null,
-          "scenarioHintCn": "社交场合中对方因事提前离开，表达感谢后告别",
+          "scenarioHintCn": "社交场景：对方结束对话并表达感谢",
           "followUps": [
             {
-              "text": "Same here! Take care and talk soon!",
-              "text_cn": "我也是！保重，我们很快再聊！",
+              "text": "Absolutely! I had a great time too.",
+              "text_cn": "当然！我也玩得很开心。",
               "audio_url": "COS:/qa/responses/social_076_sub_5_qa_3_response0.mp3"
+            },
+            {
+              "text": "Thanks for listening—I really needed that.",
+              "text_cn": "谢谢你听我说，我真的很需要这次聊天。",
+              "audio_url": "COS:/qa/responses/social_076_sub_5_qa_3_response1.mp3"
+            },
+            {
+              "text": "Same! Catch you around!",
+              "text_cn": "我也是！回头见！",
+              "audio_url": "COS:/qa/responses/social_076_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "简洁温暖的回应方式，既认可对方的告别理由，又强化积极情感，避免冷场",
+          "usageNote": "适用于对方表达感谢时，回应需匹配情感深度，避免机械重复",
           "audioUrl": "COS:/qa/questions/social_076_sub_5_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3

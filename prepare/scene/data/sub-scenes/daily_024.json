@@ -1,55 +1,75 @@
 {
   "sceneId": "daily_024",
   "sceneName": "干洗店送衣",
-  "generatedAt": "2026-03-16T08:11:28.817Z",
+  "generatedAt": "2026-03-17T03:20:51.737Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_024_sub_1",
       "sceneId": "daily_024",
       "name": "问候送衣",
-      "description": "顾客进店打招呼，说明来意并递上衣物。",
+      "description": "顾客到店打招呼并递上衣物，店员礼貌迎接。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_024_sub_1_qa_1",
           "subSceneId": "daily_024_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "I'd like to pick up my dry cleaning.",
-          "triggerTextCn": "我想取我的干洗衣物。",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Can I help you with your laundry?",
+          "triggerTextCn": "需要我帮您处理洗衣吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客到店取衣，主动告知取衣需求",
+          "scenarioHintCn": "干洗店顾客送衣时，服务员主动问候",
           "followUps": [
             {
-              "text": "Sure, may I have your name or receipt number?",
-              "text_cn": "当然，请问您的姓名或取衣单号？",
+              "text": "Yes, I have a suit and two shirts to dry clean.",
+              "text_cn": "是的，我有一套西装和两件衬衫要干洗。",
               "audio_url": "COS:/qa/responses/daily_024_sub_1_qa_1_response0.mp3"
+            },
+            {
+              "text": "I just picked up my order from last week.",
+              "text_cn": "我是来取上周送来的衣服。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_1_qa_1_response1.mp3"
+            },
+            {
+              "text": "Do you offer same-day service?",
+              "text_cn": "你们有当天取件服务吗？",
+              "audio_url": "COS:/qa/responses/daily_024_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客主动提出取衣需求时的标准开场白，适用于大多数干洗店",
+          "usageNote": "服务员开场问候时，顾客可回应送衣需求、取衣需求或询问服务选项，避免只说'yes'或'no'。",
           "audioUrl": "COS:/qa/questions/daily_024_sub_1_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_024_sub_1_qa_2",
           "subSceneId": "daily_024_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Is your order ready yet?",
-          "triggerTextCn": "我的衣服准备好了吗？",
+          "triggerText": "When would you like to pick it up?",
+          "triggerTextCn": "您希望什么时候来取？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "店员主动询问顾客衣物是否已准备好",
+          "scenarioHintCn": "服务员确认取衣时间，常见于送衣流程中",
           "followUps": [
             {
-              "text": "Yes, I'm here to pick it up.",
-              "text_cn": "是的，我来取衣服。",
+              "text": "Can I get it tomorrow afternoon?",
+              "text_cn": "我明天下午来取可以吗？",
               "audio_url": "COS:/qa/responses/daily_024_sub_1_qa_2_response0.mp3"
+            },
+            {
+              "text": "I'm busy this week — can I pick it up next Monday?",
+              "text_cn": "这周我比较忙，能下周一下午来取吗？",
+              "audio_url": "COS:/qa/responses/daily_024_sub_1_qa_2_response1.mp3"
+            },
+            {
+              "text": "Is same-day pickup possible? I really need it by tonight.",
+              "text_cn": "能当天取吗？我今晚真的需要。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "店员常用确认语，顾客需简洁回应取衣意图，避免冗长解释",
+          "usageNote": "顾客应根据自身时间安排明确回应取衣时间，避免模糊回答如'I'm not sure'。",
           "audioUrl": "COS:/qa/questions/daily_024_sub_1_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -58,19 +78,29 @@
           "id": "daily_024_sub_1_qa_3",
           "subSceneId": "daily_024_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you need a receipt for this pickup?",
-          "triggerTextCn": "您需要取衣收据吗？",
+          "triggerText": "Do you have a loyalty card or receipt from your last visit?",
+          "triggerTextCn": "您有会员卡或上次的收据吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "店员在交付衣物前确认是否需要收据",
+          "scenarioHintCn": "服务员核对客户历史记录，用于积分或折扣",
           "followUps": [
             {
-              "text": "Yes, please. I need it for my records.",
-              "text_cn": "请给我一张，我要留作凭证。",
+              "text": "Yes, here's my card — I've been a member for two years.",
+              "text_cn": "有，这是我的卡，我已经会员两年了。",
               "audio_url": "COS:/qa/responses/daily_024_sub_1_qa_3_response0.mp3"
+            },
+            {
+              "text": "I lost my receipt, but I remember my phone number.",
+              "text_cn": "收据丢了，但我记得我的电话号码。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_1_qa_3_response1.mp3"
+            },
+            {
+              "text": "I don't have a card — is there a way to sign up now?",
+              "text_cn": "我没有卡，现在能注册吗？",
+              "audio_url": "COS:/qa/responses/daily_024_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "收据确认是取衣流程中的标准环节，顾客应明确表达需求",
+          "usageNote": "顾客应根据自身情况回应会员/记录问题，即使无卡也应主动提供替代信息，避免沉默或拒绝沟通。",
           "audioUrl": "COS:/qa/questions/daily_024_sub_1_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -88,41 +118,61 @@
         {
           "id": "daily_024_sub_2_qa_1",
           "subSceneId": "daily_024_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "There's a stain on the collar — can you get it out?",
-          "triggerTextCn": "衣领上有污渍，你们能洗掉吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Can you point out where the stain is?",
+          "triggerTextCn": "您能指出污渍在哪里吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动说明衣物上的具体污渍，询问清洁能力",
+          "scenarioHintCn": "干洗店员工确认污渍位置",
           "followUps": [
             {
-              "text": "We can try — it looks like oil-based. We’ll use a special pre-treatment and let you know if it comes out.",
-              "text_cn": "我们可以试试——看起来是油性污渍，我们会用特殊预处理，然后告诉您是否能去除。",
+              "text": "It's on the right sleeve, near the cuff — it's from coffee.",
+              "text_cn": "在右袖口附近，是咖啡弄的。",
               "audio_url": "COS:/qa/responses/daily_024_sub_2_qa_1_response0.mp3"
+            },
+            {
+              "text": "I'm not sure — it was on the collar, but I washed it at home already.",
+              "text_cn": "我不太确定——原本在衣领，但我已经在家洗过了。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_2_qa_1_response1.mp3"
+            },
+            {
+              "text": "There are two — one on the chest from sauce, and another on the hem from mud.",
+              "text_cn": "有两处：一处是酱汁溅在胸前，另一处是泥巴沾在下摆。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在送衣时主动指出污渍位置和类型，帮助店员判断处理方式，是干洗店高频对话。",
+          "usageNote": "顾客需清晰描述污渍位置和成因，帮助店员判断清洁难度",
           "audioUrl": "COS:/qa/questions/daily_024_sub_2_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_024_sub_2_qa_2",
           "subSceneId": "daily_024_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "Did you notice this wine stain on the sleeve?",
-          "triggerTextCn": "你注意到袖子上的红酒渍了吗？",
+          "triggerText": "Is this stain removable?",
+          "triggerTextCn": "这个污渍能洗掉吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客强调污渍类型（如红酒、咖啡），以提高处理优先级",
+          "scenarioHintCn": "顾客询问污渍是否可清除",
           "followUps": [
             {
-              "text": "Yes, we marked it. Wine stains are tricky but we have a solvent that works well on fresh ones. We’ll give it extra attention.",
-              "text_cn": "是的，我们已经标记了。红酒渍比较难处理，但针对新鲜污渍我们有专用溶剂，会特别处理。",
+              "text": "We can definitely get that out — it's just a food stain.",
+              "text_cn": "我们一定能洗掉，这只是食物污渍。",
               "audio_url": "COS:/qa/responses/daily_024_sub_2_qa_2_response0.mp3"
+            },
+            {
+              "text": "It might be tricky — it's been there for weeks. We'll try, but no guarantee.",
+              "text_cn": "有点棘手，已经存在几周了。我们会尽力，但不能保证。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_2_qa_2_response1.mp3"
+            },
+            {
+              "text": "Sorry, that's ink — it's set in too deep. We recommend replacing the garment.",
+              "text_cn": "抱歉，这是墨水，渗透太深了。我们建议您更换这件衣服。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客明确污渍类型（如红酒、咖啡）是典型行为，店员据此调整处理流程，真实场景中极常见。",
+          "usageNote": "顾客主动询问污渍处理可能性，店员根据污渍类型和时长给出专业判断",
           "audioUrl": "COS:/qa/questions/daily_024_sub_2_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
@@ -130,22 +180,32 @@
         {
           "id": "daily_024_sub_2_qa_3",
           "subSceneId": "daily_024_sub_2",
-          "dialogueMode": "user_responds",
-          "triggerText": "Is this stain removable? We’re not sure what caused it.",
-          "triggerTextCn": "这个污渍能洗掉吗？我们不太确定是什么弄脏的。",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Will the stain affect the price?",
+          "triggerTextCn": "这个污渍会影响价格吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "店员发现不明污渍，主动询问顾客污渍来源以判断处理方案",
+          "scenarioHintCn": "顾客询问污渍是否导致额外收费",
           "followUps": [
             {
-              "text": "It might be food grease — I think it got on when I was eating pasta.",
-              "text_cn": "可能是食物油渍，我想是吃意大利面时弄上的。",
+              "text": "No extra charge — it's included in our standard cleaning.",
+              "text_cn": "不额外收费，已包含在标准清洗服务中。",
               "audio_url": "COS:/qa/responses/daily_024_sub_2_qa_3_response0.mp3"
+            },
+            {
+              "text": "Yes, there's a $5 stain removal fee for tough stains like oil or wine.",
+              "text_cn": "是的，油渍或酒渍等顽固污渍需加收5美元处理费。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_2_qa_3_response1.mp3"
+            },
+            {
+              "text": "It depends — if it takes extra time or special chemicals, we'll let you know before processing.",
+              "text_cn": "视情况而定，如果需要额外时间或特殊药剂，我们会在处理前告知您。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "店员发现不明污渍时主动询问，是服务标准流程，顾客需简洁说明来源，符合真实服务节奏。",
+          "usageNote": "顾客关心费用问题，店员根据污渍类型和处理难度给出透明回应",
           "audioUrl": "COS:/qa/questions/daily_024_sub_2_qa_3.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -154,69 +214,99 @@
       "id": "daily_024_sub_3",
       "sceneId": "daily_024",
       "name": "询问价格",
-      "description": "顾客咨询干洗费用及是否有优惠活动。",
+      "description": "顾客咨询干洗费用，店员给出明确报价。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_024_sub_3_qa_1",
           "subSceneId": "daily_024_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "How much does it cost to dry clean this jacket?",
-          "triggerTextCn": "这件夹克干洗要多少钱？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "How much will it cost to dry clean these items?",
+          "triggerTextCn": "这些衣服干洗要多少钱？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问单件衣物的干洗价格",
+          "scenarioHintCn": "顾客询问干洗价格，店员回应后顾客做出支付决策",
           "followUps": [
             {
-              "text": "That'll be $12. It'll be ready in 3 business days.",
-              "text_cn": "12美元，3个工作日内取件。",
+              "text": "That’s reasonable. I’ll leave them with you.",
+              "text_cn": "价格合理，我这就把衣服留下。",
               "audio_url": "COS:/qa/responses/daily_024_sub_3_qa_1_response0.mp3"
+            },
+            {
+              "text": "Can you give me a discount? I’m bringing in five items today.",
+              "text_cn": "能给我点折扣吗？我今天送了五件衣服。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_3_qa_1_response1.mp3"
+            },
+            {
+              "text": "Hmm, I’ll check other places first. Can I pick up the quote later?",
+              "text_cn": "嗯，我先去别家比比价，能稍后回来取报价吗？",
+              "audio_url": "COS:/qa/responses/daily_024_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于询问具体衣物的干洗费用，是最基础且高频的开场问题",
+          "usageNote": "用于顾客在得知价格后表达接受、议价或延迟决策的典型回应，覆盖真实消费心理。",
           "audioUrl": "COS:/qa/questions/daily_024_sub_3_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_024_sub_3_qa_2",
           "subSceneId": "daily_024_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "Do you have a price list for different items?",
-          "triggerTextCn": "你们有不同衣物的价格表吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "The total for dry cleaning is $25.",
+          "triggerTextCn": "干洗总价是25美元。",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客希望了解多种衣物的收费标准",
+          "scenarioHintCn": "店员报出总价后，顾客根据预算或服务内容做出反应",
           "followUps": [
             {
-              "text": "Sure! Shirts are $8, pants $10, dresses $15, and coats $20. Here's our flyer.",
-              "text_cn": "当然！衬衫8美元，裤子10美元，连衣裙15美元，外套20美元。这是价目单。",
+              "text": "Perfect, I’ll pay now.",
+              "text_cn": "太好了，我现在就付款。",
               "audio_url": "COS:/qa/responses/daily_024_sub_3_qa_2_response0.mp3"
+            },
+            {
+              "text": "Wait, that seems high for just two shirts. Can you double-check?",
+              "text_cn": "等一下，两件衬衫这么贵？能再核对一下吗？",
+              "audio_url": "COS:/qa/responses/daily_024_sub_3_qa_2_response1.mp3"
+            },
+            {
+              "text": "I’ll come back tomorrow — I need to check my budget first.",
+              "text_cn": "我明天再来，得先看看我的预算。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客在不确定价格时，主动索要价目表，体现主动沟通能力",
+          "usageNote": "当店员直接报出总价时，顾客可能接受、质疑或延迟决策，反映真实消费中的三种典型反应。",
           "audioUrl": "COS:/qa/questions/daily_024_sub_3_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_024_sub_3_qa_3",
           "subSceneId": "daily_024_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "Is there an extra charge for rush service?",
-          "triggerTextCn": "加急服务有额外费用吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you have any pricing for rush service?",
+          "triggerTextCn": "你们有加急服务的价格吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员主动询问是否需要加急服务并引导价格确认",
+          "scenarioHintCn": "顾客主动询问加急服务价格，体现时间紧迫需求",
           "followUps": [
             {
-              "text": "Yes, please. I'd like it by tomorrow — how much extra?",
-              "text_cn": "是的，请帮我加急，明天取。要加多少钱？",
+              "text": "Rush service is an extra $10 — it’ll be ready in 24 hours.",
+              "text_cn": "加急服务另收10美元，24小时内取件。",
               "audio_url": "COS:/qa/responses/daily_024_sub_3_qa_3_response0.mp3"
+            },
+            {
+              "text": "Sorry, we don’t offer rush service on weekends.",
+              "text_cn": "抱歉，周末不提供加急服务。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_3_qa_3_response1.mp3"
+            },
+            {
+              "text": "We can do it by Thursday for an extra $5.",
+              "text_cn": "我们可以周四前完成，加收5美元。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "服务员常主动提出加急选项，顾客需自然回应并询问附加费用，体现真实服务互动",
+          "usageNote": "顾客主动询问加急服务价格，店员回应需覆盖可提供、不可提供、折中方案三种真实情况。",
           "audioUrl": "COS:/qa/questions/daily_024_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -227,7 +317,7 @@
       "id": "daily_024_sub_4",
       "sceneId": "daily_024",
       "name": "确认取衣",
-      "description": "顾客询问取衣时间并确认日期与注意事项。",
+      "description": "顾客询问取衣时间，店员告知预计取件日期。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -235,19 +325,29 @@
           "id": "daily_024_sub_4_qa_1",
           "subSceneId": "daily_024_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Can I pick up my clothes now?",
-          "triggerTextCn": "我现在可以取衣服吗？",
+          "triggerText": "Can I have your name and pickup code, please?",
+          "triggerTextCn": "请问您的姓名和取衣码是多少？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "干洗店员工确认取衣时间",
+          "scenarioHintCn": "干洗店确认取衣身份核对",
           "followUps": [
             {
-              "text": "Yes, your order is ready. Here's your receipt.",
-              "text_cn": "可以，您的订单已经准备好，这是您的收据。",
+              "text": "It's Sarah Chen, and the code is A7B9.",
+              "text_cn": "我是陈莎拉，取衣码是A7B9。",
               "audio_url": "COS:/qa/responses/daily_024_sub_4_qa_1_response0.mp3"
+            },
+            {
+              "text": "I'm not sure about the code, but my name is David Li.",
+              "text_cn": "我不太记得取衣码了，但我叫李大卫。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_4_qa_1_response1.mp3"
+            },
+            {
+              "text": "Actually, I'm picking up for my roommate—her name is Mia Wong.",
+              "text_cn": "其实我是帮室友取衣服，她叫王米娅。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客听到衣服已准备好时的自然回应，用于确认取衣流程",
+          "usageNote": "用于取衣时核对身份，是干洗店最标准的开场确认问题",
           "audioUrl": "COS:/qa/questions/daily_024_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -256,19 +356,29 @@
           "id": "daily_024_sub_4_qa_2",
           "subSceneId": "daily_024_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you have a pickup number or receipt?",
-          "triggerTextCn": "您有取衣编号或收据吗？",
+          "triggerText": "Is this your garment bag?",
+          "triggerTextCn": "这是您的衣物袋吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "干洗店员工核对取衣身份信息",
+          "scenarioHintCn": "干洗店确认衣物归属",
           "followUps": [
             {
-              "text": "Yes, here's my receipt. The number is #789.",
-              "text_cn": "有的，这是我的收据，编号是#789。",
+              "text": "Yes, that's mine—thanks!",
+              "text_cn": "是的，这是我的，谢谢！",
               "audio_url": "COS:/qa/responses/daily_024_sub_4_qa_2_response0.mp3"
+            },
+            {
+              "text": "No, I think there might be a mix-up—I ordered a suit, not a dress.",
+              "text_cn": "不是，可能弄错了，我订的是西装，不是连衣裙。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_4_qa_2_response1.mp3"
+            },
+            {
+              "text": "I'm not sure—can you check the tag inside?",
+              "text_cn": "我不太确定，能帮我看看里面的标签吗？",
+              "audio_url": "COS:/qa/responses/daily_024_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "员工要求核对信息时，顾客应提供收据或编号，简洁直接",
+          "usageNote": "店员在交还衣物时的必要确认步骤，避免拿错",
           "audioUrl": "COS:/qa/questions/daily_024_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -276,22 +386,32 @@
         {
           "id": "daily_024_sub_4_qa_3",
           "subSceneId": "daily_024_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Could you check if my suit is ready?",
-          "triggerTextCn": "能帮我查一下我的西装好了吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you want to check the items before you leave?",
+          "triggerTextCn": "您离开前要核对一下衣物吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动询问衣物是否已处理完毕",
+          "scenarioHintCn": "干洗店取衣前的最终确认环节",
           "followUps": [
             {
-              "text": "Let me check for you... Yes, it's ready. Your name is Mr. Chen, right?",
-              "text_cn": "我帮您查一下……好了，已经准备好了，您是陈先生，对吗？",
+              "text": "Yes, please—I want to make sure the stains are gone.",
+              "text_cn": "请帮我检查一下，我想确认污渍是否去除了。",
               "audio_url": "COS:/qa/responses/daily_024_sub_4_qa_3_response0.mp3"
+            },
+            {
+              "text": "No, I trust you—I'm in a hurry.",
+              "text_cn": "不用了，我信任你们，我赶时间。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_4_qa_3_response1.mp3"
+            },
+            {
+              "text": "Can you just check if the buttons are all intact?",
+              "text_cn": "能帮我确认一下纽扣都还在吗？",
+              "audio_url": "COS:/qa/responses/daily_024_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客主动询问取衣状态的典型表达，语气礼貌且实用",
+          "usageNote": "体现服务专业性，顾客可根据需求选择是否检查",
           "audioUrl": "COS:/qa/questions/daily_024_sub_4_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -300,48 +420,68 @@
       "id": "daily_024_sub_5",
       "sceneId": "daily_024",
       "name": "礼貌道别",
-      "description": "顾客感谢店员，店员礼貌送别并提醒取衣。",
+      "description": "顾客感谢店员，店员致谢并送别，完成服务。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_024_sub_5_qa_1",
           "subSceneId": "daily_024_sub_5",
-          "dialogueMode": "user_asks",
-          "triggerText": "Thank you for your service!",
-          "triggerTextCn": "谢谢您的服务！",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thank you for choosing our dry cleaning service. Have a great day!",
+          "triggerTextCn": "感谢您选择我们的干洗服务，祝您今天愉快！",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "取衣时礼貌致谢，干洗店员工通常会回应并道别",
+          "scenarioHintCn": "干洗店取衣后，服务员礼貌道别",
           "followUps": [
             {
-              "text": "You're very welcome! Have a wonderful day!",
-              "text_cn": "不客气！祝您今天愉快！",
+              "text": "Thanks! Your service was excellent.",
+              "text_cn": "谢谢！你们的服务很棒。",
               "audio_url": "COS:/qa/responses/daily_024_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "I’ll be back next week — my suit needs cleaning again.",
+              "text_cn": "我下周还来，我的西装又要洗了。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "You too! Bye for now.",
+              "text_cn": "你也是！那先再见了。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在取衣时表达感谢，是地道的礼貌道别方式，员工通常会热情回应并送上祝福。",
+          "usageNote": "适用于干洗店取衣后服务员道别时，顾客的自然回应。避免机械说'Bye'，应体现情感或意图以增强真实感。",
           "audioUrl": "COS:/qa/questions/daily_024_sub_5_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_024_sub_5_qa_2",
           "subSceneId": "daily_024_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Your clothes are ready for pickup.",
-          "triggerTextCn": "您的衣物已经准备好取件了。",
+          "triggerText": "Your clothes are ready. We appreciate your business!",
+          "triggerTextCn": "您的衣物已准备好，感谢您的惠顾！",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "店员通知衣物已备好，顾客需礼貌回应并道别",
+          "scenarioHintCn": "干洗店取衣时，服务员完成交易后的道别",
           "followUps": [
             {
-              "text": "Great, thanks so much! Have a nice day!",
-              "text_cn": "太好了，非常感谢！祝您今天愉快！",
+              "text": "Great! I’m so glad it was quick.",
+              "text_cn": "太好了！我很高兴这么快就取到了。",
               "audio_url": "COS:/qa/responses/daily_024_sub_5_qa_2_response0.mp3"
+            },
+            {
+              "text": "Actually, could you check if the collar on this shirt is fully cleaned? I’m not sure.",
+              "text_cn": "其实，您能帮我确认一下这件衬衫的领子是否彻底干净了吗？我不太确定。",
+              "audio_url": "COS:/qa/responses/daily_024_sub_5_qa_2_response1.mp3"
+            },
+            {
+              "text": "Thanks, I’ll be back soon!",
+              "text_cn": "谢谢，我很快还会再来！",
+              "audio_url": "COS:/qa/responses/daily_024_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "店员通知取衣时，顾客应简洁回应感谢并主动道别，体现礼貌与社交礼仪。",
+          "usageNote": "顾客在取衣时回应道别，可选择感谢、反馈或表达回头意愿，体现真实服务互动中的多样性。",
           "audioUrl": "COS:/qa/questions/daily_024_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -350,19 +490,29 @@
           "id": "daily_024_sub_5_qa_3",
           "subSceneId": "daily_024_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Is there anything else I can help you with today?",
-          "triggerTextCn": "今天还有其他我可以帮您的吗？",
+          "triggerText": "All set! Don’t hesitate to call if you have any issues.",
+          "triggerTextCn": "搞定啦！如果有任何问题，随时打电话给我们。",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "店员在完成服务后主动询问是否需要其他帮助，为道别做铺垫",
+          "scenarioHintCn": "干洗店完成服务后，服务员主动提供售后支持并道别",
           "followUps": [
             {
-              "text": "No, that's all, thank you! Goodbye!",
-              "text_cn": "不用了，就这些，谢谢！再见！",
+              "text": "I really appreciate that — I’ll definitely call if something’s off.",
+              "text_cn": "我真的很感激，如果有什么问题我一定会打电话。",
               "audio_url": "COS:/qa/responses/daily_024_sub_5_qa_3_response0.mp3"
+            },
+            {
+              "text": "No worries — everything looks perfect!",
+              "text_cn": "不用担心，一切都完美无缺！",
+              "audio_url": "COS:/qa/responses/daily_024_sub_5_qa_3_response1.mp3"
+            },
+            {
+              "text": "Thanks, but I’m not great with phones — can I just come back in person?",
+              "text_cn": "谢谢，但我不太擅长打电话，我能直接回来当面说吗？",
+              "audio_url": "COS:/qa/responses/daily_024_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "店员常用此句结束服务，顾客应简洁否定并表达感谢与道别，是高频自然回应。",
+          "usageNote": "顾客回应售后支持时，可选择信任、确认或提出沟通偏好，体现真实用户行为差异，避免千篇一律的'OK thanks'。",
           "audioUrl": "COS:/qa/questions/daily_024_sub_5_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3

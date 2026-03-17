@@ -1,7 +1,7 @@
 {
   "sceneId": "daily_013",
   "sceneName": "图书馆借书",
-  "generatedAt": "2026-03-16T08:06:58.662Z",
+  "generatedAt": "2026-03-17T03:13:22.487Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
@@ -16,19 +16,29 @@
           "id": "daily_013_sub_1_qa_1",
           "subSceneId": "daily_013_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "Can I borrow books here?",
-          "triggerTextCn": "我可以在这里借书吗？",
+          "triggerText": "How do I borrow a book?",
+          "triggerTextCn": "我该怎么借书？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客首次询问图书馆是否提供借书服务",
+          "scenarioHintCn": "咨询借书流程",
           "followUps": [
             {
-              "text": "Yes, absolutely! You just need a library card. Have you got one?",
-              "text_cn": "当然可以！您只需要一张借书证。您有吗？",
+              "text": "First, you need a library card. I can help you register for one right now.",
+              "text_cn": "首先，你需要一张借书卡，我现在可以帮你注册。",
               "audio_url": "COS:/qa/responses/daily_013_sub_1_qa_1_response0.mp3"
+            },
+            {
+              "text": "You already have a card? Just scan your book at the self-checkout machine over there.",
+              "text_cn": "你已经有卡了？直接去那边的自助借还机扫描书籍即可。",
+              "audio_url": "COS:/qa/responses/daily_013_sub_1_qa_1_response1.mp3"
+            },
+            {
+              "text": "Some books can only be borrowed online through our app. Would you like me to show you how?",
+              "text_cn": "有些书只能通过我们的App在线借阅，要我教你怎么做吗？",
+              "audio_url": "COS:/qa/responses/daily_013_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "适用于顾客初次进入图书馆询问基本借书权限的场景，是高频开场问题",
+          "usageNote": "适用于初次借书者询问基本流程，涵盖办卡、自助、线上三种主流方式",
           "audioUrl": "COS:/qa/questions/daily_013_sub_1_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -37,19 +47,29 @@
           "id": "daily_013_sub_1_qa_2",
           "subSceneId": "daily_013_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "How long can I keep the books?",
-          "triggerTextCn": "我可以借书多久？",
+          "triggerText": "How long can I keep the book?",
+          "triggerTextCn": "我可以借多久？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客在确认可借书后，询问借阅期限",
+          "scenarioHintCn": "咨询借书流程",
           "followUps": [
             {
-              "text": "Standard loan period is two weeks. You can renew it once online if no one else is waiting.",
-              "text_cn": "常规借期是两周。如果没人预约，您可以在网上续借一次。",
+              "text": "Standard books are due in 21 days. You can renew them once online if no one else is waiting.",
+              "text_cn": "普通书籍借期21天，如果没有别人预约，你可以在线续借一次。",
               "audio_url": "COS:/qa/responses/daily_013_sub_1_qa_2_response0.mp3"
+            },
+            {
+              "text": "Reference books like encyclopedias can't be borrowed out—they're for in-library use only.",
+              "text_cn": "参考书如百科全书不能外借，仅限馆内使用。",
+              "audio_url": "COS:/qa/responses/daily_013_sub_1_qa_2_response1.mp3"
+            },
+            {
+              "text": "Students can borrow for 30 days, and faculty up to 60. Are you a student or staff?",
+              "text_cn": "学生可借30天，教职员工最长60天。你是学生还是教职员工？",
+              "audio_url": "COS:/qa/responses/daily_013_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "借书流程中最常见的关于借阅时长的咨询，几乎每个借书者都会问",
+          "usageNote": "用户关心借阅期限，回应需区分普通书、参考书、身份差异三种情况",
           "audioUrl": "COS:/qa/questions/daily_013_sub_1_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
@@ -57,22 +77,32 @@
         {
           "id": "daily_013_sub_1_qa_3",
           "subSceneId": "daily_013_sub_1",
-          "dialogueMode": "user_responds",
-          "triggerText": "Do you need to scan your card for each book?",
-          "triggerTextCn": "每本书都需要刷一下借书证吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can I reserve a book that's currently checked out?",
+          "triggerTextCn": "如果书已经被借走了，我能预约吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "工作人员在办理借书手续时确认顾客是否了解操作流程",
+          "scenarioHintCn": "咨询借书流程",
           "followUps": [
             {
-              "text": "No, just scan the card once and then all the books at once.",
-              "text_cn": "不用，刷一次卡就行，然后把所有书一起扫描。",
+              "text": "Yes, we can place a hold on it. You'll get an email when it's returned and ready for pickup.",
+              "text_cn": "可以，我们可以帮你预约。书归还后我们会发邮件通知你来取。",
               "audio_url": "COS:/qa/responses/daily_013_sub_1_qa_3_response0.mp3"
+            },
+            {
+              "text": "We don't allow holds on bestsellers—they're on a first-come, first-served basis.",
+              "text_cn": "畅销书不支持预约，按先到先得原则借阅。",
+              "audio_url": "COS:/qa/responses/daily_013_sub_1_qa_3_response1.mp3"
+            },
+            {
+              "text": "You can reserve it now, but you'll need to pick it up within 7 days after notification, or it goes to the next person.",
+              "text_cn": "你现在可以预约，但收到通知后必须在7天内取书，否则会转给下一位。",
+              "audio_url": "COS:/qa/responses/daily_013_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "工作人员在实际操作中常确认顾客是否清楚流程，顾客需简洁回应操作理解",
+          "usageNote": "用户询问预约机制，回应需覆盖支持预约、不支持预约、有取书时限三种典型情况",
           "audioUrl": "COS:/qa/questions/daily_013_sub_1_qa_3.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -81,7 +111,7 @@
       "id": "daily_013_sub_2",
       "sceneId": "daily_013",
       "name": "确认借阅数量",
-      "description": "了解每次最多能借几本书。",
+      "description": "了解一次最多能借几本书。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -97,11 +127,21 @@
           "followUps": [
             {
               "text": "I'd like to borrow three books, please.",
-              "text_cn": "我想借三本书。",
+              "text_cn": "我想借三本书，谢谢。",
               "audio_url": "COS:/qa/responses/daily_013_sub_2_qa_1_response0.mp3"
+            },
+            {
+              "text": "Is there a limit? I only wanted one, but I might take more.",
+              "text_cn": "有数量限制吗？我本来想借一本，但可能再多借几本。",
+              "audio_url": "COS:/qa/responses/daily_013_sub_2_qa_1_response1.mp3"
+            },
+            {
+              "text": "Actually, I’ll just take two for now—I’ll come back later for the third.",
+              "text_cn": "其实我先借两本吧，我稍后再来借第三本。",
+              "audio_url": "COS:/qa/responses/daily_013_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是图书馆工作人员最常问的确认借阅数量的问题，用户需直接回应数量，避免冗长解释。",
+          "usageNote": "用于图书馆工作人员确认借书数量时，用户根据不同意图（明确、犹豫、分批）做出自然回应",
           "audioUrl": "COS:/qa/questions/daily_013_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -109,43 +149,63 @@
         {
           "id": "daily_013_sub_2_qa_2",
           "subSceneId": "daily_013_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can I borrow up to five books at once?",
-          "triggerTextCn": "我可以一次借五本书吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "You can borrow up to five books at a time. Is that okay?",
+          "triggerTextCn": "一次最多可以借五本书，可以吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "用户询问借阅数量上限",
+          "scenarioHintCn": "工作人员告知限额并确认用户接受",
           "followUps": [
             {
-              "text": "Yes, members can borrow up to five books at a time.",
-              "text_cn": "可以，会员一次最多可以借五本书。",
+              "text": "Perfect, I’ll take five!",
+              "text_cn": "太好了，我就借五本！",
               "audio_url": "COS:/qa/responses/daily_013_sub_2_qa_2_response0.mp3"
+            },
+            {
+              "text": "Actually, I only need two—I don’t want to overload myself.",
+              "text_cn": "其实我只需要两本，不想借太多。",
+              "audio_url": "COS:/qa/responses/daily_013_sub_2_qa_2_response1.mp3"
+            },
+            {
+              "text": "Can I borrow more if I return some next week?",
+              "text_cn": "如果我下周还几本，能借更多吗？",
+              "audio_url": "COS:/qa/responses/daily_013_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "用户在不确定规则时会主动询问借阅上限，这是高频且自然的提问方式。",
+          "usageNote": "当工作人员告知借阅上限时，用户根据个人需求、自律性或规则探索做出不同回应",
           "audioUrl": "COS:/qa/questions/daily_013_sub_2_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_013_sub_2_qa_3",
           "subSceneId": "daily_013_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "I want to borrow two novels and one reference book. Is that okay?",
-          "triggerTextCn": "我想借两本小说和一本参考书，可以吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Are you sure you want to borrow all four? That’s your full allowance.",
+          "triggerTextCn": "您确定要借这四本吗？这已经是您的最大限额了。",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "用户说明具体借阅内容并确认是否符合规定",
+          "scenarioHintCn": "工作人员提醒用户已达借阅上限，确认最终决定",
           "followUps": [
             {
-              "text": "That's perfectly fine. All types of books are included in your borrowing limit.",
-              "text_cn": "没问题，所有类型的书都计入您的借阅限额。",
+              "text": "Yes, I’m sure—I’ve planned my reading list carefully.",
+              "text_cn": "是的，我确定，我已经仔细规划好了阅读计划。",
               "audio_url": "COS:/qa/responses/daily_013_sub_2_qa_3_response0.mp3"
+            },
+            {
+              "text": "Hmm, maybe I should return one first—let me check my shelf.",
+              "text_cn": "嗯，也许我该先还一本——让我看看书架上有没有。",
+              "audio_url": "COS:/qa/responses/daily_013_sub_2_qa_3_response1.mp3"
+            },
+            {
+              "text": "Wait, can I borrow one more if I leave my ID here?",
+              "text_cn": "等等，如果我把身份证留在这儿，能多借一本吗？",
+              "audio_url": "COS:/qa/responses/daily_013_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "用户常会具体说明所借书籍类型以确认是否合规，这是真实场景中非常自然的表达。",
+          "usageNote": "当工作人员提醒已达限额时，用户表现出自信、谨慎或试探性态度，体现真实心理变化",
           "audioUrl": "COS:/qa/questions/daily_013_sub_2_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -154,69 +214,99 @@
       "id": "daily_013_sub_3",
       "sceneId": "daily_013",
       "name": "询问归还期限",
-      "description": "问清书籍的借阅天数和到期日。",
+      "description": "咨询书籍的借阅天数和到期日。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_013_sub_3_qa_1",
           "subSceneId": "daily_013_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "How long can I keep this book?",
-          "triggerTextCn": "这本书我可以借多久？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "How long can you keep this book?",
+          "triggerTextCn": "这本书可以借多久？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "读者询问图书借阅期限",
+          "scenarioHintCn": "询问图书借阅期限",
           "followUps": [
             {
-              "text": "You can keep it for two weeks. You can renew it once if no one else is waiting.",
-              "text_cn": "您可以借两周，如果没有其他人预约，可以续借一次。",
+              "text": "Two weeks, please. I’ll return it on time.",
+              "text_cn": "两周，谢谢。我会按时归还。",
               "audio_url": "COS:/qa/responses/daily_013_sub_3_qa_1_response0.mp3"
+            },
+            {
+              "text": "Can I renew it if I need more time?",
+              "text_cn": "如果我需要更多时间，可以续借吗？",
+              "audio_url": "COS:/qa/responses/daily_013_sub_3_qa_1_response1.mp3"
+            },
+            {
+              "text": "Is there a shorter loan period for popular books?",
+              "text_cn": "畅销书的借阅期会更短吗？",
+              "audio_url": "COS:/qa/responses/daily_013_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是读者最常问的借阅期限问题，适用于初次借书时确认规则。",
+          "usageNote": "用于向图书馆工作人员询问标准借阅期限，适用于初次借书或不确定规则的学习者",
           "audioUrl": "COS:/qa/questions/daily_013_sub_3_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_013_sub_3_qa_2",
           "subSceneId": "daily_013_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can I renew this book online?",
-          "triggerTextCn": "我能在网上续借这本书吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you have a grace period for late returns?",
+          "triggerTextCn": "逾期归还有宽限期吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "读者询问是否支持在线续借",
+          "scenarioHintCn": "询问逾期处理政策",
           "followUps": [
             {
-              "text": "Yes, you can renew it through our library app or website. Just log in and go to 'My Loans'.",
-              "text_cn": "可以，您可以通过我们的图书馆App或网站续借。登录后进入‘我的借阅’即可。",
+              "text": "Yes, I have a 3-day grace period.",
+              "text_cn": "有的，我有3天宽限期。",
               "audio_url": "COS:/qa/responses/daily_013_sub_3_qa_2_response0.mp3"
+            },
+            {
+              "text": "I’m sorry, I forgot — will I be fined?",
+              "text_cn": "不好意思，我忘了，会罚款吗？",
+              "audio_url": "COS:/qa/responses/daily_013_sub_3_qa_2_response1.mp3"
+            },
+            {
+              "text": "What happens if I don’t return it at all?",
+              "text_cn": "如果我根本不归还会怎样？",
+              "audio_url": "COS:/qa/responses/daily_013_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "现代图书馆常见需求，强调数字化服务，帮助学习者掌握实用操作表达。",
+          "usageNote": "用于了解逾期后果，帮助学习者应对可能的归还延迟情况",
           "audioUrl": "COS:/qa/questions/daily_013_sub_3_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_013_sub_3_qa_3",
           "subSceneId": "daily_013_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you need to return it by Friday?",
-          "triggerTextCn": "您要求周五前归还吗？",
+          "triggerText": "Can I borrow this book if I’m not a member?",
+          "triggerTextCn": "我不是会员，能借这本书吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "工作人员确认归还截止日期",
+          "scenarioHintCn": "询问非会员借书资格",
           "followUps": [
             {
-              "text": "Yes, please. It's due Friday, but I can extend it if no one else has requested it.",
-              "text_cn": "是的，请在周五前归还。如果没有其他人预约，我可以帮您延长。",
+              "text": "Yes, you can sign up right now and borrow today.",
+              "text_cn": "可以，你现在注册就能今天借书。",
               "audio_url": "COS:/qa/responses/daily_013_sub_3_qa_3_response0.mp3"
+            },
+            {
+              "text": "I’m afraid you need a membership first — it’s free.",
+              "text_cn": "很抱歉，您需要先办理会员，但免费。",
+              "audio_url": "COS:/qa/responses/daily_013_sub_3_qa_3_response1.mp3"
+            },
+            {
+              "text": "Can I just read it here in the library?",
+              "text_cn": "我能在图书馆里读吗？",
+              "audio_url": "COS:/qa/responses/daily_013_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "工作人员主动确认归还时间是常见服务动作，用户需能准确回应并表达需求。",
+          "usageNote": "帮助非会员用户了解借阅资格与替代方案，覆盖从注册到放弃的多种决策路径",
           "audioUrl": "COS:/qa/questions/daily_013_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -227,69 +317,99 @@
       "id": "daily_013_sub_4",
       "sceneId": "daily_013",
       "name": "申请续借服务",
-      "description": "请求延长借阅时间，确认是否可续借。",
+      "description": "询问是否可以延长借阅时间。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_013_sub_4_qa_1",
           "subSceneId": "daily_013_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can I renew this book online?",
-          "triggerTextCn": "我可以在网上续借这本书吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like to renew this book?",
+          "triggerTextCn": "您想续借这本书吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问是否支持在线续借",
+          "scenarioHintCn": "图书馆工作人员主动询问是否需要续借",
           "followUps": [
             {
-              "text": "Yes, you can renew it online through our library portal, as long as no one else has placed a hold on it.",
-              "text_cn": "可以，只要没人预约这本书，您就可以通过图书馆网站在线续借。",
+              "text": "Yes, please. I still need it for my research.",
+              "text_cn": "请帮我续借，我还在做研究用。",
               "audio_url": "COS:/qa/responses/daily_013_sub_4_qa_1_response0.mp3"
+            },
+            {
+              "text": "No, thanks. I'm done with it.",
+              "text_cn": "不用了，我已经看完了。",
+              "audio_url": "COS:/qa/responses/daily_013_sub_4_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can I renew it if someone else has a hold?",
+              "text_cn": "如果有人预约了这本书，我还能续借吗？",
+              "audio_url": "COS:/qa/responses/daily_013_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "适用于顾客确认续借渠道，是图书馆服务中最常见的初始问题之一。",
+          "usageNote": "用于回应图书馆员关于续借的主动询问，体现不同态度与情境",
           "audioUrl": "COS:/qa/questions/daily_013_sub_4_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_013_sub_4_qa_2",
           "subSceneId": "daily_013_sub_4",
           "dialogueMode": "user_asks",
-          "triggerText": "How many times can you renew a book?",
-          "triggerTextCn": "一本书最多可以续借几次？",
+          "triggerText": "How many times can you renew this book?",
+          "triggerTextCn": "这本书最多能续借几次？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问续借次数限制",
+          "scenarioHintCn": "用户主动询问续借次数限制",
           "followUps": [
             {
-              "text": "Most books can be renewed up to two times, unless there's a waiting list.",
-              "text_cn": "大多数书籍最多可续借两次，除非有其他读者在等待。",
+              "text": "You can renew it once, as long as no one else has requested it.",
+              "text_cn": "只要没人预约，您可以续借一次。",
               "audio_url": "COS:/qa/responses/daily_013_sub_4_qa_2_response0.mp3"
+            },
+            {
+              "text": "Unfortunately, this title can't be renewed at all. It's in high demand.",
+              "text_cn": "很抱歉，这本书完全不能续借，因为需求量很大。",
+              "audio_url": "COS:/qa/responses/daily_013_sub_4_qa_2_response1.mp3"
+            },
+            {
+              "text": "You're allowed two renewals, but only if the book isn't reserved by another user.",
+              "text_cn": "您可以续借两次，前提是没人预约这本书。",
+              "audio_url": "COS:/qa/responses/daily_013_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "高频问题，反映用户对续借规则的普遍关注，必须明确说明限制条件。",
+          "usageNote": "用户询问续借次数时，馆员根据不同书籍状态给出标准回应",
           "audioUrl": "COS:/qa/questions/daily_013_sub_4_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_013_sub_4_qa_3",
           "subSceneId": "daily_013_sub_4",
-          "dialogueMode": "user_responds",
-          "triggerText": "Is this book eligible for renewal?",
-          "triggerTextCn": "这本书可以续借吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "I'd like to renew my books, please.",
+          "triggerTextCn": "我想续借我的书，请问可以吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "工作人员主动确认书籍是否符合续借条件",
+          "scenarioHintCn": "用户主动提出续借请求",
           "followUps": [
             {
-              "text": "Yes, it’s eligible — no holds and it’s not overdue.",
-              "text_cn": "可以，没有预约记录，也没有逾期。",
+              "text": "Sure! All your books have been renewed successfully. The new due date is next Friday.",
+              "text_cn": "当然可以！您的所有书籍都已成功续借，新到期日是下周五。",
               "audio_url": "COS:/qa/responses/daily_013_sub_4_qa_3_response0.mp3"
+            },
+            {
+              "text": "I'm sorry, but one of your books has been reserved by another patron. You'll need to return it by tomorrow.",
+              "text_cn": "抱歉，您的一本书已被他人预约，您需要在明天之前归还。",
+              "audio_url": "COS:/qa/responses/daily_013_sub_4_qa_3_response1.mp3"
+            },
+            {
+              "text": "You've reached the maximum number of renewals for these items. You can check them out again after returning them.",
+              "text_cn": "您已达到这些书籍的续借上限，归还后可以重新借阅。",
+              "audio_url": "COS:/qa/responses/daily_013_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "工作人员在系统检查后主动确认续借资格，是服务流程中的典型回应环节。",
+          "usageNote": "用户提出续借请求后，馆员根据系统状态给出三种典型结果回应",
           "audioUrl": "COS:/qa/questions/daily_013_sub_4_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -300,7 +420,7 @@
       "id": "daily_013_sub_5",
       "sceneId": "daily_013",
       "name": "感谢并离开",
-      "description": "礼貌致谢后结束对话，离开柜台。",
+      "description": "完成借书后礼貌致谢并告别。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -308,19 +428,29 @@
           "id": "daily_013_sub_5_qa_1",
           "subSceneId": "daily_013_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Thanks for your help!",
-          "triggerTextCn": "谢谢你的帮助！",
+          "triggerText": "Thank you for returning the books on time.",
+          "triggerTextCn": "谢谢您按时归还图书。",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "图书馆工作人员在你借完书后表达感谢，你礼貌回应并准备离开",
+          "scenarioHintCn": "图书馆借书场景：感谢并离开",
           "followUps": [
             {
-              "text": "You're welcome! Have a great day!",
-              "text_cn": "不客气！祝你今天愉快！",
+              "text": "You're welcome! I really enjoyed this book.",
+              "text_cn": "不客气！我真的很喜欢这本书。",
               "audio_url": "COS:/qa/responses/daily_013_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "No problem! I’ll be back next week for another one.",
+              "text_cn": "没问题！我下周再来借一本。",
+              "audio_url": "COS:/qa/responses/daily_013_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "Thanks for your help!",
+              "text_cn": "谢谢你的帮助！",
+              "audio_url": "COS:/qa/responses/daily_013_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是对工作人员感谢的标准自然回应，常用于服务场景结束时，语气友好且简洁。",
+          "usageNote": "这是图书馆工作人员在归还书籍时常见的感谢语，用户需自然回应以完成礼貌告别。三种回应分别体现情感表达、未来意图和简洁收尾，符合真实语境。",
           "audioUrl": "COS:/qa/questions/daily_013_sub_5_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -329,19 +459,29 @@
           "id": "daily_013_sub_5_qa_2",
           "subSceneId": "daily_013_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Is there anything else I can help you with?",
-          "triggerTextCn": "还需要我帮您别的吗？",
+          "triggerText": "Is there anything else I can help you with today?",
+          "triggerTextCn": "今天还有其他我可以帮您的吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "工作人员确认你是否还有其他需求，你已借完书，准备离开",
+          "scenarioHintCn": "图书馆借书场景：感谢并离开",
           "followUps": [
             {
-              "text": "No, that's all, thank you!",
-              "text_cn": "不用了，就这些，谢谢！",
+              "text": "No, that’s all, thanks! Have a great day!",
+              "text_cn": "不用了，就这些，谢谢！祝你今天愉快！",
               "audio_url": "COS:/qa/responses/daily_013_sub_5_qa_2_response0.mp3"
+            },
+            {
+              "text": "Actually, could you tell me when the new novels arrive?",
+              "text_cn": "其实，你能告诉我新小说什么时候到货吗？",
+              "audio_url": "COS:/qa/responses/daily_013_sub_5_qa_2_response1.mp3"
+            },
+            {
+              "text": "All set! Thanks again.",
+              "text_cn": "搞定啦！再次感谢。",
+              "audio_url": "COS:/qa/responses/daily_013_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "这是最常见、最地道的告别前回应，表达明确结束服务，同时保持礼貌。",
+          "usageNote": "工作人员常在服务结束前询问是否需要其他帮助，用户回应需体现是否继续互动。三种回应覆盖：礼貌结束、临时追问、简洁致谢，均为高频真实反应。",
           "audioUrl": "COS:/qa/questions/daily_013_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -350,19 +490,29 @@
           "id": "daily_013_sub_5_qa_3",
           "subSceneId": "daily_013_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Enjoy your reading!",
-          "triggerTextCn": "祝你阅读愉快！",
+          "triggerText": "Thanks for using the library!",
+          "triggerTextCn": "感谢您使用图书馆！",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "工作人员在你离开前送上温馨祝福，你礼貌回应并道别",
+          "scenarioHintCn": "图书馆借书场景：感谢并离开",
           "followUps": [
             {
-              "text": "I will! Thanks again!",
-              "text_cn": "我会的！再次谢谢！",
+              "text": "I love this place! It’s so quiet and helpful.",
+              "text_cn": "我超爱这个地方！安静又贴心。",
               "audio_url": "COS:/qa/responses/daily_013_sub_5_qa_3_response0.mp3"
+            },
+            {
+              "text": "Same to you! See you soon.",
+              "text_cn": "你也一样！回头见。",
+              "audio_url": "COS:/qa/responses/daily_013_sub_5_qa_3_response1.mp3"
+            },
+            {
+              "text": "Appreciate it!",
+              "text_cn": "非常感谢！",
+              "audio_url": "COS:/qa/responses/daily_013_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "回应祝福语时用简短积极句式，符合英语母语者自然表达习惯，避免冗长。",
+          "usageNote": "这是图书馆工作人员在用户离开时的标准化告别语。用户回应需体现礼貌与情感，三种回应分别展示赞美、互致问候和高效告别，符合真实口语习惯。",
           "audioUrl": "COS:/qa/questions/daily_013_sub_5_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3

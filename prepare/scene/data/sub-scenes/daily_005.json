@@ -1,7 +1,7 @@
 {
   "sceneId": "daily_005",
   "sceneName": "看医生",
-  "generatedAt": "2026-03-16T08:03:35.085Z",
+  "generatedAt": "2026-03-17T03:07:22.850Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
@@ -15,41 +15,61 @@
         {
           "id": "daily_005_sub_1_qa_1",
           "subSceneId": "daily_005_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "I'd like to register for a doctor's appointment.",
-          "triggerTextCn": "我想挂号看医生。",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "What's the reason for your visit today?",
+          "triggerTextCn": "您今天来看病是因为什么？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "患者主动前往挂号处请求预约",
+          "scenarioHintCn": "挂号登记时，前台询问就诊原因",
           "followUps": [
             {
-              "text": "Sure, may I have your name and date of birth, please?",
-              "text_cn": "好的，请告诉我您的姓名和出生日期？",
+              "text": "I've had a persistent headache for three days.",
+              "text_cn": "我头痛已经持续三天了。",
               "audio_url": "COS:/qa/responses/daily_005_sub_1_qa_1_response0.mp3"
+            },
+            {
+              "text": "I'm here for my annual check-up.",
+              "text_cn": "我来做一个年度体检。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_1_qa_1_response1.mp3"
+            },
+            {
+              "text": "I need a prescription refill for my blood pressure medicine.",
+              "text_cn": "我需要续开降压药的处方。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "患者首次表达挂号需求时的典型开场白，适用于初次就诊或非预约就诊。",
+          "usageNote": "用于挂号时说明就诊目的，避免笼统回答如'I feel bad'。",
           "audioUrl": "COS:/qa/questions/daily_005_sub_1_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_005_sub_1_qa_2",
           "subSceneId": "daily_005_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "What symptoms are you experiencing?",
-          "triggerTextCn": "您有哪些症状？",
+          "triggerText": "Do you have insurance or need to pay at the front desk?",
+          "triggerTextCn": "您有医保吗？还是需要现场缴费？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "挂号员在登记信息前询问主要健康问题",
+          "scenarioHintCn": "挂号时确认支付方式和医保状态",
           "followUps": [
             {
-              "text": "I've had a fever and a sore throat for two days.",
-              "text_cn": "我发烧和喉咙痛两天了。",
+              "text": "I have public health insurance, here's my card.",
+              "text_cn": "我有医保，这是我的卡。",
               "audio_url": "COS:/qa/responses/daily_005_sub_1_qa_2_response0.mp3"
+            },
+            {
+              "text": "I don't have insurance—how much do I owe?",
+              "text_cn": "我没有保险，需要付多少钱？",
+              "audio_url": "COS:/qa/responses/daily_005_sub_1_qa_2_response1.mp3"
+            },
+            {
+              "text": "I'm not sure—can you check if my plan covers this visit?",
+              "text_cn": "我不确定，您能帮我查一下我的保险是否覆盖这次就诊吗？",
+              "audio_url": "COS:/qa/responses/daily_005_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "医护人员在挂号阶段必问的核心问题，用户需简洁说明主要症状，避免冗长描述。",
+          "usageNote": "回答需明确支付方式，避免沉默或模糊回应导致流程延误。",
           "audioUrl": "COS:/qa/questions/daily_005_sub_1_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -58,19 +78,29 @@
           "id": "daily_005_sub_1_qa_3",
           "subSceneId": "daily_005_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you have an insurance card or ID?",
-          "triggerTextCn": "您有保险卡或身份证吗？",
+          "triggerText": "Can you confirm your name and date of birth?",
+          "triggerTextCn": "请确认您的姓名和出生日期？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "挂号员核对身份与保险信息",
+          "scenarioHintCn": "核对患者身份信息以建立档案",
           "followUps": [
             {
-              "text": "Yes, here's my ID and insurance card.",
-              "text_cn": "有的，这是我的身份证和保险卡。",
+              "text": "It's Sarah Chen, born on March 15, 1988.",
+              "text_cn": "我叫陈莎拉，出生日期是1988年3月15日。",
               "audio_url": "COS:/qa/responses/daily_005_sub_1_qa_3_response0.mp3"
+            },
+            {
+              "text": "I think my name is spelled S-A-R-A-H, but I'm not sure about the date.",
+              "text_cn": "我觉得我的名字是S-A-R-A-H，但我不确定出生日期。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_1_qa_3_response1.mp3"
+            },
+            {
+              "text": "I'm here under my husband's insurance—my name is Lisa Wong, but the record might be under James Wong.",
+              "text_cn": "我是用我丈夫的保险来的，我叫王丽莎，但系统里可能是詹姆斯·王。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "挂号流程中必经的身份与保险核验环节，用户需直接出示证件，回应简洁明确。",
+          "usageNote": "身份核对环节必须清晰回应，避免因信息错误导致挂号失败或医疗记录混淆。",
           "audioUrl": "COS:/qa/questions/daily_005_sub_1_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -93,15 +123,25 @@
           "triggerTextCn": "您哪里不舒服？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "医生询问患者主要症状",
+          "scenarioHintCn": "医生询问主要症状",
           "followUps": [
             {
-              "text": "I've had a bad headache and fever for two days.",
-              "text_cn": "我两天来一直头痛发烧。",
+              "text": "I've had a sharp headache for two days, and it's getting worse.",
+              "text_cn": "我两天来一直有剧烈头痛，而且越来越严重。",
               "audio_url": "COS:/qa/responses/daily_005_sub_2_qa_1_response0.mp3"
+            },
+            {
+              "text": "I'm coughing a lot and feel really tired, but no fever.",
+              "text_cn": "我咳嗽得很厉害，感觉非常疲惫，但没有发烧。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_2_qa_1_response1.mp3"
+            },
+            {
+              "text": "My stomach has been upset since I ate that seafood last night.",
+              "text_cn": "自从昨晚吃了海鲜，我的胃就不舒服了。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是医生在问诊时最常用的开场问题，患者需简洁描述主要症状。",
+          "usageNote": "用于向医生清晰描述症状的起始时间、性质和可能诱因，帮助医生快速判断病因。",
           "audioUrl": "COS:/qa/questions/daily_005_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -114,15 +154,25 @@
           "triggerTextCn": "哪里疼？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "医生进一步确认疼痛部位",
+          "scenarioHintCn": "医生进一步定位疼痛部位",
           "followUps": [
             {
-              "text": "It's mainly in my throat and when I swallow, it hurts a lot.",
-              "text_cn": "主要在喉咙，吞咽时特别疼。",
+              "text": "It's on the right side of my chest, especially when I breathe in.",
+              "text_cn": "疼在右胸，尤其吸气时更明显。",
               "audio_url": "COS:/qa/responses/daily_005_sub_2_qa_2_response0.mp3"
+            },
+            {
+              "text": "It's my lower back — it started after I lifted that heavy box.",
+              "text_cn": "是下背部，搬重物后开始的。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_2_qa_2_response1.mp3"
+            },
+            {
+              "text": "Actually, it's not one spot — my whole jaw and neck feel tight.",
+              "text_cn": "其实不是固定一点，整个下巴和脖子都发紧。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "医生常通过此问题引导患者具体描述不适位置，回应应具体但简洁。",
+          "usageNote": "回答时应具体说明疼痛位置、是否放射、是否与动作相关，避免只说‘这里疼’。",
           "audioUrl": "COS:/qa/questions/daily_005_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -132,18 +182,28 @@
           "subSceneId": "daily_005_sub_2",
           "dialogueMode": "user_responds",
           "triggerText": "How long have you been feeling this way?",
-          "triggerTextCn": "这种症状持续多久了？",
+          "triggerTextCn": "你这种感觉有多久了？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
           "scenarioHintCn": "医生询问症状持续时间",
           "followUps": [
             {
-              "text": "Since last Monday, and it's getting worse.",
-              "text_cn": "从上周一就开始了，而且越来越严重。",
+              "text": "Just since this morning — it came on suddenly.",
+              "text_cn": "从今天早上开始的，突然发生的。",
               "audio_url": "COS:/qa/responses/daily_005_sub_2_qa_3_response0.mp3"
+            },
+            {
+              "text": "Off and on for about three weeks — it gets better, then comes back.",
+              "text_cn": "断断续续三周了，时好时坏。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_2_qa_3_response1.mp3"
+            },
+            {
+              "text": "I thought it was just a cold, but it's been three days now and I'm worse.",
+              "text_cn": "我本来以为只是感冒，但已经三天了，反而更严重了。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "医生评估病情严重性的重要问题，患者需明确时间范围并可补充趋势。",
+          "usageNote": "准确描述症状持续时间有助于医生区分急性病与慢性病，避免模糊回答如‘好几天了’。",
           "audioUrl": "COS:/qa/questions/daily_005_sub_2_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -166,15 +226,25 @@
           "triggerTextCn": "您哪里不舒服？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "医生开始问诊，询问主要症状",
+          "scenarioHintCn": "医生初诊时询问主要症状",
           "followUps": [
             {
-              "text": "I've had a bad headache and fever for two days.",
-              "text_cn": "我两天来一直头痛发烧。",
+              "text": "I've had a sharp headache for two days.",
+              "text_cn": "我两天来一直有剧烈头痛。",
               "audio_url": "COS:/qa/responses/daily_005_sub_3_qa_1_response0.mp3"
+            },
+            {
+              "text": "I'm not sure, but I feel really tired and have a low fever.",
+              "text_cn": "我不太确定，但我特别累，还有低烧。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_3_qa_1_response1.mp3"
+            },
+            {
+              "text": "It started after I ate seafood last night.",
+              "text_cn": "昨晚吃了海鲜后开始的。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是医生问诊时最常用的开场问题，用户需简洁描述主要症状，避免冗长描述。",
+          "usageNote": "用于医生初诊时引导患者描述主诉，是问诊中最常见的开场问题。",
           "audioUrl": "COS:/qa/questions/daily_005_sub_3_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -184,18 +254,28 @@
           "subSceneId": "daily_005_sub_3",
           "dialogueMode": "user_responds",
           "triggerText": "How long have you been feeling this way?",
-          "triggerTextCn": "你这种症状持续多久了？",
+          "triggerTextCn": "这种症状持续多久了？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "医生进一步了解症状持续时间",
+          "scenarioHintCn": "医生确认症状持续时间以判断急慢性",
           "followUps": [
             {
-              "text": "Since last Wednesday, it's getting worse every day.",
-              "text_cn": "从上周三开始，而且一天比一天严重。",
+              "text": "Just since yesterday.",
+              "text_cn": "从昨天开始的。",
               "audio_url": "COS:/qa/responses/daily_005_sub_3_qa_2_response0.mp3"
+            },
+            {
+              "text": "Off and on for a few weeks.",
+              "text_cn": "断断续续好几周了。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_3_qa_2_response1.mp3"
+            },
+            {
+              "text": "I didn't notice until this morning.",
+              "text_cn": "我今天早上才注意到。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "医生常通过时间线判断病情发展，用户应明确回答时间段，避免模糊表达如'很久了'.",
+          "usageNote": "医生通过持续时间判断病情性质，患者需简洁明确回应，避免冗长解释。",
           "audioUrl": "COS:/qa/questions/daily_005_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -204,19 +284,29 @@
           "id": "daily_005_sub_3_qa_3",
           "subSceneId": "daily_005_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you have any allergies or take any medication?",
-          "triggerTextCn": "你有过敏史或正在服药吗？",
+          "triggerText": "Have you taken any medicine for it?",
+          "triggerTextCn": "你吃过什么药吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "医生询问用药史和过敏史，确保安全诊疗",
+          "scenarioHintCn": "医生评估患者是否自行用药及效果",
           "followUps": [
             {
-              "text": "Yes, I'm allergic to penicillin, and I take blood pressure pills daily.",
-              "text_cn": "是的，我对青霉素过敏，每天都在吃降压药。",
+              "text": "Yes, I took ibuprofen, but it didn't help.",
+              "text_cn": "吃了布洛芬，但没用。",
               "audio_url": "COS:/qa/responses/daily_005_sub_3_qa_3_response0.mp3"
+            },
+            {
+              "text": "No, I didn't want to take anything without a doctor's advice.",
+              "text_cn": "没有，我没敢吃药，想先问医生。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_3_qa_3_response1.mp3"
+            },
+            {
+              "text": "I took some herbal tea my mom recommended.",
+              "text_cn": "我喝了妈妈推荐的草药茶。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "这是医疗问诊中关键的安全信息提问，用户必须主动告知过敏史和常规用药，不可回避。",
+          "usageNote": "医生需了解患者用药史以避免药物冲突或误诊，回应应诚实具体。",
           "audioUrl": "COS:/qa/questions/daily_005_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -227,7 +317,7 @@
       "id": "daily_005_sub_4",
       "sceneId": "daily_005",
       "name": "获取医嘱",
-      "description": "医生给出治疗建议，患者确认服药方式和复诊时间。",
+      "description": "医生给出诊断与治疗建议，患者确认服药与复诊安排。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -235,19 +325,29 @@
           "id": "daily_005_sub_4_qa_1",
           "subSceneId": "daily_005_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "What’s wrong?",
-          "triggerTextCn": "你怎么了？",
+          "triggerText": "How long have you been feeling this way?",
+          "triggerTextCn": "你这种症状持续多久了？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "医生询问症状，患者描述不适",
+          "scenarioHintCn": "医生询问症状持续时间以判断病情发展",
           "followUps": [
             {
-              "text": "I’ve had a bad headache and fever for two days.",
-              "text_cn": "我两天来一直头痛发烧。",
+              "text": "About three days. It started after I caught a cold.",
+              "text_cn": "大概三天了，感冒后开始的。",
               "audio_url": "COS:/qa/responses/daily_005_sub_4_qa_1_response0.mp3"
+            },
+            {
+              "text": "Weeks, actually. I thought it was just a stubborn cough.",
+              "text_cn": "好几个星期了，我以为只是咳得久了一点。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_4_qa_1_response1.mp3"
+            },
+            {
+              "text": "Just this morning. It came on suddenly.",
+              "text_cn": "今天早上才开始的，突然就疼了。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "当医生主动询问症状时，患者应简洁直接地描述主要不适，避免冗长描述。",
+          "usageNote": "用于描述症状持续时间，是医生诊断的关键信息，回答应具体、真实。",
           "audioUrl": "COS:/qa/questions/daily_005_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -255,43 +355,63 @@
         {
           "id": "daily_005_sub_4_qa_2",
           "subSceneId": "daily_005_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "What do you recommend?",
-          "triggerTextCn": "你有什么建议？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Have you taken any medicine for it?",
+          "triggerTextCn": "你有吃过什么药吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "患者主动询问治疗或用药建议",
+          "scenarioHintCn": "医生确认患者是否自行用药，避免药物冲突",
           "followUps": [
             {
-              "text": "Take this medicine three times a day after meals, and drink plenty of water. Rest for a few days.",
-              "text_cn": "每天饭后吃三次这种药，多喝水，休息几天。",
+              "text": "Yes, I took ibuprofen yesterday, but it didn't help much.",
+              "text_cn": "吃了布洛芬，但效果不大。",
               "audio_url": "COS:/qa/responses/daily_005_sub_4_qa_2_response0.mp3"
+            },
+            {
+              "text": "No, I didn't want to take anything without a doctor's advice.",
+              "text_cn": "没有，我想先听医生建议再吃药。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_4_qa_2_response1.mp3"
+            },
+            {
+              "text": "I'm not sure—I might have taken some cold pills, but I can't remember the name.",
+              "text_cn": "我不太确定，可能吃了些感冒药，但记不清名字了。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "患者在医生给出初步诊断后，常用此句主动询问下一步行动，是获取医嘱的核心表达。",
+          "usageNote": "回答需诚实说明用药情况，避免隐瞒或模糊表述，影响诊断。",
           "audioUrl": "COS:/qa/questions/daily_005_sub_4_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_005_sub_4_qa_3",
           "subSceneId": "daily_005_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "When should I come back?",
-          "triggerTextCn": "我什么时候该复诊？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "You need to rest, drink plenty of water, and take this medicine three times a day after meals.",
+          "triggerTextCn": "你需要多休息、多喝水，饭后每天吃三次这种药。",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "患者确认后续安排，确保治疗连续性",
+          "scenarioHintCn": "医生给出明确医嘱，患者需确认理解或表达顾虑",
           "followUps": [
             {
-              "text": "Come back in one week if the symptoms don’t improve. If they get worse, call us immediately.",
-              "text_cn": "如果症状没改善，一周后回来复诊。如果加重，请立即联系我们。",
+              "text": "Got it. I'll take it after every meal and call if it gets worse.",
+              "text_cn": "明白了，我会饭后吃药，如果加重就联系你。",
               "audio_url": "COS:/qa/responses/daily_005_sub_4_qa_3_response0.mp3"
+            },
+            {
+              "text": "Sorry, could you repeat the dosage? I'm a bit nervous about taking it.",
+              "text_cn": "不好意思，能再说一遍剂量吗？我有点担心吃错。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_4_qa_3_response1.mp3"
+            },
+            {
+              "text": "I work nights—can I take it before bed instead?",
+              "text_cn": "我上夜班，能改成睡前吃吗？",
+              "audio_url": "COS:/qa/responses/daily_005_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "复诊安排是医嘱的关键环节，患者应主动询问，体现对健康负责的态度。",
+          "usageNote": "患者应主动确认医嘱细节，尤其在作息特殊或有疑虑时，避免因误解导致治疗失败。",
           "audioUrl": "COS:/qa/questions/daily_005_sub_4_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -300,7 +420,7 @@
       "id": "daily_005_sub_5",
       "sceneId": "daily_005",
       "name": "缴费取药",
-      "description": "患者在药房缴费并领取处方药物，确认使用说明。",
+      "description": "患者在药房缴费并领取处方药物，确认使用方法。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -308,19 +428,29 @@
           "id": "daily_005_sub_5_qa_1",
           "subSceneId": "daily_005_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Here's your prescription. How would you like to pay?",
-          "triggerTextCn": "这是您的处方，您想怎么付款？",
+          "triggerText": "How would you like to pay for the prescription?",
+          "triggerTextCn": "您想怎么支付药费？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "药房窗口，工作人员确认付款方式",
+          "scenarioHintCn": "缴费取药：支付方式确认",
           "followUps": [
             {
-              "text": "I'll pay with my insurance card.",
-              "text_cn": "我用医保卡支付。",
+              "text": "I'll pay by credit card, please.",
+              "text_cn": "我刷卡支付，谢谢。",
               "audio_url": "COS:/qa/responses/daily_005_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "Do you accept cash? I don't have a card today.",
+              "text_cn": "你们收现金吗？我今天没带卡。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can I pay with my health insurance card? I think it covers part of this.",
+              "text_cn": "我能用医保卡支付吗？我觉得这部分费用医保能报销。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是药房缴费时最常见的一句付款方式询问，用户需直接回应支付方式，避免冗长解释。",
+          "usageNote": "在药房缴费时，工作人员常询问支付方式，用户需根据自身情况选择支付手段，包括信用卡、现金或医保。",
           "audioUrl": "COS:/qa/questions/daily_005_sub_5_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -329,19 +459,29 @@
           "id": "daily_005_sub_5_qa_2",
           "subSceneId": "daily_005_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you need help with the co-pay amount?",
-          "triggerTextCn": "您需要帮忙确认自付部分金额吗？",
+          "triggerText": "Your medication is ready. Do you need help understanding how to take it?",
+          "triggerTextCn": "您的药已经备好了，需要我帮您解释怎么服用吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "药房工作人员主动提供费用协助",
+          "scenarioHintCn": "缴费取药：确认用药说明",
           "followUps": [
             {
-              "text": "Yes, how much do I owe now?",
-              "text_cn": "是的，我现在需要付多少钱？",
+              "text": "Yes, please. The doctor didn't explain the dosage clearly.",
+              "text_cn": "好的，请帮我解释一下，医生没说清楚剂量。",
               "audio_url": "COS:/qa/responses/daily_005_sub_5_qa_2_response0.mp3"
+            },
+            {
+              "text": "No, thanks. I already know the instructions.",
+              "text_cn": "不用了，谢谢，我知道怎么吃。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_5_qa_2_response1.mp3"
+            },
+            {
+              "text": "Could you write it down? I'm worried I'll forget.",
+              "text_cn": "您能写下来吗？我怕记不住。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "在有保险的国家，患者常不清楚自付额，此问句高频出现，用户需简洁询问具体金额。",
+          "usageNote": "取药时药剂师常主动提供用药指导，用户可根据自身理解程度选择接受、拒绝或请求书面说明。",
           "audioUrl": "COS:/qa/questions/daily_005_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -349,22 +489,32 @@
         {
           "id": "daily_005_sub_5_qa_3",
           "subSceneId": "daily_005_sub_5",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can I pick up my medication now?",
-          "triggerTextCn": "我现在可以取药吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "The total is $45. Would you like to pick up your next refill now?",
+          "triggerTextCn": "总共是45美元，您现在要预约下一次取药吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "患者到达药房，确认取药状态",
+          "scenarioHintCn": "缴费取药：预约下次取药",
           "followUps": [
             {
-              "text": "Just a moment, I'll check the system. It's ready — here you go.",
-              "text_cn": "请稍等，我查一下系统。已经备好了，给您。",
+              "text": "Yes, I'll take the 30-day refill. When can I pick it up?",
+              "text_cn": "好的，我要30天的续药，什么时候能取？",
               "audio_url": "COS:/qa/responses/daily_005_sub_5_qa_3_response0.mp3"
+            },
+            {
+              "text": "Not yet—I need to check with my doctor first.",
+              "text_cn": "先不急，我得先问问医生。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_5_qa_3_response1.mp3"
+            },
+            {
+              "text": "Can I schedule it for next month? I'm traveling next week.",
+              "text_cn": "能帮我安排下个月取吗？我下周要出差。",
+              "audio_url": "COS:/qa/responses/daily_005_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "取药时最自然的开场提问，用于确认药物是否已准备好，语气礼貌但直接。",
+          "usageNote": "药房常在取药时推荐续药预约，用户可能因计划、经济或医疗原因选择接受、推迟或暂缓。",
           "audioUrl": "COS:/qa/questions/daily_005_sub_5_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]

@@ -1,14 +1,14 @@
 {
   "sceneId": "travel_065",
   "sceneName": "紧急求助",
-  "generatedAt": "2026-03-16T08:23:06.358Z",
+  "generatedAt": "2026-03-17T03:15:31.029Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "travel_065_sub_1",
       "sceneId": "travel_065",
-      "name": "寻求帮助",
-      "description": "旅行者向警察局前台说明自己护照丢失，请求协助。",
+      "name": "求助报失",
+      "description": "旅行者向警察说明护照丢失并请求帮助。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -16,19 +16,29 @@
           "id": "travel_065_sub_1_qa_1",
           "subSceneId": "travel_065_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "I need help! I think I'm having a heart attack!",
-          "triggerTextCn": "我需要帮助！我觉得我心脏病发作了！",
+          "triggerText": "I think I left my wallet in the restaurant. Can you help me check?",
+          "triggerTextCn": "我觉得我把钱包落在餐厅了，能帮我查一下吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "餐厅顾客突发身体不适，紧急求助",
+          "scenarioHintCn": "顾客在餐厅发现钱包丢失，请求协助寻找",
           "followUps": [
             {
-              "text": "Call 911 right away! I'll get a first aid kit and stay with you until help arrives.",
-              "text_cn": "马上拨打911！我去拿急救箱，陪在您身边直到救援到来。",
+              "text": "Of course, I’ll check the dining area and ask the cleaning staff right away.",
+              "text_cn": "当然，我马上去用餐区检查，并问一下清洁人员。",
               "audio_url": "COS:/qa/responses/travel_065_sub_1_qa_1_response0.mp3"
+            },
+            {
+              "text": "I’m sorry, but we don’t have a lost and found system. You might want to contact the front desk or security.",
+              "text_cn": "很抱歉，我们没有失物招领系统，您可以联系前台或安保人员。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_1_qa_1_response1.mp3"
+            },
+            {
+              "text": "Was it a black leather wallet? We found one just now — I’ll bring it to you.",
+              "text_cn": "是黑色皮质钱包吗？我们刚刚捡到一个，我马上拿给您。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于突发严重健康危机时的紧急求助，语气必须急迫，回应需体现专业与安抚",
+          "usageNote": "适用于顾客在餐厅遗失贵重物品时主动求助的场景，回应需体现服务态度与处理效率差异",
           "audioUrl": "COS:/qa/questions/travel_065_sub_1_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -37,19 +47,29 @@
           "id": "travel_065_sub_1_qa_2",
           "subSceneId": "travel_065_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "My child is choking! What should I do?",
-          "triggerTextCn": "我的孩子噎住了！我该怎么办？",
+          "triggerText": "Have you seen a blue phone case with a cracked screen? I think I dropped it near the counter.",
+          "triggerTextCn": "你们有没有看到一个蓝色手机壳、屏幕碎了的手机？我觉得我掉在柜台附近了。",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "家长在餐厅中孩子突发窒息，紧急寻求帮助",
+          "scenarioHintCn": "顾客描述具体物品特征，请求帮助寻找遗失手机",
           "followUps": [
             {
-              "text": "Let me help! I'm trained in the Heimlich maneuver. Stand behind him and I'll show you how to perform it.",
-              "text_cn": "我来帮忙！我受过海姆立克急救法训练。站到他身后，我教您怎么做。",
+              "text": "Yes, a staff member just brought it in — here it is, please check the screen.",
+              "text_cn": "是的，有员工刚送来一个，给您，请检查一下屏幕。",
               "audio_url": "COS:/qa/responses/travel_065_sub_1_qa_2_response0.mp3"
+            },
+            {
+              "text": "We haven’t found it yet, but we’ll keep an eye out and call you if someone turns it in.",
+              "text_cn": "我们还没找到，但如果有人上交，我们会立刻打电话通知您。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_1_qa_2_response1.mp3"
+            },
+            {
+              "text": "I’m afraid we can’t search for personal items unless you file a report with management.",
+              "text_cn": "很抱歉，除非您向管理层提交正式报告，否则我们无法为您搜寻个人物品。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "适用于儿童突发窒息的紧急场景，回应需包含具体行动指导，体现快速响应",
+          "usageNote": "顾客需提供具体特征，回应体现服务流程差异：立即归还、承诺通知、流程受限",
           "audioUrl": "COS:/qa/questions/travel_065_sub_1_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
@@ -57,22 +77,32 @@
         {
           "id": "travel_065_sub_1_qa_3",
           "subSceneId": "travel_065_sub_1",
-          "dialogueMode": "user_responds",
-          "triggerText": "Are you able to call an ambulance? My husband can't breathe!",
-          "triggerTextCn": "你能叫救护车吗？我丈夫呼吸困难！",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "I lost my credit card here. What should I do?",
+          "triggerTextCn": "我在这里丢了信用卡，我该怎么办？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员发现顾客家属呼吸困难，主动确认是否需要医疗援助",
+          "scenarioHintCn": "顾客意识到信用卡丢失，寻求紧急处理建议",
           "followUps": [
             {
-              "text": "Yes, I'm calling now. Please keep him calm and loosen any tight clothing.",
-              "text_cn": "好的，我马上叫。请让他保持冷静，松开任何紧身衣物。",
+              "text": "First, call your bank to freeze the card — we can help you use our phone or give you a quiet corner.",
+              "text_cn": "首先，请立即联系银行挂失卡——我们可以帮您用我们的电话，或提供一个安静角落。",
               "audio_url": "COS:/qa/responses/travel_065_sub_1_qa_3_response0.mp3"
+            },
+            {
+              "text": "We can’t assist with financial matters, but here’s the number for your bank’s emergency line.",
+              "text_cn": "我们无法处理金融事务，但这是您银行的紧急热线号码。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_1_qa_3_response1.mp3"
+            },
+            {
+              "text": "We’ve had a few reports of card theft nearby — I’ll call security and help you file a statement.",
+              "text_cn": "我们最近收到几起附近信用卡被盗的报告，我会叫安保人员并帮您做一份声明。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "服务员主动介入紧急情况，用户需给出明确配合性回应，语气应简洁、服从指导",
+          "usageNote": "涉及金融安全的紧急求助，回应需体现服务边界、资源支持与风险应对差异",
           "audioUrl": "COS:/qa/questions/travel_065_sub_1_qa_3.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -80,70 +110,100 @@
     {
       "id": "travel_065_sub_2",
       "sceneId": "travel_065",
-      "name": "描述细节",
-      "description": "提供护照信息、丢失时间地点等关键细节给警员。",
+      "name": "提供信息",
+      "description": "回答警察关于个人信息和丢失细节的问题。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_065_sub_2_qa_1",
           "subSceneId": "travel_065_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "I need help immediately — I think I'm having a heart attack!",
-          "triggerTextCn": "我需要立即帮助——我可能心脏病发作了！",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "What seems to be the problem?",
+          "triggerTextCn": "您哪里不舒服？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客在餐厅突发身体不适，紧急求助",
+          "scenarioHintCn": "医院急诊科，护士询问患者症状",
           "followUps": [
             {
-              "text": "Call 911 right away! I'll get a first aid kit and stay with you until help arrives.",
-              "text_cn": "马上拨打911！我去拿急救箱，陪在您身边直到救援到来。",
+              "text": "I can't breathe properly — it started suddenly.",
+              "text_cn": "我呼吸困难，突然发生的。",
               "audio_url": "COS:/qa/responses/travel_065_sub_2_qa_1_response0.mp3"
+            },
+            {
+              "text": "I think I broke my arm — it's swollen and I can't move it.",
+              "text_cn": "我觉得我胳膊断了，肿得厉害，动不了。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_2_qa_1_response1.mp3"
+            },
+            {
+              "text": "I'm having chest pain and feel dizzy — should I call an ambulance?",
+              "text_cn": "我胸口疼，还头晕，需要叫救护车吗？",
+              "audio_url": "COS:/qa/responses/travel_065_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于突发严重健康危机时向服务人员紧急求助，语气必须直接、紧迫",
+          "usageNote": "用于医院急诊场景中，患者回应医护人员的初步问诊，表达不同类型的紧急症状。",
           "audioUrl": "COS:/qa/questions/travel_065_sub_2_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "travel_065_sub_2_qa_2",
           "subSceneId": "travel_065_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "My child is choking — what should I do?",
-          "triggerTextCn": "我的孩子噎住了——我该怎么办？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you need help finding the nearest pharmacy?",
+          "triggerTextCn": "需要我帮您找最近的药房吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "家长在餐厅发现孩子窒息，紧急寻求帮助",
+          "scenarioHintCn": "便利店店员见顾客神色不适，主动提供帮助",
           "followUps": [
             {
-              "text": "Let me help — I'm trained in the Heimlich maneuver. Stand behind him and I'll show you how to perform it.",
-              "text_cn": "我来帮忙——我受过海姆立克急救法训练。站到他身后，我教您怎么做。",
+              "text": "Yes, please — I need allergy medicine right away.",
+              "text_cn": "是的，拜托了，我马上需要抗过敏药。",
               "audio_url": "COS:/qa/responses/travel_065_sub_2_qa_2_response0.mp3"
+            },
+            {
+              "text": "No, thanks — I have some at home, but I’m not sure if it’s still good.",
+              "text_cn": "不用了，谢谢，我家里有，但不确定是否还有效。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_2_qa_2_response1.mp3"
+            },
+            {
+              "text": "Could you tell me if they’re open now? I don’t want to go if they’re closed.",
+              "text_cn": "您能告诉我现在开门吗？我不想跑空。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "用于儿童突发窒息等紧急情况，回应需包含具体行动指导，体现专业与冷静",
+          "usageNote": "用于非医疗场所（如便利店）中，顾客对工作人员的援助提议做出不同反应，体现紧迫性、犹豫或信息确认需求。",
           "audioUrl": "COS:/qa/questions/travel_065_sub_2_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "travel_065_sub_2_qa_3",
           "subSceneId": "travel_065_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Are you able to call an ambulance? The customer at table 7 is unconscious!",
-          "triggerTextCn": "您能叫救护车吗？7号桌的顾客失去意识了！",
+          "triggerText": "Is this an emergency?",
+          "triggerTextCn": "这是紧急情况吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员发现顾客晕倒，向顾客确认是否需要协助呼叫急救",
+          "scenarioHintCn": "银行柜员发现客户情绪激动，询问是否需要紧急协助",
           "followUps": [
             {
-              "text": "Yes, please call 911 now! I'll clear the area and keep him warm.",
-              "text_cn": "请马上打911！我会清空周围并帮他保暖。",
+              "text": "Yes! My card was stolen and someone is draining my account now!",
+              "text_cn": "是的！我的卡被盗了，有人正在盗刷我的账户！",
               "audio_url": "COS:/qa/responses/travel_065_sub_2_qa_3_response0.mp3"
+            },
+            {
+              "text": "Not really — I just need to withdraw a large amount for an urgent trip.",
+              "text_cn": "不算紧急，我只是想取一大笔钱去赶紧急行程。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_2_qa_3_response1.mp3"
+            },
+            {
+              "text": "I’m not sure — my account shows a negative balance, but I just deposited money.",
+              "text_cn": "我不确定——账户显示透支，但我刚存了钱。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "服务人员在发现异常时向旁观者（顾客）请求协助，用户回应需体现主动配合与紧迫感",
+          "usageNote": "用于银行服务场景中，客户对工作人员关于紧急程度的判断做出三种典型回应，涵盖欺诈、资金需求和系统错误三种真实高频情境。",
           "audioUrl": "COS:/qa/questions/travel_065_sub_2_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -153,8 +213,8 @@
     {
       "id": "travel_065_sub_3",
       "sceneId": "travel_065",
-      "name": "确认流程",
-      "description": "询问后续需办理的手续及所需材料。",
+      "name": "询问流程",
+      "description": "咨询下一步如何办理补证或临时证件。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -162,19 +222,29 @@
           "id": "travel_065_sub_3_qa_1",
           "subSceneId": "travel_065_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "What do I need to do right now?",
-          "triggerTextCn": "我现在需要做什么？",
+          "triggerText": "I need help immediately — what’s the procedure for emergency care here?",
+          "triggerTextCn": "我需要立即帮助——这里紧急救治的流程是什么？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "患者在急诊室感到不适，急需确认下一步流程",
+          "scenarioHintCn": "医院急诊室：患者突发不适，询问急救流程",
           "followUps": [
             {
-              "text": "First, we need to register your information and take your vital signs. Please follow the nurse to the triage desk.",
-              "text_cn": "首先，我们需要登记您的信息并测量生命体征。请跟随护士到分诊台。",
+              "text": "We’ll get you to triage right away — a nurse will assess you in 2 minutes.",
+              "text_cn": "我们马上带您去分诊，护士两分钟内为您评估。",
               "audio_url": "COS:/qa/responses/travel_065_sub_3_qa_1_response0.mp3"
+            },
+            {
+              "text": "I’m sorry, but we need you to fill out this form first — it’s required by law.",
+              "text_cn": "很抱歉，您必须先填写这份表格，这是法律要求。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_3_qa_1_response1.mp3"
+            },
+            {
+              "text": "Please stay calm — we’ve already called the ER team. They’re on their way now.",
+              "text_cn": "请保持冷静，我们已经呼叫急诊团队，他们正在赶来的路上。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于在紧急服务场景中快速确认流程，语气紧迫但礼貌，适合初学者模仿使用",
+          "usageNote": "适用于医院急诊场景，用户表达紧急需求时，工作人员根据不同资源状况给出三种典型回应",
           "audioUrl": "COS:/qa/questions/travel_065_sub_3_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -183,19 +253,29 @@
           "id": "travel_065_sub_3_qa_2",
           "subSceneId": "travel_065_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "Can you tell me the next steps?",
-          "triggerTextCn": "您能告诉我接下来的步骤吗？",
+          "triggerText": "I’ve been waiting for over 30 minutes — can you tell me the next steps?",
+          "triggerTextCn": "我已经等了30多分钟了——能告诉我接下来该做什么吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客在银行遭遇账户冻结，急需了解解冻流程",
+          "scenarioHintCn": "银行柜台：客户办理紧急业务，长时间等待后询问流程",
           "followUps": [
             {
-              "text": "You'll need to provide your ID and proof of address. Then we'll verify your identity and lift the hold within 24 hours.",
-              "text_cn": "您需要提供身份证和住址证明，之后我们会核实身份，并在24小时内解除冻结。",
+              "text": "We’re processing your request — it’s in queue for a manager review. It’ll take 10–15 more minutes.",
+              "text_cn": "您的请求正在处理中，需经理审核，还需10到15分钟。",
               "audio_url": "COS:/qa/responses/travel_065_sub_3_qa_2_response0.mp3"
+            },
+            {
+              "text": "I can help you right now — please follow me to the priority counter for urgent cases.",
+              "text_cn": "我现在就能帮您，请跟我到紧急业务专柜。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_3_qa_2_response1.mp3"
+            },
+            {
+              "text": "I’m sorry, but we can’t proceed without your ID card — please go back and get it.",
+              "text_cn": "很抱歉，没有身份证我们无法继续，请回去取一下。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "适用于服务场景中用户主动寻求明确流程指引，表达简洁且符合真实紧急情境",
+          "usageNote": "适用于银行等服务场景，客户因等待过久而追问流程，工作人员根据权限、材料、流程状态给出不同回应",
           "audioUrl": "COS:/qa/questions/travel_065_sub_3_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
@@ -203,22 +283,32 @@
         {
           "id": "travel_065_sub_3_qa_3",
           "subSceneId": "travel_065_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "Do you need to see your ID or insurance card?",
-          "triggerTextCn": "您需要查看您的身份证或保险卡吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "I’m having a panic attack — where do I go for help in this restaurant?",
+          "triggerTextCn": "我正在经历恐慌发作——在这家餐厅里我该去哪里求助？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "医院接待员在急诊登记时确认所需文件",
+          "scenarioHintCn": "餐厅：顾客突发心理危机，寻求紧急帮助",
           "followUps": [
             {
-              "text": "Yes, here's my ID and insurance card.",
-              "text_cn": "是的，这是我的身份证和保险卡。",
+              "text": "We have a first-aid kit and a quiet room in the back — I’ll take you there right away.",
+              "text_cn": "我们有急救箱和后方安静休息室，我马上带您过去。",
               "audio_url": "COS:/qa/responses/travel_065_sub_3_qa_3_response0.mp3"
+            },
+            {
+              "text": "I’ll call 911 for you — do you have someone we can contact?",
+              "text_cn": "我马上帮您拨打911，您有可以联系的人吗？",
+              "audio_url": "COS:/qa/responses/travel_065_sub_3_qa_3_response1.mp3"
+            },
+            {
+              "text": "I’m not trained for medical emergencies — please sit down and breathe slowly while I call for help.",
+              "text_cn": "我没有接受过医疗急救培训，请坐下缓慢呼吸，我马上为您呼叫帮助。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "服务人员在紧急流程中确认关键文件，用户回应必须简短直接，符合高压环境下的真实反应",
+          "usageNote": "适用于非医疗场所（如餐厅）中的心理/生理紧急求助，工作人员根据能力范围给出三种真实、有层次的回应",
           "audioUrl": "COS:/qa/questions/travel_065_sub_3_qa_3.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -226,8 +316,8 @@
     {
       "id": "travel_065_sub_4",
       "sceneId": "travel_065",
-      "name": "获取证明",
-      "description": "请求开具丢失证明以便联系使领馆。",
+      "name": "获取指引",
+      "description": "确认需前往的机构、所需材料及联系方式。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -235,19 +325,29 @@
           "id": "travel_065_sub_4_qa_1",
           "subSceneId": "travel_065_sub_4",
           "dialogueMode": "user_asks",
-          "triggerText": "I need an official letter confirming my stay here.",
-          "triggerTextCn": "我需要一份证明我在此住宿的正式信函。",
+          "triggerText": "I need help quickly — where is the nearest emergency exit?",
+          "triggerTextCn": "我需要快速帮助——最近的紧急出口在哪里？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "客人在酒店前台紧急请求开具住宿证明",
+          "scenarioHintCn": "餐厅突发紧急情况，顾客寻求紧急出口指引",
           "followUps": [
             {
-              "text": "Of course, I can help with that. Could you please show me your ID and reservation details?",
-              "text_cn": "当然可以，我来帮您。请出示您的身份证和预订信息好吗？",
+              "text": "Go straight down this hallway, turn left at the fire alarm, and you'll see the exit sign.",
+              "text_cn": "直走这条走廊，在消防报警器处左转，就能看到出口标志。",
               "audio_url": "COS:/qa/responses/travel_065_sub_4_qa_1_response0.mp3"
+            },
+            {
+              "text": "I'm sorry, the main exit is blocked — please follow me to the secondary exit behind the kitchen.",
+              "text_cn": "抱歉，主出口被堵住了，请跟我到厨房后面的备用出口。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_4_qa_1_response1.mp3"
+            },
+            {
+              "text": "Call 911 first, then head to the exit near the restrooms — I'll alert security right away.",
+              "text_cn": "先拨打911，然后前往洗手间附近的出口——我马上通知安保人员。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于在酒店、医院等场所紧急请求官方证明文件，语气礼貌但直接，符合紧急求助场景。",
+          "usageNote": "适用于突发紧急情况（火灾、恐慌等）下快速获取逃生指引的对话，语气需简洁、权威、带紧迫感",
           "audioUrl": "COS:/qa/questions/travel_065_sub_4_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -256,19 +356,29 @@
           "id": "travel_065_sub_4_qa_2",
           "subSceneId": "travel_065_sub_4",
           "dialogueMode": "user_asks",
-          "triggerText": "Do you have a form I can fill out to get a medical certificate?",
-          "triggerTextCn": "有我可以填写的表格来申请医疗证明吗？",
+          "triggerText": "I'm lost — can you tell me how to get to the emergency room?",
+          "triggerTextCn": "我迷路了——你能告诉我怎么去急诊室吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "患者在医院窗口请求开具病假或诊疗证明",
+          "scenarioHintCn": "医院大厅，访客或患者家属急需找到急诊室",
           "followUps": [
             {
-              "text": "Yes, here’s the form. You’ll need to see the doctor first for their signature.",
-              "text_cn": "有的，这是表格。您需要先去找医生签字。",
+              "text": "Take the elevator to the first floor, then follow the red signs — it's just past the pharmacy.",
+              "text_cn": "坐电梯到一楼，跟着红色指示牌走，就在药房旁边。",
               "audio_url": "COS:/qa/responses/travel_065_sub_4_qa_2_response0.mp3"
+            },
+            {
+              "text": "I'm not sure — let me call the ER desk for you right now.",
+              "text_cn": "我不太确定，我现在就帮你打电话给急诊台。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_4_qa_2_response1.mp3"
+            },
+            {
+              "text": "I'm sorry, but you need to go to the main hospital building — this is the outpatient wing.",
+              "text_cn": "抱歉，您需要去主楼——这里是门诊区。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "在医疗场景中高频使用，体现用户主动寻求流程指引，符合紧急获取证明的现实需求。",
+          "usageNote": "适用于医院环境中非工作人员寻求急诊指引的高频场景，回应需体现专业性与同理心",
           "audioUrl": "COS:/qa/questions/travel_065_sub_4_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
@@ -276,22 +386,32 @@
         {
           "id": "travel_065_sub_4_qa_3",
           "subSceneId": "travel_065_sub_4",
-          "dialogueMode": "user_responds",
-          "triggerText": "Can you verify your address for the official document?",
-          "triggerTextCn": "您能确认一下您的地址，用于开具正式文件吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "I think I'm having a heart attack — where's the nurse station?",
+          "triggerTextCn": "我觉得我心脏病发作了——护士站在哪里？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "银行职员在为客户开具存款证明前核实个人信息",
+          "scenarioHintCn": "银行或商场内突发健康危机，顾客急需医疗援助",
           "followUps": [
             {
-              "text": "Yes, it’s 123 Maple Street, Apartment 5B.",
-              "text_cn": "是的，地址是枫树街123号5B公寓。",
+              "text": "I'm calling 911 now — stay right here, I'll bring a first aid kit and an AED.",
+              "text_cn": "我马上拨打911——请原地别动，我去拿急救箱和自动体外除颤器。",
               "audio_url": "COS:/qa/responses/travel_065_sub_4_qa_3_response0.mp3"
+            },
+            {
+              "text": "The nurse station is on the second floor — but I'll get someone to help you right away.",
+              "text_cn": "护士站在二楼——但我马上叫人来帮你。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_4_qa_3_response1.mp3"
+            },
+            {
+              "text": "I'm not trained for medical emergencies — I'll get the manager to call for help.",
+              "text_cn": "我没有接受过医疗急救培训，我马上叫经理来求助。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "服务人员核实信息是开具证明的关键环节，用户回应需简洁准确，避免冗长解释。",
+          "usageNote": "适用于非医疗机构中突发健康危机的求助场景，回应需体现快速响应与责任意识，避免虚假承诺",
           "audioUrl": "COS:/qa/questions/travel_065_sub_4_qa_3.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -299,49 +419,69 @@
     {
       "id": "travel_065_sub_5",
       "sceneId": "travel_065",
-      "name": "致谢离开",
-      "description": "感谢警员帮助，确认联系方式后离开。",
+      "name": "致谢离场",
+      "description": "感谢警察协助并礼貌结束对话。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "travel_065_sub_5_qa_1",
           "subSceneId": "travel_065_sub_5",
-          "dialogueMode": "user_asks",
+          "dialogueMode": "user_responds",
           "triggerText": "Thank you so much for your help!",
           "triggerTextCn": "非常感谢您的帮助！",
-          "triggerSpeakerRole": "customer",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客在得到紧急帮助后表达感谢并准备离开",
+          "scenarioHintCn": "餐厅服务结束，顾客致谢，服务员回应后顾客离场时的自然回应",
           "followUps": [
             {
-              "text": "You're very welcome! Have a great day!",
+              "text": "You're welcome! Have a great day!",
               "text_cn": "不客气！祝您今天愉快！",
               "audio_url": "COS:/qa/responses/travel_065_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "I really appreciate it — this saved me!",
+              "text_cn": "我真的非常感激，这帮了我大忙！",
+              "audio_url": "COS:/qa/responses/travel_065_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "Thanks again — I’ll be back next week!",
+              "text_cn": "再次感谢！我下周还会再来！",
+              "audio_url": "COS:/qa/responses/travel_065_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在获得服务或紧急协助后自然表达感谢，服务员回应礼貌且温暖，符合服务场景的结束礼仪",
+          "usageNote": "适用于服务场景结束时顾客对工作人员感谢后的自然回应，体现不同情感态度和社交意图",
           "audioUrl": "COS:/qa/questions/travel_065_sub_5_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "travel_065_sub_5_qa_2",
           "subSceneId": "travel_065_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "How can I help you today?",
-          "triggerTextCn": "今天我能为您做些什么？",
+          "triggerText": "Is there anything else I can help you with?",
+          "triggerTextCn": "还有什么我可以帮您的吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员在顾客表达感谢后，主动询问是否还需要其他帮助，顾客礼貌回应离开",
+          "scenarioHintCn": "服务员在顾客致谢后，主动询问是否还需帮助，顾客决定离场",
           "followUps": [
             {
-              "text": "No, thank you! Everything was perfect. I'm good to go!",
-              "text_cn": "不用了，谢谢！一切都很好，我这就走了！",
+              "text": "No, that’s all — you’ve been amazing!",
+              "text_cn": "不用了，就这样，您太棒了！",
               "audio_url": "COS:/qa/responses/travel_065_sub_5_qa_2_response0.mp3"
+            },
+            {
+              "text": "Actually, could you tell me where the restroom is?",
+              "text_cn": "其实，您能告诉我洗手间在哪吗？",
+              "audio_url": "COS:/qa/responses/travel_065_sub_5_qa_2_response1.mp3"
+            },
+            {
+              "text": "No thanks, I’m in a hurry — thanks again!",
+              "text_cn": "不用了，我赶时间，再次感谢！",
+              "audio_url": "COS:/qa/responses/travel_065_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "服务员在顾客致谢后常做最后确认，顾客用简洁自然的表达表明无需进一步帮助，适合高频结束对话",
+          "usageNote": "顾客在感谢后面对服务人员的延伸询问，需自然过渡到离场，体现不同时间压力和需求变化",
           "audioUrl": "COS:/qa/questions/travel_065_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -350,19 +490,29 @@
           "id": "travel_065_sub_5_qa_3",
           "subSceneId": "travel_065_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Is there anything else I can do for you?",
-          "triggerTextCn": "还有什么我可以帮您的吗？",
+          "triggerText": "We really appreciate your service today.",
+          "triggerTextCn": "我们今天非常感谢您的服务。",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务人员在顾客致谢后再次确认需求，顾客礼貌告别并离开",
+          "scenarioHintCn": "顾客（或团体）正式致谢，服务员回应后顾客准备离开",
           "followUps": [
             {
-              "text": "That's all, thanks again! Have a nice day!",
-              "text_cn": "不用了，再次感谢！祝你今天愉快！",
+              "text": "It was our pleasure — please come back soon!",
+              "text_cn": "这是我们的荣幸，欢迎下次再来！",
               "audio_url": "COS:/qa/responses/travel_065_sub_5_qa_3_response0.mp3"
+            },
+            {
+              "text": "We’ll definitely recommend you to our friends!",
+              "text_cn": "我们一定会向朋友推荐你们！",
+              "audio_url": "COS:/qa/responses/travel_065_sub_5_qa_3_response1.mp3"
+            },
+            {
+              "text": "Thanks — we’re so grateful, especially after everything today.",
+              "text_cn": "谢谢，我们真的非常感激，尤其是在今天这一切之后。",
+              "audio_url": "COS:/qa/responses/travel_065_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "服务人员常用此句确认服务完整性，顾客回应包含二次致谢与祝福，体现地道、温暖的告别方式",
+          "usageNote": "适用于顾客以团体或正式口吻致谢时，服务员回应后顾客的三种典型离场回应，涵盖情感、社交与情境深度",
           "audioUrl": "COS:/qa/questions/travel_065_sub_5_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3

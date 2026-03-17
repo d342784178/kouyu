@@ -1,78 +1,108 @@
 {
   "sceneId": "daily_012",
   "sceneName": "健身房咨询",
-  "generatedAt": "2026-03-16T08:06:30.226Z",
+  "generatedAt": "2026-03-17T03:12:37.527Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_012_sub_1",
       "sceneId": "daily_012",
       "name": "初次问候",
-      "description": "用户到店后向前台礼貌打招呼并说明来意。",
+      "description": "顾客到店打招呼，顾问热情接待并询问需求。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_012_sub_1_qa_1",
           "subSceneId": "daily_012_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "Hi, I'm new here. Can you help me get started?",
-          "triggerTextCn": "你好，我是新手，能帮我入门吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Welcome to FitLife Gym! Are you new here?",
+          "triggerTextCn": "欢迎来到FitLife健身房！您是第一次来吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客初次到访健身房，寻求指导",
+          "scenarioHintCn": "健身房初次问候：前台询问是否为新会员",
           "followUps": [
             {
-              "text": "Of course! Let me give you a quick tour and show you the equipment basics.",
-              "text_cn": "当然！我来带你快速参观一下，并教你基础器械的使用。",
+              "text": "Yes, I am. I’d like to sign up for a membership.",
+              "text_cn": "是的，我是新来的。我想办一张会员卡。",
               "audio_url": "COS:/qa/responses/daily_012_sub_1_qa_1_response0.mp3"
+            },
+            {
+              "text": "Actually, I’m just checking it out first. Can I tour the facility?",
+              "text_cn": "其实我只是先来看看。我可以参观一下设施吗？",
+              "audio_url": "COS:/qa/responses/daily_012_sub_1_qa_1_response1.mp3"
+            },
+            {
+              "text": "No, I’m a member already, but I forgot my card.",
+              "text_cn": "不是，我已经是会员了，但忘带卡了。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客初次到访时最常用的开场白，用于主动寻求帮助，自然且礼貌。",
+          "usageNote": "这是健身房接待新访客的标准开场白，用户可能有办卡、参观或身份确认三种不同需求。",
           "audioUrl": "COS:/qa/questions/daily_012_sub_1_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_012_sub_1_qa_2",
           "subSceneId": "daily_012_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "What membership options do you have?",
-          "triggerTextCn": "你们有哪些会员方案？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "What brings you here today?",
+          "triggerTextCn": "您今天来健身房是有什么目标呢？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问不同会员计划以选择适合自己的",
+          "scenarioHintCn": "健身房初次问候：教练或前台询问来访目的",
           "followUps": [
             {
-              "text": "We have three plans: basic, premium, and unlimited. Basic includes gym access, premium adds classes, and unlimited lets you come anytime.",
-              "text_cn": "我们有三种计划：基础版、高级版和无限版。基础版包含健身房使用，高级版加课程，无限版可随时进出。",
+              "text": "I want to lose weight and get in shape.",
+              "text_cn": "我想减脂塑形。",
               "audio_url": "COS:/qa/responses/daily_012_sub_1_qa_2_response0.mp3"
+            },
+            {
+              "text": "I’m training for a marathon next month.",
+              "text_cn": "我下个月要参加马拉松，需要训练。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_1_qa_2_response1.mp3"
+            },
+            {
+              "text": "I just need somewhere to unwind after work.",
+              "text_cn": "我只是想找地方下班后放松一下。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客在初次咨询时几乎必问的问题，用于快速了解服务选项。",
+          "usageNote": "此问题用于了解用户健身动机，回应应简洁明确，避免冗长解释。",
           "audioUrl": "COS:/qa/questions/daily_012_sub_1_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_012_sub_1_qa_3",
           "subSceneId": "daily_012_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "Do you offer a free trial?",
-          "triggerTextCn": "你们有免费试用吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like a free trial session today?",
+          "triggerTextCn": "您今天想体验一次免费课程吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客在决定购买前希望先体验服务",
+          "scenarioHintCn": "健身房初次问候：主动提供免费体验机会",
           "followUps": [
             {
-              "text": "Yes, we offer a 7-day free trial. Just sign up at the front desk and we’ll give you a guest pass.",
-              "text_cn": "有的，我们提供7天免费试用。只需在前台登记，我们会给你一张访客通行证。",
+              "text": "Yes, please! What’s available right now?",
+              "text_cn": "好的，请问现在有什么课程可以体验？",
               "audio_url": "COS:/qa/responses/daily_012_sub_1_qa_3_response0.mp3"
+            },
+            {
+              "text": "Maybe later—I need to check my schedule first.",
+              "text_cn": "也许改天吧，我得先看看我的时间安排。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_1_qa_3_response1.mp3"
+            },
+            {
+              "text": "No thanks, I already have a plan.",
+              "text_cn": "不用了，谢谢，我已经有计划了。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "消费者在服务消费前的典型试探性提问，体现谨慎决策心理，极高频。",
+          "usageNote": "这是健身房常见的转化话术，用户回应需体现真实决策状态，避免机械回答。",
           "audioUrl": "COS:/qa/questions/daily_012_sub_1_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -81,7 +111,7 @@
       "id": "daily_012_sub_2",
       "sceneId": "daily_012",
       "name": "询问设施",
-      "description": "咨询健身房的设备、泳池、团体课等服务项目。",
+      "description": "顾客了解健身房设备、泳池、更衣室等配套服务。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -89,19 +119,29 @@
           "id": "daily_012_sub_2_qa_1",
           "subSceneId": "daily_012_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "Do you have a swimming pool?",
-          "triggerTextCn": "你们有游泳池吗？",
+          "triggerText": "What facilities do you have available?",
+          "triggerTextCn": "你们有哪些设施？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问健身房是否提供游泳设施",
+          "scenarioHintCn": "询问健身房整体设施",
           "followUps": [
             {
-              "text": "Yes, we have an indoor heated pool open from 6 AM to 10 PM daily.",
-              "text_cn": "有的，我们有一个室内恒温泳池，每天早上6点到晚上10点开放。",
+              "text": "We have a full cardio zone, free weights, functional training area, and a 25-meter indoor pool.",
+              "text_cn": "我们有全套有氧区、自由重量区、功能性训练区和一个25米室内泳池。",
               "audio_url": "COS:/qa/responses/daily_012_sub_2_qa_1_response0.mp3"
+            },
+            {
+              "text": "We offer strength equipment, group classes, and a sauna, but no pool or climbing wall.",
+              "text_cn": "我们提供力量器械、团体课程和桑拿房，但没有泳池或攀岩墙。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_2_qa_1_response1.mp3"
+            },
+            {
+              "text": "Our main facilities are weights and cardio machines; we also have a small stretching area and locker rooms with showers.",
+              "text_cn": "我们的主要设施是力量器械和有氧设备，还有小块拉伸区和带淋浴的更衣室。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在选择健身房时，常通过询问核心设施（如泳池、桑拿）来评估是否符合需求。",
+          "usageNote": "用于初次咨询时了解健身房整体配置，适合新手或比较不同健身房的用户",
           "audioUrl": "COS:/qa/questions/daily_012_sub_2_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -109,43 +149,63 @@
         {
           "id": "daily_012_sub_2_qa_2",
           "subSceneId": "daily_012_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can I use the sauna and steam room?",
-          "triggerTextCn": "我可以使用桑拿房和蒸汽房吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Are you interested in a personal training session?",
+          "triggerTextCn": "您有兴趣尝试私人教练课程吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客确认高级设施的使用权限",
+          "scenarioHintCn": "服务员推荐私教服务",
           "followUps": [
             {
-              "text": "Absolutely! Those are included with all membership plans. Just sign in at the front desk.",
-              "text_cn": "当然可以！所有会员计划都包含这些设施，只需在前台签到即可使用。",
+              "text": "Yes, I’d like to start with two sessions a week to build a routine.",
+              "text_cn": "是的，我想每周安排两次，先建立训练习惯。",
               "audio_url": "COS:/qa/responses/daily_012_sub_2_qa_2_response0.mp3"
+            },
+            {
+              "text": "No thanks, I’m comfortable working out on my own for now.",
+              "text_cn": "不用了，谢谢，我现在习惯自己练。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_2_qa_2_response1.mp3"
+            },
+            {
+              "text": "I’m not sure—can you tell me how much it costs?",
+              "text_cn": "我不确定——能告诉我价格吗？",
+              "audio_url": "COS:/qa/responses/daily_012_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客常关心附加设施是否包含在会员费中，回应需明确权限与使用流程。",
+          "usageNote": "服务员常在介绍完设施后自然引导至私教销售，用户回应需体现真实态度差异",
           "audioUrl": "COS:/qa/questions/daily_012_sub_2_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_012_sub_2_qa_3",
           "subSceneId": "daily_012_sub_2",
-          "dialogueMode": "user_responds",
-          "triggerText": "Do you offer group fitness classes like yoga or spin?",
-          "triggerTextCn": "你们有团体健身课程吗，比如瑜伽或动感单车？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can I use the swimming pool with my membership?",
+          "triggerTextCn": "我的会员资格包含泳池使用吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "工作人员主动询问顾客对团体课程的兴趣，以推荐服务",
+          "scenarioHintCn": "确认特定设施是否包含在会员权益中",
           "followUps": [
             {
-              "text": "Yes, I’d love to try yoga on Tuesdays and spin on Thursdays.",
-              "text_cn": "有的，我想参加周二的瑜伽和周四的动感单车课。",
+              "text": "Yes, the pool is included in all standard memberships—open daily from 6 AM to 9 PM.",
+              "text_cn": "是的，泳池包含在所有标准会员中，每天早上6点到晚上9点开放。",
               "audio_url": "COS:/qa/responses/daily_012_sub_2_qa_3_response0.mp3"
+            },
+            {
+              "text": "Sorry, the pool is only available with our premium plan. Would you like to upgrade?",
+              "text_cn": "抱歉，泳池仅限高级会员使用。您要升级吗？",
+              "audio_url": "COS:/qa/responses/daily_012_sub_2_qa_3_response1.mp3"
+            },
+            {
+              "text": "The pool is closed for maintenance this week, but it’ll reopen next Monday.",
+              "text_cn": "泳池本周因维修关闭，下周一重新开放。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "工作人员常通过提问引导顾客了解课程安排，顾客回应应直接明确时间偏好。",
+          "usageNote": "用户常针对具体设施（如泳池、桑拿）确认权益，回应需覆盖可用、不可用、临时关闭三种真实情况",
           "audioUrl": "COS:/qa/questions/daily_012_sub_2_qa_3.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -154,7 +214,7 @@
       "id": "daily_012_sub_3",
       "sceneId": "daily_012",
       "name": "了解时间",
-      "description": "询问健身房的营业时间及高峰时段安排。",
+      "description": "顾客咨询营业时间、高峰时段及预约规则。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -162,19 +222,29 @@
           "id": "daily_012_sub_3_qa_1",
           "subSceneId": "daily_012_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "What are your opening hours?",
-          "triggerTextCn": "你们的营业时间是什么时候？",
+          "triggerText": "What are your peak hours?",
+          "triggerTextCn": "你们的高峰时段是什么时候？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问健身房整体营业时间",
+          "scenarioHintCn": "用户询问健身房高峰时段以避开拥挤",
           "followUps": [
             {
-              "text": "We're open from 6 AM to 10 PM every day, including weekends.",
-              "text_cn": "我们每天早上6点到晚上10点营业，包括周末。",
+              "text": "Our peak hours are 6–8 AM and 5–7 PM on weekdays.",
+              "text_cn": "我们的高峰时段是工作日早上6点到8点，以及下午5点到7点。",
               "audio_url": "COS:/qa/responses/daily_012_sub_3_qa_1_response0.mp3"
+            },
+            {
+              "text": "Weekends are busy all day, but midday on weekdays is usually quiet.",
+              "text_cn": "周末全天都忙，但工作日中午时段通常比较安静。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_3_qa_1_response1.mp3"
+            },
+            {
+              "text": "I’d recommend coming around 10 AM — it’s calm and equipment is free.",
+              "text_cn": "我建议你上午10点来，那时候人少，器械也空着。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在初次咨询时最常问的问题，用于确认是否符合自己的时间安排。",
+          "usageNote": "用户询问高峰时段以规划锻炼时间，服务员应提供具体时段并可附加优化建议",
           "audioUrl": "COS:/qa/questions/daily_012_sub_3_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -183,19 +253,29 @@
           "id": "daily_012_sub_3_qa_2",
           "subSceneId": "daily_012_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "Do you have early morning classes?",
-          "triggerTextCn": "你们有早上的课程吗？",
+          "triggerText": "Do you have early morning sessions?",
+          "triggerTextCn": "你们有早起的课程吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问是否有适合早起者的团体课程时间",
+          "scenarioHintCn": "用户想确认是否有晨间团体课程",
           "followUps": [
             {
-              "text": "Yes, we have yoga at 6:30 AM and cardio at 7 AM. Both are popular.",
-              "text_cn": "有的，我们早上6:30有瑜伽课，7点有有氧课，都很受欢迎。",
+              "text": "Yes, we have yoga and HIIT classes starting at 6:30 AM.",
+              "text_cn": "有的，我们早上6:30有瑜伽和高强度间歇训练课程。",
               "audio_url": "COS:/qa/responses/daily_012_sub_3_qa_2_response0.mp3"
+            },
+            {
+              "text": "We don’t offer morning classes, but you can use the cardio area anytime from 5 AM.",
+              "text_cn": "我们没有早课，但您从早上5点起就可以使用有氧器械区。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_3_qa_2_response1.mp3"
+            },
+            {
+              "text": "Morning classes are on hold until next month due to staff shortages.",
+              "text_cn": "由于人手不足，早课暂时停办，下个月恢复。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "针对有固定晨练习惯的顾客，询问课程时间是高频需求。",
+          "usageNote": "用户关心晨间课程，服务员需如实告知是否提供、替代方案或临时变动",
           "audioUrl": "COS:/qa/questions/daily_012_sub_3_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
@@ -203,22 +283,32 @@
         {
           "id": "daily_012_sub_3_qa_3",
           "subSceneId": "daily_012_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "Can you tell me the best time to come if I want to avoid crowds?",
-          "triggerTextCn": "如果我想避开人多的时候，什么时候来最好？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "What time do you close on weekends?",
+          "triggerTextCn": "周末你们几点关门？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "工作人员主动询问顾客的偏好，以推荐空闲时段",
+          "scenarioHintCn": "用户想确认周末营业结束时间以便安排锻炼",
           "followUps": [
             {
-              "text": "I usually come between 1 and 4 PM — it's pretty quiet then.",
-              "text_cn": "我通常下午1点到4点来，那时候人很少。",
+              "text": "We close at 10 PM on weekends.",
+              "text_cn": "周末我们晚上10点关门。",
               "audio_url": "COS:/qa/responses/daily_012_sub_3_qa_3_response0.mp3"
+            },
+            {
+              "text": "We’re open until midnight on Fridays and Saturdays for late-night members.",
+              "text_cn": "周五和周六我们营业到午夜，为夜间会员提供服务。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_3_qa_3_response1.mp3"
+            },
+            {
+              "text": "We close at 8 PM on Sundays — it’s our deep cleaning day.",
+              "text_cn": "周日我们8点关门，那是我们的深度清洁日。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "工作人员常主动提供避峰建议，顾客需简洁回应个人偏好，避免冗长解释。",
+          "usageNote": "用户询问关门时间，服务员需区分周末类型并说明是否有特殊安排或原因",
           "audioUrl": "COS:/qa/questions/daily_012_sub_3_qa_3.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -227,71 +317,101 @@
       "id": "daily_012_sub_4",
       "sceneId": "daily_012",
       "name": "对比方案",
-      "description": "比较不同会员套餐的价格与权益，表达偏好。",
+      "description": "顾问介绍不同会员套餐，顾客比较价格与权益。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_012_sub_4_qa_1",
           "subSceneId": "daily_012_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "What's the difference between the basic and premium memberships?",
-          "triggerTextCn": "基础会员和高级会员有什么区别？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Are you looking for a basic membership or something more comprehensive?",
+          "triggerTextCn": "您是想选基础会员，还是更全面的套餐？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客在对比两种健身会员方案时询问核心差异",
+          "scenarioHintCn": "健身房顾问向顾客介绍不同会员方案，引导对比选择",
           "followUps": [
             {
-              "text": "The basic plan includes gym access and group classes, while premium adds personal training sessions, sauna, and 24/7 access.",
-              "text_cn": "基础套餐包含健身房使用和团体课程，高级套餐额外提供私人训练、桑拿和24小时入场权限。",
+              "text": "I want the basic one — I just need access to weights and cardio.",
+              "text_cn": "我要基础套餐，只需要器械和有氧区。",
               "audio_url": "COS:/qa/responses/daily_012_sub_4_qa_1_response0.mp3"
+            },
+            {
+              "text": "I’m torn — the premium package has classes I like, but it’s way over my budget.",
+              "text_cn": "我犹豫了，高级套餐有我喜欢的课程，但超预算了。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_4_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can I try the premium for a week and downgrade later if it’s too much?",
+              "text_cn": "我能先试一周高级套餐，如果太贵再降级吗？",
+              "audio_url": "COS:/qa/responses/daily_012_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于明确比较不同会员等级的核心权益，帮助顾客做决策",
+          "usageNote": "用于顾客在选择会员等级时，表达不同需求、预算和灵活性的典型回应",
           "audioUrl": "COS:/qa/questions/daily_012_sub_4_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_012_sub_4_qa_2",
           "subSceneId": "daily_012_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Do you offer a trial for the premium plan?",
-          "triggerTextCn": "你们有高级会员的试用选项吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you prefer a 12-month contract or a month-to-month plan?",
+          "triggerTextCn": "您更倾向12个月合约，还是按月付费？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客希望先体验高级服务再决定是否购买",
+          "scenarioHintCn": "健身房顾问询问合同期限，引导顾客权衡长期优惠与短期灵活",
           "followUps": [
             {
-              "text": "Yes, we offer a 7-day free trial for premium members — you can use all the extra features to see if it’s right for you.",
-              "text_cn": "有的，我们为高级会员提供7天免费试用，您可以体验所有附加功能，看看是否适合您。",
+              "text": "I’ll go with the 12-month — the discount makes sense for me.",
+              "text_cn": "我选12个月的，折扣划算。",
               "audio_url": "COS:/qa/responses/daily_012_sub_4_qa_2_response0.mp3"
+            },
+            {
+              "text": "I’m not sure I’ll stick with it — I need month-to-month just in case.",
+              "text_cn": "我不确定能不能坚持，还是按月付更保险。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_4_qa_2_response1.mp3"
+            },
+            {
+              "text": "Do you offer a 6-month option? I’d prefer something in between.",
+              "text_cn": "你们有6个月的选项吗？我想要个中间方案。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "用于试探性询问试用政策，是决策前常见且自然的提问",
+          "usageNote": "用于顾客在合同期限选择时，表达经济考量、不确定性或个性化需求",
           "audioUrl": "COS:/qa/questions/daily_012_sub_4_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_012_sub_4_qa_3",
           "subSceneId": "daily_012_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Which plan do most people choose here?",
-          "triggerTextCn": "这里大多数人选哪个计划？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you want to add personal training sessions to your plan?",
+          "triggerTextCn": "您要加私人教练课程吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客寻求社会认同，通过他人选择辅助决策",
+          "scenarioHintCn": "顾问推荐附加服务，顾客需决定是否购买额外服务",
           "followUps": [
             {
-              "text": "About 70% go for premium — it’s popular because people love the personal training and flexible hours.",
-              "text_cn": "大约70%的人选择高级套餐，因为大家喜欢私人训练和灵活的时间安排。",
+              "text": "Yes, I’d like two sessions a week — I need help with form.",
+              "text_cn": "要，我想每周两次，需要纠正动作。",
               "audio_url": "COS:/qa/responses/daily_012_sub_4_qa_3_response0.mp3"
+            },
+            {
+              "text": "Not right now — I’ll start with the gym alone and see how it goes.",
+              "text_cn": "现在不要，我想先自己练着看情况。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_4_qa_3_response1.mp3"
+            },
+            {
+              "text": "Are the trainers certified? I don’t want to waste money on someone unqualified.",
+              "text_cn": "教练有资质吗？我不想为不合格的人花钱。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "用于获取群体偏好信息，是顾客在对比方案时高频使用的心理锚定提问",
+          "usageNote": "用于顾客面对附加服务推荐时，表达意愿、谨慎态度或信息核查需求",
           "audioUrl": "COS:/qa/questions/daily_012_sub_4_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -300,69 +420,99 @@
       "id": "daily_012_sub_5",
       "sceneId": "daily_012",
       "name": "参观体验",
-      "description": "请求参观场地，实地查看器械与环境。",
+      "description": "顾问带领顾客参观场地，现场体验器械与氛围。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_012_sub_5_qa_1",
           "subSceneId": "daily_012_sub_5",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can I take a tour of the facility today?",
-          "triggerTextCn": "我今天可以参观一下健身房吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like a guided tour of the facility?",
+          "triggerTextCn": "您需要导览整个健身房吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客首次到访，请求参观健身房",
+          "scenarioHintCn": "健身房顾问主动提供导览服务",
           "followUps": [
             {
-              "text": "Of course! I'll give you a quick tour — we've got cardio machines, free weights, and group class studios.",
-              "text_cn": "当然可以！我带您快速参观一下——我们有有氧器械、自由重量区和团体课程室。",
+              "text": "Yes, please! I'm new here and want to know where everything is.",
+              "text_cn": "好的，请带我看看！我是新手，想了解所有设备的位置。",
               "audio_url": "COS:/qa/responses/daily_012_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "No thanks, I'm familiar with gyms—I'll explore on my own.",
+              "text_cn": "不用了，我熟悉健身房，我自己逛就行。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can we do it after I change? I need to freshen up first.",
+              "text_cn": "我能换完衣服后再导览吗？我先整理一下。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客首次到访时常用开场白，用于开启参观流程",
+          "usageNote": "用于顾客刚到店时，工作人员主动提供导览服务的典型开场互动",
           "audioUrl": "COS:/qa/questions/daily_012_sub_5_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_012_sub_5_qa_2",
           "subSceneId": "daily_012_sub_5",
           "dialogueMode": "user_asks",
-          "triggerText": "Do you offer a free trial membership?",
-          "triggerTextCn": "你们有免费试用会员吗？",
+          "triggerText": "What kind of equipment are you interested in?",
+          "triggerTextCn": "您对哪种器械感兴趣？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问是否提供免费体验机会",
+          "scenarioHintCn": "顾客主动询问器械推荐，寻求个性化建议",
           "followUps": [
             {
-              "text": "Yes, we offer a 7-day free trial. You can use all equipment and attend one group class.",
-              "text_cn": "有的，我们提供7天免费试用，您可以使用所有器械并参加一节团体课程。",
+              "text": "We have a full cardio zone with treadmills, ellipticals, and rowing machines—plus free weights and functional training areas.",
+              "text_cn": "我们有完整的有氧区，包括跑步机、椭圆机和划船机，还有自由重量区和功能性训练区。",
               "audio_url": "COS:/qa/responses/daily_012_sub_5_qa_2_response0.mp3"
+            },
+            {
+              "text": "If you're focusing on recovery, we have a dedicated stretching and foam roller zone, plus massage guns available.",
+              "text_cn": "如果您注重恢复，我们有专门的拉伸和泡沫轴区域，还提供按摩枪。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_5_qa_2_response1.mp3"
+            },
+            {
+              "text": "We also offer free group classes like HIIT and yoga—would you like to try one today?",
+              "text_cn": "我们还提供免费团体课程，比如HIIT和瑜伽，今天要参加一节吗？",
+              "audio_url": "COS:/qa/responses/daily_012_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "潜在客户在决定购买前最常问的问题，用于评估服务价值",
+          "usageNote": "顾客询问器械偏好时，工作人员根据不同需求提供精准推荐的典型回应",
           "audioUrl": "COS:/qa/questions/daily_012_sub_5_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_012_sub_5_qa_3",
           "subSceneId": "daily_012_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "What time do you close tonight?",
-          "triggerTextCn": "你们今晚几点关门？",
+          "triggerText": "Do you want to sign up for a membership today?",
+          "triggerTextCn": "您今天要办理会员吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员主动询问顾客的使用时间以便提供服务建议",
+          "scenarioHintCn": "体验结束，顾问促成签约的关键时刻",
           "followUps": [
             {
-              "text": "I'm planning to work out until 9 PM.",
-              "text_cn": "我打算锻炼到晚上9点。",
+              "text": "Yes, I'll go with the basic monthly plan.",
+              "text_cn": "好的，我就选基础月卡。",
               "audio_url": "COS:/qa/responses/daily_012_sub_5_qa_3_response0.mp3"
+            },
+            {
+              "text": "Can I think about it? I want to compare a few gyms first.",
+              "text_cn": "我能再考虑一下吗？我想先比较几家健身房。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_5_qa_3_response1.mp3"
+            },
+            {
+              "text": "Do you offer a trial week? I'd like to come back and train a few times before deciding.",
+              "text_cn": "你们有试用周吗？我想回来练几次再决定。",
+              "audio_url": "COS:/qa/responses/daily_012_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "员工为顾客提供个性化服务时的常见引导问题，顾客需简洁回应时间安排",
+          "usageNote": "体验结束时，顾问促成转化的高频提问，用户回应体现不同决策态度",
           "audioUrl": "COS:/qa/questions/daily_012_sub_5_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3

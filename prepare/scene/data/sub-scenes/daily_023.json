@@ -1,13 +1,13 @@
 {
   "sceneId": "daily_023",
   "sceneName": "照相馆拍照",
-  "generatedAt": "2026-03-16T08:11:00.817Z",
+  "generatedAt": "2026-03-17T03:20:08.522Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_023_sub_1",
       "sceneId": "daily_023",
-      "name": "接待问候",
+      "name": "问候接待",
       "description": "顾客到店，摄影师友好问候并确认拍照需求。",
       "order": 1,
       "estimatedMinutes": 5,
@@ -15,62 +15,92 @@
         {
           "id": "daily_023_sub_1_qa_1",
           "subSceneId": "daily_023_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "Hi, I'd like to take some photos today.",
-          "triggerTextCn": "您好，我想今天拍些照片。",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Hi there! How can I help you today?",
+          "triggerTextCn": "您好！今天有什么可以帮您的？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动提出拍照需求，接待环节的典型开场",
+          "scenarioHintCn": "照相馆接待问候",
           "followUps": [
             {
-              "text": "Of course! We specialize in portraits, family shots, and professional headshots. What kind of photos are you looking for?",
-              "text_cn": "当然可以！我们擅长人像、家庭合影和职业证件照。您想拍哪种类型的照片呢？",
+              "text": "I'd like to take a professional headshot for my LinkedIn profile.",
+              "text_cn": "我想拍一张用于领英简历的专业证件照。",
               "audio_url": "COS:/qa/responses/daily_023_sub_1_qa_1_response0.mp3"
+            },
+            {
+              "text": "We're here for family photos — three generations, please.",
+              "text_cn": "我们来拍全家福，三代人一起。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_1_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can I just get a quick passport photo? I need it in 20 minutes.",
+              "text_cn": "我能拍一张快速的护照照吗？我20分钟内就需要。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客初次表达需求时的自然开场，服务员立即回应并引导选择服务类型",
+          "usageNote": "这是照相馆接待时最常使用的开场问候，用户会根据拍摄目的给出不同回应。",
           "audioUrl": "COS:/qa/questions/daily_023_sub_1_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_023_sub_1_qa_2",
           "subSceneId": "daily_023_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "Do you have any packages for business portraits?",
-          "triggerTextCn": "你们有商务人像的套餐吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like to choose a background color?",
+          "triggerTextCn": "您想选择什么颜色的背景？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问具体服务套餐，体现核心业务咨询环节",
+          "scenarioHintCn": "选择照片背景",
           "followUps": [
             {
-              "text": "Yes, we have three packages: Basic, Standard, and Premium. The Standard includes 3 outfits, 20 edited photos, and a digital album. Would you like to see the details?",
-              "text_cn": "有的，我们有三个套餐：基础版、标准版和高级版。标准版包含3套服装、20张精修照片和一个电子相册。您想看看详细内容吗？",
+              "text": "Blue, please — it's standard for official documents.",
+              "text_cn": "请选蓝色，官方文件通常用蓝色。",
               "audio_url": "COS:/qa/responses/daily_023_sub_1_qa_2_response0.mp3"
+            },
+            {
+              "text": "Can we do a soft white with a slight gradient? Something more natural.",
+              "text_cn": "能用柔和的白色带一点渐变吗？想要更自然的效果。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_1_qa_2_response1.mp3"
+            },
+            {
+              "text": "Do you have a outdoor-style backdrop? Like a park or city skyline?",
+              "text_cn": "你们有户外风格的背景吗？比如公园或城市天际线？",
+              "audio_url": "COS:/qa/responses/daily_023_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客针对具体服务类型提问，服务员提供清晰、结构化选项，符合真实商业场景",
+          "usageNote": "背景选择是拍照前的关键决策点，用户需求因用途和审美差异而不同。",
           "audioUrl": "COS:/qa/questions/daily_023_sub_1_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_023_sub_1_qa_3",
           "subSceneId": "daily_023_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Would you like to try our studio backgrounds or go for outdoor shots?",
-          "triggerTextCn": "您想用我们影棚的背景，还是选择户外拍摄？",
+          "triggerText": "How many prints would you like?",
+          "triggerTextCn": "您需要多少张照片？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员提供选择项，引导顾客做关键决策，典型服务推进环节",
+          "scenarioHintCn": "确认打印数量",
           "followUps": [
             {
-              "text": "Let's do the studio one—I want a clean, professional look.",
-              "text_cn": "就选影棚吧，我想要干净专业的效果。",
+              "text": "Just one high-resolution digital file, thanks — I'll print it myself.",
+              "text_cn": "只要一个高清电子版就好，我自己打印。",
               "audio_url": "COS:/qa/responses/daily_023_sub_1_qa_3_response0.mp3"
+            },
+            {
+              "text": "Five 4x6 prints, and one 8x10 for the frame at home.",
+              "text_cn": "五张4x6的，再加一张8x10的放家里相框里。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_1_qa_3_response1.mp3"
+            },
+            {
+              "text": "Can I get a package with 10 prints and a digital album? I'm gifting this to my parents.",
+              "text_cn": "能买一个包含10张照片和电子相册的套餐吗？这是送给我父母的礼物。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "服务员提供明确选项，顾客直接、简洁回应，符合服务场景中高效决策的自然对话习惯",
+          "usageNote": "打印数量和形式因用途（自用、送礼、存档）而异，是结账前必问环节。",
           "audioUrl": "COS:/qa/questions/daily_023_sub_1_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -89,19 +119,29 @@
           "id": "daily_023_sub_2_qa_1",
           "subSceneId": "daily_023_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "How big would you like the photo to be?",
-          "triggerTextCn": "您想要多大尺寸的照片？",
+          "triggerText": "What size would you like for your photo?",
+          "triggerTextCn": "您想要哪种尺寸的照片？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "照相馆工作人员询问顾客照片尺寸偏好",
+          "scenarioHintCn": "照相馆拍照 - 确认尺寸",
           "followUps": [
             {
-              "text": "I'd like the 5x7 inch one, please.",
-              "text_cn": "我要5乘7英寸的。",
+              "text": "I'll take the 8x10, please. It's perfect for my frame.",
+              "text_cn": "我要8x10的，正好能放进我的相框。",
               "audio_url": "COS:/qa/responses/daily_023_sub_2_qa_1_response0.mp3"
+            },
+            {
+              "text": "Do you have a 5x7 option? I'm not sure if that's big enough.",
+              "text_cn": "你们有5x7的吗？我不确定这个够不够大。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_2_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can I get all three sizes? I want to give some as gifts.",
+              "text_cn": "我能三种尺寸都拿吗？我想送人当礼物。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客直接回应标准尺寸选项，简洁自然，符合服务场景高频表达",
+          "usageNote": "用于顾客在确认照片尺寸时表达偏好、犹豫或扩展需求的典型回应，帮助学习者应对不同消费意图。",
           "audioUrl": "COS:/qa/questions/daily_023_sub_2_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -110,19 +150,29 @@
           "id": "daily_023_sub_2_qa_2",
           "subSceneId": "daily_023_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you want it framed or just as a print?",
-          "triggerTextCn": "您想要装框的，还是只是打印出来的？",
+          "triggerText": "Would you like the standard print or a larger enlargement?",
+          "triggerTextCn": "您想要标准打印尺寸，还是更大尺寸的放大版？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "工作人员确认是否需要相框，属于尺寸确认后的常见延伸服务",
+          "scenarioHintCn": "照相馆拍照 - 确认尺寸",
           "followUps": [
             {
-              "text": "Just the print, thanks.",
-              "text_cn": "只要打印版，谢谢。",
+              "text": "Standard is fine—I just need it for my wallet.",
+              "text_cn": "标准尺寸就行，我只需要放钱包里。",
               "audio_url": "COS:/qa/responses/daily_023_sub_2_qa_2_response0.mp3"
+            },
+            {
+              "text": "I'd like the largest size you offer—I want to hang it on my wall.",
+              "text_cn": "我要你们最大的尺寸，我想挂墙上。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_2_qa_2_response1.mp3"
+            },
+            {
+              "text": "What's the price difference between them?",
+              "text_cn": "它们的价格差多少？",
+              "audio_url": "COS:/qa/responses/daily_023_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客常用简短回应，避免冗长，符合服务场景中高效沟通习惯",
+          "usageNote": "帮助学习者在面对尺寸升级建议时，根据用途、预算或展示需求做出自然回应。",
           "audioUrl": "COS:/qa/questions/daily_023_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -130,22 +180,32 @@
         {
           "id": "daily_023_sub_2_qa_3",
           "subSceneId": "daily_023_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can I see the options for sizes and prices?",
-          "triggerTextCn": "我能看看有哪些尺寸和价格选项吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Are you sure you don't want the 11x14? It looks amazing in this photo.",
+          "triggerTextCn": "您真的不考虑11x14的吗？这张照片放大后效果特别棒。",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动要求查看尺寸与价格信息，典型主动确认行为",
+          "scenarioHintCn": "照相馆拍照 - 确认尺寸",
           "followUps": [
             {
-              "text": "Sure! Here's our size chart: 4x6 for $8, 5x7 for $12, and 8x10 for $20.",
-              "text_cn": "当然！这是我们的尺寸价目表：4乘6英寸8美元，5乘7英寸12美元，8乘10英寸20美元。",
+              "text": "Yes, I'm sure—I already have a frame for the 8x10.",
+              "text_cn": "是的，我确定，我已经有个8x10的相框了。",
               "audio_url": "COS:/qa/responses/daily_023_sub_2_qa_3_response0.mp3"
+            },
+            {
+              "text": "Hmm, maybe... can you show me how it looks printed at that size?",
+              "text_cn": "嗯……也许可以……你能给我看看放大到这个尺寸的效果吗？",
+              "audio_url": "COS:/qa/responses/daily_023_sub_2_qa_3_response1.mp3"
+            },
+            {
+              "text": "I'll take it—but can I get a discount since I'm buying multiple prints?",
+              "text_cn": "那我拿这个，但我买了多张照片，能给点折扣吗？",
+              "audio_url": "COS:/qa/responses/daily_023_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客主动询问标准服务信息，是真实场景中极常见的发起对话方式",
+          "usageNote": "训练学习者应对服务人员主动推荐升级时的不同反应：拒绝、犹豫、或谈判，增强真实对话应对能力。",
           "audioUrl": "COS:/qa/questions/daily_023_sub_2_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -154,48 +214,68 @@
       "id": "daily_023_sub_3",
       "sceneId": "daily_023",
       "name": "调整姿势",
-      "description": "摄影师指导顾客摆正头位、表情和坐姿。",
+      "description": "摄影师指导顾客摆正头部、表情和站姿。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_023_sub_3_qa_1",
           "subSceneId": "daily_023_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can you help me adjust my posture?",
-          "triggerTextCn": "你能帮我调整一下姿势吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Can you tilt your head a little to the left?",
+          "triggerTextCn": "你能把头稍微往左偏一点吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客请求帮助调整拍照姿势",
+          "scenarioHintCn": "照相馆拍照 - 调整姿势",
           "followUps": [
             {
-              "text": "Of course! Let’s try standing a little more upright, with your shoulders back and chin slightly raised.",
-              "text_cn": "当然！我们试试站得更挺直一点，肩膀后展，下巴微微抬起。",
+              "text": "Sure, I'll tilt it left.",
+              "text_cn": "好的，我往左偏一点。",
               "audio_url": "COS:/qa/responses/daily_023_sub_3_qa_1_response0.mp3"
+            },
+            {
+              "text": "I'm not sure—I feel more comfortable with my head straight.",
+              "text_cn": "我不太确定，我直着头感觉更自然。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_3_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can you show me what you mean?",
+              "text_cn": "你能给我示范一下吗？",
+              "audio_url": "COS:/qa/responses/daily_023_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客主动请求帮助时的典型表达，适用于拍照前姿势调整环节",
+          "usageNote": "摄影师常通过细微姿势调整提升照片效果，用户可能配合、拒绝或请求示范，体现真实互动多样性。",
           "audioUrl": "COS:/qa/questions/daily_023_sub_3_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_023_sub_3_qa_2",
           "subSceneId": "daily_023_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Could you tilt your head a bit to the left?",
-          "triggerTextCn": "你能把头稍微往左偏一点吗？",
+          "triggerText": "Could you smile a bit more naturally?",
+          "triggerTextCn": "你能笑得更自然一点吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "摄影师指导顾客调整头部角度",
+          "scenarioHintCn": "照相馆拍照 - 调整姿势",
           "followUps": [
             {
-              "text": "Sure, like this?",
-              "text_cn": "好的，像这样吗？",
+              "text": "Okay, I'll try to relax and smile.",
+              "text_cn": "好的，我试着放松微笑。",
               "audio_url": "COS:/qa/responses/daily_023_sub_3_qa_2_response0.mp3"
+            },
+            {
+              "text": "I don't like smiling in photos—I can do a neutral look instead.",
+              "text_cn": "我不喜欢拍照时笑，我可以保持中性表情。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_3_qa_2_response1.mp3"
+            },
+            {
+              "text": "I'm a bit nervous—can we take a deep breath first?",
+              "text_cn": "我有点紧张，我们能先深呼吸一下吗？",
+              "audio_url": "COS:/qa/responses/daily_023_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "服务员给出具体姿势指令后，顾客简洁回应的高频模式",
+          "usageNote": "摄影师常要求自然微笑，但用户可能因性格、文化或情绪产生不同反应，需掌握多种回应方式。",
           "audioUrl": "COS:/qa/questions/daily_023_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -203,22 +283,32 @@
         {
           "id": "daily_023_sub_3_qa_3",
           "subSceneId": "daily_023_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "Should I smile or keep a neutral expression?",
-          "triggerTextCn": "我该微笑还是保持中性表情？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "How about raising your chin just a little?",
+          "triggerTextCn": "要不要稍微抬一点下巴？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问拍照时的表情选择",
+          "scenarioHintCn": "照相馆拍照 - 调整姿势",
           "followUps": [
             {
-              "text": "A natural smile works best for portraits—just relax and think of something happy.",
-              "text_cn": "肖像照最适合自然微笑——放松一点，想想让你开心的事。",
+              "text": "Got it—I’ll lift my chin up.",
+              "text_cn": "明白了，我抬高下巴。",
               "audio_url": "COS:/qa/responses/daily_023_sub_3_qa_3_response0.mp3"
+            },
+            {
+              "text": "I think that makes my double chin worse—can we try lowering it instead?",
+              "text_cn": "我觉得这样会让双下巴更明显，能不能试试降低下巴？",
+              "audio_url": "COS:/qa/responses/daily_023_sub_3_qa_3_response1.mp3"
+            },
+            {
+              "text": "I’m not sure—I’ll try, but can you take a test shot first?",
+              "text_cn": "我不确定，我试试，但能先拍一张预览吗？",
+              "audio_url": "COS:/qa/responses/daily_023_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客在不确定表情时主动询问，是拍照场景中极高频的沟通点",
+          "usageNote": "下巴高度影响面部轮廓，用户可能接受、反对或要求验证调整效果，体现真实协商过程。",
           "audioUrl": "COS:/qa/questions/daily_023_sub_3_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -227,7 +317,7 @@
       "id": "daily_023_sub_4",
       "sceneId": "daily_023",
       "name": "拍摄确认",
-      "description": "摄影师拍摄后，询问顾客是否满意并准备重拍。",
+      "description": "摄影师提示拍照，顾客配合完成拍摄。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -235,19 +325,29 @@
           "id": "daily_023_sub_4_qa_1",
           "subSceneId": "daily_023_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you want to see the preview before we print?",
-          "triggerTextCn": "我们打印前您想先看一下预览吗？",
+          "triggerText": "Are you happy with how this photo turned out?",
+          "triggerTextCn": "您对这张照片的效果满意吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "摄影师确认是否查看照片预览",
+          "scenarioHintCn": "拍摄后确认照片效果",
           "followUps": [
             {
-              "text": "Yes, please. I want to make sure the smile looks natural.",
-              "text_cn": "好的，请给我看一下。我想确保笑容看起来自然。",
+              "text": "Yes, this one is perfect! Let's print it.",
+              "text_cn": "是的，这张太棒了！请帮我打印出来。",
               "audio_url": "COS:/qa/responses/daily_023_sub_4_qa_1_response0.mp3"
+            },
+            {
+              "text": "Can we take another one? I think my eyes are closed.",
+              "text_cn": "能再拍一张吗？我觉得我眼睛闭上了。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_4_qa_1_response1.mp3"
+            },
+            {
+              "text": "I like it, but can you adjust the brightness a bit?",
+              "text_cn": "我喜欢这张，但能稍微调亮一点吗？",
+              "audio_url": "COS:/qa/responses/daily_023_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在确认照片效果时常用表达，语气礼貌且直接，适合真实服务场景",
+          "usageNote": "用于拍摄后确认照片效果，是照相馆服务中关键的确认环节",
           "audioUrl": "COS:/qa/questions/daily_023_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -256,19 +356,29 @@
           "id": "daily_023_sub_4_qa_2",
           "subSceneId": "daily_023_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "How many copies would you like?",
-          "triggerTextCn": "您需要多少份照片？",
+          "triggerText": "Would you like to buy the digital file too?",
+          "triggerTextCn": "您需要购买电子版照片吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "工作人员确认照片打印数量",
+          "scenarioHintCn": "确认是否购买电子版照片",
           "followUps": [
             {
-              "text": "Three, please. One for me, one for my parents, and one for my friend.",
-              "text_cn": "三份，谢谢。一份给我，一份给父母，一份给朋友。",
+              "text": "Yes, please. I want both the print and the digital copy.",
+              "text_cn": "要的，我想要打印版和电子版都保留。",
               "audio_url": "COS:/qa/responses/daily_023_sub_4_qa_2_response0.mp3"
+            },
+            {
+              "text": "No, thanks. I just need the printed photo.",
+              "text_cn": "不用了，谢谢，我只需要打印的照片。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_4_qa_2_response1.mp3"
+            },
+            {
+              "text": "How much is the digital file? I need to check my budget.",
+              "text_cn": "电子版多少钱？我得先看看预算。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "高频询问数量，顾客回应简洁明确，符合真实消费习惯",
+          "usageNote": "照相馆常见附加销售环节，用户可能接受、拒绝或需更多信息",
           "audioUrl": "COS:/qa/questions/daily_023_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -276,22 +386,32 @@
         {
           "id": "daily_023_sub_4_qa_3",
           "subSceneId": "daily_023_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can I get a copy of the digital file too?",
-          "triggerTextCn": "我可以要一份电子版照片吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you want to choose a background for the next shot?",
+          "triggerTextCn": "您想为下一张照片选个背景吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动询问是否提供电子版照片",
+          "scenarioHintCn": "拍摄前确认背景选择",
           "followUps": [
             {
-              "text": "Of course! We include a free digital copy with every session. I'll email it to you later.",
-              "text_cn": "当然可以！每次拍摄都免费赠送电子版，稍后我会发到您的邮箱。",
+              "text": "Yes, the blue one looks nice.",
+              "text_cn": "要的，蓝色那个看起来不错。",
               "audio_url": "COS:/qa/responses/daily_023_sub_4_qa_3_response0.mp3"
+            },
+            {
+              "text": "Actually, I'd prefer the plain white one.",
+              "text_cn": "其实我更想要纯白色的背景。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_4_qa_3_response1.mp3"
+            },
+            {
+              "text": "Can I see a preview first?",
+              "text_cn": "能先给我看个预览效果吗？",
+              "audio_url": "COS:/qa/responses/daily_023_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客主动提出附加需求的典型表达，体现真实服务场景中的延伸需求",
+          "usageNote": "拍摄前确认背景，是个性化服务的重要环节，用户可能接受、反对或要求确认",
           "audioUrl": "COS:/qa/questions/daily_023_sub_4_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -299,8 +419,8 @@
     {
       "id": "daily_023_sub_5",
       "sceneId": "daily_023",
-      "name": "取照结账",
-      "description": "顾客确认最终照片，完成付款并领取照片。",
+      "name": "查看效果",
+      "description": "顾客查看照片，提出修改或确认最终版本。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -308,19 +428,29 @@
           "id": "daily_023_sub_5_qa_1",
           "subSceneId": "daily_023_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Here are your photos. That'll be $35 total.",
-          "triggerTextCn": "这是您的照片，总共35美元。",
+          "triggerText": "How do you like the preview?",
+          "triggerTextCn": "您觉得预览效果怎么样？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "取照结账：服务员告知总价，等待顾客付款",
+          "scenarioHintCn": "照相馆拍照后，服务员展示照片预览，询问顾客意见",
           "followUps": [
             {
-              "text": "Can I pay by card?",
-              "text_cn": "我可以刷卡吗？",
+              "text": "I love it! Let's print this one.",
+              "text_cn": "我喜欢！就印这张吧。",
               "audio_url": "COS:/qa/responses/daily_023_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "Can we try a different pose? I think my eyes look closed.",
+              "text_cn": "我们能换一个姿势吗？我觉得我眼睛好像闭上了。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "Could you adjust the brightness? It's a bit too dark.",
+              "text_cn": "能调一下亮度吗？有点太暗了。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在得知价格后，自然询问支付方式，是结账环节最常见回应。",
+          "usageNote": "用于拍照后查看预览时，顾客表达对照片效果的反馈，是照相馆服务中最关键的互动环节之一。",
           "audioUrl": "COS:/qa/questions/daily_023_sub_5_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -329,19 +459,29 @@
           "id": "daily_023_sub_5_qa_2",
           "subSceneId": "daily_023_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Did you want to order any prints or albums?",
-          "triggerTextCn": "您需要额外订购照片或相册吗？",
+          "triggerText": "Would you like to see the other shots?",
+          "triggerTextCn": "您想看看其他照片吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "取照结账：服务员主动推荐附加产品",
+          "scenarioHintCn": "服务员主动提供多张照片供顾客选择",
           "followUps": [
             {
-              "text": "Just the digital files, thanks.",
-              "text_cn": "只要电子版就好，谢谢。",
+              "text": "Yes, please! I want to compare a few options.",
+              "text_cn": "请给我看看吧，我想比较一下几个选项。",
               "audio_url": "COS:/qa/responses/daily_023_sub_5_qa_2_response0.mp3"
+            },
+            {
+              "text": "No, this one is perfect. Just print this.",
+              "text_cn": "不用了，这张就完美了，直接印这张吧。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_5_qa_2_response1.mp3"
+            },
+            {
+              "text": "Do you have any with smiles? The last one looked a bit stiff.",
+              "text_cn": "有笑容更自然的照片吗？上一张看起来有点僵硬。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客通常简洁回应是否需要附加服务，避免冗长解释，符合服务场景高效沟通习惯。",
+          "usageNote": "服务员常在展示首张照片后主动询问是否查看其他选项，顾客回应体现决策风格和审美偏好。",
           "audioUrl": "COS:/qa/questions/daily_023_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -350,19 +490,29 @@
           "id": "daily_023_sub_5_qa_3",
           "subSceneId": "daily_023_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you need a receipt?",
-          "triggerTextCn": "您需要收据吗？",
+          "triggerText": "Do you want to retake any photos?",
+          "triggerTextCn": "您需要重拍几张吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "取照结账：服务员确认是否需要收据，完成交易闭环",
+          "scenarioHintCn": "服务员在顾客犹豫时主动提出重拍机会",
           "followUps": [
             {
-              "text": "Yes, please. I'll need it for my records.",
-              "text_cn": "需要的，我要留着做记录。",
+              "text": "Yes, I'd like to try one more with the background slightly brighter.",
+              "text_cn": "好的，我想再拍一张，背景稍微亮一点。",
               "audio_url": "COS:/qa/responses/daily_023_sub_5_qa_3_response0.mp3"
+            },
+            {
+              "text": "No, I'm good. These are fine as they are.",
+              "text_cn": "不用了，这样就可以了。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_5_qa_3_response1.mp3"
+            },
+            {
+              "text": "Can we do one with my family together? I forgot to ask earlier.",
+              "text_cn": "我们能拍一张全家福吗？我刚才忘了提。",
+              "audio_url": "COS:/qa/responses/daily_023_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "收据请求是结账流程的标准环节，顾客回应应明确简洁，体现真实场景中的礼貌与效率。",
+          "usageNote": "服务员在顾客犹豫时提供重拍选项，是提升服务体验的关键节点，顾客回应反映其需求变化和沟通主动性。",
           "audioUrl": "COS:/qa/questions/daily_023_sub_5_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3

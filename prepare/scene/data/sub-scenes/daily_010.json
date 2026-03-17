@@ -1,7 +1,7 @@
 {
   "sceneId": "daily_010",
   "sceneName": "洗衣店取衣",
-  "generatedAt": "2026-03-16T08:05:34.289Z",
+  "generatedAt": "2026-03-17T03:10:57.319Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
@@ -16,19 +16,29 @@
           "id": "daily_010_sub_1_qa_1",
           "subSceneId": "daily_010_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Can I see your receipt, please?",
+          "triggerText": "Could I see your receipt, please?",
           "triggerTextCn": "请出示一下您的取衣单好吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "洗衣店员工要求顾客出示取衣票据",
+          "scenarioHintCn": "洗衣店取衣：出示票据",
           "followUps": [
             {
-              "text": "Sure, here it is.",
-              "text_cn": "当然，给您。",
+              "text": "Here it is. I picked up my clothes last Tuesday.",
+              "text_cn": "在这儿，我上周二来取过衣服。",
               "audio_url": "COS:/qa/responses/daily_010_sub_1_qa_1_response0.mp3"
+            },
+            {
+              "text": "I lost it... Can I still get my clothes with my name?",
+              "text_cn": "我弄丢了，能用名字取吗？",
+              "audio_url": "COS:/qa/responses/daily_010_sub_1_qa_1_response1.mp3"
+            },
+            {
+              "text": "Is this the right one? I’m not sure—I got two receipts.",
+              "text_cn": "这是对的吗？我不确定，我拿了两张单子。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是洗衣店取衣时最常见、最标准的开场请求，顾客需立即出示票据。",
+          "usageNote": "这是洗衣店取衣时最常被问到的票据核对环节，用户可能有票据、无票据或不确定票据。",
           "audioUrl": "COS:/qa/questions/daily_010_sub_1_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -36,43 +46,63 @@
         {
           "id": "daily_010_sub_1_qa_2",
           "subSceneId": "daily_010_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "I'm here to pick up my clothes. Do you need my receipt?",
-          "triggerTextCn": "我来取衣服，需要我的取衣单吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "What’s your name, please?",
+          "triggerTextCn": "请问您的姓名是？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动询问是否需要出示取衣票据",
+          "scenarioHintCn": "洗衣店取衣：核对姓名与订单",
           "followUps": [
             {
-              "text": "Yes, please hand it over so I can verify your order.",
-              "text_cn": "需要的，请给我一下，我核对一下订单。",
+              "text": "It’s Sarah Chen. I left 5 shirts and 2 pants.",
+              "text_cn": "我叫陈莎拉，我寄了5件衬衫和2条裤子。",
               "audio_url": "COS:/qa/responses/daily_010_sub_1_qa_2_response0.mp3"
+            },
+            {
+              "text": "I’m John, but I’m picking up for my roommate—her name’s Lisa.",
+              "text_cn": "我叫约翰，我是帮室友取的，她叫丽莎。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_1_qa_2_response1.mp3"
+            },
+            {
+              "text": "I don’t remember... Can you check under ‘Brown’?",
+              "text_cn": "我不记得了，能查一下‘布朗’吗？",
+              "audio_url": "COS:/qa/responses/daily_010_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客主动提供票据信息，体现礼貌和主动性，是高频自然表达。",
+          "usageNote": "服务员常通过姓名核对订单，用户可能亲自取、代取或记不清姓名，需自然应对。",
           "audioUrl": "COS:/qa/questions/daily_010_sub_1_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_010_sub_1_qa_3",
           "subSceneId": "daily_010_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "Did you find my clothes? I lost my receipt, but I have the pickup code.",
-          "triggerTextCn": "我的衣服找到了吗？我丢了取衣单，但我有取件码。",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Did you leave anything in the pockets?",
+          "triggerTextCn": "衣服口袋里有东西吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客因丢失票据而提供替代取件信息",
+          "scenarioHintCn": "洗衣店取衣：检查口袋（安全与责任环节）",
           "followUps": [
             {
-              "text": "No problem, just give me the code and I'll pull your order.",
-              "text_cn": "没关系，把取件码给我，我马上为您取衣服。",
+              "text": "Yes, I left my keys in the jeans—thanks for asking!",
+              "text_cn": "有，牛仔裤里有钥匙，谢谢提醒！",
               "audio_url": "COS:/qa/responses/daily_010_sub_1_qa_3_response0.mp3"
+            },
+            {
+              "text": "No, I emptied them before dropping off.",
+              "text_cn": "没有，我送洗前已经清空了。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_1_qa_3_response1.mp3"
+            },
+            {
+              "text": "I’m not sure... Can you check for me?",
+              "text_cn": "我不确定，你能帮我看看吗？",
+              "audio_url": "COS:/qa/responses/daily_010_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "现实中常有顾客丢失票据，提供取件码是标准替代方案，体现真实场景应变能力。",
+          "usageNote": "洗衣店标准流程，询问口袋内容以避免纠纷，用户可能记得、不记得或不确定，需灵活回应。",
           "audioUrl": "COS:/qa/questions/daily_010_sub_1_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -88,41 +118,61 @@
         {
           "id": "daily_010_sub_2_qa_1",
           "subSceneId": "daily_010_sub_2",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can you confirm the number of items I dropped off?",
-          "triggerTextCn": "您能确认一下我送来的衣服数量吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Can I have your receipt or pickup number?",
+          "triggerTextCn": "您能提供收据或取衣编号吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客取衣时核对衣物数量",
+          "scenarioHintCn": "洗衣店取衣：核对衣物",
           "followUps": [
             {
-              "text": "Sure, you dropped off 5 items: 2 shirts, 2 pants, and 1 jacket.",
-              "text_cn": "当然，您送来了5件衣物：2件衬衫、2条裤子和1件夹克。",
+              "text": "Here's my receipt. Number 782.",
+              "text_cn": "这是我的收据，编号782。",
               "audio_url": "COS:/qa/responses/daily_010_sub_2_qa_1_response0.mp3"
+            },
+            {
+              "text": "I lost it, but my name is Lisa Chen.",
+              "text_cn": "我弄丢了，但我叫Lisa Chen。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_2_qa_1_response1.mp3"
+            },
+            {
+              "text": "Do you have a digital record? I paid online.",
+              "text_cn": "你们有电子记录吗？我在线支付的。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在取衣时主动核对数量，避免拿错或遗漏，是取衣场景中最常见的确认行为。",
+          "usageNote": "取衣时店员通常先要求收据或编号以核对衣物，用户需根据自身情况回应。",
           "audioUrl": "COS:/qa/questions/daily_010_sub_2_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_010_sub_2_qa_2",
           "subSceneId": "daily_010_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Is this your receipt? Please check the tag numbers.",
-          "triggerTextCn": "这是您的收据，请核对一下标签编号。",
+          "triggerText": "Are these all your clothes?",
+          "triggerTextCn": "这些都是您的衣物吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员要求顾客核对衣物标签与收据是否一致",
+          "scenarioHintCn": "洗衣店取衣：核对衣物",
           "followUps": [
             {
-              "text": "Yes, tag #789 matches my receipt.",
-              "text_cn": "是的，标签#789和我的收据一致。",
+              "text": "Yes, that's everything. Thank you!",
+              "text_cn": "是的，全在这里了，谢谢！",
               "audio_url": "COS:/qa/responses/daily_010_sub_2_qa_2_response0.mp3"
+            },
+            {
+              "text": "No, I'm missing my blue shirt.",
+              "text_cn": "不是，我少了一件蓝色衬衫。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_2_qa_2_response1.mp3"
+            },
+            {
+              "text": "Let me check… oh, this one’s not mine.",
+              "text_cn": "我看看…哦，这件不是我的。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "服务员在交衣时要求顾客核对标签，是标准服务流程，顾客需简洁确认，避免冗长回答。",
+          "usageNote": "店员会当面确认衣物数量和种类，用户需如实反馈是否齐全或有误。",
           "audioUrl": "COS:/qa/questions/daily_010_sub_2_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -131,19 +181,29 @@
           "id": "daily_010_sub_2_qa_3",
           "subSceneId": "daily_010_sub_2",
           "dialogueMode": "user_responds",
-          "triggerText": "Did you find all the clothes from your bag?",
-          "triggerTextCn": "您检查过袋子里的所有衣服都找到了吗？",
+          "triggerText": "Is there any damage or stains left?",
+          "triggerTextCn": "衣物有损坏或残留污渍吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员在交衣时确认顾客是否确认所有衣物已取回",
+          "scenarioHintCn": "洗衣店取衣：核对衣物",
           "followUps": [
             {
-              "text": "Yes, everything’s here. Thanks!",
-              "text_cn": "是的，全都在，谢谢！",
+              "text": "Everything looks perfect, thanks!",
+              "text_cn": "看起来都很好，谢谢！",
               "audio_url": "COS:/qa/responses/daily_010_sub_2_qa_3_response0.mp3"
+            },
+            {
+              "text": "There's a small tear on the sleeve.",
+              "text_cn": "袖子上有个小破洞。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_2_qa_3_response1.mp3"
+            },
+            {
+              "text": "The collar still has some yellowing.",
+              "text_cn": "衣领还有些泛黄。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "服务员在服务结束前做最后确认，顾客需明确回应，避免模糊回答如‘I think so’。",
+          "usageNote": "店员会主动询问清洁质量，用户应明确反馈问题以便后续处理。",
           "audioUrl": "COS:/qa/questions/daily_010_sub_2_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -154,69 +214,99 @@
       "id": "daily_010_sub_3",
       "sceneId": "daily_010",
       "name": "确认费用",
-      "description": "店员告知总价，顾客核实收费明细。",
+      "description": "店员告知总价，顾客核对收费明细。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_010_sub_3_qa_1",
           "subSceneId": "daily_010_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "How much is the total for these clothes?",
-          "triggerTextCn": "这些衣服总共多少钱？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "That'll be $28 total. How would you like to pay?",
+          "triggerTextCn": "总共28美元，您想怎么支付？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客取衣时确认最终费用",
+          "scenarioHintCn": "洗衣店取衣时确认费用并支付",
           "followUps": [
             {
-              "text": "That'll be $24.50, including the express service.",
-              "text_cn": "总共是24.50美元，包含加急服务。",
+              "text": "I'll pay by card, please.",
+              "text_cn": "我刷卡，谢谢。",
               "audio_url": "COS:/qa/responses/daily_010_sub_3_qa_1_response0.mp3"
+            },
+            {
+              "text": "Wait, I thought it was $22? Can you check the receipt?",
+              "text_cn": "等等，我以为是22美元？能查一下收据吗？",
+              "audio_url": "COS:/qa/responses/daily_010_sub_3_qa_1_response1.mp3"
+            },
+            {
+              "text": "Do you offer discounts for bulk drops? I’ve used your service 5 times this month.",
+              "text_cn": "你们对批量洗衣有折扣吗？我这个月已经来五次了。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在取衣时直接询问总费用，是取衣场景中最自然、高频的提问方式。",
+          "usageNote": "用于取衣时确认最终费用并完成支付，常见于顾客对价格有疑问或希望获得优惠时",
           "audioUrl": "COS:/qa/questions/daily_010_sub_3_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_010_sub_3_qa_2",
           "subSceneId": "daily_010_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "Could you confirm the charges on this receipt?",
-          "triggerTextCn": "您能确认一下这张收据上的费用吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Your order is ready. The total is $35 including express service.",
+          "triggerTextCn": "您的衣物已准备好，加急服务总计35美元。",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客对收据金额有疑问，要求核对明细",
+          "scenarioHintCn": "洗衣店取衣时告知费用（含加急费）",
           "followUps": [
             {
-              "text": "Sure! You have 3 shirts at $5 each, 2 pants at $7 each, and $1.50 for stain removal. That adds up to $28.50.",
-              "text_cn": "当然！3件衬衫每件5美元，2条裤子每条7美元，外加1.50美元去污费，总计28.50美元。",
+              "text": "I’ll pay in cash.",
+              "text_cn": "我付现金。",
               "audio_url": "COS:/qa/responses/daily_010_sub_3_qa_2_response0.mp3"
+            },
+            {
+              "text": "I didn’t request express service—can you remove that charge?",
+              "text_cn": "我没要求加急服务，能去掉这项费用吗？",
+              "audio_url": "COS:/qa/responses/daily_010_sub_3_qa_2_response1.mp3"
+            },
+            {
+              "text": "Can I pay half now and half tomorrow? I’m short on cash today.",
+              "text_cn": "我可以今天付一半，明天付另一半吗？今天现金不够。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客在看到收据后要求逐项核对，体现真实场景中对账的常见需求。",
+          "usageNote": "当服务包含附加费用时，顾客可能不知情或不同意，需灵活回应",
           "audioUrl": "COS:/qa/questions/daily_010_sub_3_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_010_sub_3_qa_3",
           "subSceneId": "daily_010_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you have the total ready?",
-          "triggerTextCn": "费用算好了吗？",
+          "triggerText": "The bill comes to $20. Is that okay?",
+          "triggerTextCn": "费用是20美元，可以吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "店员在顾客取衣时主动询问是否确认费用",
+          "scenarioHintCn": "洗衣店取衣时温和确认费用是否可接受",
           "followUps": [
             {
-              "text": "Yes, $22.99. I can take cash or card.",
-              "text_cn": "好的，22.99美元。我可以收现金或刷卡。",
+              "text": "Yes, that’s fine.",
+              "text_cn": "好的，没问题。",
               "audio_url": "COS:/qa/responses/daily_010_sub_3_qa_3_response0.mp3"
+            },
+            {
+              "text": "Could you give me a receipt? I need it for my company reimbursement.",
+              "text_cn": "能给我一张收据吗？我需要报销。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_3_qa_3_response1.mp3"
+            },
+            {
+              "text": "I’ll just take the clothes and come back later to pay.",
+              "text_cn": "我先拿走衣服，稍后再来付款。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "店员在准备就绪后自然询问顾客是否确认金额，是服务流程中的标准衔接句。",
+          "usageNote": "适用于顾客需要额外服务（如收据）或临时无法支付的场景，体现真实沟通弹性",
           "audioUrl": "COS:/qa/questions/daily_010_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -227,7 +317,7 @@
       "id": "daily_010_sub_4",
       "sceneId": "daily_010",
       "name": "支付款项",
-      "description": "顾客支付现金或刷卡，店员提供收据。",
+      "description": "顾客付款，店员提供收据并致谢。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -239,15 +329,25 @@
           "triggerTextCn": "您想怎么付款？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "洗衣店员工询问付款方式，顾客需选择支付方式",
+          "scenarioHintCn": "洗衣店取衣时支付费用",
           "followUps": [
             {
-              "text": "I'll pay with credit card.",
-              "text_cn": "我用信用卡支付。",
+              "text": "I'll pay by card, please.",
+              "text_cn": "我刷卡，谢谢。",
               "audio_url": "COS:/qa/responses/daily_010_sub_4_qa_1_response0.mp3"
+            },
+            {
+              "text": "Do you accept cash? I only have bills today.",
+              "text_cn": "你们收现金吗？我今天只有现金。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_4_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can I use Apple Pay? My card’s not working.",
+              "text_cn": "能用Apple Pay吗？我的卡刷不了了。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是洗衣店结账时最常见的一句询问，顾客需直接回应支付方式，避免冗长解释。",
+          "usageNote": "这是取衣时最常遇到的支付方式询问，用户需根据自身支付工具灵活回应。",
           "audioUrl": "COS:/qa/questions/daily_010_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -256,19 +356,29 @@
           "id": "daily_010_sub_4_qa_2",
           "subSceneId": "daily_010_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "The total is $24.50.",
-          "triggerTextCn": "总计是24.50美元。",
+          "triggerText": "That’ll be $24.50 total.",
+          "triggerTextCn": "总共是24.50美元。",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "员工告知金额，顾客需确认支付或询问是否可刷卡",
+          "scenarioHintCn": "洗衣店取衣时告知金额后等待付款",
           "followUps": [
             {
-              "text": "Can I pay with cash?",
-              "text_cn": "我可以付现金吗？",
+              "text": "Here you go, $25 in cash. Keep the change.",
+              "text_cn": "给你25美元现金，零头不用找了。",
               "audio_url": "COS:/qa/responses/daily_010_sub_4_qa_2_response0.mp3"
+            },
+            {
+              "text": "Oh, I only have a $50 bill—can you break it?",
+              "text_cn": "哦，我只有50美元钞票，能换开吗？",
+              "audio_url": "COS:/qa/responses/daily_010_sub_4_qa_2_response1.mp3"
+            },
+            {
+              "text": "Actually, can I pay tomorrow? I forgot my wallet.",
+              "text_cn": "其实我能明天付吗？我忘带钱包了。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "员工报出金额后，顾客自然会询问是否支持现金或其他支付方式，这是结账环节的典型回应。",
+          "usageNote": "金额确认后，用户可能因现金不足、想给小费或忘带钱包而有不同反应，需掌握自然应对方式。",
           "audioUrl": "COS:/qa/questions/daily_010_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -276,22 +386,32 @@
         {
           "id": "daily_010_sub_4_qa_3",
           "subSceneId": "daily_010_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Do you have a loyalty card?",
-          "triggerTextCn": "您有会员卡吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Did you check the receipt? There’s a $5 discount for loyalty members.",
+          "triggerTextCn": "您看过收据吗？作为会员有5美元折扣。",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动询问是否可使用会员卡享受折扣",
+          "scenarioHintCn": "洗衣店员工提醒会员折扣后等待用户确认",
           "followUps": [
             {
-              "text": "Yes, we do. If you show your card, you get 10% off today.",
-              "text_cn": "有的，出示会员卡今天可享九折优惠。",
+              "text": "Yes, I’m a member! That’s great, thanks!",
+              "text_cn": "是的，我是会员！太好了，谢谢！",
               "audio_url": "COS:/qa/responses/daily_010_sub_4_qa_3_response0.mp3"
+            },
+            {
+              "text": "I don’t remember signing up—can I join now and get the discount?",
+              "text_cn": "我不记得注册了，现在能注册并享受折扣吗？",
+              "audio_url": "COS:/qa/responses/daily_010_sub_4_qa_3_response1.mp3"
+            },
+            {
+              "text": "No, I’m not a member—I’ll just pay the original price.",
+              "text_cn": "我不是会员，我还是按原价付吧。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客在结账前主动询问优惠信息是高频行为，体现真实场景中的议价意识。",
+          "usageNote": "会员优惠是洗衣店常见促销点，用户可能接受、争取或拒绝，需掌握三种典型回应。",
           "audioUrl": "COS:/qa/questions/daily_010_sub_4_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -300,48 +420,68 @@
       "id": "daily_010_sub_5",
       "sceneId": "daily_010",
       "name": "礼貌道别",
-      "description": "顾客致谢，店员礼貌送别，结束服务。",
+      "description": "顾客致谢离店，店员礼貌送别。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_010_sub_5_qa_1",
           "subSceneId": "daily_010_sub_5",
-          "dialogueMode": "user_asks",
-          "triggerText": "Thank you for your help!",
-          "triggerTextCn": "谢谢你的帮助！",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Here's your laundry, thank you for choosing us!",
+          "triggerTextCn": "这是您的洗衣，感谢选择我们！",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "取衣时向店员表达感谢并礼貌道别",
+          "scenarioHintCn": "洗衣店取衣结束时，服务员礼貌道别",
           "followUps": [
             {
-              "text": "You're welcome! Have a great day!",
-              "text_cn": "不客气！祝你今天愉快！",
+              "text": "Thank you so much! You've been very helpful.",
+              "text_cn": "非常感谢！你们非常帮忙。",
               "audio_url": "COS:/qa/responses/daily_010_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "Thanks! I'll be back next time I need laundry.",
+              "text_cn": "谢谢！下次洗衣我还来。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "No problem, thanks! Have a great day!",
+              "text_cn": "不客气，谢谢！祝你今天愉快！",
+              "audio_url": "COS:/qa/responses/daily_010_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在取衣后主动致谢，是服务场景中自然的道别方式，店员通常会礼貌回应并祝福。",
+          "usageNote": "用于取衣结束时对服务员的礼貌回应，体现自然社交礼仪",
           "audioUrl": "COS:/qa/questions/daily_010_sub_5_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_010_sub_5_qa_2",
           "subSceneId": "daily_010_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Is everything all set?",
-          "triggerTextCn": "一切都准备好了吗？",
+          "triggerText": "Did everything come out okay?",
+          "triggerTextCn": "衣服洗得还满意吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "店员确认顾客取衣无误后，主动询问以结束服务",
+          "scenarioHintCn": "洗衣店取衣结束时，服务员确认服务满意度",
           "followUps": [
             {
-              "text": "Yes, everything's here. Thanks again!",
-              "text_cn": "是的，都齐了，再次感谢！",
+              "text": "Perfect! Everything's clean and pressed.",
+              "text_cn": "完美！全都干净又熨烫好了。",
               "audio_url": "COS:/qa/responses/daily_010_sub_5_qa_2_response0.mp3"
+            },
+            {
+              "text": "One shirt has a small stain left—could you check it?",
+              "text_cn": "一件衬衫还有一点污渍，能帮我看看吗？",
+              "audio_url": "COS:/qa/responses/daily_010_sub_5_qa_2_response1.mp3"
+            },
+            {
+              "text": "Great, thanks! I'm happy with the service.",
+              "text_cn": "很好，谢谢！我对服务很满意。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "店员用此句确认服务完成，顾客应简洁回应确认并再次致谢，符合地道服务对话节奏。",
+          "usageNote": "回应服务确认问题，体现真实场景中不同满意度的自然表达",
           "audioUrl": "COS:/qa/questions/daily_010_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -350,19 +490,29 @@
           "id": "daily_010_sub_5_qa_3",
           "subSceneId": "daily_010_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Have a nice day!",
+          "triggerText": "Have a wonderful day!",
           "triggerTextCn": "祝你今天愉快！",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "店员在完成服务后主动道别，顾客需回应以完成礼貌互动",
+          "scenarioHintCn": "洗衣店取衣结束时，服务员温馨道别",
           "followUps": [
             {
-              "text": "You too! See you next time!",
-              "text_cn": "你也是！下次见！",
+              "text": "You too! Thanks again!",
+              "text_cn": "你也是！再次谢谢！",
               "audio_url": "COS:/qa/responses/daily_010_sub_5_qa_3_response0.mp3"
+            },
+            {
+              "text": "I really appreciate your help today.",
+              "text_cn": "今天真的很感谢你的帮助。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_5_qa_3_response1.mp3"
+            },
+            {
+              "text": "Will do! See you next week.",
+              "text_cn": "一定！下周见。",
+              "audio_url": "COS:/qa/responses/daily_010_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "店员常用此句作为服务结束的礼貌收尾，顾客应回应以维持友好氛围，体现地道社交礼仪。",
+          "usageNote": "回应服务人员的温馨道别，体现不同层次的礼貌回应方式",
           "audioUrl": "COS:/qa/questions/daily_010_sub_5_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3

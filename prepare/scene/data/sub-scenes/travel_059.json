@@ -1,14 +1,14 @@
 {
   "sceneId": "travel_059",
   "sceneName": "购买门票",
-  "generatedAt": "2026-03-16T08:22:15.851Z",
+  "generatedAt": "2026-03-17T03:13:49.107Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "travel_059_sub_1",
       "sceneId": "travel_059",
-      "name": "询问价格",
-      "description": "游客询问门票价格及不同票种选项。",
+      "name": "询问票价",
+      "description": "游客询问景点门票价格及成人/儿童差异。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -16,19 +16,29 @@
           "id": "travel_059_sub_1_qa_1",
           "subSceneId": "travel_059_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "How much is a ticket for adults?",
-          "triggerTextCn": "成人票多少钱？",
+          "triggerText": "How much is the ticket?",
+          "triggerTextCn": "门票多少钱？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问成人票价格",
+          "scenarioHintCn": "游客询问门票价格",
           "followUps": [
             {
-              "text": "An adult ticket is $25.",
-              "text_cn": "成人票是25美元。",
+              "text": "It's $15 for adults and $8 for children.",
+              "text_cn": "成人15美元，儿童8美元。",
               "audio_url": "COS:/qa/responses/travel_059_sub_1_qa_1_response0.mp3"
+            },
+            {
+              "text": "We have a discount today — only $10 for everyone.",
+              "text_cn": "今天有优惠，每人只要10美元。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_1_qa_1_response1.mp3"
+            },
+            {
+              "text": "The price depends on the time slot — morning tickets are $12, afternoon are $18.",
+              "text_cn": "价格根据时段不同：上午票12美元，下午票18美元。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于直接询问标准票价，适用于博物馆、景点、剧院等场景",
+          "usageNote": "用于初次询问基础票价，适用于博物馆、景点、剧院等场景",
           "audioUrl": "COS:/qa/questions/travel_059_sub_1_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -37,19 +47,29 @@
           "id": "travel_059_sub_1_qa_2",
           "subSceneId": "travel_059_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "Do you have any discounts for students?",
-          "triggerTextCn": "学生有优惠吗？",
+          "triggerText": "Do you have any student discounts?",
+          "triggerTextCn": "有学生优惠吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问是否有学生优惠",
+          "scenarioHintCn": "学生询问是否有优惠票价",
           "followUps": [
             {
-              "text": "Yes, students get a 50% discount with a valid ID.",
-              "text_cn": "有的，凭有效学生证可享五折优惠。",
+              "text": "Yes, with a valid student ID, it's $10 instead of $15.",
+              "text_cn": "有，出示有效学生证可享10美元优惠价（原价15美元）。",
               "audio_url": "COS:/qa/responses/travel_059_sub_1_qa_2_response0.mp3"
+            },
+            {
+              "text": "Sorry, we don't offer student discounts — only senior and group rates.",
+              "text_cn": "抱歉，我们不提供学生优惠，只对老年人和团体有折扣。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_1_qa_2_response1.mp3"
+            },
+            {
+              "text": "We do, but you need to book online in advance — the discount won't apply at the counter.",
+              "text_cn": "有，但必须提前在线预订，现场购票不享受优惠。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "常见于学生群体询问票价优惠，需自然带出身份证明要求",
+          "usageNote": "学生群体高频提问，回应需体现政策差异与操作条件",
           "audioUrl": "COS:/qa/questions/travel_059_sub_1_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
@@ -57,22 +77,32 @@
         {
           "id": "travel_059_sub_1_qa_3",
           "subSceneId": "travel_059_sub_1",
-          "dialogueMode": "user_responds",
-          "triggerText": "Would you like to buy one ticket or multiple?",
-          "triggerTextCn": "您是要买一张票还是多张？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Is the ticket price per person or for the whole group?",
+          "triggerTextCn": "票价是按人算还是按团体算？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "售票员确认购买数量",
+          "scenarioHintCn": "团体游客确认计价方式",
           "followUps": [
             {
-              "text": "I'll need two, please.",
-              "text_cn": "我要两张，谢谢。",
+              "text": "It's per person — each ticket is $12.",
+              "text_cn": "按人计算，每张票12美元。",
               "audio_url": "COS:/qa/responses/travel_059_sub_1_qa_3_response0.mp3"
+            },
+            {
+              "text": "For groups of 5 or more, we offer a flat rate of $50 total.",
+              "text_cn": "5人及以上团体，统一收费50美元。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_1_qa_3_response1.mp3"
+            },
+            {
+              "text": "It's per person, but if you buy 3 or more tickets, you get one free.",
+              "text_cn": "按人计价，但买3张送1张。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "服务员主动确认数量，用户需简洁回应，避免冗长解释",
+          "usageNote": "适用于家庭或团体游客，澄清计价逻辑避免误解",
           "audioUrl": "COS:/qa/questions/travel_059_sub_1_qa_3.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -80,8 +110,8 @@
     {
       "id": "travel_059_sub_2",
       "sceneId": "travel_059",
-      "name": "确认优惠",
-      "description": "游客询问学生/老人优惠及所需证明。",
+      "name": "咨询优惠",
+      "description": "游客询问学生、老人或团体是否有折扣。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -89,19 +119,29 @@
           "id": "travel_059_sub_2_qa_1",
           "subSceneId": "travel_059_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "Do you have any discounts for students?",
-          "triggerTextCn": "你们有学生优惠吗？",
+          "triggerText": "Do you have any discounts for students or groups?",
+          "triggerTextCn": "你们有学生或团体优惠吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动询问门票是否提供学生优惠",
+          "scenarioHintCn": "游客咨询门票是否有学生或团体优惠",
           "followUps": [
             {
               "text": "Yes, we offer a 30% discount with a valid student ID.",
-              "text_cn": "有的，凭有效学生证可享七折优惠。",
+              "text_cn": "有的，凭有效学生证可享30%折扣。",
               "audio_url": "COS:/qa/responses/travel_059_sub_2_qa_1_response0.mp3"
+            },
+            {
+              "text": "Groups of 10 or more get a 20% discount — would you like to book as a group?",
+              "text_cn": "10人以上团体可享20%折扣，您要以团体方式预订吗？",
+              "audio_url": "COS:/qa/responses/travel_059_sub_2_qa_1_response1.mp3"
+            },
+            {
+              "text": "I'm sorry, we don't have any current discounts, but tickets are already at our lowest seasonal rate.",
+              "text_cn": "抱歉，目前没有优惠，但票价已是当季最低价了。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在购票时主动询问特定优惠资格，是高频且自然的提问方式。",
+          "usageNote": "适用于游客主动询问优惠信息的场景，服务员需根据政策提供明确回应",
           "audioUrl": "COS:/qa/questions/travel_059_sub_2_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -110,19 +150,29 @@
           "id": "travel_059_sub_2_qa_2",
           "subSceneId": "travel_059_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "Is there a group discount if we buy five tickets?",
-          "triggerTextCn": "如果我们买五张票，有团体优惠吗？",
+          "triggerText": "Is there a special offer if I buy tickets online?",
+          "triggerTextCn": "如果我在线购票有特别优惠吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问多人购票是否享受团体折扣",
+          "scenarioHintCn": "顾客询问线上购票是否有额外优惠",
           "followUps": [
             {
-              "text": "Absolutely! Buy five or more, and you get 20% off the total.",
-              "text_cn": "当然！购买五张或以上，总价可享八折优惠。",
+              "text": "Yes, online bookings get a 15% discount and skip the ticket line!",
+              "text_cn": "有的，在线购票享15%折扣，并可免排队。",
               "audio_url": "COS:/qa/responses/travel_059_sub_2_qa_2_response0.mp3"
+            },
+            {
+              "text": "We don't offer discounts online, but you can reserve tickets in advance to guarantee entry.",
+              "text_cn": "线上购票没有折扣，但可以提前预订确保入场。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_2_qa_2_response1.mp3"
+            },
+            {
+              "text": "Actually, we have a flash sale this week — online tickets are 25% off until Friday!",
+              "text_cn": "其实本周有限时促销——在线购票周五前享25%折扣！",
+              "audio_url": "COS:/qa/responses/travel_059_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "询问团体优惠是购票场景中非常常见的需求，尤其适用于家庭或朋友结伴出行。",
+          "usageNote": "顾客关心线上购票优势，服务员需说明是否优惠、是否节省时间或是否有促销",
           "audioUrl": "COS:/qa/questions/travel_059_sub_2_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
@@ -130,22 +180,32 @@
         {
           "id": "travel_059_sub_2_qa_3",
           "subSceneId": "travel_059_sub_2",
-          "dialogueMode": "user_responds",
-          "triggerText": "Do you offer any senior discounts?",
-          "triggerTextCn": "你们有老年人优惠吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can I get a discount if I buy multiple tickets at once?",
+          "triggerTextCn": "如果我一次性买多张票能打折吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员主动询问顾客是否符合老年人优惠资格",
+          "scenarioHintCn": "顾客询问批量购票是否有优惠",
           "followUps": [
             {
-              "text": "Yes, I'm 65, can I get the discount?",
-              "text_cn": "有的，我65岁了，能享受优惠吗？",
+              "text": "Absolutely! Buy 3 or more tickets and get the 4th one free.",
+              "text_cn": "当然！买3张送1张。",
               "audio_url": "COS:/qa/responses/travel_059_sub_2_qa_3_response0.mp3"
+            },
+            {
+              "text": "We don't have a bulk discount, but you can combine it with a membership for savings.",
+              "text_cn": "没有批量折扣，但您可以结合会员资格享受优惠。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_2_qa_3_response1.mp3"
+            },
+            {
+              "text": "It depends on the event — for this exhibition, no bulk discount applies, but we can hold tickets for you.",
+              "text_cn": "这取决于活动——本次展览不支持批量折扣，但我们可以为您保留门票。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "服务员主动提及优惠资格是服务场景中的标准话术，用户需自然回应自身是否符合条件。",
+          "usageNote": "顾客试探批量购买优惠，服务员需根据政策灵活回应，避免简单拒绝",
           "audioUrl": "COS:/qa/questions/travel_059_sub_2_qa_3.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -153,8 +213,8 @@
     {
       "id": "travel_059_sub_3",
       "sceneId": "travel_059",
-      "name": "查询时间",
-      "description": "游客确认开放时间与最后入场时间。",
+      "name": "确认开放时间",
+      "description": "游客确认景点当日开放和关闭时间。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -162,19 +222,29 @@
           "id": "travel_059_sub_3_qa_1",
           "subSceneId": "travel_059_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "What time does the ticket office close?",
-          "triggerTextCn": "售票处几点关门？",
+          "triggerText": "What time do you open/close today?",
+          "triggerTextCn": "你们今天几点开门/关门？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "游客询问售票处的营业结束时间",
+          "scenarioHintCn": "游客询问景点/博物馆/剧院当天的开放时间",
           "followUps": [
             {
-              "text": "It closes at 6 PM daily, but last entry is at 5:30 PM.",
-              "text_cn": "每天晚上6点关门，但最后入场时间是5:30。",
+              "text": "We open at 9 AM and close at 6 PM today.",
+              "text_cn": "我们今天早上9点开门，晚上6点关门。",
               "audio_url": "COS:/qa/responses/travel_059_sub_3_qa_1_response0.mp3"
+            },
+            {
+              "text": "We’re closing early today at 4 PM due to a private event.",
+              "text_cn": "今天因为私人活动，我们下午4点就关门了。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_3_qa_1_response1.mp3"
+            },
+            {
+              "text": "Sorry, we’re closed today for maintenance. We reopen tomorrow at 9 AM.",
+              "text_cn": "抱歉，今天因维护闭馆，明天早上9点重新开放。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于确认服务结束时间，避免到达时错过购票或入场机会",
+          "usageNote": "适用于游客在到达前确认开放时间，避免白跑一趟。",
           "audioUrl": "COS:/qa/questions/travel_059_sub_3_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -183,19 +253,29 @@
           "id": "travel_059_sub_3_qa_2",
           "subSceneId": "travel_059_sub_3",
           "dialogueMode": "user_asks",
-          "triggerText": "Do you have tickets available for tomorrow afternoon?",
-          "triggerTextCn": "明天下午还有票吗？",
+          "triggerText": "Is the ticket office still open?",
+          "triggerTextCn": "售票处还开着吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "游客询问特定时间段的门票余票情况",
+          "scenarioHintCn": "游客接近闭馆时间，担心错过购票机会",
           "followUps": [
             {
-              "text": "Yes, we have plenty left for 2 PM and 4 PM slots. Which one would you prefer?",
-              "text_cn": "有的，下午2点和4点还有余票，您想选哪个？",
+              "text": "Yes, we’re open until 30 minutes after closing time for last-minute tickets.",
+              "text_cn": "是的，我们在闭馆后30分钟内仍出售最后一刻的门票。",
               "audio_url": "COS:/qa/responses/travel_059_sub_3_qa_2_response0.mp3"
+            },
+            {
+              "text": "No, the ticket office closed 10 minutes ago. You’ll need to buy online.",
+              "text_cn": "不，售票处10分钟前就关闭了，您需要在线购买。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_3_qa_2_response1.mp3"
+            },
+            {
+              "text": "We’re closed, but you can still enter if you have a pre-booked e-ticket.",
+              "text_cn": "售票处已关闭，但如果您有预订的电子票，仍可入场。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "用于确认特定时段的可用性，是购票前最常问的问题之一",
+          "usageNote": "帮助学习者在临近闭馆时判断是否还能购票或入场。",
           "audioUrl": "COS:/qa/questions/travel_059_sub_3_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
@@ -203,22 +283,32 @@
         {
           "id": "travel_059_sub_3_qa_3",
           "subSceneId": "travel_059_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "Are the guided tours at 10 AM or 11 AM?",
-          "triggerTextCn": "导览团是上午10点还是11点？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you have tickets available for today?",
+          "triggerTextCn": "今天还有票吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "工作人员确认游客想参加的导览时间",
+          "scenarioHintCn": "游客临时决定参观，确认当日余票情况",
           "followUps": [
             {
-              "text": "It's at 10 AM. The 11 AM tour is full, but we have a spot for 10.",
-              "text_cn": "是10点。11点的团满了，但10点还有位置。",
+              "text": "Yes, we still have a few tickets left for the 3 PM slot.",
+              "text_cn": "有的，下午3点的场次还剩几张票。",
               "audio_url": "COS:/qa/responses/travel_059_sub_3_qa_3_response0.mp3"
+            },
+            {
+              "text": "Sorry, we’re sold out for today. Would you like to book for tomorrow?",
+              "text_cn": "抱歉，今天已经售罄。您要预订明天的票吗？",
+              "audio_url": "COS:/qa/responses/travel_059_sub_3_qa_3_response1.mp3"
+            },
+            {
+              "text": "We have walk-in tickets available, but no guaranteed entry — it’s first come, first served.",
+              "text_cn": "我们有现场购票，但不保证入场，先到先得。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "工作人员主动确认时间选项，用户需明确选择，是服务场景中的典型互动",
+          "usageNote": "适用于游客在无预约情况下询问当日票务，应对不同库存状态。",
           "audioUrl": "COS:/qa/questions/travel_059_sub_3_qa_3.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -226,7 +316,7 @@
     {
       "id": "travel_059_sub_4",
       "sceneId": "travel_059",
-      "name": "选择支付",
+      "name": "选择支付方式",
       "description": "游客询问支持的支付方式并完成付款。",
       "order": 4,
       "estimatedMinutes": 5,
@@ -239,15 +329,25 @@
           "triggerTextCn": "您想怎么支付？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "售票员询问支付方式，用户需选择支付方法",
+          "scenarioHintCn": "购买门票时选择支付方式",
           "followUps": [
             {
-              "text": "I'll pay with my credit card.",
-              "text_cn": "我用信用卡支付。",
+              "text": "I'll pay by credit card, please.",
+              "text_cn": "我刷卡支付，谢谢。",
               "audio_url": "COS:/qa/responses/travel_059_sub_4_qa_1_response0.mp3"
+            },
+            {
+              "text": "Do you accept cash? I only have bills today.",
+              "text_cn": "你们收现金吗？我今天只带了现金。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_4_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can I use WeChat Pay or Alipay? I don't have a local card.",
+              "text_cn": "可以用微信支付或支付宝吗？我没有本地银行卡。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是售票处最常见支付询问，用户需直接说明支付方式，避免冗长解释。",
+          "usageNote": "适用于售票窗口、景区入口或线上取票点的现场支付场景，用户需根据自身支付工具选择回应方式。",
           "audioUrl": "COS:/qa/questions/travel_059_sub_4_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -255,43 +355,63 @@
         {
           "id": "travel_059_sub_4_qa_2",
           "subSceneId": "travel_059_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Do you accept Apple Pay?",
-          "triggerTextCn": "你们接受苹果支付吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "We accept cards, Apple Pay, and mobile wallets. What’s your preference?",
+          "triggerTextCn": "我们支持银行卡、Apple Pay和移动钱包，您偏好哪种？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "用户主动确认是否支持移动支付方式",
+          "scenarioHintCn": "购买门票时服务人员主动提供支付选项",
           "followUps": [
             {
-              "text": "Yes, we accept Apple Pay, Google Pay, and all major cards.",
-              "text_cn": "是的，我们支持苹果支付、谷歌支付和所有主流银行卡。",
+              "text": "Apple Pay is fine, thanks.",
+              "text_cn": "用Apple Pay就可以，谢谢。",
               "audio_url": "COS:/qa/responses/travel_059_sub_4_qa_2_response0.mp3"
+            },
+            {
+              "text": "I’m not sure—do you charge a fee for using mobile payments?",
+              "text_cn": "我不确定——用移动支付会额外收费吗？",
+              "audio_url": "COS:/qa/responses/travel_059_sub_4_qa_2_response1.mp3"
+            },
+            {
+              "text": "Actually, I’ll just use my phone to scan the QR code on the screen.",
+              "text_cn": "其实我直接扫屏幕上的二维码就行。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "在现代售票场景中，用户常主动确认数字支付选项，回应需明确支持范围。",
+          "usageNote": "当服务人员明确列出支付选项时，用户可直接选择、询问费用或主动提出更具体的支付方式，体现真实互动灵活性。",
           "audioUrl": "COS:/qa/questions/travel_059_sub_4_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "travel_059_sub_4_qa_3",
           "subSceneId": "travel_059_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can I pay in cash?",
-          "triggerTextCn": "我可以付现金吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Payment is required now. How will you be paying?",
+          "triggerTextCn": "现在需要付款，您打算怎么支付？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "用户询问是否接受现金支付，常见于老年游客或无卡人群",
+          "scenarioHintCn": "购票即将完成，催促支付的临场场景",
           "followUps": [
             {
-              "text": "Sure, cash is fine. Here's your change.",
-              "text_cn": "当然可以，现金没问题。这是您的找零。",
+              "text": "I’ve got it—I’ll pay with my card right now.",
+              "text_cn": "我有，我现在就刷卡支付。",
               "audio_url": "COS:/qa/responses/travel_059_sub_4_qa_3_response0.mp3"
+            },
+            {
+              "text": "Wait a second—I need to check if my phone has enough battery.",
+              "text_cn": "等一下，我得看看手机还有没有电。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_4_qa_3_response1.mp3"
+            },
+            {
+              "text": "I’m sorry, I don’t have cash or card on me—can I pay later or get a ticket first?",
+              "text_cn": "不好意思，我身上没现金也没卡，能先拿票再付款吗？",
+              "audio_url": "COS:/qa/responses/travel_059_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "现金支付虽逐渐减少，但在旅游景点仍高频出现，回应应包含确认与找零动作。",
+          "usageNote": "在催促支付的紧张情境下，用户可能表现出自信、犹豫或求助，这些回应真实反映不同心理状态，适合进阶口语训练。",
           "audioUrl": "COS:/qa/questions/travel_059_sub_4_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -300,7 +420,7 @@
       "id": "travel_059_sub_5",
       "sceneId": "travel_059",
       "name": "领取门票",
-      "description": "游客确认购票信息并领取实体票或二维码。",
+      "description": "游客确认购票信息并领取实体或电子票。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -308,19 +428,29 @@
           "id": "travel_059_sub_5_qa_1",
           "subSceneId": "travel_059_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "I have a reservation under the name Smith.",
-          "triggerTextCn": "我用史密斯的名字预订了。",
+          "triggerText": "May I have your ticket confirmation number, please?",
+          "triggerTextCn": "请提供您的门票确认号好吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "工作人员核对预订信息，要求客户提供姓名",
+          "scenarioHintCn": "领取门票：工作人员核对预订信息",
           "followUps": [
             {
-              "text": "Yes, that’s correct. Here’s your ticket. Enjoy your visit!",
-              "text_cn": "是的，确认无误。这是您的门票，祝您参观愉快！",
+              "text": "Sure, it's ABC123.",
+              "text_cn": "当然，是ABC123。",
               "audio_url": "COS:/qa/responses/travel_059_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "I'm sorry, I don't have it. Can you look up my name?",
+              "text_cn": "抱歉，我没有记录。您能用我的名字查一下吗？",
+              "audio_url": "COS:/qa/responses/travel_059_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "I booked it online but haven't received the email yet.",
+              "text_cn": "我在线预订了，但还没收到邮件。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "客户主动提供预订姓名，工作人员确认并发放门票，适用于已在线预订的场景",
+          "usageNote": "用于领取门票时核对预订信息，是服务场景中最常见的第一步确认环节",
           "audioUrl": "COS:/qa/questions/travel_059_sub_5_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -328,43 +458,63 @@
         {
           "id": "travel_059_sub_5_qa_2",
           "subSceneId": "travel_059_sub_5",
-          "dialogueMode": "user_asks",
-          "triggerText": "How much are the tickets for adults and children?",
-          "triggerTextCn": "成人和儿童的门票各多少钱？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "How many tickets are you picking up?",
+          "triggerTextCn": "您要领取几张票？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "客户询问不同票价，准备购票",
+          "scenarioHintCn": "领取门票：工作人员确认数量",
           "followUps": [
             {
-              "text": "Adult tickets are $25 each, and children under 12 are $15. Would you like to buy them now?",
-              "text_cn": "成人票每张25美元，12岁以下儿童票每张15美元。您现在要购买吗？",
+              "text": "Just one, for me.",
+              "text_cn": "一张，给我自己。",
               "audio_url": "COS:/qa/responses/travel_059_sub_5_qa_2_response0.mp3"
+            },
+            {
+              "text": "Three, please. My family is with me.",
+              "text_cn": "三张，我和家人一起来的。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_5_qa_2_response1.mp3"
+            },
+            {
+              "text": "I'm not sure—I think I booked two, but let me check my phone.",
+              "text_cn": "我不太确定，我好像订了两张，让我查一下手机。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "客户在购票前询问价格，是现场购票中最常见的开场问题，需掌握数字表达和确认购买的回应",
+          "usageNote": "工作人员确认领取数量，用户需明确说明需求，避免出错",
           "audioUrl": "COS:/qa/questions/travel_059_sub_5_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "travel_059_sub_5_qa_3",
           "subSceneId": "travel_059_sub_5",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can I pick up my online ticket at the counter?",
-          "triggerTextCn": "我可以在柜台取我在线买的票吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you need a physical ticket or a mobile pass?",
+          "triggerTextCn": "您需要纸质票还是手机电子票？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "客户询问是否支持线上预订线下取票",
+          "scenarioHintCn": "领取门票：确认票种形式",
           "followUps": [
             {
-              "text": "Of course! Just show your confirmation email or QR code, and I’ll print it out for you.",
-              "text_cn": "当然可以！请出示您的确认邮件或二维码，我帮您打印出来。",
+              "text": "I'd like a printed ticket, please.",
+              "text_cn": "请给我一张纸质票。",
               "audio_url": "COS:/qa/responses/travel_059_sub_5_qa_3_response0.mp3"
+            },
+            {
+              "text": "Mobile pass is fine—I'll just show it on my phone.",
+              "text_cn": "手机电子票就行，我直接在手机上出示。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_5_qa_3_response1.mp3"
+            },
+            {
+              "text": "Can I get both? I want a backup.",
+              "text_cn": "我能两种都要吗？我想留个备份。",
+              "audio_url": "COS:/qa/responses/travel_059_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "现代服务场景中，线上预订线下取票是高频需求，客户需明确知道所需凭证",
+          "usageNote": "现代票务系统常见选项，用户需明确偏好，避免现场尴尬或延误",
           "audioUrl": "COS:/qa/questions/travel_059_sub_5_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]

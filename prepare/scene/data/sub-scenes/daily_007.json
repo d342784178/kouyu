@@ -1,7 +1,7 @@
 {
   "sceneId": "daily_007",
   "sceneName": "理发店预约",
-  "generatedAt": "2026-03-16T08:04:20.949Z",
+  "generatedAt": "2026-03-17T03:08:42.010Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
@@ -16,19 +16,29 @@
           "id": "daily_007_sub_1_qa_1",
           "subSceneId": "daily_007_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "Hi, I'd like to book an appointment for a haircut.",
-          "triggerTextCn": "你好，我想预约一个剪发服务。",
+          "triggerText": "Can I make an appointment for a haircut?",
+          "triggerTextCn": "我可以预约理发吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客礼貌开场，提出预约请求",
+          "scenarioHintCn": "顾客礼貌开场，询问预约可能性",
           "followUps": [
             {
-              "text": "Of course! When would you like to come in?",
-              "text_cn": "当然可以！您想什么时候来？",
+              "text": "Of course! What day and time works for you?",
+              "text_cn": "当然可以！您什么时间方便？",
               "audio_url": "COS:/qa/responses/daily_007_sub_1_qa_1_response0.mp3"
+            },
+            {
+              "text": "We're fully booked until next week, but we have a cancellation slot tomorrow at 3 PM.",
+              "text_cn": "我们下周前都约满了，但明天下午3点有个取消的空档。",
+              "audio_url": "COS:/qa/responses/daily_007_sub_1_qa_1_response1.mp3"
+            },
+            {
+              "text": "We only take appointments on weekdays. Would you like to come in Monday?",
+              "text_cn": "我们只在工作日接受预约，您周一来可以吗？",
+              "audio_url": "COS:/qa/responses/daily_007_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客礼貌开场提出预约，是理发店服务中最常见的起始句，适用于任何预约场景。",
+          "usageNote": "用于礼貌开启预约对话，适用于初次到店或电话预约场景",
           "audioUrl": "COS:/qa/questions/daily_007_sub_1_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -37,19 +47,29 @@
           "id": "daily_007_sub_1_qa_2",
           "subSceneId": "daily_007_sub_1",
           "dialogueMode": "user_asks",
-          "triggerText": "Do you have any availability this week?",
-          "triggerTextCn": "这周有空档吗？",
+          "triggerText": "What times do you have available this week?",
+          "triggerTextCn": "这周您有哪些空闲时间？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动询问可预约时间段，体现自然沟通",
+          "scenarioHintCn": "顾客主动询问可选时间段，体现明确需求",
           "followUps": [
             {
-              "text": "We have slots on Tuesday at 3 PM, Thursday at 11 AM, or Friday at 4 PM.",
-              "text_cn": "我们周二下午3点、周四上午11点，或周五下午4点有空位。",
+              "text": "We have openings at 10 AM, 1 PM, and 4 PM on Tuesday, and 11 AM on Thursday.",
+              "text_cn": "周二有10点、下午1点和4点的空位，周四上午11点也有。",
               "audio_url": "COS:/qa/responses/daily_007_sub_1_qa_2_response0.mp3"
+            },
+            {
+              "text": "We're fully booked until Friday, but we can squeeze you in at 9 AM if you're flexible.",
+              "text_cn": "我们直到周五都约满了，但如果您能早一点，早上9点可以安排。",
+              "audio_url": "COS:/qa/responses/daily_007_sub_1_qa_2_response1.mp3"
+            },
+            {
+              "text": "Our earliest slot is next Monday. Would you like to wait for a cancellation?",
+              "text_cn": "我们最早能排到下周一。您愿意等取消的空位吗？",
+              "audio_url": "COS:/qa/responses/daily_007_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "询问多个时间段是高频需求，帮助学习者掌握灵活预约表达，避免只问‘有空吗’这种模糊提问。",
+          "usageNote": "顾客主动询问时间，是预约流程中最核心的提问之一",
           "audioUrl": "COS:/qa/questions/daily_007_sub_1_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
@@ -58,19 +78,29 @@
           "id": "daily_007_sub_1_qa_3",
           "subSceneId": "daily_007_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "What time works best for you?",
-          "triggerTextCn": "您什么时候最方便？",
+          "triggerText": "Would 3 PM on Wednesday work for you?",
+          "triggerTextCn": "周三下午3点可以吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员主动询问顾客偏好时间，推动预约确认",
+          "scenarioHintCn": "服务员提出具体时间，等待顾客确认",
           "followUps": [
             {
-              "text": "Thursday at 11 AM works for me.",
-              "text_cn": "周四上午11点对我合适。",
+              "text": "Yes, 3 PM works perfectly. Thank you!",
+              "text_cn": "可以，3点正好，谢谢！",
               "audio_url": "COS:/qa/responses/daily_007_sub_1_qa_3_response0.mp3"
+            },
+            {
+              "text": "Actually, I'm a bit busy then. Do you have anything at 5 PM?",
+              "text_cn": "不好意思，那时我有点忙，5点有空吗？",
+              "audio_url": "COS:/qa/responses/daily_007_sub_1_qa_3_response1.mp3"
+            },
+            {
+              "text": "I'm not sure yet — can I call back tomorrow to confirm?",
+              "text_cn": "我还不确定，明天再打电话确认可以吗？",
+              "audio_url": "COS:/qa/responses/daily_007_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "服务员常用句式，引导顾客做出明确选择，用户回应需简洁直接，避免冗长解释。",
+          "usageNote": "服务员提出具体时间点，是预约闭环的关键环节，用户需灵活回应",
           "audioUrl": "COS:/qa/questions/daily_007_sub_1_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -93,15 +123,25 @@
           "triggerTextCn": "这周有空档吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动询问理发店本周的可预约时间段",
+          "scenarioHintCn": "顾客主动询问理发店本周可预约的时间段",
           "followUps": [
             {
-              "text": "We have slots on Tuesday at 3 PM, Thursday at 11 AM, and Saturday at 9 AM.",
-              "text_cn": "我们周二下午3点、周四上午11点和周六上午9点有空位。",
+              "text": "Yes, we have slots on Tuesday at 3 PM and Thursday at 11 AM.",
+              "text_cn": "有的，周二下午3点和周四上午11点有空。",
               "audio_url": "COS:/qa/responses/daily_007_sub_2_qa_1_response0.mp3"
+            },
+            {
+              "text": "I'm sorry, we're fully booked until next Monday.",
+              "text_cn": "抱歉，我们一直排到下周一才空出来。",
+              "audio_url": "COS:/qa/responses/daily_007_sub_2_qa_1_response1.mp3"
+            },
+            {
+              "text": "Let me check our system for last-minute cancellations — I’ll get back to you in 5 minutes.",
+              "text_cn": "我查一下是否有临时取消的预约，5分钟内回复您。",
+              "audio_url": "COS:/qa/responses/daily_007_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在预约时常用此句开启对话，适用于初次咨询或非紧急预约场景。",
+          "usageNote": "顾客在预约前常用此句试探可用时间，服务员回应应体现真实业务状态：有空、无空、需核实。",
           "audioUrl": "COS:/qa/questions/daily_007_sub_2_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -109,43 +149,63 @@
         {
           "id": "daily_007_sub_2_qa_2",
           "subSceneId": "daily_007_sub_2",
-          "dialogueMode": "user_responds",
-          "triggerText": "Can you fit me in tomorrow?",
-          "triggerTextCn": "明天能安排我吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "What times do you have available on Friday?",
+          "triggerTextCn": "周五有哪些时间段可以预约？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员主动询问顾客是否能接受明天的预约时间",
+          "scenarioHintCn": "顾客锁定某一天，询问具体可选时间",
           "followUps": [
             {
-              "text": "Yes, 4 PM works for me.",
-              "text_cn": "可以，下午4点对我合适。",
+              "text": "We have 10 AM, 1 PM, and 4 PM open on Friday.",
+              "text_cn": "周五我们有上午10点、下午1点和4点的空档。",
               "audio_url": "COS:/qa/responses/daily_007_sub_2_qa_2_response0.mp3"
+            },
+            {
+              "text": "Actually, we only have 1 PM left — everything else is booked.",
+              "text_cn": "其实只剩下午1点了，其他时间都满了。",
+              "audio_url": "COS:/qa/responses/daily_007_sub_2_qa_2_response1.mp3"
+            },
+            {
+              "text": "We don’t cut hair on Fridays — we’re closed that day.",
+              "text_cn": "我们周五不营业，那天休息。",
+              "audio_url": "COS:/qa/responses/daily_007_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "服务员常在提供多个选项后用此句确认顾客是否接受较紧的时间，用户回应需简洁明确。",
+          "usageNote": "顾客常锁定具体日期询问，服务员回应需真实反映排期，包括限制、唯一选项或当日关闭。",
           "audioUrl": "COS:/qa/questions/daily_007_sub_2_qa_2.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 2
         },
         {
           "id": "daily_007_sub_2_qa_3",
           "subSceneId": "daily_007_sub_2",
-          "dialogueMode": "user_responds",
-          "triggerText": "What time is the earliest you can do me on Friday?",
-          "triggerTextCn": "周五最早什么时候能给我理发？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Can I book an appointment for Saturday morning?",
+          "triggerTextCn": "我可以预约周六上午吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员提供周五的预约选项，询问顾客偏好的最早时间",
+          "scenarioHintCn": "顾客提出具体时间请求，试探是否可安排",
           "followUps": [
             {
-              "text": "8:30 AM is perfect.",
-              "text_cn": "早上8点半正好。",
+              "text": "Yes, we have 9 AM and 10:30 AM available.",
+              "text_cn": "可以，上午9点和10点半有空。",
               "audio_url": "COS:/qa/responses/daily_007_sub_2_qa_3_response0.mp3"
+            },
+            {
+              "text": "We’re fully booked for Saturday morning, but we have a slot at 2 PM if you’re flexible.",
+              "text_cn": "周六上午全满了，但下午2点有空，如果您能调整时间的话。",
+              "audio_url": "COS:/qa/responses/daily_007_sub_2_qa_3_response1.mp3"
+            },
+            {
+              "text": "We don’t do Saturday appointments — we’re only open Monday to Friday.",
+              "text_cn": "我们周六不接预约，只在周一到周五营业。",
+              "audio_url": "COS:/qa/responses/daily_007_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客常需在特定日期内选择最早时间，回应应直接、不冗长，符合真实口语习惯。",
+          "usageNote": "顾客常提出具体时间请求，服务员回应需体现灵活性、政策限制或替代建议，反映真实预约场景的多样性。",
           "audioUrl": "COS:/qa/questions/daily_007_sub_2_qa_3.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -161,41 +221,61 @@
         {
           "id": "daily_007_sub_3_qa_1",
           "subSceneId": "daily_007_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "What times do you have available this week?",
-          "triggerTextCn": "这周您有哪些时间段可以预约？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "What time works best for you?",
+          "triggerTextCn": "您什么时间最合适？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动询问多个可选时间段，以确认最适合自己的预约时间",
+          "scenarioHintCn": "理发店预约 - 确认时间",
           "followUps": [
             {
-              "text": "We have openings at 10 AM, 1 PM, or 4 PM on Tuesday, and 11 AM or 3 PM on Thursday.",
-              "text_cn": "我们周二有10点、下午1点或4点的空位，周四有上午11点或下午3点。",
+              "text": "How about 3 PM tomorrow?",
+              "text_cn": "明天下午3点可以吗？",
               "audio_url": "COS:/qa/responses/daily_007_sub_3_qa_1_response0.mp3"
+            },
+            {
+              "text": "I'm free on Saturday morning, any time before 11?",
+              "text_cn": "我周六上午有空，11点前都可以。",
+              "audio_url": "COS:/qa/responses/daily_007_sub_3_qa_1_response1.mp3"
+            },
+            {
+              "text": "Actually, I'm busy this week — could we schedule for next Monday?",
+              "text_cn": "其实这周我都没空，能安排下周一吗？",
+              "audio_url": "COS:/qa/responses/daily_007_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在预约时主动询问多个选项，体现自然沟通习惯，避免只问‘有没有空位’这种模糊表达",
+          "usageNote": "用于回应理发师询问可预约时间，表达个人时间偏好或调整需求。",
           "audioUrl": "COS:/qa/questions/daily_007_sub_3_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_007_sub_3_qa_2",
           "subSceneId": "daily_007_sub_3",
-          "dialogueMode": "user_responds",
-          "triggerText": "How about Tuesday at 1 PM?",
-          "triggerTextCn": "周二下午1点可以吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Do you have any availability on Thursday?",
+          "triggerTextCn": "周四有空档吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员提出具体时间选项，等待顾客确认",
+          "scenarioHintCn": "理发店预约 - 确认时间",
           "followUps": [
             {
-              "text": "Yes, 1 PM works for me.",
-              "text_cn": "可以，下午1点对我合适。",
+              "text": "We have an opening at 10 AM or 4 PM.",
+              "text_cn": "我们上午10点或下午4点有空。",
               "audio_url": "COS:/qa/responses/daily_007_sub_3_qa_2_response0.mp3"
+            },
+            {
+              "text": "I'm sorry, Thursday is fully booked — how about Friday at 2 PM?",
+              "text_cn": "抱歉，周四已经约满了，周五下午2点可以吗？",
+              "audio_url": "COS:/qa/responses/daily_007_sub_3_qa_2_response1.mp3"
+            },
+            {
+              "text": "We only have a cancellation slot at 7 PM — it's last minute.",
+              "text_cn": "我们只有一个临时取消的时段，晚上7点，是临时的。",
+              "audio_url": "COS:/qa/responses/daily_007_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "服务员提供具体时间后，顾客应直接确认或拒绝，避免冗长解释，符合真实口语习惯",
+          "usageNote": "用户主动询问特定日期是否有空，服务员回应时需体现不同可用性状态。",
           "audioUrl": "COS:/qa/questions/daily_007_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -204,19 +284,29 @@
           "id": "daily_007_sub_3_qa_3",
           "subSceneId": "daily_007_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Can you change it to Thursday at 3 PM instead?",
-          "triggerTextCn": "能改成周四下午3点吗？",
+          "triggerText": "Can you make it by 9 AM?",
+          "triggerTextCn": "您能赶在上午9点来吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员提出替代时间，顾客需回应是否接受调整",
+          "scenarioHintCn": "理发店预约 - 确认时间",
           "followUps": [
             {
-              "text": "Sure, that’s perfect.",
-              "text_cn": "当然，太好了。",
+              "text": "Yes, 9 AM works perfectly.",
+              "text_cn": "可以，9点正好。",
               "audio_url": "COS:/qa/responses/daily_007_sub_3_qa_3_response0.mp3"
+            },
+            {
+              "text": "I'm sorry, I have a meeting then — is 10:30 possible?",
+              "text_cn": "不好意思，那时我有个会议，10:30可以吗？",
+              "audio_url": "COS:/qa/responses/daily_007_sub_3_qa_3_response1.mp3"
+            },
+            {
+              "text": "I'm not sure yet — can I let you know by tonight?",
+              "text_cn": "我还不确定，今晚之前回复您可以吗？",
+              "audio_url": "COS:/qa/responses/daily_007_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "在预约调整场景中，顾客常用简短肯定回应（如Sure, That works, Perfect），避免过度礼貌或冗长句式",
+          "usageNote": "理发师提出具体时间点，用户根据自身安排做出不同回应，体现决策状态差异。",
           "audioUrl": "COS:/qa/questions/daily_007_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -234,62 +324,92 @@
         {
           "id": "daily_007_sub_4_qa_1",
           "subSceneId": "daily_007_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can I book an appointment for this week?",
-          "triggerTextCn": "我这周能预约吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "What day and time would you like for your appointment?",
+          "triggerTextCn": "您想预约哪天什么时候？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动发起预约请求",
+          "scenarioHintCn": "理发店预约：服务员询问预约时间",
           "followUps": [
             {
-              "text": "Of course! We have openings on Tuesday at 3 PM, Thursday at 11 AM, or Friday at 4 PM. Which works for you?",
-              "text_cn": "当然可以！我们周二下午3点、周四上午11点或周五下午4点有空位，您哪个时间方便？",
+              "text": "Can I come in on Tuesday at 3 PM?",
+              "text_cn": "我周二下午3点来可以吗？",
               "audio_url": "COS:/qa/responses/daily_007_sub_4_qa_1_response0.mp3"
+            },
+            {
+              "text": "I'm free this weekend — any openings Saturday morning?",
+              "text_cn": "我周末有空，周六早上有空位吗？",
+              "audio_url": "COS:/qa/responses/daily_007_sub_4_qa_1_response1.mp3"
+            },
+            {
+              "text": "Do you have anything tomorrow? I need it urgent.",
+              "text_cn": "明天有空位吗？我急需理发。",
+              "audio_url": "COS:/qa/responses/daily_007_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客首次询问预约可能性，服务员提供多个时间段供选择，是预约场景中最典型的开场互动。",
+          "usageNote": "用于顾客回应理发师关于预约时间的询问，表达不同时间偏好或紧急程度。",
           "audioUrl": "COS:/qa/questions/daily_007_sub_4_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_007_sub_4_qa_2",
           "subSceneId": "daily_007_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Do you have any availability tomorrow afternoon?",
-          "triggerTextCn": "明天下午有空位吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "How long do you want your haircut to be?",
+          "triggerTextCn": "您希望剪多短？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问特定时间段的预约可能性",
+          "scenarioHintCn": "理发店预约：服务员询问发型长度偏好",
           "followUps": [
             {
-              "text": "We have a slot at 2 PM. Would you like to take that?",
-              "text_cn": "我们下午2点有一个空位，您要预约这个时间吗？",
+              "text": "Just a trim — keep it short but not too short.",
+              "text_cn": "只修一下边，保持短但别太短。",
               "audio_url": "COS:/qa/responses/daily_007_sub_4_qa_2_response0.mp3"
+            },
+            {
+              "text": "I want it buzzed short on the sides and longer on top.",
+              "text_cn": "两边剃短，上面留长一点。",
+              "audio_url": "COS:/qa/responses/daily_007_sub_4_qa_2_response1.mp3"
+            },
+            {
+              "text": "I'm not sure — can you suggest something stylish?",
+              "text_cn": "我不确定，你有什么时尚建议吗？",
+              "audio_url": "COS:/qa/responses/daily_007_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客明确指定时间范围，服务员快速回应可用时段，体现高效服务流程。",
+          "usageNote": "用于顾客回应理发师关于发型长度或风格的询问，体现不同需求层次。",
           "audioUrl": "COS:/qa/questions/daily_007_sub_4_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_007_sub_4_qa_3",
           "subSceneId": "daily_007_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "What time would you like to schedule your appointment?",
-          "triggerTextCn": "您想预约什么时间？",
+          "triggerText": "Do you have a membership or discount card?",
+          "triggerTextCn": "您有会员卡或优惠券吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员主动询问顾客偏好时间",
+          "scenarioHintCn": "理发店预约：服务员询问优惠资格",
           "followUps": [
             {
-              "text": "How about 3:30 PM tomorrow?",
-              "text_cn": "明天下午3点半可以吗？",
+              "text": "Yes, I'm a member — my number is 789456.",
+              "text_cn": "有的，我是会员，号码是789456。",
               "audio_url": "COS:/qa/responses/daily_007_sub_4_qa_3_response0.mp3"
+            },
+            {
+              "text": "I don't have one, but do you offer student discounts?",
+              "text_cn": "我没有，但你们有学生优惠吗？",
+              "audio_url": "COS:/qa/responses/daily_007_sub_4_qa_3_response1.mp3"
+            },
+            {
+              "text": "I forgot my card — can I use it next time?",
+              "text_cn": "我忘带卡了，下次能用吗？",
+              "audio_url": "COS:/qa/responses/daily_007_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "服务员在确认需求后主动询问时间，是预约流程中自然且高频的引导性提问，用户回应需简洁直接。",
+          "usageNote": "用于顾客回应关于优惠资格的询问，体现不同经济或身份情境下的应对方式。",
           "audioUrl": "COS:/qa/questions/daily_007_sub_4_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -307,41 +427,61 @@
         {
           "id": "daily_007_sub_5_qa_1",
           "subSceneId": "daily_007_sub_5",
-          "dialogueMode": "user_asks",
-          "triggerText": "Thank you so much for the haircut!",
-          "triggerTextCn": "非常感谢你给我理发！",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Thank you so much for your service!",
+          "triggerTextCn": "非常感谢您的服务！",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客在理发结束后表达感谢",
+          "scenarioHintCn": "理发结束，服务员致谢，顾客回应",
           "followUps": [
             {
-              "text": "You're welcome! We're glad you liked it. See you next time!",
-              "text_cn": "不客气！很高兴你喜欢。下次见！",
+              "text": "Thank you! I love my new haircut!",
+              "text_cn": "谢谢！我喜欢我的新发型！",
               "audio_url": "COS:/qa/responses/daily_007_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "You did a great job — I’ll be back next month!",
+              "text_cn": "你做得太棒了，我下个月还来！",
+              "audio_url": "COS:/qa/responses/daily_007_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "Thanks, but could you just trim a bit more next time?",
+              "text_cn": "谢谢，不过下次能再修短一点吗？",
+              "audio_url": "COS:/qa/responses/daily_007_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在服务结束后自然表达感谢，服务员用温暖、积极的语气回应，强化客户关系。",
+          "usageNote": "用于理发服务结束时，顾客对服务员感谢的自然回应，体现满意度、忠诚度或建设性反馈",
           "audioUrl": "COS:/qa/questions/daily_007_sub_5_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_007_sub_5_qa_2",
           "subSceneId": "daily_007_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "How was everything today?",
-          "triggerTextCn": "今天的服务还满意吗？",
+          "triggerText": "Is everything okay with your cut?",
+          "triggerTextCn": "您的发型还满意吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "理发师在服务结束时主动询问顾客体验",
+          "scenarioHintCn": "理发师在结束时确认顾客满意度，顾客回应",
           "followUps": [
             {
-              "text": "Perfect! You did a great job.",
-              "text_cn": "太棒了！你做得非常好。",
+              "text": "Perfect! Exactly what I wanted.",
+              "text_cn": "完美！正是我想要的。",
               "audio_url": "COS:/qa/responses/daily_007_sub_5_qa_2_response0.mp3"
+            },
+            {
+              "text": "It’s a little too short on the sides, but I’ll get used to it.",
+              "text_cn": "侧面有点短了，但我能适应。",
+              "audio_url": "COS:/qa/responses/daily_007_sub_5_qa_2_response1.mp3"
+            },
+            {
+              "text": "Actually, could you fix the back? It’s uneven.",
+              "text_cn": "其实能帮我修一下后脑勺吗？有点不平。",
+              "audio_url": "COS:/qa/responses/daily_007_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "服务员在结束服务时常用此句表达关心，顾客回应应简洁真诚，避免冗长解释。",
+          "usageNote": "理发师主动确认满意度时，顾客可能的回应，涵盖积极、妥协和请求调整三种典型态度",
           "audioUrl": "COS:/qa/questions/daily_007_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -349,22 +489,32 @@
         {
           "id": "daily_007_sub_5_qa_3",
           "subSceneId": "daily_007_sub_5",
-          "dialogueMode": "user_asks",
-          "triggerText": "Thanks for making time for me today.",
-          "triggerTextCn": "谢谢你今天抽出时间给我服务。",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Have a great day!",
+          "triggerTextCn": "祝你今天愉快！",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客对理发师的准时和专业表示感谢",
+          "scenarioHintCn": "理发结束，服务员道别，顾客回应",
           "followUps": [
             {
-              "text": "It's my pleasure! We appreciate you coming in.",
-              "text_cn": "这是我的荣幸！感谢您选择我们。",
+              "text": "You too! See you next time!",
+              "text_cn": "你也是！下次见！",
               "audio_url": "COS:/qa/responses/daily_007_sub_5_qa_3_response0.mp3"
+            },
+            {
+              "text": "Thanks, I’m heading to work now.",
+              "text_cn": "谢谢，我现在要去上班了。",
+              "audio_url": "COS:/qa/responses/daily_007_sub_5_qa_3_response1.mp3"
+            },
+            {
+              "text": "I really appreciate it — you made my day!",
+              "text_cn": "真的很感谢你，你让我今天心情变好了！",
+              "audio_url": "COS:/qa/responses/daily_007_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客用礼貌表达对服务时间的感激，服务员回应体现专业与感恩，是高频结束语。",
+          "usageNote": "服务员道别时，顾客的三种自然回应：社交性回应、实用信息补充、情感升华，体现真实人际互动层次",
           "audioUrl": "COS:/qa/questions/daily_007_sub_5_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]

@@ -1,14 +1,14 @@
 {
   "sceneId": "daily_011",
   "sceneName": "药店买药",
-  "generatedAt": "2026-03-16T08:06:03.367Z",
+  "generatedAt": "2026-03-17T03:11:44.223Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
       "id": "daily_011_sub_1",
       "sceneId": "daily_011",
       "name": "描述症状",
-      "description": "顾客向药剂师说明头痛、咳嗽等身体不适症状。",
+      "description": "顾客向药剂师说明自己的身体不适症状。",
       "order": 1,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -20,15 +20,25 @@
           "triggerTextCn": "您哪里不舒服？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "药剂师询问顾客症状，以提供合适建议",
+          "scenarioHintCn": "药剂师询问症状以推荐药物",
           "followUps": [
             {
-              "text": "I've had a bad headache and a fever for two days.",
-              "text_cn": "我头疼了两天，还发烧了。",
+              "text": "I've had a headache and fever for two days.",
+              "text_cn": "我头疼发烧两天了。",
               "audio_url": "COS:/qa/responses/daily_011_sub_1_qa_1_response0.mp3"
+            },
+            {
+              "text": "My throat hurts when I swallow, but no fever.",
+              "text_cn": "我吞咽时喉咙痛，但没发烧。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_1_qa_1_response1.mp3"
+            },
+            {
+              "text": "I'm not sure—it just feels like something's stuck in my chest.",
+              "text_cn": "我不太确定，就是感觉胸口像卡了东西。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是药剂师最常用来开启症状描述的开场白，顾客应直接描述主要症状和持续时间。",
+          "usageNote": "药剂师常以此句开启症状评估，用户应简洁描述主要不适，避免冗长叙述。",
           "audioUrl": "COS:/qa/questions/daily_011_sub_1_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -41,15 +51,25 @@
           "triggerTextCn": "您有过敏史或正在服用其他药物吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "药剂师为安全开药前必问的关键问题",
+          "scenarioHintCn": "药剂师确认用药安全风险",
           "followUps": [
             {
-              "text": "No allergies, but I'm taking blood pressure medicine.",
-              "text_cn": "我没有过敏，但正在吃降压药。",
+              "text": "Yes, I'm allergic to penicillin.",
+              "text_cn": "是的，我对青霉素过敏。",
               "audio_url": "COS:/qa/responses/daily_011_sub_1_qa_2_response0.mp3"
+            },
+            {
+              "text": "No allergies, but I'm taking blood pressure medicine.",
+              "text_cn": "不过敏，但我正在吃降压药。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_1_qa_2_response1.mp3"
+            },
+            {
+              "text": "I don't think so—I never had a reaction before.",
+              "text_cn": "应该没有，我以前从没出现过不良反应。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "药剂师必须确认药物相互作用，顾客应如实简短回答，避免冗长解释。",
+          "usageNote": "药剂师必须确认用药安全，用户应诚实回答，即使不确定也应说明。",
           "audioUrl": "COS:/qa/questions/daily_011_sub_1_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -57,22 +77,32 @@
         {
           "id": "daily_011_sub_1_qa_3",
           "subSceneId": "daily_011_sub_1",
-          "dialogueMode": "user_asks",
-          "triggerText": "What do you recommend for a sore throat and cough?",
-          "triggerTextCn": "对于喉咙痛和咳嗽，你有什么推荐？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "How long have you been having these symptoms?",
+          "triggerTextCn": "您这些症状持续多久了？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动描述症状后，请求药剂师推荐非处方药",
+          "scenarioHintCn": "药剂师判断症状急缓以决定推荐非处方药或建议就医",
           "followUps": [
             {
-              "text": "I'd suggest this throat spray and a cough syrup—avoid the one with drowsiness if you're driving.",
-              "text_cn": "我推荐这种喉咙喷雾和止咳糖浆，如果你要开车，避免选会让人嗜睡的那种。",
+              "text": "Just since yesterday—this came on suddenly.",
+              "text_cn": "从昨天开始的，突然就出现了。",
               "audio_url": "COS:/qa/responses/daily_011_sub_1_qa_3_response0.mp3"
+            },
+            {
+              "text": "About a week now—it's getting worse.",
+              "text_cn": "已经一周了，而且越来越严重。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_1_qa_3_response1.mp3"
+            },
+            {
+              "text": "Off and on for months—I thought it was just stress.",
+              "text_cn": "断断续续好几个月了，我以为只是压力大。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客在描述症状后，常用此句请求专业建议，回应通常包含具体产品+使用注意事项。",
+          "usageNote": "时间长度直接影响药剂师推荐策略，用户应尽量准确描述持续时间。",
           "audioUrl": "COS:/qa/questions/daily_011_sub_1_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -80,8 +110,8 @@
     {
       "id": "daily_011_sub_2",
       "sceneId": "daily_011",
-      "name": "咨询药效",
-      "description": "顾客询问药品用途、是否对症及替代选项。",
+      "name": "询问药效",
+      "description": "顾客咨询药品的主要功效与适用情况。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -89,19 +119,29 @@
           "id": "daily_011_sub_2_qa_1",
           "subSceneId": "daily_011_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "I have a headache and a sore throat. What do you recommend?",
-          "triggerTextCn": "我头疼又嗓子疼，你有什么推荐吗？",
+          "triggerText": "What’s this medicine for?",
+          "triggerTextCn": "这种药是治什么的？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客描述症状，咨询非处方药推荐",
+          "scenarioHintCn": "顾客在药店询问药品的主要用途",
           "followUps": [
             {
-              "text": "For headache and sore throat, I'd suggest ibuprofen for the pain and throat lozenges with benzocaine. Drink plenty of water and rest.",
-              "text_cn": "对于头疼和嗓子疼，我建议用布洛芬止痛，再搭配含苯佐卡因的喉糖。多喝水，好好休息。",
+              "text": "It’s for relieving headaches and mild fever.",
+              "text_cn": "用于缓解头痛和轻度发烧。",
               "audio_url": "COS:/qa/responses/daily_011_sub_2_qa_1_response0.mp3"
+            },
+            {
+              "text": "This requires a prescription — you’ll need to see a doctor first.",
+              "text_cn": "这种药需要处方，您得先看医生。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_2_qa_1_response1.mp3"
+            },
+            {
+              "text": "It’s mainly for allergies, but some people use it for mild sleep issues too.",
+              "text_cn": "主要用于过敏，但有些人也会用它来缓解轻微睡眠问题。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客主动描述症状，询问非处方药建议，是药店咨询药效最典型的开场方式。",
+          "usageNote": "顾客在拿到非处方药或不确定药品用途时，常用此句确认药效，药剂师会根据药品类型和法规给出不同回应。",
           "audioUrl": "COS:/qa/questions/daily_011_sub_2_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -110,19 +150,29 @@
           "id": "daily_011_sub_2_qa_2",
           "subSceneId": "daily_011_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "Does this medicine make you drowsy?",
-          "triggerTextCn": "这种药会让人犯困吗？",
+          "triggerText": "Can this help with stomach pain?",
+          "triggerTextCn": "这个能治胃痛吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客关心药物副作用，特别是影响日常活动的嗜睡问题",
+          "scenarioHintCn": "顾客根据自身症状询问药品是否适用",
           "followUps": [
             {
-              "text": "Yes, it can cause drowsiness, especially when you first start taking it. Avoid driving or operating heavy machinery.",
-              "text_cn": "是的，尤其是刚开始服用时可能会嗜睡。请避免开车或操作重型机械。",
+              "text": "Yes, it’s an antacid — perfect for acid-related stomach pain.",
+              "text_cn": "可以，这是抗酸药，特别适合胃酸引起的胃痛。",
               "audio_url": "COS:/qa/responses/daily_011_sub_2_qa_2_response0.mp3"
+            },
+            {
+              "text": "Not really — this is for coughs, and stomach pain might need something else.",
+              "text_cn": "不太合适，这是止咳药，胃痛可能需要别的药。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_2_qa_2_response1.mp3"
+            },
+            {
+              "text": "It might help a little, but if it’s sharp or lasting, you should see a doctor.",
+              "text_cn": "可能有点帮助，但如果疼痛尖锐或持续，建议看医生。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "询问药效副作用是购药时高频问题，尤其涉及驾驶、工作等场景时必须明确。",
+          "usageNote": "顾客常根据自身不适症状询问药品是否适用，药剂师会根据症状匹配度给出不同建议，强调安全用药。",
           "audioUrl": "COS:/qa/questions/daily_011_sub_2_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
@@ -130,22 +180,32 @@
         {
           "id": "daily_011_sub_2_qa_3",
           "subSceneId": "daily_011_sub_2",
-          "dialogueMode": "user_responds",
-          "triggerText": "How many times a day should you take this?",
-          "triggerTextCn": "这种药一天要吃几次？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "Is this the same as the one I bought last time?",
+          "triggerTextCn": "这个和我上次买的是同一种药吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "店员确认用药频率，确保顾客正确使用药物",
+          "scenarioHintCn": "顾客重复购买时确认药品是否一致",
           "followUps": [
             {
-              "text": "Twice a day, after breakfast and dinner.",
-              "text_cn": "一天两次，早饭后和晚饭后。",
+              "text": "Yes, it’s exactly the same brand and dosage — same active ingredient.",
+              "text_cn": "是的，完全一样，品牌和剂量都相同，有效成分也一样。",
               "audio_url": "COS:/qa/responses/daily_011_sub_2_qa_3_response0.mp3"
+            },
+            {
+              "text": "No, this is a generic version — same effect but cheaper.",
+              "text_cn": "不是，这是仿制药，效果相同但更便宜。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_2_qa_3_response1.mp3"
+            },
+            {
+              "text": "Actually, we upgraded the formula — it’s now longer-lasting.",
+              "text_cn": "实际上，我们升级了配方，现在药效持续时间更长了。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "店员主动确认用药频率是专业服务的关键环节，顾客需清晰回应，避免用药错误。",
+          "usageNote": "顾客常因记忆模糊或价格差异而确认药品是否一致，药剂师会说明品牌、仿制药或配方变化，帮助顾客做出知情选择。",
           "audioUrl": "COS:/qa/questions/daily_011_sub_2_qa_3.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -154,7 +214,7 @@
       "id": "daily_011_sub_3",
       "sceneId": "daily_011",
       "name": "确认用法",
-      "description": "药剂师说明服药剂量、频次及注意事项。",
+      "description": "药剂师说明服药剂量、频率及注意事项。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -162,19 +222,29 @@
           "id": "daily_011_sub_3_qa_1",
           "subSceneId": "daily_011_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Take this tablet once a day after breakfast.",
-          "triggerTextCn": "每天早餐后服用一片。",
+          "triggerText": "How should you take this medicine?",
+          "triggerTextCn": "这种药该怎么服用？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "药剂师说明用药频率，顾客确认理解",
+          "scenarioHintCn": "药店买药：确认用药方法",
           "followUps": [
             {
-              "text": "Got it. Should I take it with water?",
-              "text_cn": "明白了。我需要用水送服吗？",
+              "text": "Take one tablet after breakfast every day.",
+              "text_cn": "每天早餐后吃一片。",
               "audio_url": "COS:/qa/responses/daily_011_sub_3_qa_1_response0.mp3"
+            },
+            {
+              "text": "Should I take it on an empty stomach?",
+              "text_cn": "我需要空腹服用吗？",
+              "audio_url": "COS:/qa/responses/daily_011_sub_3_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can I drink alcohol while taking this?",
+              "text_cn": "吃这个药的时候能喝酒吗？",
+              "audio_url": "COS:/qa/responses/daily_011_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在听到用药说明后，自然追问细节，体现主动确认习惯",
+          "usageNote": "用于确认药品服用方式，是购药后最常被问及的核心环节",
           "audioUrl": "COS:/qa/questions/daily_011_sub_3_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -183,19 +253,29 @@
           "id": "daily_011_sub_3_qa_2",
           "subSceneId": "daily_011_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you have any allergies or are you taking other medications?",
-          "triggerTextCn": "您有过敏史吗？或者正在服用其他药物吗？",
+          "triggerText": "Do you need to take it with food?",
+          "triggerTextCn": "需要和食物一起吃吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "药剂师询问用药安全信息，顾客如实回应",
+          "scenarioHintCn": "药店买药：确认用药方法",
           "followUps": [
             {
-              "text": "No allergies, but I'm on blood pressure medicine.",
-              "text_cn": "我没有过敏，但我正在服降压药。",
+              "text": "Yes, always take it with a meal to avoid stomach upset.",
+              "text_cn": "是的，一定要和饭一起吃，避免胃部不适。",
               "audio_url": "COS:/qa/responses/daily_011_sub_3_qa_2_response0.mp3"
+            },
+            {
+              "text": "It doesn't matter—take it anytime.",
+              "text_cn": "无所谓，什么时候吃都可以。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_3_qa_2_response1.mp3"
+            },
+            {
+              "text": "Wait, is this the same as the blue pill I got last week?",
+              "text_cn": "等等，这和我上周拿的蓝色药片是一样的吗？",
+              "audio_url": "COS:/qa/responses/daily_011_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "真实场景中顾客需简洁提供关键健康信息，避免冗长",
+          "usageNote": "用户对服药条件存在疑问，需区分不同药品的服用要求",
           "audioUrl": "COS:/qa/questions/daily_011_sub_3_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -204,19 +284,29 @@
           "id": "daily_011_sub_3_qa_3",
           "subSceneId": "daily_011_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Any questions about how to use it?",
-          "triggerTextCn": "关于怎么用，还有什么问题吗？",
+          "triggerText": "How many times a day should you take it?",
+          "triggerTextCn": "一天要吃几次？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "药剂师主动询问是否需要进一步解释用药方法",
+          "scenarioHintCn": "药店买药：确认用药方法",
           "followUps": [
             {
-              "text": "Just one — can I take it before bed if I forget in the morning?",
-              "text_cn": "还有一个问题：如果早上忘了，晚上能补服吗？",
+              "text": "Twice a day—morning and evening.",
+              "text_cn": "一天两次，早晚各一次。",
               "audio_url": "COS:/qa/responses/daily_011_sub_3_qa_3_response0.mp3"
+            },
+            {
+              "text": "Only once, but don't skip it—if you miss a dose, take it as soon as you remember.",
+              "text_cn": "一天一次，但别漏服，如果忘了，想起来就马上补上。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_3_qa_3_response1.mp3"
+            },
+            {
+              "text": "I'm not sure—can I check with my doctor first?",
+              "text_cn": "我不确定，我可以先问问我的医生吗？",
+              "audio_url": "COS:/qa/responses/daily_011_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "顾客提出常见补救场景问题，体现真实生活中的用药困惑",
+          "usageNote": "频率是用药安全的关键，用户可能因记忆模糊或医嘱不清而反复确认",
           "audioUrl": "COS:/qa/questions/daily_011_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -227,7 +317,7 @@
       "id": "daily_011_sub_4",
       "sceneId": "daily_011",
       "name": "了解副作用",
-      "description": "顾客询问可能的不良反应及应对方法。",
+      "description": "顾客询问可能的不良反应及应对方式。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -239,15 +329,25 @@
           "triggerTextCn": "这种药有什么可能的副作用？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动询问药品副作用，典型购药场景",
+          "scenarioHintCn": "顾客询问处方药的常见副作用",
           "followUps": [
             {
-              "text": "Common ones include dizziness, nausea, and mild headache. If you feel severe drowsiness or rash, stop taking it and call your doctor.",
-              "text_cn": "常见副作用包括头晕、恶心和轻度头痛。如果出现严重嗜睡或皮疹，请停药并联系医生。",
+              "text": "Common side effects include drowsiness and dry mouth. They usually go away after a few days.",
+              "text_cn": "常见副作用包括嗜睡和口干，通常几天内会自行消失。",
               "audio_url": "COS:/qa/responses/daily_011_sub_4_qa_1_response0.mp3"
+            },
+            {
+              "text": "If you experience severe dizziness or trouble breathing, stop taking it and call your doctor immediately.",
+              "text_cn": "如果你出现严重头晕或呼吸困难，请立即停药并联系医生。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_4_qa_1_response1.mp3"
+            },
+            {
+              "text": "Most people tolerate it well, but keep an eye on any rash or swelling—those are rare but important to report.",
+              "text_cn": "大多数人耐受良好，但请注意是否有皮疹或肿胀，这些虽罕见但需报告。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在拿到处方药或非处方药时，常主动询问副作用以确保安全使用。",
+          "usageNote": "用于顾客主动询问药物副作用时，药剂师根据不同风险等级提供分层回应。",
           "audioUrl": "COS:/qa/questions/daily_011_sub_4_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -255,41 +355,61 @@
         {
           "id": "daily_011_sub_4_qa_2",
           "subSceneId": "daily_011_sub_4",
-          "dialogueMode": "user_responds",
-          "triggerText": "Have you experienced any side effects before?",
-          "triggerTextCn": "您以前有过什么副作用吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "I feel a bit dizzy after taking it. Is that normal?",
+          "triggerTextCn": "我吃药后有点头晕，正常吗？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "药剂师为确保用药安全，主动询问顾客既往反应",
+          "scenarioHintCn": "顾客反馈已出现副作用，寻求确认",
           "followUps": [
             {
-              "text": "Yes, I got a little dizzy last time I took this. Should I take a lower dose?",
-              "text_cn": "是的，上次吃这个药我有点头晕。我该吃少一点吗？",
+              "text": "Yes, mild dizziness is common in the first few days. Try taking it with food and avoid driving.",
+              "text_cn": "是的，轻微头晕在前几天很常见。建议饭后服用，并避免开车。",
               "audio_url": "COS:/qa/responses/daily_011_sub_4_qa_2_response0.mp3"
+            },
+            {
+              "text": "That’s not typical. You might be sensitive to the dosage—let me check if we can switch you to a lower strength.",
+              "text_cn": "这不常见，你可能对剂量敏感，我看看能否换成更低剂量。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_4_qa_2_response1.mp3"
+            },
+            {
+              "text": "It could be from something else, but let’s monitor it. If it gets worse in 24 hours, come back or see your doctor.",
+              "text_cn": "也可能是其他原因引起的，我们先观察。如果24小时内加重，请回来或看医生。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "药剂师常通过此问题评估个体风险，顾客应如实回应以获得个性化建议。",
+          "usageNote": "顾客报告已出现症状时，药剂师根据严重程度给出三种不同应对策略：接受、调整、观察。",
           "audioUrl": "COS:/qa/questions/daily_011_sub_4_qa_2.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 2
         },
         {
           "id": "daily_011_sub_4_qa_3",
           "subSceneId": "daily_011_sub_4",
           "dialogueMode": "user_asks",
-          "triggerText": "Does this medicine cause drowsiness?",
-          "triggerTextCn": "这种药会让人嗜睡吗？",
+          "triggerText": "Does this medicine make you sleepy?",
+          "triggerTextCn": "这种药会让人犯困吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客关心药物对日常活动（如开车、上班）的影响",
+          "scenarioHintCn": "顾客关心药物对日常活动（如上班、开车）的影响",
           "followUps": [
             {
-              "text": "Yes, it can make you sleepy, especially when you start taking it. Avoid driving or operating heavy machinery for the first few days.",
-              "text_cn": "是的，尤其是刚开始服用时，可能会让你犯困。头几天请避免开车或操作重型机械。",
+              "text": "Yes, it can cause drowsiness, so avoid operating heavy machinery or driving after taking it.",
+              "text_cn": "是的，它可能引起嗜睡，服药后请避免操作机械或驾驶。",
               "audio_url": "COS:/qa/responses/daily_011_sub_4_qa_3_response0.mp3"
+            },
+            {
+              "text": "Only in the first week—after that, most people adjust. You can take it at night if you need to stay alert during the day.",
+              "text_cn": "只在第一周有影响，之后大多数人会适应。如果白天需要清醒，可以晚上服用。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_4_qa_3_response1.mp3"
+            },
+            {
+              "text": "Not usually, but if you’re taking it with other meds like antihistamines, the effect can be stronger.",
+              "text_cn": "通常不会，但如果你同时服用抗组胺药等，效果可能会增强。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "这是高频问题，尤其适用于服用抗组胺药、止痛药或安眠药的顾客。",
+          "usageNote": "顾客关注药物对生活功能的影响时，药剂师从安全、适应性、药物相互作用三个维度提供回应。",
           "audioUrl": "COS:/qa/questions/daily_011_sub_4_qa_3.mp3",
           "learnRequirement": "speak_trigger",
           "order": 3
@@ -300,7 +420,7 @@
       "id": "daily_011_sub_5",
       "sceneId": "daily_011",
       "name": "完成支付",
-      "description": "顾客选择支付方式并确认购药信息。",
+      "description": "顾客选择支付方式并完成购药流程。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -312,15 +432,25 @@
           "triggerTextCn": "您想怎么付款？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "药店收银员询问支付方式，顾客需选择支付方式",
+          "scenarioHintCn": "药店结账时收银员询问支付方式",
           "followUps": [
             {
-              "text": "I'll pay with credit card.",
-              "text_cn": "我用信用卡支付。",
+              "text": "I'll pay by card, please.",
+              "text_cn": "我刷卡，谢谢。",
               "audio_url": "COS:/qa/responses/daily_011_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "Do you accept cash? I only have bills today.",
+              "text_cn": "你们收现金吗？我今天只带了现金。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can I use Apple Pay? My card’s not working.",
+              "text_cn": "可以用Apple Pay吗？我的卡刷不了了。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是收银员最常问的支付方式问题，顾客需简洁回应，避免冗长解释。",
+          "usageNote": "这是药店结账时最常见支付方式询问，用户需根据自身情况选择支付方式，回应应简洁明确。",
           "audioUrl": "COS:/qa/questions/daily_011_sub_5_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -329,19 +459,29 @@
           "id": "daily_011_sub_5_qa_2",
           "subSceneId": "daily_011_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Do you need a receipt?",
-          "triggerTextCn": "需要收据吗？",
+          "triggerText": "That’ll be $24.50.",
+          "triggerTextCn": "一共是24.50美元。",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "收银员在完成支付后确认是否需要收据，顾客需明确回应",
+          "scenarioHintCn": "收银员报出总价后，顾客决定支付方式",
           "followUps": [
             {
-              "text": "Yes, please. I need it for insurance.",
-              "text_cn": "需要，我要用它报销。",
+              "text": "Here’s $30. Keep the change.",
+              "text_cn": "给你30美元，不用找了。",
               "audio_url": "COS:/qa/responses/daily_011_sub_5_qa_2_response0.mp3"
+            },
+            {
+              "text": "I only have a $50 bill—can you break it?",
+              "text_cn": "我只有50美元钞票，能换开吗？",
+              "audio_url": "COS:/qa/responses/daily_011_sub_5_qa_2_response1.mp3"
+            },
+            {
+              "text": "Actually, can I pay later? I forgot my wallet.",
+              "text_cn": "不好意思，我能不能稍后付款？我忘带钱包了。",
+              "audio_url": "COS:/qa/responses/daily_011_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "收据请求是支付环节的标准流程，顾客常因报销需求而要求收据，回应应直接且带理由更自然。",
+          "usageNote": "顾客在得知金额后可能有不同反应：主动给小费、现金不足需换零、或意外忘带钱包，需灵活应对。",
           "audioUrl": "COS:/qa/questions/daily_011_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -349,22 +489,32 @@
         {
           "id": "daily_011_sub_5_qa_3",
           "subSceneId": "daily_011_sub_5",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can I pay with Apple Pay?",
-          "triggerTextCn": "我可以使用苹果支付吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Do you have a loyalty card or discount?",
+          "triggerTextCn": "您有会员卡或优惠券吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动询问是否支持移动支付，常见于年轻用户或无现金场景",
+          "scenarioHintCn": "收银员询问是否有会员或折扣资格",
           "followUps": [
             {
-              "text": "Of course! Just tap your phone on the reader.",
-              "text_cn": "当然可以！把手机靠近读卡器就行。",
+              "text": "Yes, here’s my card. I’m a member.",
+              "text_cn": "有的，这是我的会员卡。",
               "audio_url": "COS:/qa/responses/daily_011_sub_5_qa_3_response0.mp3"
+            },
+            {
+              "text": "I have a coupon for 10% off—can I use it?",
+              "text_cn": "我有一张九折优惠券，可以用吗？",
+              "audio_url": "COS:/qa/responses/daily_011_sub_5_qa_3_response1.mp3"
+            },
+            {
+              "text": "No, I don’t have one. Is there a way to sign up today?",
+              "text_cn": "没有。今天能注册会员吗？",
+              "audio_url": "COS:/qa/responses/daily_011_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "移动支付普及率高，顾客主动询问支付方式是高频行为，回应应体现支持与指导。",
+          "usageNote": "药店常有会员或折扣政策，顾客可能有卡、有券、或想临时加入，回应应体现主动性或咨询意愿。",
           "audioUrl": "COS:/qa/questions/daily_011_sub_5_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]

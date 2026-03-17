@@ -1,7 +1,7 @@
 {
   "sceneId": "daily_001",
   "sceneName": "餐厅点餐",
-  "generatedAt": "2026-03-16T08:02:28.214Z",
+  "generatedAt": "2026-03-17T03:02:20.671Z",
   "model": "qwen/qwen3-next-80b-a3b-instruct",
   "subScenes": [
     {
@@ -16,19 +16,29 @@
           "id": "daily_001_sub_1_qa_1",
           "subSceneId": "daily_001_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Welcome to our restaurant. Do you have a reservation?",
-          "triggerTextCn": "欢迎光临，请问有预订吗？",
+          "triggerText": "Welcome! Do you have a reservation?",
+          "triggerTextCn": "欢迎！您有预订吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员在顾客入座时进行问候并询问是否预订",
+          "scenarioHintCn": "餐厅入座问候：服务员确认是否预订",
           "followUps": [
             {
               "text": "Yes, under Smith.",
               "text_cn": "有的，预订名是史密斯。",
               "audio_url": "COS:/qa/responses/daily_001_sub_1_qa_1_response0.mp3"
+            },
+            {
+              "text": "No, we're just here to eat.",
+              "text_cn": "没有，我们就是来吃饭的。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_1_qa_1_response1.mp3"
+            },
+            {
+              "text": "I'm not sure—can you check for me?",
+              "text_cn": "我不太确定，能帮我查一下吗？",
+              "audio_url": "COS:/qa/responses/daily_001_sub_1_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是餐厅入座时最常见开场白，顾客需简洁回应预订信息，避免冗长解释。",
+          "usageNote": "这是餐厅入座时最常见开场问题，用户需根据实际情况回应是否预订。",
           "audioUrl": "COS:/qa/questions/daily_001_sub_1_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -37,19 +47,29 @@
           "id": "daily_001_sub_1_qa_2",
           "subSceneId": "daily_001_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "For how many people?",
-          "triggerTextCn": "请问几位？",
+          "triggerText": "Would you prefer a table by the window or inside?",
+          "triggerTextCn": "您更喜欢靠窗的座位还是里面的位置？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员确认用餐人数以安排座位",
+          "scenarioHintCn": "餐厅入座问候：服务员提供座位选择",
           "followUps": [
             {
-              "text": "Two, please.",
-              "text_cn": "两位，谢谢。",
+              "text": "I'd like the window seat, please.",
+              "text_cn": "我想坐靠窗的位置，谢谢。",
               "audio_url": "COS:/qa/responses/daily_001_sub_1_qa_2_response0.mp3"
+            },
+            {
+              "text": "Inside is fine, as long as it's quiet.",
+              "text_cn": "里面就行，只要安静就好。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_1_qa_2_response1.mp3"
+            },
+            {
+              "text": "Can we get a booth instead?",
+              "text_cn": "我们能要一个卡座吗？",
+              "audio_url": "COS:/qa/responses/daily_001_sub_1_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "服务员常在确认预订后立即询问人数，顾客应直接回答数字，无需多余说明。",
+          "usageNote": "服务员常提供座位类型选择，用户应明确表达偏好或提出合理替代。",
           "audioUrl": "COS:/qa/questions/daily_001_sub_1_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -58,19 +78,29 @@
           "id": "daily_001_sub_1_qa_3",
           "subSceneId": "daily_001_sub_1",
           "dialogueMode": "user_responds",
-          "triggerText": "Would you like to sit by the window or inside?",
-          "triggerTextCn": "您想靠窗坐还是里面？",
+          "triggerText": "How many people are in your party?",
+          "triggerTextCn": "请问你们一共有几位？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员提供座位选择，引导顾客决定入座位置",
+          "scenarioHintCn": "餐厅入座问候：服务员确认人数",
           "followUps": [
             {
-              "text": "By the window, please.",
-              "text_cn": "请靠窗。",
+              "text": "Just two of us.",
+              "text_cn": "我们两个人。",
               "audio_url": "COS:/qa/responses/daily_001_sub_1_qa_3_response0.mp3"
+            },
+            {
+              "text": "Four, but one might be late.",
+              "text_cn": "四个人，但有一位可能会迟到。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_1_qa_3_response1.mp3"
+            },
+            {
+              "text": "Actually, we're waiting for one more person.",
+              "text_cn": "其实我们还在等一个人。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_1_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "餐厅常见服务细节，顾客只需选择一项，表达简洁自然，避免复杂理由。",
+          "usageNote": "确认人数是入座关键步骤，用户需清晰说明当前或预期人数。",
           "audioUrl": "COS:/qa/questions/daily_001_sub_1_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -81,7 +111,7 @@
       "id": "daily_001_sub_2",
       "sceneId": "daily_001",
       "name": "询问推荐",
-      "description": "顾客询问今日特色菜或服务员推荐菜品。",
+      "description": "顾客询问今日特色菜或推荐菜品。",
       "order": 2,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -93,15 +123,25 @@
           "triggerTextCn": "你们有什么推荐的吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动询问餐厅推荐菜品",
+          "scenarioHintCn": "顾客询问餐厅推荐菜品",
           "followUps": [
             {
-              "text": "Our chef's special is the grilled salmon with lemon herb sauce — very popular with guests.",
-              "text_cn": "我们的主厨特选是香煎三文鱼配柠檬香草酱，客人非常喜爱。",
+              "text": "Our signature dish is the grilled salmon with lemon herb sauce — very popular with guests.",
+              "text_cn": "我们的招牌菜是香煎三文鱼配柠檬香草酱，客人非常喜爱。",
               "audio_url": "COS:/qa/responses/daily_001_sub_2_qa_1_response0.mp3"
+            },
+            {
+              "text": "If you like spicy food, I’d suggest the Thai curry noodles; otherwise, the chicken parmesan is a safe bet.",
+              "text_cn": "如果您喜欢辣的，我推荐泰式咖喱面；否则，鸡肉帕尔马干酪是稳妥的选择。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_2_qa_1_response1.mp3"
+            },
+            {
+              "text": "We’re out of the daily special, but the Caesar salad and steak frites are always fresh and reliable.",
+              "text_cn": "今天的特色菜售罄了，但凯撒沙拉和牛排配薯条一直新鲜又可靠。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_2_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "顾客在不确定点什么时，用这句话礼貌地请求推荐，适用于任何餐厅场景。",
+          "usageNote": "顾客在不确定点什么时，用这句话开启推荐对话，服务员应根据菜品库存、口味和流行度灵活回应。",
           "audioUrl": "COS:/qa/questions/daily_001_sub_2_qa_1.mp3",
           "learnRequirement": "speak_trigger",
           "order": 1
@@ -110,19 +150,29 @@
           "id": "daily_001_sub_2_qa_2",
           "subSceneId": "daily_001_sub_2",
           "dialogueMode": "user_asks",
-          "triggerText": "What’s the most popular dish here?",
-          "triggerTextCn": "这里最受欢迎的菜是什么？",
+          "triggerText": "I’m not sure what to order — any suggestions?",
+          "triggerTextCn": "我不确定点什么，有什么建议吗？",
           "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客询问餐厅的招牌或畅销菜品",
+          "scenarioHintCn": "顾客表达犹豫，寻求个性化推荐",
           "followUps": [
             {
-              "text": "The steak frites is our top seller — we serve it with truffle fries and garlic butter.",
-              "text_cn": "牛排配薯条是我们销量最高的菜品，配松露薯条和蒜香黄油。",
+              "text": "Based on what you’ve had before, I’d recommend the mushroom risotto — it’s creamy and comforting.",
+              "text_cn": "根据您以前点过的菜，我推荐蘑菇烩饭——口感浓郁又暖心。",
               "audio_url": "COS:/qa/responses/daily_001_sub_2_qa_2_response0.mp3"
+            },
+            {
+              "text": "We have a new vegetarian option this week — jackfruit tacos with avocado lime crema. Would you like to try it?",
+              "text_cn": "我们这周新推出了素食选项：凤梨素肉塔可配牛油果青柠酱，要试试吗？",
+              "audio_url": "COS:/qa/responses/daily_001_sub_2_qa_2_response1.mp3"
+            },
+            {
+              "text": "The chef’s special changes daily, but if you’re in a hurry, I’d go for the pasta — it’s quick and delicious.",
+              "text_cn": "主厨特选每天更换，但如果您赶时间，我建议选意面——上菜快又美味。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_2_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "比 'What do you recommend?' 更具体，常用于顾客想选大众认可的菜品时。",
+          "usageNote": "顾客表达犹豫时，服务员应主动结合顾客背景（如饮食偏好、时间）给出个性化建议，增强服务温度。",
           "audioUrl": "COS:/qa/questions/daily_001_sub_2_qa_2.mp3",
           "learnRequirement": "speak_trigger",
           "order": 2
@@ -130,22 +180,32 @@
         {
           "id": "daily_001_sub_2_qa_3",
           "subSceneId": "daily_001_sub_2",
-          "dialogueMode": "user_responds",
-          "triggerText": "Are you trying to decide what to order?",
-          "triggerTextCn": "您在犹豫点什么菜吗？",
-          "triggerSpeakerRole": "staff",
+          "dialogueMode": "user_asks",
+          "triggerText": "What’s popular here?",
+          "triggerTextCn": "这里什么菜最受欢迎？",
+          "triggerSpeakerRole": "customer",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员主动关心顾客是否需要推荐帮助",
+          "scenarioHintCn": "顾客想选大众认可的菜品，避免踩雷",
           "followUps": [
             {
-              "text": "Yes, I’m not sure — maybe something with chicken or seafood?",
-              "text_cn": "是的，我不确定，有没有鸡肉或海鲜类的推荐？",
+              "text": "The truffle pasta is our bestseller — ordered by over 70% of guests.",
+              "text_cn": "松露意面是我们销量第一的菜，超过70%的客人都点。",
               "audio_url": "COS:/qa/responses/daily_001_sub_2_qa_3_response0.mp3"
+            },
+            {
+              "text": "Families love the kids’ meal combo, and couples often go for the shared platter — it’s great for trying a bit of everything.",
+              "text_cn": "家庭顾客喜欢儿童套餐，情侣常点共享拼盘——适合一次尝多种。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_2_qa_3_response1.mp3"
+            },
+            {
+              "text": "The burger gets rave reviews, but honestly, the seafood tower is the real showstopper — perfect for a special occasion.",
+              "text_cn": "汉堡评价很高，但海鲜塔才是真正的亮点——特别场合非常适合。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_2_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "服务员自然引导顾客点餐的常见话术，顾客回应应简洁明确，避免冗长解释。",
+          "usageNote": "顾客询问‘最受欢迎’时，服务员应区分‘销量最高’和‘体验最佳’，并考虑用餐情境（日常/庆祝），提升推荐说服力。",
           "audioUrl": "COS:/qa/questions/daily_001_sub_2_qa_3.mp3",
-          "learnRequirement": "speak_followup",
+          "learnRequirement": "speak_trigger",
           "order": 3
         }
       ]
@@ -154,7 +214,7 @@
       "id": "daily_001_sub_3",
       "sceneId": "daily_001",
       "name": "点餐确认",
-      "description": "顾客点选主菜与配菜，服务员复述确认订单。",
+      "description": "顾客点选主菜与配菜，服务员复述确认。",
       "order": 3,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -162,19 +222,29 @@
           "id": "daily_001_sub_3_qa_1",
           "subSceneId": "daily_001_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "So you'd like the steak and the salad, correct?",
-          "triggerTextCn": "所以您要的是牛排和沙拉，对吗？",
+          "triggerText": "Just to confirm, you'd like the grilled salmon with mashed potatoes and a side salad, right?",
+          "triggerTextCn": "我确认一下，您点的是烤三文鱼配土豆泥和一份沙拉，对吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员确认订单内容，避免出错",
+          "scenarioHintCn": "服务员在点餐后确认订单内容，避免出错",
           "followUps": [
             {
-              "text": "Yes, that's right. No changes, please.",
-              "text_cn": "对，就是这样，不要改动了。",
+              "text": "Yes, that's correct.",
+              "text_cn": "对，没错。",
               "audio_url": "COS:/qa/responses/daily_001_sub_3_qa_1_response0.mp3"
+            },
+            {
+              "text": "Actually, I'd like to swap the mashed potatoes for rice, please.",
+              "text_cn": "其实我想把土豆泥换成米饭，可以吗？",
+              "audio_url": "COS:/qa/responses/daily_001_sub_3_qa_1_response1.mp3"
+            },
+            {
+              "text": "Wait, I think I ordered the chicken instead—can you check?",
+              "text_cn": "等等，我记得我点的是鸡肉，能帮我核对一下吗？",
+              "audio_url": "COS:/qa/responses/daily_001_sub_3_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于服务员复述订单时，顾客确认无误的典型回应，语气简洁自然。",
+          "usageNote": "用于点餐后服务员确认订单时，顾客可选择确认、修改或质疑订单内容，是餐厅高频确认环节",
           "audioUrl": "COS:/qa/questions/daily_001_sub_3_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -182,41 +252,61 @@
         {
           "id": "daily_001_sub_3_qa_2",
           "subSceneId": "daily_001_sub_3",
-          "dialogueMode": "user_asks",
-          "triggerText": "Is the chicken dish served with rice or mashed potatoes?",
-          "triggerTextCn": "这道鸡肉菜是配米饭还是土豆泥？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "And for drinks, you ordered the lemonade and the sparkling water?",
+          "triggerTextCn": "饮料方面，您点的是柠檬水和气泡水，对吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客在确认菜品细节前下单，避免误解",
+          "scenarioHintCn": "服务员确认饮品订单，防止上错饮料",
           "followUps": [
             {
-              "text": "It comes with mashed potatoes by default, but we can switch to rice if you prefer.",
-              "text_cn": "默认配土豆泥，但如果您喜欢，我们可以换成米饭。",
+              "text": "Yes, both, please.",
+              "text_cn": "对，两个都要。",
               "audio_url": "COS:/qa/responses/daily_001_sub_3_qa_2_response0.mp3"
+            },
+            {
+              "text": "No, I changed my mind—I'll take the iced tea instead of the lemonade.",
+              "text_cn": "不，我改主意了，柠檬水换成冰茶吧。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_3_qa_2_response1.mp3"
+            },
+            {
+              "text": "Actually, I don't need the sparkling water—can I skip it?",
+              "text_cn": "其实我不需要气泡水了，能去掉吗？",
+              "audio_url": "COS:/qa/responses/daily_001_sub_3_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客询问菜品搭配细节的高频提问，服务员提供选项，符合真实点餐流程。",
+          "usageNote": "饮品确认是点餐确认环节中极易出错的部分，顾客常在此时调整或取消饮料",
           "audioUrl": "COS:/qa/questions/daily_001_sub_3_qa_2.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 2
         },
         {
           "id": "daily_001_sub_3_qa_3",
           "subSceneId": "daily_001_sub_3",
           "dialogueMode": "user_responds",
-          "triggerText": "Would you like to add a drink to your order?",
-          "triggerTextCn": "您要加一杯饮料吗？",
+          "triggerText": "Is everything on your order supposed to be served together, or should we bring the appetizer first?",
+          "triggerTextCn": "您点的所有菜品是一起上，还是先上开胃菜？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员在最终确认订单时推荐饮品，提升客单价",
+          "scenarioHintCn": "服务员确认上菜顺序，尤其涉及前菜/主菜搭配时",
           "followUps": [
             {
-              "text": "Yes, I'll have a glass of iced tea, please.",
-              "text_cn": "好的，请给我一杯冰茶。",
+              "text": "Please bring the appetizer first—we're waiting for our friend.",
+              "text_cn": "请先上开胃菜，我们在等朋友。",
               "audio_url": "COS:/qa/responses/daily_001_sub_3_qa_3_response0.mp3"
+            },
+            {
+              "text": "No, serve everything together, please.",
+              "text_cn": "不用，一起上吧。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_3_qa_3_response1.mp3"
+            },
+            {
+              "text": "Can you hold the main course for 10 minutes? I want to eat the salad first.",
+              "text_cn": "主菜能晚10分钟上吗？我想先吃沙拉。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_3_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "服务员在点餐收尾阶段的常见推荐话术，顾客回应应直接明确，避免犹豫。",
+          "usageNote": "上菜顺序是顾客常忽略但服务员会主动确认的细节，尤其在多人用餐或有特殊需求时",
           "audioUrl": "COS:/qa/questions/daily_001_sub_3_qa_3.mp3",
           "learnRequirement": "speak_followup",
           "order": 3
@@ -226,49 +316,69 @@
     {
       "id": "daily_001_sub_4",
       "sceneId": "daily_001",
-      "name": "加单需求",
-      "description": "顾客要求添加饮料、面包或调料等额外项目。",
+      "name": "加单请求",
+      "description": "顾客要求添加饮料或甜点，服务员回应确认。",
       "order": 4,
       "estimatedMinutes": 5,
       "qaPairs": [
         {
           "id": "daily_001_sub_4_qa_1",
           "subSceneId": "daily_001_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "Can we add one more appetizer to the order?",
-          "triggerTextCn": "我们能再加一份开胃菜到订单里吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Would you like to add anything else to your order?",
+          "triggerTextCn": "您需要再加点什么吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客在主餐后想额外加菜",
+          "scenarioHintCn": "餐厅点餐后，服务员询问是否加单",
           "followUps": [
             {
-              "text": "Of course! What would you like? We have the spring rolls and the garlic bread.",
-              "text_cn": "当然可以！您想加什么？我们有春卷和蒜香面包。",
+              "text": "Yes, I'll have the chocolate cake for dessert, please.",
+              "text_cn": "好的，我要加一份巧克力蛋糕当甜点。",
               "audio_url": "COS:/qa/responses/daily_001_sub_4_qa_1_response0.mp3"
+            },
+            {
+              "text": "Actually, I'm full now—no thanks.",
+              "text_cn": "其实我现在吃好了，不用了，谢谢。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_4_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can I get another coffee to go? I'll decide in 2 minutes.",
+              "text_cn": "我能再要一杯外带咖啡吗？我两分钟内决定。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_4_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "用于礼貌地提出加单请求，适用于已点主菜后临时增加菜品的场景",
+          "usageNote": "这是餐厅服务中非常常见的加单询问，用户可能接受、拒绝或需要时间思考，回应应自然简洁。",
           "audioUrl": "COS:/qa/questions/daily_001_sub_4_qa_1.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 1
         },
         {
           "id": "daily_001_sub_4_qa_2",
           "subSceneId": "daily_001_sub_4",
           "dialogueMode": "user_responds",
-          "triggerText": "Would you like to add any dessert or drinks to your meal?",
-          "triggerTextCn": "您要加一份甜点或饮料吗？",
+          "triggerText": "Is there anything you'd like to order from our appetizers or drinks?",
+          "triggerTextCn": "您需要加点开胃菜或饮品吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员在上主菜前主动询问是否加单",
+          "scenarioHintCn": "主菜上完后，服务员再次询问是否加餐前或饮品",
           "followUps": [
             {
-              "text": "Yes, I'll take the chocolate cake and a glass of red wine, please.",
-              "text_cn": "好的，我要一份巧克力蛋糕和一杯红酒。",
+              "text": "Yes, I'd like a glass of red wine to go with my meal.",
+              "text_cn": "请给我来一杯红酒配餐。",
               "audio_url": "COS:/qa/responses/daily_001_sub_4_qa_2_response0.mp3"
+            },
+            {
+              "text": "No, we're good—just the check, please.",
+              "text_cn": "不用了，我们就这些，麻烦结账。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_4_qa_2_response1.mp3"
+            },
+            {
+              "text": "Do you have any specials today I haven't seen?",
+              "text_cn": "今天有什么我没看到的特色菜吗？",
+              "audio_url": "COS:/qa/responses/daily_001_sub_4_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "服务员推荐加单时，顾客应简洁明确地回应，避免冗长解释",
+          "usageNote": "服务员常在主菜后询问加单，用户回应可能为接受、拒绝或反向询问推荐，体现真实互动。",
           "audioUrl": "COS:/qa/questions/daily_001_sub_4_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -276,22 +386,32 @@
         {
           "id": "daily_001_sub_4_qa_3",
           "subSceneId": "daily_001_sub_4",
-          "dialogueMode": "user_asks",
-          "triggerText": "I forgot to order the soup—can we still add it?",
-          "triggerTextCn": "我忘了点汤，现在还能加吗？",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "We can bring you more bread or soup if you'd like.",
+          "triggerTextCn": "如果您需要，我们可以再给您一些面包或汤。",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客意识到遗漏菜品，焦急但礼貌地请求补加",
+          "scenarioHintCn": "服务员主动提供补充菜品（如面包、汤）",
           "followUps": [
             {
-              "text": "Absolutely, we can still add the soup—it’s not out yet. Would you like the tomato or the chicken noodle?",
-              "text_cn": "当然可以，汤还没上，现在加得及。您要番茄汤还是鸡肉面汤？",
+              "text": "Oh yes, the soup was delicious—another bowl, please!",
+              "text_cn": "哦对，汤很好喝，再来一碗吧！",
               "audio_url": "COS:/qa/responses/daily_001_sub_4_qa_3_response0.mp3"
+            },
+            {
+              "text": "No, thank you—we're already quite full.",
+              "text_cn": "不用了，谢谢，我们已经很饱了。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_4_qa_3_response1.mp3"
+            },
+            {
+              "text": "Could I get the bread instead? I don't like soup.",
+              "text_cn": "那能给我面包吗？我不喜欢汤。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_4_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "表达遗漏后请求加单的自然说法，体现真实场景中的轻微慌乱与礼貌",
+          "usageNote": "服务员常主动提供补充菜品，用户回应需体现偏好、饱腹感或替代选择，避免机械回答。",
           "audioUrl": "COS:/qa/questions/daily_001_sub_4_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
@@ -300,7 +420,7 @@
       "id": "daily_001_sub_5",
       "sceneId": "daily_001",
       "name": "请求结账",
-      "description": "用餐结束，顾客礼貌请求结账并询问支付方式。",
+      "description": "用餐结束，顾客礼貌请求结账并支付。",
       "order": 5,
       "estimatedMinutes": 5,
       "qaPairs": [
@@ -308,19 +428,29 @@
           "id": "daily_001_sub_5_qa_1",
           "subSceneId": "daily_001_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "Can I get the bill, please?",
-          "triggerTextCn": "可以结账吗？",
+          "triggerText": "How would you like to pay?",
+          "triggerTextCn": "您想怎么付款？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客用餐结束，服务员主动询问是否需要结账",
+          "scenarioHintCn": "餐厅点餐后请求结账，服务员询问支付方式",
           "followUps": [
             {
-              "text": "Sure, I'll bring it right away.",
-              "text_cn": "好的，我马上给您拿来。",
+              "text": "I'll pay by card, please.",
+              "text_cn": "我刷卡，谢谢。",
               "audio_url": "COS:/qa/responses/daily_001_sub_5_qa_1_response0.mp3"
+            },
+            {
+              "text": "Do you accept cash? I only have bills today.",
+              "text_cn": "你们收现金吗？我今天只有现金。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_5_qa_1_response1.mp3"
+            },
+            {
+              "text": "Can I split the bill? My friend will pay his part with Apple Pay.",
+              "text_cn": "可以分开付吗？我朋友用Apple Pay付他的部分。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_5_qa_1_response2.mp3"
             }
           ],
-          "usageNote": "这是顾客表达结账需求时，服务员最常使用的回应，语气礼貌且高效。",
+          "usageNote": "这是结账环节最核心的询问句，顾客需根据自身支付方式灵活回应，涵盖主流支付方式和分账需求。",
           "audioUrl": "COS:/qa/questions/daily_001_sub_5_qa_1.mp3",
           "learnRequirement": "speak_followup",
           "order": 1
@@ -329,19 +459,29 @@
           "id": "daily_001_sub_5_qa_2",
           "subSceneId": "daily_001_sub_5",
           "dialogueMode": "user_responds",
-          "triggerText": "How would you like to pay?",
-          "triggerTextCn": "您想怎么付款？",
+          "triggerText": "Would you like a receipt?",
+          "triggerTextCn": "需要发票吗？",
           "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "服务员准备处理付款方式，询问顾客偏好",
+          "scenarioHintCn": "结账时服务员确认是否需要收据或发票",
           "followUps": [
             {
-              "text": "I'll pay by card, please.",
-              "text_cn": "我用信用卡支付。",
+              "text": "Yes, please. I need it for expense reimbursement.",
+              "text_cn": "需要，我要用于报销。",
               "audio_url": "COS:/qa/responses/daily_001_sub_5_qa_2_response0.mp3"
+            },
+            {
+              "text": "No, thanks. I'm not claiming it.",
+              "text_cn": "不用了，谢谢，我不报销。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_5_qa_2_response1.mp3"
+            },
+            {
+              "text": "Can you email it to me instead? I don't have a printer.",
+              "text_cn": "能发到我邮箱吗？我没有打印机。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_5_qa_2_response2.mp3"
             }
           ],
-          "usageNote": "顾客需简洁明确地选择支付方式，避免冗长解释，符合真实场景习惯。",
+          "usageNote": "收据请求是结账流程的标准环节，回应需体现用途差异（报销/非报销）和形式偏好（纸质/电子）。",
           "audioUrl": "COS:/qa/questions/daily_001_sub_5_qa_2.mp3",
           "learnRequirement": "speak_followup",
           "order": 2
@@ -349,22 +489,32 @@
         {
           "id": "daily_001_sub_5_qa_3",
           "subSceneId": "daily_001_sub_5",
-          "dialogueMode": "user_asks",
-          "triggerText": "Could we get the check? We're ready to leave.",
-          "triggerTextCn": "我们可以结账了吗？我们准备走了。",
-          "triggerSpeakerRole": "customer",
+          "dialogueMode": "user_responds",
+          "triggerText": "Is that all for you today?",
+          "triggerTextCn": "今天就这些了吗？",
+          "triggerSpeakerRole": "staff",
           "scenarioHint": null,
-          "scenarioHintCn": "顾客主动请求结账，常用于想尽快离开的场景",
+          "scenarioHintCn": "服务员在结账前确认是否还有其他需求（如加菜、打包）",
           "followUps": [
             {
-              "text": "Of course! I'll bring it over in a moment.",
-              "text_cn": "当然！我马上给您拿来。",
+              "text": "Yes, that's all. Please process the bill.",
+              "text_cn": "是的，就这些，请结账。",
               "audio_url": "COS:/qa/responses/daily_001_sub_5_qa_3_response0.mp3"
+            },
+            {
+              "text": "Actually, can I get a to-go box for this leftover? I'd like to take it home.",
+              "text_cn": "其实能给我个打包盒吗？我想带回家。",
+              "audio_url": "COS:/qa/responses/daily_001_sub_5_qa_3_response1.mp3"
+            },
+            {
+              "text": "Wait, I forgot my dessert. Can I add one more?",
+              "text_cn": "等等，我忘了甜点，还能加一份吗？",
+              "audio_url": "COS:/qa/responses/daily_001_sub_5_qa_3_response2.mp3"
             }
           ],
-          "usageNote": "这是顾客自然、礼貌地催促结账的高频表达，比单纯说 'Bill, please' 更完整真实。",
+          "usageNote": "此句是服务员在结账前的关键确认语，顾客回应可能涉及取消、增加或修改订单，是真实场景中高频的动态调整环节。",
           "audioUrl": "COS:/qa/questions/daily_001_sub_5_qa_3.mp3",
-          "learnRequirement": "speak_trigger",
+          "learnRequirement": "speak_followup",
           "order": 3
         }
       ]
